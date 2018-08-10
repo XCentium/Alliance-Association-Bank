@@ -1,0 +1,29 @@
+﻿@using AllianceAssociationBank.Crm.ViewModels
+@model ReportViewModel
+@{
+    ViewBag.Title = "Boarding Report";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Management Company</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">ASP / OPS</th>
+            <th scope="col">Notes and Next Steps</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model.ResultSet)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => record.ProjectName)</td>
+                <td>@Html.DisplayFor(m => record.StartDate)</td>
+                <td>@Html.DisplayFor(m => record.OwnerID)</td>
+                <td>@Html.DisplayFor(m => record.BoardingNextSteps)</td>
+            </tr>
+        }
+    </tbody>
+</table>

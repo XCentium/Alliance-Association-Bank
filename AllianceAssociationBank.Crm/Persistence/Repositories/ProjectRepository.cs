@@ -11,23 +11,23 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
 {
     public class ProjectRepository : IProjectRepository
     {
-        private CrmApplicationDbContext _dbContext;
+        private CrmApplicationDbContext _context;
 
-        public ProjectRepository(CrmApplicationDbContext dbContext)
+        public ProjectRepository(CrmApplicationDbContext context)
         {
-            _dbContext = dbContext;
+            _context = context;
         }
 
         public async Task<IEnumerable<Project>> GetAllProjectsAsync()
         {
-            return await _dbContext.Projects
+            return await _context.Projects
                 .OrderBy(p => p.ProjectName)
                 .ToListAsync();
         }
 
         public void AddProject(Project project)
         {
-            _dbContext.Projects.Add(project);
+            _context.Projects.Add(project);
         }
 
         //public void UpdateProject(Project project)
@@ -37,7 +37,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
 
         public async Task<bool> SaveAllAsync()
         {
-            return (await _dbContext.SaveChangesAsync()) > 0;
+            return (await _context.SaveChangesAsync()) > 0;
         }
     }
 }

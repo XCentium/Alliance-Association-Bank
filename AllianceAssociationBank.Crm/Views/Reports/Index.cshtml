@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Reports";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<div>
+    <ul>
+        <li>@Html.ActionLink("Boarding Report", "BoardingReport", "Reports")</li>
+        <li>@Html.ActionLink("Completed and Deferred Projects Report", "Index", "Reports")</li>
+        <li>@Html.ActionLink("Software Transition Report", "Index", "Reports")</li>
+    </ul>
+</div>
