@@ -113,21 +113,21 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string ScannlineNotes { get; set; }
 
-        public bool? EnrollmentFormReceived { get; set; }
+        public bool/*?*/ EnrollmentFormReceived { get; set; }
 
-        public bool? MasterSigCardReceived { get; set; }
+        public bool/*?*/ MasterSigCardReceived { get; set; }
 
-        public bool? WelcomeEmailSent { get; set; }
+        public bool/*?*/ WelcomeEmailSent { get; set; }
 
-        public bool? AssociationListReceived { get; set; }
+        public bool/*?*/ AssociationListReceived { get; set; }
 
-        public bool? AssociationAccountsAssigned { get; set; }
+        public bool/*?*/ AssociationAccountsAssigned { get; set; }
 
         public bool? MgmtCompanyAgreemetnsReceived { get; set; }
 
-        public bool? AssociationSignatureCardsSent { get; set; }
+        public bool/*?*/ AssociationSignatureCardsSent { get; set; }
 
-        public bool? LockboxWanted { get; set; }
+        public bool/*?*/ LockboxWanted { get; set; }
 
         public bool? ValidationFileReceived { get; set; }
 
@@ -143,11 +143,11 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool? RemitanceFileLife { get; set; }
 
-        public bool? LockboxRequestSent { get; set; }
+        public bool/*?*/ LockboxRequestSent { get; set; }
 
         public bool? POBoxAssigned { get; set; }
 
-        public bool? ScannerWanted { get; set; }
+        public bool/*?*/ ScannerWanted { get; set; }
 
         public bool? MMOnCheckScanner { get; set; }
 
@@ -157,17 +157,17 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool? ScannerLive { get; set; }
 
-        public bool? ACHLimitAndSpecSubmitted { get; set; }
+        public bool/*?*/ ACHLimitAndSpecSubmitted { get; set; }
 
-        public bool? ACHSuccessfulSubmitted { get; set; }
+        public bool/*?*/ ACHSuccessfulSubmitted { get; set; }
 
-        public bool? OnlineBankingSetup { get; set; }
+        public bool/*?*/ OnlineBankingSetup { get; set; }
 
-        public bool? OnlineBankingTrained { get; set; }
+        public bool/*?*/ OnlineBankingTrained { get; set; }
 
-        public bool? CouponsOrdered { get; set; }
+        public bool/*?*/ CouponsOrdered { get; set; }
 
-        public bool? CouponProofReviewed { get; set; }
+        public bool/*?*/ CouponProofReviewed { get; set; }
 
         [StringLength(255)]
         public string CouponVender { get; set; }
@@ -258,7 +258,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string CIPReviewed { get; set; }
 
-        public bool? CIPGood { get; set; }
+        public bool/*?*/ CIPGood { get; set; }
 
         public bool? HasCorporateAccounts { get; set; }
 

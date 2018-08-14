@@ -1,18 +1,64 @@
-﻿@using AllianceAssociationBank.Crm.ViewModels
-@model ReportViewModel
+﻿@model ReportViewModel
 @{
     ViewBag.Title = "Boarding Report";
 }
 
 <h2>@ViewBag.Title</h2>
+<hr />
 
-<table>
+[ @Html.ActionLink("Export as CSV", "ExportReportAsCsv", new { report = "BoardingReport" }) ]
+
+[ @Html.ActionLink("Export as PDF", "ExportReportAsPdf", new { report = "BoardingReport" }) ]
+
+<table class="table table-condensed table-striped small">
     <thead>
         <tr>
             <th scope="col">Management Company</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">ASP / OPS</th>
+            <th scope="col">
+                <div>Ass</div>
+                <div>Drs</div>
+            </th>
+            <th scope="col">
+                <div>Start Date</div>
+                <div>Lbx Lv Date</div>
+            </th>
+            <th scope="col">
+                <div>ASP/OPS</div>
+                <div>AFP/SALE</div>
+            </th>
             <th scope="col">Notes and Next Steps</th>
+            <th scope="col">
+                <div>EF</div>
+                <div>MS</div>
+            </th>
+            <th scope="col">CIP</th>
+            <th scope="col">Wel Eml</th>
+            <th scope="col">HOA Lst</th>
+            <th scope="col">Acts Asnd</th>
+            <th scope="col">S.C. Snt</th>
+            <th scope="col">
+                <div>DI</div>
+                <div>Stp Trd</div>
+            </th>
+            <th scope="col">
+                <div>ACH</div>
+                <div>Aprv Wrks</div>
+            </th>
+            <th scope="col">
+                <div>Scnr</div>
+                <div>Wtd</div>
+            </th>
+            <th scope="col">
+                <div>Lbx</div>
+                <div>Wtd Rqt</div>
+            </th>
+            <th scope="col">
+                <div>Cpn Vndr</div>
+                <div>Ord Rvd</div>
+            </th>
+            <th scope="col">Software</th>
+            <th scope="col">PMC ID</th>
+            <th scope="col">PO Box</th>
         </tr>
     </thead>
     <tbody>
@@ -20,10 +66,71 @@
         {
             <tr>
                 <td>@Html.DisplayFor(m => record.ProjectName)</td>
-                <td>@Html.DisplayFor(m => record.StartDate)</td>
-                <td>@Html.DisplayFor(m => record.OwnerID)</td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.NumberOfAssociations)</div>
+                    <div>@Html.DisplayFor(m => record.NumberOfDoors)</div>
+                </td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.StartDate)</div>
+                    <div>@Html.DisplayFor(m => record.TargetLockboxLiveDate)</div>
+                </td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.BoardingManagerID)</div>
+                    <div>@Html.DisplayFor(m => record.OwnerID)</div>
+                    <div>@Html.DisplayFor(m => record.AFPID)</div>
+                </td>
                 <td>@Html.DisplayFor(m => record.BoardingNextSteps)</td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.EnrollmentFormReceived)</div>
+                    <div>@Html.DisplayFor(m => record.MasterSigCardReceived)</div>
+                </td>
+                <td>@Html.DisplayFor(m => record.CIPGood)</td>
+                <td>@Html.DisplayFor(m => record.WelcomeEmailSent)</td>
+                <td>@Html.DisplayFor(m => record.AssociationListReceived)</td>
+                <td>@Html.DisplayFor(m => record.AssociationAccountsAssigned)</td>
+                <td>@Html.DisplayFor(m => record.AssociationSignatureCardsSent)</td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.OnlineBankingSetup)</div>
+                    <div>@Html.DisplayFor(m => record.OnlineBankingTrained)</div>
+                </td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.ACHLimitAndSpecSubmitted)</div>
+                    <div>@Html.DisplayFor(m => record.ACHSuccessfulSubmitted)</div>
+                </td>
+                <td>@Html.DisplayFor(m => record.ScannerWanted)</td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.LockboxWanted)</div>
+                    <div>@Html.DisplayFor(m => record.LockboxRequestSent)</div>
+                </td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.CouponVender)</div>
+                    <div>@Html.DisplayFor(m => record.CouponsOrdered) @Html.DisplayFor(m => record.CouponProofReviewed)</div>
+                </td>
+                <td>@Html.DisplayFor(m => record.SoftwareID)</td>
+                <td>@Html.DisplayFor(m => record.LockboxCMCID)</td>
+                <td>
+                    <div>@Html.DisplayFor(m => record.POBoxLine1)</div>
+                    <div>@Html.DisplayFor(m => record.POBoxZipCode)</div>
+                </td>
             </tr>
+            <!--<tr>
+                <td colspan="2">
+                    <div>Estimated Deposits</div>
+                    <div>@Html.DisplayFor(m => record.EstimatedDeposits)</div>
+                </td>
+                <td colspan="2">
+                    <div>Actual Deposits</div>
+                    <div>@Html.DisplayFor(m => record.ActualDeposits)</div>
+                </td>
+            </tr>-->
         }
     </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="2" scope="col">Total</th>
+            <th colspan="2" scope="col">@Model.ResultSet.TotalItemCount</th>
+        </tr>
+    </tfoot>
 </table>
+
+@Html.PagedListPager(Model.ResultSet, page => Url.Action("BoardingReport", new { page }))

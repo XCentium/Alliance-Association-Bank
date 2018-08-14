@@ -3,17 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using X.PagedList;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
     public class ReportViewModel
     {
-        public string ReportName { get; set; }
-        public IEnumerable<Project> ResultSet { get; set; }
-        public int TotalRecords { get; set; }
-        public int CurrentPage { get; set; }
-        public int TotalPages { get; set; }
-
-
+        public IPagedList<ProjectReportRecordViewModel> ResultSet { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Persistence.Repositories
 {
@@ -22,6 +23,21 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         {
             return await _context.Projects
                 .OrderBy(p => p.ProjectName)
+                .ToListAsync();
+        }
+
+        public async Task<Project> GetProjectById(int id)
+        {
+            return await _context.Projects
+                .Where(p => p.ID == id)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetProjectsList()
+        {
+            return await _context.Projects
+                .OrderBy(p => p.ProjectName)
+                .Select(p => new SelectListItem() { Value = p.ID.ToString(), Text = p.ProjectName })
                 .ToListAsync();
         }
 
