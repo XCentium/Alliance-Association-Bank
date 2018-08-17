@@ -7,8 +7,8 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
 {
     public interface IProjectRepository
     {
-        Task<IEnumerable<Project>> GetAllProjectsAsync();
-        Task<IEnumerable<SelectListItem>> GetProjectsList();
+        Task<IEnumerable<Project>> GetProjectsAsync();
+        Task<IEnumerable<SelectListItem>> GetProjectListAsync();
         Task<Project> GetProjectById(int id);
         void AddProject(Project project);
         Task<bool> SaveAllAsync();

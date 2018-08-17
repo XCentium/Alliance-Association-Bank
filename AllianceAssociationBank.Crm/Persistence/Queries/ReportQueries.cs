@@ -17,7 +17,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             _context = context;
         }
 
-        public async Task<IEnumerable<Project>> ExecuteBoardingReportQueryAsync()
+        public async Task<IEnumerable<Project>> GetBoardingReportDataSetAsync()
         {
             return await _context.Projects
                 .Where(p => p.Status == "In Progress" || p.Status == "Audit Concern")
@@ -25,6 +25,21 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ThenBy(p => p.OwnerID)
                 .ThenBy(p => p.EndDate)
                 .ThenBy(p => p.Status)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
+        {
+            return await _context.Employees
+                .OrderBy(e => e.FirstName)
+                .ThenBy(e => e.LastName)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Software>> GetSoftwareDataSetAsync()
+        {
+            return await _context.Softwares
+                .OrderBy(e => e.SoftwareName)
                 .ToListAsync();
         }
     }

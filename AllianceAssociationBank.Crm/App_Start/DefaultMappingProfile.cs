@@ -14,7 +14,7 @@ namespace AllianceAssociationBank.Crm.App_Start
         {
             CreateMap<Project, ProjectReportRecordViewModel>();
 
-            CreateMap<Project, ProjectDetailViewModel>()
+            CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
         }
     }

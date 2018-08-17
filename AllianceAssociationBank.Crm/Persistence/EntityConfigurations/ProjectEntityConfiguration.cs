@@ -64,6 +64,12 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
             Property(e => e.LockboxLiveDate)
                 .HasColumnType("datetime2")
                 .HasPrecision(0);
+
+            //HasOptional(e => e.Owner).WithMany()
+            //    .HasForeignKey(e => e.OwnerID);
+
+            //HasOptional(e => e.AFP).WithMany()
+            //    .HasForeignKey(e => e.AFPID);
         }
     }
 }

@@ -14,8 +14,10 @@ namespace AllianceAssociationBank.Crm.Core.Models
         public string Institution { get; set; }
 
         public int? OwnerID { get; set; }
+        //public virtual Employee Owner { get; set; }
 
         public int? AFPID { get; set; }
+        //public virtual Employee AFP { get; set; }
 
         public int? BoardingManagerID { get; set; }
 

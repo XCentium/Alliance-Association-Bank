@@ -1,69 +1,156 @@
 ﻿@using AllianceAssociationBank.Crm.ViewModels
-@model ProjectDetailViewModel
+@model ProjectFormViewModel
 @{
     ViewBag.Title = "Projects";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (@Html.BeginForm("ChangeSelection", "Projects", new { id = Model.ID }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (@Html.BeginForm("ChangeSelection", "Projects", new { id = Model.ID }, FormMethod.Post, new { @class = "form-horizontal small", role = "form" }))
 {
-    <div class="row">
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.ID, new SelectList(Model.Projects, "Value", "Text"), "Please Select", new { @class = "form-control", onchange = "this.form.submit();" })
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-primary">Add New</button>
-        </div>
+    <!--<div class="row">-->
+    <div class="form-group form-group-sm">
+        @Html.DropDownListFor(m => m.ID, new SelectList(Model.ProjectList, "Value", "Text"), "", new { @class = "form-control", onchange = "this.form.submit();" })
     </div>
+    <!--<div class="col-md-2">
+        <button type="button" class="btn btn-primary">Add New</button>
+    </div>-->
+    <!--</div>-->
+
     <hr />
 }
 
-@using (Html.BeginForm("Update", "Projects", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { @class = "form-horizontal small", role = "form" }))
 {
     @Html.ValidationSummary("", new { @class = "text-danger" })
     @Html.HiddenFor(m => m.ID)
-    <div class="form-group">
+
+    <div class="form-group form-group-sm">
         @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.ProjectName, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-sm">
         @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-sm">
         @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.City, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-sm">
         @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.State, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-sm">
         @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.TIN, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.TIN, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
         @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.Institution, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Institution, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.OwnerID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.AFPID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.SoftwareID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.SoftwareID, new SelectList(Model.SoftwareList, "Value", "Text"), "", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.LockboxSystem, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.LockboxStatus, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), "", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.Notes, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Notes, 10, 160, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.Strongroom, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(m => m.Strongroom, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.EStatements, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(m => m.EStatements, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        @Html.LabelFor(m => m.FacsimileSignature, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(m => m.FacsimileSignature, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-sm">Save</button>
 }
 

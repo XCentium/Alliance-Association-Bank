@@ -19,7 +19,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Project>> GetAllProjectsAsync()
+        public async Task<IEnumerable<Project>> GetProjectsAsync()
         {
             return await _context.Projects
                 .OrderBy(p => p.ProjectName)
@@ -33,11 +33,15 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<SelectListItem>> GetProjectsList()
+        public async Task<IEnumerable<SelectListItem>> GetProjectListAsync()
         {
             return await _context.Projects
                 .OrderBy(p => p.ProjectName)
-                .Select(p => new SelectListItem() { Value = p.ID.ToString(), Text = p.ProjectName })
+                .Select(p => new SelectListItem()
+                {
+                    Value = p.ID.ToString(),
+                    Text = p.ProjectName
+                })
                 .ToListAsync();
         }
 

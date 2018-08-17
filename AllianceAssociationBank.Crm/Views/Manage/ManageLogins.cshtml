@@ -24,10 +24,10 @@
             <h4>Registered Logins</h4>
             <table class="table">
                 <tbody>
-                    @foreach (var account in Model.CurrentLogins)
+                    @foreach (var user in Model.CurrentLogins)
                     {
                         <tr>
-                            <td>@account.LoginProvider</td>
+                            <td>@user.LoginProvider</td>
                             <td>
                                 @if (ViewBag.ShowRemoveButton)
                                 {
@@ -35,9 +35,9 @@
                                     {
                                         @Html.AntiForgeryToken()
                                         <div>
-                                            @Html.Hidden("loginProvider", account.LoginProvider)
-                                            @Html.Hidden("providerKey", account.ProviderKey)
-                                            <input type="submit" class="btn btn-default" value="Remove" title="Remove this @account.LoginProvider login from your account" />
+                                            @Html.Hidden("loginProvider", user.LoginProvider)
+                                            @Html.Hidden("providerKey", user.ProviderKey)
+                                            <input type="submit" class="btn btn-default" value="Remove" title="Remove this @user.LoginProvider login from your user account" />
                                         </div>
                                     }
                                 }
@@ -60,7 +60,7 @@
                 <p>
                     @foreach (AuthenticationDescription p in Model.OtherLogins)
                     {
-                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption user account">@p.AuthenticationType</button>
                     }
                 </p>
                 </div>

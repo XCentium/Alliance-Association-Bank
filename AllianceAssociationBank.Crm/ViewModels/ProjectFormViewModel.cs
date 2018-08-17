@@ -1,24 +1,28 @@
-﻿using System;
+﻿using AllianceAssociationBank.Crm.Controllers;
+using AllianceAssociationBank.Crm.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
-    public class ProjectDetailViewModel
+    public class ProjectFormViewModel
     {
-        //public int? SelectedProjectId { get; set; }
-        public IEnumerable<SelectListItem> Projects { get; set; }
-
         public int ID { get; set; }
-        [Display(Name = "Project Name")]
+        [Display(Name = "Name")]
         public string ProjectName { get; set; }
+        public string DBA { get; set; }
         [Display(Name = "Physical Address")]
         public string Address { get; set; }
+        [Display(Name = "Physical Address City")]
         public string City { get; set; }
+        [Display(Name = "Physical Address State")]
         public string State { get; set; }
+        [Display(Name = "Physical Address Zip")]
         public string ZipCode { get; set; }
         [Display(Name = "Mailing Address")]
         public string MailingAddress { get; set; }
@@ -75,5 +79,20 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Facsimile Signature")]
         public bool FacsimileSignature { get; set; }
         public string Notes { get; set; }
+
+        //public int? SelectedProjectId { get; set; }
+        public IEnumerable<SelectListItem> ProjectList { get; set; }
+        public IEnumerable<SelectListItem> EmployeeList { get; set; }
+        public IEnumerable<SelectListItem> SoftwareList { get; set; }
+        public IEnumerable<string> LockboxSystemList { get; set; }
+        public IEnumerable<string> LockboxStatusList { get; set; }
+
+        public string CreateUpdateAction
+        {
+            get
+            {
+                return (ID != 0) ? "Update" : "Create"; // TODO: need cleaner way to do this
+            }
+        }
     }
 }

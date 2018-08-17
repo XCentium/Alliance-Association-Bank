@@ -15,16 +15,16 @@ using AllianceAssociationBank.Crm.Identity;
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class UserController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        public UserController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public UserController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -55,7 +55,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/Login
+        // GET: /User/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -64,7 +64,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/Login
+        // POST: /User/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -75,8 +75,8 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
+            // This doesn't count login failures towards user lockout
+            // To enable password failures to trigger user lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
@@ -94,7 +94,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/VerifyCode
+        // GET: /User/VerifyCode
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
@@ -107,7 +107,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/VerifyCode
+        // POST: /User/VerifyCode
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -121,7 +121,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             // The following code protects for brute force attacks against the two factor codes. 
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
-            // You can configure the account lockout settings in IdentityConfig
+            // You can configure the user account lockout settings in IdentityConfig
             var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
@@ -137,7 +137,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/Register
+        // GET: /User/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -145,7 +145,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/Register
+        // POST: /User/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -158,12 +158,12 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+
+                    // For more information on how to enable user account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    // var callbackUrl = Url.Action("ConfirmEmail", "User", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your user account", "Please confirm your user account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -175,7 +175,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/ConfirmEmail
+        // GET: /User/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
@@ -188,7 +188,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/ForgotPassword
+        // GET: /User/ForgotPassword
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
@@ -196,7 +196,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/ForgotPassword
+        // POST: /User/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -211,12 +211,12 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                // For more information on how to enable user account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                // var callbackUrl = Url.Action("ResetPassword", "User", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
                 // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                // return RedirectToAction("ForgotPasswordConfirmation", "User");
             }
 
             // If we got this far, something failed, redisplay form
@@ -224,7 +224,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/ForgotPasswordConfirmation
+        // GET: /User/ForgotPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
@@ -232,7 +232,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/ResetPassword
+        // GET: /User/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
@@ -240,7 +240,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/ResetPassword
+        // POST: /User/ResetPassword
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -254,19 +254,19 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (user == null)
             {
                 // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return RedirectToAction("ResetPasswordConfirmation", "User");
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return RedirectToAction("ResetPasswordConfirmation", "User");
             }
             AddErrors(result);
             return View();
         }
 
         //
-        // GET: /Account/ResetPasswordConfirmation
+        // GET: /User/ResetPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
@@ -274,18 +274,18 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/ExternalLogin
+        // POST: /User/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Request a redirect to the external login provider
-            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
+            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "User", new { ReturnUrl = returnUrl }));
         }
 
         //
-        // GET: /Account/SendCode
+        // GET: /User/SendCode
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
@@ -300,7 +300,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/SendCode
+        // POST: /User/SendCode
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -320,7 +320,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/ExternalLoginCallback
+        // GET: /User/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -342,7 +342,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
                 case SignInStatus.Failure:
                 default:
-                    // If the user does not have an account, then prompt the user to create an account
+                    // If the user does not have a user account, then prompt the user to create a user account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
                     return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
@@ -350,7 +350,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/ExternalLoginConfirmation
+        // POST: /User/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -388,7 +388,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // POST: /Account/LogOff
+        // POST: /User/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -398,7 +398,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //
-        // GET: /Account/ExternalLoginFailure
+        // GET: /User/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
