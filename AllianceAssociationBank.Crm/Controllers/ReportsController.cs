@@ -43,7 +43,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
-                var reportViewer = await _reports.GenerateByName(name);
+                var reportViewer = await _reports.GenerateReportByName(name);
 
                 ViewBag.ReportViewer = reportViewer;
                 ViewBag.Title = name;

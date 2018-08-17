@@ -33,8 +33,8 @@ namespace AllianceAssociationBank.Crm.Identity
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 8,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = false,
+                RequireDigit = true,
+                RequireNonLetterOrDigit = false,
                 RequireLowercase = false,
                 RequireUppercase = false,
             };

@@ -16,35 +16,38 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Name")]
         public string ProjectName { get; set; }
         public string DBA { get; set; }
-        [Display(Name = "Physical Address")]
+        [Display(Name = "Street")]
         public string Address { get; set; }
-        [Display(Name = "Physical Address City")]
+        [Display(Name = "City")]
         public string City { get; set; }
-        [Display(Name = "Physical Address State")]
+        [Display(Name = "State")]
         public string State { get; set; }
-        [Display(Name = "Physical Address Zip")]
+        [Display(Name = "ZIP")]
         public string ZipCode { get; set; }
-        [Display(Name = "Mailing Address")]
+        [Display(Name = "Street")]
         public string MailingAddress { get; set; }
+        [Display(Name = "City")]
         public string MailingCity { get; set; }
+        [Display(Name = "State")]
         public string MailingState { get; set; }
+        [Display(Name = "ZIP")]
         public string MailingZipCode { get; set; }
         public string TIN { get; set; }
-        [Display(Name = "Time Zone")]
+        [Display(Name = "TZone")]
         public string TimeZone { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Website { get; set; }
         [Display(Name = "Bank")]
         public string Institution { get; set; }
-        [Display(Name = "COD Rate")]
+        [Display(Name = "CD Rate")]
         public string CODRate { get; set; }
         [Display(Name = "Rate Notes")]
         public string RateNotes { get; set; }
 
         [Display(Name = "Ops")]
         public int? OwnerID { get; set; }
-        [Display(Name = "Sls")]
+        [Display(Name = "Sales")]
         public int? AFPID { get; set; }
         [Display(Name = "Brd")]
         public int? BoardingManagerID { get; set; }
@@ -53,11 +56,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [Display(Name = "Lockbox System")]
         public string LockboxSystem { get; set; }
-        [Display(Name = "Number of HOA")]
+        [Display(Name = "HOA")]
         public int? NumberOfAssociations { get; set; }
-        [Display(Name = "Number of Doors")]
+        [Display(Name = "Doors")]
         public int? NumberOfDoors { get; set; }
-        [Display(Name = "Estimated $")]
+        [Display(Name = "Est'd $")]
         public decimal? EstimatedDeposits { get; set; }
         [Display(Name = "Actual $")]
         public decimal? ActualDeposits { get; set; }
@@ -67,16 +70,17 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string LockboxStatus { get; set; }
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
-        [Display(Name = "Live Date")]
+        [Display(Name = "Live")]
         public DateTime? LockboxLiveDate { get; set; }
-        [Display(Name = "CorporateAccounts")]
+        [Display(Name = "Corp Accts")]
         public bool HasCorporateAccounts { get; set; }
+        [Display(Name = "Corp Accts")]
         public string CorporateAccounts { get; set; }
         [Display(Name = "Strongroom")]
         public bool Strongroom { get; set; }
-        [Display(Name = "E-Statements")]
+        [Display(Name = "E-statemnt")]
         public bool EStatements { get; set; }
-        [Display(Name = "Facsimile Signature")]
+        [Display(Name = "Fax Sig")]
         public bool FacsimileSignature { get; set; }
         public string Notes { get; set; }
 
