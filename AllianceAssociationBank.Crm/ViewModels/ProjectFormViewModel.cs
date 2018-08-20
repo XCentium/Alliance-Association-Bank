@@ -13,7 +13,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
     public class ProjectFormViewModel
     {
         public int ID { get; set; }
-        [Display(Name = "Name")]
+        [Required]
+        [Display(Name = "DBA")]
         public string ProjectName { get; set; }
         public string DBA { get; set; }
         [Display(Name = "Street")]
@@ -54,7 +55,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Software")]
         public int? SoftwareID { get; set; }
 
-        [Display(Name = "Lockbox System")]
+        [Display(Name = "System")]
         public string LockboxSystem { get; set; }
         [Display(Name = "HOA")]
         public int? NumberOfAssociations { get; set; }
@@ -66,7 +67,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public decimal? ActualDeposits { get; set; }
         [Display(Name = "CMC ID")]
         public string LockboxCmdId { get; set; }
-        [Display(Name = "Lockbox Status")]
+        [Display(Name = "Status")]
         public string LockboxStatus { get; set; }
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]

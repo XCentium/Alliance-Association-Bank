@@ -2,24 +2,21 @@
     ViewBag.Title = "Home";
 }
 
-<br />
-<div class="row">
-    <div class="col-md-3 col-md-offset-4 text-center">
+<div class="row py-4">
+    <div class="mx-auto">
         <img src="~/Content/Images/aab-logo.png" />
     </div>
 </div>
-<br />
-<br />
-<div class="row">
-    <div class="col-md-2 col-md-offset-5 text-center">
+
+<div class="row py-4">
+    <div class="mx-auto">
         <p>@Html.ActionLink("Launch Form", "Edit", "Projects", null, new { @class = "btn btn-primary" })</p>
     </div>
 </div>
-<br />
-<br />
-<div class="row">
-    <div class="col-md-2 col-md-offset-4 text-center">
-        <h4>REPORTS</h4>
+
+<div class="row py-4">
+    <div class="col-md-2 offset-md-4 text-center">
+        <h5>REPORTS</h5>
         <p>@Html.ActionLink("Boarding", "ViewReport", "Reports", new { name = "BoardingReport" }, null)</p>
         <p><a href="#">Completed & Hold</a></p>
         <p><a href="#">Software Transition</a></p>
@@ -29,7 +26,7 @@
         <p><a href="#">Coupon</a></p>
     </div>
     <div class="col-md-2 text-center">
-        <h4>EXPORTS</h4>
+        <h5>EXPORTS</h5>
         <p><a href="#">CMC List</a></p>
         <p><a href="#">CMC Useful Info List</a></p>
         <p><a href="#">All info</a></p>

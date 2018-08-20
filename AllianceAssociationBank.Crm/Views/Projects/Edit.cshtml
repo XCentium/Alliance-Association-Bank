@@ -4,311 +4,46 @@
     ViewBag.Title = "Projects";
 }
 
-<h2>@ViewBag.Title</h2>
-
-@using (@Html.BeginForm("ChangeSelection", "Projects", new { id = Model.ID }, FormMethod.Post, new { @class = "form", role = "form" }))
+@using (@Html.BeginForm("ChangeSelection", "Projects", new { id = Model.ID }, FormMethod.Post, new { @class = "pt-4", role = "form" }))
 {
     <div class="row">
-        <div class="col-md-8">
-            <div class="form-group form-group-sm">
-                @Html.DropDownListFor(m => m.ID, new SelectList(Model.ProjectList, "Value", "Text"), "", new { @class = "form-control full-width", onchange = "this.form.submit();" })
+        <div class="col-md-9">
+            <div class="form-group">
+                @Html.DropDownListFor(m => m.ID, new SelectList(Model.ProjectList, "Value", "Text"), "", new { @class = "form-control form-control-sm full-width", onchange = "this.form.submit();" })
             </div>
         </div>
     </div>
-    <hr />
 }
 
-@using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { @class = "form-horizontal small", role = "form" }))
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">General</a>
+        <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding" role="tab" aria-controls="nav-boarding" aria-selected="false">Boarding</a>
+        <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">Software</a>
+        <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox" role="tab" aria-controls="nav-lockbox" aria-selected="false">Lockbox</a>
+        <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach" role="tab" aria-controls="nav-ach" aria-selected="false">ACH</a>
+        <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">System</a>
+        <a class="nav-item nav-link" id="nav-iti-tab" data-toggle="tab" href="#nav-iti" role="tab" aria-controls="nav-iti" aria-selected="false">ITI/Dir</a>
+        <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">Accounts</a>
+        <a class="nav-item nav-link" id="nav-audit-tab" data-toggle="tab" href="#nav-audit" role="tab" aria-controls="nav-audit" aria-selected="false">Audit</a>
+        <a class="nav-item nav-link" id="nav-timeline-tab" data-toggle="tab" href="#nav-timeline" role="tab" aria-controls="nav-timeline" aria-selected="false">Timeline</a>
+        <a class="nav-item nav-link" id="nav-narrative-tab" data-toggle="tab" href="#nav-narrative" role="tab" aria-controls="nav-narrative" aria-selected="false">Narrative</a>
+        <a class="nav-item nav-link" id="nav-hoa-tab" data-toggle="tab" href="#nav-hoa" role="tab" aria-controls="nav-hoa" aria-selected="false">HOA DDAs</a>
+    </div>
+</nav>
+
+
+@using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { role = "form" }))
 {
-    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.ValidationSummary("", new { @class = "text-danger small" })
     @Html.HiddenFor(m => m.ID)
 
-    <div class="row">
-        <div class="col-md-10">
-            
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.DBA, new { @class = "col-md-1 control-label" })
-                <div class="col-md-11">
-                    @Html.EditorFor(m => m.DBA, new { htmlAttributes = new { @class = "form-control full-width" } })
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-2">
-            
-            <button type="submit" class="btn btn-primary btn-sm">Save</button>
-            <button type="reset" class="btn btn-default btn-sm">Cancel</button>
-
-        </div>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
+        @Html.Partial("_GeneralPartial")
     </div>
-    
-    <div class="row">
-        <div class="col-md-4">
+    <div class="tab-pane fade" id="nav-boarding" role="tabpanel" aria-labelledby="nav-boarding-tab">
 
-            <div class="col-md-12">
-                <h3><small>Physical Address</small></h3>
-            </div>
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.Address, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.City, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.City, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.State, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.State, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="col-md-12">
-                <h3><small>Mailing Address</small></h3>
-            </div>
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.MailingAddress, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.MailingAddress, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.MailingCity, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.MailingCity, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.MailingState, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.MailingState, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.MailingZipCode, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.MailingZipCode, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <br />
-            <br />
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.TIN, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.TIN, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.TimeZone, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.TimeZone, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.Phone, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.Fax, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.Fax, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.Website, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.Website, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-4">
-
-            <br />
-            <br />
-            <br />
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.Institution, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.Institution, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.CODRate, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.CODRate, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.RateNotes, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.TextAreaFor(m => m.RateNotes, new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.OwnerID, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.DropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.AFPID, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.DropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.DropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.SoftwareID, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.DropDownListFor(m => m.SoftwareID, new SelectList(Model.SoftwareList, "Value", "Text"), "", new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.LockboxSystem, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.DropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.LockboxStatus, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.DropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), "", new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.NumberOfAssociations, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.NumberOfAssociations, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.NumberOfDoors, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.NumberOfDoors, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.EstimatedDeposits, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.EstimatedDeposits, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.ActualDeposits, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.ActualDeposits, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.LockboxLiveDate, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-4">
-
-            <br />
-            <br />
-            <br />
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.LockboxCmdId, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.EditorFor(m => m.LockboxCmdId, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.HasCorporateAccounts, new { @class = "col-md-4 control-label" })
-                <div class="col-md-1">
-                    @Html.CheckBoxFor(m => m.HasCorporateAccounts, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-                <div class="col-md-7">
-                    @Html.EditorFor(m => m.CorporateAccounts, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.Strongroom, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.CheckBoxFor(m => m.Strongroom, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.EStatements, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.CheckBoxFor(m => m.EStatements, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                @Html.LabelFor(m => m.FacsimileSignature, new { @class = "col-md-4 control-label" })
-                <div class="col-md-8">
-                    @Html.CheckBoxFor(m => m.FacsimileSignature, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                <div class="col-md-offset-2">
-                    @Html.LabelFor(m => m.Notes)
-                    @Html.TextAreaFor(m => m.Notes, 17, 10, new { @class = "form-control full-width" })
-                </div>
-            </div>
-
-        </div>
     </div>
-
-    @*<div class="form-group form-group-sm">
-        @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-4 control-label" })
-        <div class="col-md-8">
-            @Html.EditorFor(m => m.ProjectName, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>*@
+</div>
 }
