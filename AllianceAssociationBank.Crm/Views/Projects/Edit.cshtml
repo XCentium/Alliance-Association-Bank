@@ -24,23 +24,66 @@
     </div>
 </div>
 
-<nav>
-    <div class="nav nav-tabs small" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">General</a>
-        <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab" aria-controls="nav-users" aria-selected="true">Users</a>
-        <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding" role="tab" aria-controls="nav-boarding" aria-selected="false">Boarding</a>
-        <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">Software</a>
-        <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox" role="tab" aria-controls="nav-lockbox" aria-selected="false">Lockbox</a>
-        <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach" role="tab" aria-controls="nav-ach" aria-selected="false">ACH</a>
-        <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">System</a>
-        <a class="nav-item nav-link" id="nav-iti-tab" data-toggle="tab" href="#nav-iti" role="tab" aria-controls="nav-iti" aria-selected="false">ITI/Dir</a>
-        <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">Accounts</a>
-        <a class="nav-item nav-link" id="nav-audit-tab" data-toggle="tab" href="#nav-audit" role="tab" aria-controls="nav-audit" aria-selected="false">Audit</a>
-        <a class="nav-item nav-link" id="nav-timeline-tab" data-toggle="tab" href="#nav-timeline" role="tab" aria-controls="nav-timeline" aria-selected="false">Timeline</a>
-        <a class="nav-item nav-link" id="nav-narrative-tab" data-toggle="tab" href="#nav-narrative" role="tab" aria-controls="nav-narrative" aria-selected="false">Narrative</a>
-        <a class="nav-item nav-link" id="nav-hoa-tab" data-toggle="tab" href="#nav-hoa" role="tab" aria-controls="nav-hoa" aria-selected="false">HOA DDAs</a>
-    </div>
-</nav>
+<div class="row">
+    <nav class="navbar navbar-light bg-white p-0">
+        <button class="navbar-toggler" type="button" data-toggle="slide-collapse" data-target="#my-navbar-collapse" aria-controls="my-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="my-navbar-collapse">
+            <button class="btn btn-primary btn-sm my-2" type="submit">Create New</button>
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    Reports
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Boarding</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Completed & Hold</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Software Transition</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CMC by ID</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CMC by Name</a>
+                </li>
+
+                <li class="nav-item">
+                    Export
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CMC List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CMC Useful Info</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <nav class="col-md-11">
+        <div class="nav nav-tabs small" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">General</a>
+            <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab" aria-controls="nav-users" aria-selected="true">Users</a>
+            <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding" role="tab" aria-controls="nav-boarding" aria-selected="false">Boarding</a>
+            <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">Software</a>
+            <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox" role="tab" aria-controls="nav-lockbox" aria-selected="false">Lockbox</a>
+            <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach" role="tab" aria-controls="nav-ach" aria-selected="false">ACH</a>
+            <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">System</a>
+            <a class="nav-item nav-link" id="nav-iti-tab" data-toggle="tab" href="#nav-iti" role="tab" aria-controls="nav-iti" aria-selected="false">ITI/Dir</a>
+            <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">Accounts</a>
+            <a class="nav-item nav-link" id="nav-audit-tab" data-toggle="tab" href="#nav-audit" role="tab" aria-controls="nav-audit" aria-selected="false">Audit</a>
+            <a class="nav-item nav-link" id="nav-timeline-tab" data-toggle="tab" href="#nav-timeline" role="tab" aria-controls="nav-timeline" aria-selected="false">Timeline</a>
+            <a class="nav-item nav-link" id="nav-narrative-tab" data-toggle="tab" href="#nav-narrative" role="tab" aria-controls="nav-narrative" aria-selected="false">Narrative</a>
+            <a class="nav-item nav-link" id="nav-hoa-tab" data-toggle="tab" href="#nav-hoa" role="tab" aria-controls="nav-hoa" aria-selected="false">HOA DDAs</a>
+        </div>
+    </nav>
+</div>
 
 
 @using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { role = "form" }))
@@ -87,5 +130,13 @@
                 }
             });
         });
+
+        $(function () {
+            // mobile menu slide from the left
+            $('[data-toggle="slide-collapse"]').on('click', function () {
+                $navMenuCont = $($(this).data('target'));
+                $navMenuCont.animate({ 'width': 'toggle' }, 280);
+            });
+        })
     </script>
 }
