@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Core.Interfaces;
+﻿using AllianceAssociationBank.Crm.Core.Dtos;
+using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,19 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 {
                     Value = p.ID.ToString(),
                     Text = p.ProjectName
+                })
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<ProjectDto>> GetProjectsBySearchPhrase(string searchPhrase)
+        {
+            return await _context.Projects
+                .OrderBy(p => p.ProjectName)
+                .Where(p => p.ProjectName.Contains(searchPhrase) || p.LockboxCMCID == searchPhrase)
+                .Select(p => new ProjectDto()
+                {
+                    Value = p.ID,
+                    Label = p.ProjectName
                 })
                 .ToListAsync();
         }

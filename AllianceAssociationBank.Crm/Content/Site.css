@@ -37,3 +37,14 @@ textarea {
 .col-form-label-sm {
     padding-right: 5px;
 }
+
+.smallnavbar {
+    padding: 0px;
+    background-color: rgba(153, 153, 153, 1);
+}
+
+.smallnavbar .nav-link {
+    padding: 0px;
+    padding-bottom: 2px;
+    color: #E4E4E4;
+}

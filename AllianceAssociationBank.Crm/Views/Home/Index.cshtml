@@ -8,14 +8,20 @@
     </div>
 </div>
 
-<div class="row py-4">
-    <div class="mx-auto">
-        <p>@Html.ActionLink("Launch Form", "Edit", "Projects", null, new { @class = "btn btn-primary" })</p>
+<div class="row py-3">
+    <div class="col-md-3 offset-md-5 mx-auto">
+        <p>@Html.ActionLink("Create New", "Edit", "Projects", null, new { @class = "btn btn-primary btn-block" })</p>
+    </div>
+</div>
+
+<div class="row py-3">
+    <div class="col-md-4 offset-md-4">
+        <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / CMC ID" autocomplete="off">
     </div>
 </div>
 
 <div class="row py-4">
-    <div class="col-md-2 offset-md-4 text-center">
+    <div class="col-md-2 offset-md-4">
         <h5>REPORTS</h5>
         <p>@Html.ActionLink("Boarding", "ViewReport", "Reports", new { name = "BoardingReport" }, null)</p>
         <p><a href="#">Completed & Hold</a></p>
@@ -25,11 +31,38 @@
         <p><a href="#">CD Emails</a></p>
         <p><a href="#">Coupon</a></p>
     </div>
-    <div class="col-md-2 text-center">
+    <div class="col-md-2">
         <h5>EXPORTS</h5>
         <p><a href="#">CMC List</a></p>
         <p><a href="#">CMC Useful Info List</a></p>
         <p><a href="#">All info</a></p>
     </div>
 </div>
-
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#project-search").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/api/projects",
+                        method: "GET",
+                        dataType: "json",
+                        data: {
+                            search: request.term
+                        },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 2,
+                select: function (event, ui) {
+                    this.value = ui.item.label;
+                    location.href = "/Projects/Edit/" + ui.item.value;
+                    return false;
+                }
+            });
+        });
+    </script>
+}

@@ -9,19 +9,21 @@
 
 </head>
 <body>
-    <div class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="container">
-            <div>
-                @Html.ActionLink("Alliance Association Bank CRM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            
+    <div class="navbar navbar-expand-sm smallnavbar">
+        <div class="container justify-content-end">
             @Html.Partial("_LoginPartial")
+            @*<div>
+                    @Html.ActionLink("Alliance Association Bank CRM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>*@
+            @*<div style="background-color: rgba(153, 153, 153, 1); height: 115px; padding-left: 0px; padding-right: 0px">
+                    @Html.Partial("_LoginPartial")
+                </div>*@
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="small text-secondary">
             <p>&copy; @DateTime.Now.Year - Alliance Association Bank CRM</p>
         </footer>
     </div>
@@ -29,6 +31,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/popper")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
     @RenderSection("scripts", required: false)
 </body>
 </html>
