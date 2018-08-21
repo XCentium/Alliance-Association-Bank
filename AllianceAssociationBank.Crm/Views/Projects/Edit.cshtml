@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="my-menu-non-blur">
     <nav class="navbar navbar-light bg-white p-0">
         <button class="navbar-toggler" type="button" data-toggle="slide-collapse" data-target="#my-navbar-collapse" aria-controls="my-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -135,7 +135,10 @@
             // mobile menu slide from the left
             $('[data-toggle="slide-collapse"]').on('click', function () {
                 $navMenuCont = $($(this).data('target'));
-                $navMenuCont.animate({ 'width': 'toggle' }, 280);
+                $navMenuCont.toggle("slide")
+
+                //$(".row").toggleClass("blur");
+                //$("#my-menu-non-blur").removeClass("blur");
             });
         })
     </script>
