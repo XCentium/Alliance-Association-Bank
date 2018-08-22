@@ -8,6 +8,11 @@ namespace AllianceAssociationBank.Crm.Helpers
 {
     public class DropDownListHelper
     {
+        public static IEnumerable<string> InstitutionValues
+        {
+            get { return GetValuesFromConfig("InstitutionValues"); }
+        }
+
         public static IEnumerable<string> LockboxSystemValues
         {
             get { return GetValuesFromConfig("LockboxSystemValues"); }
