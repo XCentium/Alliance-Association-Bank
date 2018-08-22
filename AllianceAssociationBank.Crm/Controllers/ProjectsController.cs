@@ -132,6 +132,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             model.ProjectList = await _repository.GetProjectListAsync();
             model.EmployeeList = await _employees.GetEmployeeListAsync();
             model.SoftwareList = await _softwares.GetSoftwareListAsync();
+            model.InstitutionList = DropDownListHelper.InstitutionValues;
             model.LockboxSystemList = DropDownListHelper.LockboxSystemValues;
             model.LockboxStatusList = DropDownListHelper.LockboxStatusValues;
         }

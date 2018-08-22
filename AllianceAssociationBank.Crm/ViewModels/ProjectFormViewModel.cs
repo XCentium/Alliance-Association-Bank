@@ -89,6 +89,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public IEnumerable<SelectListItem> ProjectList { get; set; }
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
         public IEnumerable<SelectListItem> SoftwareList { get; set; }
+        public IEnumerable<string> InstitutionList { get; set; }
         public IEnumerable<string> LockboxSystemList { get; set; }
         public IEnumerable<string> LockboxStatusList { get; set; }
 
