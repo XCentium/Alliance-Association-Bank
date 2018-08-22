@@ -107,14 +107,19 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 Mapper.Map(model, project);
 
-                if (await _repository.SaveAllAsync())
-                {
-                    return RedirectToAction(nameof(this.Edit), new { id = model.ID });
-                }
-                else
-                {
-                    return View("Error"); // TODO: need better error handeling
-                }
+
+                await _repository.SaveAllAsync();
+                return RedirectToAction(nameof(this.Edit), new { id = model.ID });
+
+                // TODO: if nothing actually changes, SaveAllAsync will return false
+                //if (await _repository.SaveAllAsync())
+                //{
+                //    return RedirectToAction(nameof(this.Edit), new { id = model.ID });
+                //}
+                //else
+                //{
+                //    return View("Error"); // TODO: need better error handeling
+                //}
             }
             catch (Exception ex)
             {

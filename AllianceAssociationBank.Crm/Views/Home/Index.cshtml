@@ -3,26 +3,28 @@
 }
 
 <div class="row py-4">
-    <div class="mx-auto">
+    <div class="offset-md-4">
         <img src="~/Content/Images/aab-logo.png" />
     </div>
 </div>
 
 <div class="row py-3">
-    <div class="col-md-3 offset-md-5 mx-auto">
-        <p>@Html.ActionLink("Create New", "Edit", "Projects", null, new { @class = "btn btn-primary btn-block" })</p>
+    <span class="col-md-1 offset-md-4 col-form-label px-0">NEW FORM</span>
+    <div class="col-md-3">
+        <p>@Html.ActionLink("Create", "Edit", "Projects", null, new { @class = "btn btn-primary btn-block" })</p>
     </div>
 </div>
 
 <div class="row py-3">
-    <div class="col-md-4 offset-md-4">
+    <span class="col-md-1 offset-md-4 col-form-label px-0">FIND FORM</span>
+    <div class="col-md-4">
         <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / CMC ID" autocomplete="off">
     </div>
 </div>
 
 <div class="row py-4">
-    <div class="col-md-2 offset-md-4">
-        <h5>REPORTS</h5>
+    <div class="col-md-2 offset-md-5">
+        <h6>REPORTS</h6>
         <p>@Html.ActionLink("Boarding", "ViewReport", "Reports", new { name = "BoardingReport" }, null)</p>
         <p><a href="#">Completed & Hold</a></p>
         <p><a href="#">Software Transition</a></p>
@@ -32,7 +34,7 @@
         <p><a href="#">Coupon</a></p>
     </div>
     <div class="col-md-2">
-        <h5>EXPORTS</h5>
+        <h6>EXPORTS</h6>
         <p><a href="#">CMC List</a></p>
         <p><a href="#">CMC Useful Info List</a></p>
         <p><a href="#">All info</a></p>
