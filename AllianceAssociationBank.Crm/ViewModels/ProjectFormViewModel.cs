@@ -12,77 +12,124 @@ namespace AllianceAssociationBank.Crm.ViewModels
 {
     public class ProjectFormViewModel
     {
+        // General Tab
         public int ID { get; set; }
+
         [Required]
         [Display(Name = "DBA")]
         public string ProjectName { get; set; }
+
         public string DBA { get; set; }
+
+        [Required]
         [Display(Name = "Street")]
         public string Address { get; set; }
+
+        [Required]
         [Display(Name = "City")]
         public string City { get; set; }
+
+        [Required]
         [Display(Name = "State")]
         public string State { get; set; }
+
+        [Required]
         [Display(Name = "ZIP")]
         public string ZipCode { get; set; }
+
         [Display(Name = "Street")]
         public string MailingAddress { get; set; }
+
         [Display(Name = "City")]
         public string MailingCity { get; set; }
+
         [Display(Name = "State")]
         public string MailingState { get; set; }
+
         [Display(Name = "ZIP")]
         public string MailingZipCode { get; set; }
+
+        [Required]
         public string TIN { get; set; }
+
         [Display(Name = "TZone")]
         public string TimeZone { get; set; }
+
+        [Required]
         public string Phone { get; set; }
+
         public string Fax { get; set; }
+
         public string Website { get; set; }
+
+        [Required]
         [Display(Name = "Bank")]
         public string Institution { get; set; }
+
         [Display(Name = "CD Rate")]
         public string CODRate { get; set; }
+
         [Display(Name = "Rate Notes")]
         public string RateNotes { get; set; }
 
-        [Display(Name = "Ops")]
+        [Required]
+        [Display(Name = "Banker")]
         public int? OwnerID { get; set; }
-        [Display(Name = "Sales")]
+
+        [Required]
+        [Display(Name = "Sales Rep")]
         public int? AFPID { get; set; }
+
+        [Required]
         [Display(Name = "Brd")]
         public int? BoardingManagerID { get; set; }
+
         [Display(Name = "Software")]
         public int? SoftwareID { get; set; }
 
         [Display(Name = "System")]
         public string LockboxSystem { get; set; }
-        [Display(Name = "HOA")]
+
+        [Display(Name = "HOA")]        
         public int? NumberOfAssociations { get; set; }
+
         [Display(Name = "Doors")]
         public int? NumberOfDoors { get; set; }
+
         [Display(Name = "Est'd $")]
         public decimal? EstimatedDeposits { get; set; }
+
         [Display(Name = "Actual $")]
         public decimal? ActualDeposits { get; set; }
+
+        [Required]
         [Display(Name = "CMC ID")]
-        public string LockboxCmdId { get; set; }
+        public string LockboxCMCID { get; set; }
+
+        [Required]
         [Display(Name = "Status")]
         public string LockboxStatus { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Live")]
         public DateTime? LockboxLiveDate { get; set; }
+
         [Display(Name = "Corp Accts")]
         public bool HasCorporateAccounts { get; set; }
+
         [Display(Name = "Corp Accts")]
         public string CorporateAccounts { get; set; }
+
         [Display(Name = "Strongroom")]
         public bool Strongroom { get; set; }
+
         [Display(Name = "E-statemnt")]
         public bool EStatements { get; set; }
+
         [Display(Name = "Fax Sig")]
         public bool FacsimileSignature { get; set; }
+
         public string Notes { get; set; }
 
         //public int? SelectedProjectId { get; set; }

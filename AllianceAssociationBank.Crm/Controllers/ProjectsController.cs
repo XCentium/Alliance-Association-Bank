@@ -31,32 +31,22 @@ namespace AllianceAssociationBank.Crm.Controllers
             _softwares = new SoftwareRepository(context);
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Edit(int id = 0)
+        //[HttpPost]
+        //public ActionResult ChangeSelection(int id = 0)
+        //{
+        //    return RedirectToAction(nameof(this.Edit), new { id });
+        //}
+
+        public async Task<ActionResult> Create()
         {
-            try
-            {
-                var project = await _repository.GetProjectById(id);
-                var model = Mapper.Map<ProjectFormViewModel>(project) ?? new ProjectFormViewModel();
+            var model = new ProjectFormViewModel();
+            await PopulateDropDownLists(model);
 
-                await PopulateDropDownLists(model);
-                //model.Projects = await _repository.GetProjectsListAsync();
-                //model.Employees = await _employees.GetEmployeesAsync();
-
-                return View(model);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return View("ProjectForm", model);
         }
 
         [HttpPost]
-        public ActionResult ChangeSelection(int id = 0)
-        {
-            return RedirectToAction(nameof(this.Edit), new { id });
-        }
-
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectFormViewModel model)
         {
             try
@@ -64,7 +54,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     await PopulateDropDownLists(model);
-                    return View("Edit", model);
+                    return View("ProjectForm", model);
                 }
 
                 var project = Mapper.Map<Project>(model);
@@ -76,17 +66,44 @@ namespace AllianceAssociationBank.Crm.Controllers
                 }
                 else
                 {
-                    return View("Error"); // TODO: need better error handeling
+                    return View("Error");
                 }
             }
             catch (Exception ex)
             {
-
+                return View("Error");
                 throw;
             }
         }
 
+        public async Task<ActionResult> Edit(int id)
+        {
+            try
+            {
+                var project = await _repository.GetProjectById(id);
+
+                if (project == null)
+                {
+                    // TODO: need better error handeling
+                    return View("Error");    
+                }
+
+                var model = Mapper.Map<ProjectFormViewModel>(project);
+
+                await PopulateDropDownLists(model);
+
+                return View("ProjectForm", model);
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+                throw;
+            }
+        }
+
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(ProjectFormViewModel model)
         {
             try
@@ -94,19 +111,18 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     await PopulateDropDownLists(model);
-                    return View("Edit", model);
+                    return View("ProjectForm", model);
                 }
 
                 var project = await _repository.GetProjectById(model.ID);
 
                 if (project == null)
                 {
-                    //return HttpNotFound();
-                    return View("Error"); // TODO: need better error handeling
+                    // TODO: need better error handeling
+                    return View("Error");
                 }
 
                 Mapper.Map(model, project);
-
 
                 await _repository.SaveAllAsync();
                 return RedirectToAction(nameof(this.Edit), new { id = model.ID });
@@ -123,6 +139,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
             catch (Exception ex)
             {
+                return View("Error");
                 throw;
             }
         }

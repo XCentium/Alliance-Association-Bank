@@ -297,6 +297,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\aab-logo.png" />
+    <Content Include="Content\Images\save-img.png" />
+    <Content Include="Content\Images\search-img.png" />
+    <Content Include="Content\Images\toggle-img.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -444,7 +447,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Projects\ProjectForm.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
     <Content Include="Views\Reports\BoardingReport.cshtml" />
     <Content Include="Views\Reports\ViewReport.cshtml" />

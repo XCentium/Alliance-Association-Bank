@@ -12,6 +12,7 @@ using System.Web.Http;
 
 namespace AllianceAssociationBank.Crm.Controllers.Api
 {
+    [Authorize]
     public class ProjectsController : ApiController
     {
         private IProjectRepository _repository;

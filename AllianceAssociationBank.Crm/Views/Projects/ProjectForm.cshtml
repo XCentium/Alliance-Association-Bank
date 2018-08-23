@@ -5,15 +5,15 @@
 }
 
 @*@using (@Html.BeginForm("ChangeSelection", "Projects", new { id = Model.ID }, FormMethod.Post, new { @class = "pt-4", role = "form" }))
-    {
-        <div class="row">
-            <div class="col-md-9">
-                <div class="form-group">
-                    @Html.DropDownListFor(m => m.ID, new SelectList(Model.ProjectList, "Value", "Text"), "", new { @class = "form-control form-control-sm full-width", onchange = "this.form.submit();" })
+        {
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group">
+                        @Html.DropDownListFor(m => m.ID, new SelectList(Model.ProjectList, "Value", "Text"), "", new { @class = "form-control form-control-sm full-width", onchange = "this.form.submit();" })
+                    </div>
                 </div>
             </div>
-        </div>
-}*@
+    }*@
 
 <div class="row my-3">
     <div class="col-md-4 offset-md-7">
@@ -24,45 +24,56 @@
     </div>
 </div>
 
-<div class="row" id="my-menu-non-blur">
+<div class="row">
     <nav class="navbar navbar-light bg-white p-0">
-        <button class="navbar-toggler" type="button" data-toggle="slide-collapse" data-target="#my-navbar-collapse" aria-controls="my-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+        <button class="navbar-toggler" id="nav-side-menu-toggle" type="button" data-toggle="side-slide-collapse" data-target="#nav-side-menu" aria-controls="nav-side-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <img class="icon-image" src="~/Content/Images/toggle-img.png" />
         </button>
 
-        <div class="collapse navbar-collapse" id="my-navbar-collapse">
-            <button class="btn btn-primary btn-sm my-2" type="submit">Create New</button>
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="nav-side-menu">
+            <div>
+                @Html.ActionLink("Create New Form", "Create", "Projects", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
 
-                <li class="nav-item">
-                    Reports
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Boarding</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Completed & Hold</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Software Transition</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CMC by ID</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CMC by Name</a>
-                </li>
+            <span class="text-muted">Reports</span>
 
-                <li class="nav-item">
-                    Export
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CMC List</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CMC Useful Info</a>
-                </li>
-            </ul>
+            <div class="nav-item px-3 py-1 border">
+                @Html.ActionLink("Boarding", "ViewReport", "Reports", new { name = "BoardingReport" }, null)
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">Completed & Hold</a>
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">Software Transition</a>
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">CMC by ID</a>
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">CMC by Name</a>
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">CD Emails</a>
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">Coupon</a>
+            </div>
+
+            <span class="text-muted">Exports</span>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">CMC List</a>
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">CMC Useful Info</a>
+            </div>
+            <div class="nav-item px-3 py-1 border">
+                <a href="#">All Info</a>
+            </div>
+
+            <div class="nav-item px-3 py-1">
+                <a href="#">Log Out</a>
+            </div>
         </div>
 
     </nav>
@@ -88,7 +99,8 @@
 
 @using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { role = "form" }))
 {
-    @*@Html.ValidationSummary("", new { @class = "text-danger small" })*@
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(m => m.ID)
 
     <div class="tab-content" id="nav-tabContent">
@@ -104,10 +116,16 @@
     </div>
 }
 
+<div class="screen-overlay"></div>
+
 @section scripts
 {
+    @Scripts.Render("~/bundles/jqueryval")
+
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
+
+            // projects autocomplete search
             $("#project-search").autocomplete({
                 source: function (request, response) {
                     $.ajax({
@@ -129,17 +147,21 @@
                     return false;
                 }
             });
-        });
 
-        $(function () {
-            // mobile menu slide from the left
-            $('[data-toggle="slide-collapse"]').on('click', function () {
+            // nav side menu show
+            $('[data-toggle="side-slide-collapse"]').on('click', function () {
                 $navMenuCont = $($(this).data('target'));
                 $navMenuCont.toggle("slide")
 
-                //$(".row").toggleClass("blur");
-                //$("#my-menu-non-blur").removeClass("blur");
+                $(".screen-overlay").fadeIn(500);
             });
-        })
+
+            // nav side menu hide
+            $(".screen-overlay").click(function (event) {
+                $("#nav-side-menu-toggle").trigger("click");
+                $(".screen-overlay").fadeOut(500);
+            });
+
+        });
     </script>
 }
