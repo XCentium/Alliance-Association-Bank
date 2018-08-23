@@ -62,7 +62,7 @@ namespace AllianceAssociationBank.Crm.Identity
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("AAB CRM Identity"));
             }
             return manager;
         }

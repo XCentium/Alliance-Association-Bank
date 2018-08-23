@@ -56,6 +56,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string TimeZone { get; set; }
 
         [Required]
+        [Phone]
         public string Phone { get; set; }
 
         public string Fax { get; set; }
@@ -110,7 +111,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Status")]
         public string LockboxStatus { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         [Display(Name = "Live")]
         public DateTime? LockboxLiveDate { get; set; }

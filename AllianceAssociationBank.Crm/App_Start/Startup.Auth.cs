@@ -33,7 +33,8 @@ namespace AllianceAssociationBank.Crm
                     OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-                }
+                },
+                CookieName = "Aab.Crm.ApplicationIdentity"
             });
 
             //app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
