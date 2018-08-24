@@ -22,7 +22,7 @@
             <img class="icon-image" src="~/Content/Images/print-img.png" />
         </button>
         <button class="btn-image" type="reset">
-            <img class="icon-image" src="~/Content/Images/close-img-2.png" />
+            <img class="icon-image" src="~/Content/Images/close-img.png" />
         </button>
 
     </div>
@@ -32,7 +32,7 @@
     <div class="col-4 pl-4">
         @*First column start*@
 
-        <div class="row mt-3">
+        <div class="row mt-1">
             <label class="col-5 form-label-heading">Physical Address</label>
         </div>
 
@@ -297,10 +297,10 @@
             </div>
         </div>
 
-        <div class="row my-3">
+        <div class="row my-2">
             <div class="col-11">
                 @Html.LabelFor(m => m.Notes)
-                @Html.TextAreaFor(m => m.Notes, 10, 10, new { @class = "form-textarea" })
+                @Html.TextAreaFor(m => m.Notes, 12, 10, new { @class = "form-textarea" })
             </div>
         </div>
 
