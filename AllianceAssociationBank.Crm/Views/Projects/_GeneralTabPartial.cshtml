@@ -29,74 +29,74 @@
         @*First column start*@
 
         <div class="row my-0">
-            <label class="col-md-4 col-form-label-sm text-muted">Physical Address</label>
+            <label class="col-md-5 text-muted">Physical Address</label>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.Address, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.Address, new { @class = "col-md-3 pl-4" })
             <div class="col-md-9">
-                @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.Address, new { htmlAttributes = new { autocomplete = "off", style = "width: 100%;" } })
                 @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.City, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.City, new { @class = "col-md-3 pl-4" })
             <div class="col-md-9">
-                @Html.EditorFor(m => m.City, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.City, new { htmlAttributes = new { style = "width: 100%;" } })
                 @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.State, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.State, new { @class = "col-md-3 pl-4" })
             <div class="col-md-7">
-                @Html.EditorFor(m => m.State, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.State, new { htmlAttributes = new { style = "width: 100%;" } })
                 @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-3 pl-4" })
             <div class="col-md-7">
-                @Html.EditorFor(m => m.ZipCode, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.ZipCode, new { htmlAttributes = new { style = "width: 100%;" } })
                 @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-danger small" })
             </div>
         </div>
 
         <div class="row my-0">
-            <label class="col-md-4 col-form-label-sm text-muted">Mailing Address</label>
+            <label class="col-md-5 text-muted">Mailing Address</label>
             <div class="form-check">
-                <input type="checkbox" class="form-check-input form-control-sm">
-                <label class="form-check-label col-form-label-sm">Same as Physical</label>
+                <input type="checkbox">
+                <label>Same as Physical</label>
             </div>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.MailingAddress, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.MailingAddress, new { @class = "col-md-3 pl-4" })
             <div class="col-md-9">
-                @Html.EditorFor(m => m.MailingAddress, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.MailingAddress)
             </div>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.MailingCity, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.MailingCity, new { @class = "col-md-3 pl-4" })
             <div class="col-md-9">
-                @Html.EditorFor(m => m.MailingCity, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.MailingCity)
             </div>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.MailingState, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.MailingState, new { @class = "col-md-3 pl-4" })
             <div class="col-md-7">
-                @Html.EditorFor(m => m.MailingState, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.MailingState)
             </div>
         </div>
 
-        <div class="form-group row my-0">
-            @Html.LabelFor(m => m.MailingZipCode, new { @class = "col-md-3 col-form-label-sm pl-4" })
+        <div class="form-group row my-1">
+            @Html.LabelFor(m => m.MailingZipCode, new { @class = "col-md-3 pl-4" })
             <div class="col-md-7">
-                @Html.EditorFor(m => m.MailingZipCode, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                @Html.EditorFor(m => m.MailingZipCode)
             </div>
         </div>
 

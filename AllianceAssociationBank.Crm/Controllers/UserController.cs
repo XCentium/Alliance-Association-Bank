@@ -12,6 +12,8 @@ using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Models;
 using AllianceAssociationBank.Crm.Identity;
 using AllianceAssociationBank.Crm.ViewModels;
+using System.Web.Security;
+using System.DirectoryServices.AccountManagement;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -70,6 +72,11 @@ namespace AllianceAssociationBank.Crm.Controllers
             {
                 return View(model);
             }
+
+            //var adPrincipal = new PrincipalContext(ContextType.Machine);
+            //var adResult = adPrincipal.ValidateCredentials("", "", ContextOptions.Negotiate);
+            //var userPrincipal = UserPrincipal.FindByIdentity(adPrincipal, "");
+            //var groups = userPrincipal.GetAuthorizationGroups();
 
             // This doesn't count login failures towards user lockout
             // To enable password failures to trigger user lockout, change to shouldLockout: true
@@ -156,39 +163,39 @@ namespace AllianceAssociationBank.Crm.Controllers
         //    }
         //}
 
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
+        //[AllowAnonymous]
+        //public ActionResult Register()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+        //        var result = await UserManager.CreateAsync(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                    // For more information on how to enable user account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "User", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your user account", "Please confirm your user account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+        //            // For more information on how to enable user account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+        //            // Send an email with this link
+        //            // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //            // var callbackUrl = Url.Action("ConfirmEmail", "User", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+        //            // await UserManager.SendEmailAsync(user.Id, "Confirm your user account", "Please confirm your user account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
-            }
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        AddErrors(result);
+        //    }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+        //    // If we got this far, something failed, redisplay form
+        //    return View(model);
+        //}
 
         //[AllowAnonymous]
         //public async Task<ActionResult> ConfirmEmail(string userId, string code)

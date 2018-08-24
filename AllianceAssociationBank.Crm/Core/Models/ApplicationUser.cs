@@ -11,8 +11,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
