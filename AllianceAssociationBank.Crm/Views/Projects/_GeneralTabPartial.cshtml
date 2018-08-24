@@ -1,23 +1,27 @@
 ﻿@model ProjectFormViewModel
 
 <div class="row my-2">
-    <div class="col-md-10">
+    <div class="col-9">
 
-        <div class="form-group row">
-            @Html.LabelFor(m => m.ProjectName, new { @class = "col-md-1 col-form-label-sm" })
-            <div class="col-md-11">
-                @Html.EditorFor(m => m.ProjectName, new { htmlAttributes = new { @class = "form-control form-control-sm full-width" } })
+        <div class="row my-1">
+            @Html.LabelFor(m => m.ProjectName, new { @class = "col-1" })
+            <div class="col-11">
+                @Html.EditorFor(m => m.ProjectName, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "text-danger small" })
             </div>
 
         </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-3 text-right">
 
-        <button class="btn btn-light" type="submit">
+        <span class="save-indicator">UNSAVED</span>
+        <button class="btn-image" type="submit">
             <img class="icon-image" src="~/Content/Images/save-img.png" />
         </button>
-        <button class="btn btn-light" type="reset">
+        <button class="btn-image" type="button">
+            <img class="icon-image" src="~/Content/Images/print-img.png" />
+        </button>
+        <button class="btn-image" type="reset">
             <img class="icon-image" src="~/Content/Images/close-img-2.png" />
         </button>
 
@@ -25,277 +29,278 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-4 pl-4">
         @*First column start*@
 
-        <div class="row my-0">
-            <label class="col-md-5 text-muted">Physical Address</label>
+        <div class="row mt-3">
+            <label class="col-5 form-label-heading">Physical Address</label>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.Address, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.Address, new { htmlAttributes = new { autocomplete = "off", style = "width: 100%;" } })
+        <div class="row">
+            @Html.LabelFor(m => m.Address, new { @class = "col-3 form-label-indent" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.City, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.City, new { htmlAttributes = new { style = "width: 100%;" } })
+        <div class="row">
+            @Html.LabelFor(m => m.City, new { @class = "col-3 form-label-indent" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.City, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.State, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-7">
-                @Html.EditorFor(m => m.State, new { htmlAttributes = new { style = "width: 100%;" } })
+        <div class="row">
+            @Html.LabelFor(m => m.State, new { @class = "col-3 form-label-indent" })
+            <div class="col-5">
+                @Html.EditorFor(m => m.State, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-7">
-                @Html.EditorFor(m => m.ZipCode, new { htmlAttributes = new { style = "width: 100%;" } })
+        <div class="row">
+            @Html.LabelFor(m => m.ZipCode, new { @class = "col-3 form-label-indent" })
+            <div class="col-5">
+                @Html.EditorFor(m => m.ZipCode, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="row my-0">
-            <label class="col-md-5 text-muted">Mailing Address</label>
-            <div class="form-check">
+        <div class="row mt-3">
+            <label class="col-4 form-label-heading">Mailing Address</label>
+            <div>
                 <input type="checkbox">
                 <label>Same as Physical</label>
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.MailingAddress, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.MailingAddress)
+        <div class="row">
+            @Html.LabelFor(m => m.MailingAddress, new { @class = "col-3 form-label-indent" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.MailingAddress, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.MailingCity, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.MailingCity)
+        <div class="row">
+            @Html.LabelFor(m => m.MailingCity, new { @class = "col-3 form-label-indent" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.MailingCity, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.MailingState, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-7">
-                @Html.EditorFor(m => m.MailingState)
+        <div class="row">
+            @Html.LabelFor(m => m.MailingState, new { @class = "col-3 form-label-indent" })
+            <div class="col-5">
+                @Html.EditorFor(m => m.MailingState, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.MailingZipCode, new { @class = "col-md-3 pl-4" })
-            <div class="col-md-7">
-                @Html.EditorFor(m => m.MailingZipCode)
+        <div class="row">
+            @Html.LabelFor(m => m.MailingZipCode, new { @class = "col-3 form-label-indent" })
+            <div class="col-5">
+                @Html.EditorFor(m => m.MailingZipCode, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="form-group row pt-3 mb-1">
-            @Html.LabelFor(m => m.TIN, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.TIN, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row mt-4 mb-2">
+            @Html.LabelFor(m => m.TIN, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.TIN, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.TIN, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.TimeZone, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.TimeZone, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.TimeZone, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.TimeZone, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.Phone, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.Fax, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.Fax, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.Fax, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.Fax, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.Fax, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.Website, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.Website, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.Website, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.Website, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
     </div> @* First column end *@
 
-    <div class="col-md-4">
+    <div class="col-4">
         @* Second column start *@
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.Institution, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.DropDownListFor(m => m.Institution, new SelectList(Model.InstitutionList), "", new { @class = "form-control form-control-sm" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.Institution, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.DropDownListFor(m => m.Institution, new SelectList(Model.InstitutionList), "", new { @class = "form-input" })
                 @Html.ValidationMessageFor(m => m.Institution, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.CODRate, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.CODRate, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-1">
+            @Html.LabelFor(m => m.CODRate, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.EditorFor(m => m.CODRate, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.RateNotes, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.TextAreaFor(m => m.RateNotes, 1, 1, new { @class = "form-control form-control-sm" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.RateNotes, new { @class = "col-3 form-label" })
+            <div class="col-8">
+                @Html.TextAreaFor(m => m.RateNotes, 1, 1, new { @class = "form-textarea" })
             </div>
         </div>
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.OwnerID, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.DropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control form-control-sm" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.OwnerID, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.DropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-input" })
                 @Html.ValidationMessageFor(m => m.OwnerID, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.AFPID, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.DropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control form-control-sm" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.AFPID, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.DropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-input" })
                 @Html.ValidationMessageFor(m => m.AFPID, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.DropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-control form-control-sm" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.DropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-input" })
                 @Html.ValidationMessageFor(m => m.BoardingManagerID, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="from-group row pt-1 mb-0">
-            @Html.LabelFor(m => m.SoftwareID, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.DropDownListFor(m => m.SoftwareID, new SelectList(Model.SoftwareList, "Value", "Text"), "", new { @class = "form-control form-control-sm" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.SoftwareID, new { @class = "col-3" })
+            <div class="col-8">
+                @Html.DropDownListFor(m => m.SoftwareID, new SelectList(Model.SoftwareList, "Value", "Text"), "", new { @class = "form-input" })
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <label class="col-4 form-label-heading">Lock Box</label>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(m => m.LockboxSystem, new { @class = "col-3 form-label-indent" })
+            <div class="col-8">
+                @Html.DropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", new { @class = "form-input" })
             </div>
         </div>
 
         <div class="row">
-            <label class="col-md-3 col-form-label-sm text-muted">Lock Box</label>
-        </div>
-
-        <div class="from-group row my-0">
-            @Html.LabelFor(m => m.LockboxSystem, new { @class = "col-md-3 col-form-label-sm pl-4" })
-            <div class="col-md-9">
-                @Html.DropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", new { @class = "form-control form-control-sm" })
-            </div>
-        </div>
-
-        <div class="from-group row my-0">
-            @Html.LabelFor(m => m.LockboxStatus, new { @class = "col-md-3 col-form-label-sm pl-4" })
-            <div class="col-md-9">
-                @Html.DropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), "", new { @class = "form-control form-control-sm" })
+            @Html.LabelFor(m => m.LockboxStatus, new { @class = "col-3 form-label-indent" })
+            <div class="col-8">
+                @Html.DropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), "", new { @class = "form-input" })
                 @Html.ValidationMessageFor(m => m.LockboxStatus, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="from-group row mt-4 mb-1">
-            @Html.LabelFor(m => m.NumberOfAssociations, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.NumberOfAssociations, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row mt-3 mb-1">
+            @Html.LabelFor(m => m.NumberOfAssociations, new { @class = "col-3" })
+            <div class="col-4">
+                @Html.EditorFor(m => m.NumberOfAssociations, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.NumberOfDoors, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.NumberOfDoors, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-1">
+            @Html.LabelFor(m => m.NumberOfDoors, new { @class = "col-3" })
+            <div class="col-4">
+                @Html.EditorFor(m => m.NumberOfDoors, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="from-group row mt-2 mb-1">
-            @Html.LabelFor(m => m.EstimatedDeposits, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.EstimatedDeposits, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row mt-3 mb-1">
+            @Html.LabelFor(m => m.EstimatedDeposits, new { @class = "col-3" })
+            <div class="col-6">
+                @Html.EditorFor(m => m.EstimatedDeposits, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="from-group row my-1">
-            @Html.LabelFor(m => m.ActualDeposits, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.ActualDeposits, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-1">
+            @Html.LabelFor(m => m.ActualDeposits, new { @class = "col-3" })
+            <div class="col-6">
+                @Html.EditorFor(m => m.ActualDeposits, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
     </div> @* Second column end *@
 
-    <div class="col-md-4"> @* Third column start *@
+    <div class="col-4"> @* Third column start *@
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.LockboxLiveDate, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-3" })
+            <div class="col-7">
+                @Html.EditorFor(m => m.LockboxLiveDate, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.LockboxCMCID, new { @class = "col-md-3 col-form-label-sm" })
-            <div class="col-md-9">
-                @Html.EditorFor(m => m.LockboxCMCID, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.LockboxCMCID, new { @class = "col-3" })
+            <div class="col-7">
+                @Html.EditorFor(m => m.LockboxCMCID, new { htmlAttributes = new { @class = "form-input" } })
                 @Html.ValidationMessageFor(m => m.LockboxCMCID, "", new { @class = "text-danger small" })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.HasCorporateAccounts, new { @class = "col-md-4 col-form-label-sm" })
-            <div class="col-md-1">
-                @Html.CheckBoxFor(m => m.HasCorporateAccounts, new { @class = "form-check-input" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.HasCorporateAccounts, new { @class = "col-3" })
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.HasCorporateAccounts)
             </div>
-            <div class="col-md-7">
-                @Html.EditorFor(m => m.CorporateAccounts, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
-            </div>
-        </div>
-
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.Strongroom, new { @class = "col-md-4 col-form-label-sm" })
-            <div class="col-md-8">
-                @Html.CheckBoxFor(m => m.Strongroom, new { @class = "form-check-input" })
+            <div class="col-6">
+                @Html.EditorFor(m => m.CorporateAccounts, new { htmlAttributes = new { @class = "form-input" } })
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.EStatements, new { @class = "col-md-4 col-form-label-sm" })
-            <div class="col-md-8">
-                @Html.CheckBoxFor(m => m.EStatements, new { @class = "form-check-input" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.Strongroom, new { @class = "col-3" })
+            <div class="col-7">
+                @Html.CheckBoxFor(m => m.Strongroom)
             </div>
         </div>
 
-        <div class="form-group row my-1">
-            @Html.LabelFor(m => m.FacsimileSignature, new { @class = "col-md-4 col-form-label-sm" })
-            <div class="col-md-8">
-                @Html.CheckBoxFor(m => m.FacsimileSignature, new { @class = "form-check-input" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.EStatements, new { @class = "col-3 form-label" })
+            <div class="col-7">
+                @Html.CheckBoxFor(m => m.EStatements)
             </div>
         </div>
 
-        <div class="form-group my-2">
-            <div>
-                @Html.LabelFor(m => m.Notes, new { @class = "col-form-label-sm" })
-                @Html.TextAreaFor(m => m.Notes, 14, 10, new { @class = "form-control form-control-sm full-width" })
+        <div class="row my-2">
+            @Html.LabelFor(m => m.FacsimileSignature, new { @class = "col-3" })
+            <div class="col-7">
+                @Html.CheckBoxFor(m => m.FacsimileSignature)
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-11">
+                @Html.LabelFor(m => m.Notes)
+                @Html.TextAreaFor(m => m.Notes, 10, 10, new { @class = "form-textarea" })
             </div>
         </div>
 

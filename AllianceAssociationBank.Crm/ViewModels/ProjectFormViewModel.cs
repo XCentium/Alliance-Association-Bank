@@ -130,6 +130,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Fax Sig")]
         public bool FacsimileSignature { get; set; }
 
+        [Display(Name = "NOTES")]
         public string Notes { get; set; }
 
         //public int? SelectedProjectId { get; set; }
