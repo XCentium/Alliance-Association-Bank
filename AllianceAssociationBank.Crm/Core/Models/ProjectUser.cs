@@ -10,7 +10,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         public int? ProjectID { get; set; }
 
         [StringLength(255)]
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         [StringLength(255)]
         public string Email { get; set; }
@@ -64,5 +64,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         public string Attachments { get; set; }
 
         public bool? AuthorizedToOpenClose { get; set; }
+
+        public virtual Project Project { get; set; }
     }
 }

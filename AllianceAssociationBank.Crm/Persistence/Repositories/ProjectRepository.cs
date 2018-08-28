@@ -1,12 +1,10 @@
 ﻿using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Persistence.Repositories
@@ -27,10 +25,11 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Project> GetProjectById(int id)
+        public async Task<Project> GetProjectByIdAsync(int id)
         {
             return await _context.Projects
                 .Where(p => p.ID == id)
+                .Include(p => p.Users)
                 .SingleOrDefaultAsync();
         }
 
@@ -46,7 +45,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<ProjectDto>> GetProjectsBySearchPhrase(string searchPhrase)
+        public async Task<IEnumerable<ProjectDto>> GetProjectsBySearchPhraseAsync(string searchPhrase)
         {
             return await _context.Projects
                 .OrderBy(p => p.ProjectName)
@@ -68,6 +67,18 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         //{
         //    _dbContext.Projects.Update(project);
         //}
+
+        public async Task<ProjectUser> GetProjectUserByIdAsync(int id)
+        {
+            return await _context.ProjectUsers
+                .Where(u => u.ID == id)
+                .SingleOrDefaultAsync();
+        }
+
+        public void AddProjectUser(ProjectUser user)
+        {
+            _context.ProjectUsers.Add(user);
+        }
 
         public async Task<bool> SaveAllAsync()
         {

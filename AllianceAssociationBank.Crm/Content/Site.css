@@ -10,12 +10,6 @@
     padding-right: 15px;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        width: 1280px;
-    }
-}
-
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -34,9 +28,9 @@ textarea {
     max-width: none;
 }
 
-.col-form-label-sm {
+/*.col-form-label-sm {
     padding-right: 5px;
-}
+}*/
 
 .smallnavbar {
     padding: 0px;
@@ -102,7 +96,9 @@ textarea {
 }
 
 .form-input {
-    border: 1px solid #ced4da;
+    border-color: #ced4da;
+    border-style: solid;
+    border-width: 1px;
     color: #495057;
     font-size: 15px;
     height: 25px;
@@ -113,7 +109,9 @@ textarea {
 }
 
 .form-textarea {
-    border: 1px solid #ced4da;
+    border-color: #ced4da;
+    border-style: solid;
+    border-width: 1px;
     color: #495057;
     font-size: 15px;
     max-width: none;
@@ -146,4 +144,22 @@ textarea {
     right: 0;
     top: 0;
     z-index: 98;
+}
+
+/* Bootstrap overrides */
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: none;
+        width: 1280px;
+    }
+}
+
+.modal-backdrop {
+    background-color: #ffffff;
+}
+
+.modal-backdrop.show {
+    filter: alpha(opacity=85);
+    opacity: 0.85;
 }

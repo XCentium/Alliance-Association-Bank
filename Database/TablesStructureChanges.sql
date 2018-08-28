@@ -155,7 +155,7 @@ exec sp_rename 'Software.Migrating To', 'MigratingTo', 'COLUMN';
 
 -- Users table RENAME statements
 exec sp_rename 'Users.UserID', 'ID', 'COLUMN';
-exec sp_rename 'Users.Name', 'UserName', 'COLUMN';
+--exec sp_rename 'Users.Name', 'UserName', 'COLUMN'; -- this not needed
 exec sp_rename 'Users.SFTP', 'Sftp', 'COLUMN';
 exec sp_rename 'Users.Lockbox Web', 'LockboxWeb', 'COLUMN';
 exec sp_rename 'Users.E Deposit', 'EDeposit', 'COLUMN';

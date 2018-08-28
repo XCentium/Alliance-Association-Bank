@@ -31,12 +31,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             _softwares = new SoftwareRepository(context);
         }
 
-        //[HttpPost]
-        //public ActionResult ChangeSelection(int id = 0)
-        //{
-        //    return RedirectToAction(nameof(this.Edit), new { id });
-        //}
-
         public async Task<ActionResult> Create()
         {
             var model = new ProjectFormViewModel();
@@ -80,7 +74,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
-                var project = await _repository.GetProjectById(id);
+                var project = await _repository.GetProjectByIdAsync(id);
 
                 if (project == null)
                 {
@@ -114,8 +108,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return View("ProjectForm", model);
                 }
 
-                var project = await _repository.GetProjectById(model.ID);
-
+                var project = await _repository.GetProjectByIdAsync(model.ID);
                 if (project == null)
                 {
                     // TODO: need better error handeling
@@ -123,8 +116,8 @@ namespace AllianceAssociationBank.Crm.Controllers
                 }
 
                 Mapper.Map(model, project);
-
                 await _repository.SaveAllAsync();
+
                 return RedirectToAction(nameof(this.Edit), new { id = model.ID });
 
                 // TODO: if nothing actually changes, SaveAllAsync will return false

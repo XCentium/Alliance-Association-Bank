@@ -2,6 +2,7 @@
 using AllianceAssociationBank.Crm.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -16,10 +17,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public int ID { get; set; }
 
         [Required]
-        [Display(Name = "DBA")]
+        [Display(Name = "Legal")]
         public string ProjectName { get; set; }
 
         public string DBA { get; set; }
+
+        [Display(Name = "Other")]
+        public string OtherName { get; set; } // TODO: need to map this to database
 
         [Required]
         [Display(Name = "Street")]
@@ -59,6 +63,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Phone]
         public string Phone { get; set; }
 
+        [Phone]
         public string Fax { get; set; }
 
         public string Website { get; set; }
@@ -133,7 +138,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "NOTES")]
         public string Notes { get; set; }
 
-        //public int? SelectedProjectId { get; set; }
         public IEnumerable<SelectListItem> ProjectList { get; set; }
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
         public IEnumerable<SelectListItem> SoftwareList { get; set; }
@@ -141,12 +145,21 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public IEnumerable<string> LockboxSystemList { get; set; }
         public IEnumerable<string> LockboxStatusList { get; set; }
 
+        // Users Tab
+        public IList<UserFormViewModel> Users { get; set; }
+
+
         public string CreateUpdateAction
         {
             get
             {
                 return (ID != 0) ? "Update" : "Create"; // TODO: need cleaner way to do this
             }
+        }
+
+        public ProjectFormViewModel()
+        {
+            Users = new List<UserFormViewModel>();
         }
     }
 }

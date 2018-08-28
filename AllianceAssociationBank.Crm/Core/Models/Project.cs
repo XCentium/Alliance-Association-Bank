@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AllianceAssociationBank.Crm.Core.Models
@@ -14,10 +15,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
         public string Institution { get; set; }
 
         public int? OwnerID { get; set; }
-        //public virtual Employee Owner { get; set; }
 
         public int? AFPID { get; set; }
-        //public virtual Employee AFP { get; set; }
 
         public int? BoardingManagerID { get; set; }
 
@@ -316,5 +315,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         public bool? ReformatByAssoc { get; set; }
 
         public int? MigratingToSoftwareID { get; set; }
+
+        public virtual ICollection<ProjectUser> Users { get; set; }
     }
 }

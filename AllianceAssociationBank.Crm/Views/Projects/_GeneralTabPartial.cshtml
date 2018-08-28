@@ -1,6 +1,6 @@
 ﻿@model ProjectFormViewModel
 
-<div class="row my-2">
+@*<div class="row my-2">
     <div class="col-9">
 
         <div class="row my-1">
@@ -26,11 +26,11 @@
         </button>
 
     </div>
-</div>
+</div>*@
 
 <div class="row">
+    @*First column start*@
     <div class="col-4 pl-4">
-        @*First column start*@
 
         <div class="row mt-1">
             <label class="col-5 form-label-heading">Physical Address</label>
@@ -142,10 +142,11 @@
             </div>
         </div>
 
-    </div> @* First column end *@
+    </div>
+    @* First column end *@
 
+    @* Second column start *@
     <div class="col-4">
-        @* Second column start *@
 
         <div class="row my-2">
             @Html.LabelFor(m => m.Institution, new { @class = "col-3" })
@@ -247,9 +248,11 @@
             </div>
         </div>
 
-    </div> @* Second column end *@
+    </div>
+    @* Second column end *@
 
-    <div class="col-4"> @* Third column start *@
+    @* Third column start *@
+    <div class="col-4">
 
         <div class="row my-2">
             @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-3" })
@@ -304,5 +307,6 @@
             </div>
         </div>
 
-    </div> @* Third column end *@
+    </div>
+    @* Third column end *@
 </div>

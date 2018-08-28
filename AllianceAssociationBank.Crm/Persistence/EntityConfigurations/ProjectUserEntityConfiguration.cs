@@ -29,6 +29,12 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
 
             Property(e => e.Attachments)
                 .IsUnicode(false);
+
+            HasOptional(u => u.Project)
+                .WithMany(p => p.Users)
+                .HasForeignKey(u => u.ProjectID);
+
+
         }
     }
 }

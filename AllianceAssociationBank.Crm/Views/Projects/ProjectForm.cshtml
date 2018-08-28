@@ -5,85 +5,21 @@
 
 <div class="row">
 
-    @*<div class="col-md-4 offset-md-7">
-        <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / CMC ID" autocomplete="off">
-    </div>
-    <div>
-        <img src="~/Content/Images/search-img.png" />
-    </div>*@
-</div>
+    @Html.Partial("_SideMenuPartial")
 
-<div class="row">
-    <nav class="navbar p-0">
-
-        <button class="btn-image p-2" id="nav-side-menu-toggle" type="button" data-toggle="slide-collapse-right" data-target="#nav-side-menu" aria-controls="nav-side-menu" aria-expanded="false" aria-label="Side Menu">
-            <img class="icon-image" src="~/Content/Images/toggle-img.png" />
-        </button>
-
-        <div class="collapse navbar-collapse popup-control" id="nav-side-menu">
-            <div>
-                @Html.ActionLink("Create New Form", "Create", "Projects", null, new { @class = "btn btn-primary btn-sm" })
-            </div>
-
-            <span class="text-muted">Reports</span>
-
-            <div class="nav-item px-3 py-1 border">
-                @Html.ActionLink("Boarding", "ViewReport", "Reports", new { name = "BoardingReport" }, null)
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">Completed & Hold</a>
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">Software Transition</a>
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">CMC by ID</a>
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">CMC by Name</a>
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">CD Emails</a>
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">Coupon</a>
-            </div>
-
-            <span class="text-muted">Exports</span>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">CMC List</a>
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">CMC Useful Info</a>
-            </div>
-            <div class="nav-item px-3 py-1 border">
-                <a href="#">All Info</a>
-            </div>
-
-            <div class="nav-item px-3 py-1">
-                <a href="#">Log Out</a>
-            </div>
-        </div>
-
-    </nav>
     <nav class="col-11">
         <div class="nav nav-tabs small" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">General</a>
-            <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users" role="tab" aria-controls="nav-users" aria-selected="true">Users</a>
-            <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding" role="tab" aria-controls="nav-boarding" aria-selected="false">Boarding</a>
-            <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">Software</a>
-            <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox" role="tab" aria-controls="nav-lockbox" aria-selected="false">Lockbox</a>
+            <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general-content" role="tab" aria-controls="nav-general-content" aria-selected="true">GENERAL</a>
+            <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="true">USERS</a>
+            <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
+            <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">SOFTWARE</a>
+            <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox" role="tab" aria-controls="nav-lockbox" aria-selected="false">LOCKBOX</a>
             <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach" role="tab" aria-controls="nav-ach" aria-selected="false">ACH</a>
-            <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">System</a>
-            <a class="nav-item nav-link" id="nav-iti-tab" data-toggle="tab" href="#nav-iti" role="tab" aria-controls="nav-iti" aria-selected="false">ITI/Dir</a>
-            <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">Accounts</a>
-            <a class="nav-item nav-link" id="nav-audit-tab" data-toggle="tab" href="#nav-audit" role="tab" aria-controls="nav-audit" aria-selected="false">Audit</a>
-            <a class="nav-item nav-link" id="nav-timeline-tab" data-toggle="tab" href="#nav-timeline" role="tab" aria-controls="nav-timeline" aria-selected="false">Timeline</a>
-            <a class="nav-item nav-link" id="nav-narrative-tab" data-toggle="tab" href="#nav-narrative" role="tab" aria-controls="nav-narrative" aria-selected="false">Narrative</a>
-            <a class="nav-item nav-link" id="nav-hoa-tab" data-toggle="tab" href="#nav-hoa" role="tab" aria-controls="nav-hoa" aria-selected="false">HOA DDAs</a>
+            <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">SYSTEM</a>
+            <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">ACCOUNTS / HOA DDAS</a>
         </div>
     </nav>
-   
+
     <nav class="navbar p-2">
         <button class="btn-image" id="search-box-toggle" type="button" data-toggle="slide-collapse-left" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
             <img src="~/Content/Images/search-img.png" />
@@ -96,39 +32,87 @@
 </div>
 
 
-@using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { role = "form" } ))
+@using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { role = "form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(m => m.ID)
 
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
+    <div class="row mb-3">
+        <div class="col-12 text-right">
+            <span class="save-indicator">UNSAVED</span>
+            <button class="btn-image" type="submit">
+                <img class="icon-image" src="~/Content/Images/save-img.png" />
+            </button>
+            <button class="btn-image" type="button">
+                <img class="icon-image" src="~/Content/Images/print-img.png" />
+            </button>
+            <button class="btn-image" type="reset">
+                <img class="icon-image" src="~/Content/Images/close-img.png" />
+            </button>
+        </div>
+    </div>
+
+    <div class="row my-2 pb-1 border-bottom">
+        <div class="col-4">
+            <div class="row">
+                @Html.LabelFor(m => m.ProjectName, new { @class = "col-2" })
+                <div class="col-10">
+                    @Html.EditorFor(m => m.ProjectName, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "text-danger small" })
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                @Html.LabelFor(m => m.DBA, new { @class = "col-2" })
+                <div class="col-10">
+                    @Html.EditorFor(m => m.DBA, new { htmlAttributes = new { @class = "form-input" } })
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                @Html.LabelFor(m => m.OtherName, new { @class = "col-2" })
+                <div class="col-10">
+                    @Html.EditorFor(m => m.OtherName, new { htmlAttributes = new { @class = "form-input" } })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content" id="nav-tabs-content">
+        <div class="tab-pane fade show active" id="nav-general-content" role="tabpanel" aria-labelledby="nav-general-tab">
             @Html.Partial("_GeneralTabPartial")
         </div>
-        <div class="tab-pane fade" id="nav-users" role="tabpanel" aria-labelledby="nav-users-tab">
+        <div class="tab-pane fade" id="nav-users-content" role="tabpanel" aria-labelledby="nav-users-tab">
+            @Html.Partial("_UsersTabPartial")
         </div>
-        <div class="tab-pane fade" id="nav-boarding" role="tabpanel" aria-labelledby="nav-boarding-tab">
-        </div>
-        <div class="tab-pane fade" id="nav-software" role="tabpanel" aria-labelledby="nav-software-tab">
+        <div class="tab-pane fade" id="nav-boarding-content" role="tabpanel" aria-labelledby="nav-boarding-tab">
         </div>
     </div>
 }
+
+@* div to render user form modal *@
+<div id="user-form-location"></div>
+
 
 <div class="screen-overlay"></div>
 
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/ajaxhelper")
 
     <script>
+
         $(document).ready(function () {
 
             // projects autocomplete search
             $("#project-search").autocomplete({
                 source: function (request, response) {
                     $.ajax({
-                        url: "/api/projects",
+                        url: "/api/Projects",
                         method: "GET",
                         dataType: "json",
                         data: {
@@ -147,6 +131,7 @@
                 }
             });
 
+
             $('[data-toggle="slide-collapse-right"]').on('click', function () {
                 $navMenuCont = $($(this).data('target'));
                 $navMenuCont.show("slide");
@@ -160,6 +145,7 @@
 
                 $(".screen-overlay").fadeIn(500);
             });
+
             $(".screen-overlay").click(function (event) {
                 $("#nav-side-menu").hide('slide');
                 $("#search-widget").hide('slide', { direction: "right" });
@@ -167,6 +153,58 @@
                 $(".screen-overlay").fadeOut(500);
             });
 
+            //$("#btn-add-project-user").click(function (e) {
+            //$("body").on("click", "#btn-add-project-user", function (e) {
+            //    e.preventDefault();
+
+            //    var url = "/ProjectUsers/Create";
+            //    $.get(url)
+            //        .done(function (responseData) {
+            //            $("#user-form-location").html(responseData);
+            //            $("#user-form-modal").modal("show")
+            //        })
+            //        .fail(function () {
+            //            alert("An error occurred while processing your request");
+            //        });
+            //});
+
+            //$(".btn-edit-project-user").click(function (e) {
+            //$("body").on("click", ".btn-edit-project-user", function (e) {
+            //    e.preventDefault();
+            //    var userId = $(this).data("userid");
+
+            //    var url = "/ProjectUsers/Edit";
+            //    $.get(url, { id: userId })
+            //        .done(function (responseData) {
+            //            $("#user-form-location").html(responseData);
+            //            $("#user-form-modal").modal("show")
+            //        })
+            //        .fail(function () {
+            //            alert("An error occurred while processing your request");
+            //        });
+            //});
+
         });
+
+        function hideUserFormModal () {
+            $("#user-form-modal").modal("hide");
+        };
+
+        function showUserFormModal() {
+            $("#user-form-modal").modal("show");
+
+            validatorParseForm($("#user-form-element"));
+        };
+
+        function validatorParseForm(form) {
+            $.validator.unobtrusive.parse(form);
+        };
+
+        // TOOD: need more efficient solution
+        // parsing the unobtrusive attributes when we get content via ajax
+        //$(document).ajaxComplete(function () {
+        //    $.validator.unobtrusive.parse(document);
+        //});
+
     </script>
 }
