@@ -1,0 +1,66 @@
+﻿@model ProjectFormViewModel
+
+<div class="col-1 offset-11 p-0">
+    @Ajax.ActionLink("Add User", "Create", "ProjectUsers", routeValues: new { projectId = Model.ID }, ajaxOptions: new AjaxOptions
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "user-form-location",
+        OnSuccess = "showUserFormModal",
+        OnFailure = "handleAjaxError"
+    }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+</div>
+
+<div id="project-users-list">
+    @Html.Action("Index", "ProjectUsers", routeValues: new { projectId = Model.ID })
+</div>
+
+@*<table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Title</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Act</th>
+                <th scope="col">Adm</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => user.Name, new { htmlAttributes = new { @class = "form-input" } })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => user.Title, new { htmlAttributes = new { @class = "form-input" } })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => user.Phone, new { htmlAttributes = new { @class = "form-input" } })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => user.Email, new { htmlAttributes = new { @class = "form-input" } })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => user.Active)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => user.Admin)
+                    </td>
+                    <td>
+                        @Ajax.ActionLink("Edit", "Edit", "ProjectUsers", routeValues: new { id = user.ID }, ajaxOptions: new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "user-form-location",
+                            OnSuccess = "showUserFormModal",
+                            OnFailure = "handleAjaxError"
+                        }, htmlAttributes: new { @class = "btn btn-sm btn-light btn-edit-project-user" })
+                        <button class="btn btn-sm btn-secondary" type="button">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

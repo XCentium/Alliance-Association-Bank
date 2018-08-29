@@ -303,6 +303,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\aab-logo.png" />
+    <Content Include="Content\Images\btn-add-img.png" />
+    <Content Include="Content\Images\btn-delete-icon.png" />
+    <Content Include="Content\Images\btn-edit-icon.png" />
     <Content Include="Content\Images\save-img.png" />
     <Content Include="Content\Images\search-img.png" />
     <Content Include="Content\Images\toggle-img.png" />
@@ -471,9 +474,11 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Projects\_GeneralTabPartial.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
-    <Content Include="Views\Shared\_UsersTabPartial.cshtml" />
-    <Content Include="Views\Shared\_ProjectUserFormPartial.cshtml" />
+    <Content Include="Views\Projects\_UsersTabPartial.cshtml" />
+    <Content Include="Views\ProjectUsers\_UserFormPartial.cshtml" />
     <Content Include="Views\Projects\_SideMenuPartial.cshtml" />
+    <Content Include="Views\ProjectUsers\_UsersListPartial.cshtml" />
+    <Content Include="Views\Projects\_BoardingTabPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

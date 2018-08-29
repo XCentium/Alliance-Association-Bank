@@ -29,7 +29,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         {
             return await _context.Projects
                 .Where(p => p.ID == id)
-                .Include(p => p.Users)
+                //.Include(p => p.Users)
                 .SingleOrDefaultAsync();
         }
 
@@ -68,16 +68,27 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         //    _dbContext.Projects.Update(project);
         //}
 
-        public async Task<ProjectUser> GetProjectUserByIdAsync(int id)
+        public IEnumerable<ProjectUser> GetUsers(int projectId)
+        {
+            return _context.ProjectUsers
+                .Where(u => u.ProjectID == projectId);
+        }
+
+        public async Task<ProjectUser> GetUserByIdAsync(int id)
         {
             return await _context.ProjectUsers
                 .Where(u => u.ID == id)
                 .SingleOrDefaultAsync();
         }
 
-        public void AddProjectUser(ProjectUser user)
+        public void AddUser(ProjectUser user)
         {
             _context.ProjectUsers.Add(user);
+        }
+
+        public void RemoveUser(ProjectUser user)
+        {
+            _context.ProjectUsers.Remove(user);
         }
 
         public async Task<bool> SaveAllAsync()

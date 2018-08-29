@@ -130,7 +130,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool/*?*/ LockboxWanted { get; set; }
 
-        public bool? ValidationFileReceived { get; set; }
+        public bool/*?*/ ValidationFileReceived { get; set; }
 
         public bool? ValidationFileAutomaticRegular { get; set; }
 
@@ -140,17 +140,17 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string CouponPrintingNotes { get; set; }
 
-        public bool? RemitanceFileTested { get; set; }
+        public bool/*?*/ RemitanceFileTested { get; set; }
 
-        public bool? RemitanceFileLife { get; set; }
+        public bool/*?*/ RemitanceFileLife { get; set; }
 
         public bool/*?*/ LockboxRequestSent { get; set; }
 
-        public bool? POBoxAssigned { get; set; }
+        public bool/*?*/ POBoxAssigned { get; set; }
 
         public bool/*?*/ ScannerWanted { get; set; }
 
-        public bool? MMOnCheckScanner { get; set; }
+        public bool/*?*/ MMOnCheckScanner { get; set; }
 
         public bool? ScannerSent { get; set; }
 

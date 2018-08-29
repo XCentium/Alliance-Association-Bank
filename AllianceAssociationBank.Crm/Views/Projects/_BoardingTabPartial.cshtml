@@ -1,0 +1,104 @@
+﻿@model ProjectFormViewModel
+
+<div class="row">
+
+    @* First column beginning *@
+    <div class="col-4">
+
+        <div class="row">
+            @Html.LabelFor(m => m.Status, new { @class = "col-3" })
+            <div class="col-7">
+                @Html.EditorFor(m => m.Status, new { htmlAttributes = new { @class = "form-input" } })
+            </div>
+        </div>
+
+    </div>
+    @* First column end *@
+
+
+    @* Second column beginning *@
+    <div class="col-4">
+
+        <div class="row">
+            <label class="col-12 form-label-heading">Lockbox</label>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.LockboxWanted)
+            </div>
+            @Html.LabelFor(m => m.LockboxWanted, new { @class = "col-11" })
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.POBoxAssigned)
+            </div>
+            @Html.LabelFor(m => m.POBoxAssigned, new { @class = "col-11" })
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.ValidationFileReceived)
+            </div>
+            @Html.LabelFor(m => m.ValidationFileReceived, new { @class = "col-11" })
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.LockboxRequestSent)
+            </div>
+            @Html.LabelFor(m => m.LockboxRequestSent, new { @class = "col-11" })
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.RemitanceFileTested)
+            </div>
+            @Html.LabelFor(m => m.RemitanceFileTested, new { @class = "col-11" })
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.RemitanceFileLife)
+            </div>
+            @Html.LabelFor(m => m.RemitanceFileLife, new { @class = "col-11" })
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.CouponsOrdered)
+            </div>
+            @Html.LabelFor(m => m.CouponsOrdered, new { @class = "col-11" })
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Html.CheckBoxFor(m => m.CouponProofReviewed)
+            </div>
+            @Html.LabelFor(m => m.CouponProofReviewed, new { @class = "col-11" })
+        </div>
+
+    </div>
+    @* Second column end *@
+
+    @* Third column beginning *@
+    <div class="col-4">
+
+        <div class="row">
+            <div class="col-11">
+                @Html.LabelFor(m => m.BoardingNextSteps)
+                @Html.TextAreaFor(m => m.BoardingNextSteps, 5, 10, new { @class = "form-textarea" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                @Html.LabelFor(m => m.BoardingNotes)
+                @Html.TextAreaFor(m => m.BoardingNotes, 5, 10, new { @class = "form-textarea" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-11">
+                @Html.LabelFor(m => m.Narrative)
+                @Html.TextAreaFor(m => m.Narrative, 5, 10, new { @class = "form-textarea" })
+            </div>
+        </div>
+
+    </div>
+    @* Third column end *@
+
+</div>

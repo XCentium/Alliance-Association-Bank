@@ -34,10 +34,11 @@ namespace AllianceAssociationBank.Crm.Controllers
             _queries = new ReportQueries(new CrmApplicationDbContext());
             _reports = new ReportGenerationService(_queries);
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
+
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public async Task<ActionResult> ViewReport(string name)
         {
@@ -56,19 +57,19 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        public async Task<ActionResult> BoardingReport(int? page)
-        {
-            var resultSet = await _queries.GetBoardingReportDataSetAsync();
+        //public async Task<ActionResult> BoardingReport(int? page)
+        //{
+        //    var resultSet = await _queries.GetBoardingReportDataSetAsync();
 
-            var pagedResults = Mapper.Map<IEnumerable<ProjectReportRecordViewModel>>(resultSet)
-                .ToPagedList(page ?? 1, _pageSize);
+        //    var pagedResults = Mapper.Map<IEnumerable<ProjectReportRecordViewModel>>(resultSet)
+        //        .ToPagedList(page ?? 1, _pageSize);
 
-            var model = new ReportViewModel()
-            {
-                ResultSet = pagedResults
-            };
-            return View(model);
-        }
+        //    var model = new ReportViewModel()
+        //    {
+        //        ResultSet = pagedResults
+        //    };
+        //    return View(model);
+        //}
 
         public async Task<ActionResult> ExportReportAsCsv(string report)
         {

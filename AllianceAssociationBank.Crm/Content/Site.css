@@ -58,7 +58,7 @@ textarea {
 }
 
 #search-widget {
-    border: 1px solid #808080;
+    border: 1px solid #ced4da;
     left: -395px;
     /*overflow: auto;*/
     padding: 7px 5px 7px 5px;
@@ -72,13 +72,39 @@ textarea {
     width: 25px;
 }
 
-.btn-image {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
+.btn-add-img {
+    background-image: url('Images/btn-add-img.png');
+    background-position: right;
+    background-size: contain;
+    height: 18px;
+    margin: 10px 5px 0px 5px;
+    width: 18px;
 }
 
-.btn-image:focus {
+.btn-edit-img {
+    background-image: url('Images/btn-edit-icon.png');
+    height: 20px;
+    margin: 5px;
+    width: 20px;
+}
+
+.btn-delete-img {
+    background-image: url('Images/btn-delete-icon.png');
+    height: 20px;
+    margin: 5px 5px 6px 5px;
+    width: 20px;
+}
+
+.btn-img {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-img:focus {
     outline: none;
 }
 
@@ -162,4 +188,9 @@ textarea {
 .modal-backdrop.show {
     filter: alpha(opacity=85);
     opacity: 0.85;
+}
+
+.modal-lg {
+    max-width: none;
+    width: 1020px;
 }

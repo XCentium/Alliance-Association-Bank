@@ -117,6 +117,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string LockboxStatus { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Live")]
         public DateTime? LockboxLiveDate { get; set; }
 
@@ -145,8 +146,87 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public IEnumerable<string> LockboxSystemList { get; set; }
         public IEnumerable<string> LockboxStatusList { get; set; }
 
-        // Users Tab
-        public IList<UserFormViewModel> Users { get; set; }
+        // Boarding Tab
+        public string Status { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Date")]
+        public DateTime? StartDate { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "End Date")]
+        public DateTime? EndDate { get; set; }
+
+        [Display(Name = "Enroll. Form Rec'd")]
+        public bool EnrollmentFormReceived { get; set; }
+
+        [Display(Name = "Master Sig Card Rec'd")]
+        public bool MasterSigCardReceived { get; set; }
+
+        [Display(Name = "Brding Rcp / Welcome Email Sent")]
+        public bool WelcomeEmailSent { get; set; }
+
+        [Display(Name = "Assoc. List Rec'd")]
+        public bool AssociationListReceived { get; set; }
+
+        [Display(Name = "Assoc. Accounts Assigned")]
+        public bool AssociationAccountsAssigned { get; set; }
+
+        [Display(Name = "Assoc. Sig. Cards Sent")]
+        public bool AssociationSignatureCardsSent { get; set; }
+
+        [Display(Name = "Set-up Completed")]
+        public bool OnlineBankingSetup { get; set; }
+
+        [Display(Name = "Trained")]
+        public bool OnlineBankingTrained { get; set; }
+
+        [Display(Name = "Limit, Spec Submitted")]
+        public bool ACHLimitAndSpecSubmitted { get; set; }
+
+        [Display(Name = "Successfully Submitted")]
+        public bool ACHSuccessfulSubmitted { get; set; }
+
+        [Display(Name = "Wanted")]
+        public bool LockboxWanted { get; set; }
+
+        [Display(Name = "PO Box Assigned")]
+        public bool POBoxAssigned { get; set; }
+
+        [Display(Name = "Validation File Rec'd")]
+        public bool ValidationFileReceived { get; set; }
+
+        [Display(Name = "Lockbox Request Sent")]
+        public bool LockboxRequestSent { get; set; }
+
+        [Display(Name = "Remittance File Tested")]
+        public bool RemitanceFileTested { get; set; }
+
+        [Display(Name = "Remittance File Live")]
+        public bool RemitanceFileLife { get; set; }
+
+        [Display(Name = "Coupons Ordered")]
+        public bool CouponsOrdered { get; set; }
+
+        [Display(Name = "Coupon Proof Reviewed")]
+        public bool CouponProofReviewed { get; set; }
+
+        [Display(Name = "Wanted")]
+        public bool ScannerWanted { get; set; }
+
+        [Display(Name = "MM on Check Scanner")]
+        public bool MMOnCheckScanner { get; set; }
+
+        [Display(Name = "BOARDING NEXT STEPS")]
+        public string BoardingNextSteps { get; set; }
+
+        [Display(Name = "TIMELINE")]
+        public string BoardingNotes { get; set; }
+
+        [Display(Name = "NARRATIVE")]
+        public string Narrative { get; set; }
 
 
         public string CreateUpdateAction
@@ -157,9 +237,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
-        public ProjectFormViewModel()
-        {
-            Users = new List<UserFormViewModel>();
-        }
+        // ProjectFormViewModel()
+        //{
+        //    Users = new List<UserFormViewModel>();
+        //}
     }
 }

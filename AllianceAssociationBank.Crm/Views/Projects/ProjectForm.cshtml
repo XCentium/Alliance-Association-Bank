@@ -21,7 +21,7 @@
     </nav>
 
     <nav class="navbar p-2">
-        <button class="btn-image" id="search-box-toggle" type="button" data-toggle="slide-collapse-left" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
+        <button class="btn-img" id="search-box-toggle" type="button" data-toggle="slide-collapse-left" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
             <img src="~/Content/Images/search-img.png" />
         </button>
         <div class="collapse navbar-collapse popup-control" id="search-widget">
@@ -41,13 +41,13 @@
     <div class="row mb-3">
         <div class="col-12 text-right">
             <span class="save-indicator">UNSAVED</span>
-            <button class="btn-image" type="submit">
+            <button class="btn-img" type="submit">
                 <img class="icon-image" src="~/Content/Images/save-img.png" />
             </button>
-            <button class="btn-image" type="button">
+            <button class="btn-img" type="button">
                 <img class="icon-image" src="~/Content/Images/print-img.png" />
             </button>
-            <button class="btn-image" type="reset">
+            <button class="btn-img" type="reset">
                 <img class="icon-image" src="~/Content/Images/close-img.png" />
             </button>
         </div>
@@ -89,6 +89,7 @@
             @Html.Partial("_UsersTabPartial")
         </div>
         <div class="tab-pane fade" id="nav-boarding-content" role="tabpanel" aria-labelledby="nav-boarding-tab">
+            @Html.Partial("_BoardingTabPartial")
         </div>
     </div>
 }
@@ -120,6 +121,9 @@
                         },
                         success: function (data) {
                             response(data);
+                        },
+                        error: function () {
+                            handleAjaxError();
                         }
                     });
                 },
@@ -186,18 +190,22 @@
 
         });
 
-        function hideUserFormModal () {
-            $("#user-form-modal").modal("hide");
-        };
-
-        function showUserFormModal() {
+        function showUserFormModal () {
             $("#user-form-modal").modal("show");
 
             validatorParseForm($("#user-form-element"));
         };
 
-        function validatorParseForm(form) {
+        function hideUserFormModal () {
+            $("#user-form-modal").modal("hide");
+        };
+
+        function validatorParseForm (form) {
             $.validator.unobtrusive.parse(form);
+        };
+
+        function handleAjaxError () {
+            alert("An error occurred while processing your request");
         };
 
         // TOOD: need more efficient solution

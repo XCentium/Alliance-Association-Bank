@@ -13,8 +13,10 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<ProjectDto>> GetProjectsBySearchPhraseAsync(string searchPhrase);
         Task<Project> GetProjectByIdAsync(int id);
         void AddProject(Project project);
-        Task<ProjectUser> GetProjectUserByIdAsync(int id);
-        void AddProjectUser(ProjectUser user);
+        IEnumerable<ProjectUser> GetUsers(int projectId);
+        Task<ProjectUser> GetUserByIdAsync(int id);
+        void AddUser(ProjectUser user);
+        void RemoveUser(ProjectUser user);
         Task<bool> SaveAllAsync();
     }
 }
