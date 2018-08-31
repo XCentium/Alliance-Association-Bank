@@ -20,7 +20,6 @@ namespace AllianceAssociationBank.Crm
             settings.Formatting = Formatting.Indented;
 
 
-
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

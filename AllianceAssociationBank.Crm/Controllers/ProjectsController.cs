@@ -19,16 +19,19 @@ namespace AllianceAssociationBank.Crm.Controllers
     //[ValidateInput(false)]
     public class ProjectsController : Controller
     {
-        private IProjectRepository _repository;
+        private IProjectRepository _projects;
         private IEmployeeRepository _employees;
         private ISoftwareRepository _softwares;
 
-        public ProjectsController ()
+        public ProjectsController (IProjectRepository projects, IEmployeeRepository employees, ISoftwareRepository softwares)
         {
-            var context = new CrmApplicationDbContext();
-            _repository = new ProjectRepository(context);
-            _employees = new EmployeeRepository(context);
-            _softwares = new SoftwareRepository(context);
+            _projects = projects;
+            _employees = employees;
+            _softwares = softwares;
+            //var context = new CrmApplicationDbContext();
+            //_repository = new ProjectRepository(context);
+            //_employees = new EmployeeRepository(context);
+            // _softwares = new SoftwareRepository(context);
         }
 
         public async Task<ActionResult> Create()
@@ -52,9 +55,9 @@ namespace AllianceAssociationBank.Crm.Controllers
                 }
 
                 var project = Mapper.Map<Project>(model);
-                _repository.AddProject(project);
+                _projects.AddProject(project);
 
-                if (await _repository.SaveAllAsync())
+                if (await _projects.SaveAllAsync())
                 {
                     return RedirectToAction(nameof(this.Edit), new { id = project.ID });
                 }
@@ -74,7 +77,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
-                var project = await _repository.GetProjectByIdAsync(id);
+                var project = await _projects.GetProjectByIdAsync(id);
 
                 if (project == null)
                 {
@@ -108,7 +111,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return View("ProjectForm", model);
                 }
 
-                var project = await _repository.GetProjectByIdAsync(model.ID);
+                var project = await _projects.GetProjectByIdAsync(model.ID);
                 if (project == null)
                 {
                     // TODO: need better error handeling
@@ -116,7 +119,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 }
 
                 Mapper.Map(model, project);
-                await _repository.SaveAllAsync();
+                await _projects.SaveAllAsync();
 
                 return RedirectToAction(nameof(this.Edit), new { id = model.ID });
 
@@ -139,7 +142,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         private async Task PopulateDropDownLists(ProjectFormViewModel model)
         {
-            model.ProjectList = await _repository.GetProjectListAsync();
+            model.ProjectList = await _projects.GetProjectListAsync();
             model.EmployeeList = await _employees.GetEmployeeListAsync();
             model.SoftwareList = await _softwares.GetSoftwareListAsync();
             model.InstitutionList = DropDownListHelper.InstitutionValues;
