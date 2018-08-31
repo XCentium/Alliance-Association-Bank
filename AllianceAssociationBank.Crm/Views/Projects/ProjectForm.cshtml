@@ -59,7 +59,7 @@
                 @Html.LabelFor(m => m.ProjectName, new { @class = "col-2" })
                 <div class="col-10">
                     @Html.EditorFor(m => m.ProjectName, new { htmlAttributes = new { @class = "form-input" } })
-                    @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "text-danger small" })
+                    @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-error-msg" })
                 </div>
             </div>
         </div>
@@ -68,6 +68,7 @@
                 @Html.LabelFor(m => m.DBA, new { @class = "col-2" })
                 <div class="col-10">
                     @Html.EditorFor(m => m.DBA, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(m => m.DBA, "", new { @class = "form-error-msg" })
                 </div>
             </div>
         </div>
@@ -76,6 +77,7 @@
                 @Html.LabelFor(m => m.OtherName, new { @class = "col-2" })
                 <div class="col-10">
                     @Html.EditorFor(m => m.OtherName, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.ValidationMessageFor(m => m.OtherName, "", new { @class = "form-error-msg" })
                 </div>
             </div>
         </div>
@@ -129,23 +131,23 @@
                 },
                 minLength: 2,
                 select: function (event, ui) {
+                    event.preventDefault();
                     this.value = ui.item.label;
                     location.href = "/Projects/Edit/" + ui.item.value;
-                    return false;
                 }
             });
 
 
             $('[data-toggle="slide-collapse-right"]').on('click', function () {
-                $navMenuCont = $($(this).data('target'));
-                $navMenuCont.show("slide");
+                $toggleTarget = $($(this).data('target'));
+                $toggleTarget.show("slide");
 
                 $(".screen-overlay").fadeIn(500);
             });
 
             $('[data-toggle="slide-collapse-left"]').on('click', function () {
-                $navMenuCont = $($(this).data('target'));
-                $navMenuCont.show("slide", { direction: "right" })
+                $toggleTarget = $($(this).data('target'));
+                $toggleTarget.show("slide", { direction: "right" })
 
                 $(".screen-overlay").fadeIn(500);
             });
@@ -155,6 +157,22 @@
                 $("#search-widget").hide('slide', { direction: "right" });
 
                 $(".screen-overlay").fadeOut(500);
+            });
+
+            $("input[name='user-filter-option']").change(function (e) {
+                var $radios = $(this);
+                var projectId = $radios.attr("data-projectId");
+                var filterValue = $radios.val();
+
+                var url = "/Projects/" + projectId + "/Users/Index";
+
+                $.get(url, { filter: filterValue })
+                    .done(function (responseData) {
+                        $("#project-users-list").html(responseData);
+                    })
+                    .fail(function () {
+                        handleAjaxError();
+                    });
             });
 
             //$("#btn-add-project-user").click(function (e) {

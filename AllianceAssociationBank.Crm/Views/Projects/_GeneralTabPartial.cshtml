@@ -12,7 +12,7 @@
             @Html.LabelFor(m => m.Address, new { @class = "col-3 form-label-indent" })
             <div class="col-8">
                 @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -20,7 +20,7 @@
             @Html.LabelFor(m => m.City, new { @class = "col-3 form-label-indent" })
             <div class="col-8">
                 @Html.EditorFor(m => m.City, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.City, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -28,7 +28,7 @@
             @Html.LabelFor(m => m.State, new { @class = "col-3 form-label-indent" })
             <div class="col-5">
                 @Html.EditorFor(m => m.State, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.State, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -36,7 +36,7 @@
             @Html.LabelFor(m => m.ZipCode, new { @class = "col-3 form-label-indent" })
             <div class="col-5">
                 @Html.EditorFor(m => m.ZipCode, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -52,6 +52,7 @@
             @Html.LabelFor(m => m.MailingAddress, new { @class = "col-3 form-label-indent" })
             <div class="col-8">
                 @Html.EditorFor(m => m.MailingAddress, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.MailingAddress, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -59,6 +60,7 @@
             @Html.LabelFor(m => m.MailingCity, new { @class = "col-3 form-label-indent" })
             <div class="col-8">
                 @Html.EditorFor(m => m.MailingCity, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.MailingCity, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -66,6 +68,7 @@
             @Html.LabelFor(m => m.MailingState, new { @class = "col-3 form-label-indent" })
             <div class="col-5">
                 @Html.EditorFor(m => m.MailingState, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.MailingState, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -73,6 +76,7 @@
             @Html.LabelFor(m => m.MailingZipCode, new { @class = "col-3 form-label-indent" })
             <div class="col-5">
                 @Html.EditorFor(m => m.MailingZipCode, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.MailingZipCode, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -80,7 +84,7 @@
             @Html.LabelFor(m => m.TIN, new { @class = "col-3" })
             <div class="col-8">
                 @Html.EditorFor(m => m.TIN, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.TIN, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.TIN, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -88,6 +92,7 @@
             @Html.LabelFor(m => m.TimeZone, new { @class = "col-3" })
             <div class="col-8">
                 @Html.EditorFor(m => m.TimeZone, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.TimeZone, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -95,7 +100,7 @@
             @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
             <div class="col-8">
                 @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -103,7 +108,7 @@
             @Html.LabelFor(m => m.Fax, new { @class = "col-3" })
             <div class="col-8">
                 @Html.EditorFor(m => m.Fax, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.Fax, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.Fax, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -111,6 +116,7 @@
             @Html.LabelFor(m => m.Website, new { @class = "col-3" })
             <div class="col-8">
                 @Html.EditorFor(m => m.Website, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.Website, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -124,7 +130,7 @@
             @Html.LabelFor(m => m.Institution, new { @class = "col-3" })
             <div class="col-8">
                 @Html.DropDownListFor(m => m.Institution, new SelectList(Model.InstitutionList), "", new { @class = "form-input" })
-                @Html.ValidationMessageFor(m => m.Institution, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.Institution, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -132,6 +138,7 @@
             @Html.LabelFor(m => m.CODRate, new { @class = "col-3" })
             <div class="col-8">
                 @Html.EditorFor(m => m.CODRate, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.CODRate, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -146,7 +153,7 @@
             @Html.LabelFor(m => m.OwnerID, new { @class = "col-3" })
             <div class="col-8">
                 @Html.DropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-input" })
-                @Html.ValidationMessageFor(m => m.OwnerID, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.OwnerID, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -154,7 +161,7 @@
             @Html.LabelFor(m => m.AFPID, new { @class = "col-3" })
             <div class="col-8">
                 @Html.DropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-input" })
-                @Html.ValidationMessageFor(m => m.AFPID, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.AFPID, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -162,7 +169,7 @@
             @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3" })
             <div class="col-8">
                 @Html.DropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", new { @class = "form-input" })
-                @Html.ValidationMessageFor(m => m.BoardingManagerID, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.BoardingManagerID, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -180,15 +187,14 @@
         <div class="row">
             @Html.LabelFor(m => m.LockboxSystem, new { @class = "col-3 form-label-indent" })
             <div class="col-8">
-                @Html.DropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", new { @class = "form-input" })
+                @Html.DropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), null, new { @class = "form-input" })
             </div>
         </div>
 
         <div class="row">
             @Html.LabelFor(m => m.LockboxStatus, new { @class = "col-3 form-label-indent" })
             <div class="col-8">
-                @Html.DropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), "", new { @class = "form-input" })
-                @Html.ValidationMessageFor(m => m.LockboxStatus, "", new { @class = "text-danger small" })
+                @Html.DropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), null, new { @class = "form-input" })
             </div>
         </div>
 
@@ -210,6 +216,7 @@
             @Html.LabelFor(m => m.EstimatedDeposits, new { @class = "col-3" })
             <div class="col-6">
                 @Html.EditorFor(m => m.EstimatedDeposits, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.EstimatedDeposits, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -217,6 +224,7 @@
             @Html.LabelFor(m => m.ActualDeposits, new { @class = "col-3" })
             <div class="col-6">
                 @Html.EditorFor(m => m.ActualDeposits, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.ActualDeposits, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -237,7 +245,7 @@
             @Html.LabelFor(m => m.LockboxCMCID, new { @class = "col-3" })
             <div class="col-7">
                 @Html.EditorFor(m => m.LockboxCMCID, new { htmlAttributes = new { @class = "form-input" } })
-                @Html.ValidationMessageFor(m => m.LockboxCMCID, "", new { @class = "text-danger small" })
+                @Html.ValidationMessageFor(m => m.LockboxCMCID, "", new { @class = "form-error-msg" })
             </div>
         </div>
 
@@ -248,6 +256,7 @@
             </div>
             <div class="col-6">
                 @Html.EditorFor(m => m.CorporateAccounts, new { htmlAttributes = new { @class = "form-input" } })
+                @Html.ValidationMessageFor(m => m.CorporateAccounts, "", new { @class = "form-error-msg" })
             </div>
         </div>
 

@@ -18,8 +18,10 @@ namespace AllianceAssociationBank.Crm.App_Start
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
 
-            CreateMap<ProjectUser, UserFormViewModel>()
-                .ReverseMap();
+            CreateMap<ProjectUser, UserFormViewModel>();
+            CreateMap<UserFormViewModel, ProjectUser>()
+                .ForMember(u => u.DateAdded, o => o.Ignore())
+                .ForMember(u => u.DateDeleted, o => o.Ignore());
 
             CreateMap<List<ProjectUser>, List<UserFormViewModel>>()
                 .ReverseMap();

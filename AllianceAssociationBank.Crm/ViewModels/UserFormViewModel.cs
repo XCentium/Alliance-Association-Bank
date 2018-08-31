@@ -20,18 +20,25 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public bool Admin { get; set; }
 
+        //public bool StatementEmail { get; set; } // TODO: new field, need to map to database
+
+        //public bool LockboxEmail { get; set; } // TODO: new field, need to map to database
+
+        //public bool ACHEmail { get; set; } // TODO: new field, need to map to database
+
         [StringLength(255)]
         public string Title { get; set; }
 
         [EmailAddress]
+        [StringLength(255)]
         public string Email { get; set; }
 
-        //[StringLength(255)]
         [Phone]
+        [StringLength(255)]
         public string Phone { get; set; }
 
-        //[StringLength(255)]
         [Phone]
+        [StringLength(255)]
         public string Mobile { get; set; }
 
         //public string Authorization { get; set; } // this was replaced with 2 boolean fields
@@ -91,11 +98,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
         //[StringLength(8000)]
         //public string Attachments { get; set; }
 
-        public string CreateUpdateAction
+        public string CreateUpdateRoute
         {
             get
             {
-                return (ID != 0) ? "Update" : "Create"; // TODO: need cleaner way to do this
+                return (ID != 0) ? "UpdateProjectUser-Post" : "CreateProjectUser-Post";
             }
         }
     }

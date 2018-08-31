@@ -23,6 +23,11 @@ namespace AllianceAssociationBank.Crm.Helpers
             get { return GetValuesFromConfig("LockboxStatusValues"); }
         }
 
+        public static IEnumerable<string> StatusValues
+        {
+            get { return GetValuesFromConfig("StatusValues"); }
+        }
+
         private static IEnumerable<string> GetValuesFromConfig(string key)
         {
             var values = ConfigurationManager.AppSettings[key] ?? string.Empty;

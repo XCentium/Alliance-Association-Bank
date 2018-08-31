@@ -145,6 +145,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             model.InstitutionList = DropDownListHelper.InstitutionValues;
             model.LockboxSystemList = DropDownListHelper.LockboxSystemValues;
             model.LockboxStatusList = DropDownListHelper.LockboxStatusValues;
+            model.StatusList = DropDownListHelper.StatusValues;
         }
     }
 }

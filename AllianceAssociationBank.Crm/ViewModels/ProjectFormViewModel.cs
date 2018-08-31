@@ -17,61 +17,79 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public int ID { get; set; }
 
         [Required]
+        [StringLength(150)]
         [Display(Name = "Legal")]
         public string ProjectName { get; set; }
 
+        [StringLength(255)]
         public string DBA { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "Other")]
         public string OtherName { get; set; } // TODO: need to map this to database
 
         [Required]
+        [StringLength(255)]
         [Display(Name = "Street")]
         public string Address { get; set; }
 
         [Required]
+        [StringLength(255)]
         [Display(Name = "City")]
         public string City { get; set; }
 
         [Required]
+        [StringLength(255)]
         [Display(Name = "State")]
         public string State { get; set; }
 
         [Required]
+        [StringLength(255)]
         [Display(Name = "ZIP")]
         public string ZipCode { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "Street")]
         public string MailingAddress { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "City")]
         public string MailingCity { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "State")]
         public string MailingState { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "ZIP")]
         public string MailingZipCode { get; set; }
 
+        [StringLength(255)]
         [Required]
         public string TIN { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "TZone")]
         public string TimeZone { get; set; }
 
         [Required]
+        [StringLength(255)]
         [Phone]
         public string Phone { get; set; }
 
+        [StringLength(255)]
         [Phone]
         public string Fax { get; set; }
 
+        [StringLength(255)]
         public string Website { get; set; }
 
         [Required]
+        [StringLength(255)]
         [Display(Name = "Bank")]
         public string Institution { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "CD Rate")]
         public string CODRate { get; set; }
 
@@ -102,14 +120,15 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Doors")]
         public int? NumberOfDoors { get; set; }
 
-        [Display(Name = "Est'd $")]
+        [Display(Name = "Est'd")]
         public decimal? EstimatedDeposits { get; set; }
 
-        [Display(Name = "Actual $")]
+        [Display(Name = "Actual")]
         public decimal? ActualDeposits { get; set; }
 
         [Required]
-        [Display(Name = "CMC ID")]
+        [StringLength(10)]
+        [Display(Name = "PMC ID")]
         public string LockboxCMCID { get; set; }
 
         [Required]
@@ -124,6 +143,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Corp Accts")]
         public bool HasCorporateAccounts { get; set; }
 
+        [StringLength(255)]
         [Display(Name = "Corp Accts")]
         public string CorporateAccounts { get; set; }
 
@@ -140,10 +160,15 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string Notes { get; set; }
 
         public IEnumerable<SelectListItem> ProjectList { get; set; }
+
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
+
         public IEnumerable<SelectListItem> SoftwareList { get; set; }
+
         public IEnumerable<string> InstitutionList { get; set; }
+
         public IEnumerable<string> LockboxSystemList { get; set; }
+
         public IEnumerable<string> LockboxStatusList { get; set; }
 
         // Boarding Tab
@@ -228,6 +253,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "NARRATIVE")]
         public string Narrative { get; set; }
 
+        public IEnumerable<string> StatusList { get; set; }
+
 
         public string CreateUpdateAction
         {
@@ -236,10 +263,5 @@ namespace AllianceAssociationBank.Crm.ViewModels
                 return (ID != 0) ? "Update" : "Create"; // TODO: need cleaner way to do this
             }
         }
-
-        // ProjectFormViewModel()
-        //{
-        //    Users = new List<UserFormViewModel>();
-        //}
     }
 }

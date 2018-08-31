@@ -71,6 +71,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         public IEnumerable<ProjectUser> GetUsers(int projectId)
         {
             return _context.ProjectUsers
+                .OrderBy(u => u.Name)
                 .Where(u => u.ProjectID == projectId);
         }
 

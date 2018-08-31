@@ -121,6 +121,15 @@ textarea {
     padding: 4px 15px 4px 15px;
 }
 
+.form-error-msg {
+    color: #dc3545;
+    position: relative;
+    font-size: 80%;
+    font-weight: 400;
+    position: relative;
+    /*z-index: 5;*/
+}
+
 .form-input {
     border-color: #ced4da;
     border-style: solid;
@@ -132,6 +141,28 @@ textarea {
     width: 100%;
     padding-right: 2px;
     padding-left: 2px;
+}
+
+.form-input:focus, .form-textarea:focus {
+    background-color: #fff;
+    border-color: #98c2f2;
+    box-shadow: 0 0 0 0.2rem rgba(39,128,227,0.25);
+    color: #495057;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(39,128,227,0.25);
+}
+
+.form-label-heading {
+    color: #999999;
+    padding-right: 10px;
+}
+
+.form-label {
+    padding-right: 5px;
+}
+
+.form-label-indent {
+    padding-left: 25px;
 }
 
 .form-textarea {
@@ -146,17 +177,8 @@ textarea {
     padding-left: 2px;
 }
 
-.form-label-heading {
-    color: #999999;
-    padding-right: 10px;
-}
-
-.form-label {
-    padding-right: 5px;
-}
-
-.form-label-indent {
-    padding-left: 25px;
+.input-validation-error {
+    border-color: #dc3545 !important;
 }
 
 .screen-overlay {
@@ -193,4 +215,28 @@ textarea {
 .modal-lg {
     max-width: none;
     width: 1020px;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-tabs .nav-link {
+    background-color: #2780E3;
+    color: #ffffff;
+    border-color: #e9ecef;
+    padding-left: 42px;
+    padding-right: 42px
+}
+
+.nav-tabs .nav-link.active {
+    border-color: #dee2e6
+}
+
+.nav-tabs .nav-link.active:hover {
+    background-color: #ffffff;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #1a6dca;
 }

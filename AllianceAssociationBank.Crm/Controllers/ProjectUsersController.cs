@@ -6,6 +6,7 @@ using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -13,8 +14,8 @@ using System.Web.Mvc;
 namespace AllianceAssociationBank.Crm.Controllers
 {
     // TODO: add logging
-    //[RoutePrefix("Projects/{projectId}/Users")]
     [Authorize]
+    [RoutePrefix("Projects/{projectId}/Users")]
     public class ProjectUsersController : Controller
     {
         private IProjectRepository _repository;
@@ -24,21 +25,34 @@ namespace AllianceAssociationBank.Crm.Controllers
             _repository = new ProjectRepository(new CrmApplicationDbContext());
         }
 
-        public ActionResult Index(int projectId)
+        [Route("Index", Name = "GetProjectUsers")]
+        public ActionResult Index(int projectId, string filter = "all")
         {
-            var users = _repository.GetUsers(projectId);
+            filter = filter.ToLower();
+
+            var users = _repository.GetUsers(projectId)
+                .Where(u =>
+                    filter == "all" ||
+                    (filter == "admin" && u.Admin) ||
+                    (filter == "active" && u.Active) ||
+                    (filter == "inactive" && !u.Active));
 
             return PartialView("_UsersListPartial", Mapper.Map<List<UserFormViewModel>>(users));
         }
 
+        [Route("Create", Name = "CreateProjectUser-Get")]
         public ActionResult Create(int projectId)
         {
             var model = new UserFormViewModel();
             model.ProjectID = projectId;
+            // Default to active on create
+            model.Active = true;
 
             return PartialView("_UserFormPartial", model);
         }
 
+        // TODO: if projectId is null need to show an error
+        [Route("Create", Name = "CreateProjectUser-Post")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(int projectId, UserFormViewModel model)
@@ -52,7 +66,9 @@ namespace AllianceAssociationBank.Crm.Controllers
                 }
 
                 var user = Mapper.Map<ProjectUser>(model);
-                user.ProjectID = projectId;
+
+                user.SetDefaultsOnCreate();
+
                 _repository.AddUser(user);
                 await _repository.SaveAllAsync();
 
@@ -63,7 +79,8 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
-        
+
+        [Route("Edit/{id}", Name = "EditProjectUser-Get")]
         public async Task<ActionResult> Edit(int id)
         {
             try
@@ -85,9 +102,10 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
+        [Route("Update/{id}", Name = "UpdateProjectUser-Post")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Update(UserFormViewModel model)
+        public async Task<ActionResult> Update(int projectId, int id, UserFormViewModel model)
         {
             try
             {
@@ -97,16 +115,19 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return PartialView("_UserFormPartial", model);
                 }
 
-                var user = await _repository.GetUserByIdAsync(model.ID);
+                var user = await _repository.GetUserByIdAsync(id);
                 if (user == null)
                 {
                     return HttpNotFound();
                 }
 
                 Mapper.Map(model, user);
+
+                user.CheckForStatusChange();
+
                 await _repository.SaveAllAsync();
 
-                return Index(user.ProjectID ?? 0);
+                return Index(projectId);
             }
             catch (Exception ex)
             {
@@ -114,29 +135,30 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(int id)
-        {
-            try
-            {
-                var user = await _repository.GetUserByIdAsync(id);
-                if (user == null)
-                {
-                    return HttpNotFound();
-                }
+        // No delete capability
+        //[HttpPost]
+        ////[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Delete(int id)
+        //{
+        //    try
+        //    {
+        //        var user = await _repository.GetUserByIdAsync(id);
+        //        if (user == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
 
-                var projectId = user.ProjectID ?? 0;
+        //        var projectId = user.ProjectID ?? 0;
 
-                _repository.RemoveUser(user);
-                await _repository.SaveAllAsync();
+        //        _repository.RemoveUser(user);
+        //        await _repository.SaveAllAsync();
 
-                return Index(projectId);
-            }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); ;
-            }  
-        }
+        //        return Index(projectId);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); ;
+        //    }  
+        //}
     } 
 }

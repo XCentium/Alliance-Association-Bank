@@ -41,11 +41,11 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string Authorization { get; set; }
 
-        public bool? Admin { get; set; }
+        public bool Admin { get; set; }
 
-        public bool? CorpOnlineUser { get; set; }
+        public bool CorpOnlineUser { get; set; }
 
-        public bool? RemoteScannerUser { get; set; }
+        public bool RemoteScannerUser { get; set; }
 
         [StringLength(255)]
         public string RemoteScannerAccountNotes { get; set; }
@@ -56,15 +56,33 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public DateTime? DateDeleted { get; set; }
 
-        public bool? Active { get; set; }
+        public bool Active { get; set; }
 
         public string Notes { get; set; }
 
         [StringLength(8000)]
         public string Attachments { get; set; }
 
-        public bool? AuthorizedToOpenClose { get; set; }
+        public bool AuthorizedToOpenClose { get; set; }
 
         public virtual Project Project { get; set; }
+
+
+        public void SetDefaultsOnCreate()
+        {
+            DateAdded = DateTime.Now;
+        }
+
+        public void CheckForStatusChange()
+        {
+            if (!Active && DateDeleted == null)
+            {
+                DateDeleted = DateTime.Now;
+            }
+            else if (Active && DateDeleted != null)
+            {
+                DateDeleted = null;
+            }
+        }
     }
 }

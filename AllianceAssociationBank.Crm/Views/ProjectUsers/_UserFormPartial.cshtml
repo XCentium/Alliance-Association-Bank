@@ -7,14 +7,21 @@
                 <h5 class="modal-title font-weight-bold" id="user-form-modal-label">User Details</h5>
                 <h5 class="modal-title justify-content-end">User ID @Model.ID</h5>
             </div>
-        @using (Ajax.BeginForm(Model.CreateUpdateAction, "ProjectUsers", ajaxOptions: new AjaxOptions
+        @using (Ajax.BeginRouteForm(Model.CreateUpdateRoute, routeValues: new
+        {
+            projectId = Model.ProjectID,
+            id = Model.ID
+        }, ajaxOptions: new AjaxOptions
         {
             HttpMethod = "POST",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "project-users-list",
-            OnSuccess = "hideUserFormModal",
-            OnFailure = "handleAjaxError"
-        }, htmlAttributes: new { id = "user-form-element" }))
+            OnBegin = "hideUserFormModal", // TODO: maybe should change this to OnSuccess?
+            OnFailure = "handleAjaxError" 
+        }, htmlAttributes: new
+        {
+            id = "user-form-element"
+        }))
         {
             <div class="modal-body">
                 <div class="container-fluid">
@@ -31,7 +38,7 @@
                                 @Html.LabelFor(m => m.Name, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-input" } })
-                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger small" })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
                             <div class="row">
@@ -57,21 +64,21 @@
                                 @Html.LabelFor(m => m.Email, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-input" } })
-                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger small" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-input" } })
-                                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger small" })
+                                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Mobile, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.EditorFor(m => m.Mobile, new { htmlAttributes = new { @class = "form-input" } })
-                                    @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger small" })
+                                    @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
 
@@ -141,13 +148,13 @@
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.DateAdded, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.DateAdded, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.DisplayFor(m => m.DateAdded)
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.DateDeleted, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.DateDeleted, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.DisplayFor(m => m.DateDeleted)
                                 </div>
                             </div>
 
