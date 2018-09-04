@@ -17,16 +17,21 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     {
         private IProjectRepository _repository;
 
-        public ProjectsController()
+        public ProjectsController(IProjectRepository repository)
         {
-            _repository = new ProjectRepository(new CrmApplicationDbContext());
+            _repository = repository;
         }
         
         [HttpGet]
         public async Task<IEnumerable<ProjectDto>> Get(string search)
         {
             return (await _repository.GetProjectsBySearchPhraseAsync(search))
-                .Take(10);
+                .Take(10)
+                .Select(p => new ProjectDto()
+                {
+                    Id = p.ID,
+                    Name = p.ProjectName
+                });
         }
     }
 }

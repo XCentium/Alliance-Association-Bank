@@ -122,7 +122,12 @@
                             search: request.term
                         },
                         success: function (data) {
-                            response(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.name,
+                                    value: item.id
+                                };
+                            }));
                         },
                         error: function () {
                             handleAjaxError();

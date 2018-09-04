@@ -159,7 +159,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "NOTES")]
         public string Notes { get; set; }
 
-        public IEnumerable<SelectListItem> ProjectList { get; set; }
+        //public IEnumerable<SelectListItem> ProjectList { get; set; }
 
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
 

@@ -7,6 +7,6 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
 {
     public interface IEmployeeRepository
     {
-        Task<IEnumerable<SelectListItem>> GetEmployeeListAsync();
+        Task<IEnumerable<Employee>> GetEmployeesAsync();
     }
 }

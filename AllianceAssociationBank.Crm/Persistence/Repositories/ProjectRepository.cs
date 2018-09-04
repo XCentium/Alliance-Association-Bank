@@ -33,28 +33,23 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<SelectListItem>> GetProjectListAsync()
-        {
-            return await _context.Projects
-                .OrderBy(p => p.ProjectName)
-                .Select(p => new SelectListItem()
-                {
-                    Value = p.ID.ToString(),
-                    Text = p.ProjectName
-                })
-                .ToListAsync();
-        }
+        //public async Task<IEnumerable<SelectListItem>> GetProjectListAsync()
+        //{
+        //    return await _context.Projects
+        //        .OrderBy(p => p.ProjectName)
+        //        .Select(p => new SelectListItem()
+        //        {
+        //            Value = p.ID.ToString(),
+        //            Text = p.ProjectName
+        //        })
+        //        .ToListAsync();
+        //}
 
-        public async Task<IEnumerable<ProjectDto>> GetProjectsBySearchPhraseAsync(string searchPhrase)
+        public async Task<IEnumerable<Project>> GetProjectsBySearchPhraseAsync(string searchPhrase)
         {
             return await _context.Projects
                 .OrderBy(p => p.ProjectName)
                 .Where(p => p.ProjectName.Contains(searchPhrase) || p.LockboxCMCID == searchPhrase)
-                .Select(p => new ProjectDto()
-                {
-                    Value = p.ID,
-                    Label = p.ProjectName
-                })
                 .ToListAsync();
         }
 
@@ -67,30 +62,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         //{
         //    _dbContext.Projects.Update(project);
         //}
-
-        public IEnumerable<ProjectUser> GetUsers(int projectId)
-        {
-            return _context.ProjectUsers
-                .OrderBy(u => u.Name)
-                .Where(u => u.ProjectID == projectId);
-        }
-
-        public async Task<ProjectUser> GetUserByIdAsync(int id)
-        {
-            return await _context.ProjectUsers
-                .Where(u => u.ID == id)
-                .SingleOrDefaultAsync();
-        }
-
-        public void AddUser(ProjectUser user)
-        {
-            _context.ProjectUsers.Add(user);
-        }
-
-        public void RemoveUser(ProjectUser user)
-        {
-            _context.ProjectUsers.Remove(user);
-        }
 
         public async Task<bool> SaveAllAsync()
         {

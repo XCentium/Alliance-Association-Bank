@@ -25,9 +25,9 @@
 <div class="row py-4">
     <div class="col-md-2 offset-md-5">
         <h6>REPORTS</h6>
-        <p>@Html.ActionLink("Boarding", "ViewReport", "Reports", new { name = "BoardingReport" }, null)</p>
-        <p><a href="#">Completed & Hold</a></p>
-        <p><a href="#">Software Transition</a></p>
+        <p>@Html.RouteLink("Boarding", routeName: "ViewReport-Get", routeValues: new { name = ReportNames.Boarding })</p>
+        <p>@Html.RouteLink("Completed & Hold", routeName: "ViewReport-Get", routeValues: new { name = ReportNames.CompletedAndHold })</p>
+        <p>@Html.RouteLink("Software Transition", routeName: "ViewReport-Get", routeValues: new { name = ReportNames.SoftwareTransition })</p>
         <p><a href="#">CMC by ID</a></p>
         <p><a href="#">CMC by Name</a></p>
         <p><a href="#">CD Emails</a></p>
@@ -54,15 +54,23 @@
                             search: request.term
                         },
                         success: function (data) {
-                            response(data);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.name,
+                                    value: item.id
+                                };
+                            }));
+                        },
+                        error: function () {
+                            handleAjaxError();
                         }
                     });
                 },
                 minLength: 2,
                 select: function (event, ui) {
+                    event.preventDefault();
                     this.value = ui.item.label;
                     location.href = "/Projects/Edit/" + ui.item.value;
-                    return false;
                 }
             });
         });

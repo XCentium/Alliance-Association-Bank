@@ -1,4 +1,6 @@
-﻿using AllianceAssociationBank.Crm.Persistence.Queries;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Persistence.Queries;
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
@@ -12,26 +14,19 @@ namespace AllianceAssociationBank.Crm.Core.Services
 {
     public class ReportGenerationService
     {
-        private ReportQueries _queries;
+        private IReportQueries _queries;
 
-        public ReportGenerationService(ReportQueries queries)
+        public ReportGenerationService(IReportQueries queries)
         {
             _queries = queries;
         }
 
         public async Task<ReportViewer> GenerateReportByName(string reportName)
         {
-            /*if (string.IsNullOrEmpty(reportName))
-            {
-                return null;
-            }*/
-
             var reportViewer = new ReportViewer();
             reportViewer.ProcessingMode = ProcessingMode.Local;
-            reportViewer.AsyncRendering = false;
+            reportViewer.AsyncRendering = true;
             reportViewer.SizeToReportContent = true;
-            reportViewer.Width = Unit.Percentage(100);
-            reportViewer.Height = Unit.Percentage(100);
 
             foreach (var dataSource in (await GetDataSourcesByReportName(reportName)))
             {
@@ -49,16 +44,28 @@ namespace AllianceAssociationBank.Crm.Core.Services
         {
             var dataSources = new Collection<ReportDataSource>();
 
-            switch (reportName)
+            switch (reportName.ToLower())
             {
-                case "BoardingReport":
-                case "SoftwareTransitionReport":
-                {
-                    dataSources.Add(new ReportDataSource("ProjectsDataset", (await _queries.GetBoardingReportDataSetAsync())));
-                    dataSources.Add(new ReportDataSource("EmployeesDataset", (await _queries.GetEmployeesDataSetAsync())));
-                    dataSources.Add(new ReportDataSource("SoftwareDataset", (await _queries.GetSoftwareDataSetAsync())));
-                    break;
-                }
+                case ReportNames.Boarding:
+                    {
+                        dataSources.Add(new ReportDataSource("ProjectsDataset", (await _queries.GetBoardingDataSetAsync())));
+                        dataSources.Add(new ReportDataSource("EmployeesDataset", (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource("SoftwareDataset", (await _queries.GetSoftwareDataSetAsync())));
+                        break;
+                    }
+                case ReportNames.CompletedAndHold:
+                    {
+                        dataSources.Add(new ReportDataSource("ProjectsDataset", (await _queries.GetCompletedAndHoldDataSetAsync())));
+                        dataSources.Add(new ReportDataSource("EmployeesDataset", (await _queries.GetEmployeesDataSetAsync())));
+                        break;
+                    }
+                case ReportNames.SoftwareTransition:
+                    {
+                        dataSources.Add(new ReportDataSource("ProjectsDataset", (await _queries.GetSoftwareTransitionDataSetAsync())));
+                        dataSources.Add(new ReportDataSource("EmployeesDataset", (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource("SoftwareDataset", (await _queries.GetSoftwareDataSetAsync())));
+                        break;
+                    }
             }
 
             return dataSources;

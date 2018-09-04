@@ -7,7 +7,7 @@ namespace AllianceAssociationBank.Crm.Core.Dtos
 {
     public class ProjectDto
     {
-        public string Label { get; set; }
-        public int Value { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

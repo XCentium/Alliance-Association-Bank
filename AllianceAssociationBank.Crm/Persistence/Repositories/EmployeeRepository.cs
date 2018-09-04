@@ -19,16 +19,11 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<SelectListItem>> GetEmployeeListAsync()
+        public async Task<IEnumerable<Employee>> GetEmployeesAsync()
         {
             return await _context.Employees
                 .OrderBy(e => e.FirstName)
                 .ThenBy(e => e.LastName)
-                .Select(e => new SelectListItem()
-                {
-                    Value = e.ID.ToString(),
-                    Text = e.FirstName + " " + e.LastName
-                })
                 .ToListAsync();
         }
     }

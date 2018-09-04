@@ -27,6 +27,9 @@ namespace AllianceAssociationBank.Crm
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Register Unity with WebApi
+            config.DependencyResolver = new Unity.AspNet.WebApi.UnityDependencyResolver(UnityConfig.Container);
         }
     }
 }

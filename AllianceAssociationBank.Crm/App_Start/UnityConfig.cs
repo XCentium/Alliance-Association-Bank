@@ -1,10 +1,12 @@
+using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
 using System;
 using System.Data.Entity;
+using System.Web.Http;
 using Unity;
-using Unity.AspNet.Mvc;
+using Unity.Injection;
 using Unity.Lifetime;
 
 namespace AllianceAssociationBank.Crm
@@ -45,6 +47,10 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IProjectRepository, ProjectRepository>(new TransientLifetimeManager());
             container.RegisterType<IEmployeeRepository, EmployeeRepository>(new TransientLifetimeManager());
             container.RegisterType<ISoftwareRepository, SoftwareRepository>(new TransientLifetimeManager());
+            container.RegisterType<IProjectUserRepository, ProjectUserRepository>(new TransientLifetimeManager());
+            container.RegisterType<IReportQueries, IReportQueries>(new TransientLifetimeManager());
+
+            container.RegisterType<UserController>(new InjectionConstructor());
         }
     }
 }

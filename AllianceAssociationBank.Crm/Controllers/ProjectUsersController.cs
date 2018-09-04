@@ -18,11 +18,11 @@ namespace AllianceAssociationBank.Crm.Controllers
     [RoutePrefix("Projects/{projectId}/Users")]
     public class ProjectUsersController : Controller
     {
-        private IProjectRepository _repository;
+        private IProjectUserRepository _userRepository;
 
-        public ProjectUsersController()
+        public ProjectUsersController(IProjectUserRepository userRepository)
         {
-            _repository = new ProjectRepository(new CrmApplicationDbContext());
+            _userRepository = userRepository;
         }
 
         [Route("Index", Name = "GetProjectUsers")]
@@ -30,7 +30,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             filter = filter.ToLower();
 
-            var users = _repository.GetUsers(projectId)
+            var users = _userRepository.GetUsers(projectId)
                 .Where(u =>
                     filter == "all" ||
                     (filter == "admin" && u.Admin) ||
@@ -69,8 +69,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 user.SetDefaultsOnCreate();
 
-                _repository.AddUser(user);
-                await _repository.SaveAllAsync();
+                _userRepository.AddUser(user);
+                await _userRepository.SaveAllAsync();
 
                 return Index(projectId);
             }
@@ -85,7 +85,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
-                var user = await _repository.GetUserByIdAsync(id);
+                var user = await _userRepository.GetUserByIdAsync(id);
 
                 if (user == null)
                 {
@@ -115,7 +115,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return PartialView("_UserFormPartial", model);
                 }
 
-                var user = await _repository.GetUserByIdAsync(id);
+                var user = await _userRepository.GetUserByIdAsync(id);
                 if (user == null)
                 {
                     return HttpNotFound();
@@ -125,7 +125,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 user.CheckForStatusChange();
 
-                await _repository.SaveAllAsync();
+                await _userRepository.SaveAllAsync();
 
                 return Index(projectId);
             }

@@ -21,6 +21,7 @@ using X.PagedList;
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
+    [RoutePrefix("Reports")]
     public class ReportsController : Controller
     {
         private const int _pageSize = 5; // TODO: store this as app config?
@@ -40,6 +41,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         //    return View();
         //}
 
+        [Route("{name}", Name = "ViewReport-Get")]
         public async Task<ActionResult> ViewReport(string name)
         {
             try
@@ -73,7 +75,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         public async Task<ActionResult> ExportReportAsCsv(string report)
         {
-            var resultSet = await _queries.GetBoardingReportDataSetAsync();
+            var resultSet = await _queries.GetBoardingDataSetAsync();
             var reportRecords = Mapper.Map<IEnumerable<ProjectReportRecordViewModel>>(resultSet);
 
             var memoryStream = new MemoryStream();

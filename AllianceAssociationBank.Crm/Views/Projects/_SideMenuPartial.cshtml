@@ -12,13 +12,13 @@
 
         <span class="text-muted">Reports</span>
         <div class="nav-item px-3 py-1 border">
-            @Html.ActionLink("Boarding", "ViewReport", "Reports", new { name = "BoardingReport" }, null)
+            @Html.RouteLink("Boarding", routeName: "ViewReport-Get", routeValues: new { name = ReportNames.Boarding })
         </div>
         <div class="nav-item px-3 py-1 border">
-            <a href="#">Completed & Hold</a>
+            @Html.RouteLink("Completed & Hold", routeName: "ViewReport-Get", routeValues: new { name = ReportNames.CompletedAndHold })
         </div>
         <div class="nav-item px-3 py-1 border">
-            <a href="#">Software Transition</a>
+            @Html.RouteLink("Software Transition", routeName: "ViewReport-Get", routeValues: new { name = ReportNames.SoftwareTransition })
         </div>
         <div class="nav-item px-3 py-1 border">
             <a href="#">CMC by ID</a>

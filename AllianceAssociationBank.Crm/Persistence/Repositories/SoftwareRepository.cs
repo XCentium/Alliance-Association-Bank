@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,15 +19,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<SelectListItem>> GetSoftwareListAsync()
+        public async Task<IEnumerable<Software>> GetSoftwaresAsync()
         {
             return await _context.Softwares
                 .OrderBy(e => e.SoftwareName)
-                .Select(e => new SelectListItem()
-                {
-                    Value = e.ID.ToString(),
-                    Text = e.SoftwareName
-                })
                 .ToListAsync();
         }
     }

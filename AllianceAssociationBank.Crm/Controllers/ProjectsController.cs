@@ -28,10 +28,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             _projects = projects;
             _employees = employees;
             _softwares = softwares;
-            //var context = new CrmApplicationDbContext();
-            //_repository = new ProjectRepository(context);
-            //_employees = new EmployeeRepository(context);
-            // _softwares = new SoftwareRepository(context);
         }
 
         public async Task<ActionResult> Create()
@@ -142,9 +138,17 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         private async Task PopulateDropDownLists(ProjectFormViewModel model)
         {
-            model.ProjectList = await _projects.GetProjectListAsync();
-            model.EmployeeList = await _employees.GetEmployeeListAsync();
-            model.SoftwareList = await _softwares.GetSoftwareListAsync();
+            //model.ProjectList = await _projects.GetProjectListAsync();
+            model.EmployeeList = (await _employees.GetEmployeesAsync()).Select(e => new SelectListItem()
+                                                                        {
+                                                                            Value = e.ID.ToString(),
+                                                                            Text = e.FirstName + " " + e.LastName
+                                                                        });
+            model.SoftwareList = (await _softwares.GetSoftwaresAsync()).Select(s => new SelectListItem()
+                                                                        {
+                                                                            Value = s.ID.ToString(),
+                                                                            Text = s.SoftwareName
+                                                                        });
             model.InstitutionList = DropDownListHelper.InstitutionValues;
             model.LockboxSystemList = DropDownListHelper.LockboxSystemValues;
             model.LockboxStatusList = DropDownListHelper.LockboxStatusValues;
