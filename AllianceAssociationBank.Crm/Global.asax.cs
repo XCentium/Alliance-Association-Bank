@@ -17,7 +17,7 @@ namespace AllianceAssociationBank.Crm
     {
         protected void Application_Start()
         {
-            Mapper.Initialize(cfg => cfg.AddProfile<DefaultMappingProfile>());
+            //Mapper.Initialize(cfg => cfg.AddProfile<DefaultMappingProfile>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

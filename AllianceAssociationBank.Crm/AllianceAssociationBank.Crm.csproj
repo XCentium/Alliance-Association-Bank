@@ -257,7 +257,13 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\ControllerNames.cs" />
+    <Compile Include="Constants\Projects\ProjectsControllerActions.cs" />
+    <Compile Include="Constants\Projects\ProjectsViews.cs" />
+    <Compile Include="Constants\ReportDatasetNames.cs" />
     <Compile Include="Constants\ReportNames.cs" />
+    <Compile Include="Constants\Reports\ReportsViews.cs" />
+    <Compile Include="Constants\Reports\ReportsControllerRoutes.cs" />
     <Compile Include="Constants\UserRoleNames.cs" />
     <Compile Include="Controllers\Api\ProjectsController.cs" />
     <Compile Include="Controllers\ProjectUsersController.cs" />
@@ -511,8 +517,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\completed-and-hold.rdlc" />
-    <EmbeddedResource Include="Reports\boarding.rdlc" />
+    <EmbeddedResource Include="Reports\SoftwareTransition.rdlc" />
+    <EmbeddedResource Include="Reports\CompletedAndHold.rdlc" />
+    <EmbeddedResource Include="Reports\Boarding.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

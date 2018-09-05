@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Core.Interfaces;
+﻿using AllianceAssociationBank.Crm.Constants.Projects;
+using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.Persistence;
@@ -22,12 +23,14 @@ namespace AllianceAssociationBank.Crm.Controllers
         private IProjectRepository _projects;
         private IEmployeeRepository _employees;
         private ISoftwareRepository _softwares;
+        private IMapper _mapper;
 
-        public ProjectsController (IProjectRepository projects, IEmployeeRepository employees, ISoftwareRepository softwares)
+        public ProjectsController (IProjectRepository projects, IEmployeeRepository employees, ISoftwareRepository softwares, IMapper mapper)
         {
             _projects = projects;
             _employees = employees;
             _softwares = softwares;
+            _mapper = mapper;
         }
 
         public async Task<ActionResult> Create()
@@ -35,7 +38,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var model = new ProjectFormViewModel();
             await PopulateDropDownLists(model);
 
-            return View("ProjectForm", model);
+            return View(ProjectsViews.ProjectForm, model);
         }
 
         [HttpPost]
@@ -47,25 +50,23 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     await PopulateDropDownLists(model);
-                    return View("ProjectForm", model);
+                    return View(ProjectsViews.ProjectForm, model);
                 }
 
-                var project = Mapper.Map<Project>(model);
+                var project = _mapper.Map<Project>(model);
                 _projects.AddProject(project);
+                await _projects.SaveAllAsync();
 
-                if (await _projects.SaveAllAsync())
-                {
-                    return RedirectToAction(nameof(this.Edit), new { id = project.ID });
-                }
-                else
-                {
-                    return View("Error");
-                }
+                return RedirectToAction(nameof(this.Edit), new { id = project.ID });
+                //else
+                //{
+                //    return View("Error");
+                //}
             }
             catch (Exception ex)
             {
                 return View("Error");
-                throw;
+                //throw;
             }
         }
 
@@ -81,16 +82,16 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return View("Error");    
                 }
 
-                var model = Mapper.Map<ProjectFormViewModel>(project);
+                var model = _mapper.Map<ProjectFormViewModel>(project);
 
                 await PopulateDropDownLists(model);
 
-                return View("ProjectForm", model);
+                return View(ProjectsViews.ProjectForm, model);
             }
             catch (Exception ex)
             {
                 return View("Error");
-                throw;
+                //throw;
             }
         }
 
@@ -104,7 +105,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     await PopulateDropDownLists(model);
-                    return View("ProjectForm", model);
+                    return View(ProjectsViews.ProjectForm, model);
                 }
 
                 var project = await _projects.GetProjectByIdAsync(model.ID);
@@ -114,7 +115,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return View("Error");
                 }
 
-                Mapper.Map(model, project);
+                _mapper.Map(model, project);
                 await _projects.SaveAllAsync();
 
                 return RedirectToAction(nameof(this.Edit), new { id = model.ID });
@@ -132,7 +133,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             catch (Exception ex)
             {
                 return View("Error");
-                throw;
+                //throw;
             }
         }
 

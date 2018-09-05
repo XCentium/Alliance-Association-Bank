@@ -1,7 +1,9 @@
+using AllianceAssociationBank.Crm.App_Start;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
+using AutoMapper;
 using System;
 using System.Data.Entity;
 using System.Web.Http;
@@ -50,6 +52,7 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IProjectUserRepository, ProjectUserRepository>(new TransientLifetimeManager());
             container.RegisterType<IReportQueries, IReportQueries>(new TransientLifetimeManager());
 
+            container.RegisterInstance<IMapper>(DefaultMappingProfile.GetMapper());
             container.RegisterType<UserController>(new InjectionConstructor());
         }
     }

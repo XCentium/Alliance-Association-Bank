@@ -1,22 +1,15 @@
-﻿using AllianceAssociationBank.Crm.Core.Models;
+﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Services;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Queries;
-using AllianceAssociationBank.Crm.Reports;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using CsvHelper;
-using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
-using X.PagedList;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -24,7 +17,7 @@ namespace AllianceAssociationBank.Crm.Controllers
     [RoutePrefix("Reports")]
     public class ReportsController : Controller
     {
-        private const int _pageSize = 5; // TODO: store this as app config?
+        //private const int _pageSize = 5; // TODO: store this as app config?
         private const string _csvContentType = "text/csv";
 
         private ReportQueries _queries;
@@ -41,7 +34,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         //    return View();
         //}
 
-        [Route("{name}", Name = "ViewReport-Get")]
+        [Route("{name}", Name = ReportsControllerRoutes.ViewReport)]
         public async Task<ActionResult> ViewReport(string name)
         {
             try
@@ -51,7 +44,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 ViewBag.ReportViewer = reportViewer;
                 ViewBag.Title = name;
 
-                return View();
+                return View(ReportsViews.ViewReport);
             }
             catch (Exception ex)
             {

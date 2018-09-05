@@ -19,10 +19,12 @@ namespace AllianceAssociationBank.Crm.Controllers
     public class ProjectUsersController : Controller
     {
         private IProjectUserRepository _userRepository;
+        private IMapper _mapper;
 
-        public ProjectUsersController(IProjectUserRepository userRepository)
+        public ProjectUsersController(IProjectUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         [Route("Index", Name = "GetProjectUsers")]
@@ -37,7 +39,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     (filter == "active" && u.Active) ||
                     (filter == "inactive" && !u.Active));
 
-            return PartialView("_UsersListPartial", Mapper.Map<List<UserFormViewModel>>(users));
+            return PartialView("_UsersListPartial", _mapper.Map<List<UserFormViewModel>>(users));
         }
 
         [Route("Create", Name = "CreateProjectUser-Get")]
@@ -65,7 +67,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return PartialView("_UserFormPartial", model);
                 }
 
-                var user = Mapper.Map<ProjectUser>(model);
+                var user = _mapper.Map<ProjectUser>(model);
 
                 user.SetDefaultsOnCreate();
 
@@ -92,7 +94,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return HttpNotFound();
                 }
 
-                var model = Mapper.Map<UserFormViewModel>(user);
+                var model = _mapper.Map<UserFormViewModel>(user);
 
                 return PartialView("_UserFormPartial", model);
             }
@@ -121,7 +123,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return HttpNotFound();
                 }
 
-                Mapper.Map(model, user);
+                _mapper.Map(model, user);
 
                 user.CheckForStatusChange();
 

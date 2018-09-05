@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Controllers;
+﻿using AllianceAssociationBank.Crm.Constants.Projects;
+using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -260,7 +261,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                return (ID != 0) ? "Update" : "Create"; // TODO: need cleaner way to do this
+                return (ID != 0) ? ProjectsControllerActions.Update : ProjectsControllerActions.Create;
             }
         }
     }

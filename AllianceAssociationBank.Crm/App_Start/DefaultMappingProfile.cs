@@ -26,5 +26,13 @@ namespace AllianceAssociationBank.Crm.App_Start
             CreateMap<List<ProjectUser>, List<UserFormViewModel>>()
                 .ReverseMap();
         }
+
+        public static IMapper GetMapper()
+        {
+            return new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<DefaultMappingProfile>();
+            }).CreateMapper();
+        }
     }
 }

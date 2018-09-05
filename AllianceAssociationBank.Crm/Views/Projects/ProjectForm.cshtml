@@ -5,7 +5,7 @@
 
 <div class="row">
 
-    @Html.Partial("_SideMenuPartial")
+    @Html.Partial(ProjectsViews.SideMenuPartial)
 
     <nav class="col-11">
         <div class="nav nav-tabs small" id="nav-tab" role="tablist">
@@ -32,7 +32,7 @@
 </div>
 
 
-@using (Html.BeginForm(Model.CreateUpdateAction, "Projects", FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm(Model.CreateUpdateAction, ControllerNames.Projects, FormMethod.Post, new { role = "form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -85,13 +85,13 @@
 
     <div class="tab-content" id="nav-tabs-content">
         <div class="tab-pane fade show active" id="nav-general-content" role="tabpanel" aria-labelledby="nav-general-tab">
-            @Html.Partial("_GeneralTabPartial")
+            @Html.Partial(ProjectsViews.GeneralTabPartial)
         </div>
         <div class="tab-pane fade" id="nav-users-content" role="tabpanel" aria-labelledby="nav-users-tab">
-            @Html.Partial("_UsersTabPartial")
+            @Html.Partial(ProjectsViews.UsersTabPartial)
         </div>
         <div class="tab-pane fade" id="nav-boarding-content" role="tabpanel" aria-labelledby="nav-boarding-tab">
-            @Html.Partial("_BoardingTabPartial")
+            @Html.Partial(ProjectsViews.BoardingTabPartial)
         </div>
     </div>
 }
