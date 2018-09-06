@@ -38,7 +38,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var model = new ProjectFormViewModel();
             await PopulateDropDownLists(model);
 
-            return View(ProjectsViews.ProjectForm, model);
+            return View(ProjectsView.ProjectForm, model);
         }
 
         [HttpPost]
@@ -50,7 +50,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     await PopulateDropDownLists(model);
-                    return View(ProjectsViews.ProjectForm, model);
+                    return View(ProjectsView.ProjectForm, model);
                 }
 
                 var project = _mapper.Map<Project>(model);
@@ -86,7 +86,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 await PopulateDropDownLists(model);
 
-                return View(ProjectsViews.ProjectForm, model);
+                return View(ProjectsView.ProjectForm, model);
             }
             catch (Exception ex)
             {
@@ -105,7 +105,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     await PopulateDropDownLists(model);
-                    return View(ProjectsViews.ProjectForm, model);
+                    return View(ProjectsView.ProjectForm, model);
                 }
 
                 var project = await _projects.GetProjectByIdAsync(model.ID);

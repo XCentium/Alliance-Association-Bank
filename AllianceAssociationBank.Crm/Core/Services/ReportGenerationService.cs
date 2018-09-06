@@ -1,6 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Interfaces;
-using AllianceAssociationBank.Crm.Persistence.Queries;
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace AllianceAssociationBank.Crm.Core.Services
 {
-    public class ReportGenerationService
+    public class ReportGenerationService : IReportGenerationService
     {
         private IReportQueries _queries;
         private const string REPORTS_DIRECTORY = "Reports";
@@ -51,24 +50,24 @@ namespace AllianceAssociationBank.Crm.Core.Services
 
             switch (reportName)
             {
-                case var name when name.Equals(ReportNames.Boarding, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.Equals(ReportName.Boarding, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Projects, (await _queries.GetBoardingDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Employees, (await _queries.GetEmployeesDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Software, (await _queries.GetSoftwareDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetBoardingDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Software, (await _queries.GetSoftwareDataSetAsync())));
                         break;
                     }
-                case var name when name.Equals(ReportNames.CompletedAndHold, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.Equals(ReportName.CompletedAndHold, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Projects, (await _queries.GetCompletedAndHoldDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCompletedAndHoldDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
-                case var name when name.Equals(ReportNames.SoftwareTransition, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.Equals(ReportName.SoftwareTransition, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Projects, (await _queries.GetSoftwareTransitionDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Employees, (await _queries.GetEmployeesDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetNames.Software, (await _queries.GetSoftwareDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetSoftwareTransitionDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Software, (await _queries.GetSoftwareDataSetAsync())));
                         break;
                     }
             }

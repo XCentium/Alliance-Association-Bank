@@ -5,8 +5,8 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.Reports
 {
-    public class ReportsControllerRoutes
+    public class ReportsView
     {
-        public const string ViewReport = ControllerNames.Reports + "ViewReport";
+        public const string ViewReport = "ViewReport";
     }
 }

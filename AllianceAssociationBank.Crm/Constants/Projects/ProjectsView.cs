@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.Projects
 {
-    public class ProjectsViews
+    public class ProjectsView
     {
         public const string ProjectForm = "ProjectForm";
         public const string GeneralTabPartial = "_GeneralTabPartial";

@@ -5,7 +5,7 @@
 
 <div class="row">
 
-    @Html.Partial(ProjectsViews.SideMenuPartial)
+    @Html.Partial(ProjectsView.SideMenuPartial)
 
     <nav class="col-11">
         <div class="nav nav-tabs small" id="nav-tab" role="tablist">
@@ -32,7 +32,7 @@
 </div>
 
 
-@using (Html.BeginForm(Model.CreateUpdateAction, ControllerNames.Projects, FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm(Model.CreateUpdateAction, ControllerName.Projects, FormMethod.Post, new { role = "form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -85,19 +85,23 @@
 
     <div class="tab-content" id="nav-tabs-content">
         <div class="tab-pane fade show active" id="nav-general-content" role="tabpanel" aria-labelledby="nav-general-tab">
-            @Html.Partial(ProjectsViews.GeneralTabPartial)
+            @Html.Partial(ProjectsView.GeneralTabPartial)
         </div>
         <div class="tab-pane fade" id="nav-users-content" role="tabpanel" aria-labelledby="nav-users-tab">
-            @Html.Partial(ProjectsViews.UsersTabPartial)
+            @Html.Partial(ProjectsView.UsersTabPartial)
         </div>
         <div class="tab-pane fade" id="nav-boarding-content" role="tabpanel" aria-labelledby="nav-boarding-tab">
-            @Html.Partial(ProjectsViews.BoardingTabPartial)
+            @Html.Partial(ProjectsView.BoardingTabPartial)
         </div>
     </div>
 }
 
+
 @* div to render user form modal *@
 <div id="user-form-location"></div>
+
+@* div to render user form modal *@
+<div id="scanner-form-location"></div>
 
 
 <div class="screen-overlay"></div>
@@ -213,29 +217,39 @@
 
         });
 
-        function showUserFormModal () {
+        function showUserFormModal() {
             $("#user-form-modal").modal("show");
 
             validatorParseForm($("#user-form-element"));
         };
 
-        function hideUserFormModal () {
+        function hideUserFormModal() {
             $("#user-form-modal").modal("hide");
         };
 
-        function validatorParseForm (form) {
+        function showScannerFormModal() {
+            $("#scanner-form-modal").modal("show");
+
+            validatorParseForm($("#scanner-form-element"));
+        };
+
+        function hideScannerFormModal() {
+            $("#scanner-form-modal").modal("hide");
+        };
+
+        function validatorParseForm(form) {
             $.validator.unobtrusive.parse(form);
         };
 
-        function handleAjaxError () {
+        function handleAjaxError() {
             alert("An error occurred while processing your request");
         };
 
-        // TOOD: need more efficient solution
-        // parsing the unobtrusive attributes when we get content via ajax
-        //$(document).ajaxComplete(function () {
-        //    $.validator.unobtrusive.parse(document);
-        //});
+            // TOOD: need more efficient solution
+            // parsing the unobtrusive attributes when we get content via ajax
+            //$(document).ajaxComplete(function () {
+            //    $.validator.unobtrusive.parse(document);
+            //});
 
     </script>
 }

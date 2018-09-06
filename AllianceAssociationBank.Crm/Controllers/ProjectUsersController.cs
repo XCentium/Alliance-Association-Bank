@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Core.Interfaces;
+﻿using AllianceAssociationBank.Crm.Constants.Projects;
+using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
@@ -21,6 +22,11 @@ namespace AllianceAssociationBank.Crm.Controllers
         private IProjectUserRepository _userRepository;
         private IMapper _mapper;
 
+        private const string FILTER_ALL = "all";
+        private const string FILTER_ADMIN = "admin";
+        private const string FILTER_ACTIVE = "active";
+        private const string FILTER_INACTIVE = "inactive";
+
         public ProjectUsersController(IProjectUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
@@ -28,18 +34,18 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Route("Index", Name = "GetProjectUsers")]
-        public ActionResult Index(int projectId, string filter = "all")
+        public ActionResult Index(int projectId, string filter = FILTER_ALL)
         {
             filter = filter.ToLower();
 
             var users = _userRepository.GetUsers(projectId)
                 .Where(u =>
-                    filter == "all" ||
-                    (filter == "admin" && u.Admin) ||
-                    (filter == "active" && u.Active) ||
-                    (filter == "inactive" && !u.Active));
+                    filter == FILTER_ALL ||
+                    (filter == FILTER_ADMIN && u.Admin) ||
+                    (filter == FILTER_ACTIVE && u.Active) ||
+                    (filter == FILTER_INACTIVE && !u.Active));
 
-            return PartialView("_UsersListPartial", _mapper.Map<List<UserFormViewModel>>(users));
+            return PartialView(ProjectUsersView.UsersListPartial, _mapper.Map<List<UserFormViewModel>>(users));
         }
 
         [Route("Create", Name = "CreateProjectUser-Get")]
@@ -50,7 +56,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             // Default to active on create
             model.Active = true;
 
-            return PartialView("_UserFormPartial", model);
+            return PartialView(ProjectUsersView.UserFormPartial, model);
         }
 
         // TODO: if projectId is null need to show an error
@@ -64,7 +70,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView("_UserFormPartial", model);
+                    return PartialView(ProjectUsersView.UserFormPartial, model);
                 }
 
                 var user = _mapper.Map<ProjectUser>(model);
@@ -96,7 +102,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 var model = _mapper.Map<UserFormViewModel>(user);
 
-                return PartialView("_UserFormPartial", model);
+                return PartialView(ProjectUsersView.UserFormPartial, model);
             }
             catch (Exception ex)
             {
@@ -114,7 +120,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 if (!ModelState.IsValid)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView("_UserFormPartial", model);
+                    return PartialView(ProjectUsersView.UserFormPartial, model);
                 }
 
                 var user = await _userRepository.GetUserByIdAsync(id);

@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
+using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Services;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Queries;
@@ -20,13 +21,11 @@ namespace AllianceAssociationBank.Crm.Controllers
         //private const int _pageSize = 5; // TODO: store this as app config?
         private const string _csvContentType = "text/csv";
 
-        private ReportQueries _queries;
-        private ReportGenerationService _reports;
+        private IReportGenerationService _reportsService;
 
-        public ReportsController()
+        public ReportsController(IReportGenerationService reportsService)
         {
-            _queries = new ReportQueries(new CrmApplicationDbContext());
-            _reports = new ReportGenerationService(_queries);
+            _reportsService = reportsService;
         }
 
         //public ActionResult Index()
@@ -34,17 +33,17 @@ namespace AllianceAssociationBank.Crm.Controllers
         //    return View();
         //}
 
-        [Route("{name}", Name = ReportsControllerRoutes.ViewReport)]
+        [Route("{name}", Name = ReportsControllerRoute.ViewReport)]
         public async Task<ActionResult> ViewReport(string name)
         {
             try
             {
-                var reportViewer = await _reports.GenerateReportByName(name);
+                var reportViewer = await _reportsService.GenerateReportByName(name);
 
                 ViewBag.ReportViewer = reportViewer;
                 ViewBag.Title = name;
 
-                return View(ReportsViews.ViewReport);
+                return View(ReportsView.ViewReport);
             }
             catch (Exception ex)
             {
@@ -66,21 +65,21 @@ namespace AllianceAssociationBank.Crm.Controllers
         //    return View(model);
         //}
 
-        public async Task<ActionResult> ExportReportAsCsv(string report)
-        {
-            var resultSet = await _queries.GetBoardingDataSetAsync();
-            var reportRecords = Mapper.Map<IEnumerable<ProjectReportRecordViewModel>>(resultSet);
+        //public async Task<ActionResult> ExportReportAsCsv(string report)
+        //{
+        //    var resultSet = await _queries.GetBoardingDataSetAsync();
+        //    var reportRecords = Mapper.Map<IEnumerable<ProjectReportRecordViewModel>>(resultSet);
 
-            var memoryStream = new MemoryStream();
-            var streamWriter = new StreamWriter(memoryStream);
-            var csvWriter = new CsvWriter(streamWriter);
+        //    var memoryStream = new MemoryStream();
+        //    var streamWriter = new StreamWriter(memoryStream);
+        //    var csvWriter = new CsvWriter(streamWriter);
 
-            csvWriter.WriteRecords(reportRecords);
-            streamWriter.Flush();
-            memoryStream.Position = 0;
+        //    csvWriter.WriteRecords(reportRecords);
+        //    streamWriter.Flush();
+        //    memoryStream.Position = 0;
 
-            return File(memoryStream, _csvContentType, $"{report}.csv");
-        }
+        //    return File(memoryStream, _csvContentType, $"{report}.csv");
+        //}
 
         //public async Task<ActionResult> ExportReportAsPdf(string report)
         //{

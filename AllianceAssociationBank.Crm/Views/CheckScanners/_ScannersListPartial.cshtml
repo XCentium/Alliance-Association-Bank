@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ScannerFormViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="font-weight-normal border-0" scope="col">Model</th>
+            <th class="font-weight-normal border-0" scope="col">Date Installed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var scanner in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => scanner.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => scanner.DateInstalled)
+                </td>
+                <td class="text-center">
+                    @Ajax.RouteLink(" ", routeName: CheckScannersControllerRoute.EditScanner, routeValues: new
+                    {
+                        projectId = scanner.ProjectID,
+                        id = scanner.ID
+                    }, ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "scanner-form-location",
+                        OnSuccess = "showScannerFormModal",
+                        OnFailure = "handleAjaxError"
+                    }, htmlAttributes: new
+                    {
+                        @class = "btn-img btn-edit-img"
+                    })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

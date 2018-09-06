@@ -1,7 +1,7 @@
 ﻿
 namespace AllianceAssociationBank.Crm.Constants
 {
-    public class ReportNames
+    public class ReportName
     {
         public const string Boarding = "Boarding";
         public const string CompletedAndHold = "CompletedAndHold";

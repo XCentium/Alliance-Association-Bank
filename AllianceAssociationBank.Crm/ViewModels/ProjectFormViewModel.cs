@@ -261,7 +261,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                return (ID != 0) ? ProjectsControllerActions.Update : ProjectsControllerActions.Create;
+                return (ID != 0) ? ProjectsControllerAction.Update : ProjectsControllerAction.Create;
             }
         }
     }

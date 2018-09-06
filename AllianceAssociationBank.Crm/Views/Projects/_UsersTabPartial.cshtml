@@ -41,6 +41,6 @@
 </div>
 
 <div id="project-users-list">
-    @Html.Action("Index", "ProjectUsers", routeValues: new { projectId = Model.ID })
+    @Html.Action("Index", ControllerName.ProjectUsers, routeValues: new { projectId = Model.ID })
 </div>
 

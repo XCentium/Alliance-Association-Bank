@@ -7,18 +7,18 @@
     <div class="collapse navbar-collapse popup-control" id="nav-side-menu">
         
         <div>
-            @Html.ActionLink("Create New Form", ProjectsControllerActions.Create, ControllerNames.Projects, null, new { @class = "btn btn-primary btn-sm" })
+            @Html.ActionLink("Create New Form", ProjectsControllerAction.Create, ControllerName.Projects, null, new { @class = "btn btn-primary btn-sm" })
         </div>
 
         <span class="text-muted">Reports</span>
         <div class="nav-item px-3 py-1 border">
-            @Html.RouteLink("Boarding", routeName: ReportsControllerRoutes.ViewReport, routeValues: new { name = ReportNames.Boarding })
+            @Html.RouteLink("Boarding", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.Boarding })
         </div>
         <div class="nav-item px-3 py-1 border">
-            @Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoutes.ViewReport, routeValues: new { name = ReportNames.CompletedAndHold })
+            @Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.CompletedAndHold })
         </div>
         <div class="nav-item px-3 py-1 border">
-            @Html.RouteLink("Software Transition", routeName: ReportsControllerRoutes.ViewReport, routeValues: new { name = ReportNames.SoftwareTransition })
+            @Html.RouteLink("Software Transition", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.SoftwareTransition })
         </div>
         <div class="nav-item px-3 py-1 border">
             <a href="#">CMC by ID</a>

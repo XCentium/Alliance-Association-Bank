@@ -13,8 +13,6 @@ namespace AllianceAssociationBank.Crm.App_Start
     {
         public DefaultMappingProfile()
         {
-            //CreateMap<Project, ProjectReportRecordViewModel>();
-
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
 
@@ -24,6 +22,9 @@ namespace AllianceAssociationBank.Crm.App_Start
                 .ForMember(u => u.DateDeleted, o => o.Ignore());
 
             CreateMap<List<ProjectUser>, List<UserFormViewModel>>()
+                .ReverseMap();
+
+            CreateMap<CheckScanner, ScannerFormViewModel>()
                 .ReverseMap();
         }
 

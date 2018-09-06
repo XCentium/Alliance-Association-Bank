@@ -257,15 +257,19 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Constants\ControllerNames.cs" />
-    <Compile Include="Constants\Projects\ProjectsControllerActions.cs" />
-    <Compile Include="Constants\Projects\ProjectsViews.cs" />
-    <Compile Include="Constants\ReportDatasetNames.cs" />
-    <Compile Include="Constants\ReportNames.cs" />
-    <Compile Include="Constants\Reports\ReportsViews.cs" />
-    <Compile Include="Constants\Reports\ReportsControllerRoutes.cs" />
-    <Compile Include="Constants\UserRoleNames.cs" />
+    <Compile Include="Constants\CheckScanners\CheckScannersControllerRoute.cs" />
+    <Compile Include="Constants\CheckScanners\CheckScannersView.cs" />
+    <Compile Include="Constants\ControllerName.cs" />
+    <Compile Include="Constants\Projects\ProjectsControllerAction.cs" />
+    <Compile Include="Constants\Projects\ProjectsView.cs" />
+    <Compile Include="Constants\ProjectUsers\ProjectUsersView.cs" />
+    <Compile Include="Constants\ReportDatasetName.cs" />
+    <Compile Include="Constants\ReportName.cs" />
+    <Compile Include="Constants\Reports\ReportsView.cs" />
+    <Compile Include="Constants\Reports\ReportsControllerRoute.cs" />
+    <Compile Include="Constants\UserRoleName.cs" />
     <Compile Include="Controllers\Api\ProjectsController.cs" />
+    <Compile Include="Controllers\CheckScannersController.cs" />
     <Compile Include="Controllers\ProjectUsersController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -278,6 +282,7 @@
     <Compile Include="Core\Models\Project.cs" />
     <Compile Include="Core\Models\ProjectUser.cs" />
     <Compile Include="Core\Models\Software.cs" />
+    <Compile Include="Core\Interfaces\IReportGenerationService.cs" />
     <Compile Include="Core\Services\ReportGenerationService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -303,6 +308,8 @@
     <Compile Include="Core\Interfaces\IEmployeeRepository.cs" />
     <Compile Include="Core\Interfaces\ISoftwareRepository.cs" />
     <Compile Include="Core\Interfaces\IProjectUserRepository.cs" />
+    <Compile Include="Persistence\Repositories\CheckScannerRepository.cs" />
+    <Compile Include="Core\Interfaces\ICheckScannerRepository.cs" />
     <Compile Include="Persistence\Repositories\ProjectUserRepository.cs" />
     <Compile Include="Persistence\Repositories\ProjectRepository.cs" />
     <Compile Include="Persistence\Repositories\SoftwareRepository.cs" />
@@ -316,6 +323,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProjectReportRecordViewModel.cs" />
     <Compile Include="ViewModels\ProjectFormViewModel.cs" />
@@ -506,10 +514,11 @@
     <Content Include="Views\Projects\_SideMenuPartial.cshtml" />
     <Content Include="Views\ProjectUsers\_UsersListPartial.cshtml" />
     <Content Include="Views\Projects\_BoardingTabPartial.cshtml" />
+    <Content Include="Views\CheckScanners\_ScannersListPartial.cshtml" />
+    <Content Include="Views\CheckScanners\_ScannerFormPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

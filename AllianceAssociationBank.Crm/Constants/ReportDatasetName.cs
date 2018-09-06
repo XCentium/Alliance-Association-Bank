@@ -1,7 +1,7 @@
 ﻿
 namespace AllianceAssociationBank.Crm.Constants
 {
-    public class ReportDatasetNames
+    public class ReportDatasetName
     {
         public const string Projects = "ProjectsDataset";
         public const string Employees = "EmployeesDataset";

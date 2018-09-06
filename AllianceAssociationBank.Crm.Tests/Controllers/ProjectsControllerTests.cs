@@ -83,7 +83,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Create_ValidModel_ReturnsRedirectToRouteResult()
+        public async Task Create_ValidModel_RedirectToRouteResult()
         {
             projectViewModel.ID = 0; // On create Id should be 0
             projectsRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
@@ -94,7 +94,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Create_InvalidModel_ReturnsViewResult()
+        public async Task Create_InvalidModel_ViewResult()
         {
             var inputModel = new ProjectFormViewModel();
             controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
@@ -108,7 +108,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_ValidProjectId_ReturnsViewResult()
+        public async Task Edit_ValidProjectId_ViewResult()
         {
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(project.ID)).ReturnsAsync(project);
 
@@ -121,7 +121,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidProjectId_ReturnsErrorViewResult()
+        public async Task Edit_InvalidProjectId_ErrorViewResult()
         {
             var projectId = 99;
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectId)).ReturnsAsync(null as Project);
@@ -134,7 +134,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_ValidModel_ReturnsRedirectToRouteResult()
+        public async Task Update_ValidModel_RedirectToRouteResult()
         {
             projectViewModel.ProjectName = "Changed Project Name";
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(project);
@@ -146,7 +146,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidModel_ReturnsViewResult()
+        public async Task Update_InvalidModel_ViewResult()
         {
             projectViewModel.ProjectName = null;
             controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
@@ -160,7 +160,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidProjectId_ReturnsErrorViewResult()
+        public async Task Update_InvalidProjectId_ErrorViewResult()
         {
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(null as Project);
 

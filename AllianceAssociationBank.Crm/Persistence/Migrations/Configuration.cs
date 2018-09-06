@@ -29,19 +29,19 @@ namespace AllianceAssociationBank.Crm.Persistence.Migrations
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(dbContext));
 
-            if (!roleManager.RoleExists(UserRoleNames.Admin))
+            if (!roleManager.RoleExists(UserRoleName.Admin))
             {
-                roleManager.Create(new IdentityRole(UserRoleNames.Admin));
+                roleManager.Create(new IdentityRole(UserRoleName.Admin));
             }
 
-            if (!roleManager.RoleExists(UserRoleNames.EditUser))
+            if (!roleManager.RoleExists(UserRoleName.EditUser))
             {
-                roleManager.Create(new IdentityRole(UserRoleNames.EditUser));
+                roleManager.Create(new IdentityRole(UserRoleName.EditUser));
             }
 
-            if (!roleManager.RoleExists(UserRoleNames.ViewOnlyUser))
+            if (!roleManager.RoleExists(UserRoleName.ViewOnlyUser))
             {
-                roleManager.Create(new IdentityRole(UserRoleNames.ViewOnlyUser));
+                roleManager.Create(new IdentityRole(UserRoleName.ViewOnlyUser));
             }
         }
 
@@ -58,7 +58,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Migrations
                     Email = "admin@xcentium.com",
                 };
                 userManager.Create(adminUser, "Password1!");
-                userManager.AddToRole(adminUser.Id, UserRoleNames.Admin);
+                userManager.AddToRole(adminUser.Id, UserRoleName.Admin);
             }
         }
     }

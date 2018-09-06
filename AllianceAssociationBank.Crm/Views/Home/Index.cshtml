@@ -11,7 +11,7 @@
 <div class="row py-3">
     <span class="col-md-1 offset-md-4 col-form-label px-0">NEW FORM</span>
     <div class="col-md-3">
-        <p>@Html.ActionLink("Create", ProjectsControllerActions.Create, ControllerNames.Projects, null, new { @class = "btn btn-primary btn-block" })</p>
+        <p>@Html.ActionLink("Create", ProjectsControllerAction.Create, ControllerName.Projects, null, new { @class = "btn btn-primary btn-block" })</p>
     </div>
 </div>
 
@@ -25,9 +25,9 @@
 <div class="row py-4">
     <div class="col-md-2 offset-md-5">
         <h6>REPORTS</h6>
-        <p>@Html.RouteLink("Boarding", routeName: ReportsControllerRoutes.ViewReport, routeValues: new { name = ReportNames.Boarding })</p>
-        <p>@Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoutes.ViewReport, routeValues: new { name = ReportNames.CompletedAndHold })</p>
-        <p>@Html.RouteLink("Software Transition", routeName: ReportsControllerRoutes.ViewReport, routeValues: new { name = ReportNames.SoftwareTransition })</p>
+        <p>@Html.RouteLink("Boarding", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.Boarding })</p>
+        <p>@Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.CompletedAndHold })</p>
+        <p>@Html.RouteLink("Software Transition", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.SoftwareTransition })</p>
         <p><a href="#">CMC by ID</a></p>
         <p><a href="#">CMC by Name</a></p>
         <p><a href="#">CD Emails</a></p>

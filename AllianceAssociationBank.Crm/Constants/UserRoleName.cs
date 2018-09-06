@@ -1,7 +1,7 @@
 ﻿
 namespace AllianceAssociationBank.Crm.Constants
 {
-    public class UserRoleNames
+    public class UserRoleName
     {
         public const string Admin = "Admin";
         public const string EditUser = "EditUser";
