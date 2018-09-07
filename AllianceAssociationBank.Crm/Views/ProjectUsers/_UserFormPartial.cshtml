@@ -7,22 +7,22 @@
                 <h5 class="modal-title font-weight-bold" id="user-form-modal-label">User Details</h5>
                 <h5 class="modal-title justify-content-end">User ID @Model.ID</h5>
             </div>
-        @using (Ajax.BeginRouteForm(Model.CreateUpdateRoute, routeValues: new
-        {
-            projectId = Model.ProjectID,
-            id = Model.ID
-        }, ajaxOptions: new AjaxOptions
-        {
-            HttpMethod = "POST",
-            InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "project-users-list",
-            OnBegin = "hideUserFormModal", // TODO: maybe should change this to OnSuccess?
-            OnFailure = "handleAjaxError" 
-        }, htmlAttributes: new
-        {
-            id = "user-form-element"
-        }))
-        {
+            @using (Ajax.BeginRouteForm(Model.CreateUpdateRoute, routeValues: new
+            {
+                projectId = Model.ProjectID,
+                id = Model.ID
+            }, ajaxOptions: new AjaxOptions
+            {
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "project-users-list",
+                OnBegin = "hideUserFormModal", // TODO: maybe should change this to OnSuccess?
+                OnFailure = "handleAjaxError" 
+            }, htmlAttributes: new
+            {
+                id = "user-form-element"
+            }))
+            {
             <div class="modal-body">
                 <div class="container-fluid">
 

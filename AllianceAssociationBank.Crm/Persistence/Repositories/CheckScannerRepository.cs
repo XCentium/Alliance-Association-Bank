@@ -37,7 +37,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             _context.CheckScanners.Add(scanner);
         }
 
-        public void RemoveUser(CheckScanner scanner)
+        public void RemoveScanner(CheckScanner scanner)
         {
             _context.CheckScanners.Remove(scanner);
         }

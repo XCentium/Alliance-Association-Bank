@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AllianceAssociationBank.Crm.Constants.ProjectUsers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -102,7 +103,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                return (ID != 0) ? "UpdateProjectUser-Post" : "CreateProjectUser-Post";
+                return (ID != 0) ? ProjectUsersControllerRoute.UpdateUser : ProjectUsersControllerRoute.CreateUserHttpPost;
             }
         }
     }

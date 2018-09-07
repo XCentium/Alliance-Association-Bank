@@ -42,7 +42,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Date Trained")]
         public DateTime? DateTrained { get; set; }
 
-        [Display(Name = "General Notes")]
+        [Display(Name = "GENERAL NOTES")]
         public string Notes { get; set; }
 
         public string CreateUpdateRoute

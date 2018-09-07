@@ -9,7 +9,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         IEnumerable<CheckScanner> GetScanners(int projectId);
         Task<CheckScanner> GetScannerByIdAsync(int id);
         void AddScanner(CheckScanner scanner);
-        void RemoveUser(CheckScanner scanner);
+        void RemoveScanner(CheckScanner scanner);
         Task<bool> SaveAllAsync();
     }
 }

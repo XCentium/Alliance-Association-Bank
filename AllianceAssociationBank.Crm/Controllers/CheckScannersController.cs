@@ -1,5 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Constants.CheckScanners;
 using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -36,14 +37,40 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Create", Name = CheckScannersControllerRoute.CreateScanner)]
         public ActionResult Create(int projectId)
         {
-            var model = new ScannerFormViewModel();
-            model.ProjectID = projectId;
+            var viewModel = new ScannerFormViewModel();
+            viewModel.ProjectID = projectId;
 
-            return PartialView(CheckScannersView.ScannerFormPartial, model);
+            return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
         }
 
-        [Route("Update/{id}", Name = CheckScannersControllerRoute.EditScanner)]
-        public async Task<ActionResult> Edit(int id)
+
+        [Route("Create", Name = CheckScannersControllerRoute.CreateScannerHttpPost)]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(int projectId, ScannerFormViewModel viewModel)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+                }
+
+                var scanner = _mapper.Map<CheckScanner>(viewModel);
+                _scannerRepository.AddScanner(scanner);
+                await _scannerRepository.SaveAllAsync();
+
+                return Index(projectId);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [Route("Edit/{id}", Name = CheckScannersControllerRoute.EditScanner)]
+        public async Task<ActionResult> Edit(int projectId, int id)
         {
             try
             {
@@ -54,13 +81,66 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return HttpNotFound();
                 }
 
-                var model = _mapper.Map<ScannerFormViewModel>(scanner);
+                var viewModel = _mapper.Map<ScannerFormViewModel>(scanner);
 
-                return PartialView(CheckScannersView.ScannerFormPartial, model);
+                return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
             }
             catch (Exception ex)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [Route("Update/{id}", Name = CheckScannersControllerRoute.UpdateScanner)]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Update(int projectId, int id, ScannerFormViewModel viewModel)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+                }
+
+                var scanner = await _scannerRepository.GetScannerByIdAsync(id);
+                if (scanner == null)
+                {
+                    return HttpNotFound();
+                }
+
+                _mapper.Map(viewModel, scanner);
+                await _scannerRepository.SaveAllAsync();
+
+                return Index(projectId);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [Route("Delete/{id}", Name = CheckScannersControllerRoute.DeleteScanner)]
+        [HttpDelete]
+        public async Task<ActionResult> Delete(int projectId, int id)
+        {
+            try
+            {
+                var scanner = await _scannerRepository.GetScannerByIdAsync(id);
+                if (scanner == null)
+                {
+                    return HttpNotFound();
+                }
+
+                _scannerRepository.RemoveScanner(scanner);
+                await _scannerRepository.SaveAllAsync();
+
+                return Index(projectId);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); ;
             }
         }
     }

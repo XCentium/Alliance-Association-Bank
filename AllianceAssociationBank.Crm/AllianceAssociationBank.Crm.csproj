@@ -257,11 +257,14 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\CheckScanners\CheckScannersControllerAction.cs" />
     <Compile Include="Constants\CheckScanners\CheckScannersControllerRoute.cs" />
     <Compile Include="Constants\CheckScanners\CheckScannersView.cs" />
     <Compile Include="Constants\ControllerName.cs" />
     <Compile Include="Constants\Projects\ProjectsControllerAction.cs" />
     <Compile Include="Constants\Projects\ProjectsView.cs" />
+    <Compile Include="Constants\ProjectUsers\ProjectUsersControllerAction.cs" />
+    <Compile Include="Constants\ProjectUsers\ProjectUsersControllerRoute.cs" />
     <Compile Include="Constants\ProjectUsers\ProjectUsersView.cs" />
     <Compile Include="Constants\ReportDatasetName.cs" />
     <Compile Include="Constants\ReportName.cs" />

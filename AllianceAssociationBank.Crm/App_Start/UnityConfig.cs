@@ -52,6 +52,7 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IEmployeeRepository, EmployeeRepository>(new TransientLifetimeManager());
             container.RegisterType<ISoftwareRepository, SoftwareRepository>(new TransientLifetimeManager());
             container.RegisterType<IProjectUserRepository, ProjectUserRepository>(new TransientLifetimeManager());
+            container.RegisterType<ICheckScannerRepository, CheckScannerRepository>(new TransientLifetimeManager());
             container.RegisterType<IReportQueries, ReportQueries>(new TransientLifetimeManager());
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
 

@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Projects;
+using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Persistence;
@@ -33,7 +34,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             _mapper = mapper;
         }
 
-        [Route("Index", Name = "GetProjectUsers")]
+        [Route("Index", Name = ProjectUsersControllerRoute.GetUsers)]
         public ActionResult Index(int projectId, string filter = FILTER_ALL)
         {
             filter = filter.ToLower();
@@ -48,7 +49,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(ProjectUsersView.UsersListPartial, _mapper.Map<List<UserFormViewModel>>(users));
         }
 
-        [Route("Create", Name = "CreateProjectUser-Get")]
+        [Route("Create", Name = ProjectUsersControllerRoute.CreateUser)]
         public ActionResult Create(int projectId)
         {
             var model = new UserFormViewModel();
@@ -60,7 +61,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         // TODO: if projectId is null need to show an error
-        [Route("Create", Name = "CreateProjectUser-Post")]
+        [Route("Create", Name = ProjectUsersControllerRoute.CreateUserHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(int projectId, UserFormViewModel model)
@@ -88,7 +89,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Route("Edit/{id}", Name = "EditProjectUser-Get")]
+        [Route("Edit/{id}", Name = ProjectUsersControllerRoute.EditUser)]
         public async Task<ActionResult> Edit(int id)
         {
             try
@@ -110,7 +111,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Route("Update/{id}", Name = "UpdateProjectUser-Post")]
+        [Route("Update/{id}", Name = ProjectUsersControllerRoute.UpdateUser)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(int projectId, int id, UserFormViewModel model)
@@ -142,31 +143,5 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
-
-        // No delete capability
-        //[HttpPost]
-        ////[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    try
-        //    {
-        //        var user = await _repository.GetUserByIdAsync(id);
-        //        if (user == null)
-        //        {
-        //            return HttpNotFound();
-        //        }
-
-        //        var projectId = user.ProjectID ?? 0;
-
-        //        _repository.RemoveUser(user);
-        //        await _repository.SaveAllAsync();
-
-        //        return Index(projectId);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); ;
-        //    }  
-        //}
     } 
 }

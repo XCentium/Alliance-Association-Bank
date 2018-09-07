@@ -175,11 +175,27 @@
             @Html.LabelFor(m => m.MMOnCheckScanner, new { @class = "col-11" })
         </div>
 
-        @* TODO: need to add check scanner widget *@
-        <div class="row">
+        <div class="row pb-3">
             <div class="col-11">
-                <label class="float-right">Add Scanner</label>
-                <textarea class="form-textarea" rows="4"></textarea>
+                <div class="col-2 offset-8">
+                    @Ajax.RouteLink("Add Scanner", routeName: CheckScannersControllerRoute.CreateScanner, routeValues: new
+                    {
+                        projectId = Model.ID
+                    }, ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "scanner-form-location",
+                        OnSuccess = "showScannerFormModal",
+                        OnFailure = "handleAjaxError"
+                    }, htmlAttributes: new
+                    {
+                        @class = "btn btn-sm btn-primary"
+                    })
+                </div>
+                <div id="check-scanners-list">
+                    @Html.Action(CheckScannersControllerAction.Index, ControllerName.CheckScanners, routeValues: new { projectId = Model.ID })
+                </div>
             </div>
         </div>
 
@@ -189,24 +205,24 @@
     @* Third column beginning *@
     <div class="col-4">
 
-        <div class="row mb-4">
+        <div class="row mb-3">
             <div class="col-11">
                 @Html.LabelFor(m => m.BoardingNextSteps)
-                @Html.TextAreaFor(m => m.BoardingNextSteps, 5, 10, new { @class = "form-textarea" })
+                @Html.TextAreaFor(m => m.BoardingNextSteps, 6, 10, new { @class = "form-textarea" })
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mb-3">
             <div class="col-11">
                 @Html.LabelFor(m => m.BoardingNotes)
-                @Html.TextAreaFor(m => m.BoardingNotes, 5, 10, new { @class = "form-textarea" })
+                @Html.TextAreaFor(m => m.BoardingNotes, 6, 10, new { @class = "form-textarea" })
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mb-3">
             <div class="col-11">
                 @Html.LabelFor(m => m.Narrative)
-                @Html.TextAreaFor(m => m.Narrative, 5, 10, new { @class = "form-textarea" })
+                @Html.TextAreaFor(m => m.Narrative, 6, 10, new { @class = "form-textarea" })
             </div>
         </div>
 

@@ -1,40 +1,58 @@
 ﻿@model IEnumerable<ScannerFormViewModel>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th class="font-weight-normal border-0" scope="col">Model</th>
-            <th class="font-weight-normal border-0" scope="col">Date Installed</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var scanner in Model)
-        {
+<div class="border mt-2 p-2">
+    <table class="table table-hover table-sm mb-0">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(m => scanner.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => scanner.DateInstalled)
-                </td>
-                <td class="text-center">
-                    @Ajax.RouteLink(" ", routeName: CheckScannersControllerRoute.EditScanner, routeValues: new
-                    {
-                        projectId = scanner.ProjectID,
-                        id = scanner.ID
-                    }, ajaxOptions: new AjaxOptions
-                    {
-                        HttpMethod = "GET",
-                        InsertionMode = InsertionMode.Replace,
-                        UpdateTargetId = "scanner-form-location",
-                        OnSuccess = "showScannerFormModal",
-                        OnFailure = "handleAjaxError"
-                    }, htmlAttributes: new
-                    {
-                        @class = "btn-img btn-edit-img"
-                    })
-                </td>
+                <th class="font-weight-normal border-0" scope="col">Model</th>
+                <th class="font-weight-normal border-0" scope="col">Date Installed</th>
+                <th class="font-weight-normal border-0" scope="col"></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var scanner in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => scanner.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => scanner.DateInstalled)
+                    </td>
+                    <td class="text-center">
+                        @Ajax.RouteLink(" ", routeName: CheckScannersControllerRoute.EditScanner, routeValues: new
+                        {
+                            projectId = scanner.ProjectID,
+                            id = scanner.ID
+                        }, ajaxOptions: new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "scanner-form-location",
+                            OnSuccess = "showScannerFormModal",
+                            OnFailure = "handleAjaxError"
+                        }, htmlAttributes: new
+                        {
+                            @class = "btn-img btn-edit-img"
+                        })
+                        @Ajax.RouteLink(" ", routeName: CheckScannersControllerRoute.DeleteScanner, routeValues: new
+                        {
+                            projectId = scanner.ProjectID,
+                            id = scanner.ID
+                        }, ajaxOptions: new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "check-scanners-list",
+                            Confirm = "OK to delete this check scanner?",
+                            OnFailure = "handleAjaxError"
+                        }, htmlAttributes: new
+                        {
+                            @class = "btn-img btn-delete-img"
+                        })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

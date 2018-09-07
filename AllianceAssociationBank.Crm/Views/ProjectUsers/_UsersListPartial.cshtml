@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<UserFormViewModel>
 
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th class="font-weight-normal border-0" scope="col">Name</th>
@@ -35,7 +35,7 @@
                     @Html.DisplayFor(m => user.Admin)
                 </td>
                 <td class="text-center">
-                    @Ajax.RouteLink(" ", routeName: "EditProjectUser-Get", routeValues: new
+                    @Ajax.RouteLink(" ", routeName: ProjectUsersControllerRoute.EditUser, routeValues: new
                     {
                         projectId = user.ProjectID,
                         id = user.ID
@@ -50,15 +50,6 @@
                     {
                         @class = "btn-img btn-edit-img"
                     })
-                    
-                    @*@Ajax.ActionLink(" ", "Delete", "ProjectUsers", routeValues: new { id = user.ID }, ajaxOptions: new AjaxOptions
-                    {
-                        HttpMethod = "Post",
-                        InsertionMode = InsertionMode.Replace,
-                        UpdateTargetId = "project-users-list",
-                        Confirm = "Are you sure you want to delete this user?",
-                        OnFailure = "handleAjaxError"
-                    }, htmlAttributes: new { @class = "btn-img btn-delete-img" })*@
                 </td>
             </tr>
         }

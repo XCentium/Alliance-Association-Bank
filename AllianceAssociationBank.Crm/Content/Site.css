@@ -224,9 +224,14 @@ textarea {
     opacity: 0.85;
 }
 
+.modal-md {
+    max-width: 765px;
+    width: 100%;
+}
+
 .modal-lg {
-    max-width: none;
-    width: 1020px;
+    max-width: 1020px;
+    width: 100%;
 }
 
 .nav-tabs {
