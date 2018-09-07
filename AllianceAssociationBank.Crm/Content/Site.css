@@ -153,6 +153,10 @@ textarea {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(39,128,227,0.25);
 }
 
+.form-input-prepend {
+    width: 80%;
+}
+
 .form-label-heading {
     color: #999999;
     padding-right: 10px;
@@ -215,7 +219,15 @@ textarea {
     }
 }*/
 
-.modal-backdrop {
+.input-group-prepend, .input-group-append {
+    height: 25px;
+}
+
+.input-group-text {
+    padding: 0.375rem 0.5rem;
+}
+
+    .modal-backdrop {
     background-color: #ffffff;
 }
 

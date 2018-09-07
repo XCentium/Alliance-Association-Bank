@@ -90,12 +90,15 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Bank")]
         public string Institution { get; set; }
 
-        [StringLength(255)]
-        [Display(Name = "CD Rate")]
-        public string CODRate { get; set; }
+        [Display(Name = "Relationship Rate")]
+        public string RelationshipRate { get; set; }
 
-        [Display(Name = "Rate Notes")]
-        public string RateNotes { get; set; }
+        //[StringLength(255)]
+        //[Display(Name = "CD Rate")]
+        //public string CODRate { get; set; } // This field is going away
+
+        //[Display(Name = "Rate Notes")]
+        //public string RateNotes { get; set; } // This field is going away
 
         [Required]
         [Display(Name = "Banker")]
