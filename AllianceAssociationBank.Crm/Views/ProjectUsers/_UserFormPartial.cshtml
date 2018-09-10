@@ -16,7 +16,7 @@
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "project-users-list",
-                OnBegin = "hideUserFormModal", // TODO: maybe should change this to OnSuccess?
+                OnBegin = "hideUserFormModal", // TODO: maybe should change this to OnSuccess or disable buttons on OnBegin?
                 OnFailure = "handleAjaxError" 
             }, htmlAttributes: new
             {
