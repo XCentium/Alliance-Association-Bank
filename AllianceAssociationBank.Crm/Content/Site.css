@@ -110,16 +110,21 @@ textarea {
 }
 
 .save-indicator {
-    border-color: #797979;
+    border-color: #ced4da;
     border-style: solid;
     border-width: 1px;
-    font-family: 'Arial-BoldMT', 'Arial Bold', 'Arial';
-    font-style: normal;
-    font-size: 11px;
+    height: 27px;
+    display: inline-block;
+    font-size: 75%;
     font-weight: 700;
+    line-height: 1;
     margin-left: 10px;
     margin-right: 10px;
-    padding: 4px 15px 4px 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+    white-space: nowrap;
+    width: 92px;
 }
 
 .form-error-msg {

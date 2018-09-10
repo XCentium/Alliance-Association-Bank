@@ -32,7 +32,11 @@
 </div>
 
 
-@using (Html.BeginForm(Model.CreateUpdateAction, ControllerName.Projects, FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm(Model.CreateUpdateAction, ControllerName.Projects, FormMethod.Post, htmlAttributes: new
+{
+    id = "project-form-element",
+    role = "form"
+}))
 {
     @Html.AntiForgeryToken()
     @*Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
@@ -40,7 +44,7 @@
 
     <div class="row mb-3">
         <div class="col-12 text-right">
-            <span class="save-indicator">UNSAVED</span>
+            <span id="project-form-save-indicator" class="save-indicator badge-light">@Model.SaveIndicator</span>
             <button class="btn-img" type="submit">
                 <img class="icon-image" src="~/Content/Images/save-img.png" />
             </button>
@@ -148,15 +152,15 @@
             });
 
 
-            $('[data-toggle="slide-collapse-right"]').on('click', function () {
-                $toggleTarget = $($(this).data('target'));
+            $('[data-toggle="slide-collapse-right"]').on("click", function () {
+                $toggleTarget = $($(this).data("target"));
                 $toggleTarget.show("slide");
 
                 $(".screen-overlay").fadeIn(500);
             });
 
-            $('[data-toggle="slide-collapse-left"]').on('click', function () {
-                $toggleTarget = $($(this).data('target'));
+            $('[data-toggle="slide-collapse-left"]').on("click", function () {
+                $toggleTarget = $($(this).data("target"));
                 $toggleTarget.show("slide", { direction: "right" })
 
                 $(".screen-overlay").fadeIn(500);
@@ -183,6 +187,20 @@
                     .fail(function () {
                         handleAjaxError();
                     });
+            });
+
+            // TODO: Need better solution here
+            var $saveIndicator = $("#project-form-save-indicator");
+            if ($saveIndicator.text() == "SAVED") {
+                $saveIndicator.removeClass("badge-light").addClass("badge-success");
+            };
+
+            // Reset save indicator on any form change
+            $("#project-form-element").on("change", function () {
+                if ($saveIndicator.text() == "SAVED") {
+                    $saveIndicator.text("UNSAVED");
+                    $saveIndicator.removeClass("badge-success").addClass("badge-light");
+                };
             });
 
             //$("#btn-add-project-user").click(function (e) {

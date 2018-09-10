@@ -20,6 +20,8 @@ namespace AllianceAssociationBank.Crm.Controllers
     //[ValidateInput(false)]
     public class ProjectsController : Controller
     {
+        private const string SAVED = "SAVED";
+
         private IProjectRepository _projects;
         private IEmployeeRepository _employees;
         private ISoftwareRepository _softwares;
@@ -57,6 +59,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 _projects.AddProject(project);
                 await _projects.SaveAllAsync();
 
+                TempData[SAVED] = true;
                 return RedirectToAction(nameof(this.Edit), new { id = project.ID });
                 //else
                 //{
@@ -83,8 +86,13 @@ namespace AllianceAssociationBank.Crm.Controllers
                 }
 
                 var model = _mapper.Map<ProjectFormViewModel>(project);
-
                 await PopulateDropDownLists(model);
+
+                if (TempData.ContainsKey(SAVED))
+                {
+                    model.SaveIndicator = SAVED;
+                    TempData.Remove(SAVED);
+                }
 
                 return View(ProjectsView.ProjectForm, model);
             }
@@ -118,6 +126,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 _mapper.Map(model, project);
                 await _projects.SaveAllAsync();
 
+                TempData[SAVED] = true;
                 return RedirectToAction(nameof(this.Edit), new { id = model.ID });
 
                 // TODO: if nothing actually changes, SaveAllAsync will return false

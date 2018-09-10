@@ -260,6 +260,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public IEnumerable<string> StatusList { get; set; }
 
 
+        public string SaveIndicator { get; set; } = "UNSAVED";
         public string CreateUpdateAction
         {
             get

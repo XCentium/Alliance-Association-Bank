@@ -6,7 +6,8 @@
         @Html.AntiForgeryToken()
 
         <div class="navbar-nav small">
-            @Html.ActionLink(@User.Identity.GetUserName(), "ChangePassword", "User", routeValues: null, htmlAttributes: new { @class = "nav-item nav-link", title = "Manage your account" })
+            <span class="nav-link">@User.Identity.GetUserName()</span>
+            @*@Html.ActionLink(@User.Identity.GetUserName(), "ChangePassword", "User", routeValues: null, htmlAttributes: new { @class = "nav-item nav-link", title = "Manage your account" })*@
             <span class="nav-link">|</span>
             <a class="nav-item nav-link" href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
         </div>
