@@ -37,6 +37,12 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Create", Name = CheckScannersControllerRoute.CreateScanner)]
         public ActionResult Create(int projectId)
         {
+            // TODO: if projectId is null need to show an error, but better way to do this
+            if (projectId == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             var viewModel = new ScannerFormViewModel();
             viewModel.ProjectID = projectId;
 

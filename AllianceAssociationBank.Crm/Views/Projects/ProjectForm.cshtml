@@ -25,7 +25,7 @@
             <img src="~/Content/Images/search-img.png" />
         </button>
         <div class="collapse navbar-collapse popup-control" id="search-widget">
-            <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / CMC ID" autocomplete="off">
+            <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / PMC ID" autocomplete="off">
         </div>
     </nav>
 
@@ -264,9 +264,7 @@
         };
 
         function emailListCopyToClipboard() {
-            var $text = $("#users-email-list-textarea");
-            $text.select();
-
+            $("#users-email-list-textarea").select();
             document.execCommand("copy");
         };
 

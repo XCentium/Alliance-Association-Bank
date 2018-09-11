@@ -2,14 +2,13 @@
 using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
-using AllianceAssociationBank.Crm.Persistence;
-using AllianceAssociationBank.Crm.Persistence.Repositories;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -27,6 +26,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         private const string FILTER_ADMIN = "admin";
         private const string FILTER_ACTIVE = "active";
         private const string FILTER_INACTIVE = "inactive";
+        private const string EMAIL_SEPARATOR = "; ";
 
         public ProjectUsersController(IProjectUserRepository userRepository, IMapper mapper)
         {
@@ -52,6 +52,12 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Create", Name = ProjectUsersControllerRoute.CreateUser)]
         public ActionResult Create(int projectId)
         {
+            // TODO: if projectId is null need to show an error, but better way to do this
+            if (projectId == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             var model = new UserFormViewModel();
             model.ProjectID = projectId;
             // Default to active on create
@@ -60,7 +66,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(ProjectUsersView.UserFormPartial, model);
         }
 
-        // TODO: if projectId is null need to show an error
         [Route("Create", Name = ProjectUsersControllerRoute.CreateUserHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -152,8 +157,8 @@ namespace AllianceAssociationBank.Crm.Controllers
                 var emails = (await _userRepository.GetUsersByEmailList(projectId, emailList.ToLower()))
                     .Select(u => u.Email);
 
-                ViewBag.ListName = emailList;
-                ViewBag.EmailList = string.Join("; ", emails);
+                ViewBag.ListName = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(emailList);
+                ViewBag.EmailList = string.Join(EMAIL_SEPARATOR, emails);
 
                 return PartialView(ProjectUsersView.UsersEmailListPartial);
             }

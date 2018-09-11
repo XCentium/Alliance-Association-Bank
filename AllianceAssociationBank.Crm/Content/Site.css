@@ -6,8 +6,9 @@
 .body-content {
     border: 1px solid #ced4da;
     border-top: none;
+    height: 715px;
     max-width: 1280px;
-    min-height: 715px;
+    /*min-height: 715px;*/
     width: 1280px;
 }
 
@@ -19,18 +20,14 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
-.full-width {
+/*.full-width {
     max-width: none;
-}
-
-/*.col-form-label-sm {
-    padding-right: 5px;
 }*/
 
 .smallnavbar {
@@ -74,12 +71,18 @@ textarea {
 }
 
 .btn-add-img {
-    background-image: url('Images/btn-add-img.png');
-    background-position: right;
-    background-size: contain;
-    height: 18px;
-    margin: 10px 5px 0px 5px;
-    width: 18px;
+    background-image: url('Images/btn-add-icon.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 5px) center;
+    color: #212529;
+    margin-left: -30px;
+    padding-right: 30px;
+}
+
+.btn-add-img:hover {
+    background-color: #f8f9fa;
+    border-color: #dae0e5;
+    color: #212529;
 }
 
 .btn-edit-img {

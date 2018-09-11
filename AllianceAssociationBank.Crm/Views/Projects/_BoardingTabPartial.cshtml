@@ -190,11 +190,14 @@
                         OnFailure = "handleAjaxError"
                     }, htmlAttributes: new
                     {
-                        @class = "btn btn-sm btn-primary"
+                        @class = "btn btn-sm btn-add-img"
                     })
                 </div>
                 <div id="check-scanners-list">
-                    @Html.Action(CheckScannersControllerAction.Index, ControllerName.CheckScanners, routeValues: new { projectId = Model.ID })
+                    @Html.Action(CheckScannersControllerAction.Index, ControllerName.CheckScanners, routeValues: new
+                    {
+                        projectId = Model.ID
+                    })
                 </div>
             </div>
         </div>

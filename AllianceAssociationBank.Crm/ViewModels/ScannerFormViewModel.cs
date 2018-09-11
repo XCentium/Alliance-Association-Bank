@@ -13,6 +13,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public int ProjectID { get; set; }
 
+        [Required]
         [StringLength(255)]
         public string Model { get; set; }
 

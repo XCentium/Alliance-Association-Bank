@@ -7,7 +7,7 @@ namespace AllianceAssociationBank.Crm.Constants.ProjectUsers
 {
     public class UsersEmailListName
     {
-        public const string StatementEmails = "statement";
+        public const string StatementEmails = "statements";
         public const string LockboxEmails = "lockbox";
         public const string AchEmails = "ach";
     }
