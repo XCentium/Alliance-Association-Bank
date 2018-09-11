@@ -105,6 +105,9 @@
 @* div to render user form modal *@
 <div id="user-form-location"></div>
 
+@* div to render users email distribution lists modal *@
+<div id="users-email-list-modal-location"></div>
+
 @* div to render check scanner form modal *@
 <div id="scanner-form-location"></div>
 
@@ -254,6 +257,17 @@
 
         function hideScannerFormModal() {
             $("#scanner-form-modal").modal("hide");
+        };
+
+        function showUsersEmailListModal() {
+            $("#users-email-list-modal").modal("show");
+        };
+
+        function emailListCopyToClipboard() {
+            var $text = $("#users-email-list-textarea");
+            $text.select();
+
+            document.execCommand("copy");
         };
 
         function validatorParseForm(form) {

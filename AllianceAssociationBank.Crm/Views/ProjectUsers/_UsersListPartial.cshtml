@@ -1,7 +1,13 @@
 ﻿@model IEnumerable<UserFormViewModel>
 
 <table class="table table-hover">
-    <thead>
+    <thead class="table-sm">
+        <tr>
+            <th class="border-0" scope="col" colspan="4"></th>
+            <th class="font-weight-normal border-top-0 border-bottom" scope="col" colspan="2">Permissions</th>
+            <th class="font-weight-normal border-top-0 border-bottom" scope="col" colspan="3">Emails</th>
+            <th class="border-0" scope="col"></th>
+        </tr>
         <tr>
             <th class="font-weight-normal border-0" scope="col">Name</th>
             <th class="font-weight-normal border-0" scope="col">Title</th>
@@ -9,6 +15,9 @@
             <th class="font-weight-normal border-0" scope="col">Email</th>
             <th class="font-weight-normal border-0" scope="col">Active</th>
             <th class="font-weight-normal border-0" scope="col">Adm</th>
+            <th class="font-weight-normal border-0" scope="col">Stmt</th>
+            <th class="font-weight-normal border-0" scope="col">Lockbox</th>
+            <th class="font-weight-normal border-0" scope="col">ACH</th>
             <th class="font-weight-normal border-0" scope="col"></th>
         </tr>
     </thead>
@@ -19,7 +28,7 @@
                 <td>
                     @Html.DisplayFor(m => user.Name)
                 </td>
-                <td >
+                <td>
                     @Html.DisplayFor(m => user.Title)
                 </td>
                 <td>
@@ -33,6 +42,15 @@
                 </td>
                 <td>
                     @Html.DisplayFor(m => user.Admin)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => user.StatementEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => user.LockboxEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => user.ACHEmail)
                 </td>
                 <td class="text-center">
                     @Ajax.RouteLink(" ", routeName: ProjectUsersControllerRoute.EditUser, routeValues: new

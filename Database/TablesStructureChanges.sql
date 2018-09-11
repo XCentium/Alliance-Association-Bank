@@ -7,7 +7,7 @@ ALTER TABLE dbo.Projects ALTER COLUMN [ACH Limit] DECIMAL(16,4)
 ALTER TABLE dbo.Projects ALTER COLUMN [ACH System Limit] DECIMAL(16,4)
 
 
--- Projects table RENAME statements
+-- Projects table change statements (RENAME and ADD)
 exec sp_rename 'Projects.Project Name', 'ProjectName', 'COLUMN';
 exec sp_rename 'Projects.Inst', 'Institution', 'COLUMN';
 exec sp_rename 'Projects.Owner', 'OwnerID', 'COLUMN';
@@ -113,6 +113,8 @@ exec sp_rename 'Projects.SFTPPath', 'SftpPath', 'COLUMN';
 exec sp_rename 'Projects.REformatByAssoc', 'ReformatByAssoc', 'COLUMN';
 exec sp_rename 'Projects.Software', 'SoftwareID', 'COLUMN';
 exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftwareID', 'COLUMN';
+ALTER TABLE [dbo].[Projects] ADD OtherName NVARCHAR(255) NULL 
+ALTER TABLE [dbo].[Projects] ADD RelationshipRate NVARCHAR(50) NULL 
 
 
 -- Update Software data columns
@@ -152,15 +154,17 @@ exec sp_rename 'Software.Software', 'SoftwareName', 'COLUMN';
 exec sp_rename 'Software.Current Software', 'CurrentSoftware', 'COLUMN';
 exec sp_rename 'Software.Migrating To', 'MigratingTo', 'COLUMN';
 
-
--- Users table RENAME statements
+ 
+-- Users table changes (RENAME and ADD)
 exec sp_rename 'Users.UserID', 'ID', 'COLUMN';
---exec sp_rename 'Users.Name', 'UserName', 'COLUMN'; -- this not needed
 exec sp_rename 'Users.SFTP', 'Sftp', 'COLUMN';
 exec sp_rename 'Users.Lockbox Web', 'LockboxWeb', 'COLUMN';
 exec sp_rename 'Users.E Deposit', 'EDeposit', 'COLUMN';
 exec sp_rename 'Users.RemoteScannerAcctNotes', 'RemoteScannerAccountNotes', 'COLUMN';
 exec sp_rename 'Users.AuthorizedOpenClose', 'AuthorizedToOpenClose', 'COLUMN';
+ALTER TABLE [dbo].[Users] ADD StatementEmail BIT NOT NULL CONSTRAINT DF_Users_StatementEmail DEFAULT (0)
+ALTER TABLE [dbo].[Users] ADD LockboxEmail BIT NOT NULL CONSTRAINT DF_Users_LockboxEmail DEFAULT (0)
+ALTER TABLE [dbo].[Users] ADD ACHEmail BIT NOT NULL CONSTRAINT DF_Users_ACHEmail DEFAULT (0)
 
 
 -- CheckScanners table RENAME statements

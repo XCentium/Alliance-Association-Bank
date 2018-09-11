@@ -1,4 +1,4 @@
-﻿using AllianceAssociationBank.Crm.Constants;
+﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using Microsoft.Reporting.WebForms;
 using System;

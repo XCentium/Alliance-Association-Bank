@@ -1,0 +1,16 @@
+﻿<div class="modal fade" id="users-email-list-modal" tabindex="-1" role="dialog" aria-labelledby="users-email-list-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="users-email-list-modal-label">Email Distribution List for @ViewBag.ListName</h5>
+            </div>
+            <div class="modal-body">
+                @Html.TextArea("UserEmailList", (string)ViewBag.EmailList, 3, 10, new { id = "users-email-list-textarea", @class = "form-textarea" })
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="emailListCopyToClipboard()">Copy to Clipboard</button>
+            </div>
+         </div>
+    </div>
+</div>

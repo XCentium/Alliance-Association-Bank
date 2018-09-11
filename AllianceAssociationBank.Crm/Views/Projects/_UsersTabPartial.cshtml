@@ -12,11 +12,11 @@
             <label class="form-check-label" for="users-filter-admin">Admin</label>
         </div>
         <div class="form-check form-check-inline px-2">
-            <input class="form-check-input" id="users-filter-active" name="user-filter-option" type="radio" value="active" data-projectId="@Model.ID"/>
+            <input class="form-check-input" id="users-filter-active" name="user-filter-option" type="radio" value="active" data-projectId="@Model.ID" />
             <label class="form-check-label" for="users-filter-active">Active</label>
         </div>
         <div class="form-check form-check-inline px-2">
-            <input class="form-check-input" id="users-filter-inactive" name="user-filter-option" type="radio" value="inactive" data-projectId="@Model.ID"/>
+            <input class="form-check-input" id="users-filter-inactive" name="user-filter-option" type="radio" value="inactive" data-projectId="@Model.ID" />
             <label class="form-check-label" for="users-filter-inactive">Inactive</label>
         </div>
     </div>
@@ -42,5 +42,58 @@
 
 <div id="project-users-list">
     @Html.Action(ProjectUsersControllerAction.Index, ControllerName.ProjectUsers, routeValues: new { projectId = Model.ID })
+</div>
+
+<div class="row">
+    <div class="col-7">
+        <label class="mx-4">Generate Email Distribution List:</label>
+        @Ajax.RouteLink("Statement Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
+        {
+            projectId = Model.ID,
+            emailList = UsersEmailListName.StatementEmails
+        }, ajaxOptions: new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "users-email-list-modal-location",
+            OnSuccess = "showUsersEmailListModal",
+            OnFailure = "handleAjaxError"
+        }, htmlAttributes: new
+        {
+            @class = "btn btn-primary mx-1"
+        })
+
+        @Ajax.RouteLink("Lockbox Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
+        {
+            projectId = Model.ID,
+            emailList = UsersEmailListName.LockboxEmails
+        }, ajaxOptions: new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "users-email-list-modal-location",
+            OnSuccess = "showUsersEmailListModal",
+            OnFailure = "handleAjaxError"
+        }, htmlAttributes: new
+        {
+            @class = "btn btn-primary mx-1"
+        })
+
+        @Ajax.RouteLink("ACH Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
+        {
+            projectId = Model.ID,
+            emailList = UsersEmailListName.AchEmails
+        }, ajaxOptions: new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "users-email-list-modal-location",
+            OnSuccess = "showUsersEmailListModal",
+            OnFailure = "handleAjaxError"
+        }, htmlAttributes: new
+        {
+            @class = "btn btn-primary mx-1"
+        })
+    </div>
 </div>
 

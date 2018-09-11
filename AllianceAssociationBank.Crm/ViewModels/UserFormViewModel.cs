@@ -21,11 +21,14 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public bool Admin { get; set; }
 
-        //public bool StatementEmail { get; set; } // TODO: new field, need to map to database
+        [Display(Name = "Statement")]
+        public bool StatementEmail { get; set; } // TODO: new field, need to map to database
 
-        //public bool LockboxEmail { get; set; } // TODO: new field, need to map to database
+        [Display(Name = "Lockbox")]
+        public bool LockboxEmail { get; set; } // TODO: new field, need to map to database
 
-        //public bool ACHEmail { get; set; } // TODO: new field, need to map to database
+        [Display(Name = "ACH")]
+        public bool ACHEmail { get; set; } // TODO: new field, need to map to database
 
         [StringLength(255)]
         public string Title { get; set; }

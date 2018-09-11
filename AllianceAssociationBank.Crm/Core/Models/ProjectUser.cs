@@ -65,6 +65,12 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool AuthorizedToOpenClose { get; set; }
 
+        public bool StatementEmail { get; set; }
+
+        public bool LockboxEmail { get; set; }
+
+        public bool ACHEmail { get; set; }
+
         public virtual Project Project { get; set; }
 
 

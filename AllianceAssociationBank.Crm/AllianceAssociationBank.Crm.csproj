@@ -266,8 +266,9 @@
     <Compile Include="Constants\ProjectUsers\ProjectUsersControllerAction.cs" />
     <Compile Include="Constants\ProjectUsers\ProjectUsersControllerRoute.cs" />
     <Compile Include="Constants\ProjectUsers\ProjectUsersView.cs" />
-    <Compile Include="Constants\ReportDatasetName.cs" />
-    <Compile Include="Constants\ReportName.cs" />
+    <Compile Include="Constants\ProjectUsers\UsersEmailListName.cs" />
+    <Compile Include="Constants\Reports\ReportDatasetName.cs" />
+    <Compile Include="Constants\Reports\ReportName.cs" />
     <Compile Include="Constants\Reports\ReportsView.cs" />
     <Compile Include="Constants\Reports\ReportsControllerRoute.cs" />
     <Compile Include="Constants\UserRoleName.cs" />
@@ -519,6 +520,7 @@
     <Content Include="Views\Projects\_BoardingTabPartial.cshtml" />
     <Content Include="Views\CheckScanners\_ScannersListPartial.cshtml" />
     <Content Include="Views\CheckScanners\_ScannerFormPartial.cshtml" />
+    <Content Include="Views\ProjectUsers\_UsersEmailListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

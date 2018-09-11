@@ -143,5 +143,24 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
+
+        [Route("EmailList", Name = ProjectUsersControllerRoute.GetEmailList)]
+        public async Task<ActionResult> GetEmailList(int projectId, string emailList)
+        {
+            try
+            {
+                var emails = (await _userRepository.GetUsersByEmailList(projectId, emailList.ToLower()))
+                    .Select(u => u.Email);
+
+                ViewBag.ListName = emailList;
+                ViewBag.EmailList = string.Join("; ", emails);
+
+                return PartialView(ProjectUsersView.UsersEmailListPartial);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+        }
     } 
 }

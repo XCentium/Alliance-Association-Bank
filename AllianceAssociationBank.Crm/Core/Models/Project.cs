@@ -316,6 +316,12 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public int? MigratingToSoftwareID { get; set; }
 
+        [StringLength(255)]
+        public string OtherName { get; set; }
+
+        [StringLength(50)]
+        public string RelationshipRate { get; set; }
+
         public virtual ICollection<ProjectUser> Users { get; set; }
     }
 }

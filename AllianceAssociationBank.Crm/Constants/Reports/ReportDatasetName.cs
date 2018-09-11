@@ -1,5 +1,5 @@
 ﻿
-namespace AllianceAssociationBank.Crm.Constants
+namespace AllianceAssociationBank.Crm.Constants.Reports
 {
     public class ReportDatasetName
     {

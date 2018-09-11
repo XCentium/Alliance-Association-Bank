@@ -27,7 +27,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [StringLength(255)]
         [Display(Name = "Other")]
-        public string OtherName { get; set; } // TODO: need to map this to database
+        public string OtherName { get; set; } // TODO: This is new field, need to map this to database
 
         [Required]
         [StringLength(255)]
@@ -91,7 +91,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string Institution { get; set; }
 
         [Display(Name = "Relationship Rate")]
-        public string RelationshipRate { get; set; }
+        public string RelationshipRate { get; set; } // TODO: This is new field, need to map to database
 
         //[StringLength(255)]
         //[Display(Name = "CD Rate")]
@@ -261,6 +261,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
 
         public string SaveIndicator { get; set; } = "UNSAVED";
+
         public string CreateUpdateAction
         {
             get

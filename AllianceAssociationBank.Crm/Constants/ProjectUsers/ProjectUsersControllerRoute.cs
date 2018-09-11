@@ -12,5 +12,6 @@ namespace AllianceAssociationBank.Crm.Constants.ProjectUsers
         public const string CreateUserHttpPost = ControllerName.ProjectUsers + "CreateUserHttpPost";
         public const string EditUser = ControllerName.ProjectUsers + "EditUser";
         public const string UpdateUser = ControllerName.ProjectUsers + "UpdateUser";
+        public const string GetEmailList = ControllerName.ProjectUsers + "GetEmailList";
     }
 }
