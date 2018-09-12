@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Core.Models;
+﻿using AllianceAssociationBank.Crm.Core.Dtos;
+using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -7,11 +8,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
-namespace AllianceAssociationBank.Crm.App_Start
+namespace AllianceAssociationBank.Crm.Mappings
 {
-    public class DefaultMappingProfile : Profile
+    public class CrmMappingProfile : Profile
     {
-        public DefaultMappingProfile()
+        public CrmMappingProfile()
         {
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
@@ -32,7 +33,7 @@ namespace AllianceAssociationBank.Crm.App_Start
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile<DefaultMappingProfile>();
+                cfg.AddProfile<CrmMappingProfile>();
             }).CreateMapper();
         }
     }

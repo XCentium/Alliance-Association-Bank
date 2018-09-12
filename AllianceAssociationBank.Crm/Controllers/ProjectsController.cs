@@ -37,6 +37,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         public async Task<ActionResult> Create()
         {
+            ViewBag.Title = "Create Project";
+
             var model = new ProjectFormViewModel();
             await PopulateDropDownLists(model);
 
@@ -61,15 +63,10 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 TempData[SAVED] = true;
                 return RedirectToAction(nameof(this.Edit), new { id = project.ID });
-                //else
-                //{
-                //    return View("Error");
-                //}
             }
             catch (Exception ex)
             {
                 return View("Error");
-                //throw;
             }
         }
 
@@ -77,6 +74,8 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
+                ViewBag.Title = "Edit Project";
+
                 var project = await _projects.GetProjectByIdAsync(id);
 
                 if (project == null)
@@ -148,7 +147,6 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         private async Task PopulateDropDownLists(ProjectFormViewModel model)
         {
-            //model.ProjectList = await _projects.GetProjectListAsync();
             model.EmployeeList = (await _employees.GetEmployeesAsync()).Select(e => new SelectListItem()
                                                                         {
                                                                             Value = e.ID.ToString(),

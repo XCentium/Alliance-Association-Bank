@@ -113,7 +113,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public int? BoardingManagerID { get; set; }
 
         [Display(Name = "Software")]
-        public int? SoftwareID { get; set; }
+        [StringLength(255)]
+        public string Software { get; set; }
+        //public int? SoftwareID { get; set; }
 
         [Display(Name = "System")]
         public string LockboxSystem { get; set; }

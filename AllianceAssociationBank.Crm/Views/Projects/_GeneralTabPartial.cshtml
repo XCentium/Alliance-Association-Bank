@@ -177,9 +177,9 @@
         </div>
 
         <div class="row my-2">
-            @Html.LabelFor(m => m.SoftwareID, new { @class = "col-3" })
+            @Html.LabelFor(m => m.Software, new { @class = "col-3" })
             <div class="col-8">
-                @Html.DropDownListFor(m => m.SoftwareID, new SelectList(Model.SoftwareList, "Value", "Text"), "", new { @class = "form-input" })
+                @Html.DropDownListFor(m => m.Software, new SelectList(Model.SoftwareList, "Value", "Text"), "", new { @class = "form-input" })
             </div>
         </div>
 

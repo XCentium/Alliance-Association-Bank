@@ -1,4 +1,4 @@
-﻿using AllianceAssociationBank.Crm.App_Start;
+﻿using AllianceAssociationBank.Crm.Mappings;
 using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
@@ -32,7 +32,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public ProjectUsersControllerTests()
         {
             projectUsersRepoMock = new Mock<IProjectUserRepository>();
-            mapper = DefaultMappingProfile.GetMapper();
+            mapper = CrmMappingProfile.GetMapper();
 
             controller = new ProjectUsersController(projectUsersRepoMock.Object, mapper);
             // Mock http context so http response object is not null

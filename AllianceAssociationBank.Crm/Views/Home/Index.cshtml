@@ -35,8 +35,8 @@
     </div>
     <div class="col-md-2">
         <h6>EXPORTS</h6>
-        <p><a href="#">CMC List</a></p>
-        <p><a href="#">CMC Useful Info List</a></p>
+        <p>@Html.RouteLink("CMC List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcList })</p>
+        <p>@Html.RouteLink("CMC Useful Info List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcUsefulInfoList })</p>
         <p><a href="#">All info</a></p>
     </div>
 </div>

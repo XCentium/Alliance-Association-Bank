@@ -23,22 +23,24 @@ namespace AllianceAssociationBank.Crm.Core.Services
 
         public async Task<ReportViewer> GenerateReportByName(string reportName)
         {
+            var reportPath = 
+                HttpContext.Current.Request.MapPath(HttpContext.Current.Request.ApplicationPath) + $"{REPORTS_DIRECTORY}\\{reportName}.rdlc";
+
+            // if report rdlc file doesn't exist return null
+            if (!System.IO.File.Exists(reportPath))
+            {
+                return null;
+            }
+
             var reportViewer = new ReportViewer();
             reportViewer.ProcessingMode = ProcessingMode.Local;
             reportViewer.AsyncRendering = true;
             reportViewer.SizeToReportContent = true;
+            reportViewer.LocalReport.ReportPath = reportPath;
 
-            var reportPath = 
-                HttpContext.Current.Request.MapPath(HttpContext.Current.Request.ApplicationPath) + $"{REPORTS_DIRECTORY}\\{reportName}.rdlc";
-
-            if (System.IO.File.Exists(reportPath))
+            foreach (var dataSource in (await GetDataSourcesByReportName(reportName)))
             {
-                reportViewer.LocalReport.ReportPath = reportPath;
-
-                foreach (var dataSource in (await GetDataSourcesByReportName(reportName)))
-                {
-                    reportViewer.LocalReport.DataSources.Add(dataSource);
-                }
+                reportViewer.LocalReport.DataSources.Add(dataSource);
             }
 
             return reportViewer;

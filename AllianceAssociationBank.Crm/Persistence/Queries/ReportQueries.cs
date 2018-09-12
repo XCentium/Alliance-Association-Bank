@@ -50,6 +50,15 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Project>> GetCmcByIdDataSetAsync()
+        {
+            return await _context.Projects
+                .OrderBy(p => p.LockboxCMCID)
+                .Include(p => p.OwnerEmployee)
+                .Include(p => p.AFPEmployee)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
         {
             return await _context.Employees

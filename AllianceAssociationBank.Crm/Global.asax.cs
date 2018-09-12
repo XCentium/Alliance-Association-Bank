@@ -1,10 +1,4 @@
-﻿using AllianceAssociationBank.Crm.App_Start;
-using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Web;
+﻿using System.Security.Claims;
 using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -17,7 +11,6 @@ namespace AllianceAssociationBank.Crm
     {
         protected void Application_Start()
         {
-            //Mapper.Initialize(cfg => cfg.AddProfile<DefaultMappingProfile>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

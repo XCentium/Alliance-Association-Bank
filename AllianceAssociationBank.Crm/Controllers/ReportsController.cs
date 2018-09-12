@@ -18,20 +18,12 @@ namespace AllianceAssociationBank.Crm.Controllers
     [RoutePrefix("Reports")]
     public class ReportsController : Controller
     {
-        //private const int _pageSize = 5; // TODO: store this as app config?
-        private const string _csvContentType = "text/csv";
-
         private IReportGenerationService _reportsService;
 
         public ReportsController(IReportGenerationService reportsService)
         {
             _reportsService = reportsService;
         }
-
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
 
         [Route("{name}", Name = ReportsControllerRoute.ViewReport)]
         public async Task<ActionResult> ViewReport(string name)
@@ -40,6 +32,11 @@ namespace AllianceAssociationBank.Crm.Controllers
             {
                 var reportViewer = await _reportsService.GenerateReportByName(name);
 
+                if (reportViewer == null)
+                {
+                    return HttpNotFound();
+                }
+
                 ViewBag.ReportViewer = reportViewer;
                 ViewBag.Title = name;
 
@@ -47,7 +44,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
             catch (Exception ex)
             {
-                throw;
+                return View("Error");
             }
         }
 
@@ -63,22 +60,6 @@ namespace AllianceAssociationBank.Crm.Controllers
         //        ResultSet = pagedResults
         //    };
         //    return View(model);
-        //}
-
-        //public async Task<ActionResult> ExportReportAsCsv(string report)
-        //{
-        //    var resultSet = await _queries.GetBoardingDataSetAsync();
-        //    var reportRecords = Mapper.Map<IEnumerable<ProjectReportRecordViewModel>>(resultSet);
-
-        //    var memoryStream = new MemoryStream();
-        //    var streamWriter = new StreamWriter(memoryStream);
-        //    var csvWriter = new CsvWriter(streamWriter);
-
-        //    csvWriter.WriteRecords(reportRecords);
-        //    streamWriter.Flush();
-        //    memoryStream.Position = 0;
-
-        //    return File(memoryStream, _csvContentType, $"{report}.csv");
         //}
 
         //public async Task<ActionResult> ExportReportAsPdf(string report)

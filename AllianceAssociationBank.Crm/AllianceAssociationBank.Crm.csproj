@@ -249,7 +249,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\DefaultMappingProfile.cs" />
+    <Compile Include="Mappings\CmcUsefulInfoListExportMap.cs" />
+    <Compile Include="Mappings\CrmMappingProfile.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -267,7 +268,9 @@
     <Compile Include="Constants\ProjectUsers\ProjectUsersControllerRoute.cs" />
     <Compile Include="Constants\ProjectUsers\ProjectUsersView.cs" />
     <Compile Include="Constants\ProjectUsers\UsersEmailListName.cs" />
+    <Compile Include="Constants\Reports\ExportsControllerRoute.cs" />
     <Compile Include="Constants\Reports\ReportDatasetName.cs" />
+    <Compile Include="Constants\Reports\ExportName.cs" />
     <Compile Include="Constants\Reports\ReportName.cs" />
     <Compile Include="Constants\Reports\ReportsView.cs" />
     <Compile Include="Constants\Reports\ReportsControllerRoute.cs" />
@@ -275,11 +278,13 @@
     <Compile Include="Controllers\Api\ProjectsController.cs" />
     <Compile Include="Controllers\CheckScannersController.cs" />
     <Compile Include="Controllers\ProjectUsersController.cs" />
+    <Compile Include="Controllers\ExportsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Mappings\CmcListExportMap.cs" />
     <Compile Include="Core\Dtos\ProjectDto.cs" />
     <Compile Include="Core\Models\CheckScanner.cs" />
     <Compile Include="Core\Models\Employee.cs" />
@@ -287,6 +292,8 @@
     <Compile Include="Core\Models\ProjectUser.cs" />
     <Compile Include="Core\Models\Software.cs" />
     <Compile Include="Core\Interfaces\IReportGenerationService.cs" />
+    <Compile Include="Core\Services\DataExportService.cs" />
+    <Compile Include="Core\Interfaces\IDataExportService.cs" />
     <Compile Include="Core\Services\ReportGenerationService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -531,8 +538,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\SoftwareTransition.rdlc" />
-    <EmbeddedResource Include="Reports\CompletedAndHold.rdlc" />
+    <EmbeddedResource Include="Reports\Software-Transition.rdlc" />
+    <EmbeddedResource Include="Reports\Completed-And-Hold.rdlc" />
     <EmbeddedResource Include="Reports\Boarding.rdlc" />
   </ItemGroup>
   <ItemGroup>

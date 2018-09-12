@@ -1,4 +1,4 @@
-using AllianceAssociationBank.Crm.App_Start;
+using AllianceAssociationBank.Crm.Mappings;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Services;
@@ -55,8 +55,9 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<ICheckScannerRepository, CheckScannerRepository>(new TransientLifetimeManager());
             container.RegisterType<IReportQueries, ReportQueries>(new TransientLifetimeManager());
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
+            container.RegisterType<IDataExportService, DataExportService>(new TransientLifetimeManager());
 
-            container.RegisterInstance<IMapper>(DefaultMappingProfile.GetMapper());
+            container.RegisterInstance<IMapper>(CrmMappingProfile.GetMapper());
             container.RegisterType<UserController>(new InjectionConstructor());
         }
     }

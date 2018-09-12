@@ -71,7 +71,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool ACHEmail { get; set; }
 
-        public virtual Project Project { get; set; }
+        //public virtual Project Project { get; set; }
 
 
         public void SetDefaultsOnCreate()

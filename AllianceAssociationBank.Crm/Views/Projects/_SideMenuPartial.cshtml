@@ -35,10 +35,10 @@
 
         <span class="text-muted">Exports</span>
         <div class="nav-item px-3 py-1 border">
-            <a href="#">CMC List</a>
+            @Html.RouteLink("CMC List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcList })
         </div>
         <div class="nav-item px-3 py-1 border">
-            <a href="#">CMC Useful Info</a>
+            @Html.RouteLink("CMC Useful Info List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcUsefulInfoList })
         </div>
         <div class="nav-item px-3 py-1 border">
             <a href="#">All Info</a>

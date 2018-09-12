@@ -65,11 +65,13 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
                 .HasColumnType("datetime2")
                 .HasPrecision(0);
 
-            //HasOptional(e => e.Owner).WithMany()
-            //    .HasForeignKey(e => e.OwnerID);
+            HasOptional(e => e.OwnerEmployee)
+                .WithMany()
+                .HasForeignKey(e => e.OwnerID);
 
-            //HasOptional(e => e.AFP).WithMany()
-            //    .HasForeignKey(e => e.AFPID);
+            HasOptional(e => e.AFPEmployee)
+                .WithMany()
+                .HasForeignKey(e => e.AFPID);
         }
     }
 }

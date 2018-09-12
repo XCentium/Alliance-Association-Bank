@@ -9,6 +9,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<Project>> GetBoardingDataSetAsync();
         Task<IEnumerable<Project>> GetCompletedAndHoldDataSetAsync();
         Task<IEnumerable<Project>> GetSoftwareTransitionDataSetAsync();
+        Task<IEnumerable<Project>> GetCmcByIdDataSetAsync();
         Task<IEnumerable<Employee>> GetEmployeesDataSetAsync();
         Task<IEnumerable<Software>> GetSoftwareDataSetAsync();
     }

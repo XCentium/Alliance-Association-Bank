@@ -1,7 +1,4 @@
 ﻿@model ProjectFormViewModel
-@{
-    ViewBag.Title = "Projects";
-}
 
 <div class="row">
 
@@ -205,38 +202,6 @@
                     $saveIndicator.removeClass("badge-success").addClass("badge-light");
                 };
             });
-
-            //$("#btn-add-project-user").click(function (e) {
-            //$("body").on("click", "#btn-add-project-user", function (e) {
-            //    e.preventDefault();
-
-            //    var url = "/ProjectUsers/Create";
-            //    $.get(url)
-            //        .done(function (responseData) {
-            //            $("#user-form-location").html(responseData);
-            //            $("#user-form-modal").modal("show")
-            //        })
-            //        .fail(function () {
-            //            alert("An error occurred while processing your request");
-            //        });
-            //});
-
-            //$(".btn-edit-project-user").click(function (e) {
-            //$("body").on("click", ".btn-edit-project-user", function (e) {
-            //    e.preventDefault();
-            //    var userId = $(this).data("userid");
-
-            //    var url = "/ProjectUsers/Edit";
-            //    $.get(url, { id: userId })
-            //        .done(function (responseData) {
-            //            $("#user-form-location").html(responseData);
-            //            $("#user-form-modal").modal("show")
-            //        })
-            //        .fail(function () {
-            //            alert("An error occurred while processing your request");
-            //        });
-            //});
-
         });
 
         function showUserFormModal() {

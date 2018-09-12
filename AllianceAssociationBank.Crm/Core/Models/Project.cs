@@ -16,7 +16,11 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public int? OwnerID { get; set; }
 
+        public Employee OwnerEmployee { get; set; }
+
         public int? AFPID { get; set; }
+
+        public Employee AFPEmployee { get; set; }
 
         public int? BoardingManagerID { get; set; }
 
@@ -85,7 +89,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string TimeZone { get; set; }
 
-        public int? SoftwareID { get; set; }
+        //public int? SoftwareID { get; set; }
+        [StringLength(255)]
+        public string Software { get; set; }
 
         public int? NumberOfAssociations { get; set; }
 
@@ -314,7 +320,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool? ReformatByAssoc { get; set; }
 
-        public int? MigratingToSoftwareID { get; set; }
+        //public int? MigratingToSoftwareID { get; set; }
+        [StringLength(255)]
+        public string MigratingToSoftware { get; set; }
 
         [StringLength(255)]
         public string OtherName { get; set; }
@@ -322,6 +330,6 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(50)]
         public string RelationshipRate { get; set; }
 
-        public virtual ICollection<ProjectUser> Users { get; set; }
+        //public virtual ICollection<ProjectUser> Users { get; set; }
     }
 }

@@ -1,7 +1,7 @@
-﻿using AllianceAssociationBank.Crm.App_Start;
-using AllianceAssociationBank.Crm.Controllers;
+﻿using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Mappings;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using Moq;
@@ -32,7 +32,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             projectsRepoMock = new Mock<IProjectRepository>();
             employeesRepoMock = new Mock<IEmployeeRepository>();
             softwareRepoMock = new Mock<ISoftwareRepository>();
-            mapper = DefaultMappingProfile.GetMapper();
+            mapper = CrmMappingProfile.GetMapper();
 
             controller = new ProjectsController(projectsRepoMock.Object, employeesRepoMock.Object, softwareRepoMock.Object, mapper);
 

@@ -11,5 +11,6 @@ namespace AllianceAssociationBank.Crm.Constants
         public const string ProjectUsers = "ProjectUsers";
         public const string CheckScanners = "CheckScanners";
         public const string Reports = "Reports";
+        public const string Exports = "Exports";
     }
 }

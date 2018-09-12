@@ -111,12 +111,14 @@ exec sp_rename 'Projects.SFTPwithFile', 'SftpWithFile', 'COLUMN';
 exec sp_rename 'Projects.SFTPManual', 'SftpManual', 'COLUMN';
 exec sp_rename 'Projects.SFTPPath', 'SftpPath', 'COLUMN';
 exec sp_rename 'Projects.REformatByAssoc', 'ReformatByAssoc', 'COLUMN';
-exec sp_rename 'Projects.Software', 'SoftwareID', 'COLUMN';
-exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftwareID', 'COLUMN';
+--exec sp_rename 'Projects.Software', 'SoftwareID', 'COLUMN';
+--exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftwareID', 'COLUMN';
+exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftware', 'COLUMN';
 ALTER TABLE [dbo].[Projects] ADD OtherName NVARCHAR(255) NULL 
 ALTER TABLE [dbo].[Projects] ADD RelationshipRate NVARCHAR(50) NULL 
 
 
+/* This is not needed anymore
 -- Update Software data columns
 --INSERT INTO dbo.Software (SoftwareName)
 --SELECT DISTINCT RTRIM(LTRIM(p.SoftwareID)) FROM dbo.Projects p WHERE p.SoftwareID NOT IN (SELECT e.SoftwareName FROM dbo.Software e) ORDER BY 1
@@ -134,9 +136,10 @@ ALTER TABLE [dbo].[Projects] ADD RelationshipRate NVARCHAR(50) NULL
 --FROM dbo.Projects p
 --JOIN dbo.Software s ON RTRIM(LTRIM(s.SoftwareName)) = RTRIM(LTRIM(p.MigratingToSoftwareID))
 
-ALTER TABLE dbo.Projects ALTER COLUMN SoftwareID INT
-ALTER TABLE dbo.Projects ALTER COLUMN MigratingToSoftwareID INT
-
+-- This is not needed anymore
+--ALTER TABLE dbo.Projects ALTER COLUMN SoftwareID INT
+--ALTER TABLE dbo.Projects ALTER COLUMN MigratingToSoftwareID INT
+*/
 
 
 -- Employees table RENAME statements
