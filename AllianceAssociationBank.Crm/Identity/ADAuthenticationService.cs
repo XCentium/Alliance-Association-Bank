@@ -76,11 +76,8 @@ namespace AllianceAssociationBank.Crm.Identity
                 }
                 // FOR DEVELOPMENT ONLY !!
 
-                if (securityGroups.Any(g => g.Name == UserRoleName.ReadWriteUser))
-                {
-                    return true;
-                }
-                else if (securityGroups.Any(g => g.Name == UserRoleName.ReadOnlyUser))
+                if (securityGroups.Any(g => g.Name == ADGroupName.ReadWriteGroup || 
+                                            g.Name == ADGroupName.ReadOnlyGroup))
                 {
                     return true;
                 }
@@ -103,11 +100,11 @@ namespace AllianceAssociationBank.Crm.Identity
             identity.AddClaim(new Claim(ClaimTypes.Name, userPrincipal.SamAccountName));
 
             var securityGroups = userPrincipal.GetAuthorizationGroups();
-            if (securityGroups.Any(g => g.Name == UserRoleName.ReadWriteUser))
+            if (securityGroups.Any(g => g.Name == ADGroupName.ReadWriteGroup))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, UserRoleName.ReadWriteUser));
             }
-            else if (securityGroups.Any(g => g.Name == UserRoleName.ReadOnlyUser))
+            else if (securityGroups.Any(g => g.Name == ADGroupName.ReadOnlyGroup))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, UserRoleName.ReadOnlyUser));
             }

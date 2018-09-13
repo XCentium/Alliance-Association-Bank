@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AllianceAssociationBank.Crm.Constants
+﻿namespace AllianceAssociationBank.Crm.Constants
 {
+    // TODO: move this to web.config/app.config
     public static class SignInErrorMessage
     {
         public const string InvalidUserCredentials = "Invalid login attempt. Please try again.";

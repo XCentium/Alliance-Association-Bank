@@ -1,5 +1,4 @@
-﻿
-namespace AllianceAssociationBank.Crm.Constants
+﻿namespace AllianceAssociationBank.Crm.Constants
 {
     public static class UserRoleName
     {

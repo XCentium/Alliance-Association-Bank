@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.Reports;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using System;
 using System.Net;
