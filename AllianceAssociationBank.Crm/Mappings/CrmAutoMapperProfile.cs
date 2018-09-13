@@ -10,9 +10,9 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Mappings
 {
-    public class CrmMappingProfile : Profile
+    public class CrmAutoMapperProfile : Profile
     {
-        public CrmMappingProfile()
+        public CrmAutoMapperProfile()
         {
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
@@ -33,7 +33,7 @@ namespace AllianceAssociationBank.Crm.Mappings
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile<CrmMappingProfile>();
+                cfg.AddProfile<CrmAutoMapperProfile>();
             }).CreateMapper();
         }
     }

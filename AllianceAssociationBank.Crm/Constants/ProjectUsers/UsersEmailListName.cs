@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.ProjectUsers
 {
-    public class UsersEmailListName
+    public static class UsersEmailListName
     {
         public const string StatementEmails = "statements";
         public const string LockboxEmails = "lockbox";

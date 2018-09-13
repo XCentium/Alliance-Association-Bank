@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.Projects
 {
-    public class ProjectsControllerAction
+    public static class ProjectsControllerAction
     {
         public const string Create = "Create";
         public const string Edit = "Edit";

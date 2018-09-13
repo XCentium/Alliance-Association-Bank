@@ -32,7 +32,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public ProjectUsersControllerTests()
         {
             projectUsersRepoMock = new Mock<IProjectUserRepository>();
-            mapper = CrmMappingProfile.GetMapper();
+            mapper = CrmAutoMapperProfile.GetMapper();
 
             controller = new ProjectUsersController(projectUsersRepoMock.Object, mapper);
             // Mock http context so http response object is not null

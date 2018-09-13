@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.CheckScanners
 {
-    public class CheckScannersView
+    public static class CheckScannersView
     {
         public const string ScannersListPartial = "_ScannersListPartial";
         public const string ScannerFormPartial = "_ScannerFormPartial";

@@ -34,14 +34,14 @@ namespace AllianceAssociationBank.Crm.Persistence.Migrations
                 roleManager.Create(new IdentityRole(UserRoleName.Admin));
             }
 
-            if (!roleManager.RoleExists(UserRoleName.EditUser))
+            if (!roleManager.RoleExists(UserRoleName.ReadWriteUser))
             {
-                roleManager.Create(new IdentityRole(UserRoleName.EditUser));
+                roleManager.Create(new IdentityRole(UserRoleName.ReadWriteUser));
             }
 
-            if (!roleManager.RoleExists(UserRoleName.ViewOnlyUser))
+            if (!roleManager.RoleExists(UserRoleName.ReadOnlyUser))
             {
-                roleManager.Create(new IdentityRole(UserRoleName.ViewOnlyUser));
+                roleManager.Create(new IdentityRole(UserRoleName.ReadOnlyUser));
             }
         }
 

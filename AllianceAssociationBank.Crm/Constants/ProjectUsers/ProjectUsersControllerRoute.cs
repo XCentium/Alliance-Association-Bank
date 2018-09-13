@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.ProjectUsers
 {
-    public class ProjectUsersControllerRoute
+    public static class ProjectUsersControllerRoute
     {
         public const string GetUsers = ControllerName.ProjectUsers + "GetUsers";
         public const string CreateUser = ControllerName.ProjectUsers + "CreateUser";

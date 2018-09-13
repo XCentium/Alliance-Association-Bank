@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.Reports
 {
-    public class ReportsView
+    public static class ReportsView
     {
         public const string ViewReport = "ViewReport";
     }

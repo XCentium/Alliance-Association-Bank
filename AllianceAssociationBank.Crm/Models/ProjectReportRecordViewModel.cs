@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AllianceAssociationBank.Crm.ViewModels
+namespace AllianceAssociationBank.Crm.Models
 {
     public class ProjectReportRecordViewModel
     {

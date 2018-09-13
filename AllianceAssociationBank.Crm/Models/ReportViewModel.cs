@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using X.PagedList;
 
-namespace AllianceAssociationBank.Crm.ViewModels
+namespace AllianceAssociationBank.Crm.Models
 {
     public class ReportViewModel
     {

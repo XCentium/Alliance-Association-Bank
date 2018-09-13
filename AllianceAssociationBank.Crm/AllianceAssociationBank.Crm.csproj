@@ -249,8 +249,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Constants\AuthenticationType.cs" />
+    <Compile Include="Constants\SignInErrorMessage.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Identity\ADAuthenticationService.cs" />
+    <Compile Include="Identity\IAuthenticationService.cs" />
+    <Compile Include="Identity\SignInResult.cs" />
     <Compile Include="Mappings\CmcUsefulInfoListExportMap.cs" />
-    <Compile Include="Mappings\CrmMappingProfile.cs" />
+    <Compile Include="Mappings\CrmAutoMapperProfile.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -333,12 +339,11 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
-    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\ProjectReportRecordViewModel.cs" />
+    <Compile Include="Models\ProjectReportRecordViewModel.cs" />
     <Compile Include="ViewModels\ProjectFormViewModel.cs" />
-    <Compile Include="ViewModels\ReportViewModel.cs" />
+    <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="ViewModels\UserFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -484,18 +489,18 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\User\ConfirmEmail.cshtml" />
-    <Content Include="Views\User\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\User\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\User\ForgotPassword.cshtml" />
-    <Content Include="Views\User\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\User\Register.cshtml" />
-    <Content Include="Views\User\ResetPassword.cshtml" />
-    <Content Include="Views\User\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\User\SendCode.cshtml" />
-    <Content Include="Views\User\VerifyCode.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -519,7 +524,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Projects\_GeneralTabPartial.cshtml" />
-    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Projects\_UsersTabPartial.cshtml" />
     <Content Include="Views\ProjectUsers\_UserFormPartial.cshtml" />
     <Content Include="Views\Projects\_SideMenuPartial.cshtml" />

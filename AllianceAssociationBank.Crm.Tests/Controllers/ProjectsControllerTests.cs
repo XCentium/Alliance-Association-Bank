@@ -32,7 +32,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             projectsRepoMock = new Mock<IProjectRepository>();
             employeesRepoMock = new Mock<IEmployeeRepository>();
             softwareRepoMock = new Mock<ISoftwareRepository>();
-            mapper = CrmMappingProfile.GetMapper();
+            mapper = CrmAutoMapperProfile.GetMapper();
 
             controller = new ProjectsController(projectsRepoMock.Object, employeesRepoMock.Object, softwareRepoMock.Object, mapper);
 

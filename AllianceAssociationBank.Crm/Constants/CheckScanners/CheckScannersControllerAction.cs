@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.CheckScanners
 {
-    public class CheckScannersControllerAction
+    public static class CheckScannersControllerAction
     {
         public const string Index = "Index";
     }

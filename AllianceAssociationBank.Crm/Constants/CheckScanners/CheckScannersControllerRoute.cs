@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.CheckScanners
 {
-    public class CheckScannersControllerRoute
+    public static class CheckScannersControllerRoute
     {
         public const string GetScanners = ControllerName.CheckScanners + "GetScanners";
         public const string CreateScanner = ControllerName.CheckScanners + "CreateScanner";

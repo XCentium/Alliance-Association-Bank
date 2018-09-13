@@ -12,6 +12,10 @@ using System.Web.Http;
 using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
+using AllianceAssociationBank.Crm.Identity;
+using Microsoft.Owin.Security;
+using System.Web;
+using System.DirectoryServices.AccountManagement;
 
 namespace AllianceAssociationBank.Crm
 {
@@ -53,12 +57,25 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<ISoftwareRepository, SoftwareRepository>(new TransientLifetimeManager());
             container.RegisterType<IProjectUserRepository, ProjectUserRepository>(new TransientLifetimeManager());
             container.RegisterType<ICheckScannerRepository, CheckScannerRepository>(new TransientLifetimeManager());
+
             container.RegisterType<IReportQueries, ReportQueries>(new TransientLifetimeManager());
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
             container.RegisterType<IDataExportService, DataExportService>(new TransientLifetimeManager());
 
-            container.RegisterInstance<IMapper>(CrmMappingProfile.GetMapper());
-            container.RegisterType<UserController>(new InjectionConstructor());
+            container.RegisterType<IAuthenticationManager>
+            (
+                new TransientLifetimeManager(),
+                new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication)
+            );
+            container.RegisterType<PrincipalContext>
+            (
+                new HierarchicalLifetimeManager(),
+                new InjectionFactory(c => new PrincipalContext(ContextType.Machine)) // TODO: this will change in production (ContextType.Domain)
+            );
+            container.RegisterType<IAuthenticationService, ADAuthenticationService>(new TransientLifetimeManager());
+
+            container.RegisterInstance<IMapper>(CrmAutoMapperProfile.GetMapper());
+            //container.RegisterType<UserController>(new InjectionConstructor());
         }
     }
 }

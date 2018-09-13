@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.Reports
 {
-    public class ExportsControllerRoute
+    public static class ExportsControllerRoute
     {
         public const string GenerateExportFile = ControllerName.Exports + "GenerateExportFile";
     }

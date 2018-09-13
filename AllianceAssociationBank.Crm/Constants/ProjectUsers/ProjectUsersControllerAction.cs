@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.ProjectUsers
 {
-    public class ProjectUsersControllerAction
+    public static class ProjectUsersControllerAction
     {
         public const string Index = "Index";
     }

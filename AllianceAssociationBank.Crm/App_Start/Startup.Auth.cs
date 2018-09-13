@@ -7,6 +7,7 @@ using Owin;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Identity;
 using AllianceAssociationBank.Crm.Persistence;
+using AllianceAssociationBank.Crm.Constants;
 
 namespace AllianceAssociationBank.Crm
 {
@@ -24,7 +25,8 @@ namespace AllianceAssociationBank.Crm
             // Configure the sign in cookie
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                //AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                AuthenticationType = AuthenticationType.CrmApplicationCookie,
                 LoginPath = new PathString("/User/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
