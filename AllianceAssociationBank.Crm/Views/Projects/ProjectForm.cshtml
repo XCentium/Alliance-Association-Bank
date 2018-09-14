@@ -1,4 +1,7 @@
 ﻿@model ProjectFormViewModel
+@{
+    var userRole = Model.CurrentUserRole;
+}
 
 <div class="row">
 
@@ -60,7 +63,7 @@
             <div class="row">
                 @Html.LabelFor(m => m.ProjectName, new { @class = "col-2" })
                 <div class="col-10">
-                    @Html.EditorFor(m => m.ProjectName, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.RoleBasedEditorFor(m => m.ProjectName, userRole, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -69,7 +72,7 @@
             <div class="row">
                 @Html.LabelFor(m => m.DBA, new { @class = "col-2" })
                 <div class="col-10">
-                    @Html.EditorFor(m => m.DBA, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.RoleBasedEditorFor(m => m.DBA, userRole, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.DBA, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -78,7 +81,7 @@
             <div class="row">
                 @Html.LabelFor(m => m.OtherName, new { @class = "col-2" })
                 <div class="col-10">
-                    @Html.EditorFor(m => m.OtherName, new { htmlAttributes = new { @class = "form-input" } })
+                    @Html.RoleBasedEditorFor(m => m.OtherName, userRole, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.OtherName, "", new { @class = "form-error-msg" })
                 </div>
             </div>

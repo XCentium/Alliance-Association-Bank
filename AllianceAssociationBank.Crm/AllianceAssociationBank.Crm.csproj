@@ -248,9 +248,11 @@
     <Compile Include="Constants\AuthenticationType.cs" />
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\ADGroupName.cs" />
+    <Compile Include="Constants\UserRoleEnum.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />
+    <Compile Include="Identity\HtmlControlAuthorizationHandler.cs" />
     <Compile Include="Identity\IAuthenticationService.cs" />
     <Compile Include="Identity\SignInResult.cs" />
     <Compile Include="Mappings\CmcUsefulInfoListExportMap.cs" />
@@ -337,6 +339,7 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ProjectReportRecordViewModel.cs" />

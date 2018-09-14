@@ -112,7 +112,7 @@ namespace AllianceAssociationBank.Crm.Identity
             // FOR DEVELOPMENT ONLY !!
             if (securityGroups.Any(g => g.Name == "Administrators"))
             {
-                identity.AddClaim(new Claim(ClaimTypes.Role, UserRoleName.ReadWriteUser));
+                identity.AddClaim(new Claim(ClaimTypes.Role, UserRoleName.ReadOnlyUser));
             }
             // FOR DEVELOPMENT ONLY !!
 

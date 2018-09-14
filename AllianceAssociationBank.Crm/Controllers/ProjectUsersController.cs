@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.Projects;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
@@ -49,6 +50,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(ProjectUsersView.UsersListPartial, _mapper.Map<List<UserFormViewModel>>(users));
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Create", Name = ProjectUsersControllerRoute.CreateUser)]
         public ActionResult Create(int projectId)
         {
@@ -66,6 +68,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(ProjectUsersView.UserFormPartial, model);
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Create", Name = ProjectUsersControllerRoute.CreateUserHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -116,6 +119,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Update/{id}", Name = ProjectUsersControllerRoute.UpdateUser)]
         [HttpPost]
         [ValidateAntiForgeryToken]

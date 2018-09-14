@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.CheckScanners;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.CheckScanners;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.ViewModels;
@@ -34,6 +35,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(CheckScannersView.ScannersListPartial, _mapper.Map<List<ScannerFormViewModel>>(scanners));
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Create", Name = CheckScannersControllerRoute.CreateScanner)]
         public ActionResult Create(int projectId)
         {
@@ -49,7 +51,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
         }
 
-
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Create", Name = CheckScannersControllerRoute.CreateScannerHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -97,6 +99,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Update/{id}", Name = CheckScannersControllerRoute.UpdateScanner)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -127,6 +130,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Delete/{id}", Name = CheckScannersControllerRoute.DeleteScanner)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int projectId, int id)

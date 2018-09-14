@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
-    public class ProjectFormViewModel
+    public class ProjectFormViewModel : BaseViewModel
     {
         // General Tab
         public int ID { get; set; }
@@ -48,6 +48,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         [Display(Name = "ZIP")]
         public string ZipCode { get; set; }
+
+        [Display(Name = "Same as Physical ")]
+        public bool MailingSameAsPhysical { get; set; }
 
         [StringLength(255)]
         [Display(Name = "Street")]

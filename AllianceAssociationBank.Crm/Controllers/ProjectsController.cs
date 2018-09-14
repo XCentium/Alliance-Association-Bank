@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.Projects;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Helpers;
@@ -35,6 +36,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         public async Task<ActionResult> Create()
         {
             ViewBag.Title = "Create Project";
@@ -45,6 +47,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return View(ProjectsView.ProjectForm, model);
         }
 
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectFormViewModel model)
@@ -102,7 +105,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(ProjectFormViewModel model)
