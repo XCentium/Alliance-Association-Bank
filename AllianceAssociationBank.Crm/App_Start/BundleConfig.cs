@@ -27,14 +27,18 @@ namespace AllianceAssociationBank.Crm
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
-                      "~/Content/site.css",
-                      "~/Content/themes/base/jquery-ui.min.css"));
+                      "~/Content/themes/base/jquery-ui.min.css",
+                      "~/Content/select2.min.css",
+                      "~/Content/Site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/popper").Include(
                       "~/Scripts/umd/popper.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                       "~/Scripts/jquery-ui-1.12.1.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/select2").Include(
+                      "~/Scripts/select2.min.js"));
         }
     }
 }

@@ -5,7 +5,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title font-weight-bold" id="user-form-modal-label">User Details</h5>
-                <h5 class="modal-title justify-content-end">User ID @Model.ID</h5>
+                <h5 class="modal-title">User ID @Model.ID</h5>
+                @* Add close X button here *@
             </div>
             @using (Ajax.BeginRouteForm(Model.CreateUpdateRoute, routeValues: new
             {
@@ -36,47 +37,47 @@
                             <div class="row mb-2">
                                 @Html.LabelFor(m => m.Name, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.Name, "form-input")
                                     @Html.ValidationMessageFor(m => m.Name, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.Active, new { @class = "col-3 offset-3" })
                                 <div class="col-6">
-                                    @Html.EditorFor(m => m.Active)
+                                    @Html.RoleBasedCheckBoxFor(m => m.Active)
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.Admin, new { @class = "col-3 offset-3" })
                                 <div class="col-6">
-                                    @Html.EditorFor(m => m.Admin)
+                                    @Html.RoleBasedCheckBoxFor(m => m.Admin)
                                 </div>
                             </div>
 
                             <div class="row my-1">
                                 @Html.LabelFor(m => m.Title, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.Title, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.Title, "form-input")
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Email, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.Email, "form-input")
                                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.Phone, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.Phone, "form-input")
                                     @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Mobile, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.Mobile, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.Mobile, "form-input")
                                     @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
@@ -87,37 +88,37 @@
                             <div class="row">
                                 @Html.LabelFor(m => m.EnrollmentFormAuthorization, new { @class = "col-3 form-label-indent" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.EnrollmentFormAuthorization)
+                                    @Html.RoleBasedCheckBoxFor(m => m.EnrollmentFormAuthorization)
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.EmailAuthorization, new { @class = "col-3 form-label-indent" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.EmailAuthorization)
+                                    @Html.RoleBasedCheckBoxFor(m => m.EmailAuthorization)
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.AuthorizedToOpenClose, new { @class = "col-3 form-label-indent form-label" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.AuthorizedToOpenClose)
+                                    @Html.RoleBasedCheckBoxFor(m => m.AuthorizedToOpenClose)
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.DI, new { @class = "col-3 form-label-indent" })
                                 <div class="col-1">
-                                    @Html.CheckBoxFor(m => m.CorpOnlineUser)
+                                    @Html.RoleBasedCheckBoxFor(m => m.CorpOnlineUser)
                                 </div>
                                 <div class="col-7">
-                                    @Html.EditorFor(m => m.DI, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.DI, "form-input")
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.EDeposit, new { @class = "col-3 form-label-indent" })
                                 <div class="col-1">
-                                    @Html.CheckBoxFor(m => m.RemoteScannerUser)
+                                    @Html.RoleBasedCheckBoxFor(m => m.RemoteScannerUser)
                                 </div>
                                 <div class="col-7">
-                                    @Html.EditorFor(m => m.EDeposit, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.EDeposit, "form-input")
                                 </div>
                             </div>
 
@@ -129,19 +130,19 @@
                             <div class="row">
                                 @Html.LabelFor(m => m.LockboxWeb, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.LockboxWeb, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.LockboxWeb, "form-input")
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.Sftp, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.Sftp, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.Sftp, "form-input")
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.Birthday, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.Birthday, new { htmlAttributes = new { @class = "form-input" } })
+                                    @Html.RoleBasedEditorFor(m => m.Birthday, "form-input")
                                 </div>
                             </div>
 
@@ -151,32 +152,32 @@
                             <div class="row">
                                 @Html.LabelFor(m => m.StatementEmail, new { @class = "col-3 form-label-indent" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.StatementEmail)
+                                    @Html.RoleBasedCheckBoxFor(m => m.StatementEmail)
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.LockboxEmail, new { @class = "col-3 form-label-indent" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.LockboxEmail)
+                                    @Html.RoleBasedCheckBoxFor(m => m.LockboxEmail)
                                 </div>
                             </div>
                             <div class="row">
                                 @Html.LabelFor(m => m.ACHEmail, new { @class = "col-3 form-label-indent form-label" })
                                 <div class="col-8">
-                                    @Html.EditorFor(m => m.ACHEmail)
+                                    @Html.RoleBasedCheckBoxFor(m => m.ACHEmail)
                                 </div>
                             </div>
 
                             <div class="row my-2">
                                 <div class="col-11">
                                     @Html.LabelFor(m => m.Notes)
-                                    @Html.TextAreaFor(m => m.Notes, 3, 10, new { @class = "form-textarea" })
+                                    @Html.RoleBasedTextAreaFor(m => m.Notes, 3, 10, "form-textarea")
                                 </div>
                             </div>
                             <div class="row my-2">
                                 <div class="col-11">
                                     @Html.LabelFor(m => m.RemoteScannerAccountNotes)
-                                    @Html.TextAreaFor(m => m.RemoteScannerAccountNotes, 3, 10, new { @class = "form-textarea" })
+                                    @Html.RoleBasedTextAreaFor(m => m.RemoteScannerAccountNotes, 3, 10, "form-textarea")
                                 </div>
                             </div>
                         </div>
@@ -211,7 +212,7 @@
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary">Save & Close</button>
+                @Html.RoleBasedButton("Save & Close", "submit", "btn btn-primary")
             </div>
          }
          </div>

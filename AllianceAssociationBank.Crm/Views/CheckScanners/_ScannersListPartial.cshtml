@@ -35,7 +35,7 @@
                         {
                             @class = "btn-img btn-edit-img"
                         })
-                        @Ajax.RouteLink(" ", routeName: CheckScannersControllerRoute.DeleteScanner, routeValues: new
+                        @Ajax.RoleBasedRouteLink(" ", routeName: CheckScannersControllerRoute.DeleteScanner, routeValues: new
                         {
                             projectId = scanner.ProjectID,
                             id = scanner.ID
@@ -46,10 +46,7 @@
                             UpdateTargetId = "check-scanners-list",
                             Confirm = "OK to delete this check scanner?",
                             OnFailure = "handleAjaxError"
-                        }, htmlAttributes: new
-                        {
-                            @class = "btn-img btn-delete-img"
-                        })
+                        }, cssClass: "btn-img btn-delete-img")
                     </td>
                 </tr>
             }

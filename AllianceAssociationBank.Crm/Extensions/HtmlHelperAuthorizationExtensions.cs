@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,9 +12,17 @@ namespace AllianceAssociationBank.Crm.Extensions
     {
         public static bool IsUserAuthorizedToEdit(this HtmlHelper htmlHelper)
         {
-            var currentUser = htmlHelper.ViewContext.HttpContext.User;
+            return IsUserInEditRole(htmlHelper.ViewContext.HttpContext.User);
+        }
 
-            if (currentUser?.IsInRole(UserRoleName.ReadWriteUser) ?? false)
+        public static bool IsUserAuthorizedToEdit(this AjaxHelper ajaxHelper)
+        {
+            return IsUserInEditRole(ajaxHelper.ViewContext.HttpContext.User);
+        }
+
+        private static bool IsUserInEditRole(IPrincipal contextUser)
+        {
+            if (contextUser?.IsInRole(UserRoleName.ReadWriteUser) ?? false)
             {
                 return true;
             }

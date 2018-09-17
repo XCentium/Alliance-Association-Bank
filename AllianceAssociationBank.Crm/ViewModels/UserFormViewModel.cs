@@ -22,13 +22,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public bool Admin { get; set; }
 
         [Display(Name = "Statement")]
-        public bool StatementEmail { get; set; } // TODO: new field, need to map to database
+        public bool StatementEmail { get; set; }
 
         [Display(Name = "Lockbox")]
-        public bool LockboxEmail { get; set; } // TODO: new field, need to map to database
+        public bool LockboxEmail { get; set; }
 
         [Display(Name = "ACH")]
-        public bool ACHEmail { get; set; } // TODO: new field, need to map to database
+        public bool ACHEmail { get; set; } 
 
         [StringLength(255)]
         public string Title { get; set; }
@@ -48,10 +48,10 @@ namespace AllianceAssociationBank.Crm.ViewModels
         //public string Authorization { get; set; } // this was replaced with 2 boolean fields
 
         [Display(Name = "Enroll. Form")]
-        public bool EnrollmentFormAuthorization { get; set; } // TODO: new field, need to map to database
+        public bool EnrollmentFormAuthorization { get; set; }
 
         [Display(Name = "Email")]
-        public bool EmailAuthorization { get; set; } // TODO: new field, need to map to database
+        public bool EmailAuthorization { get; set; }
 
         [Display(Name = "Open / Close Accounts")]
         public bool AuthorizedToOpenClose { get; set; }

@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
-    public class ProjectFormViewModel : BaseViewModel
+    public class ProjectFormViewModel
     {
         // General Tab
         public int ID { get; set; }

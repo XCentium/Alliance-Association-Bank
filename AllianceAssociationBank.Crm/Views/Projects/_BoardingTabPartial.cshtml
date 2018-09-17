@@ -1,7 +1,4 @@
 ﻿@model ProjectFormViewModel
-@{
-    var userRole = Model.CurrentUserRole;
-}
 
 <div class="row pt-4 pl-4">
 
@@ -11,19 +8,19 @@
         <div class="row">
             @Html.LabelFor(m => m.Status, new { @class = "col-3" })
             <div class="col-7">
-                @Html.RoleBasedDropDownListFor(m => m.Status, userRole, new SelectList(Model.StatusList), null, cssClass:"form-input")
+                @Html.RoleBasedDropDownListFor(m => m.Status, new SelectList(Model.StatusList), null, cssClass:"form-input")
             </div>
         </div>
         <div class="row">
             @Html.LabelFor(m => m.StartDate, new { @class = "col-3" })
             <div class="col-7">
-                @Html.RoleBasedEditorFor(m => m.StartDate, userRole, cssClass: "form-input")
+                @Html.RoleBasedEditorFor(m => m.StartDate, cssClass: "form-input")
             </div>
         </div>
         <div class="row">
             @Html.LabelFor(m => m.EndDate, new { @class = "col-3" })
             <div class="col-7">
-                @Html.RoleBasedEditorFor(m => m.EndDate, userRole, cssClass: "form-input")
+                @Html.RoleBasedEditorFor(m => m.EndDate, cssClass: "form-input")
             </div>
         </div>
 
@@ -32,19 +29,19 @@
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.EnrollmentFormReceived, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.EnrollmentFormReceived)
             </div>
             @Html.LabelFor(m => m.EnrollmentFormReceived, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.MasterSigCardReceived, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.MasterSigCardReceived)
             </div>
             @Html.LabelFor(m => m.MasterSigCardReceived, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.WelcomeEmailSent, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.WelcomeEmailSent)
             </div>
             @Html.LabelFor(m => m.WelcomeEmailSent, new { @class = "col-11" })
         </div>
@@ -54,19 +51,19 @@
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.AssociationListReceived, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.AssociationListReceived)
             </div>
             @Html.LabelFor(m => m.AssociationListReceived, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.AssociationAccountsAssigned, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.AssociationAccountsAssigned)
             </div>
             @Html.LabelFor(m => m.AssociationAccountsAssigned, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.AssociationSignatureCardsSent, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.AssociationSignatureCardsSent)
             </div>
             @Html.LabelFor(m => m.AssociationSignatureCardsSent, new { @class = "col-11" })
         </div>
@@ -76,13 +73,13 @@
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.OnlineBankingSetup, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.OnlineBankingSetup)
             </div>
             @Html.LabelFor(m => m.OnlineBankingSetup, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.OnlineBankingTrained, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.OnlineBankingTrained)
             </div>
             @Html.LabelFor(m => m.OnlineBankingTrained, new { @class = "col-11" })
         </div>
@@ -92,13 +89,13 @@
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.ACHLimitAndSpecSubmitted, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.ACHLimitAndSpecSubmitted)
             </div>
             @Html.LabelFor(m => m.ACHLimitAndSpecSubmitted, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.ACHSuccessfulSubmitted, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.ACHSuccessfulSubmitted)
             </div>
             @Html.LabelFor(m => m.ACHSuccessfulSubmitted, new { @class = "col-11" })
         </div>
@@ -115,49 +112,49 @@
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.LockboxWanted, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.LockboxWanted)
             </div>
             @Html.LabelFor(m => m.LockboxWanted, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.POBoxAssigned, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.POBoxAssigned)
             </div>
             @Html.LabelFor(m => m.POBoxAssigned, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.ValidationFileReceived, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.ValidationFileReceived)
             </div>
             @Html.LabelFor(m => m.ValidationFileReceived, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.LockboxRequestSent, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.LockboxRequestSent)
             </div>
             @Html.LabelFor(m => m.LockboxRequestSent, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.RemitanceFileTested, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.RemitanceFileTested)
             </div>
             @Html.LabelFor(m => m.RemitanceFileTested, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.RemitanceFileLife, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.RemitanceFileLife)
             </div>
             @Html.LabelFor(m => m.RemitanceFileLife, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.CouponsOrdered, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.CouponsOrdered)
             </div>
             @Html.LabelFor(m => m.CouponsOrdered, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.CouponProofReviewed, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.CouponProofReviewed)
             </div>
             @Html.LabelFor(m => m.CouponProofReviewed, new { @class = "col-11" })
         </div>
@@ -167,13 +164,13 @@
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.ScannerWanted, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.ScannerWanted)
             </div>
             @Html.LabelFor(m => m.ScannerWanted, new { @class = "col-11" })
         </div>
         <div class="row pl-2">
             <div class="col-1">
-                @Html.RoleBasedCheckBoxFor(m => m.MMOnCheckScanner, userRole)
+                @Html.RoleBasedCheckBoxFor(m => m.MMOnCheckScanner)
             </div>
             @Html.LabelFor(m => m.MMOnCheckScanner, new { @class = "col-11" })
         </div>
@@ -181,7 +178,7 @@
         <div class="row pb-3">
             <div class="col-11">
                 <div class="col-2 offset-8">
-                    @Ajax.RouteLink("Add Scanner", routeName: CheckScannersControllerRoute.CreateScanner, routeValues: new
+                    @Ajax.RoleBasedRouteLink("Add Scanner", routeName: CheckScannersControllerRoute.CreateScanner, routeValues: new
                     {
                         projectId = Model.ID
                     }, ajaxOptions: new AjaxOptions
@@ -191,10 +188,7 @@
                         UpdateTargetId = "scanner-form-location",
                         OnSuccess = "showScannerFormModal",
                         OnFailure = "handleAjaxError"
-                    }, htmlAttributes: new
-                    {
-                        @class = "btn btn-sm btn-add-img"
-                    })
+                    }, cssClass: "btn btn-sm btn-add-img")
                 </div>
                 <div id="check-scanners-list">
                     @Html.Action(CheckScannersControllerAction.Index, ControllerName.CheckScanners, routeValues: new
@@ -214,21 +208,21 @@
         <div class="row mb-3">
             <div class="col-11">
                 @Html.LabelFor(m => m.BoardingNextSteps)
-                @Html.RoleBasedTextAreaFor(m => m.BoardingNextSteps, userRole, 6, 10, cssClass: "form-textarea")
+                @Html.RoleBasedTextAreaFor(m => m.BoardingNextSteps, 6, 10, cssClass: "form-textarea")
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-11">
                 @Html.LabelFor(m => m.BoardingNotes)
-                @Html.RoleBasedTextAreaFor(m => m.BoardingNotes, userRole, 6, 10, cssClass: "form-textarea")
+                @Html.RoleBasedTextAreaFor(m => m.BoardingNotes, 6, 10, cssClass: "form-textarea")
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-11">
                 @Html.LabelFor(m => m.Narrative)
-                @Html.RoleBasedTextAreaFor(m => m.Narrative, userRole, 6, 10, cssClass: "form-textarea")
+                @Html.RoleBasedTextAreaFor(m => m.Narrative, 6, 10, cssClass: "form-textarea")
             </div>
         </div>
 

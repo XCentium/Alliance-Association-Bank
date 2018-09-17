@@ -165,21 +165,20 @@ exec sp_rename 'Users.Lockbox Web', 'LockboxWeb', 'COLUMN';
 exec sp_rename 'Users.E Deposit', 'EDeposit', 'COLUMN';
 exec sp_rename 'Users.RemoteScannerAcctNotes', 'RemoteScannerAccountNotes', 'COLUMN';
 exec sp_rename 'Users.AuthorizedOpenClose', 'AuthorizedToOpenClose', 'COLUMN';
+ALTER TABLE [dbo].[Users] ADD EnrollmentFormAuthorization BIT NOT NULL CONSTRAINT DF_Users_EnrollmentFormAuthorization DEFAULT (0)
+ALTER TABLE [dbo].[Users] ADD EmailAuthorization BIT NOT NULL CONSTRAINT DF_Users_EmailAuthorization DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD StatementEmail BIT NOT NULL CONSTRAINT DF_Users_StatementEmail DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD LockboxEmail BIT NOT NULL CONSTRAINT DF_Users_LockboxEmail DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD ACHEmail BIT NOT NULL CONSTRAINT DF_Users_ACHEmail DEFAULT (0)
+
+-- Convert data in Authorization column to 2 new columns
+--UPDATE u
+--SET EnrollmentFormAuthorization = CASE WHEN [Authorization] = 'Enrollment Form' THEN 1 ELSE 0 END,
+--    EmailAuthorization = CASE WHEN [Authorization] = 'eMail' THEN 1 ELSE 0 END
+--FROM [dbo].[Users] u
 
 
 -- CheckScanners table RENAME statements
 exec sp_rename 'CheckScanners.ScannerID', 'ID', 'COLUMN';
 exec sp_rename 'CheckScanners.Serial Number', 'SerialNumber', 'COLUMN';
 
-
-
--- Foreign Key Constraints
-
--- Users
---ALTER TABLE [dbo].[Users] WITH CHECK ADD CONSTRAINT [FK_Users_Projects] FOREIGN KEY([ProjectID]) REFERENCES [dbo].[Projects] ([ID])
---GO
---ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [FK_Users_Projects]
---GO

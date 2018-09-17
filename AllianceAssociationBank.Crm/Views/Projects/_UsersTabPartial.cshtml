@@ -22,7 +22,7 @@
     </div>
 
     <div class="col-1 offset-6 p-0">
-        @Ajax.RouteLink("Add User", routeName: ProjectUsersControllerRoute.CreateUser, routeValues: new
+        @Ajax.RoleBasedRouteLink("Add User", routeName: ProjectUsersControllerRoute.CreateUser, routeValues: new
         {
             projectId = Model.ID
         }, ajaxOptions: new AjaxOptions
@@ -32,10 +32,7 @@
             UpdateTargetId = "user-form-location",
             OnSuccess = "showUserFormModal",
             OnFailure = "handleAjaxError"
-        }, htmlAttributes: new
-        {
-            @class = "btn btn-sm btn-add-img"
-        })
+        }, cssClass: "btn btn-sm btn-add-img")
     </div>
 
 </div>

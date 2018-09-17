@@ -1,7 +1,4 @@
 ﻿@model ProjectFormViewModel
-@{
-    var userRole = Model.CurrentUserRole;
-}
 
 <div class="row">
 
@@ -45,14 +42,12 @@
     <div class="row mb-3">
         <div class="col-12 text-right">
             <span id="project-form-save-indicator" class="save-indicator badge-light">@Model.SaveIndicator</span>
-            <button class="btn-img" type="submit">
-                <img class="icon-image" src="~/Content/Images/save-img.png" />
-            </button>
+            @Html.RoleBasedButton(" ", "submit", "btn-img btn-save-img")
             <button class="btn-img" type="button">
                 <img class="icon-image" src="~/Content/Images/print-img.png" />
             </button>
             <button class="btn-img" type="reset">
-                <img class="icon-image" src="~/Content/Images/close-img.png" />
+                <img class="icon-image" src="~/Content/Images/btn-close-icon.png" />
             </button>
         </div>
     </div>
@@ -63,7 +58,7 @@
             <div class="row">
                 @Html.LabelFor(m => m.ProjectName, new { @class = "col-2" })
                 <div class="col-10">
-                    @Html.RoleBasedEditorFor(m => m.ProjectName, userRole, cssClass: "form-input")
+                    @Html.RoleBasedEditorFor(m => m.ProjectName, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -72,7 +67,7 @@
             <div class="row">
                 @Html.LabelFor(m => m.DBA, new { @class = "col-2" })
                 <div class="col-10">
-                    @Html.RoleBasedEditorFor(m => m.DBA, userRole, cssClass: "form-input")
+                    @Html.RoleBasedEditorFor(m => m.DBA, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.DBA, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -81,7 +76,7 @@
             <div class="row">
                 @Html.LabelFor(m => m.OtherName, new { @class = "col-2" })
                 <div class="col-10">
-                    @Html.RoleBasedEditorFor(m => m.OtherName, userRole, cssClass: "form-input")
+                    @Html.RoleBasedEditorFor(m => m.OtherName, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.OtherName, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -118,6 +113,7 @@
 {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/ajaxhelper")
+    @Scripts.Render("~/bundles/select2")
 
     <script>
 
@@ -204,6 +200,21 @@
                     $saveIndicator.text("UNSAVED");
                     $saveIndicator.removeClass("badge-success").addClass("badge-light");
                 };
+            });
+
+            // Enable select2 for all dropdowns
+            //$("select").select2();
+
+            $("#Institution").select2();
+            $("#OwnerID").select2();
+            $("#AFPID").select2();
+            $("#BoardingManagerID").select2();
+            $("#LockboxStatus").select2();
+            $("#Software").select2({
+                tags: true
+            });
+            $("#LockboxSystem").select2({
+                tags: true
             });
         });
 
