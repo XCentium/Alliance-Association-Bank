@@ -62,11 +62,13 @@
                         HttpMethod = "GET",
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "user-form-location",
-                        OnSuccess = "showUserFormModal",
+                        //OnSuccess = "showUserFormModal",
+                        OnSuccess = "showModalTarget",
                         OnFailure = "handleAjaxError"
                     }, htmlAttributes: new
                     {
-                        @class = "btn-img btn-edit-img"
+                        @class = "btn-img btn-edit-img",
+                        data_modal_target = "#user-form-modal"
                     })
                 </td>
             </tr>

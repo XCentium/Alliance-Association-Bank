@@ -172,7 +172,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
 
-        public IEnumerable<SelectListItem> SoftwareList { get; set; }
+        public IEnumerable<string> SoftwareList { get; set; }
 
         public IEnumerable<string> InstitutionList { get; set; }
 

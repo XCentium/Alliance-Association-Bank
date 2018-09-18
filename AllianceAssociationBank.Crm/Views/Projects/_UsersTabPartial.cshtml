@@ -30,7 +30,7 @@
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "user-form-location",
-            OnSuccess = "showUserFormModal",
+            OnSuccess = "showModalTarget('#user-form-modal')",
             OnFailure = "handleAjaxError"
         }, cssClass: "btn btn-sm btn-add-img")
     </div>
@@ -53,11 +53,12 @@
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "users-email-list-modal-location",
-            OnSuccess = "showUsersEmailListModal",
+            OnSuccess = "showModalTarget",
             OnFailure = "handleAjaxError"
         }, htmlAttributes: new
         {
-            @class = "btn btn-sm btn-primary mx-1"
+            @class = "btn btn-sm btn-primary mx-1",
+            data_modal_target = "#users-email-list-modal"
         })
 
         @Ajax.RouteLink("Lockbox Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
@@ -69,11 +70,12 @@
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "users-email-list-modal-location",
-            OnSuccess = "showUsersEmailListModal",
+            OnSuccess = "showModalTarget",
             OnFailure = "handleAjaxError"
         }, htmlAttributes: new
         {
-            @class = "btn btn-sm btn-primary mx-1"
+            @class = "btn btn-sm btn-primary mx-1",
+            data_modal_target = "#users-email-list-modal"
         })
 
         @Ajax.RouteLink("ACH Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
@@ -85,11 +87,12 @@
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "users-email-list-modal-location",
-            OnSuccess = "showUsersEmailListModal",
+            OnSuccess = "showModalTarget",
             OnFailure = "handleAjaxError"
         }, htmlAttributes: new
         {
-            @class = "btn btn-sm btn-primary mx-1"
+            @class = "btn btn-sm btn-primary mx-1",
+            data_modal_target = "#users-email-list-modal"
         })
     </div>
 </div>

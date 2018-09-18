@@ -7,7 +7,7 @@
     <nav class="col-11">
         <div class="nav nav-tabs small" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general-content" role="tab" aria-controls="nav-general-content" aria-selected="true">GENERAL</a>
-            <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="true">USERS</a>
+            <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="false">USERS</a>
             <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
             <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">SOFTWARE</a>
             <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox" role="tab" aria-controls="nav-lockbox" aria-selected="false">LOCKBOX</a>
@@ -18,7 +18,7 @@
     </nav>
 
     <nav class="navbar p-2">
-        <button class="btn-img" id="search-box-toggle" type="button" data-toggle="slide-collapse-left" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
+        <button class="btn-img" id="search-box-toggle" type="button" data-toggle="slide-collapse-down" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
             <img src="~/Content/Images/search-img.png" />
         </button>
         <div class="collapse navbar-collapse popup-control" id="search-widget">
@@ -119,6 +119,26 @@
 
         $(document).ready(function () {
 
+            // Enable select2 for dropdowns
+            $("#Institution").select2();
+            $("#OwnerID").select2();
+            $("#AFPID").select2();
+            $("#BoardingManagerID").select2();
+            $("#LockboxStatus").select2();
+            $("#Software").select2({
+                tags: true,
+                insertTag: function (data, tag) {
+                    data.push(tag);
+                }
+            });
+            $("#LockboxSystem").select2({
+                tags: true,
+                insertTag: function (data, tag) {
+                    data.push(tag);
+                }
+            });
+            $("#Status").select2();
+
             // projects autocomplete search
             $("#project-search").autocomplete({
                 source: function (request, response) {
@@ -158,16 +178,18 @@
                 $(".screen-overlay").fadeIn(500);
             });
 
-            $('[data-toggle="slide-collapse-left"]').on("click", function () {
+            $('[data-toggle="slide-collapse-down"]').on("click", function () {
                 $toggleTarget = $($(this).data("target"));
-                $toggleTarget.show("slide", { direction: "right" })
+                $toggleTarget.show("blind", 250);
+                //$toggleTarget.show("slide", { direction: "right" });
 
                 $(".screen-overlay").fadeIn(500);
             });
 
             $(".screen-overlay").click(function (event) {
-                $("#nav-side-menu").hide('slide');
-                $("#search-widget").hide('slide', { direction: "right" });
+                $("#nav-side-menu").hide("slide");
+                $("#search-widget").hide("blind", 250);
+                //$("#search-widget").hide("slide", { direction: "right" });
 
                 $(".screen-overlay").fadeOut(500);
             });
@@ -201,52 +223,43 @@
                     $saveIndicator.removeClass("badge-success").addClass("badge-light");
                 };
             });
-
-            // Enable select2 for all dropdowns
-            //$("select").select2();
-
-            $("#Institution").select2();
-            $("#OwnerID").select2();
-            $("#AFPID").select2();
-            $("#BoardingManagerID").select2();
-            $("#LockboxStatus").select2();
-            $("#Software").select2({
-                tags: true
-            });
-            $("#LockboxSystem").select2({
-                tags: true
-            });
         });
 
-        function showUserFormModal() {
-            $("#user-form-modal").modal("show");
+        function showModalTarget(modalId) {
+            $modalTarget = $($(this).data("modal-target"));
 
-            validatorParseForm($("#user-form-element"));
-        };
+            if ($modalTarget.length == 0) { // Need to change this, just a workaround
+                $modalTarget = $(modalId);
+            }
 
-        function hideUserFormModal() {
-            $("#user-form-modal").modal("hide");
-        };
+            if ($modalTarget.length) {
+                $modalTarget.modal("show");
 
-        function showScannerFormModal() {
-            $("#scanner-form-modal").modal("show");
+                var $form = $modalTarget.find("form").first();
+                if ($form.length) {
+                    validatorParseForm($form);
+                }
+            } else {
+                handleAjaxError();
+            }
+        }
 
-            validatorParseForm($("#scanner-form-element"));
-        };
-
-        function hideScannerFormModal() {
-            $("#scanner-form-modal").modal("hide");
-        };
-
-        function showUsersEmailListModal() {
-            $("#users-email-list-modal").modal("show");
-        };
+        function hideModalTarget() {
+            $modalTarget = $($(this).data("modal-target"));
+            
+            if($modalTarget.length) {
+                $modalTarget.modal("hide");
+            } else {
+                handleAjaxError();
+            }
+        }
 
         function emailListCopyToClipboard() {
             $("#users-email-list-textarea").select();
             document.execCommand("copy");
         };
 
+        // Parse form for unobtrusive validation
         function validatorParseForm(form) {
             $.validator.unobtrusive.parse(form);
         };
@@ -254,6 +267,30 @@
         function handleAjaxError() {
             alert("An error occurred while processing your request");
         };
+
+        //function showUserFormModal() {
+        //    $("#user-form-modal").modal("show");
+
+        //    validatorParseForm($("#user-form-element"));
+        //};
+
+        //function hideUserFormModal() {
+        //    $("#user-form-modal").modal("hide");
+        //};
+
+        //function showScannerFormModal() {
+        //    $("#scanner-form-modal").modal("show");
+
+        //    validatorParseForm($("#scanner-form-element"));
+        //};
+
+        //function hideScannerFormModal() {
+        //    $("#scanner-form-modal").modal("hide");
+        //};
+
+        //function showUsersEmailListModal() {
+        //    $("#users-email-list-modal").modal("show");
+        //};
 
     </script>
 }

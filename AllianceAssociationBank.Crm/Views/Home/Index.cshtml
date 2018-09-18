@@ -3,27 +3,27 @@
 }
 
 <div class="row py-4">
-    <div class="offset-md-4">
+    <div class="offset-4">
         <img src="~/Content/Images/aab-logo.png" />
     </div>
 </div>
 
 <div class="row py-3">
-    <span class="col-md-1 offset-md-4 col-form-label px-0">NEW PROJECT</span>
-    <div class="col-md-3">
+    <span class="col-1 offset-4 col-form-label px-0">NEW PROJECT</span>
+    <div class="col-3">
         <p>@Html.RoleBasedActionLink("Create", ProjectsControllerAction.Create, ControllerName.Projects, null, "btn btn-primary btn-block")</p>
     </div>
 </div>
 
 <div class="row py-3">
-    <span class="col-md-1 offset-md-4 col-form-label px-0">FIND PROJECT</span>
-    <div class="col-md-4">
+    <span class="col-1 offset-4 col-form-label px-0">FIND PROJECT</span>
+    <div class="col-4">
         <input class="form-control" id="project-search" type="text" placeholder="NAME / PMC ID" autocomplete="off">
     </div>
 </div>
 
 <div class="row py-4">
-    <div class="col-md-2 offset-md-5">
+    <div class="col-2 offset-5">
         <h6>REPORTS</h6>
         <p>@Html.RouteLink("Boarding", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.Boarding })</p>
         <p>@Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.CompletedAndHold })</p>
@@ -33,7 +33,7 @@
         <p><a href="#">CD Emails</a></p>
         <p><a href="#">Coupon</a></p>
     </div>
-    <div class="col-md-2">
+    <div class="col-2">
         <h6>EXPORTS</h6>
         <p>@Html.RouteLink("CMC List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcList })</p>
         <p>@Html.RouteLink("CMC Useful Info List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcUsefulInfoList })</p>

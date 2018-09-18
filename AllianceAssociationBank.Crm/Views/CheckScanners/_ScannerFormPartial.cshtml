@@ -16,11 +16,12 @@
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "check-scanners-list",
-                OnBegin = "hideScannerFormModal", // TODO: maybe should change this to OnSuccess?
+                OnBegin = "hideModalTarget", // TODO: maybe should change this to OnSuccess?
                 OnFailure = "handleAjaxError" 
             }, htmlAttributes: new
             {
-                id = "scanner-form-element"
+                id = "scanner-form-element",
+                data_modal_target = "#scanner-form-modal"
             }))
             {
             <div class="modal-body">

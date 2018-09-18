@@ -8,7 +8,7 @@
         <div class="row">
             @Html.LabelFor(m => m.Status, new { @class = "col-3" })
             <div class="col-7">
-                @Html.RoleBasedDropDownListFor(m => m.Status, new SelectList(Model.StatusList), null, cssClass:"form-input")
+                @Html.RoleBasedDropDownListFor(m => m.Status, new SelectList(Model.StatusList), null, cssClass: "form-input")
             </div>
         </div>
         <div class="row">
@@ -186,7 +186,7 @@
                         HttpMethod = "GET",
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "scanner-form-location",
-                        OnSuccess = "showScannerFormModal",
+                        OnSuccess = "showModalTarget('#scanner-form-modal')",
                         OnFailure = "handleAjaxError"
                     }, cssClass: "btn btn-sm btn-add-img")
                 </div>

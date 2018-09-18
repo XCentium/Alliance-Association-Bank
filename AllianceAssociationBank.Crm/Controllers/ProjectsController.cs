@@ -8,6 +8,7 @@ using AllianceAssociationBank.Crm.Persistence.Repositories;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -155,15 +156,27 @@ namespace AllianceAssociationBank.Crm.Controllers
                                                                             Value = e.ID.ToString(),
                                                                             Text = e.FirstName + " " + e.LastName
                                                                         });
-            model.SoftwareList = (await _softwares.GetSoftwaresAsync()).Select(s => new SelectListItem()
-                                                                        {
-                                                                            Value = s.ID.ToString(),
-                                                                            Text = s.SoftwareName
-                                                                        });
             model.InstitutionList = DropDownListHelper.InstitutionValues;
-            model.LockboxSystemList = DropDownListHelper.LockboxSystemValues;
             model.LockboxStatusList = DropDownListHelper.LockboxStatusValues;
             model.StatusList = DropDownListHelper.StatusValues;
+
+            // Check if user custom value needs to be added to dropdownlist
+            var softwareList = (await _softwares.GetSoftwaresAsync()).Select(s => s.SoftwareName).ToList();
+            model.SoftwareList = CheckAndAddCustomValueToList(softwareList, model.Software);
+
+            // Check if user custom value needs to be added to dropdownlist
+            var lockboxSystemList = DropDownListHelper.LockboxSystemValues.ToList();
+            model.LockboxSystemList = CheckAndAddCustomValueToList(lockboxSystemList, model.LockboxSystem);
+        }
+
+        private IList<string> CheckAndAddCustomValueToList(IList<string> list, string customValue)
+        {
+            if (!list.Any(i => i == customValue))
+            {
+                list.Add(customValue);
+            }
+
+            return list;
         }
     }
 }

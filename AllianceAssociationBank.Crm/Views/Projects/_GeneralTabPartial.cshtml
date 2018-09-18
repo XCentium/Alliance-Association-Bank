@@ -156,7 +156,7 @@
         <div class="row my-2">
             @Html.LabelFor(m => m.OwnerID, new { @class = "col-3" })
             <div class="col-8">
-                @Html.RoleBasedDropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", cssClass: "form-input")
+                @Html.RoleBasedDropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), null, cssClass: "form-input")
                 @Html.ValidationMessageFor(m => m.OwnerID, "", new { @class = "form-error-msg" })
             </div>
         </div>
@@ -164,7 +164,7 @@
         <div class="row my-2">
             @Html.LabelFor(m => m.AFPID, new { @class = "col-3" })
             <div class="col-8">
-                @Html.RoleBasedDropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), "", cssClass: "form-input")
+                @Html.RoleBasedDropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), null, cssClass: "form-input")
                 @Html.ValidationMessageFor(m => m.AFPID, "", new { @class = "form-error-msg" })
             </div>
         </div>
@@ -172,7 +172,7 @@
         <div class="row my-2">
             @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3" })
             <div class="col-8">
-                @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", cssClass: "form-input")
+                @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), null, cssClass: "form-input")
                 @Html.ValidationMessageFor(m => m.BoardingManagerID, "", new { @class = "form-error-msg" })
             </div>
         </div>
@@ -180,7 +180,7 @@
         <div class="row my-2">
             @Html.LabelFor(m => m.Software, new { @class = "col-3" })
             <div class="col-8">
-                @Html.RoleBasedDropDownListFor(m => m.Software, new SelectList(Model.SoftwareList, "Text", "Text"), "", cssClass: "form-input")
+                @Html.RoleBasedDropDownListFor(m => m.Software, new SelectList(Model.SoftwareList), "", cssClass: "form-input")
                 @Html.ValidationMessageFor(m => m.Software, "", new { @class = "form-error-msg" })
             </div>
         </div>
@@ -204,7 +204,7 @@
         </div>
 
         <div class="row mb-1">
-            @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-3  form-label-indent" })
+            @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-3 form-label-indent" })
             <div class="col-8">
                 @Html.RoleBasedEditorFor(m => m.LockboxLiveDate, cssClass: "form-input")
             </div>

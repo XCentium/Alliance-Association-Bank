@@ -29,11 +29,12 @@
                             HttpMethod = "GET",
                             InsertionMode = InsertionMode.Replace,
                             UpdateTargetId = "scanner-form-location",
-                            OnSuccess = "showScannerFormModal",
+                            OnSuccess = "showModalTarget",
                             OnFailure = "handleAjaxError"
                         }, htmlAttributes: new
                         {
-                            @class = "btn-img btn-edit-img"
+                            @class = "btn-img btn-edit-img",
+                            data_modal_target = "#scanner-form-modal"
                         })
                         @Ajax.RoleBasedRouteLink(" ", routeName: CheckScannersControllerRoute.DeleteScanner, routeValues: new
                         {

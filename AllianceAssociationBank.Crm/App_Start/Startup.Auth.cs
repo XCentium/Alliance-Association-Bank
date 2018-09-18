@@ -28,15 +28,16 @@ namespace AllianceAssociationBank.Crm
                 //AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 AuthenticationType = AuthenticationType.CrmApplicationCookie,
                 LoginPath = new PathString("/User/Login"),
-                Provider = new CookieAuthenticationProvider
-                {
-                    // Enables the application to validate the security stamp when the user logs in.
-                    // This is a security feature which is used when you change a password or add an external login to your account.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
-                        validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-                },
-                CookieName = "Aab.Crm.ApplicationIdentity"
+                Provider = new CookieAuthenticationProvider(),
+                //{
+                //    // Enables the application to validate the security stamp when the user logs in.
+                //    // This is a security feature which is used when you change a password or add an external login to your account.  
+                //    //OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                //        validateInterval: TimeSpan.FromMinutes(30),
+                //        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+                //},
+                CookieName = "Aab.Crm.ApplicationIdentity",
+                ExpireTimeSpan = TimeSpan.FromHours(12) // TODO: Add this to web.config
             });
 
             //app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
