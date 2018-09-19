@@ -21,7 +21,7 @@
         <button class="btn-img" id="search-box-toggle" type="button" data-toggle="slide-collapse-down" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
             <img src="~/Content/Images/search-img.png" />
         </button>
-        <div class="collapse navbar-collapse popup-control" id="search-widget">
+        <div class="popup-control" id="search-widget">
             <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / PMC ID" autocomplete="off">
         </div>
     </nav>
@@ -46,7 +46,7 @@
             <button class="btn-img" type="button">
                 <img class="icon-image" src="~/Content/Images/print-img.png" />
             </button>
-            <button class="btn-img" type="reset">
+            <button class="btn-img" type="button" data-toggle="modal" data-target="#close-dialog-modal">
                 <img class="icon-image" src="~/Content/Images/btn-close-icon.png" />
             </button>
         </div>
@@ -106,6 +106,14 @@
 @* div to render check scanner form modal *@
 <div id="scanner-form-location"></div>
 
+@* div to render delete confirmation dialog *@
+<div id="confirm-delete-dialog-location"></div>
+
+@* div to render project form close dialog modal *@
+<div>
+    @Html.Partial(ProjectsView.CloseDialogPartial)
+</div>
+
 
 <div class="screen-overlay"></div>
 
@@ -119,27 +127,9 @@
 
         $(document).ready(function () {
 
-            // Enable select2 for dropdowns
-            $("#Institution").select2();
-            $("#OwnerID").select2();
-            $("#AFPID").select2();
-            $("#BoardingManagerID").select2();
-            $("#LockboxStatus").select2();
-            $("#Software").select2({
-                tags: true,
-                insertTag: function (data, tag) {
-                    data.push(tag);
-                }
-            });
-            $("#LockboxSystem").select2({
-                tags: true,
-                insertTag: function (data, tag) {
-                    data.push(tag);
-                }
-            });
-            $("#Status").select2();
+            CrmApp.enableSelect2Plugin();
 
-            // projects autocomplete search
+            // Projects search autocomplete
             $("#project-search").autocomplete({
                 source: function (request, response) {
                     $.ajax({
@@ -186,7 +176,7 @@
                 $(".screen-overlay").fadeIn(500);
             });
 
-            $(".screen-overlay").click(function (event) {
+            $(".screen-overlay").on("click", function (event) {
                 $("#nav-side-menu").hide("slide");
                 $("#search-widget").hide("blind", 250);
                 //$("#search-widget").hide("slide", { direction: "right" });
@@ -194,6 +184,7 @@
                 $(".screen-overlay").fadeOut(500);
             });
 
+            // Users tab radio buttons filter
             $("input[name='user-filter-option']").change(function (e) {
                 var $radios = $(this);
                 var projectId = $radios.attr("data-projectId");
@@ -223,14 +214,115 @@
                     $saveIndicator.removeClass("badge-success").addClass("badge-light");
                 };
             });
+
+            CrmApp.toggleLockboxFieldsDisabled();
+
+            CrmApp.setMailingAddressOnPhysicalChange("#Address", "#MailingAddress");
+            CrmApp.setMailingAddressOnPhysicalChange("#City", "#MailingCity");
+            CrmApp.setMailingAddressOnPhysicalChange("#State", "#MailingState");
+            CrmApp.setMailingAddressOnPhysicalChange("#ZipCode", "#MailingZipCode");
+
+            // Handle Same As Physical checkbox changes
+            $("#MailingSameAsPhysical").on("change", function () {
+                function setMailingOnCheckboxChange(checked, mailingElementId, physicalElementId) {
+                    var $mailingElement = $(mailingElementId);
+
+                    if (checked) {
+                        $mailingElement.val($(physicalElementId).val());
+                        $mailingElement.addClass("read-only");
+                    } else {
+                        $mailingElement.val("");
+                        $mailingElement.removeClass("read-only");
+                    }
+                };
+
+                setMailingOnCheckboxChange(this.checked, "#MailingAddress", "#Address");
+                setMailingOnCheckboxChange(this.checked, "#MailingCity", "#City");
+                setMailingOnCheckboxChange(this.checked, "#MailingState", "#State");
+                setMailingOnCheckboxChange(this.checked, "#MailingZipCode", "#ZipCode");
+            });
+
+            CrmApp.setSameAsPhysicalCheckbox();
         });
+
+
+        var CrmApp = CrmApp || {};
+
+        // Enable select2 for dropdowns
+        CrmApp.enableSelect2Plugin = function () {
+            $("#Institution").select2();
+            $("#OwnerID").select2();
+            $("#AFPID").select2();
+            $("#BoardingManagerID").select2();
+            $("#LockboxStatus").select2();
+            $("#Software").select2({
+                tags: true,
+                insertTag: function (data, tag) {
+                    data.push(tag);
+                }
+            });
+            $("#LockboxSystem").select2({
+                tags: true,
+                insertTag: function (data, tag) {
+                    data.push(tag);
+                }
+            });
+            $("#Status").select2();
+        };
+
+        // Disable lockbox related fields when status is No Lockbox
+        CrmApp.toggleLockboxFieldsDisabled = function () {
+            function disableFields() {
+                $("#LockboxSystem").attr("disabled", "disabled");
+                $("#LockboxLiveDate").attr("disabled", "disabled");
+            };
+
+            function enableFields() {
+                $("#LockboxSystem").removeAttr("disabled");
+                $("#LockboxLiveDate").removeAttr("disabled");
+            };
+
+            var noLockbox = "No Lockbox";
+            var $status = $("#LockboxStatus");
+
+            if ($status.val() == noLockbox) {
+                disableFields();
+            }
+
+            $("#LockboxStatus").on("change", function () {
+                if (this.value == noLockbox) {
+                    disableFields();
+                } else {
+                    enableFields();
+                }
+            });
+        };
+
+        // Handle physical address changes based on Same As Physical checkbox
+        CrmApp.setMailingAddressOnPhysicalChange = function (physicalElementId, mailingElementId) {
+            $(physicalElementId).on("change", function () {
+                if ($("#MailingSameAsPhysical").is(":checked")) {
+                    $(mailingElementId).val(this.value);
+                }
+            });
+        };
+
+        // Initial setting of Same As Physical checkbox value
+        CrmApp.setSameAsPhysicalCheckbox = function () {
+            var $sameAsPhysical = $("#MailingSameAsPhysical");
+
+            if ($("#Address").val() !== $("#MailingAddress").val() ||
+                $("#City").val() !== $("#MailingCity").val() ||
+                $("#State").val() !== $("#MailingState").val() ||
+                $("#ZipCode").val() !== $("#MailingZipCode").val()) {
+                $sameAsPhysical.attr("checked", false);
+            } else {
+                $sameAsPhysical.attr("checked", true).trigger("change");
+            }
+        };
 
         function showModalTarget(modalId) {
             $modalTarget = $($(this).data("modal-target"));
-
-            if ($modalTarget.length == 0) { // Need to change this, just a workaround
-                $modalTarget = $(modalId);
-            }
 
             if ($modalTarget.length) {
                 $modalTarget.modal("show");
@@ -242,17 +334,17 @@
             } else {
                 handleAjaxError();
             }
-        }
+        };
 
         function hideModalTarget() {
             $modalTarget = $($(this).data("modal-target"));
-            
-            if($modalTarget.length) {
+
+            if ($modalTarget.length) {
                 $modalTarget.modal("hide");
             } else {
                 handleAjaxError();
             }
-        }
+        };
 
         function emailListCopyToClipboard() {
             $("#users-email-list-textarea").select();
@@ -267,30 +359,6 @@
         function handleAjaxError() {
             alert("An error occurred while processing your request");
         };
-
-        //function showUserFormModal() {
-        //    $("#user-form-modal").modal("show");
-
-        //    validatorParseForm($("#user-form-element"));
-        //};
-
-        //function hideUserFormModal() {
-        //    $("#user-form-modal").modal("hide");
-        //};
-
-        //function showScannerFormModal() {
-        //    $("#scanner-form-modal").modal("show");
-
-        //    validatorParseForm($("#scanner-form-element"));
-        //};
-
-        //function hideScannerFormModal() {
-        //    $("#scanner-form-modal").modal("hide");
-        //};
-
-        //function showUsersEmailListModal() {
-        //    $("#users-email-list-modal").modal("show");
-        //};
 
     </script>
 }

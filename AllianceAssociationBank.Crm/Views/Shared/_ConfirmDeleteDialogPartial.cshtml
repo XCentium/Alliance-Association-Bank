@@ -1,0 +1,41 @@
+﻿@model ConfirmDeleteViewModel
+
+<div class="modal fade" id="confirm-delete-dialog-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row my-4">
+                        <div class="col-2">
+                            <img src="~/Content/Images/warning-icon.png" />
+                        </div>
+                        <div class="col-10">
+                            <p class="font-weight-bold">
+                                @Html.DisplayFor(m => m.ConfirmText)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                @Ajax.RoleBasedRouteLink("Delete", routeName: Model.AjaxDeleteRouteName, routeValues: new
+                {
+                    projectId = Model.ProjectId,
+                    id = Model.RecordIdToDelete
+                }, ajaxOptions: new AjaxOptions
+                {
+                    HttpMethod = "DELETE",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = Model.AjaxUpdateTargetId,
+                    OnBegin = "hideModalTarget",
+                    OnFailure = "handleAjaxError"
+                }, htmlAttributes: new
+                {
+                    @class = "btn btn-primary",
+                    data_modal_target = "#confirm-delete-dialog-modal"
+                })
+            </div>
+         </div>
+    </div>
+</div>

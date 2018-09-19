@@ -30,9 +30,13 @@
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "user-form-location",
-            OnSuccess = "showModalTarget('#user-form-modal')",
+            OnSuccess = "showModalTarget",
             OnFailure = "handleAjaxError"
-        }, cssClass: "btn btn-sm btn-add-img")
+        }, htmlAttributes: new 
+        {
+            @class = "btn btn-sm btn-add-img",
+            data_modal_target = "#user-form-modal"
+        })
     </div>
 
 </div>

@@ -12,6 +12,7 @@ namespace AllianceAssociationBank.Crm.Constants.CheckScanners
         public const string CreateScannerHttpPost = ControllerName.CheckScanners + "CreateScannerHttpPost";
         public const string EditScanner = ControllerName.CheckScanners + "EditScanner";
         public const string UpdateScanner = ControllerName.CheckScanners + "UpdateScanner";
+        public const string ConfirmDelete = ControllerName.CheckScanners + "ConfirmDelete";
         public const string DeleteScanner = ControllerName.CheckScanners + "DeleteScanner";
     }
 }

@@ -41,16 +41,6 @@ textarea {
     color: #E4E4E4;
 }
 
-.popup-control {
-    background-color: #ffffff;
-    z-index: 99;
-}
-
-.icon-image {
-    height: 25px;
-    width: 25px;
-}
-
 .btn-add-img {
     background-image: url('Images/btn-add-icon.png');
     background-repeat: no-repeat;
@@ -162,8 +152,19 @@ textarea {
     padding-left: 2px;
 }
 
+.icon-image {
+    height: 25px;
+    width: 25px;
+}
+
 .input-validation-error {
     border-color: #dc3545 !important;
+}
+
+.popup-control {
+    background-color: #ffffff;
+    display: none;
+    z-index: 99;
 }
 
 .report-viewer {
@@ -211,11 +212,10 @@ textarea {
 #nav-side-menu {
     left: 0px;
     /*overflow: auto;*/
-    padding-left: 15px;
+    padding: 15px;
     position: absolute;
     top: 45px;
-    width: 225px;
-    z-index: 99;
+    width: 220px;
 }
 
 #search-widget {
@@ -226,8 +226,34 @@ textarea {
     position: absolute;
     top: 0px;
     width: 400px;
-    z-index: 99;
 }
+
+/*.hidden-menu {
+    visibility: hidden;
+    z-index: 1;
+    opacity: 0;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.hidden-content:hover .hidden-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hidden-content .hidden-menu {
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}*/
+
+
+/*.hidden-menu:hover {
+    display: flex;
+}*/
 
 /* Disabled elements */
 
@@ -237,23 +263,28 @@ a.btn-link-disabled {
     cursor: default;
 }
 
+input.read-only {
+    pointer-events: none !important;
+    background: #eee;
+}
+
 .btn:disabled, .btn-img:disabled {
     opacity: 0.30;
     cursor: default;
 }
 
 input:disabled {
-    background: rgba(233, 236, 239, 0.50);
+    background: #eee; /* rgba(233, 236, 239, 0.5);*/
     opacity: 1;
 }
 
 select:disabled {
-    background: rgba(233, 236, 239, 0.50);
+    background: #eee;
     opacity: 1;
 }
 
 textarea:disabled {
-    background: rgba(233, 236, 239, 0.50);
+    background: #eee;
     opacity: 1;
 }
 

@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
+using System.Web.Routing;
 
 namespace AllianceAssociationBank.Crm.Extensions
 {
@@ -9,18 +10,32 @@ namespace AllianceAssociationBank.Crm.Extensions
     public static class HtmlHelperAjxExtensions
     {
         public static MvcHtmlString RoleBasedRouteLink(this AjaxHelper ajaxHelper,
-                                                       string linkText, 
+                                                       string linkText,
                                                        string routeName,
                                                        object routeValues,
-                                                       AjaxOptions ajaxOptions, 
+                                                       AjaxOptions ajaxOptions,
                                                        string cssClass)
+        {
+            return ajaxHelper.RoleBasedRouteLink(linkText, routeName, routeValues, ajaxOptions, Helper.CreateHtmlAttributes(cssClass));
+        }
+
+        public static MvcHtmlString RoleBasedRouteLink(this AjaxHelper ajaxHelper,
+                                                       string linkText,
+                                                       string routeName,
+                                                       object routeValues,
+                                                       AjaxOptions ajaxOptions,
+                                                       object htmlAttributes)
         {
             if (ajaxHelper.IsUserAuthorizedToEdit())
             {
-                return ajaxHelper.RouteLink(linkText, routeName, routeValues, ajaxOptions, Helper.CreateHtmlAttributes(cssClass));
+                return ajaxHelper.RouteLink(linkText, routeName, routeValues, ajaxOptions, htmlAttributes);
             }
 
-            return ajaxHelper.RouteLink(linkText, routeName, routeValues, ajaxOptions, Helper.CreateHtmlAttributesForDisabledLink(cssClass));
+            return ajaxHelper.RouteLink(linkText, 
+                                        routeName, 
+                                        HtmlHelper.AnonymousObjectToHtmlAttributes(routeValues), 
+                                        ajaxOptions, 
+                                        Helper.CreateHtmlAttributesForDisabledLink(htmlAttributes));
         }
     }
 }

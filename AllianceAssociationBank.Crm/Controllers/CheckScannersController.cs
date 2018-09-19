@@ -131,6 +131,22 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Route("Delete/{id}", Name = CheckScannersControllerRoute.ConfirmDelete)]
+        public ActionResult ConfirmDelete(int projectId, int id)
+        {
+            var model = new ConfirmDeleteViewModel()
+            {
+                ProjectId = projectId,
+                RecordIdToDelete = id,
+                AjaxDeleteRouteName = CheckScannersControllerRoute.DeleteScanner,
+                AjaxUpdateTargetId = "check-scanners-list",
+                ConfirmText = "Are you sure you want to delete this scanner?"
+            };
+
+            return PartialView(SharedView.ConfirmDeleteDialogPartial, model);
+        }
+
+        [Authorize(Roles = UserRoleName.ReadWriteUser)]
         [Route("Delete/{id}", Name = CheckScannersControllerRoute.DeleteScanner)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int projectId, int id)
@@ -150,7 +166,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
             catch (Exception ex)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError); ;
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
         }
     }

@@ -246,6 +246,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />
+    <Compile Include="Constants\SharedView.cs" />
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\ADGroupName.cs" />
     <Compile Include="Constants\UserRoleEnum.cs" />
@@ -344,6 +345,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ProjectReportRecordViewModel.cs" />
@@ -366,6 +368,7 @@
     <Content Include="Content\Images\btn-save-icon.png" />
     <Content Include="Content\Images\search-img.png" />
     <Content Include="Content\Images\toggle-img.png" />
+    <Content Include="Content\Images\warning-icon.png" />
     <Content Include="Content\select2.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -540,7 +543,9 @@
     <Content Include="Views\Projects\_BoardingTabPartial.cshtml" />
     <Content Include="Views\CheckScanners\_ScannersListPartial.cshtml" />
     <Content Include="Views\CheckScanners\_ScannerFormPartial.cshtml" />
-    <Content Include="Views\ProjectUsers\_UsersEmailListPartial.cshtml" />
+    <Content Include="Views\ProjectUsers\_UsersEmailListDialogPartial.cshtml" />
+    <Content Include="Views\Projects\_CloseDialogPartial.cshtml" />
+    <Content Include="Views\Shared\_ConfirmDeleteDialogPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

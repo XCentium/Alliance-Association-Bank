@@ -9,6 +9,6 @@ namespace AllianceAssociationBank.Crm.Constants.Projects
     {
         public const string UsersListPartial = "_UsersListPartial";
         public const string UserFormPartial = "_UserFormPartial";
-        public const string UsersEmailListPartial = "_UsersEmailListPartial";
+        public const string UsersEmailListDialogPartial = "_UsersEmailListDialogPartial";
     }
 }

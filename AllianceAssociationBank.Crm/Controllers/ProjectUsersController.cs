@@ -164,7 +164,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 ViewBag.ListName = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(emailList);
                 ViewBag.EmailList = string.Join(EMAIL_SEPARATOR, emails);
 
-                return PartialView(ProjectUsersView.UsersEmailListPartial);
+                return PartialView(ProjectUsersView.UsersEmailListDialogPartial);
             }
             catch (Exception ex)
             {

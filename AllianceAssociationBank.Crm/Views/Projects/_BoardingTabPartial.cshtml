@@ -186,9 +186,13 @@
                         HttpMethod = "GET",
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "scanner-form-location",
-                        OnSuccess = "showModalTarget('#scanner-form-modal')",
+                        OnSuccess = "showModalTarget",
                         OnFailure = "handleAjaxError"
-                    }, cssClass: "btn btn-sm btn-add-img")
+                    }, htmlAttributes: new 
+                    {
+                        @class = "btn btn-sm btn-add-img",
+                        data_modal_target = "#scanner-form-modal"
+                    })
                 </div>
                 <div id="check-scanners-list">
                     @Html.Action(CheckScannersControllerAction.Index, ControllerName.CheckScanners, routeValues: new
