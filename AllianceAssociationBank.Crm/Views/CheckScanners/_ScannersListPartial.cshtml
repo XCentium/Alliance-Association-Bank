@@ -53,19 +53,6 @@
                             @class = "btn-img btn-delete-img",
                             data_modal_target = "#confirm-delete-dialog-modal"
                         })
-
-                        @*@Ajax.RoleBasedRouteLink(" ", routeName: CheckScannersControllerRoute.DeleteScanner, routeValues: new
-                        {
-                            projectId = scanner.ProjectID,
-                            id = scanner.ID
-                        }, ajaxOptions: new AjaxOptions
-                        {
-                            HttpMethod = "DELETE",
-                            InsertionMode = InsertionMode.Replace,
-                            UpdateTargetId = "check-scanners-list",
-                            Confirm = "OK to delete this check scanner?",
-                            OnFailure = "handleAjaxError"
-                        }, cssClass: "btn-img btn-delete-img")*@
                     </td>
                 </tr>
             }
