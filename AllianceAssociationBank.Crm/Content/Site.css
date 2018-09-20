@@ -30,11 +30,6 @@ textarea {
     max-width: none;
 }*/
 
-.smallnavbar {
-    padding: 0px;
-    background-color: rgba(153, 153, 153, 1);
-}
-
 .smallnavbar .nav-link {
     padding: 0px;
     padding-bottom: 2px;
@@ -152,6 +147,37 @@ textarea {
     padding-left: 2px;
 }
 
+.hoverable-area .hidden-menu {
+    /*visibility: hidden;*/
+    /*opacity: 0;*/
+    /*z-index: -1;*/
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -o-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+    -webkit-transition-delay: 1s;
+    -moz-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+    -webkit-transform: translateY(-110%);
+    -moz-transform: translateY(-110%);
+    -o-transform: translateY(-110%);
+    transform: translateY(-110%);
+}
+
+.hoverable-area:hover .hidden-menu {
+    /*visibility: visible;*/
+    /*opacity: 1;*/
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -o-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+
 .icon-image {
     height: 25px;
     width: 25px;
@@ -209,6 +235,14 @@ textarea {
     z-index: 98;
 }
 
+.smallnavbar {
+    background-color: rgba(153, 153, 153, 1);
+    font-size: 13px;
+    height: 15px;
+    padding: 0px;
+    z-index: 1;
+}
+
 #nav-side-menu {
     left: 0px;
     /*overflow: auto;*/
@@ -227,33 +261,6 @@ textarea {
     top: 0px;
     width: 400px;
 }
-
-/*.hidden-menu {
-    visibility: hidden;
-    z-index: 1;
-    opacity: 0;
-    -moz-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-}
-
-.hidden-content:hover .hidden-menu {
-    visibility: visible;
-    opacity: 1;
-}
-
-.hidden-content .hidden-menu {
-    -moz-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-}*/
-
-
-/*.hidden-menu:hover {
-    display: flex;
-}*/
 
 /* Disabled elements */
 
@@ -333,7 +340,9 @@ textarea:disabled {
     color: #ffffff;
     border-color: #e9ecef;
     padding-left: 41px;
-    padding-right: 41px
+    padding-right: 41px;
+    padding-top: 7px;
+    padding-bottom: 7px
 }
 
 .nav-tabs .nav-link.active {

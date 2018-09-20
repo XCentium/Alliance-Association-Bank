@@ -245,11 +245,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Constants\AuthenticationType.cs" />
+    <Compile Include="Identity\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\ADGroupName.cs" />
-    <Compile Include="Constants\UserRoleEnum.cs" />
+    <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Extensions\HtmlExtensionsHelper.cs" />
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />
@@ -344,7 +344,6 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

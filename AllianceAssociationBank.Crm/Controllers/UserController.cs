@@ -110,11 +110,11 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
+        public ActionResult Logout()
         {
             //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignOut(AuthenticationType.CrmApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", ControllerName.Home);
         }
 
         //protected override void Dispose(bool disposing)
@@ -152,7 +152,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", ControllerName.Home);
         }
         #endregion
     }

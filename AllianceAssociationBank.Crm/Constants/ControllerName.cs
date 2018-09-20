@@ -7,6 +7,8 @@ namespace AllianceAssociationBank.Crm.Constants
 {
     public static class ControllerName
     {
+        public const string Home = "Home";
+        public const string User = "User";
         public const string Projects = "Projects";
         public const string ProjectUsers = "ProjectUsers";
         public const string CheckScanners = "CheckScanners";

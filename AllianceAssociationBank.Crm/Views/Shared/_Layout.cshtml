@@ -9,17 +9,20 @@
 
 </head>
 <body>
-    <div class="navbar navbar-expand-sm smallnavbar">
-        <div class="container justify-content-end" style="max-width: 1280px;">
-            @Html.Partial("_LoginPartial")
+
+    <div class="container smallnavbar" style="max-width: 1280px;">
+        <div class="navbar navbar-expand-sm smallnavbar justify-content-end">
+            <div class="justify-content-end mx-2">
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         @*<hr />
-            <footer class="small text-secondary">
-                <p>&copy; @DateTime.Now.Year - Alliance Association Bank CRM</p>
-            </footer>*@
+        <footer class="small text-secondary">
+            <p>&copy; @DateTime.Now.Year - Alliance Association Bank CRM</p>
+        </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")

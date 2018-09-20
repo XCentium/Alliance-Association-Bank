@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AllianceAssociationBank.Crm.Constants
+namespace AllianceAssociationBank.Crm.Identity
 {
     public static class AuthenticationType
     {
