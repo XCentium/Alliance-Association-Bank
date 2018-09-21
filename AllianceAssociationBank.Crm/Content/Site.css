@@ -30,12 +30,6 @@ textarea {
     max-width: none;
 }*/
 
-.smallnavbar .nav-link {
-    padding: 0px;
-    padding-bottom: 2px;
-    color: #E4E4E4;
-}
-
 .btn-add-img {
     background-image: url('Images/btn-add-icon.png');
     background-repeat: no-repeat;
@@ -95,6 +89,10 @@ textarea {
     /*z-index: 5;*/
 }
 
+.form-fieldset-lg {
+    margin-bottom: 40px;
+}
+
 .form-input {
     border-color: #ced4da;
     /*border-color: #aaa;*/
@@ -105,8 +103,8 @@ textarea {
     height: 25px;
     max-width: none;
     width: 100%;
-    padding-right: 2px;
-    padding-left: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
 }
 
 .form-input:focus, .form-textarea:focus {
@@ -131,7 +129,7 @@ textarea {
     padding-right: 5px;
 }
 
-.form-label-indent {
+.label-indented, .check-indented, .form-label-indent {
     padding-left: 25px;
 }
 
@@ -143,8 +141,8 @@ textarea {
     font-size: 15px;
     max-width: none;
     width: 100%;
-    padding-right: 2px;
-    padding-left: 2px;
+    padding-right: 3px;
+    padding-left: 3px;
 }
 
 .hoverable-area .hidden-menu {
@@ -168,10 +166,10 @@ textarea {
 .hoverable-area:hover .hidden-menu {
     /*visibility: visible;*/
     /*opacity: 1;*/
-    -webkit-transition: all 0.75s ease;
-    -moz-transition: all 0.75s ease;
-    -o-transition: all 0.75s ease;
-    transition: all 0.75s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -o-transform: translateY(0);
@@ -237,10 +235,20 @@ textarea {
 
 .smallnavbar {
     background-color: rgba(153, 153, 153, 1);
-    font-size: 13px;
     height: 15px;
     padding: 0px;
     z-index: 1;
+}
+
+.smallnavbar .nav-link {
+    color: #E4E4E4;
+    font-size: 11px;
+    padding: 0px;
+    padding-bottom: 1px;
+}
+
+.tab-body-content {
+    padding: 5px 20px;
 }
 
 #nav-side-menu {

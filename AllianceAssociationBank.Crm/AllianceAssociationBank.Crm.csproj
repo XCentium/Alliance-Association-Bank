@@ -545,6 +545,7 @@
     <Content Include="Views\ProjectUsers\_UsersEmailListDialogPartial.cshtml" />
     <Content Include="Views\Projects\_CloseDialogPartial.cshtml" />
     <Content Include="Views\Shared\_ConfirmDeleteDialogPartial.cshtml" />
+    <Content Include="Views\Projects\_SoftwareTabPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,6 +57,11 @@ namespace AllianceAssociationBank.Crm.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", ControllerName.Home);
+            }
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

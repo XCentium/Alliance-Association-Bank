@@ -138,11 +138,11 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool/*?*/ ValidationFileReceived { get; set; }
 
-        public bool? ValidationFileAutomaticRegular { get; set; }
+        public bool/*?*/ ValidationFileAutomaticRegular { get; set; }
 
         public string ValidationFileNotes { get; set; }
 
-        public bool? ValidationFileBulkImporterUsed { get; set; }
+        public bool/*?*/ ValidationFileBulkImporterUsed { get; set; }
 
         public string CouponPrintingNotes { get; set; }
 
@@ -272,7 +272,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string CorporateAccounts { get; set; }
 
-        public bool? XmlAutoReconSetup { get; set; }
+        public bool/*?*/ XmlAutoReconSetup { get; set; }
 
         public bool? XmlAutoReconConfirmedUse { get; set; }
 

@@ -28,6 +28,11 @@ namespace AllianceAssociationBank.Crm.Helpers
             get { return GetValuesFromConfig("StatusValues"); }
         }
 
+        public static IEnumerable<string> XmlUsageValues
+        {
+            get { return GetValuesFromConfig("XmlUsageValues"); }
+        }
+
         private static IEnumerable<string> GetValuesFromConfig(string key)
         {
             var values = ConfigurationManager.AppSettings[key] ?? string.Empty;

@@ -27,7 +27,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [StringLength(255)]
         [Display(Name = "Other")]
-        public string OtherName { get; set; } // TODO: This is new field, need to map this to database
+        public string OtherName { get; set; }
 
         [Required]
         [StringLength(255)]
@@ -94,7 +94,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string Institution { get; set; }
 
         [Display(Name = "Relationship Rate")]
-        public string RelationshipRate { get; set; } // TODO: This is new field, need to map to database
+        public string RelationshipRate { get; set; }
 
         //[StringLength(255)]
         //[Display(Name = "CD Rate")]
@@ -116,11 +116,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public int? BoardingManagerID { get; set; }
 
         [Display(Name = "Software")]
-        [StringLength(255)]
-        public string Software { get; set; }
-        //public int? SoftwareID { get; set; }
+        public string SoftwareReadOnly
+        {
+            get { return Software; }
+        }
 
         [Display(Name = "System")]
+        [StringLength(50)]
         public string LockboxSystem { get; set; }
 
         [Display(Name = "HOA")]        
@@ -168,11 +170,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "NOTES")]
         public string Notes { get; set; }
 
-        //public IEnumerable<SelectListItem> ProjectList { get; set; }
-
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
-
-        public IEnumerable<string> SoftwareList { get; set; }
 
         public IEnumerable<string> InstitutionList { get; set; }
 
@@ -264,6 +262,62 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public IEnumerable<string> StatusList { get; set; }
 
+        // Software Tab
+
+        [Display(Name = "Software")] // TODO: need to resolve duplicate on General tab
+        [StringLength(255)]
+        public string Software { get; set; }
+
+        [Display(Name = "Migration")]
+        [StringLength(255)]
+        public string MigratingToSoftware { get; set; }
+
+        [Display(Name = "Lockbox Wanted")]
+        public bool LockboxWantedReadOnly
+        {
+            get { return LockboxWanted; }
+        }
+
+        [Display(Name = "Lockbox Request Sent")]
+        public bool LockboxRequestSentReadOnly
+        { 
+            get { return LockboxRequestSent;  }
+        }
+
+        [Display(Name = "XML Auto Recon Setup")]
+        public bool XmlAutoReconSetup { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Info Sent")]
+        public DateTime? XmlAutoReconSentDate { get; set; }
+
+        public string XmlUsage { get; set; }
+
+        [Display(Name = "Folder Name")]
+        [StringLength(255)]
+        public string SftpFolderName { get; set; }
+
+        [Display(Name = "AAB SFTP")]
+        [StringLength(255)]
+        public string SftpGeneralUserPassword { get; set; }
+
+        [Display(Name = "Received")]
+        public bool ValidationFileReceivedReadOnly
+        {
+            get { return ValidationFileReceived; }
+        }
+
+        [Display(Name = "Automatic / Regular")]
+        public bool ValidationFileAutomaticRegular { get; set; }
+
+        [Display(Name = "Bulk Importer Used")]
+        public bool ValidationFileBulkImporterUsed { get; set; }
+
+        public IEnumerable<string> SoftwareList { get; set; }
+        //public IEnumerable<string> MigratingToSoftwareList { get; set; }
+
+        public IEnumerable<string> XmlUsageList { get; set; }
 
         public string SaveIndicator { get; set; } = "UNSAVED";
 

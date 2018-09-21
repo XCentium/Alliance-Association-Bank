@@ -9,7 +9,7 @@
             <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general-content" role="tab" aria-controls="nav-general-content" aria-selected="true">GENERAL</a>
             <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="false">USERS</a>
             <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
-            <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software" role="tab" aria-controls="nav-software" aria-selected="false">SOFTWARE</a>
+            <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software-content" role="tab" aria-controls="nav-software-content" aria-selected="false">SOFTWARE</a>
             <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox" role="tab" aria-controls="nav-lockbox" aria-selected="false">LOCKBOX</a>
             <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach" role="tab" aria-controls="nav-ach" aria-selected="false">ACH</a>
             <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">SYSTEM</a>
@@ -95,6 +95,9 @@
         </div>
         <div class="tab-pane fade" id="nav-boarding-content" role="tabpanel" aria-labelledby="nav-boarding-tab">
             @Html.Partial(ProjectsView.BoardingTabPartial)
+        </div>
+        <div class="tab-pane fade" id="nav-software-content" role="tabpanel" aria-labelledby="nav-software-tab">
+            @Html.Partial(ProjectsView.SoftwareTabPartial)
         </div>
     </div>
 }
@@ -258,12 +261,6 @@
             $("#AFPID").select2();
             $("#BoardingManagerID").select2();
             $("#LockboxStatus").select2();
-            $("#Software").select2({
-                tags: true,
-                insertTag: function (data, tag) {
-                    data.push(tag);
-                }
-            });
             $("#LockboxSystem").select2({
                 tags: true,
                 insertTag: function (data, tag) {
@@ -271,6 +268,14 @@
                 }
             });
             $("#Status").select2();
+            $("#Software").select2({
+                tags: true,
+                insertTag: function (data, tag) {
+                    data.push(tag);
+                }
+            });
+            $("#MigratingToSoftware").select2();
+            $("#XmlUsage").select2();
         };
 
         // Disable lockbox related fields when status is No Lockbox

@@ -1,0 +1,136 @@
+﻿@model ProjectFormViewModel
+
+<div class="tab-body-content">
+
+    <div class="row">
+
+        @* First row first column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset-lg">
+                <div class="row">
+                    <label class="col form-label-heading">General</label>
+                </div>
+                <div class="row mb-1">
+                    @Html.LabelFor(m => m.Software, new { @class = "col-3 label-indented" })
+                    <div class="col-8">
+                        @Html.RoleBasedDropDownListFor(m => m.Software, new SelectList(Model.SoftwareList), "", "form-input")
+                        @Html.ValidationMessageFor(m => m.Software, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    @Html.LabelFor(m => m.MigratingToSoftware, new { @class = "col-3 label-indented" })
+                    <div class="col-8">
+                        @Html.RoleBasedDropDownListFor(m => m.MigratingToSoftware, new SelectList(Model.SoftwareList), "", "form-input") @*Should user be able to add values?*@
+                        @Html.ValidationMessageFor(m => m.MigratingToSoftware, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.LockboxWantedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.LockboxWantedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.LockboxRequestSentReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.LockboxRequestSentReadOnly, new { @class = "col" })
+                </div>
+            </div>
+
+        </div>
+        @* First row first column end *@
+
+        @* First row second column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset-lg">
+                <div class="row">
+                    <label class="col form-label-heading">SFTP</label>
+                </div>
+                <div class="row mb-1">
+                    @Html.LabelFor(m => m.SftpFolderName, new { @class = "col-4 label-indented" })
+                    <div class="col-8">
+                        @Html.RoleBasedEditorFor(m => m.SftpFolderName, "form-input")
+                        @Html.ValidationMessageFor(m => m.SftpFolderName, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    @Html.LabelFor(m => m.SftpGeneralUserPassword, new { @class = "col-4 label-indented" })
+                    <div class="col-8">
+                        @Html.RoleBasedEditorFor(m => m.SftpGeneralUserPassword, "form-input")
+                        @Html.ValidationMessageFor(m => m.SftpGeneralUserPassword, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @* First row second column end *@
+
+    </div>
+
+    <div class="row">
+
+        @* Second row first column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset-lg">
+                <div class="row">
+                    <label class="col form-label-heading">Auto Recon</label>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.XmlAutoReconSetup)
+                    </div>
+                    @Html.LabelFor(m => m.XmlAutoReconSetup, new { @class = "col-8" })
+                </div>
+                <div class="row mb-1">
+                    @Html.LabelFor(m => m.XmlAutoReconSentDate, new { @class = "col-3 label-indented" })
+                    <div class="col-8">
+                        @Html.RoleBasedEditorFor(m => m.XmlAutoReconSentDate, "form-input")
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 offset-3">
+                        @Html.RoleBasedDropDownListFor(m => m.XmlUsage, new SelectList(Model.XmlUsageList), "", "form-input")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @* Second row first column end *@
+
+        @* Second row second column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset-lg">
+                <div class="row">
+                    <label class="col form-label-heading">Validation File</label>
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.ValidationFileReceivedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.ValidationFileReceivedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.ValidationFileAutomaticRegular)
+                    </div>
+                    @Html.LabelFor(m => m.ValidationFileAutomaticRegular, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.ValidationFileBulkImporterUsed)
+                    </div>
+                    @Html.LabelFor(m => m.ValidationFileBulkImporterUsed, new { @class = "col" })
+                </div>
+            </div>
+
+        </div>
+        @* Second column end *@
+
+    </div>
+
+</div>

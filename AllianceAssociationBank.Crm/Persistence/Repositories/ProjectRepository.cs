@@ -33,23 +33,18 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .SingleOrDefaultAsync();
         }
 
-        //public async Task<IEnumerable<SelectListItem>> GetProjectListAsync()
-        //{
-        //    return await _context.Projects
-        //        .OrderBy(p => p.ProjectName)
-        //        .Select(p => new SelectListItem()
-        //        {
-        //            Value = p.ID.ToString(),
-        //            Text = p.ProjectName
-        //        })
-        //        .ToListAsync();
-        //}
-
+        // TODO: Still need to add projects users based search
         public async Task<IEnumerable<Project>> GetProjectsBySearchPhraseAsync(string searchPhrase)
         {
             return await _context.Projects
                 .OrderBy(p => p.ProjectName)
-                .Where(p => p.ProjectName.Contains(searchPhrase) || p.LockboxCMCID == searchPhrase)
+                .Where(p =>
+                    p.ProjectName.Contains(searchPhrase) ||
+                    p.DBA.Contains(searchPhrase) ||
+                    p.OtherName.Contains(searchPhrase) ||
+                    p.TIN == searchPhrase || // TODO: need to refine this
+                    p.LockboxCMCID == searchPhrase ||
+                    p.Phone == searchPhrase) // TODO: need to refine this
                 .ToListAsync();
         }
 
