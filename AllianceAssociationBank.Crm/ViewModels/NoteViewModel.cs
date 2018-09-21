@@ -18,6 +18,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         }
 
         [Required]
+        [Display(Name = "Note Text")]
         public string NoteText { get; set; }
 
         [DataType(DataType.DateTime)]
