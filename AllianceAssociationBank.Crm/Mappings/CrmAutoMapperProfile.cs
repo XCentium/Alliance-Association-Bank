@@ -22,11 +22,12 @@ namespace AllianceAssociationBank.Crm.Mappings
                 .ForMember(u => u.DateAdded, o => o.Ignore())
                 .ForMember(u => u.DateDeleted, o => o.Ignore());
 
-            CreateMap<List<ProjectUser>, List<UserFormViewModel>>()
-                .ReverseMap();
-
             CreateMap<CheckScanner, ScannerFormViewModel>()
                 .ReverseMap();
+
+            CreateMap<Note, NoteViewModel>();
+            CreateMap<NoteViewModel, Note>()
+                .ForMember(n => n.DateAdded, o => o.Ignore());
         }
 
         public static IMapper GetMapper()

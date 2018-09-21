@@ -81,12 +81,10 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public DateTime? Birthday { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Added")]
         public DateTime? DateAdded { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Inactive")]
         public DateTime? DateDeleted { get; set; }
 

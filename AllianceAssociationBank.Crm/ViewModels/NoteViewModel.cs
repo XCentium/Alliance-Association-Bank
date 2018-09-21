@@ -1,0 +1,35 @@
+﻿using AllianceAssociationBank.Crm.Constants.Notes;
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace AllianceAssociationBank.Crm.ViewModels
+{
+    public class NoteViewModel
+    {
+        public int ID { get; set; }
+
+        public int ProjectID { get; set; }
+
+        public string NotePreview
+        {
+            get { return NoteText?.Length > 100 ? 
+                    NoteText.Substring(0, 137) + " ..." : 
+                    NoteText; }
+        }
+
+        [Required]
+        public string NoteText { get; set; }
+
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime? DateAdded { get; set; }
+
+        public string CreateUpdateRoute
+        {
+            get
+            {
+                return (ID != 0) ? NotesControllerRoute.UpdateNote : NotesControllerRoute.CreateNoteHttpPost;
+            }
+        }
+    }
+}

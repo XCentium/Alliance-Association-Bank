@@ -182,3 +182,20 @@ ALTER TABLE [dbo].[Users] ADD ACHEmail BIT NOT NULL CONSTRAINT DF_Users_ACHEmail
 exec sp_rename 'CheckScanners.ScannerID', 'ID', 'COLUMN';
 exec sp_rename 'CheckScanners.Serial Number', 'SerialNumber', 'COLUMN';
 
+
+-- Create new Notes table 
+CREATE TABLE [dbo].[Notes](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ProjectID] [int] NOT NULL,
+	[NoteText] NVARCHAR(MAX) NOT NULL,
+	[DateAdded] [datetime2](0) NOT NULL,
+	
+ CONSTRAINT [PK_Notes] PRIMARY KEY CLUSTERED 
+ ( [ID] ASC )
+)
+
+CREATE NONCLUSTERED INDEX IX_Notes_ProjectID ON [dbo].[Notes]
+(
+	[ProjectID] ASC
+)
+

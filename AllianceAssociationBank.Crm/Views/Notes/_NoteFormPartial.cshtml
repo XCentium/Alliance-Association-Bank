@@ -1,0 +1,49 @@
+﻿@model NoteViewModel
+
+<div class="modal fade" id="note-form-modal" tabindex="-1" role="dialog" aria-labelledby="note-form-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="note-form-modal-label">Note Details</h5>
+                <h5 class="modal-title justify-content-end">@Html.DisplayFor(m => m.DateAdded)</h5>
+            </div>
+            @using (Ajax.BeginRouteForm(Model.CreateUpdateRoute, routeValues: new
+            {
+                projectId = Model.ProjectID,
+                id = Model.ID
+            }, ajaxOptions: new AjaxOptions
+            {
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "notes-list",
+                OnBegin = "hideModalTarget", // TODO: maybe should change this to OnSuccess?
+                OnFailure = "handleAjaxError"
+            }, htmlAttributes: new
+            {
+                data_modal_target = "#note-form-modal"
+            }))
+            {
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.ID)
+                        @Html.HiddenFor(m => m.ProjectID)
+
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                @Html.RoleBasedTextAreaFor(m => m.NoteText, 10, 10, "form-textarea")
+                                @Html.ValidationMessageFor(m => m.NoteText, "", new { @class = "form-error-msg" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                    @Html.RoleBasedButton("Save & Close", "submit", "btn btn-primary")
+                </div>
+            }
+        </div>
+    </div>
+</div>

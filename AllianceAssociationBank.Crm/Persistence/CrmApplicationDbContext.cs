@@ -13,6 +13,7 @@ namespace AllianceAssociationBank.Crm.Persistence
     {
         public virtual DbSet<CheckScanner> CheckScanners { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Note> Notes { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<ProjectUser> ProjectUsers { get; set; }
         public virtual DbSet<Software> Softwares { get; set; }
@@ -31,6 +32,7 @@ namespace AllianceAssociationBank.Crm.Persistence
         {
             modelBuilder.Configurations.Add(new CheckScannerEntityConfiguration());
             modelBuilder.Configurations.Add(new EmployeeEntityConfiguration());
+            modelBuilder.Configurations.Add(new NoteEntityConfiguration());
             modelBuilder.Configurations.Add(new ProjectEntityConfiguration());
             modelBuilder.Configurations.Add(new ProjectUserEntityConfiguration());
             modelBuilder.Configurations.Add(new SoftwareEntityConfiguration());

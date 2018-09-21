@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title font-weight-bold" id="user-form-modal-label">User Details</h5>
-                <h5 class="modal-title">User ID @Model.ID</h5>
+                <h5 class="modal-title">User ID @Html.DisplayFor(m => m.ID)</h5>
                 @* Add close X button here *@
             </div>
             @using (Ajax.BeginRouteForm(Model.CreateUpdateRoute, routeValues: new

@@ -1,45 +1,35 @@
-﻿@model IEnumerable<ScannerFormViewModel>
+﻿@model IEnumerable<NoteViewModel>
 
 <table class="table table-sm mb-0">
-    <thead>
-        <tr>
-            <th class="font-weight-normal text-muted border-0" scope="col">Model</th>
-            <th class="font-weight-normal text-muted border-0" scope="col">Date Installed</th>
-            <th class="font-weight-normal border-0" scope="col"></th>
-        </tr>
-    </thead>
     <tbody>
-        @foreach (var scanner in Model)
+        @foreach (var note in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(m => scanner.Model)
+                <td class="text-muted pb-0 pt-1">
+                    @Html.DisplayFor(m => note.DateAdded)
                 </td>
-                <td>
-                    @Html.DisplayFor(m => scanner.DateInstalled)
-                </td>
-                <td class="text-right">
-                    @Ajax.RouteLink(" ", routeName: CheckScannersControllerRoute.EditScanner, routeValues: new
+                <td class="text-right pb-0 pt-1">
+                    @Ajax.RouteLink(" ", routeName: NotesControllerRoute.EditNote, routeValues: new
                     {
-                        projectId = scanner.ProjectID,
-                        id = scanner.ID
+                        projectId = note.ProjectID,
+                        id = note.ID
                     }, ajaxOptions: new AjaxOptions
                     {
                         HttpMethod = "GET",
                         InsertionMode = InsertionMode.Replace,
-                        UpdateTargetId = "scanner-form-location",
+                        UpdateTargetId = "note-form-modal-location",
                         OnSuccess = "showModalTarget",
                         OnFailure = "handleAjaxError"
                     }, htmlAttributes: new
                     {
                         @class = "btn-img btn-edit-img",
-                        data_modal_target = "#scanner-form-modal"
+                        data_modal_target = "#note-form-modal"
                     })
-                        
-                    @Ajax.RoleBasedRouteLink(" ", routeName: CheckScannersControllerRoute.ConfirmDeleteScanner, routeValues: new
+
+                    @Ajax.RoleBasedRouteLink(" ", routeName: NotesControllerRoute.ConfirmDeleteNote, routeValues: new
                     {
-                        projectId = scanner.ProjectID,
-                        id = scanner.ID
+                        projectId = note.ProjectID,
+                        id = note.ID
                     }, ajaxOptions: new AjaxOptions
                     {
                         HttpMethod = "GET",
@@ -54,6 +44,12 @@
                     })
                 </td>
             </tr>
+            <tr>
+                <td class="border-top-0 pb-1 pt-0" colspan="2">
+                    @Html.DisplayFor(m => note.NotePreview)
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+

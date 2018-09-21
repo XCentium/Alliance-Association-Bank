@@ -1,40 +1,43 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
-using AllianceAssociationBank.Crm.Constants.CheckScanners;
+using AllianceAssociationBank.Crm.Constants.Notes;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
-    [RoutePrefix("Projects/{projectId}/Scanners")]
-    public class CheckScannersController : Controller
+    [RoutePrefix("Projects/{projectId}/Notes")]
+    public class NotesController : Controller
     {
-        private ICheckScannerRepository _scannerRepository;
+        private INoteRepository _notesRepository;
         private IMapper _mapper;
 
-        public CheckScannersController(ICheckScannerRepository scannerRepository, IMapper mapper)
+        public NotesController(INoteRepository notesRepository, IMapper mapper)
         {
-            _scannerRepository = scannerRepository;
+            _notesRepository = notesRepository;
             _mapper = mapper;
         }
 
-        [Route("Index", Name = CheckScannersControllerRoute.GetScanners)]
+        [Route("Index", Name = NotesControllerRoute.GetNotes)]
         public ActionResult Index(int projectId)
         {
-            var scanners = _scannerRepository.GetScanners(projectId);
+            var notes = _notesRepository.GetNotes(projectId);
 
-            return PartialView(CheckScannersView.ScannersListPartial, _mapper.Map<Collection<ScannerFormViewModel>>(scanners));
+            return PartialView(NotesView.NotesListPartial, _mapper.Map<Collection<NoteViewModel>>(notes));
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
-        [Route("Create", Name = CheckScannersControllerRoute.CreateScanner)]
+        [Route("Create", Name = NotesControllerRoute.CreateNote)]
         public ActionResult Create(int projectId)
         {
             // TODO: if projectId is null need to show an error, but better way to do this
@@ -43,29 +46,32 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var viewModel = new ScannerFormViewModel();
+            var viewModel = new NoteViewModel();
             viewModel.ProjectID = projectId;
 
-            return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+            return PartialView(NotesView.NoteFormPartial, viewModel);
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
-        [Route("Create", Name = CheckScannersControllerRoute.CreateScannerHttpPost)]
+        [Route("Create", Name = NotesControllerRoute.CreateNoteHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(int projectId, ScannerFormViewModel viewModel)
+        public async Task<ActionResult> Create(int projectId, NoteViewModel viewModel)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+                    return PartialView(NotesView.NoteFormPartial, viewModel);
                 }
 
-                var scanner = _mapper.Map<CheckScanner>(viewModel);
-                _scannerRepository.AddScanner(scanner);
-                await _scannerRepository.SaveAllAsync();
+                var note = _mapper.Map<Note>(viewModel);
+
+                note.SetDefaultsOnCreate();
+
+                _notesRepository.AddNote(note);
+                await _notesRepository.SaveAllAsync();
 
                 return Index(projectId);
             }
@@ -75,21 +81,21 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Route("Edit/{id}", Name = CheckScannersControllerRoute.EditScanner)]
+        [Route("Edit/{id}", Name = NotesControllerRoute.EditNote)]
         public async Task<ActionResult> Edit(int projectId, int id)
         {
             try
             {
-                var scanner = await _scannerRepository.GetScannerByIdAsync(id);
+                var note = await _notesRepository.GetNoteByIdAsync(id);
 
-                if (scanner == null)
+                if (note == null)
                 {
                     return HttpNotFound();
                 }
 
-                var viewModel = _mapper.Map<ScannerFormViewModel>(scanner);
+                var viewModel = _mapper.Map<NoteViewModel>(note);
 
-                return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+                return PartialView(NotesView.NoteFormPartial, viewModel);
             }
             catch (Exception ex)
             {
@@ -98,27 +104,27 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
-        [Route("Update/{id}", Name = CheckScannersControllerRoute.UpdateScanner)]
+        [Route("Update/{id}", Name = NotesControllerRoute.UpdateNote)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Update(int projectId, int id, ScannerFormViewModel viewModel)
+        public async Task<ActionResult> Update(int projectId, int id, NoteViewModel viewModel)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+                    return PartialView(NotesView.NoteFormPartial, viewModel);
                 }
 
-                var scanner = await _scannerRepository.GetScannerByIdAsync(id);
-                if (scanner == null)
+                var note = await _notesRepository.GetNoteByIdAsync(id);
+                if (note == null)
                 {
                     return HttpNotFound();
                 }
 
-                _mapper.Map(viewModel, scanner);
-                await _scannerRepository.SaveAllAsync();
+                _mapper.Map(viewModel, note);
+                await _notesRepository.SaveAllAsync();
 
                 return Index(projectId);
             }
@@ -129,36 +135,36 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
-        [Route("Delete/{id}", Name = CheckScannersControllerRoute.ConfirmDeleteScanner)]
+        [Route("Delete/{id}", Name = NotesControllerRoute.ConfirmDeleteNote)]
         public ActionResult ConfirmDelete(int projectId, int id)
         {
             var model = new ConfirmDeleteViewModel()
             {
                 ProjectId = projectId,
                 RecordIdToDelete = id,
-                AjaxDeleteRouteName = CheckScannersControllerRoute.DeleteScanner,
-                AjaxUpdateTargetId = "check-scanners-list",
-                ConfirmText = "Are you sure you want to delete this scanner?"
+                AjaxDeleteRouteName = NotesControllerRoute.DeleteNote,
+                AjaxUpdateTargetId = "notes-list",
+                ConfirmText = "Are you sure you want to delete this note?"
             };
 
             return PartialView(SharedView.ConfirmDeleteDialogPartial, model);
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
-        [Route("Delete/{id}", Name = CheckScannersControllerRoute.DeleteScanner)]
+        [Route("Delete/{id}", Name = NotesControllerRoute.DeleteNote)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int projectId, int id)
         {
             try
             {
-                var scanner = await _scannerRepository.GetScannerByIdAsync(id);
-                if (scanner == null)
+                var note = await _notesRepository.GetNoteByIdAsync(id);
+                if (note == null)
                 {
                     return HttpNotFound();
                 }
 
-                _scannerRepository.RemoveScanner(scanner);
-                await _scannerRepository.SaveAllAsync();
+                _notesRepository.RemoveNote(note);
+                await _notesRepository.SaveAllAsync();
 
                 return Index(projectId);
             }

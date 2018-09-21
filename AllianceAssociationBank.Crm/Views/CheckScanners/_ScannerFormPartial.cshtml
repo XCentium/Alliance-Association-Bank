@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title font-weight-bold" id="user-form-modal-label">Check Scanner Details</h5>
-                <h5 class="modal-title justify-content-end">Scanner ID @Model.ID</h5>
+                <h5 class="modal-title justify-content-end">Scanner ID @Html.DisplayFor(m => m.ID)</h5>
             </div>
             @using (Ajax.BeginRouteForm(Model.CreateUpdateRoute, routeValues: new
             {

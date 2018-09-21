@@ -245,6 +245,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Constants\Notes\NotesView.cs" />
+    <Compile Include="Constants\Notes\NotesControllerAction.cs" />
+    <Compile Include="Constants\Notes\NotesControllerRoute.cs" />
+    <Compile Include="Controllers\NotesController.cs" />
+    <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Identity\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
     <Compile Include="Constants\SignInErrorMessage.cs" />
@@ -314,6 +319,7 @@
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Persistence\EntityConfigurations\CheckScannerEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ApplicationUserEntityConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\NoteEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ProjectEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\SoftwareEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\EmployeeEntityConfiguration.cs" />
@@ -332,6 +338,8 @@
     <Compile Include="Core\Interfaces\IProjectUserRepository.cs" />
     <Compile Include="Persistence\Repositories\CheckScannerRepository.cs" />
     <Compile Include="Core\Interfaces\ICheckScannerRepository.cs" />
+    <Compile Include="Core\Interfaces\INoteRepository.cs" />
+    <Compile Include="Persistence\Repositories\NoteRepository.cs" />
     <Compile Include="Persistence\Repositories\ProjectUserRepository.cs" />
     <Compile Include="Persistence\Repositories\ProjectRepository.cs" />
     <Compile Include="Persistence\Repositories\SoftwareRepository.cs" />
@@ -345,6 +353,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
+    <Compile Include="ViewModels\NoteViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ProjectReportRecordViewModel.cs" />
@@ -546,6 +555,8 @@
     <Content Include="Views\Projects\_CloseDialogPartial.cshtml" />
     <Content Include="Views\Shared\_ConfirmDeleteDialogPartial.cshtml" />
     <Content Include="Views\Projects\_SoftwareTabPartial.cshtml" />
+    <Content Include="Views\Notes\_NotesListPartial.cshtml" />
+    <Content Include="Views\Notes\_NoteFormPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

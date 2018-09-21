@@ -133,6 +133,13 @@ textarea {
     padding-left: 25px;
 }
 
+.list-widget {
+    border: 1px solid #dee2e6;
+    overflow-y: scroll;
+    margin-top: 5px;
+    padding: 0px 8px 0px 8px;
+}
+
 .form-textarea {
     border-color: #ced4da;
     border-style: solid;
@@ -251,6 +258,10 @@ textarea {
     padding: 5px 20px;
 }
 
+#check-scanners-list {
+    height: 135px;
+}
+
 #nav-side-menu {
     left: 0px;
     /*overflow: auto;*/
@@ -258,6 +269,10 @@ textarea {
     position: absolute;
     top: 45px;
     width: 220px;
+}
+
+#notes-list {
+    height: 230px;
 }
 
 #search-widget {

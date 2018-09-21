@@ -301,12 +301,44 @@
                 </div>
             </div>
 
-            <div class="row mt-3">
+            <div class="row mt-2">
+                <div class="col-3">
+                    @Html.LabelFor(m => m.Notes)
+                </div>
+                <div class="col-3 offset-6">
+                    @Ajax.RoleBasedRouteLink("Add Note", routeName: NotesControllerRoute.CreateNote, routeValues: new
+                    {
+                        projectId = Model.ID
+                    }, ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "note-form-modal-location",
+                        OnSuccess = "showModalTarget",
+                        OnFailure = "handleAjaxError"
+                    }, htmlAttributes: new
+                    {
+                        @class = "btn btn-sm btn-add-img",
+                        data_modal_target = "#note-form-modal"
+                    })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="notes-list" class="list-widget">
+                        @Html.Action(NotesControllerAction.Index, ControllerName.Notes, routeValues: new
+                        {
+                            projectId = Model.ID
+                        })
+                    </div>
+                </div>
+            </div>
+            @*<div class="row mt-3">
                 <div class="col-11">
                     @Html.LabelFor(m => m.Notes)
                     @Html.RoleBasedTextAreaFor(m => m.Notes, 10, 10, cssClass: "form-textarea")
                 </div>
-            </div>
+            </div>*@
 
         </div>
         @* Third column end *@
