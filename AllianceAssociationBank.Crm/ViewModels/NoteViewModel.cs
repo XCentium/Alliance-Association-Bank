@@ -22,7 +22,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string NoteText { get; set; }
 
         [DataType(DataType.DateTime)]
-        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? DateAdded { get; set; }
 
         public string CreateUpdateRoute
