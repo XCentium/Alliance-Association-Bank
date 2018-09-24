@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
-using System.Web;
 
 namespace AllianceAssociationBank.Crm.Helpers
 {
@@ -35,11 +35,18 @@ namespace AllianceAssociationBank.Crm.Helpers
 
         private static IEnumerable<string> GetValuesFromConfig(string key)
         {
-            var values = ConfigurationManager.AppSettings[key] ?? string.Empty;
+            var dropDownListSettings = 
+                ConfigurationManager.GetSection("dropDownListSettings") as NameValueCollection;
 
-            return values.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(s => s.Trim())
-                .ToList();
+            if (dropDownListSettings != null)
+            {
+                return (dropDownListSettings[key] ?? string.Empty)
+                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.Trim())
+                    .ToList();
+            }
+
+            return new List<string>();
         }
     }
 }

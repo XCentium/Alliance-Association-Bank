@@ -250,10 +250,9 @@
     <Compile Include="Constants\Notes\NotesControllerRoute.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Core\Models\Note.cs" />
-    <Compile Include="Identity\AuthenticationType.cs" />
+    <Compile Include="Constants\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
     <Compile Include="Constants\SignInErrorMessage.cs" />
-    <Compile Include="Constants\ADGroupName.cs" />
     <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Extensions\HtmlExtensionsHelper.cs" />
@@ -265,6 +264,7 @@
     <Compile Include="Identity\ADAuthenticationService.cs" />
     <Compile Include="Identity\IAuthenticationService.cs" />
     <Compile Include="Identity\SignInResult.cs" />
+    <Compile Include="Identity\UserAuthenticationSettings.cs" />
     <Compile Include="Mappings\CmcUsefulInfoListExportMap.cs" />
     <Compile Include="Mappings\CrmAutoMapperProfile.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -557,6 +557,7 @@
     <Content Include="Views\Projects\_SoftwareTabPartial.cshtml" />
     <Content Include="Views\Notes\_NotesListPartial.cshtml" />
     <Content Include="Views\Notes\_NoteFormPartial.cshtml" />
+    <Content Include="UserAuthenticationSettings.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,7 +37,7 @@ namespace AllianceAssociationBank.Crm
                 //        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 //},
                 CookieName = "Aab.Crm.ApplicationIdentity",
-                ExpireTimeSpan = TimeSpan.FromHours(12) // TODO: Add this to web.config
+                ExpireTimeSpan = TimeSpan.FromHours(UserAuthenticationSettings.CookieAuthExpireHours)
             });
 
             //app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
