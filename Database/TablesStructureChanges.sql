@@ -199,3 +199,10 @@ CREATE NONCLUSTERED INDEX IX_Notes_ProjectID ON [dbo].[Notes]
 	[ProjectID] ASC
 )
 
+-- Migrate existing data Notes data to new table
+--INSERT INTO dbo.Notes (ProjectID, NoteText, DateAdded)
+SELECT ID AS ProjectID, Notes AS NoteText, '9/24/2018' AS DateAdded
+  FROM [AAB_CRM_DB].[dbo].[Projects]
+  Where Notes IS NOT NULL AND RTRIM(LTRIM(Notes)) != ''
+    AND ID != 230
+

@@ -258,6 +258,10 @@ textarea {
     padding: 5px 20px;
 }
 
+.ui-autocomplete-loading {
+    background: url('Images/search-loader.gif') no-repeat right center;
+}
+
 #check-scanners-list {
     height: 135px;
 }

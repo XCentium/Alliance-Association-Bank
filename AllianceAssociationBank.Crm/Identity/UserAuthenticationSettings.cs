@@ -28,7 +28,7 @@ namespace AllianceAssociationBank.Crm.Identity
         {
             get
             {
-                if (int.TryParse(GetValueFromConfig("CookieAuthExpireHours2"), out int hoursValue))
+                if (int.TryParse(GetValueFromConfig("CookieAuthExpireHours"), out int hoursValue))
                 {
                     return hoursValue;
                 }

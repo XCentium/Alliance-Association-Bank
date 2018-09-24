@@ -54,12 +54,19 @@
                             search: request.term
                         },
                         success: function (data) {
-                            response($.map(data, function (item) {
-                                return {
-                                    label: item.name,
-                                    value: item.id
-                                };
-                            }));
+                            if (data.length > 0) {
+                                response($.map(data, function (item) {
+                                    return {
+                                        label: item.name,
+                                        value: item.id
+                                    };
+                                }));
+                            } else {
+                                response([{
+                                    label: 'No results found',
+                                    value: -1
+                                }]);
+                            }
                         },
                         error: function () {
                             handleAjaxError();
@@ -69,8 +76,14 @@
                 minLength: 2,
                 select: function (event, ui) {
                     event.preventDefault();
-                    this.value = ui.item.label;
-                    location.href = "/Projects/Edit/" + ui.item.value;
+
+                    if (ui.item.value === -1) {
+                        $(this).val("");
+                        //return false;
+                    } else {
+                        this.value = ui.item.label;
+                        location.href = "/Projects/Edit/" + ui.item.value;
+                    }
                 }
             });
         });

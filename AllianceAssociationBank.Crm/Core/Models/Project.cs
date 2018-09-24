@@ -330,6 +330,6 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(50)]
         public string RelationshipRate { get; set; }
 
-        //public virtual ICollection<ProjectUser> Users { get; set; }
+        public virtual ICollection<ProjectUser> Users { get; set; }
     }
 }
