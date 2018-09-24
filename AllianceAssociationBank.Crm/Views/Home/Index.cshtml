@@ -24,7 +24,7 @@
 
 <div class="row py-4">
     <div class="col-2 offset-5">
-        <h5 class="pb-2">REPORTS</h5>
+        <label class="pb-1">REPORTS</label>
         <div class="pb-2">@Html.RouteLink("Boarding", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.Boarding })</div>
         <div class="pb-2">@Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.CompletedAndHold })</div>
         <div class="pb-2">@Html.RouteLink("Software Transition", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.SoftwareTransition })</div>
@@ -34,12 +34,19 @@
         <div class="pb-2"><a href="#">Coupon</a></div>
     </div>
     <div class="col-2">
-        <h5 class="pb-2">EXPORTS</h5>
+        <label class="pb-1">EXPORTS</label>
         <div class="pb-2">@Html.RouteLink("CMC List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcList })</div>
         <div class="pb-2">@Html.RouteLink("CMC Useful Info List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcUsefulInfoList })</div>
         <div class="pb-2"><a href="#">All info</a></div>
     </div>
 </div>
+
+<div class="row" style="position: relative; top: 10px;">
+    <div class="col-5 offset-4 border-top border-primary px-0 pt-2">
+        <span class="text-muted" style="line-height: 1.2; font-size: 10px; display: block;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+    </div>
+</div>
+
 @section scripts
 {
     <script>
