@@ -264,7 +264,7 @@ textarea {
 
 #nav-side-menu {
     left: 0px;
-    /*overflow: auto;*/
+    overflow: auto;
     padding: 15px;
     position: absolute;
     top: 45px;
