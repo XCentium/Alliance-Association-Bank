@@ -29,7 +29,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         {
             return await _context.Projects
                 .Where(p => p.ID == id)
-                //.Include(p => p.Users)
                 .SingleOrDefaultAsync();
         }
 

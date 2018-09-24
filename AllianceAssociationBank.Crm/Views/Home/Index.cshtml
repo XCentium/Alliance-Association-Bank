@@ -70,6 +70,7 @@
                         },
                         error: function () {
                             handleAjaxError();
+                            response([]);
                         }
                     });
                 },
@@ -79,7 +80,6 @@
 
                     if (ui.item.value === -1) {
                         $(this).val("");
-                        //return false;
                     } else {
                         this.value = ui.item.label;
                         location.href = "/Projects/Edit/" + ui.item.value;
