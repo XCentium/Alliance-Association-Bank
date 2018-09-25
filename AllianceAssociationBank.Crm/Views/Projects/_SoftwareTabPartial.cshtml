@@ -21,7 +21,7 @@
                 <div class="row mb-2">
                     @Html.LabelFor(m => m.MigratingToSoftware, new { @class = "col-3 label-indented" })
                     <div class="col-8">
-                        @Html.RoleBasedDropDownListFor(m => m.MigratingToSoftware, new SelectList(Model.SoftwareList), "", "form-input") @*Should user be able to add values?*@
+                        @Html.RoleBasedDropDownListFor(m => m.MigratingToSoftware, new SelectList(Model.MigratingToSoftwareList), "", "form-input")
                         @Html.ValidationMessageFor(m => m.MigratingToSoftware, "", new { @class = "form-error-msg" })
                     </div>
                 </div>
@@ -129,7 +129,7 @@
             </div>
 
         </div>
-        @* Second column end *@
+        @* Second row second column end *@
 
     </div>
 

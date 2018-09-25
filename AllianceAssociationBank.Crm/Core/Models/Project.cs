@@ -182,7 +182,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string CouponVenderNumber { get; set; }
 
-        public bool? DirectDepositPayroll { get; set; }
+        public bool/*?*/ DirectDepositPayroll { get; set; }
 
         public bool? DirectDebitCollection { get; set; }
 
@@ -305,9 +305,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(50)]
         public string LockboxSystem { get; set; }
 
-        public bool? SftpWithFile { get; set; }
+        public bool/*?*/ SftpWithFile { get; set; }
 
-        public bool? SftpManual { get; set; }
+        public bool/*?*/ SftpManual { get; set; }
 
         [StringLength(100)]
         public string SftpPath { get; set; }
@@ -318,7 +318,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(100)]
         public string ReformatECP { get; set; }
 
-        public bool? ReformatByAssoc { get; set; }
+        public bool/*?*/ ReformatByAssoc { get; set; }
 
         //public int? MigratingToSoftwareID { get; set; }
         [StringLength(255)]
@@ -329,6 +329,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         [StringLength(50)]
         public string RelationshipRate { get; set; }
+
+        public string LockboxNotes { get; set; }
 
         public virtual ICollection<ProjectUser> Users { get; set; }
     }

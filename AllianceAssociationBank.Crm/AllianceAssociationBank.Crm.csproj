@@ -558,6 +558,7 @@
     <Content Include="Views\Notes\_NotesListPartial.cshtml" />
     <Content Include="Views\Notes\_NoteFormPartial.cshtml" />
     <Content Include="UserAuthenticationSettings.config" />
+    <Content Include="Views\Projects\_LockboxTabPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

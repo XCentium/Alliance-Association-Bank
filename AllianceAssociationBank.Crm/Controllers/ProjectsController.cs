@@ -161,9 +161,14 @@ namespace AllianceAssociationBank.Crm.Controllers
             model.StatusList = DropDownListHelper.StatusValues;
             model.XmlUsageList = DropDownListHelper.XmlUsageValues;
 
-            // Check if user custom value needs to be added to dropdownlist
+            model.ReformatAQ2List = new List<string>();
+            model.ReformatECPList = new List<string>();
+
             var softwareList = (await _softwares.GetSoftwaresAsync()).Select(s => s.SoftwareName).ToList();
+            var migrationSoftwareList = new List<string>(softwareList);
+            // Check if user custom value needs to be added to dropdownlist
             model.SoftwareList = CheckAndAddCustomValueToList(softwareList, model.Software);
+            model.MigratingToSoftwareList = CheckAndAddCustomValueToList(migrationSoftwareList, model.MigratingToSoftware);
 
             // Check if user custom value needs to be added to dropdownlist
             var lockboxSystemList = DropDownListHelper.LockboxSystemValues.ToList();

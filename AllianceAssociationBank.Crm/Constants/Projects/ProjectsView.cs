@@ -12,6 +12,7 @@ namespace AllianceAssociationBank.Crm.Constants.Projects
         public const string UsersTabPartial = "_UsersTabPartial";
         public const string BoardingTabPartial = "_BoardingTabPartial";
         public const string SoftwareTabPartial = "_SoftwareTabPartial";
+        public const string LockboxTabPartial = "_LockboxTabPartial";
         public const string SideMenuPartial = "_SideMenuPartial";
         public const string CloseDialogPartial = "_CloseDialogPartial";
     }

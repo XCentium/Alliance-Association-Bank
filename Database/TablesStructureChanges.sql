@@ -114,8 +114,20 @@ exec sp_rename 'Projects.REformatByAssoc', 'ReformatByAssoc', 'COLUMN';
 --exec sp_rename 'Projects.Software', 'SoftwareID', 'COLUMN';
 --exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftwareID', 'COLUMN';
 exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftware', 'COLUMN';
+
 ALTER TABLE [dbo].[Projects] ADD OtherName NVARCHAR(255) NULL 
 ALTER TABLE [dbo].[Projects] ADD RelationshipRate NVARCHAR(50) NULL 
+
+ALTER TABLE [dbo].[Projects] ADD LockboxNotes NVARCHAR(MAX) NULL 
+-- Populate LockboxNotes field/*UPDATE pSET LockboxNotes = 	NULLIF(RTRIM(LTRIM(
+								(CASE WHEN NULLIF(RTRIM(LTRIM(ValidationFileNotes)),'') IS NOT NULL 
+									 THEN N'**** Validation File Notes ****' + CHAR(13) + RTRIM(LTRIM(ValidationFileNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END +
+
+								CASE WHEN NULLIF(RTRIM(LTRIM(ScannlineNotes)),'') IS NOT NULL 
+									 THEN N'**** Scannline Notes ****' + CHAR(13) + RTRIM(LTRIM(ScannlineNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END +
+
+								CASE WHEN NULLIF(RTRIM(LTRIM(CouponPrintingNotes)),'') IS NOT NULL
+									 THEN N'**** Coupon Printing Notes ****' + CHAR(13) + RTRIM(LTRIM(CouponPrintingNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END))),'')FROM dbo.Projects p*/
 
 
 /* This is not needed anymore

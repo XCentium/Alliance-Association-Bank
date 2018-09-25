@@ -45,8 +45,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         public string Mobile { get; set; }
 
-        //public string Authorization { get; set; } // this was replaced with 2 boolean fields
-
         [Display(Name = "Enroll. Form")]
         public bool EnrollmentFormAuthorization { get; set; }
 
@@ -94,11 +92,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)] // TODO: need to increase size on this note?
         [Display(Name = "Remote Deposit Account Notes")]
         public string RemoteScannerAccountNotes { get; set; }
-
-        //public byte? Order { get; set; }
-
-        //[StringLength(8000)]
-        //public string Attachments { get; set; }
 
         public string CreateUpdateRoute
         {

@@ -1,0 +1,237 @@
+﻿@model ProjectFormViewModel
+
+<div class="tab-body-content">
+
+    <div class="row">
+
+        @* First column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">General</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.LockboxCMCIDReadOnly, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        <span class="display-field">
+                            @Html.DisplayFor(m => m.LockboxCMCIDReadOnly)
+                        </span>
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.LockboxStatusReadOnly, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        <span class="display-field">
+                            @Html.DisplayFor(m => m.LockboxStatusReadOnly)
+                        </span>
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.TargetLockboxLiveDate, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.TargetLockboxLiveDate, "form-input")
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.LockboxLiveDate, "form-input")
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">PO Box</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.POBoxSize, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.POBoxSize, "form-input")
+                        @Html.ValidationMessageFor(m => m.POBoxSize, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.POBoxLine1, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.POBoxLine1, "form-input")
+                        @Html.ValidationMessageFor(m => m.POBoxLine1, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.POBoxZipCode, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.POBoxZipCode, "form-input")
+                        @Html.ValidationMessageFor(m => m.POBoxZipCode, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">CMC Size</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.NumberOfAssociations, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.NumberOfAssociations, "form-input")
+                        @Html.ValidationMessageFor(m => m.NumberOfAssociations, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.NumberOfDoors, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.NumberOfDoors, "form-input")
+                        @Html.ValidationMessageFor(m => m.NumberOfDoors, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">Coupons</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.CouponVender, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.CouponVender, "form-input")
+                        @Html.ValidationMessageFor(m => m.CouponVender, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.CouponVenderNumber, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.CouponVenderNumber, "form-input")
+                        @Html.ValidationMessageFor(m => m.CouponVenderNumber, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @* First column end *@
+
+        @* Second column beginning *@
+        <div class="col-4">
+
+            <div>
+                <div class="row">
+                    <label class="col form-label-heading">Checklist</label>
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.LockboxWantedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.LockboxWantedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.POBoxAssignedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.POBoxAssignedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.LockboxRequestSentReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.LockboxRequestSentReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.RemitanceFileTestedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.RemitanceFileTestedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.RemitanceFileLifeReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.RemitanceFileLifeReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.CouponsOrderedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.CouponsOrderedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.CouponProofReviewedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.CouponProofReviewedReadOnly, new { @class = "col" })
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <label class="col form-label-heading">Reformat</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.ReformatAQ2, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedDropDownListFor(m => m.ReformatAQ2, new SelectList(Model.ReformatAQ2List), "", "select-hidden")
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.ReformatECP, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedDropDownListFor(m => m.ReformatECP, new SelectList(Model.ReformatECPList), "", "select-hidden")
+                    </div>
+                </div>
+                <div class="row field-group">
+                    <div class="col-1 offset-3">
+                        @Html.RoleBasedCheckBoxFor(m => m.ReformatByAssoc)
+                    </div>
+                    @Html.LabelFor(m => m.ReformatByAssoc, new { @class = "col" })
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <label class="col form-label-heading">Validation File</label>
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.DisplayFor(m => m.ValidationFileBulkImporterUsedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.ValidationFileBulkImporterUsedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.RoleBasedCheckBoxFor(m => m.SftpWithFile)
+                    </div>
+                    @Html.LabelFor(m => m.SftpWithFile, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 offset-3">
+                        @Html.RoleBasedCheckBoxFor(m => m.SftpManual)
+                    </div>
+                    @Html.LabelFor(m => m.SftpManual, new { @class = "col" })
+                </div>
+                <div class="row mt-1">
+                    @Html.LabelFor(m => m.SftpPath, new { @class = "col-3 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.SftpPath, "form-input")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @* Second column end *@
+
+        @* Third column beginning *@
+        <div class="col-4">
+
+            <div class="row">
+                <div class="col-12">
+                    @Html.LabelFor(m => m.LockboxNotes)
+                    @Html.RoleBasedTextAreaFor(m => m.LockboxNotes, 22, 10, cssClass: "form-textarea")
+                </div>
+            </div>
+
+        </div>
+        @* Third column end *@
+
+    </div>
+
+</div>

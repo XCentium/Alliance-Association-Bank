@@ -35,6 +35,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         // TODO: Still need to add projects users based search
         public async Task<IEnumerable<Project>> GetProjectsBySearchPhraseAsync(string searchPhrase)
         {
+            // TODO: remove this
             _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
 
             return await _context.Projects
@@ -46,7 +47,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                     p.TIN == searchPhrase || // TODO: need to refine this
                     p.LockboxCMCID == searchPhrase ||
                     p.Phone == searchPhrase || // TODO: need to refine this
-
+                   
                     p.Users.Any(u => u.Name.Contains(searchPhrase)) ||
                     p.Users.Any(u => u.Phone == searchPhrase) || // TODO: need to refine this
                     p.Users.Any(u => u.Email == searchPhrase))

@@ -1,6 +1,6 @@
 ﻿body {
     /*padding-top: 50px;*/
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 
 .body-content {
@@ -80,6 +80,20 @@ textarea {
     width: 25px;
 }
 
+.check-indented {
+    padding-left: 25px;
+}
+
+.display-field {
+    border-bottom: 1px solid #dee2e6;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.field-group {
+    margin-bottom: 3px;
+}
+
 .form-error-msg {
     color: #dc3545;
     position: relative;
@@ -89,15 +103,21 @@ textarea {
     /*z-index: 5;*/
 }
 
+/*.form-fieldset-sm {
+    margin-bottom: 8px;
+}*/
+
+.form-fieldset {
+    margin-bottom: 18px;
+}
+
 .form-fieldset-lg {
     margin-bottom: 40px;
 }
 
 .form-input {
-    border-color: #ced4da;
+    border: 1px solid #ced4da ;
     /*border-color: #aaa;*/
-    border-style: solid;
-    border-width: 1px;
     color: #495057;
     font-size: 15px;
     height: 25px;
@@ -129,8 +149,9 @@ textarea {
     padding-right: 5px;
 }
 
-.label-indented, .check-indented, .form-label-indent {
+.label-indented, .form-label-indent {
     padding-left: 25px;
+    padding-right: 5px;
 }
 
 .list-widget {
@@ -225,6 +246,10 @@ textarea {
     text-align: center;
     white-space: nowrap;
     width: 92px;
+}
+
+.select-hidden {
+    visibility: hidden;
 }
 
 .screen-overlay {

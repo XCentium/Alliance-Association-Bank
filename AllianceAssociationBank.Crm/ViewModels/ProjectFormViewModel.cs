@@ -126,10 +126,16 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string LockboxSystem { get; set; }
 
         [Display(Name = "HOA")]        
-        public int? NumberOfAssociations { get; set; }
+        public int? NumberOfAssociationsReadOnly
+        {
+            get { return NumberOfAssociations; }
+        }
 
         [Display(Name = "Doors")]
-        public int? NumberOfDoors { get; set; }
+        public int? NumberOfDoorsReadOnly
+        {
+            get { return NumberOfAssociations; }
+        }
 
         [Display(Name = "Est'd")]
         public decimal? EstimatedDeposits { get; set; }
@@ -147,9 +153,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string LockboxStatus { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Live")]
-        public DateTime? LockboxLiveDate { get; set; }
+        public DateTime? LockboxLiveDateReadOnly
+        {
+            get { return LockboxLiveDate; }
+        }
 
         [Display(Name = "Corp Accts")]
         public bool HasCorporateAccounts { get; set; }
@@ -300,7 +308,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [Display(Name = "AAB SFTP")]
         [StringLength(255)]
-        public string SftpGeneralUserPassword { get; set; }
+        public string SftpGeneralUserPassword { get; set; } // TODO: this field needs masking
 
         [Display(Name = "Received")]
         public bool ValidationFileReceivedReadOnly
@@ -315,9 +323,130 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public bool ValidationFileBulkImporterUsed { get; set; }
 
         public IEnumerable<string> SoftwareList { get; set; }
-        //public IEnumerable<string> MigratingToSoftwareList { get; set; }
+        
+        public IEnumerable<string> MigratingToSoftwareList { get; set; }
 
         public IEnumerable<string> XmlUsageList { get; set; }
+
+        // Lockbox Tab
+
+        [Display(Name = "PMC ID")]
+        [StringLength(10)]
+        public string LockboxCMCIDReadOnly
+        {
+            get { return LockboxCMCID; }
+        }
+
+        [Display(Name = "Status")]
+        public string LockboxStatusReadOnly
+        {
+            get { return LockboxStatus; }
+        }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Target Live")]
+        public DateTime? TargetLockboxLiveDate { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Actual Live")]
+        public DateTime? LockboxLiveDate { get; set; }
+
+        [Display(Name = "Size")]
+        [StringLength(255)]
+        public string POBoxSize { get; set; }
+
+        [Display(Name = "Line 1")]
+        [StringLength(255)]
+        public string POBoxLine1 { get; set; }
+
+        [Display(Name = "ZIP")]
+        [StringLength(255)]
+        public string POBoxZipCode { get; set; }
+
+        [Display(Name = "Assoc's")]
+        public int? NumberOfAssociations { get; set; }
+
+        [Display(Name = "Donors")]
+        public int? NumberOfDoors { get; set; }
+
+        [Display(Name = "Vendor")]
+        [StringLength(255)]
+        public string CouponVender { get; set; }
+
+        [Display(Name = "Vendor ID")]
+        [StringLength(255)]
+        public string CouponVenderNumber { get; set; }
+
+        //[Display(Name = "Lockbox Wanted")]
+        //public bool LockboxWantedReadOnly  { get; set; }
+
+        [Display(Name = "PO Box Assigned")]
+        public bool POBoxAssignedReadOnly
+        {
+            get { return POBoxAssigned; }
+        }
+
+        //[Display(Name = "Lockbox Request Sent")]
+        //public bool LockboxRequestSentReadOnly { get; set; }
+
+        [Display(Name = "Remittance File Tested")]
+        public bool RemitanceFileTestedReadOnly
+        {
+            get { return RemitanceFileTested; }
+        }
+
+        [Display(Name = "Remittance File Live")]
+        public bool RemitanceFileLifeReadOnly
+        {
+            get { return RemitanceFileLife; }
+        }
+
+        [Display(Name = "Coupons Ordered")]
+        public bool CouponsOrderedReadOnly
+        {
+            get { return CouponsOrdered; }
+        }
+
+        [Display(Name = "Coupon Proof Reviewed")]
+        public bool CouponProofReviewedReadOnly
+        {
+            get { return CouponProofReviewed; }
+        }
+
+        [Display(Name = "AQ2")]
+        public string ReformatAQ2 { get; set; }
+
+        [Display(Name = "ECP")]
+        public string ReformatECP { get; set; }
+
+        [Display(Name = "By Association")]
+        public bool ReformatByAssoc { get; set; }
+
+        [Display(Name = "Validation Bulk Importer Used")]
+        public bool ValidationFileBulkImporterUsedReadOnly
+        {
+            get { return ValidationFileBulkImporterUsed; }
+        }
+
+        [Display(Name = "SFTP with File")]
+        public bool SftpWithFile { get; set; }
+
+        [Display(Name = "Manual")]
+        public bool SftpManual { get; set; }
+
+        [Display(Name = "SFTP Path")]
+        [StringLength(100)]
+        public string SftpPath { get; set; }
+
+        [Display(Name = "LOCKBOX NOTES")]
+        public string LockboxNotes { get; set; }
+
+        public IEnumerable<string> ReformatAQ2List { get; set; }
+
+        public IEnumerable<string> ReformatECPList { get; set; }
+
 
         public string SaveIndicator { get; set; } = "UNSAVED";
 
@@ -325,6 +454,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
+                var item = new Project().Notes;
+
                 return (ID != 0) ? ProjectsControllerAction.Update : ProjectsControllerAction.Create;
             }
         }
