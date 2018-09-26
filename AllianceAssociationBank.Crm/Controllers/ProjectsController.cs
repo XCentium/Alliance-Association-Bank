@@ -26,14 +26,20 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         private IProjectRepository _projects;
         private IEmployeeRepository _employees;
-        private ISoftwareRepository _softwares;
+        private ISoftwareRepository _software;
+        private IReformatRepository _reformats;
         private IMapper _mapper;
 
-        public ProjectsController (IProjectRepository projects, IEmployeeRepository employees, ISoftwareRepository softwares, IMapper mapper)
+        public ProjectsController (IProjectRepository projects, 
+                                   IEmployeeRepository employees, 
+                                   ISoftwareRepository software,
+                                   IReformatRepository reformats,
+                                   IMapper mapper)
         {
             _projects = projects;
             _employees = employees;
-            _softwares = softwares;
+            _software = software;
+            _reformats = reformats;
             _mapper = mapper;
         }
 
@@ -151,28 +157,47 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         private async Task PopulateDropDownLists(ProjectFormViewModel model)
         {
-            model.EmployeeList = (await _employees.GetEmployeesAsync()).Select(e => new SelectListItem()
-                                                                        {
-                                                                            Value = e.ID.ToString(),
-                                                                            Text = e.FirstName + " " + e.LastName
-                                                                        });
+            model.EmployeeList = (await _employees.GetEmployeesAsync())
+                .Select(e => new SelectListItem()
+                {
+                    Value = e.ID.ToString(),
+                    Text = e.FirstName + " " + e.LastName
+                })
+                .ToList();
+
             model.InstitutionList = DropDownListHelper.InstitutionValues;
             model.LockboxStatusList = DropDownListHelper.LockboxStatusValues;
             model.StatusList = DropDownListHelper.StatusValues;
             model.XmlUsageList = DropDownListHelper.XmlUsageValues;
 
-            model.ReformatAQ2List = new List<string>();
-            model.ReformatECPList = new List<string>();
+            model.Aq2ReformatList = (await _reformats.GetAq2ReformatsAsync())
+                .Select(r => new SelectListItem()
+                {
+                    Value = r.ID.ToString(),
+                    Text = r.ReformatName
+                })
+                .ToList();
 
-            var softwareList = (await _softwares.GetSoftwaresAsync()).Select(s => s.SoftwareName).ToList();
-            var migrationSoftwareList = new List<string>(softwareList);
-            // Check if user custom value needs to be added to dropdownlist
-            model.SoftwareList = CheckAndAddCustomValueToList(softwareList, model.Software);
-            model.MigratingToSoftwareList = CheckAndAddCustomValueToList(migrationSoftwareList, model.MigratingToSoftware);
+            model.EcpReformatList = (await _reformats.GetEcpReformatsAsync())
+                .Select(r => new SelectListItem()
+                {
+                    Value = r.ID.ToString(),
+                    Text = r.ReformatName
+                })
+                .ToList();
 
             // Check if user custom value needs to be added to dropdownlist
             var lockboxSystemList = DropDownListHelper.LockboxSystemValues.ToList();
             model.LockboxSystemList = CheckAndAddCustomValueToList(lockboxSystemList, model.LockboxSystem);
+
+            var softwareList = (await _software.GetSoftwaresAsync())
+                .Select(s => s.SoftwareName)
+                .ToList();
+
+            var migrationSoftwareList = new List<string>(softwareList);
+            // Check if user custom value needs to be added to dropdownlist
+            model.SoftwareList = CheckAndAddCustomValueToList(softwareList, model.Software);
+            model.MigratingToSoftwareList = CheckAndAddCustomValueToList(migrationSoftwareList, model.MigratingToSoftware);
         }
 
         private IList<string> CheckAndAddCustomValueToList(IList<string> list, string customValue)

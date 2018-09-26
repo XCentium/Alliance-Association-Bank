@@ -167,15 +167,15 @@
                     <label class="col form-label-heading">Reformat</label>
                 </div>
                 <div class="row field-group">
-                    @Html.LabelFor(m => m.ReformatAQ2, new { @class = "col-3 label-indented" })
+                    @Html.LabelFor(m => m.ReformatAQ2ID, new { @class = "col-3 label-indented" })
                     <div class="col-7">
-                        @Html.RoleBasedDropDownListFor(m => m.ReformatAQ2, new SelectList(Model.ReformatAQ2List), "", "select-hidden")
+                        @Html.RoleBasedDropDownListFor(m => m.ReformatAQ2ID, Model.Aq2ReformatList, "", "select-hidden")
                     </div>
                 </div>
                 <div class="row field-group">
-                    @Html.LabelFor(m => m.ReformatECP, new { @class = "col-3 label-indented" })
+                    @Html.LabelFor(m => m.ReformatECPID, new { @class = "col-3 label-indented" })
                     <div class="col-7">
-                        @Html.RoleBasedDropDownListFor(m => m.ReformatECP, new SelectList(Model.ReformatECPList), "", "select-hidden")
+                        @Html.RoleBasedDropDownListFor(m => m.ReformatECPID, Model.EcpReformatList, "", "select-hidden")
                     </div>
                 </div>
                 <div class="row field-group">

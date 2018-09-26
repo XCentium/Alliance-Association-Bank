@@ -53,11 +53,12 @@ namespace AllianceAssociationBank.Crm
         {
             container.RegisterType<DbContext, CrmApplicationDbContext>(new HierarchicalLifetimeManager());
             container.RegisterType<IProjectRepository, ProjectRepository>(new TransientLifetimeManager());
-            container.RegisterType<IEmployeeRepository, EmployeeRepository>(new TransientLifetimeManager());
-            container.RegisterType<ISoftwareRepository, SoftwareRepository>(new TransientLifetimeManager());
             container.RegisterType<IProjectUserRepository, ProjectUserRepository>(new TransientLifetimeManager());
             container.RegisterType<ICheckScannerRepository, CheckScannerRepository>(new TransientLifetimeManager());
             container.RegisterType<INoteRepository, NoteRepository>(new TransientLifetimeManager());
+            container.RegisterType<IEmployeeRepository, EmployeeRepository>(new TransientLifetimeManager());
+            container.RegisterType<ISoftwareRepository, SoftwareRepository>(new TransientLifetimeManager());
+            container.RegisterType<IReformatRepository, ReformatRepository>(new TransientLifetimeManager());
 
             container.RegisterType<IReportQueries, ReportQueries>(new TransientLifetimeManager());
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());

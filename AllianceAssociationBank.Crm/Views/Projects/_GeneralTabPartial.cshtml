@@ -158,7 +158,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.OwnerID, new { @class = "col-3" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.OwnerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.OwnerID, Model.EmployeeList, "", cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.OwnerID, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -166,7 +166,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.AFPID, new { @class = "col-3" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.AFPID, new SelectList(Model.EmployeeList, "Value", "Text"), "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.AFPID, Model.EmployeeList, "", cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.AFPID, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -174,7 +174,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, new SelectList(Model.EmployeeList, "Value", "Text"), "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, Model.EmployeeList, "", cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.BoardingManagerID, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -339,12 +339,6 @@
                     </div>
                 </div>
             </div>
-            @*<div class="row mt-3">
-                <div class="col-11">
-                    @Html.LabelFor(m => m.Notes)
-                    @Html.RoleBasedTextAreaFor(m => m.Notes, 10, 10, cssClass: "form-textarea")
-                </div>
-            </div>*@
 
         </div>
         @* Third column end *@

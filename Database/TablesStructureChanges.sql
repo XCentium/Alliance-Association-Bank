@@ -117,9 +117,12 @@ exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftware', 'COLUMN';
 
 ALTER TABLE [dbo].[Projects] ADD OtherName NVARCHAR(255) NULL 
 ALTER TABLE [dbo].[Projects] ADD RelationshipRate NVARCHAR(50) NULL 
-
 ALTER TABLE [dbo].[Projects] ADD LockboxNotes NVARCHAR(MAX) NULL 
--- Populate LockboxNotes field/*UPDATE pSET LockboxNotes = 	NULLIF(RTRIM(LTRIM(
+
+
+-- Populate LockboxNotes field
+/*UPDATE p
+SET LockboxNotes = 	NULLIF(RTRIM(LTRIM(
 								(CASE WHEN NULLIF(RTRIM(LTRIM(ValidationFileNotes)),'') IS NOT NULL 
 									 THEN N'**** Validation File Notes ****' + CHAR(13) + RTRIM(LTRIM(ValidationFileNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END +
 
@@ -127,7 +130,8 @@ ALTER TABLE [dbo].[Projects] ADD LockboxNotes NVARCHAR(MAX) NULL
 									 THEN N'**** Scannline Notes ****' + CHAR(13) + RTRIM(LTRIM(ScannlineNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END +
 
 								CASE WHEN NULLIF(RTRIM(LTRIM(CouponPrintingNotes)),'') IS NOT NULL
-									 THEN N'**** Coupon Printing Notes ****' + CHAR(13) + RTRIM(LTRIM(CouponPrintingNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END))),'')FROM dbo.Projects p*/
+									 THEN N'**** Coupon Printing Notes ****' + CHAR(13) + RTRIM(LTRIM(CouponPrintingNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END))),'')
+FROM dbo.Projects p*/
 
 
 /* This is not needed anymore
@@ -195,6 +199,20 @@ exec sp_rename 'CheckScanners.ScannerID', 'ID', 'COLUMN';
 exec sp_rename 'CheckScanners.Serial Number', 'SerialNumber', 'COLUMN';
 
 
+-- ReformatsAQ2 tabke RENAME statements
+exec sp_rename 'ReformatsAQ2.ReformatSpec', 'ReformatName', 'COLUMN';
+-- Add ID as PK for  ReformatsAQ2 table
+ALTER TABLE [dbo].[ReformatsAQ2] ADD ID INT IDENTITY(1,1) NOT NULL
+ALTER TABLE [dbo].[ReformatsAQ2] ADD CONSTRAINT [PK_ReformatsAQ2] PRIMARY KEY CLUSTERED ( ID ASC )
+
+-- ReformatsECP tabke RENAME statements
+exec sp_rename 'ReformatsECP.ReformatDescription', 'Description', 'COLUMN';
+-- Add ID as PK for  ReformatsECP table
+ALTER TABLE [dbo].[ReformatsECP] DROP CONSTRAINT [ReformatsECP$PrimaryKey]
+ALTER TABLE [dbo].[ReformatsECP] ADD ID INT IDENTITY(1,1) NOT NULL
+ALTER TABLE [dbo].[ReformatsECP] ADD CONSTRAINT [PK_ReformatsECP] PRIMARY KEY CLUSTERED ( ID ASC )
+
+
 -- Create new Notes table 
 CREATE TABLE [dbo].[Notes](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
@@ -218,3 +236,21 @@ SELECT ID AS ProjectID, Notes AS NoteText, '9/24/2018' AS DateAdded
   Where Notes IS NOT NULL AND RTRIM(LTRIM(Notes)) != ''
     AND ID != 230
 
+
+-- Migrate Projects.ReformatAQ2 data to depend on ReformatsAQ2 table as FK
+UPDATE p
+SET p.ReformatAQ2 = r.ID
+FROM [dbo].[Projects] p
+JOIN [dbo].[ReformatsAQ2] r ON r.ReformatName = p.ReformatAQ2
+
+ALTER TABLE [dbo].[Projects] ALTER COLUMN ReformatAQ2 INT NULL
+exec sp_rename 'Projects.ReformatAQ2', 'ReformatAQ2ID', 'COLUMN';
+
+-- Migrate Projects.ReformatECP data to depend on ReformatsECP table as FK
+UPDATE p
+SET p.ReformatECP = r.ID
+FROM [dbo].[Projects] p
+JOIN [dbo].[ReformatsECP] r ON r.ReformatName = p.ReformatECP
+
+ALTER TABLE [dbo].[Projects] ALTER COLUMN ReformatECP INT NULL
+exec sp_rename 'Projects.ReformatECP', 'ReformatECPID', 'COLUMN';

@@ -17,6 +17,8 @@ namespace AllianceAssociationBank.Crm.Persistence
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<ProjectUser> ProjectUsers { get; set; }
         public virtual DbSet<Software> Softwares { get; set; }
+        public virtual DbSet<Aq2Reformat> Aq2Reformats { get; set; }
+        public virtual DbSet<EcpReformat> EcpReformats { get; set; }
 
         public CrmApplicationDbContext()
             : base("CrmApplicationDbConnection", throwIfV1Schema: false)
@@ -36,6 +38,8 @@ namespace AllianceAssociationBank.Crm.Persistence
             modelBuilder.Configurations.Add(new ProjectEntityConfiguration());
             modelBuilder.Configurations.Add(new ProjectUserEntityConfiguration());
             modelBuilder.Configurations.Add(new SoftwareEntityConfiguration());
+            modelBuilder.Configurations.Add(new Aq2ReformatEntityConfiguration());
+            modelBuilder.Configurations.Add(new EcpReformatEntityConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

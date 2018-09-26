@@ -403,10 +403,10 @@ namespace AllianceAssociationBank.Crm.ViewModels
         }
 
         [Display(Name = "AQ2")]
-        public string ReformatAQ2 { get; set; }
+        public int? ReformatAQ2ID { get; set; }
 
         [Display(Name = "ECP")]
-        public string ReformatECP { get; set; }
+        public int? ReformatECPID { get; set; }
 
         [Display(Name = "By Association")]
         public bool ReformatByAssoc { get; set; }
@@ -430,9 +430,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "LOCKBOX NOTES")]
         public string LockboxNotes { get; set; }
 
-        public IEnumerable<string> ReformatAQ2List { get; set; }
+        public IEnumerable<SelectListItem> Aq2ReformatList { get; set; }
 
-        public IEnumerable<string> ReformatECPList { get; set; }
+        public IEnumerable<SelectListItem> EcpReformatList { get; set; }
 
         // ACH Tab
 

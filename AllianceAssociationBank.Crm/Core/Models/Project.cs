@@ -312,11 +312,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(100)]
         public string SftpPath { get; set; }
 
-        [StringLength(100)]
-        public string ReformatAQ2 { get; set; }
+        public int? ReformatAQ2ID { get; set; }
 
-        [StringLength(100)]
-        public string ReformatECP { get; set; }
+        public int? ReformatECPID { get; set; }
 
         public bool/*?*/ ReformatByAssoc { get; set; }
 

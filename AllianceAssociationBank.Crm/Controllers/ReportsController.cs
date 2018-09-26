@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using X.PagedList;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -39,6 +40,9 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 ViewBag.ReportViewer = reportViewer;
                 ViewBag.Title = name;
+
+               //var item = new PagedList<ProjectFormViewModel>()
+               //item
 
                 return View(ReportsView.ViewReport);
             }
