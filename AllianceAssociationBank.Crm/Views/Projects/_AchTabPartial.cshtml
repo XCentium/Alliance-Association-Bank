@@ -1,0 +1,152 @@
+﻿@model ProjectFormViewModel
+
+<div class="tab-body-content">
+
+    <div class="row">
+
+        @* First column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">Type</label>
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.DirectDepositPayroll)
+                    </div>
+                    @Html.LabelFor(m => m.DirectDepositPayroll, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.DirectDebitCollection)
+                    </div>
+                    @Html.LabelFor(m => m.DirectDebitCollection, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.DirectCreditPayments)
+                    </div>
+                    @Html.LabelFor(m => m.DirectCreditPayments, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.DirectDebitBusinessCCD)
+                    </div>
+                    @Html.LabelFor(m => m.DirectDebitBusinessCCD, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.ConsumerDebitWeb)
+                    </div>
+                    @Html.LabelFor(m => m.ConsumerDebitWeb, new { @class = "col" })
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">Boarding</label>
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.ACHLimitAndSpecSubmittedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.ACHLimitAndSpecSubmittedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.ACHSuccessfulSubmittedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.ACHSuccessfulSubmittedReadOnly, new { @class = "col" })
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <label class="col form-label-heading">Limit</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.ACHEstimatedDeposits, new { @class = "col-4 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.ACHEstimatedDeposits, "form-input")
+                        @Html.ValidationMessageFor(m => m.ACHEstimatedDeposits, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.ACHEstimatedDepositsDate, new { @class = "col-4 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.ACHEstimatedDepositsDate, "form-input")
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.ACHLimit, new { @class = "col-4 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.ACHLimit, "form-input")
+                        @Html.ValidationMessageFor(m => m.ACHLimit, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.ACHSystemLimit, new { @class = "col-4 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.ACHSystemLimit, "form-input")
+                        @Html.ValidationMessageFor(m => m.ACHSystemLimit, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.OriginalReviewDate, new { @class = "col-4 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.OriginalReviewDate, "form-input")
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.LastReviewDate, new { @class = "col-4 label-indented" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.LastReviewDate, "form-input")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @* First column end *@
+
+        @* Second column beginning *@
+        <div class="col-4">
+
+            <div class="row">
+                <div class="col-12">
+                    @Html.LabelFor(m => m.ACHReviewNotes)
+                    @Html.RoleBasedTextAreaFor(m => m.ACHReviewNotes, 22, 10, cssClass: "form-textarea")
+                </div>
+            </div>
+
+        </div>
+        @* Second column end *@
+
+        @* Third column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset-md">
+                <div class="row">
+                    <div class="col-12">
+                        @Html.LabelFor(m => m.ACHReviewOfHistoricPerformance)
+                        @Html.RoleBasedTextAreaFor(m => m.ACHReviewOfHistoricPerformance, 9, 10, cssClass: "form-textarea")
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col-12">
+                        @Html.LabelFor(m => m.ACHSpectFormInstructions)
+                        <div class="label-small-note">Prints on form sent to ACH Dept.</div>
+                        @Html.RoleBasedTextAreaFor(m => m.ACHSpectFormInstructions, 9, 10, cssClass: "form-textarea")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @* Third column end *@
+
+    </div>
+
+</div>

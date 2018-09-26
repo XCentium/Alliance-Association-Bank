@@ -11,7 +11,7 @@
             <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
             <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software-content" role="tab" aria-controls="nav-software-content" aria-selected="false">SOFTWARE</a>
             <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox-content" role="tab" aria-controls="nav-lockbox-content" aria-selected="false">LOCKBOX</a>
-            <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach" role="tab" aria-controls="nav-ach" aria-selected="false">ACH</a>
+            <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach-content" role="tab" aria-controls="nav-ach-content" aria-selected="false">ACH</a>
             <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">SYSTEM</a>
             <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">ACCOUNTS / HOA DDAS</a>
         </div>
@@ -101,6 +101,9 @@
         </div>
         <div class="tab-pane fade" id="nav-lockbox-content" role="tabpanel" aria-labelledby="nav-lockbox-tab">
             @Html.Partial(ProjectsView.LockboxTabPartial)
+        </div>
+        <div class="tab-pane fade" id="nav-ach-content" role="tabpanel" aria-labelledby="nav-ach-tab">
+            @Html.Partial(ProjectsView.AchTabPartial)
         </div>
     </div>
 }

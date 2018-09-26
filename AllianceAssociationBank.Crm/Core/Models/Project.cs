@@ -184,13 +184,13 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool/*?*/ DirectDepositPayroll { get; set; }
 
-        public bool? DirectDebitCollection { get; set; }
+        public bool/*?*/ DirectDebitCollection { get; set; }
 
-        public bool? DirectCreditPayments { get; set; }
+        public bool/*?*/ DirectCreditPayments { get; set; }
 
-        public bool? DirectDebitBusinessCCD { get; set; }
+        public bool/*?*/ DirectDebitBusinessCCD { get; set; }
 
-        public bool? ConsumerDebitWeb { get; set; }
+        public bool/*?*/ ConsumerDebitWeb { get; set; }
 
         [StringLength(255)]
         public string ScannerModel { get; set; }
@@ -247,9 +247,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string ACHReviewOfHistoricPerformance { get; set; }
 
-        public bool? ACHDualApproval { get; set; }
+        public bool/*?*/ ACHDualApproval { get; set; }
 
-        public bool? ACHOneTimePasscode { get; set; }
+        public bool/*?*/ ACHOneTimePasscode { get; set; }
 
         [StringLength(255)]
         public string StatementEmail { get; set; }

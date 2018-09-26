@@ -96,13 +96,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Relationship Rate")]
         public string RelationshipRate { get; set; }
 
-        //[StringLength(255)]
-        //[Display(Name = "CD Rate")]
-        //public string CODRate { get; set; } // This field is going away
-
-        //[Display(Name = "Rate Notes")]
-        //public string RateNotes { get; set; } // This field is going away
-
         [Required]
         [Display(Name = "Banker")]
         public int? OwnerID { get; set; }
@@ -272,7 +265,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         // Software Tab
 
-        [Display(Name = "Software")] // TODO: need to resolve duplicate on General tab
+        [Display(Name = "Software")]
         [StringLength(255)]
         public string Software { get; set; }
 
@@ -379,17 +372,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         public string CouponVenderNumber { get; set; }
 
-        //[Display(Name = "Lockbox Wanted")]
-        //public bool LockboxWantedReadOnly  { get; set; }
-
         [Display(Name = "PO Box Assigned")]
         public bool POBoxAssignedReadOnly
         {
             get { return POBoxAssigned; }
         }
-
-        //[Display(Name = "Lockbox Request Sent")]
-        //public bool LockboxRequestSentReadOnly { get; set; }
 
         [Display(Name = "Remittance File Tested")]
         public bool RemitanceFileTestedReadOnly
@@ -447,6 +434,75 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public IEnumerable<string> ReformatECPList { get; set; }
 
+        // ACH Tab
+
+        [Display(Name = "Direct Credit (PPD)")]
+        public bool DirectDepositPayroll { get; set; }
+
+        [Display(Name = "Direct Debit (PPD)")]
+        public bool DirectDebitCollection { get; set; }
+
+        [Display(Name = "Direct Credit (CCD)")]
+        public bool DirectCreditPayments { get; set; }
+
+        [Display(Name = "Direct Debit (CCD)")]
+        public bool DirectDebitBusinessCCD { get; set; }
+
+        [Display(Name = "Consumer Debit (Web)")]
+        public bool ConsumerDebitWeb { get; set; }
+
+        [Display(Name = "Dual Approval")]
+        public bool ACHDualApproval { get; set; } // TODO: need to find place for this field
+
+        [Display(Name = "One Time Passcode")]
+        public bool ACHOneTimePasscode { get; set; } // TODO: need to find place for this field
+
+        [Display(Name = "Limit, Spec Submitted")]
+        public bool ACHLimitAndSpecSubmittedReadOnly
+        {
+            get { return ACHLimitAndSpecSubmitted; }
+        }
+
+        [Display(Name = "Successfully Submitted")]
+        public bool ACHSuccessfulSubmittedReadOnly
+        {
+            get { return ACHSuccessfulSubmitted; }
+        }
+
+        [Display(Name = "Est. Deposits")]
+        public decimal? ACHEstimatedDeposits { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Est. $")]
+        public DateTime? ACHEstimatedDepositsDate { get; set; }
+
+        [Display(Name = "Limit")]
+        public decimal? ACHLimit { get; set; }
+
+        [Display(Name = "System Limit")]
+        public decimal? ACHSystemLimit { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Original Review")]
+        public DateTime? OriginalReviewDate { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Last Review")]
+        public DateTime? LastReviewDate { get; set; }
+
+        [Display(Name = "REVIEW NOTES & HISTORY")]
+        public string ACHReviewNotes { get; set; }
+
+        [Display(Name = "REVIEW OF HISTORIC PERF.")]
+        public string ACHReviewOfHistoricPerformance { get; set; }
+
+        [Display(Name = "SPEC FORM INSTRUCTIONS")]
+        public string ACHSpectFormInstructions { get; set; }
+
+
 
         public string SaveIndicator { get; set; } = "UNSAVED";
 
@@ -454,8 +510,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                var item = new Project().Notes;
-
                 return (ID != 0) ? ProjectsControllerAction.Update : ProjectsControllerAction.Create;
             }
         }

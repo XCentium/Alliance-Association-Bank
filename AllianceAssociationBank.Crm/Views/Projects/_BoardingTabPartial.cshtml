@@ -214,7 +214,8 @@
             <div class="row mb-3">
                 <div class="col-12">
                     @Html.LabelFor(m => m.BoardingNextSteps)
-                    @Html.RoleBasedTextAreaFor(m => m.BoardingNextSteps, 6, 10, cssClass: "form-textarea")
+                    <div class="label-small-note">Prints on Boarding Report</div>
+                    @Html.RoleBasedTextAreaFor(m => m.BoardingNextSteps, 5, 10, cssClass: "form-textarea")
                 </div>
             </div>
 

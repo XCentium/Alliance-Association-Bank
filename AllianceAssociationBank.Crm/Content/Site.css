@@ -111,6 +111,14 @@ textarea {
     margin-bottom: 18px;
 }
 
+.form-fieldset-md {
+    margin-bottom: 29px;
+}
+
+.form-fieldset-lg {
+    margin-bottom: 40px;
+}
+
 .form-fieldset-lg {
     margin-bottom: 40px;
 }
@@ -174,17 +182,14 @@ textarea {
 }
 
 .hoverable-area .hidden-menu {
-    /*visibility: hidden;*/
-    /*opacity: 0;*/
-    /*z-index: -1;*/
     -webkit-transition: all 0.75s ease;
     -moz-transition: all 0.75s ease;
     -o-transition: all 0.75s ease;
     transition: all 0.75s ease;
-    -webkit-transition-delay: 1s;
-    -moz-transition-delay: 1s;
-    -o-transition-delay: 1s;
-    transition-delay: 1s;
+    -webkit-transition-delay: 3s;
+    -moz-transition-delay: 3s;
+    -o-transition-delay: 3s;
+    transition-delay: 3s;
     -webkit-transform: translateY(-110%);
     -moz-transform: translateY(-110%);
     -o-transform: translateY(-110%);
@@ -192,8 +197,6 @@ textarea {
 }
 
 .hoverable-area:hover .hidden-menu {
-    /*visibility: visible;*/
-    /*opacity: 1;*/
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -263,6 +266,13 @@ textarea {
     right: 0;
     top: 0;
     z-index: 98;
+}
+
+.label-small-note {
+    color: #FF0039;
+    font-style: italic;
+    font-size: 80%;
+    font-weight: 400;
 }
 
 .smallnavbar {
