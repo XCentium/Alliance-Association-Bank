@@ -15,7 +15,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public int TotalPages
         {
-            get { return (int)Math.Ceiling((double)(TotalItems / PageSize)); }
+            get { return (int)Math.Ceiling(TotalItems / (double)PageSize); }
         }
 
         public bool HasPreviousPage
@@ -41,14 +41,14 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public IEnumerable<T> Items { get; set; }
 
 
-        public PaginatedListViewModel(IEnumerable<T> allItems, int pageSize, int pageNumber)
+        public PaginatedListViewModel(IEnumerable<T> allItems, int pageNumber, int pageSize)
         {
             //pageSize = pageSize < 1 ? 5 : pageSize;
             //pageNumber = pageNumber < 1 ? 1 : pageNumber;
 
             TotalItems = allItems.Count();
-            PageSize = pageSize;
             PageNumber = pageNumber;
+            PageSize = pageSize;
             Items = allItems
                         .Skip(pageSize * (pageNumber - 1))
                         .Take(pageSize)

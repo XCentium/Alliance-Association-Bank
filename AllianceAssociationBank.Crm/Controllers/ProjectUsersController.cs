@@ -28,6 +28,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         private const string FILTER_ACTIVE = "active";
         private const string FILTER_INACTIVE = "inactive";
         private const string EMAIL_SEPARATOR = "; ";
+        private const int PAGE_SIZE = 5;
 
         public ProjectUsersController(IProjectUserRepository userRepository, IMapper mapper)
         {
@@ -36,7 +37,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Route("Index", Name = ProjectUsersControllerRoute.GetUsers)]
-        public ActionResult Index(int projectId, string filter = FILTER_ALL)
+        public ActionResult Index(int projectId, int pageNumber = 1, string filter = FILTER_ALL)
         {
             filter = filter.ToLower();
 
@@ -47,7 +48,13 @@ namespace AllianceAssociationBank.Crm.Controllers
                     (filter == FILTER_ACTIVE && u.Active) ||
                     (filter == FILTER_INACTIVE && !u.Active));
 
-            return PartialView(ProjectUsersView.UsersListPartial, _mapper.Map<List<UserFormViewModel>>(users));
+            var usersModel = _mapper.Map<List<UserFormViewModel>>(users);
+
+            // TODO: New code, need to finish this
+            var paginatedModel = new PaginatedListViewModel<UserFormViewModel>(usersModel, pageNumber, PAGE_SIZE);
+
+            return PartialView(ProjectUsersView.UsersListPartial, paginatedModel);
+            //return PartialView(ProjectUsersView.UsersListPartial, _mapper.Map<List<UserFormViewModel>>(users));
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
