@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Constants.ProjectUsers;
+using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.ViewModels;
@@ -23,10 +24,6 @@ namespace AllianceAssociationBank.Crm.Controllers
         private IProjectUserRepository _userRepository;
         private IMapper _mapper;
 
-        private const string FILTER_ALL = "all";
-        private const string FILTER_ADMIN = "admin";
-        private const string FILTER_ACTIVE = "active";
-        private const string FILTER_INACTIVE = "inactive";
         private const string EMAIL_SEPARATOR = "; ";
         private const int PAGE_SIZE = 5;
 
@@ -37,24 +34,16 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Route("Index", Name = ProjectUsersControllerRoute.GetUsers)]
-        public ActionResult Index(int projectId, int pageNumber = 1, string filter = FILTER_ALL)
+        public ActionResult Index(int projectId, int page = 1, string filter = UserFilterValue.All)
         {
             filter = filter.ToLower();
 
-            var users = _userRepository.GetUsers(projectId)
-                .Where(u =>
-                    filter == FILTER_ALL ||
-                    (filter == FILTER_ADMIN && u.Admin) ||
-                    (filter == FILTER_ACTIVE && u.Active) ||
-                    (filter == FILTER_INACTIVE && !u.Active));
+            var users = _userRepository.GetUsers(projectId, filter);
 
-            var usersModel = _mapper.Map<List<UserFormViewModel>>(users);
+            var usersViewModel = _mapper.Map<List<UserFormViewModel>>(users);
+            var pagedModel = new UsersPagedListViewModel(projectId, usersViewModel, page, PAGE_SIZE);
 
-            // TODO: New code, need to finish this
-            var paginatedModel = new PaginatedListViewModel<UserFormViewModel>(usersModel, pageNumber, PAGE_SIZE);
-
-            return PartialView(ProjectUsersView.UsersListPartial, paginatedModel);
-            //return PartialView(ProjectUsersView.UsersListPartial, _mapper.Map<List<UserFormViewModel>>(users));
+            return PartialView(ProjectUsersView.UsersListPartial, pagedModel);
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
@@ -105,10 +94,16 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Route("Edit/{id}", Name = ProjectUsersControllerRoute.EditUser)]
-        public async Task<ActionResult> Edit(int id)
+        public async Task<ActionResult> Edit(int projectId, int id)
         {
             try
             {
+                //TODO: need to implement this
+                //if (!HttpContext.Request.IsAjaxRequest())
+                //{
+                //    return RedirectToAction(ProjectsControllerAction.Edit, ControllerName.Projects, new { id = projectId });
+                //}
+
                 var user = await _userRepository.GetUserByIdAsync(id);
 
                 if (user == null)

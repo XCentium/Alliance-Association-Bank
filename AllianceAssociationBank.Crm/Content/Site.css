@@ -359,6 +359,10 @@ textarea:disabled {
 
 /* Bootstrap overrides */
 
+.page-item.active .page-link:hover {
+    color: #fff;
+}
+
 /*@media (min-width: 1280px) {
     .container {
         max-width: none;

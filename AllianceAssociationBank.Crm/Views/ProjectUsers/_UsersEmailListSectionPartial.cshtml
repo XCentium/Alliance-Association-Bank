@@ -1,0 +1,56 @@
+﻿@model UsersPagedListViewModel
+
+<div>
+    <label class="mx-4">Generate Email Distribution List:</label>
+    @Ajax.RouteLink("Statement Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
+    {
+        projectId = Model.ProjectID,
+        emailList = UsersEmailListName.StatementEmails
+    }, ajaxOptions: new AjaxOptions
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "users-email-list-modal-location",
+        OnSuccess = "showModalTarget",
+        OnFailure = "handleAjaxError"
+    }, htmlAttributes: new
+    {
+        @class = "btn btn-sm btn-primary mx-1",
+        data_modal_target = "#users-email-list-modal"
+    })
+
+    @Ajax.RouteLink("Lockbox Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
+    {
+        projectId = Model.ProjectID,
+        emailList = UsersEmailListName.LockboxEmails
+    }, ajaxOptions: new AjaxOptions
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "users-email-list-modal-location",
+        OnSuccess = "showModalTarget",
+        OnFailure = "handleAjaxError"
+    }, htmlAttributes: new
+    {
+        @class = "btn btn-sm btn-primary mx-1",
+        data_modal_target = "#users-email-list-modal"
+    })
+
+    @Ajax.RouteLink("ACH Emails", routeName: ProjectUsersControllerRoute.GetEmailList, routeValues: new
+    {
+        projectId = Model.ProjectID,
+        emailList = UsersEmailListName.AchEmails
+    }, ajaxOptions: new AjaxOptions
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "users-email-list-modal-location",
+        OnSuccess = "showModalTarget",
+        OnFailure = "handleAjaxError"
+    }, htmlAttributes: new
+    {
+        @class = "btn btn-sm btn-primary mx-1",
+        data_modal_target = "#users-email-list-modal"
+    })
+</div>
+

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
-    public class PaginatedListViewModel<T>
+    public class PagedListViewModel<T>
     {
         public int TotalItems { get; }
 
@@ -27,6 +27,15 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get { return HasPreviousPage ? PageNumber - 1 : 1; }
         }
+        public bool ShowSecondPreviousPage
+        {
+            get { return !HasNextPage && TotalPages > 2; }
+        }
+
+        public int SecondPreviousPageNumber
+        {
+            get { return (PreviousPageNumber - 1) > 0 ? (PreviousPageNumber - 1) : 1; }
+        }
 
         public bool HasNextPage
         {
@@ -38,10 +47,20 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return HasNextPage ? PageNumber + 1 : TotalPages; }
         }
 
+        public bool ShowSecondNextPage
+        {
+            get { return !HasPreviousPage && TotalPages > 2; }
+        }
+
+        public int SecondNextPageNumber
+        {
+            get { return (NextPageNumber + 1) < TotalPages ? (NextPageNumber + 1) : TotalPages; }
+        }
+
         public IEnumerable<T> Items { get; set; }
 
 
-        public PaginatedListViewModel(IEnumerable<T> allItems, int pageNumber, int pageSize)
+        public PagedListViewModel(IEnumerable<T> allItems, int pageNumber, int pageSize)
         {
             //pageSize = pageSize < 1 ? 5 : pageSize;
             //pageNumber = pageNumber < 1 ? 1 : pageNumber;

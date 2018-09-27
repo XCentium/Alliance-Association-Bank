@@ -191,14 +191,14 @@
 
 
             $('[data-toggle="slide-collapse-right"]').on("click", function () {
-                $toggleTarget = $($(this).data("target"));
+                var $toggleTarget = $($(this).data("target"));
                 $toggleTarget.show("slide");
 
                 $(".screen-overlay").fadeIn(500);
             });
 
             $('[data-toggle="slide-collapse-down"]').on("click", function () {
-                $toggleTarget = $($(this).data("target"));
+                var $toggleTarget = $($(this).data("target"));
                 $toggleTarget.show("blind", 250);
                 //$toggleTarget.show("slide", { direction: "right" });
 
@@ -215,20 +215,32 @@
             });
 
             // Users tab radio buttons filter
-            $("input[name='user-filter-option']").change(function (e) {
+            $("input[name='user-filter-option']").on("change", function (e) {
                 var $radios = $(this);
-                var projectId = $radios.attr("data-projectId");
-                var filterValue = $radios.val();
+                var projectId = $radios.attr("data-project-id");
+                var userFilter = $radios.val();
 
-                var url = "/Projects/" + projectId + "/Users/Index";
+                CrmApp.getProjectUsersAndRefreshList(projectId, 1, userFilter);
 
-                $.get(url, { filter: filterValue })
-                    .done(function (responseData) {
-                        $("#project-users-list").html(responseData);
-                    })
-                    .fail(function () {
-                        handleAjaxError();
-                    });
+                //var url = "/Projects/" + projectId + "/Users/Index";
+
+                //$.get(url, { filter: filterValue })
+                //    .done(function (responseData) {
+                //        $("#project-users-list").html(responseData);
+                //    })
+                //    .fail(function () {
+                //        handleAjaxError();
+                //    });
+            });
+
+            $("#project-users-list").on("click", '[data-toggle="change-page"]', function () {
+                $this = $(this);
+
+                var projectId = $this.data("project-id");
+                var pageNumber = $this.data("page-number");
+                var userFilter = $("input[name='user-filter-option']:checked").val();
+
+                CrmApp.getProjectUsersAndRefreshList(projectId, pageNumber, userFilter);
             });
 
             // TODO: Need better solution here
@@ -307,6 +319,19 @@
             $("#XmlUsage").select2();
             $("#ReformatAQ2ID").select2();
             $("#ReformatECPID").select2();
+        };
+
+        CrmApp.getProjectUsersAndRefreshList = function (projectId, pageNumber, userFilter) {
+
+            var url = "/Projects/" + projectId + "/Users/Index"
+
+            $.get(url, { page: pageNumber, filter: userFilter })
+                .done(function (responseData) {
+                    $("#project-users-list").html(responseData);
+                })
+                .fail(function () {
+                    handleAjaxError();
+                });
         };
 
         // Disable lockbox related fields when status is No Lockbox

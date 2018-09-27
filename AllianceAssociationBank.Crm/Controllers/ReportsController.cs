@@ -41,9 +41,6 @@ namespace AllianceAssociationBank.Crm.Controllers
                 ViewBag.ReportViewer = reportViewer;
                 ViewBag.Title = name;
 
-               //var item = new PagedList<ProjectFormViewModel>()
-               //item
-
                 return View(ReportsView.ViewReport);
             }
             catch (Exception ex)

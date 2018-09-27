@@ -48,9 +48,9 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                     p.LockboxCMCID == searchPhrase ||
                     p.Phone == searchPhrase || // TODO: need to refine this
                    
-                    p.Users.Any(u => u.Name.Contains(searchPhrase)) ||
-                    p.Users.Any(u => u.Phone == searchPhrase) || // TODO: need to refine this
-                    p.Users.Any(u => u.Email == searchPhrase))
+                    p.Users.Any(u => u.Name.Contains(searchPhrase) && u.Active) ||
+                    p.Users.Any(u => u.Phone == searchPhrase && u.Active) || // TODO: need to refine this
+                    p.Users.Any(u => u.Email == searchPhrase && u.Active))
                 .ToListAsync();
         }
 

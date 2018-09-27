@@ -140,7 +140,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             var userId = user.ID;
             projectUsersRepoMock.Setup(r => r.GetUserByIdAsync(userId)).ReturnsAsync(user);
 
-            var result = await controller.Edit(userId);
+            var result = await controller.Edit(99, userId);
 
             TestHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
         }
@@ -151,7 +151,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             var userId = 1;
             projectUsersRepoMock.Setup(r => r.GetUserByIdAsync(userId)).ReturnsAsync(null as ProjectUser);
 
-            var result = await controller.Edit(userId);
+            var result = await controller.Edit(99, userId);
 
             var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
         }

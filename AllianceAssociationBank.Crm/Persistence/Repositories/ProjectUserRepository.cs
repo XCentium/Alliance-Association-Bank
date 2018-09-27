@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants.ProjectUsers;
+using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
@@ -21,9 +22,20 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
 
         public IEnumerable<ProjectUser> GetUsers(int projectId)
         {
+            return GetUsers(projectId, UserFilterValue.All);
+        }
+
+        public IEnumerable<ProjectUser> GetUsers(int projectId, string filter)
+        {
             return _context.ProjectUsers
-                .OrderBy(u => u.Name)
-                .Where(u => u.ProjectID == projectId);
+                .OrderBy(u => string.IsNullOrEmpty(u.Name) ? 2 : 1) // Users with empty names will be at the end of the list
+                .ThenBy(u => u.Name)
+                .Where(u => u.ProjectID == projectId)
+                .Where(u =>
+                     filter == UserFilterValue.All ||
+                    (filter == UserFilterValue.Admin && u.Admin) ||
+                    (filter == UserFilterValue.Active && u.Active) ||
+                    (filter == UserFilterValue.Inactive && !u.Active));
         }
 
         public async Task<IEnumerable<ProjectUser>> GetUsersByEmailList(int projectId, string emailList)
