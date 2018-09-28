@@ -33,24 +33,24 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         }
 
         // TODO: Still need to add projects users based search
-        public async Task<IEnumerable<Project>> GetProjectsBySearchPhraseAsync(string searchPhrase)
+        public async Task<IEnumerable<Project>> GetProjectsBySearchPhraseAsync(string searchTerm)
         {
             // TODO: remove this
-            _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+            //_context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
 
             return await _context.Projects
                 .OrderBy(p => p.ProjectName)
                 .Where(p =>
-                    p.ProjectName.Contains(searchPhrase) ||
-                    p.DBA.Contains(searchPhrase) ||
-                    p.OtherName.Contains(searchPhrase) ||
-                    p.TIN == searchPhrase || // TODO: need to refine this
-                    p.LockboxCMCID == searchPhrase ||
-                    p.Phone == searchPhrase || // TODO: need to refine this
+                    p.ProjectName.Contains(searchTerm) ||
+                    p.DBA.Contains(searchTerm) ||
+                    p.OtherName.Contains(searchTerm) ||
+                    p.TIN == searchTerm || // TODO: need to refine this
+                    p.LockboxCMCID == searchTerm ||
+                    p.Phone == searchTerm || // TODO: need to refine this
                    
-                    p.Users.Any(u => u.Name.Contains(searchPhrase) && u.Active) ||
-                    p.Users.Any(u => u.Phone == searchPhrase && u.Active) || // TODO: need to refine this
-                    p.Users.Any(u => u.Email == searchPhrase && u.Active))
+                    p.Users.Any(u => u.Name.Contains(searchTerm) && u.Active) ||
+                    p.Users.Any(u => u.Phone == searchTerm && u.Active) || // TODO: need to refine this
+                    p.Users.Any(u => u.Email == searchTerm && u.Active))
                 .ToListAsync();
         }
 

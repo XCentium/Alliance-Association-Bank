@@ -370,7 +370,7 @@ textarea:disabled {
     }
 }*/
 
-.input-group-prepend, .input-group-append {
+.input-group-prepend-sm {
     height: 25px;
 }
 

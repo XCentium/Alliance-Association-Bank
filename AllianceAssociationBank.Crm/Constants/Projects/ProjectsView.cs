@@ -14,7 +14,7 @@ namespace AllianceAssociationBank.Crm.Constants.Projects
         public const string SoftwareTabPartial = "_SoftwareTabPartial";
         public const string LockboxTabPartial = "_LockboxTabPartial";
         public const string AchTabPartial = "_AchTabPartial";
-        public const string SideMenuPartial = "_SideMenuPartial";
+        //public const string SideMenuPartial = "_SideMenuPartial";
         public const string CloseDialogPartial = "_CloseDialogPartial";
     }
 }

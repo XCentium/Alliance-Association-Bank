@@ -4,6 +4,7 @@ using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -19,6 +20,7 @@ namespace AllianceAssociationBank.Crm.Controllers
     // TODO: add logging
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Users")]
+    //[RedirectOnInvalidAjaxRequest]
     public class ProjectUsersController : Controller
     {
         private IProjectUserRepository _userRepository;
@@ -98,12 +100,6 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
-                //TODO: need to implement this
-                //if (!HttpContext.Request.IsAjaxRequest())
-                //{
-                //    return RedirectToAction(ProjectsControllerAction.Edit, ControllerName.Projects, new { id = projectId });
-                //}
-
                 var user = await _userRepository.GetUserByIdAsync(id);
 
                 if (user == null)

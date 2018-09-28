@@ -173,12 +173,6 @@
                     </div>
                 </div>
                 <div class="row field-group">
-                    @Html.LabelFor(m => m.ReformatECPID, new { @class = "col-3 label-indented" })
-                    <div class="col-7">
-                        @Html.RoleBasedDropDownListFor(m => m.ReformatECPID, Model.EcpReformatList, "", "select-hidden")
-                    </div>
-                </div>
-                <div class="row field-group">
                     <div class="col-1 offset-3">
                         @Html.RoleBasedCheckBoxFor(m => m.ReformatByAssoc)
                     </div>

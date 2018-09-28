@@ -25,12 +25,5 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .OrderBy(e => e.ReformatName)
                 .ToListAsync();
         }
-
-        public async Task<IEnumerable<EcpReformat>> GetEcpReformatsAsync()
-        {
-            return await _context.EcpReformats
-                .OrderBy(e => e.ReformatName)
-                .ToListAsync();
-        }
     }
 }

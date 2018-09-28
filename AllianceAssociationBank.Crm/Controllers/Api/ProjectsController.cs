@@ -17,6 +17,8 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     {
         private IProjectRepository _repository;
 
+        private const int MAX_SEARCH_RESULTS = 10;
+
         public ProjectsController(IProjectRepository repository)
         {
             _repository = repository;
@@ -26,7 +28,7 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
         public async Task<IEnumerable<ProjectDto>> Get(string search)
         {
             return (await _repository.GetProjectsBySearchPhraseAsync(search))
-                .Take(10)
+                .Take(MAX_SEARCH_RESULTS)
                 .Select(p => new ProjectDto()
                 {
                     Id = p.ID,

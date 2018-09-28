@@ -33,7 +33,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             var notes = _notesRepository.GetNotes(projectId);
 
-            return PartialView(NotesView.NotesListPartial, _mapper.Map<Collection<NoteViewModel>>(notes));
+            return PartialView(NotesView.NotesListPartial, _mapper.Map<Collection<NoteFormViewModel>>(notes));
         }
 
         [Authorize(Roles = UserRoleName.ReadWriteUser)]
@@ -46,7 +46,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var viewModel = new NoteViewModel();
+            var viewModel = new NoteFormViewModel();
             viewModel.ProjectID = projectId;
 
             return PartialView(NotesView.NoteFormPartial, viewModel);
@@ -56,7 +56,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Create", Name = NotesControllerRoute.CreateNoteHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(int projectId, NoteViewModel viewModel)
+        public async Task<ActionResult> Create(int projectId, NoteFormViewModel viewModel)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return HttpNotFound();
                 }
 
-                var viewModel = _mapper.Map<NoteViewModel>(note);
+                var viewModel = _mapper.Map<NoteFormViewModel>(note);
 
                 return PartialView(NotesView.NoteFormPartial, viewModel);
             }
@@ -107,7 +107,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Update/{id}", Name = NotesControllerRoute.UpdateNote)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Update(int projectId, int id, NoteViewModel viewModel)
+        public async Task<ActionResult> Update(int projectId, int id, NoteFormViewModel viewModel)
         {
             try
             {

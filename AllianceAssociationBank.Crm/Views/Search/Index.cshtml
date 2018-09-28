@@ -1,0 +1,190 @@
+﻿@model SearchResultsPagedViewModel
+@{
+    ViewBag.Title = "Search Results";
+}
+
+<div class="row">
+
+    @Html.Partial(SharedView.SideMenuPartial)
+
+    @*<nav class="navbar p-2">
+            <button class="btn-img" id="search-box-toggle" type="button" data-toggle="slide-collapse-down" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
+                <img src="~/Content/Images/search-img.png" />
+            </button>
+            <div class="popup-control" id="search-widget">
+                <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / PMC ID" autocomplete="off">
+            </div>
+        </nav>*@
+
+</div>
+
+<div class="row mt-4 py-2 border-bottom">
+
+    <div class="col-2">
+        <h5 class="font-weight-bold">Search Results</h5>
+    </div>
+
+    <div class="col-4 offset-2">
+        @using (Html.BeginForm(SearchControllerAction.Results, ControllerName.Search, method: FormMethod.Get))
+        {
+            <div class="input-group">
+                @Html.TextBox("term", Model.SearchTerm, new
+                {
+                    @class = "form-control",
+                    placeholder = "Search by...",
+                })
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">SEARCH</button>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(m => m.SearchTerm, "", new { @class = "form-error-msg" })
+        }
+    </div>
+
+</div>
+
+<div class="mt-4">
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col" class="border-bottom border-top-0">
+                    Legal Name
+                </th>
+                <th scope="col" class="border-bottom border-top-0">
+                    @Html.DisplayNameFor(m => m.Items.FirstOrDefault().DBA)
+                </th>
+                <th scope="col" class="border-bottom border-top-0">
+                    Other Name
+                </th>
+                <th scope="col" class="border-bottom border-top-0">
+                    @Html.DisplayNameFor(m => m.Items.FirstOrDefault().TIN)
+                </th>
+                <th scope="col" class="border-bottom border-top-0">
+                    @Html.DisplayNameFor(m => m.Items.FirstOrDefault().Phone)
+                </th>
+                <th scope="col" class="border-bottom border-top-0">
+                    @Html.DisplayNameFor(m => m.Items.FirstOrDefault().LockboxCMCID)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(result.ProjectName, ProjectsControllerAction.Edit, ControllerName.Projects, routeValues: new
+                        {
+                            id = result.ID
+                        }, htmlAttributes: null)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => result.DBA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => result.OtherName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => result.TIN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => result.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => result.LockboxCMCID)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="row pt-2">
+    <div class="col">
+        <nav aria-label="Search Pagination Nav">
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                    @Html.ActionLink("Previous", SearchControllerAction.Results, routeValues: new
+                    {
+                        term = Model.SearchTerm,
+                        page = Model.PreviousPageNumber
+                    }, htmlAttributes: new
+                    {
+                        @class = "page-link"
+                    })
+                </li>
+                @if (Model.ShowSecondPreviousPage)
+                {
+                    <li class="page-item">
+                        @Html.ActionLink(Model.SecondPreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.SecondPreviousPageNumber
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
+                    </li>
+                }
+                @if (Model.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        @Html.ActionLink(Model.PreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.PreviousPageNumber
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
+                    </li>
+                }
+                <li class="page-item active">
+                    <a class="page-link">@Model.PageNumber</a>
+                </li>
+                @if (Model.HasNextPage)
+                {
+                    <li class="page-item">
+                        @Html.ActionLink(Model.NextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.NextPageNumber
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
+                    </li>
+                }
+                @if (Model.ShowSecondNextPage)
+                {
+                    <li class="page-item">
+                        @Html.ActionLink(Model.SecondNextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.SecondNextPageNumber
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
+                    </li>
+                }
+                <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                    @Html.ActionLink("Next", SearchControllerAction.Results, routeValues: new
+                    {
+                        term = Model.SearchTerm,
+                        page = Model.NextPageNumber
+                    }, htmlAttributes: new
+                    {
+                        @class = "page-link"
+                    })
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

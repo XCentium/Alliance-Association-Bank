@@ -25,8 +25,8 @@ namespace AllianceAssociationBank.Crm.Mappings
             CreateMap<CheckScanner, ScannerFormViewModel>()
                 .ReverseMap();
 
-            CreateMap<Note, NoteViewModel>();
-            CreateMap<NoteViewModel, Note>()
+            CreateMap<Note, NoteFormViewModel>();
+            CreateMap<NoteFormViewModel, Note>()
                 .ForMember(n => n.DateAdded, o => o.Ignore());
         }
 

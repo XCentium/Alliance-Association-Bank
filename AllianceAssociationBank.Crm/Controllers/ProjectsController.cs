@@ -178,14 +178,6 @@ namespace AllianceAssociationBank.Crm.Controllers
                 })
                 .ToList();
 
-            model.EcpReformatList = (await _reformats.GetEcpReformatsAsync())
-                .Select(r => new SelectListItem()
-                {
-                    Value = r.ID.ToString(),
-                    Text = r.ReformatName
-                })
-                .ToList();
-
             // Check if user custom value needs to be added to dropdownlist
             var lockboxSystemList = DropDownListHelper.LockboxSystemValues.ToList();
             model.LockboxSystemList = CheckAndAddCustomValueToList(lockboxSystemList, model.LockboxSystem);

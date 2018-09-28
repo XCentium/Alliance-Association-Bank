@@ -23,6 +23,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         private Mock<IProjectRepository> projectsRepoMock;
         private Mock<IEmployeeRepository> employeesRepoMock;
         private Mock<ISoftwareRepository> softwareRepoMock;
+        private Mock<IReformatRepository> reformatRepoMock;
 
         private ProjectFormViewModel projectViewModel;
         private Project project;
@@ -32,9 +33,10 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             projectsRepoMock = new Mock<IProjectRepository>();
             employeesRepoMock = new Mock<IEmployeeRepository>();
             softwareRepoMock = new Mock<ISoftwareRepository>();
+            reformatRepoMock = new Mock<IReformatRepository>();
             mapper = CrmAutoMapperProfile.GetMapper();
 
-            controller = new ProjectsController(projectsRepoMock.Object, employeesRepoMock.Object, softwareRepoMock.Object, mapper);
+            controller = new ProjectsController(projectsRepoMock.Object, employeesRepoMock.Object, softwareRepoMock.Object, reformatRepoMock.Object, mapper);
 
             projectViewModel = new ProjectFormViewModel()
             {

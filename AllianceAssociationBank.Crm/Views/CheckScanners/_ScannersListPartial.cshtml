@@ -3,8 +3,12 @@
 <table class="table table-sm mb-0">
     <thead>
         <tr>
-            <th class="font-weight-normal text-muted border-0" scope="col">Model</th>
-            <th class="font-weight-normal text-muted border-0" scope="col">Date Installed</th>
+            <th class="font-weight-normal text-muted border-0" scope="col">
+                @Html.DisplayNameFor(m => m.FirstOrDefault().Model)
+            </th>
+            <th class="font-weight-normal text-muted border-0" scope="col">
+                @Html.DisplayNameFor(m => m.FirstOrDefault().DateInstalled)
+            </th>
             <th class="font-weight-normal border-0" scope="col"></th>
         </tr>
     </thead>

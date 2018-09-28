@@ -248,15 +248,17 @@
     <Compile Include="Constants\Notes\NotesView.cs" />
     <Compile Include="Constants\Notes\NotesControllerAction.cs" />
     <Compile Include="Constants\Notes\NotesControllerRoute.cs" />
+    <Compile Include="Constants\Search\SearchView.cs" />
+    <Compile Include="Constants\Search\SearchControllerAction.cs" />
     <Compile Include="Constants\User\UserFilterValue.cs" />
     <Compile Include="Controllers\NotesController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Core\Models\EcpReformat.cs" />
     <Compile Include="Core\Models\Aq2Reformat.cs" />
     <Compile Include="Extensions\HtmlExtensionsHelper.cs" />
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />
@@ -264,7 +266,7 @@
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
-    <Compile Include="Filters\InvalidAjaxRequestFilterAttribute.cs" />
+    <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />
     <Compile Include="Identity\IAuthenticationService.cs" />
     <Compile Include="Identity\SignInResult.cs" />
@@ -325,7 +327,6 @@
     <Compile Include="Persistence\EntityConfigurations\ApplicationUserEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\NoteEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ProjectEntityConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\EcpReformatEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\Aq2ReformatEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\SoftwareEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\EmployeeEntityConfiguration.cs" />
@@ -361,13 +362,14 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
-    <Compile Include="ViewModels\NoteViewModel.cs" />
+    <Compile Include="ViewModels\NoteFormViewModel.cs" />
     <Compile Include="ViewModels\PagedListViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ProjectReportRecordViewModel.cs" />
     <Compile Include="ViewModels\ProjectFormViewModel.cs" />
     <Compile Include="Models\ReportViewModel.cs" />
+    <Compile Include="ViewModels\SearchResultsPagedViewModel.cs" />
     <Compile Include="ViewModels\UserFormViewModel.cs" />
     <Compile Include="ViewModels\UsersPagedListViewModel.cs" />
   </ItemGroup>
@@ -555,7 +557,7 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Projects\_UsersTabPartial.cshtml" />
     <Content Include="Views\ProjectUsers\_UserFormPartial.cshtml" />
-    <Content Include="Views\Projects\_SideMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_SideMenuPartial.cshtml" />
     <Content Include="Views\ProjectUsers\_UsersListPartial.cshtml" />
     <Content Include="Views\Projects\_BoardingTabPartial.cshtml" />
     <Content Include="Views\CheckScanners\_ScannersListPartial.cshtml" />
@@ -570,6 +572,7 @@
     <Content Include="Views\Projects\_LockboxTabPartial.cshtml" />
     <Content Include="Views\Projects\_AchTabPartial.cshtml" />
     <Content Include="Views\ProjectUsers\_UsersEmailListSectionPartial.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

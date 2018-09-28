@@ -248,7 +248,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        @Html.RoleBasedEditorFor(m => m.EstimatedDeposits, cssClass: "form-input form-input-prepend")
+                        @Html.RoleBasedEditorFor(m => m.EstimatedDeposits, cssClass: "form-input form-input-prepend input-group-prepend-sm")
                         @Html.ValidationMessageFor(m => m.EstimatedDeposits, "", new { @class = "form-error-msg" })
                     </div>
                 </div>
@@ -261,7 +261,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        @Html.RoleBasedEditorFor(m => m.ActualDeposits, cssClass: "form-input form-input-prepend")
+                        @Html.RoleBasedEditorFor(m => m.ActualDeposits, cssClass: "form-input form-input-prepend input-group-prepend-sm")
                         @Html.ValidationMessageFor(m => m.ActualDeposits, "", new { @class = "form-error-msg" })
                     </div>
                 </div>

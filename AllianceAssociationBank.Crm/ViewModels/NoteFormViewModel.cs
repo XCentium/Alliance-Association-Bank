@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
-    public class NoteViewModel
+    public class NoteFormViewModel
     {
         public int ID { get; set; }
 
