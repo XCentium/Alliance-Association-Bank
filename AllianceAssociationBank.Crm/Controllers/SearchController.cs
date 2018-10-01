@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.Search;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.Search;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
@@ -29,14 +30,19 @@ namespace AllianceAssociationBank.Crm.Controllers
             return View(SearchView.Index, new SearchResultsPagedViewModel());
         }
 
-        public async Task<ActionResult> Results(string term, int page = 1)
+        public async Task<ActionResult> Results(string term, int page = 1, string sort = SortOrder.Ascending)
         {
             try
             {
-                var results = await _projectRepository.GetProjectsBySearchPhraseAsync(term);
+                if (string.IsNullOrEmpty(term))
+                {
+                    return View(SearchView.Index, new SearchResultsPagedViewModel());
+                }
 
-                var projectsViewModel = _mapper.Map<List<ProjectFormViewModel>>(results);
-                var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, PAGE_SIZE);
+                var results = await _projectRepository.GetProjectsBySearchPhraseAsync(term, sort);
+                var projectsViewModel = _mapper.Map<IEnumerable<ProjectFormViewModel>>(results);
+
+                var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, PAGE_SIZE, sort);
 
                 return View(SearchView.Index, pagedModel);
             }

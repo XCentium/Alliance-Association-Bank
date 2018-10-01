@@ -275,6 +275,15 @@ textarea {
     font-weight: 400;
 }
 
+.plain-link {
+    color: #373a3c;
+}
+
+.plain-link:hover {
+    color: #373a3c;
+    text-decoration: none;
+}
+
 .smallnavbar {
     background-color: rgba(153, 153, 153, 1);
     height: 15px;
@@ -289,8 +298,46 @@ textarea {
     padding-bottom: 1px;
 }
 
+.sort-icon {
+    border: none;
+    padding: 3px;
+    margin-bottom: 1px;
+}
+
 .tab-body-content {
     padding: 5px 20px;
+}
+
+.table-fixed {
+    table-layout: fixed;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.table-fixed td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-row-5 {
+    width: 5%;
+}
+
+.table-row-10 {
+    width: 10%;
+}
+
+.table-row-20 {
+    width: 20%;
+}
+
+.table-row-25 {
+    width: 25%;
+}
+
+.table-row-30 {
+    width: 30%;
 }
 
 .ui-autocomplete-loading {
@@ -322,6 +369,11 @@ textarea {
     position: absolute;
     top: 0px;
     width: 400px;
+}
+
+#search-results-content {
+    height: 71%;
+    margin-top: 25px;
 }
 
 /* Disabled elements */
@@ -405,8 +457,8 @@ textarea:disabled {
     background-color: #2780E3;
     color: #ffffff;
     border-color: #e9ecef;
-    padding-left: 41px;
-    padding-right: 41px;
+    padding-left: 37px;
+    padding-right: 37px;
     padding-top: 7px;
     padding-bottom: 7px
 }

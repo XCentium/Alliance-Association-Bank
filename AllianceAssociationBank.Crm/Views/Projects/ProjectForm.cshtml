@@ -2,29 +2,34 @@
 
 <div class="row">
 
-    @Html.Partial(SharedView.SideMenuPartial)
-
-    <nav class="hoverable-area col-11">
-        <div class="hidden-menu nav nav-tabs small" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general-content" role="tab" aria-controls="nav-general-content" aria-selected="true">GENERAL</a>
-            <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="false">USERS</a>
-            <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
-            <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software-content" role="tab" aria-controls="nav-software-content" aria-selected="false">SOFTWARE</a>
-            <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox-content" role="tab" aria-controls="nav-lockbox-content" aria-selected="false">LOCKBOX</a>
-            <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach-content" role="tab" aria-controls="nav-ach-content" aria-selected="false">ACH</a>
-            <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">SYSTEM</a>
-            <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">ACCOUNTS / HOA DDAS</a>
+    @*@Html.Partial(SharedView.SideMenuPartial)*@
+    <div class="col-1 p-0">
+        <div class="float-left">
+            @Html.Partial(SharedView.SideMenuPartial)
         </div>
-    </nav>
+    </div>
 
-    <nav class="navbar p-2">
-        <button class="btn-img" id="search-box-toggle" type="button" data-toggle="slide-collapse-down" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
-            <img src="~/Content/Images/search-img.png" />
-        </button>
-        <div class="popup-control" id="search-widget">
-            <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / PMC ID" autocomplete="off">
+    <div class="col-10 p-0">
+        <nav>
+            <div class="nav nav-tabs small" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general-content" role="tab" aria-controls="nav-general-content" aria-selected="true">GENERAL</a>
+                <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="false">USERS</a>
+                <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
+                <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software-content" role="tab" aria-controls="nav-software-content" aria-selected="false">SOFTWARE</a>
+                <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox-content" role="tab" aria-controls="nav-lockbox-content" aria-selected="false">LOCKBOX</a>
+                <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach-content" role="tab" aria-controls="nav-ach-content" aria-selected="false">ACH</a>
+                <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system" role="tab" aria-controls="nav-system" aria-selected="false">SYSTEM</a>
+                <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">ACCOUNTS / HOA DDAS</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="col-1 p-0">
+        <div class="float-right">
+            @Html.Partial(SharedView.SearchWidgetPartial)
         </div>
-    </nav>
+    </div>
+    @*@Html.Partial(SharedView.SearchWidgetPartial)*@
 
 </div>
 
@@ -175,13 +180,17 @@
                         }
                     });
                 },
-                minLength: 2,
+                minLength: 1,
+                focus: function (event, ui) {
+                    event.preventDefault();
+
+                    this.value = ui.item.label;
+                },
                 select: function (event, ui) {
                     event.preventDefault();
 
                     if (ui.item.value === -1) {
                         $(this).val("");
-                        //return false;
                     } else {
                         this.value = ui.item.label;
                         location.href = "/Projects/Edit/" + ui.item.value;
@@ -189,6 +198,13 @@
                 }
             });
 
+            // Redirect to Search Results page on Enter keypress
+            $("#project-search").on("keypress", function (event) {
+                if (event.which === 13 && this.value.length > 0) {
+                    event.preventDefault();
+                    location.href = "/Search/Results?term=" + this.value;
+                }
+            });
 
             $('[data-toggle="slide-collapse-right"]').on("click", function () {
                 var $toggleTarget = $($(this).data("target"));
@@ -233,7 +249,7 @@
                 //    });
             });
 
-            $("#project-users-list").on("click", '[data-toggle="change-page"]', function () {
+            $("#project-users-list").on("click", '[data-toggle="users-change-page"]', function () {
                 $this = $(this);
 
                 var projectId = $this.data("project-id");

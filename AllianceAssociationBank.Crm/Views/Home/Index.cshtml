@@ -51,10 +51,12 @@
 {
     <script>
         $(document).ready(function() {
+
+            // Projects search autocomplete
             $("#project-search").autocomplete({
                 source: function (request, response) {
                     $.ajax({
-                        url: "/api/projects",
+                        url: "/api/Projects",
                         method: "GET",
                         dataType: "json",
                         data: {
@@ -81,7 +83,12 @@
                         }
                     });
                 },
-                minLength: 2,
+                minLength: 1,
+                focus: function (event, ui) {
+                    event.preventDefault();
+
+                    this.value = ui.item.label;
+                },
                 select: function (event, ui) {
                     event.preventDefault();
 
@@ -93,7 +100,14 @@
                     }
                 }
             });
-        });
+
+            // Redirect to Search Results page on Enter keypress
+            $("#project-search").on("keypress", function (event) {
+                if (event.which === 13 && this.value.length > 0) {
+                    event.preventDefault();
+                    location.href = "/Search/Results?term=" + this.value;
+                }
+            });
 
         function handleAjaxError() {
             alert("An error occurred while processing your request");

@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Core.Dtos;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
@@ -27,7 +28,7 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
         [HttpGet]
         public async Task<IEnumerable<ProjectDto>> Get(string search)
         {
-            return (await _repository.GetProjectsBySearchPhraseAsync(search))
+            return (await _repository.GetProjectsBySearchPhraseAsync(search, SortOrder.Ascending))
                 .Take(MAX_SEARCH_RESULTS)
                 .Select(p => new ProjectDto()
                 {

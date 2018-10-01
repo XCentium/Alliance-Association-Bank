@@ -86,18 +86,18 @@
             <ul class="pagination pagination-sm justify-content-end">
 
                 <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
-                    <a class="page-link" data-toggle="change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.PreviousPageNumber">Previous</a>
+                    <a class="page-link" data-toggle="users-change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.PreviousPageNumber">Previous</a>
                 </li>
                 @if (Model.ShowSecondPreviousPage)
                 {
                     <li class="page-item">
-                        <a class="page-link" data-toggle="change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.SecondPreviousPageNumber">@Model.SecondPreviousPageNumber</a>
+                        <a class="page-link" data-toggle="users-change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.SecondPreviousPageNumber">@Model.SecondPreviousPageNumber</a>
                     </li>
                 }
                 @if (Model.HasPreviousPage)
                 {
                     <li class="page-item">
-                        <a class="page-link" data-toggle="change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.PreviousPageNumber">@Model.PreviousPageNumber</a>
+                        <a class="page-link" data-toggle="users-change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.PreviousPageNumber">@Model.PreviousPageNumber</a>
                     </li>
                 }
                 <li class="page-item active">
@@ -106,17 +106,17 @@
                 @if (Model.HasNextPage)
                 {
                     <li class="page-item">
-                        <a class="page-link" data-toggle="change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.NextPageNumber">@Model.NextPageNumber</a>
+                        <a class="page-link" data-toggle="users-change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.NextPageNumber">@Model.NextPageNumber</a>
                     </li>
                 }
                 @if (Model.ShowSecondNextPage)
                 {
                     <li class="page-item">
-                        <a class="page-link" data-toggle="change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.SecondNextPageNumber">@Model.SecondNextPageNumber</a>
+                        <a class="page-link" data-toggle="users-change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.SecondNextPageNumber">@Model.SecondNextPageNumber</a>
                     </li>
                 }
                 <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
-                    <a class="page-link" data-toggle="change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.NextPageNumber">Next</a>
+                    <a class="page-link" data-toggle="users-change-page" data-project-id="@Model.ProjectID" data-page-number="@Model.NextPageNumber">Next</a>
                 </li>
 
             </ul>

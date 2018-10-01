@@ -1,6 +1,7 @@
-﻿<nav class="navbar p-0">
-
-    <button class="btn-img pl-3" id="nav-side-menu-toggle" type="button" data-toggle="slide-collapse-right" data-target="#nav-side-menu" aria-controls="nav-side-menu" aria-expanded="false" aria-label="Side Menu">
+﻿<nav class="navbar p-1">
+    @*p-0*@
+    @*pl-3*@
+    <button class="btn-img" id="nav-side-menu-toggle" type="button" data-toggle="slide-collapse-right" data-target="#nav-side-menu" aria-controls="nav-side-menu" aria-expanded="false" aria-label="Side Menu">
         <img class="icon-image" src="~/Content/Images/toggle-img.png" />
     </button>
 
@@ -27,7 +28,7 @@
             <div class="nav-item px-3 py-1 border border-bottom-0">
                 @Html.RouteLink("Software Transition", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                 {
-                    name = ReportName.SoftwareTransition 
+                    name = ReportName.SoftwareTransition
                 })
             </div>
             <div class="nav-item px-3 py-1 border border-bottom-0">
@@ -73,7 +74,7 @@
                 <a href="javascript:document.getElementById('side-menu-logout-form').submit()">Logout</a>
             }
         </div>
-    
+
     </div>
 
 </nav>

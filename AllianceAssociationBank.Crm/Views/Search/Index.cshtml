@@ -5,16 +5,17 @@
 
 <div class="row">
 
-    @Html.Partial(SharedView.SideMenuPartial)
+    <div class="col-1 p-0">
+        <div class="float-left">
+            @Html.Partial(SharedView.SideMenuPartial)
+        </div>
+    </div>
 
-    @*<nav class="navbar p-2">
-            <button class="btn-img" id="search-box-toggle" type="button" data-toggle="slide-collapse-down" data-target="#search-widget" aria-controls="search-widget" aria-expanded="false" aria-label="Search">
-                <img src="~/Content/Images/search-img.png" />
-            </button>
-            <div class="popup-control" id="search-widget">
-                <input class="form-control full-width" id="project-search" type="text" placeholder="NAME / PMC ID" autocomplete="off">
-            </div>
-        </nav>*@
+    <div class="col-1 offset-10 p-0">
+        <div class="float-right">
+            @Html.Partial(SharedView.SearchWidgetPartial)
+        </div>
+    </div>
 
 </div>
 
@@ -31,7 +32,7 @@
                 @Html.TextBox("term", Model.SearchTerm, new
                 {
                     @class = "form-control",
-                    placeholder = "Search by...",
+                    placeholder = "Name / TIN / PMC ID",
                 })
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">SEARCH</button>
@@ -43,26 +44,32 @@
 
 </div>
 
-<div class="mt-4">
-    <table class="table table-borderless">
+<div id="search-results-content">
+    <table class="table table-borderless table-fixed">
         <thead>
             <tr>
-                <th scope="col" class="border-bottom border-top-0">
-                    Legal Name
+                <th scope="col" class="border-bottom border-top-0 table-row-30">
+                    @Html.ActionLink("Legal Name", SearchControllerAction.Results, routeValues: new
+                    {
+                        term = Model.SearchTerm,
+                        page = 1,
+                        sort = Model.SortOrderParam
+                    }, htmlAttributes: new { @class = "plain-link" })
+                    <img class="sort-icon" src="~/Content/Images/sort-order-icon.png" />
                 </th>
-                <th scope="col" class="border-bottom border-top-0">
+                <th scope="col" class="border-bottom border-top-0 table-row-20">
                     @Html.DisplayNameFor(m => m.Items.FirstOrDefault().DBA)
                 </th>
-                <th scope="col" class="border-bottom border-top-0">
+                <th scope="col" class="border-bottom border-top-0 table-row-20">
                     Other Name
                 </th>
-                <th scope="col" class="border-bottom border-top-0">
+                <th scope="col" class="border-bottom border-top-0 table-row-10">
                     @Html.DisplayNameFor(m => m.Items.FirstOrDefault().TIN)
                 </th>
-                <th scope="col" class="border-bottom border-top-0">
+                <th scope="col" class="border-bottom border-top-0 table-row-10">
                     @Html.DisplayNameFor(m => m.Items.FirstOrDefault().Phone)
                 </th>
-                <th scope="col" class="border-bottom border-top-0">
+                <th scope="col" class="border-bottom border-top-0 table-row-10">
                     @Html.DisplayNameFor(m => m.Items.FirstOrDefault().LockboxCMCID)
                 </th>
             </tr>
@@ -71,25 +78,25 @@
             @foreach (var result in Model.Items)
             {
                 <tr>
-                    <td>
-                        @Html.ActionLink(result.ProjectName, ProjectsControllerAction.Edit, ControllerName.Projects, routeValues: new
+                    <td title="@result.ProjectName">
+                        @Html.ActionLink((result.ProjectName ?? " "), ProjectsControllerAction.Edit, ControllerName.Projects, routeValues: new
                         {
                             id = result.ID
                         }, htmlAttributes: null)
                     </td>
-                    <td>
+                    <td title="@result.DBA">
                         @Html.DisplayFor(m => result.DBA)
                     </td>
-                    <td>
+                    <td title="@result.OtherName">
                         @Html.DisplayFor(m => result.OtherName)
                     </td>
-                    <td>
+                    <td title="@result.TIN">
                         @Html.DisplayFor(m => result.TIN)
                     </td>
-                    <td>
+                    <td title="@result.Phone">
                         @Html.DisplayFor(m => result.Phone)
                     </td>
-                    <td>
+                    <td title="@result.LockboxCMCID">
                         @Html.DisplayFor(m => result.LockboxCMCID)
                     </td>
                 </tr>
@@ -105,38 +112,41 @@
 
                 <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
                     @Html.ActionLink("Previous", SearchControllerAction.Results, routeValues: new
-                    {
-                        term = Model.SearchTerm,
-                        page = Model.PreviousPageNumber
-                    }, htmlAttributes: new
-                    {
-                        @class = "page-link"
-                    })
+               {
+                   term = Model.SearchTerm,
+                   page = Model.PreviousPageNumber,
+                   sort = Model.CurrentSort
+               }, htmlAttributes: new
+               {
+                   @class = "page-link"
+               })
                 </li>
                 @if (Model.ShowSecondPreviousPage)
                 {
                     <li class="page-item">
                         @Html.ActionLink(Model.SecondPreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                        {
-                            term = Model.SearchTerm,
-                            page = Model.SecondPreviousPageNumber
-                        }, htmlAttributes: new
-                        {
-                            @class = "page-link"
-                        })
+                   {
+                       term = Model.SearchTerm,
+                       page = Model.SecondPreviousPageNumber,
+                       sort = Model.CurrentSort
+                   }, htmlAttributes: new
+                   {
+                       @class = "page-link"
+                   })
                     </li>
                 }
                 @if (Model.HasPreviousPage)
                 {
                     <li class="page-item">
                         @Html.ActionLink(Model.PreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                        {
-                            term = Model.SearchTerm,
-                            page = Model.PreviousPageNumber
-                        }, htmlAttributes: new
-                        {
-                            @class = "page-link"
-                        })
+                   {
+                       term = Model.SearchTerm,
+                       page = Model.PreviousPageNumber,
+                       sort = Model.CurrentSort
+                   }, htmlAttributes: new
+                   {
+                       @class = "page-link"
+                   })
                     </li>
                 }
                 <li class="page-item active">
@@ -146,37 +156,40 @@
                 {
                     <li class="page-item">
                         @Html.ActionLink(Model.NextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                        {
-                            term = Model.SearchTerm,
-                            page = Model.NextPageNumber
-                        }, htmlAttributes: new
-                        {
-                            @class = "page-link"
-                        })
+                   {
+                       term = Model.SearchTerm,
+                       page = Model.NextPageNumber,
+                       sort = Model.CurrentSort
+                   }, htmlAttributes: new
+                   {
+                       @class = "page-link"
+                   })
                     </li>
                 }
                 @if (Model.ShowSecondNextPage)
                 {
                     <li class="page-item">
                         @Html.ActionLink(Model.SecondNextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                        {
-                            term = Model.SearchTerm,
-                            page = Model.SecondNextPageNumber
-                        }, htmlAttributes: new
-                        {
-                            @class = "page-link"
-                        })
+                   {
+                       term = Model.SearchTerm,
+                       page = Model.SecondNextPageNumber,
+                       sort = Model.CurrentSort
+                   }, htmlAttributes: new
+                   {
+                       @class = "page-link"
+                   })
                     </li>
                 }
                 <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
                     @Html.ActionLink("Next", SearchControllerAction.Results, routeValues: new
-                    {
-                        term = Model.SearchTerm,
-                        page = Model.NextPageNumber
-                    }, htmlAttributes: new
-                    {
-                        @class = "page-link"
-                    })
+               {
+                   term = Model.SearchTerm,
+                   page = Model.NextPageNumber,
+                   sort = Model.CurrentSort
+               }, htmlAttributes: new
+               {
+                   @class = "page-link"
+               })
                 </li>
 
             </ul>
@@ -184,7 +197,97 @@
     </div>
 </div>
 
+
+<div class="screen-overlay"></div>
+
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $(document).ready(function () {
+
+            // Projects search autocomplete
+            $("#project-search").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/api/Projects",
+                        method: "GET",
+                        dataType: "json",
+                        data: {
+                            search: request.term
+                        },
+                        success: function (data) {
+                            if (data.length > 0) {
+                                response($.map(data, function (item) {
+                                    return {
+                                        label: item.name,
+                                        value: item.id
+                                    };
+                                }));
+                            } else {
+                                response([{
+                                    label: 'No results found',
+                                    value: -1
+                                }]);
+                            }
+                        },
+                        error: function () {
+                            handleAjaxError();
+                            response([]);
+                        }
+                    });
+                },
+                minLength: 1,
+                focus: function (event, ui) {
+                    event.preventDefault();
+
+                    this.value = ui.item.label;
+                },
+                select: function (event, ui) {
+                    event.preventDefault();
+
+                    if (ui.item.value === -1) {
+                        $(this).val("");
+                    } else {
+                        this.value = ui.item.label;
+                        location.href = "/Projects/Edit/" + ui.item.value;
+                    }
+                }
+            });
+
+            // Redirect to Search Results page on Enter keypress
+            $("#project-search").on("keypress", function (event) {
+                if (event.which === 13 && this.value.length > 0) {
+                    event.preventDefault();
+                    location.href = "/Search/Results?term=" + this.value;
+                }
+            });
+
+            $('[data-toggle="slide-collapse-right"]').on("click", function () {
+                var $toggleTarget = $($(this).data("target"));
+                $toggleTarget.show("slide");
+
+                $(".screen-overlay").fadeIn(500);
+            });
+
+            $('[data-toggle="slide-collapse-down"]').on("click", function () {
+                var $toggleTarget = $($(this).data("target"));
+                $toggleTarget.show("blind", 250);
+
+                $(".screen-overlay").fadeIn(250);
+            });
+
+            $(".screen-overlay").on("click", function (event) {
+                $("#nav-side-menu").hide("slide");
+                $("#project-search").val("");
+                $("#search-widget").hide("blind", 250);
+
+                $(".screen-overlay").fadeOut(500);
+            });
+
+        });
+
+    </script>
 }

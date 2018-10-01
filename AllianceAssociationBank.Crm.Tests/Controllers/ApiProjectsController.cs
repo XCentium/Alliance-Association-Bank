@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Controllers.Api;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Controllers.Api;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
@@ -43,7 +44,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
                 },
             };
             var searchTerm = "name";
-            projectsRepoMock.Setup(r => r.GetProjectsBySearchPhraseAsync(searchTerm)).ReturnsAsync(projects);
+            projectsRepoMock
+                .Setup(r => r.GetProjectsBySearchPhraseAsync(searchTerm, SortOrder.Ascending))
+                .ReturnsAsync(projects);
 
             var results = await controller.Get(searchTerm);
 

@@ -25,6 +25,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             return GetUsers(projectId, UserFilterValue.All);
         }
 
+        // TODO: change filter to Enum
         public IEnumerable<ProjectUser> GetUsers(int projectId, string filter)
         {
             return _context.ProjectUsers

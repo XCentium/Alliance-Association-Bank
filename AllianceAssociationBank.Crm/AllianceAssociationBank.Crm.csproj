@@ -250,6 +250,7 @@
     <Compile Include="Constants\Notes\NotesControllerRoute.cs" />
     <Compile Include="Constants\Search\SearchView.cs" />
     <Compile Include="Constants\Search\SearchControllerAction.cs" />
+    <Compile Include="Constants\SortOrder.cs" />
     <Compile Include="Constants\User\UserFilterValue.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -387,6 +388,7 @@
     <Content Include="Content\Images\btn-edit-icon.png" />
     <Content Include="Content\Images\btn-save-icon.png" />
     <Content Include="Content\Images\search-img.png" />
+    <Content Include="Content\Images\sort-order-icon.png" />
     <Content Include="Content\Images\toggle-img.png" />
     <Content Include="Content\Images\warning-icon.png" />
     <Content Include="Content\select2.min.css" />
@@ -573,6 +575,7 @@
     <Content Include="Views\Projects\_AchTabPartial.cshtml" />
     <Content Include="Views\ProjectUsers\_UsersEmailListSectionPartial.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Shared\_SearchWidgetPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
