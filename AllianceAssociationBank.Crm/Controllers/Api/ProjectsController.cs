@@ -28,7 +28,7 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
         [HttpGet]
         public async Task<IEnumerable<ProjectDto>> Get(string search)
         {
-            return (await _repository.GetProjectsBySearchPhraseAsync(search, SortOrder.Ascending))
+            return (await _repository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
                 .Take(MAX_SEARCH_RESULTS)
                 .Select(p => new ProjectDto()
                 {

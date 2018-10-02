@@ -34,12 +34,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
-                if (string.IsNullOrEmpty(term))
-                {
-                    return View(SearchView.Index, new SearchResultsPagedViewModel());
-                }
-
-                var results = await _projectRepository.GetProjectsBySearchPhraseAsync(term, sort);
+                var results = await _projectRepository.GetProjectsBySearchTermAsync(term, sort);
                 var projectsViewModel = _mapper.Map<IEnumerable<ProjectFormViewModel>>(results);
 
                 var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, PAGE_SIZE, sort);

@@ -2,8 +2,10 @@
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Helpers;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -34,23 +36,26 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         }
 
         // TODO: change sort order to Enum
-        public async Task<IEnumerable<Project>> GetProjectsBySearchPhraseAsync(string searchTerm, string sortOrder)
+        public async Task<IEnumerable<Project>> GetProjectsBySearchTermAsync(string searchTerm, string sortOrder)
         {
             // TODO: remove this
-            //_context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+            _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
 
-            var results = _context.Projects
-                .Where(p =>
-                    p.ProjectName.Contains(searchTerm) ||
-                    p.DBA.Contains(searchTerm) ||
-                    p.OtherName.Contains(searchTerm) ||
-                    p.TIN == searchTerm || // TODO: need to refine this
+            var searchFormatter = new SearchTermFormatter(searchTerm);
+            var formattedForName = searchFormatter.FormatForName();
+            var formattedForTIN = searchFormatter.FormatForTIN();
+            var formattedForPhone = searchFormatter.FormatForPhone();
+
+            var results = _context.Projects.Where(p =>
                     p.LockboxCMCID == searchTerm ||
-                    p.Phone == searchTerm || // TODO: need to refine this
-
-                    p.Users.Any(u => u.Name.Contains(searchTerm) && u.Active) ||
-                    p.Users.Any(u => u.Phone == searchTerm && u.Active) || // TODO: need to refine this
-                    p.Users.Any(u => u.Email == searchTerm && u.Active));
+                    DbFunctions.Like(p.ProjectName, formattedForName) ||
+                    DbFunctions.Like(p.DBA, formattedForName) ||
+                    DbFunctions.Like(p.OtherName, formattedForName) ||
+                    DbFunctions.Like(p.TIN, formattedForTIN) ||
+                    DbFunctions.Like(p.Phone, formattedForPhone) ||
+                    p.Users.Any(u => u.Email == searchTerm && u.Active) ||
+                    p.Users.Any(u => DbFunctions.Like(u.Name, formattedForName) && u.Active)||
+                    p.Users.Any(u => DbFunctions.Like(u.Phone, formattedForPhone) && u.Active));
 
             if (sortOrder == SortOrder.Descending)
             {

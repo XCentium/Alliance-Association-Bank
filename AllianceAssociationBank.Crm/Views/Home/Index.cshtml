@@ -50,7 +50,7 @@
 @section scripts
 {
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             // Projects search autocomplete
             $("#project-search").autocomplete({
@@ -86,8 +86,7 @@
                 minLength: 1,
                 focus: function (event, ui) {
                     event.preventDefault();
-
-                    this.value = ui.item.label;
+                    //this.value = ui.item.label;
                 },
                 select: function (event, ui) {
                     event.preventDefault();
@@ -108,9 +107,11 @@
                     location.href = "/Search/Results?term=" + this.value;
                 }
             });
+        });
 
         function handleAjaxError() {
             alert("An error occurred while processing your request");
         };
+
     </script>
 }

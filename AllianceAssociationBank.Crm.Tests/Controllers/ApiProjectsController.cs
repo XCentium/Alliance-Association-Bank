@@ -45,7 +45,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             };
             var searchTerm = "name";
             projectsRepoMock
-                .Setup(r => r.GetProjectsBySearchPhraseAsync(searchTerm, SortOrder.Ascending))
+                .Setup(r => r.GetProjectsBySearchTermAsync(searchTerm, SortOrder.Ascending))
                 .ReturnsAsync(projects);
 
             var results = await controller.Get(searchTerm);

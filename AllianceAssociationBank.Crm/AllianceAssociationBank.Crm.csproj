@@ -92,6 +92,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -261,6 +262,7 @@
     <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Core\Models\Aq2Reformat.cs" />
+    <Compile Include="Core\Services\DataProtectionService.cs" />
     <Compile Include="Extensions\HtmlExtensionsHelper.cs" />
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperButtonExtensions.cs" />
@@ -268,6 +270,7 @@
     <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
+    <Compile Include="Helpers\SearchTermFormatter.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />
     <Compile Include="Identity\IAuthenticationService.cs" />
     <Compile Include="Identity\SignInResult.cs" />

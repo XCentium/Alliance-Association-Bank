@@ -12,6 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -70,6 +71,9 @@ namespace AllianceAssociationBank.Crm.Controllers
                 var project = _mapper.Map<Project>(model);
                 _projects.AddProject(project);
                 await _projects.SaveAllAsync();
+
+                //DataProtectionScope.LocalMachine
+                //ProtectedData.Protect()
 
                 TempData[SAVED] = true;
                 return RedirectToAction(nameof(this.Edit), new { id = project.ID });
