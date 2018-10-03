@@ -5,6 +5,7 @@ using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Helpers;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Threading.Tasks;

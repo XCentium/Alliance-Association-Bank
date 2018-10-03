@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<ScannerFormViewModel>
 
-<table class="table table-sm mb-0">
+<table class="table table-sm table-fixed mb-0">
     <thead>
         <tr>
-            <th class="font-weight-normal text-muted border-0" scope="col">
+            <th class="font-weight-normal text-muted border-0 table-row-40" scope="col">
                 @Html.DisplayNameFor(m => m.FirstOrDefault().Model)
             </th>
-            <th class="font-weight-normal text-muted border-0" scope="col">
+            <th class="font-weight-normal text-muted border-0 table-row-35" scope="col">
                 @Html.DisplayNameFor(m => m.FirstOrDefault().DateInstalled)
             </th>
-            <th class="font-weight-normal border-0" scope="col"></th>
+            <th class="font-weight-normal border-0 table-row-25" scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
                 <td>
                     @Html.DisplayFor(m => scanner.DateInstalled)
                 </td>
-                <td class="text-right">
+                <td>
                     @Ajax.RouteLink(" ", routeName: CheckScannersControllerRoute.EditScanner, routeValues: new
                     {
                         projectId = scanner.ProjectID,

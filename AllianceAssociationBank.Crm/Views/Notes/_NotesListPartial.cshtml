@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<NoteFormViewModel>
 
-<table class="table table-sm mb-0">
+<table class="table table-no-header">
     <tbody>
         @foreach (var note in Model)
         {
@@ -45,7 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="border-top-0 pb-1 pt-0" colspan="2">
+                <td class="border-top-0 word-break pb-1 pt-0" colspan="2">
                     @Html.DisplayFor(m => note.NotePreview)
                 </td>
             </tr>

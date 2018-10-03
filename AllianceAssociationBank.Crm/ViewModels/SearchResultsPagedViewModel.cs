@@ -9,10 +9,18 @@ namespace AllianceAssociationBank.Crm.ViewModels
 {
     public class SearchResultsPagedViewModel : PagedListViewModel<ProjectFormViewModel>
     {
-        [Required]
         public string SearchTerm { get; set; }
 
         public string CurrentSort { get; set; }
+
+        public string ResultsLabel
+        {
+            get
+            {
+                var label = TotalItems == 1 ? "{0} Result" : "{0} Results";
+                return String.Format(label, TotalItems);
+            }
+        }
 
         public string SortOrderParam
         {

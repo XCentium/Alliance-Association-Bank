@@ -449,19 +449,19 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Consumer Debit (Web)")]
         public bool ConsumerDebitWeb { get; set; }
 
-        [Display(Name = "Dual Approval")]
-        public bool ACHDualApproval { get; set; } // TODO: need to find place for this field
+        [Display(Name = "ACH Dual Approval")]
+        public bool ACHDualApproval { get; set; }
 
-        [Display(Name = "One Time Passcode")]
-        public bool ACHOneTimePasscode { get; set; } // TODO: need to find place for this field
+        [Display(Name = "ACH One Time Passcode")]
+        public bool ACHOneTimePasscode { get; set; } 
 
-        [Display(Name = "Limit, Spec Submitted")]
+        [Display(Name = "ACH Limit & Spec Submitted")]
         public bool ACHLimitAndSpecSubmittedReadOnly
         {
             get { return ACHLimitAndSpecSubmitted; }
         }
 
-        [Display(Name = "Successfully Submitted")]
+        [Display(Name = "ACH Successfully Submitted")]
         public bool ACHSuccessfulSubmittedReadOnly
         {
             get { return ACHSuccessfulSubmitted; }

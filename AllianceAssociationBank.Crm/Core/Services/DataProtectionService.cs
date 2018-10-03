@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 
 namespace AllianceAssociationBank.Crm.Core.Services
@@ -9,6 +10,8 @@ namespace AllianceAssociationBank.Crm.Core.Services
     {
         public DataProtectionService()
         {
+            //DataProtectionScope.LocalMachine
+            //ProtectedData.Protect(
         }
     }
 }

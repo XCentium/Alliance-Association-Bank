@@ -1,79 +1,84 @@
 ﻿@model UsersPagedListViewModel
 
-<table class="table">
-    <thead class="table-sm">
-        <tr>
-            <th class="border-0" scope="col" colspan="4"></th>
-            <th class="font-weight-normal border-top-0 border-bottom" scope="col" colspan="2">Permissions</th>
-            <th class="font-weight-normal border-top-0 border-bottom" scope="col" colspan="3">Emails</th>
-            <th class="border-0" scope="col"></th>
-        </tr>
-        <tr>
-            <th class="font-weight-normal border-0" scope="col">Name</th>
-            <th class="font-weight-normal border-0" scope="col">Title</th>
-            <th class="font-weight-normal border-0" scope="col">Phone</th>
-            <th class="font-weight-normal border-0" scope="col">Email</th>
-            <th class="font-weight-normal border-0" scope="col">Active</th>
-            <th class="font-weight-normal border-0" scope="col">Adm</th>
-            <th class="font-weight-normal border-0" scope="col">Stmt</th>
-            <th class="font-weight-normal border-0" scope="col">Lockbox</th>
-            <th class="font-weight-normal border-0" scope="col">ACH</th>
-            <th class="font-weight-normal border-0" scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model.Items)
-        {
-            <tr class="border-bottom border-top border-left border-right">
-                <td>
-                    @Html.DisplayFor(m => user.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.Active)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.Admin)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.StatementEmail)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.LockboxEmail)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => user.ACHEmail)
-                </td>
-                <td class="text-center">
-                    @Ajax.RouteLink(" ", routeName: ProjectUsersControllerRoute.EditUser, routeValues: new
-                    {
-                        projectId = user.ProjectID,
-                        id = user.ID
-                    }, ajaxOptions: new AjaxOptions
-                    {
-                        HttpMethod = "GET",
-                        InsertionMode = InsertionMode.Replace,
-                        UpdateTargetId = "user-form-location",
-                        OnSuccess = "showModalTarget",
-                        OnFailure = "handleAjaxError"
-                    }, htmlAttributes: new
-                    {
-                        @class = "btn-img btn-edit-img",
-                        data_modal_target = "#user-form-modal"
-                    })
-                </td>
+<div id="project-users-list-content">
+    <table class="table table-fixed">
+        <thead class="table-sm">
+            <tr>
+                <th class="border-0 table-row-15" scope="col"></th>
+                <th class="border-0 table-row-20" scope="col"></th>
+                <th class="border-0 table-row-15" scope="col"></th>
+                <th class="border-0 table-row-20" scope="col"></th>
+                <th class="font-weight-normal border-top-0 border-bottom table-row-10" scope="col" colspan="2">Permissions</th>
+                <th class="font-weight-normal border-top-0 border-bottom table-row-15" scope="col" colspan="3">Emails</th>
+                <th class="border-0 table-row-5" scope="col"></th>
             </tr>
-        }
-    </tbody>
-</table>
+            <tr>
+                <th class="font-weight-normal border-0 text-center" scope="col">Name</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">Title</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">Phone</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">Email</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">Active</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">Adm</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">Stmt</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">Lockbox</th>
+                <th class="font-weight-normal border-0 text-center" scope="col">ACH</th>
+                <th class="font-weight-normal border-0 text-center" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Items)
+            {
+                <tr class="border-bottom border-top border-left border-right">
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.Name)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.Title)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.Phone)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.Email)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.Active)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.Admin)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.StatementEmail)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.LockboxEmail)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(m => user.ACHEmail)
+                    </td>
+                    <td class="text-center">
+                        @Ajax.RouteLink(" ", routeName: ProjectUsersControllerRoute.EditUser, routeValues: new
+                        {
+                            projectId = user.ProjectID,
+                            id = user.ID
+                        }, ajaxOptions: new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "user-form-location",
+                            OnSuccess = "showModalTarget",
+                            OnFailure = "handleAjaxError"
+                        }, htmlAttributes: new
+                        {
+                            @class = "btn-img btn-edit-img",
+                            data_modal_target = "#user-form-modal"
+                        })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 <div class="row">
 

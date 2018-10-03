@@ -119,8 +119,8 @@ textarea {
     margin-bottom: 40px;
 }
 
-.form-fieldset-lg {
-    margin-bottom: 40px;
+.form-fieldset-xl {
+    margin-bottom: 61px;
 }
 
 .form-input {
@@ -320,12 +320,25 @@ textarea {
     white-space: nowrap;
 }
 
+.table-no-header {
+    margin-bottom: 0;
+    padding: 4px;
+}
+
+.table-no-header tr:first-child td {
+    border-top: none;
+}
+
 .table-row-5 {
     width: 5%;
 }
 
 .table-row-10 {
     width: 10%;
+}
+
+.table-row-15 {
+    width: 15%;
 }
 
 .table-row-20 {
@@ -340,8 +353,24 @@ textarea {
     width: 30%;
 }
 
+.table-row-35 {
+    width: 35%;
+}
+
+.table-row-40 {
+    width: 40%;
+}
+
+.table-row-70 {
+    width: 70%;
+}
+
 .ui-autocomplete-loading {
     background: url('Images/search-loader.gif') no-repeat right center;
+}
+
+.word-break {
+    word-break: break-all;
 }
 
 #check-scanners-list {
@@ -361,6 +390,10 @@ textarea {
     height: 230px;
 }
 
+#project-users-list-content {
+    height: 400px;
+}
+
 #search-widget {
     border: 1px solid #ced4da;
     left: -395px;
@@ -372,8 +405,8 @@ textarea {
 }
 
 #search-results-content {
-    height: 71%;
-    margin-top: 25px;
+    height: 77%;
+    margin-top: 10px;
 }
 
 /* Disabled elements */

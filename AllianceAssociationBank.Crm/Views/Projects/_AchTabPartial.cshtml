@@ -63,6 +63,30 @@
 
             <div>
                 <div class="row">
+                    <label class="col form-label-heading">ACH Security</label>
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.ACHDualApproval)
+                    </div>
+                    @Html.LabelFor(m => m.ACHDualApproval, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.ACHOneTimePasscode)
+                    </div>
+                    @Html.LabelFor(m => m.ACHOneTimePasscode, new { @class = "col" })
+                </div>
+            </div>
+
+        </div>
+        @* First column end *@
+
+        @* Second column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset-xl">
+                <div class="row">
                     <label class="col form-label-heading">Limit</label>
                 </div>
                 <div class="row field-group">
@@ -105,17 +129,11 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-        @* First column end *@
-
-        @* Second column beginning *@
-        <div class="col-4">
-
+            
             <div class="row">
                 <div class="col-12">
                     @Html.LabelFor(m => m.ACHReviewNotes)
-                    @Html.RoleBasedTextAreaFor(m => m.ACHReviewNotes, 22, 10, cssClass: "form-textarea")
+                    @Html.RoleBasedTextAreaFor(m => m.ACHReviewNotes, 9, 10, cssClass: "form-textarea")
                 </div>
             </div>
 
