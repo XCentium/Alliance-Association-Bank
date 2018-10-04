@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,7 +20,10 @@ namespace AllianceAssociationBank.Crm
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new {
+                    controller = ControllerName.Home,
+                    action = HomeControllerAction.Index,
+                    id = UrlParameter.Optional }
             );
         }
     }

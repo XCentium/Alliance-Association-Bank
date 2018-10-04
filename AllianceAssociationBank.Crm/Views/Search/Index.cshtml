@@ -10,6 +10,9 @@
             @Html.Partial(SharedView.SideMenuPartial)
         </div>
     </div>
+    @*<div class="my-auto" style="margin-left: -50px;">
+        <a class="small" href="#">< Back to Record</a>
+    </div>*@
 
 </div>
 
@@ -22,7 +25,7 @@
 </div>
 
 <div id="search-results-content">
-  
+
     <div class="row mb-3">
         <div class="col-2 my-auto">
             <h5>@Html.DisplayFor(m => m.ResultsLabel)</h5>
@@ -111,42 +114,42 @@
             <ul class="pagination justify-content-center">
 
                 <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
-                   @Html.ActionLink("Previous", SearchControllerAction.Results, routeValues: new
-                   {
-                       term = Model.SearchTerm,
-                       page = Model.PreviousPageNumber,
-                       sort = Model.CurrentSort
-                   }, htmlAttributes: new
-                   {
-                       @class = "page-link"
-                   })
+                    @Html.ActionLink("Previous", SearchControllerAction.Results, routeValues: new
+                    {
+                        term = Model.SearchTerm,
+                        page = Model.PreviousPageNumber,
+                        sort = Model.CurrentSort
+                    }, htmlAttributes: new
+                    {
+                        @class = "page-link"
+                    })
                 </li>
                 @if (Model.ShowSecondPreviousPage)
                 {
                     <li class="page-item">
-                       @Html.ActionLink(Model.SecondPreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                       {
-                           term = Model.SearchTerm,
-                           page = Model.SecondPreviousPageNumber,
-                           sort = Model.CurrentSort
-                       }, htmlAttributes: new
-                       {
-                           @class = "page-link"
-                       })
+                        @Html.ActionLink(Model.SecondPreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.SecondPreviousPageNumber,
+                            sort = Model.CurrentSort
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
                     </li>
                 }
                 @if (Model.HasPreviousPage)
                 {
                     <li class="page-item">
-                       @Html.ActionLink(Model.PreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                       {
-                           term = Model.SearchTerm,
-                           page = Model.PreviousPageNumber,
-                           sort = Model.CurrentSort
-                       }, htmlAttributes: new
-                       {
-                           @class = "page-link"
-                       })
+                        @Html.ActionLink(Model.PreviousPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.PreviousPageNumber,
+                            sort = Model.CurrentSort
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
                     </li>
                 }
                 <li class="page-item active">
@@ -155,41 +158,41 @@
                 @if (Model.HasNextPage)
                 {
                     <li class="page-item">
-                       @Html.ActionLink(Model.NextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                       {
-                           term = Model.SearchTerm,
-                           page = Model.NextPageNumber,
-                           sort = Model.CurrentSort
-                       }, htmlAttributes: new
-                       {
-                           @class = "page-link"
-                       })
+                        @Html.ActionLink(Model.NextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.NextPageNumber,
+                            sort = Model.CurrentSort
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
                     </li>
                 }
                 @if (Model.ShowSecondNextPage)
                 {
                     <li class="page-item">
-                       @Html.ActionLink(Model.SecondNextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
-                       {
-                           term = Model.SearchTerm,
-                           page = Model.SecondNextPageNumber,
-                           sort = Model.CurrentSort
-                       }, htmlAttributes: new
-                       {
-                           @class = "page-link"
-                       })
+                        @Html.ActionLink(Model.SecondNextPageNumber.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.SecondNextPageNumber,
+                            sort = Model.CurrentSort
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
                     </li>
                 }
                 <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
-                   @Html.ActionLink("Next", SearchControllerAction.Results, routeValues: new
-                   {
-                       term = Model.SearchTerm,
-                       page = Model.NextPageNumber,
-                       sort = Model.CurrentSort
-                   }, htmlAttributes: new
-                   {
-                       @class = "page-link"
-                   })
+                    @Html.ActionLink("Next", SearchControllerAction.Results, routeValues: new
+                    {
+                        term = Model.SearchTerm,
+                        page = Model.NextPageNumber,
+                        sort = Model.CurrentSort
+                    }, htmlAttributes: new
+                    {
+                        @class = "page-link"
+                    })
                 </li>
 
             </ul>
@@ -202,59 +205,11 @@
 
 @section scripts
 {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
 
     <script>
 
         $(document).ready(function () {
-
-            // Projects search autocomplete
-            $("#project-search").autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "/api/Projects",
-                        method: "GET",
-                        dataType: "json",
-                        data: {
-                            search: request.term
-                        },
-                        success: function (data) {
-                            if (data.length > 0) {
-                                response($.map(data, function (item) {
-                                    return {
-                                        label: item.name,
-                                        value: item.id
-                                    };
-                                }));
-                            } else {
-                                response([{
-                                    label: 'No results found',
-                                    value: -1
-                                }]);
-                            }
-                        },
-                        error: function () {
-                            handleAjaxError();
-                            response([]);
-                        }
-                    });
-                },
-                minLength: 1,
-                focus: function (event, ui) {
-                    event.preventDefault();
-                    //this.value = ui.item.label;
-                },
-                select: function (event, ui) {
-                    event.preventDefault();
-
-                    if (ui.item.value === -1) {
-                        $(this).val("");
-                    } else {
-                        this.value = ui.item.label;
-                        location.href = "/Projects/Edit/" + ui.item.value;
-                    }
-                }
-            });
 
             $('[data-toggle="slide-collapse-right"]').on("click", function () {
                 var $toggleTarget = $($(this).data("target"));

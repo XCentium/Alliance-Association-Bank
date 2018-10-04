@@ -17,7 +17,7 @@
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Return to Form</button>
-                @Html.ActionLink("Close Form", "Index", "Home", routeValues: null, htmlAttributes: new
+                @Html.ActionLink("Close Form", HomeControllerAction.Index, ControllerName.Home, routeValues: null, htmlAttributes: new
                 {
                     @class = "btn btn-primary"
                 })

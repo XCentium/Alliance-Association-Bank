@@ -246,6 +246,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Constants\Home\HomeView.cs" />
+    <Compile Include="Constants\Home\HomeControllerAction.cs" />
     <Compile Include="Constants\Notes\NotesView.cs" />
     <Compile Include="Constants\Notes\NotesControllerAction.cs" />
     <Compile Include="Constants\Notes\NotesControllerRoute.cs" />

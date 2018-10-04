@@ -19,16 +19,11 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        @*<hr />
-        <footer class="small text-secondary">
-            <p>&copy; @DateTime.Now.Year - Alliance Association Bank CRM</p>
-        </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/popper")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryui")
     @RenderSection("scripts", required: false)
 </body>
 </html>

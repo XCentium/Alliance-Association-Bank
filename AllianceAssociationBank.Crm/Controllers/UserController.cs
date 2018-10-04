@@ -5,6 +5,7 @@ using AllianceAssociationBank.Crm.Identity;
 using AllianceAssociationBank.Crm.ViewModels;
 using AllianceAssociationBank.Crm.Constants;
 using System;
+using AllianceAssociationBank.Crm.Constants.Home;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -59,7 +60,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                return RedirectToAction("Index", ControllerName.Home);
+                return RedirectToAction(HomeControllerAction.Index, ControllerName.Home);
             }
 
             ViewBag.ReturnUrl = returnUrl;
@@ -119,7 +120,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignOut(AuthenticationType.CrmApplicationCookie);
-            return RedirectToAction("Index", ControllerName.Home);
+            return RedirectToAction(HomeControllerAction.Index, ControllerName.Home);
         }
 
         //protected override void Dispose(bool disposing)
@@ -157,7 +158,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", ControllerName.Home);
+            return RedirectToAction(HomeControllerAction.Index, ControllerName.Home);
         }
         #endregion
     }

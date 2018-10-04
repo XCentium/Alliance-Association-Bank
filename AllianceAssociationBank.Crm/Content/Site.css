@@ -280,7 +280,7 @@ textarea {
 }
 
 .plain-link:hover {
-    color: #373a3c;
+    color: inherit;
     text-decoration: none;
 }
 
