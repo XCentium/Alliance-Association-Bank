@@ -38,18 +38,20 @@ namespace AllianceAssociationBank.Crm.Controllers
             _mapper = mapper;
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         public async Task<ActionResult> Create()
         {
             ViewBag.Title = "Create Project";
 
             var model = new ProjectFormViewModel();
             await PopulateDropDownLists(model);
+            // Default Start Date to today on create
+            model.StartDate = DateTime.Today;
 
             return View(ProjectsView.ProjectForm, model);
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectFormViewModel model)
@@ -107,7 +109,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(ProjectFormViewModel model)

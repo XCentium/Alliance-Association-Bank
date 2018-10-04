@@ -33,7 +33,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(CheckScannersView.ScannersListPartial, _mapper.Map<Collection<ScannerFormViewModel>>(scanners));
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Create", Name = CheckScannersControllerRoute.CreateScanner)]
         public ActionResult Create(int projectId)
         {
@@ -49,7 +49,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Create", Name = CheckScannersControllerRoute.CreateScannerHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -97,7 +97,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Update/{id}", Name = CheckScannersControllerRoute.UpdateScanner)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -128,7 +128,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Delete/{id}", Name = CheckScannersControllerRoute.ConfirmDeleteScanner)]
         public ActionResult ConfirmDelete(int projectId, int id)
         {
@@ -144,7 +144,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(SharedView.ConfirmDeleteDialogPartial, model);
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Delete/{id}", Name = CheckScannersControllerRoute.DeleteScanner)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int projectId, int id)

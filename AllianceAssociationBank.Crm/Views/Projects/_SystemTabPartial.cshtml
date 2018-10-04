@@ -1,0 +1,159 @@
+﻿@model ProjectFormViewModel
+
+<div class="tab-body-content">
+
+    <div class="row">
+
+        @* First column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">Digital Insight</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.DICompanyID, new { @class = "col-3 label-indented" })
+                    <div class="col-8">
+                        @Html.RoleBasedEditorFor(m => m.DICompanyID, "form-input")
+                        @Html.ValidationMessageFor(m => m.DICompanyID, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+                <div class="row">
+                    @Html.LabelFor(m => m.InstitutionReadOnly, new { @class = "col-3 label-indented" })
+                    <div class="col-8">
+                        <span class="display-field">
+                            @Html.DisplayFor(m => m.InstitutionReadOnly)
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.OnlineBankingSetupReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.OnlineBankingSetupReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.OnlineBankingTrainedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.OnlineBankingTrainedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.ACHPassThru)
+                    </div>
+                    @Html.LabelFor(m => m.ACHPassThru, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.ACHBatches)
+                    </div>
+                    @Html.LabelFor(m => m.ACHBatches, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.WireTransferTemplates)
+                    </div>
+                    @Html.LabelFor(m => m.WireTransferTemplates, new { @class = "col" })
+                </div>
+            </div>
+
+        </div>
+        @* First column end *@
+
+        @* Second column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">SFTP</label>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.SftpFolderNameReadOnly, new { @class = "col-4 label-indented" })
+                    <div class="col-8">
+                        <span class="display-field">
+                            @Html.DisplayFor(m => m.SftpFolderNameReadOnly)
+                        </span>
+                    </div>
+                </div>
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.SftpGeneralUserPasswordReadOnly, new { @class = "col-4 label-indented" })
+                    <div class="col-8">
+                        <span class="display-field">
+                            @Html.DisplayFor(m => m.SftpGeneralUserPasswordReadOnly)
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    @Html.LabelFor(m => m.SftpUsage, new { @class = "col label-indented" })
+                    <div class="col-11 pl-4">
+                        @Html.RoleBasedTextAreaFor(m => m.SftpUsage, 3, 10, cssClass: "form-textarea")
+                        @Html.ValidationMessageFor(m => m.SftpUsage, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <label class="col form-label-heading">Validation File</label>
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.ValidationFileReceivedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.ValidationFileReceivedReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.ValidationFileAutomaticRegularReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.ValidationFileAutomaticRegularReadOnly, new { @class = "col" })
+                </div>
+                <div class="row">
+                    <div class="col-1 check-indented">
+                        @Html.DisplayFor(m => m.ValidationFileBulkImporterUsedReadOnly)
+                    </div>
+                    @Html.LabelFor(m => m.ValidationFileBulkImporterUsedReadOnly, new { @class = "col" })
+                </div>
+            </div>
+
+        </div>
+        @* Second column end *@
+
+        @* Third column beginning *@
+        <div class="col-4">
+
+            <div class="form-fieldset-lg">
+                <div class="row">
+                    <div class="col-10">
+                        @Html.LabelFor(m => m.ACHReportLaruName)
+                        @Html.RoleBasedEditorFor(m => m.ACHReportLaruName, cssClass: "form-input")
+                        @Html.ValidationMessageFor(m => m.ACHReportLaruName, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    @Html.LabelFor(m => m.Balanced, new { @class = "col-10" })
+                    <div class="col-8 offset-2">
+                        <div class="form-check">
+                            @Html.RoleBasedRadioButtonFor(m => m.Balanced, true, cssClass: "form-check-input")
+                            <label class="form-check-label">Balanced</label>
+                        </div>
+                        <div class="form-check">
+                            @Html.RoleBasedRadioButtonFor(m => m.Balanced, false, cssClass: "form-check-input")
+                            <label class="form-check-label">Unbalanced</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        @* Third column end *@
+
+    </div>
+
+</div>

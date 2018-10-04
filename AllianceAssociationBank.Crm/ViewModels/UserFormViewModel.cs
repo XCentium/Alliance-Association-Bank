@@ -89,7 +89,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "General Notes")]
         public string Notes { get; set; }
 
-        [StringLength(255)] // TODO: need to increase size on this note?
+        [StringLength(255)]
         [Display(Name = "Remote Deposit Account Notes")]
         public string RemoteScannerAccountNotes { get; set; }
 

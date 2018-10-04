@@ -223,11 +223,11 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string SftpGeneralUserPassword { get; set; }
 
-        public bool? ACHPassThru { get; set; }
+        public bool/*?*/ ACHPassThru { get; set; }
 
-        public bool? ACHBatches { get; set; }
+        public bool/*?*/ ACHBatches { get; set; }
 
-        public bool? WireTransferTemplates { get; set; }
+        public bool/*?*/ WireTransferTemplates { get; set; }
 
         public decimal? ACHEstimatedDeposits { get; set; }
 
@@ -295,7 +295,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string ACHReportLaruName { get; set; }
 
-        public bool? Balanced { get; set; }
+        public bool/*?*/ Balanced { get; set; }
 
         public DateTime? LockboxLiveDate { get; set; }
 

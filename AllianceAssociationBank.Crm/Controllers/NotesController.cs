@@ -36,7 +36,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(NotesView.NotesListPartial, _mapper.Map<Collection<NoteFormViewModel>>(notes));
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Create", Name = NotesControllerRoute.CreateNote)]
         public ActionResult Create(int projectId)
         {
@@ -52,7 +52,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(NotesView.NoteFormPartial, viewModel);
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Create", Name = NotesControllerRoute.CreateNoteHttpPost)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -103,7 +103,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Update/{id}", Name = NotesControllerRoute.UpdateNote)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -134,7 +134,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Delete/{id}", Name = NotesControllerRoute.ConfirmDeleteNote)]
         public ActionResult ConfirmDelete(int projectId, int id)
         {
@@ -150,7 +150,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return PartialView(SharedView.ConfirmDeleteDialogPartial, model);
         }
 
-        [Authorize(Roles = UserRoleName.ReadWriteUser)]
+        [Authorize(Roles = UserRole.EditAccessRoles)]
         [Route("Delete/{id}", Name = NotesControllerRoute.DeleteNote)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int projectId, int id)

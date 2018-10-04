@@ -184,12 +184,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Start Date")]
+        [Display(Name = "Start")]
         public DateTime? StartDate { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "End Date")]
+        [Display(Name = "End")]
         public DateTime? EndDate { get; set; }
 
         [Display(Name = "Enroll. Form Rec'd")]
@@ -411,7 +411,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "By Association")]
         public bool ReformatByAssoc { get; set; }
 
-        [Display(Name = "Validation Bulk Importer Used")]
+        [Display(Name = "Bulk Importer Used")]
         public bool ValidationFileBulkImporterUsedReadOnly
         {
             get { return ValidationFileBulkImporterUsed; }
@@ -499,6 +499,68 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [Display(Name = "SPEC FORM INSTRUCTIONS")]
         public string ACHSpectFormInstructions { get; set; }
+
+        // System Tab
+
+        [Display(Name = "Corp ID")]
+        [StringLength(255)]
+        public string DICompanyID { get; set; }
+
+        [Display(Name = "Bank")]
+        public string InstitutionReadOnly
+        {
+            get { return Institution; }
+        }
+
+        [Display(Name = "Online Banking Set-up")]
+        public bool OnlineBankingSetupReadOnly
+        {
+            get { return OnlineBankingSetup; }
+        }
+
+        [Display(Name = "Online Banking Trained")]
+        public bool OnlineBankingTrainedReadOnly
+        {
+            get { return OnlineBankingTrained; }
+        }
+
+        [Display(Name = "ACH PassThru / Upload")]
+        public bool ACHPassThru { get; set; }
+
+        [Display(Name = "ACH Batches / Template")]
+        public bool ACHBatches { get; set; }
+
+        [Display(Name = "Wire Transfer Templates")]
+        public bool WireTransferTemplates { get; set; }
+
+        [Display(Name = "Folder Name")]
+        public string SftpFolderNameReadOnly
+        {
+            get { return SftpFolderName;  }
+        }
+
+        [Display(Name = "AAB SFTP")]
+        public string SftpGeneralUserPasswordReadOnly
+        {
+            get { return SftpGeneralUserPassword; }
+        }
+
+        [Display(Name = "USAGE")]
+        [StringLength(255)]
+        public string SftpUsage { get; set; }
+
+        [Display(Name = "Automatic / Regular")]
+        public bool ValidationFileAutomaticRegularReadOnly
+        {
+            get { return ValidationFileAutomaticRegular; }
+        }
+
+        [Display(Name = "ACH Report Lara Name")]
+        [StringLength(255)]
+        public string ACHReportLaruName { get; set; }
+
+        [Display(Name = "File Type")]
+        public bool Balanced { get; set; }
 
 
 

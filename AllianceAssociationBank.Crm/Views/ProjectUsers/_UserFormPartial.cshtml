@@ -179,6 +179,7 @@
                                 <div class="col-11">
                                     @Html.LabelFor(m => m.RemoteScannerAccountNotes)
                                     @Html.RoleBasedTextAreaFor(m => m.RemoteScannerAccountNotes, 3, 10, "form-textarea")
+                                    @Html.ValidationMessageFor(m => m.RemoteScannerAccountNotes, "", new { @class = "form-error-msg" })
                                 </div>
                             </div>
                         </div>
