@@ -120,43 +120,43 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string ScannlineNotes { get; set; }
 
-        public bool/*?*/ EnrollmentFormReceived { get; set; }
+        public bool? EnrollmentFormReceived { get; set; }
 
-        public bool/*?*/ MasterSigCardReceived { get; set; }
+        public bool? MasterSigCardReceived { get; set; }
 
-        public bool/*?*/ WelcomeEmailSent { get; set; }
+        public bool? WelcomeEmailSent { get; set; }
 
-        public bool/*?*/ AssociationListReceived { get; set; }
+        public bool? AssociationListReceived { get; set; }
 
-        public bool/*?*/ AssociationAccountsAssigned { get; set; }
+        public bool? AssociationAccountsAssigned { get; set; }
 
         public bool? MgmtCompanyAgreemetnsReceived { get; set; }
 
-        public bool/*?*/ AssociationSignatureCardsSent { get; set; }
+        public bool? AssociationSignatureCardsSent { get; set; }
 
-        public bool/*?*/ LockboxWanted { get; set; }
+        public bool? LockboxWanted { get; set; }
 
-        public bool/*?*/ ValidationFileReceived { get; set; }
+        public bool? ValidationFileReceived { get; set; }
 
-        public bool/*?*/ ValidationFileAutomaticRegular { get; set; }
+        public bool? ValidationFileAutomaticRegular { get; set; }
 
         public string ValidationFileNotes { get; set; }
 
-        public bool/*?*/ ValidationFileBulkImporterUsed { get; set; }
+        public bool? ValidationFileBulkImporterUsed { get; set; }
 
         public string CouponPrintingNotes { get; set; }
 
-        public bool/*?*/ RemitanceFileTested { get; set; }
+        public bool? RemitanceFileTested { get; set; }
 
-        public bool/*?*/ RemitanceFileLife { get; set; }
+        public bool? RemitanceFileLife { get; set; }
 
-        public bool/*?*/ LockboxRequestSent { get; set; }
+        public bool? LockboxRequestSent { get; set; }
 
-        public bool/*?*/ POBoxAssigned { get; set; }
+        public bool? POBoxAssigned { get; set; }
 
-        public bool/*?*/ ScannerWanted { get; set; }
+        public bool? ScannerWanted { get; set; }
 
-        public bool/*?*/ MMOnCheckScanner { get; set; }
+        public bool? MMOnCheckScanner { get; set; }
 
         public bool? ScannerSent { get; set; }
 
@@ -164,17 +164,17 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool? ScannerLive { get; set; }
 
-        public bool/*?*/ ACHLimitAndSpecSubmitted { get; set; }
+        public bool? ACHLimitAndSpecSubmitted { get; set; }
 
-        public bool/*?*/ ACHSuccessfulSubmitted { get; set; }
+        public bool? ACHSuccessfulSubmitted { get; set; }
 
-        public bool/*?*/ OnlineBankingSetup { get; set; }
+        public bool? OnlineBankingSetup { get; set; }
 
-        public bool/*?*/ OnlineBankingTrained { get; set; }
+        public bool? OnlineBankingTrained { get; set; }
 
-        public bool/*?*/ CouponsOrdered { get; set; }
+        public bool? CouponsOrdered { get; set; }
 
-        public bool/*?*/ CouponProofReviewed { get; set; }
+        public bool? CouponProofReviewed { get; set; }
 
         [StringLength(255)]
         public string CouponVender { get; set; }
@@ -182,15 +182,15 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string CouponVenderNumber { get; set; }
 
-        public bool/*?*/ DirectDepositPayroll { get; set; }
+        public bool? DirectDepositPayroll { get; set; }
 
-        public bool/*?*/ DirectDebitCollection { get; set; }
+        public bool? DirectDebitCollection { get; set; }
 
-        public bool/*?*/ DirectCreditPayments { get; set; }
+        public bool? DirectCreditPayments { get; set; }
 
-        public bool/*?*/ DirectDebitBusinessCCD { get; set; }
+        public bool? DirectDebitBusinessCCD { get; set; }
 
-        public bool/*?*/ ConsumerDebitWeb { get; set; }
+        public bool? ConsumerDebitWeb { get; set; }
 
         [StringLength(255)]
         public string ScannerModel { get; set; }
@@ -223,11 +223,11 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string SftpGeneralUserPassword { get; set; }
 
-        public bool/*?*/ ACHPassThru { get; set; }
+        public bool? ACHPassThru { get; set; }
 
-        public bool/*?*/ ACHBatches { get; set; }
+        public bool? ACHBatches { get; set; }
 
-        public bool/*?*/ WireTransferTemplates { get; set; }
+        public bool? WireTransferTemplates { get; set; }
 
         public decimal? ACHEstimatedDeposits { get; set; }
 
@@ -247,9 +247,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string ACHReviewOfHistoricPerformance { get; set; }
 
-        public bool/*?*/ ACHDualApproval { get; set; }
+        public bool? ACHDualApproval { get; set; }
 
-        public bool/*?*/ ACHOneTimePasscode { get; set; }
+        public bool? ACHOneTimePasscode { get; set; }
 
         [StringLength(255)]
         public string StatementEmail { get; set; }
@@ -265,14 +265,14 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string CIPReviewed { get; set; }
 
-        public bool/*?*/ CIPGood { get; set; }
+        public bool? CIPGood { get; set; }
 
         public bool? HasCorporateAccounts { get; set; }
 
         [StringLength(255)]
         public string CorporateAccounts { get; set; }
 
-        public bool/*?*/ XmlAutoReconSetup { get; set; }
+        public bool? XmlAutoReconSetup { get; set; }
 
         public bool? XmlAutoReconConfirmedUse { get; set; }
 
@@ -295,7 +295,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string ACHReportLaruName { get; set; }
 
-        public bool/*?*/ Balanced { get; set; }
+        public bool? Balanced { get; set; }
 
         public DateTime? LockboxLiveDate { get; set; }
 
@@ -305,9 +305,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(50)]
         public string LockboxSystem { get; set; }
 
-        public bool/*?*/ SftpWithFile { get; set; }
+        public bool? SftpWithFile { get; set; }
 
-        public bool/*?*/ SftpManual { get; set; }
+        public bool? SftpManual { get; set; }
 
         [StringLength(100)]
         public string SftpPath { get; set; }
@@ -316,9 +316,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public int? ReformatECPID { get; set; }
 
-        public bool/*?*/ ReformatByAssoc { get; set; }
+        public bool? ReformatByAssoc { get; set; }
 
-        //public int? MigratingToSoftwareID { get; set; }
+
         [StringLength(255)]
         public string MigratingToSoftware { get; set; }
 

@@ -15,7 +15,7 @@ namespace AllianceAssociationBank.Crm.Core.Services
 {
     public class DataExportService : IDataExportService
     {
-        private const string _csvContentType = "text/csv";
+        private const string CSV_CONTENT_TYPE = "text/csv";
 
         private IReportQueries _queries;
 
@@ -42,7 +42,7 @@ namespace AllianceAssociationBank.Crm.Core.Services
             streamWriter.Flush();
             memoryStream.Position = 0;
 
-            var exportFile = new FileStreamResult(memoryStream, _csvContentType);
+            var exportFile = new FileStreamResult(memoryStream, CSV_CONTENT_TYPE);
             exportFile.FileDownloadName = $"{exportName}.csv";
 
             return exportFile;

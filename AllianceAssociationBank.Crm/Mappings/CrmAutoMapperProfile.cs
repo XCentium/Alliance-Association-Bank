@@ -14,6 +14,9 @@ namespace AllianceAssociationBank.Crm.Mappings
     {
         public CrmAutoMapperProfile()
         {
+            // Default rule to map nullable boolean to boolean as false
+            CreateMap<bool?, bool>().ConstructUsing(b => b ?? false);
+
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
 

@@ -181,6 +181,8 @@ exec sp_rename 'Users.Lockbox Web', 'LockboxWeb', 'COLUMN';
 exec sp_rename 'Users.E Deposit', 'EDeposit', 'COLUMN';
 exec sp_rename 'Users.RemoteScannerAcctNotes', 'RemoteScannerAccountNotes', 'COLUMN';
 exec sp_rename 'Users.AuthorizedOpenClose', 'AuthorizedToOpenClose', 'COLUMN';
+
+ALTER TABLE [dbo].[Users] ALTER COLUMN Active BIT NOT NULL
 ALTER TABLE [dbo].[Users] ADD EnrollmentFormAuthorization BIT NOT NULL CONSTRAINT DF_Users_EnrollmentFormAuthorization DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD EmailAuthorization BIT NOT NULL CONSTRAINT DF_Users_EmailAuthorization DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD StatementEmail BIT NOT NULL CONSTRAINT DF_Users_StatementEmail DEFAULT (0)
