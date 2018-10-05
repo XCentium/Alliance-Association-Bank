@@ -57,12 +57,15 @@
         </div>
         <div class="pb-2">
             @Html.RouteLink("CD Emails", routeName: ReportsControllerRoute.ViewReport, routeValues: new
-       {
-           name = ReportName.CDEmails
-       })
+            {
+                name = ReportName.CDEmails
+            })
         </div>
         <div class="pb-2">
-            <a href="#">Coupon</a>
+            @Html.RouteLink("Coupon", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+            {
+                name = ReportName.Coupon
+            })
         </div>
     </div>
     <div class="col-2">

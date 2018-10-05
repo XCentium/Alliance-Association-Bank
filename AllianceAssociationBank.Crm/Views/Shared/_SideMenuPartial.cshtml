@@ -51,12 +51,15 @@
             </div>
             <div class="nav-item px-3 py-1 border border-bottom-0">
                 @Html.RouteLink("CD Emails", routeName: ReportsControllerRoute.ViewReport, routeValues: new
-           {
-               name = ReportName.CDEmails
-           })
+                {
+                    name = ReportName.CDEmails
+                })
             </div>
             <div class="nav-item px-3 py-1 border">
-                <a href="#">Coupon</a>
+                @Html.RouteLink("Coupon", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                {
+                    name = ReportName.Coupon
+                })
             </div>
         </div>
 

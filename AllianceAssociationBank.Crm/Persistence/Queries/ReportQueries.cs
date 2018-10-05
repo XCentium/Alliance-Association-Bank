@@ -93,6 +93,13 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             .ThenBy(p => p.ProjectName);
         }
 
+        public async Task<IEnumerable<Project>> GetCouponDataSetAsync()
+        {
+            return await _context.Projects
+                .OrderBy(p => p.ProjectName)
+                .ToListAsync();
+        }
+
 
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
         {
