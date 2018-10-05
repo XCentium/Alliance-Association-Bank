@@ -5,6 +5,7 @@ using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Filters;
+using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -26,7 +27,6 @@ namespace AllianceAssociationBank.Crm.Controllers
         private IProjectUserRepository _userRepository;
         private IMapper _mapper;
 
-        private const string EMAIL_SEPARATOR = "; ";
         private const int PAGE_SIZE = 5;
 
         public ProjectUsersController(IProjectUserRepository userRepository, IMapper mapper)
@@ -160,7 +160,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     .Select(u => u.Email);
 
                 ViewBag.ListName = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(emailList);
-                ViewBag.EmailList = string.Join(EMAIL_SEPARATOR, emails);
+                ViewBag.EmailList = EmailListHelper.Concatenate(emails);
 
                 return PartialView(ProjectUsersView.UsersEmailListDialogPartial);
             }

@@ -38,13 +38,22 @@
                 })
             </div>
             <div class="nav-item px-3 py-1 border border-bottom-0">
-                <a href="#">CMC by ID</a>
+                @Html.RouteLink("CMC by ID", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                {
+                    name = ReportName.CmcById
+                })
             </div>
             <div class="nav-item px-3 py-1 border border-bottom-0">
-                <a href="#">CMC by Name</a>
+                @Html.RouteLink("CMC by Name", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                {
+                    name = ReportName.CmcByName
+                })
             </div>
             <div class="nav-item px-3 py-1 border border-bottom-0">
-                <a href="#">CD Emails</a>
+                @Html.RouteLink("CD Emails", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+           {
+               name = ReportName.CDEmails
+           })
             </div>
             <div class="nav-item px-3 py-1 border">
                 <a href="#">Coupon</a>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Models;
 
 namespace AllianceAssociationBank.Crm.Core.Interfaces
@@ -10,6 +11,8 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<Project>> GetCompletedAndHoldDataSetAsync();
         Task<IEnumerable<Project>> GetSoftwareTransitionDataSetAsync();
         Task<IEnumerable<Project>> GetCmcByIdDataSetAsync();
+        Task<IEnumerable<Project>> GetCmcByNameDataSetAsync();
+        Task<IEnumerable<CDEmailsDatasetDto>> GetCDEmailsDataSetAsync();
         Task<IEnumerable<Employee>> GetEmployeesDataSetAsync();
         Task<IEnumerable<Software>> GetSoftwareDataSetAsync();
     }

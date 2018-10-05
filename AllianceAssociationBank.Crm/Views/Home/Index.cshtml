@@ -25,19 +25,63 @@
 <div class="row py-4">
     <div class="col-2 offset-5">
         <label class="pb-1">REPORTS</label>
-        <div class="pb-2">@Html.RouteLink("Boarding", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.Boarding })</div>
-        <div class="pb-2">@Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.CompletedAndHold })</div>
-        <div class="pb-2">@Html.RouteLink("Software Transition", routeName: ReportsControllerRoute.ViewReport, routeValues: new { name = ReportName.SoftwareTransition })</div>
-        <div class="pb-2"><a href="#">CMC by ID</a></div>
-        <div class="pb-2"><a href="#">CMC by Name</a></div>
-        <div class="pb-2"><a href="#">CD Emails</a></div>
-        <div class="pb-2"><a href="#">Coupon</a></div>
+        <div class="pb-2">
+            @Html.RouteLink("Boarding", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+            {
+                name = ReportName.Boarding
+            })
+        </div>
+        <div class="pb-2">
+            @Html.RouteLink("Completed & Hold", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+            {
+                name = ReportName.CompletedAndHold
+            })
+        </div>
+        <div class="pb-2">
+            @Html.RouteLink("Software Transition", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+            {
+                name = ReportName.SoftwareTransition
+            })
+        </div>
+        <div class="pb-2">
+            @Html.RouteLink("CMC by ID", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+            {
+                name = ReportName.CmcById
+            })
+        </div>
+        <div class="pb-2">
+            @Html.RouteLink("CMC by Name", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+            {
+                name = ReportName.CmcByName
+            })
+        </div>
+        <div class="pb-2">
+            @Html.RouteLink("CD Emails", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+       {
+           name = ReportName.CDEmails
+       })
+        </div>
+        <div class="pb-2">
+            <a href="#">Coupon</a>
+        </div>
     </div>
     <div class="col-2">
         <label class="pb-1">EXPORTS</label>
-        <div class="pb-2">@Html.RouteLink("CMC List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcList })</div>
-        <div class="pb-2">@Html.RouteLink("CMC Useful Info List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new { name = ExportName.CmcUsefulInfoList })</div>
-        <div class="pb-2"><a href="#">All info</a></div>
+        <div class="pb-2">
+            @Html.RouteLink("CMC List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new
+            {
+                name = ExportName.CmcList
+            })
+        </div>
+        <div class="pb-2">
+            @Html.RouteLink("CMC Useful Info List", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new
+            {
+                name = ExportName.CmcUsefulInfoList
+            })
+        </div>
+        <div class="pb-2">
+            <a href="#">All info</a>
+        </div>
     </div>
 </div>
 

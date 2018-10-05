@@ -41,7 +41,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string Authorization { get; set; }
 
-        public bool? Admin { get; set; }
+        public bool Admin { get; set; }
 
         public bool? CorpOnlineUser { get; set; }
 

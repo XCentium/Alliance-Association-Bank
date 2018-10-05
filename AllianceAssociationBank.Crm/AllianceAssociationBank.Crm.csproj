@@ -257,6 +257,7 @@
     <Compile Include="Constants\User\UserFilterValue.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Core\Dtos\CDEmailsDatasetDto.cs" />
     <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
@@ -271,6 +272,7 @@
     <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
+    <Compile Include="Helpers\EmailDistributionList.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />
     <Compile Include="Identity\IAuthenticationService.cs" />
@@ -352,6 +354,9 @@
     <Compile Include="Persistence\Repositories\ReformatRepository.cs" />
     <Compile Include="Persistence\Repositories\SoftwareRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ReportsDataSet.cs">
+      <DependentUpon>ReportsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -455,7 +460,6 @@
     <Content Include="Reports\ReportsDataSet.xss">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -567,6 +571,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\CD-Emails.rdlc" />
+    <EmbeddedResource Include="Reports\CMC-By-Name.rdlc" />
+    <EmbeddedResource Include="Reports\CMC-By-ID.rdlc" />
     <EmbeddedResource Include="Reports\Software-Transition.rdlc" />
     <EmbeddedResource Include="Reports\Completed-And-Hold.rdlc" />
     <EmbeddedResource Include="Reports\Boarding.rdlc" />

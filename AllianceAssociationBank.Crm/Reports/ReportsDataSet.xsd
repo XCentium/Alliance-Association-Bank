@@ -1131,6 +1131,33 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="CDEmailsDataset" msprop:Generator_TableClassName="CDEmailsDatasetDataTable" msprop:Generator_TableVarName="tableCDEmailsDataset" msprop:Generator_RowChangedName="CDEmailsDatasetRowChanged" msprop:Generator_TablePropName="CDEmailsDataset" msprop:Generator_RowDeletingName="CDEmailsDatasetRowDeleting" msprop:Generator_RowChangingName="CDEmailsDatasetRowChanging" msprop:Generator_RowEvHandlerName="CDEmailsDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="CDEmailsDatasetRowDeleted" msprop:Generator_RowClassName="CDEmailsDatasetRow" msprop:Generator_UserTableName="CDEmailsDataset" msprop:Generator_RowEvArgName="CDEmailsDatasetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProjectName" msprop:Generator_ColumnVarNameInTable="columnProjectName" msprop:Generator_ColumnPropNameInRow="ProjectName" msprop:Generator_ColumnPropNameInTable="ProjectNameColumn" msprop:Generator_UserColumnName="ProjectName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LockboxCMCID" msprop:Generator_ColumnVarNameInTable="columnLockboxCMCID" msprop:Generator_ColumnPropNameInRow="LockboxCMCID" msprop:Generator_ColumnPropNameInTable="LockboxCMCIDColumn" msprop:Generator_UserColumnName="LockboxCMCID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatementEmails" msdata:Caption="StatementEmail" msprop:Generator_ColumnVarNameInTable="columnStatementEmails" msprop:Generator_ColumnPropNameInRow="StatementEmails" msprop:Generator_ColumnPropNameInTable="StatementEmailsColumn" msprop:Generator_UserColumnName="StatementEmails" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">

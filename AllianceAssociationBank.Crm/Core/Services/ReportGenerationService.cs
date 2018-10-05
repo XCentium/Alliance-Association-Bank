@@ -72,6 +72,23 @@ namespace AllianceAssociationBank.Crm.Core.Services
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Software, (await _queries.GetSoftwareDataSetAsync())));
                         break;
                     }
+                case var name when name.Equals(ReportName.CmcById, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCmcByIdDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        break;
+                    }
+                case var name when name.Equals(ReportName.CmcByName, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCmcByNameDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        break;
+                    }
+                case var name when name.Equals(ReportName.CDEmails, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.CDEmails, (await _queries.GetCDEmailsDataSetAsync())));
+                        break;
+                    }
             }
 
             return dataSources;

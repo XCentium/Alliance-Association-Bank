@@ -6,6 +6,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using AllianceAssociationBank.Crm.Core.Dtos;
+using AllianceAssociationBank.Crm.Helpers;
 
 namespace AllianceAssociationBank.Crm.Persistence.Queries
 {
@@ -54,10 +56,37 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         {
             return await _context.Projects
                 .OrderBy(p => p.LockboxCMCID)
+                .ThenBy(p => p.ProjectName)
                 .Include(p => p.OwnerEmployee)
                 .Include(p => p.AFPEmployee)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Project>> GetCmcByNameDataSetAsync()
+        {
+            return await _context.Projects
+                .OrderBy(p => p.ProjectName)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<CDEmailsDatasetDto>> GetCDEmailsDataSetAsync()
+        {
+            var results = await _context.Projects
+                .Include(p => p.Users)
+                .ToListAsync();
+
+            return results.Select(p => new CDEmailsDatasetDto()
+            {
+                ProjectName = p.ProjectName,
+                LockboxCMCID = p.LockboxCMCID,
+                StatementEmails = EmailListHelper.Concatenate(p.Users
+                                                                .Where(u => u.StatementEmail)
+                                                                .Select(u => u.Email))
+            })
+            .OrderBy(p => string.IsNullOrEmpty(p.StatementEmails))
+            .ThenBy(p => p.ProjectName);
+        }
+
 
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
         {
