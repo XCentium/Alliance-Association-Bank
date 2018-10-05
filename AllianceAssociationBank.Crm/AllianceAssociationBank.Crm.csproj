@@ -572,6 +572,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\CD-Emails.rdlc" />
+    <EmbeddedResource Include="Reports\Coupon.rdlc" />
     <EmbeddedResource Include="Reports\CMC-By-Name.rdlc" />
     <EmbeddedResource Include="Reports\CMC-By-ID.rdlc" />
     <EmbeddedResource Include="Reports\Software-Transition.rdlc" />
