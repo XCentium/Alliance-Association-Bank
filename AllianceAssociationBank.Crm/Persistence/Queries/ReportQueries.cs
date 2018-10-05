@@ -24,7 +24,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         {
             return await _context.Projects
                 .Where(p => p.Status == "In Progress" || p.Status == "Audit Concern")
-                .OrderBy(p => p.Priority)
+                .OrderBy(p => p.OwnerID)
+                .ThenBy(p => p.AFPID)
+                .ThenBy(p => p.ProjectName)
+                //.OrderBy(p => p.Priority)
                 .ThenBy(p => p.OwnerID)
                 .ThenBy(p => p.EndDate)
                 .ThenBy(p => p.Status)
@@ -35,10 +38,13 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         {
             return await _context.Projects
                 .Where(p => p.Status == "Software Transition")
-                .OrderBy(p => p.Priority)
-                .ThenBy(p => p.OwnerID)
-                .ThenBy(p => p.EndDate)
-                .ThenBy(p => p.Status)
+                .OrderBy(p => p.OwnerID)
+                .ThenBy(p => p.AFPID)
+                .ThenBy(p => p.ProjectName)
+                //.OrderBy(p => p.Priority)
+                //.ThenBy(p => p.OwnerID)
+                //.ThenBy(p => p.EndDate)
+                //.ThenBy(p => p.Status)
                 .ToListAsync();
         }
 
@@ -93,13 +99,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return await _context.Employees
                 .OrderBy(e => e.FirstName)
                 .ThenBy(e => e.LastName)
-                .ToListAsync();
-        }
-
-        public async Task<IEnumerable<Software>> GetSoftwareDataSetAsync()
-        {
-            return await _context.Softwares
-                .OrderBy(e => e.SoftwareName)
                 .ToListAsync();
         }
     }

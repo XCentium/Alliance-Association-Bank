@@ -27,7 +27,7 @@
               <Width>1.1875in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.27083in</Width>
+              <Width>1.13543in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -782,9 +782,9 @@
         </TablixRowHierarchy>
         <DataSetName>ProjectsDataset</DataSetName>
         <Top>0.47917in</Top>
-        <Left>0.25in</Left>
+        <Left>0.375in</Left>
         <Height>0.66666in</Height>
-        <Width>12.60415in</Width>
+        <Width>12.46874in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -810,7 +810,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox82</rd:DefaultName>
         <Top>0.14931in</Top>
-        <Left>0.25in</Left>
+        <Left>0.375in</Left>
         <Height>0.30208in</Height>
         <Width>3.33853in</Width>
         <ZIndex>1</ZIndex>
@@ -843,7 +843,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox85</rd:DefaultName>
         <Top>0.14931in</Top>
-        <Left>11.07291in</Left>
+        <Left>11.19791in</Left>
         <Height>0.19222in</Height>
         <Width>1.64583in</Width>
         <ZIndex>2</ZIndex>
@@ -878,7 +878,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox79</rd:DefaultName>
         <Top>1.28472in</Top>
-        <Left>2.18489in</Left>
+        <Left>2.30989in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>3</ZIndex>
@@ -914,7 +914,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox79</rd:DefaultName>
         <Top>1.28472in</Top>
-        <Left>0.56819in</Left>
+        <Left>0.69319in</Left>
         <Height>0.25in</Height>
         <Width>1.60281in</Width>
         <ZIndex>4</ZIndex>
@@ -933,7 +933,7 @@
     <Height>1.55556in</Height>
     <Style />
   </Body>
-  <Width>13.125in</Width>
+  <Width>13.27in</Width>
   <Page>
     <PageHeight>8.5in</PageHeight>
     <PageWidth>14in</PageWidth>
@@ -1076,9 +1076,9 @@
           <DataField>TimeZone</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SoftwareID">
-          <DataField>SoftwareID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="Software">
+          <DataField>Software</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="NumberOfAssociations">
           <DataField>NumberOfAssociations</DataField>
@@ -1464,21 +1464,33 @@
           <DataField>SftpPath</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ReformatAQ2">
-          <DataField>ReformatAQ2</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="ReformatAQ2ID">
+          <DataField>ReformatAQ2ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ReformatECP">
-          <DataField>ReformatECP</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="ReformatECPID">
+          <DataField>ReformatECPID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ReformatByAssoc">
           <DataField>ReformatByAssoc</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="MigratingToSoftwareID">
-          <DataField>MigratingToSoftwareID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="MigratingToSoftware">
+          <DataField>MigratingToSoftware</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OtherName">
+          <DataField>OtherName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RelationshipRate">
+          <DataField>RelationshipRate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LockboxNotes">
+          <DataField>LockboxNotes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -1500,10 +1512,6 @@
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Company">
-          <DataField>Company</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="LastName">
           <DataField>LastName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1512,26 +1520,14 @@
           <DataField>FirstName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="City">
-          <DataField>City</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="State">
-          <DataField>State</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ZipCode">
-          <DataField>ZipCode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReportsDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\XCentium\source\repos\AllianceAssociationBank.Crm\AllianceAssociationBank.Crm\Reports\ReportsDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Employees</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>EmployeesTableAdapter</rd:TableAdapterName>
+        <rd:TableName>EmployeesDataset</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

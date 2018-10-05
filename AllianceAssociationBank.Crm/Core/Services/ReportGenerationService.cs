@@ -56,7 +56,6 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     {
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetBoardingDataSetAsync())));
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Software, (await _queries.GetSoftwareDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CompletedAndHold, StringComparison.InvariantCultureIgnoreCase):
@@ -69,7 +68,6 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     {
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetSoftwareTransitionDataSetAsync())));
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Software, (await _queries.GetSoftwareDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CmcById, StringComparison.InvariantCultureIgnoreCase):

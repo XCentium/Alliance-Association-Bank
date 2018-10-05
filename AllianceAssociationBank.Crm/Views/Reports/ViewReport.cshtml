@@ -1,4 +1,43 @@
-﻿<div>
+﻿<div class="row">
+    <div class="col-1 p-0">
+        <div class="float-left">
+            @Html.Partial(SharedView.SideMenuPartial)
+        </div>
+    </div>
+</div>
+
+<div>
     @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer, new { @class = "report-viewer", scrolling = "no" })
 </div>
 
+<div class="screen-overlay"></div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('[data-toggle="slide-collapse-right"]').on("click", function () {
+                var $toggleTarget = $($(this).data("target"));
+                $toggleTarget.show("slide");
+
+                $(".screen-overlay").fadeIn(500);
+            });
+
+            $(".screen-overlay").on("click", function (event) {
+                $("#nav-side-menu").hide("slide");
+
+                $(".screen-overlay").fadeOut(500);
+            });
+
+        });
+
+        function handleAjaxError() {
+            alert("An error occurred while processing your request");
+        };
+
+    </script>
+}
