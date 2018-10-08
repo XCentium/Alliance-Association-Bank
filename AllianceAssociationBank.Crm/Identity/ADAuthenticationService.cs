@@ -44,7 +44,7 @@ namespace AllianceAssociationBank.Crm.Identity
                 if (userPrincipal != null)
                 {
                     // TODO: probably have to use SSL here
-                    isAuthenticated = _principalContext.ValidateCredentials(userName, password, ContextOptions.Negotiate);
+                    isAuthenticated = _principalContext.ValidateCredentials(userName, password);
                 }
             }
             catch (Exception ex)
@@ -74,6 +74,8 @@ namespace AllianceAssociationBank.Crm.Identity
 
                 _authenticationManager.SignOut(AuthenticationType.CrmApplicationCookie);
                 _authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, userIdentity);
+
+                return SignInResult.Success;
             }
 
             return SignInResult.NotAuthorized;
