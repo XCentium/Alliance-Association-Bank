@@ -72,7 +72,8 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<PrincipalContext>
             (
                 new HierarchicalLifetimeManager(),
-                new InjectionFactory(c => new PrincipalContext(ContextType.Machine)) // TODO: this will change in production (ContextType.Domain)
+                new InjectionFactory(c => new PrincipalContext(ContextType.Domain))
+                //new InjectionFactory(c => new PrincipalContext(ContextType.Machine)) // TODO: this will change in production (ContextType.Domain)
             );
             container.RegisterType<IAuthenticationService, ADAuthenticationService>(new TransientLifetimeManager());
 

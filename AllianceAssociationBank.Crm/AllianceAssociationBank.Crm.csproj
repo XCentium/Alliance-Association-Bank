@@ -391,6 +391,7 @@
     <Content Include="Content\Images\btn-edit-icon.png" />
     <Content Include="Content\Images\btn-save-icon.png" />
     <Content Include="Content\Images\search-img.png" />
+    <Content Include="Content\Images\search-loader.gif" />
     <Content Include="Content\Images\sort-order-icon.png" />
     <Content Include="Content\Images\toggle-img.png" />
     <Content Include="Content\Images\warning-icon.png" />
