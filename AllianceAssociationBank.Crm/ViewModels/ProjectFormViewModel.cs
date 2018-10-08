@@ -127,7 +127,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Doors")]
         public int? NumberOfDoorsReadOnly
         {
-            get { return NumberOfAssociations; }
+            get { return NumberOfDoors; }
         }
 
         [Display(Name = "Est'd")]
