@@ -1353,10 +1353,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!EnrollmentFormReceived.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!EnrollmentFormReceived.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1368,10 +1367,23 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!MasterSigCardReceived.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value />
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIf(Fields!MasterSigCardReceived.Value = true, "Yes", "No")</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1414,10 +1426,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!CIPGood.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!CIPGood.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1460,10 +1471,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!WelcomeEmailSent.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!WelcomeEmailSent.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1506,10 +1516,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!AssociationListReceived.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!AssociationListReceived.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1552,10 +1561,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!AssociationAccountsAssigned.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!AssociationAccountsAssigned.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1598,10 +1606,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!AssociationSignatureCardsSent.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!AssociationSignatureCardsSent.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1644,10 +1651,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!OnlineBankingSetup.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!OnlineBankingSetup.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1659,10 +1665,23 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!OnlineBankingTrained.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value />
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIf(Fields!OnlineBankingTrained.Value = true, "Yes", "No")</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1705,10 +1724,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!ACHLimitAndSpecSubmitted.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!ACHLimitAndSpecSubmitted.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1720,10 +1738,23 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!ACHSuccessfulSubmitted.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value />
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIf(Fields!ACHSuccessfulSubmitted.Value = true, "Yes", "No")</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1766,10 +1797,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!ScannerWanted.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!ScannerWanted.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1812,10 +1842,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!LockboxWanted.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!LockboxWanted.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1827,10 +1856,23 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!LockboxRequestSent.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value />
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIf(Fields!LockboxRequestSent.Value = true, "Yes", "No")</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1887,10 +1929,9 @@ Ord Rvd</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!CouponsOrdered.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!CouponsOrdered.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>
@@ -1903,10 +1944,9 @@ Ord Rvd</Value>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=IIf(Fields!CouponProofReviewed.Value, ChrW(&amp;H2611), ChrW(&amp;H2610))</Value>
+                              <Value>=IIf(Fields!CouponProofReviewed.Value = true, "Yes", "No")</Value>
                               <Style>
-                                <FontFamily>Arial Unicode MS</FontFamily>
-                                <FontSize>13pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                               </Style>
                             </TextRun>

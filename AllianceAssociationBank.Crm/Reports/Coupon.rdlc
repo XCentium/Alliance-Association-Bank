@@ -21,7 +21,7 @@
               <Width>1.5625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.86458in</Width>
+              <Width>0.96875in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -347,7 +347,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -389,7 +389,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -513,8 +513,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!CouponsOrdered.Value</Value>
-                              <Style />
+                              <Value>=IIf(Fields!CouponsOrdered.Value = true, "Yes", "No")</Value>
+                              <Style>
+                                <FontWeight>Normal</FontWeight>
+                                <Color>=IIf(Fields!CouponsOrdered.Value = true, "Black", "LightGrey")</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -578,7 +581,7 @@
         <Top>0.46403in</Top>
         <Left>0.58333in</Left>
         <Height>0.66666in</Height>
-        <Width>11.98956in</Width>
+        <Width>12.09373in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -639,7 +642,7 @@
         <Top>0.13417in</Top>
         <Left>10.92706in</Left>
         <Height>0.19222in</Height>
-        <Width>1.64583in</Width>
+        <Width>1.75in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
