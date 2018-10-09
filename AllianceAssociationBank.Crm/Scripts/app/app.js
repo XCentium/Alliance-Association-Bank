@@ -5,7 +5,7 @@
         GeneralTabController.init();
         NavigationSliders.init();
         SearchWidget.init();
-        ProjectUsersWidget.init();
+        UsersTabController.init();
 
     });
 })();

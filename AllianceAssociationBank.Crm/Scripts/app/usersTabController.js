@@ -1,4 +1,4 @@
-﻿var ProjectUsersWidget = function ($, errorUtil) {
+﻿var UsersTabController = function ($, errorUtil) {
 
     var init = function () {
         bindUserFilterChangeEvent();
