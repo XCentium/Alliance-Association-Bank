@@ -43,7 +43,6 @@ namespace AllianceAssociationBank.Crm.Identity
                 userPrincipal = UserPrincipal.FindByIdentity(_principalContext, userName);
                 if (userPrincipal != null)
                 {
-                    // TODO: probably have to use SSL here
                     isAuthenticated = _principalContext.ValidateCredentials(userName, password);
                 }
             }
@@ -92,11 +91,10 @@ namespace AllianceAssociationBank.Crm.Identity
             if (securityGroups.Count() > 0)
             {
                 // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
-                if (securityGroups.Any(g => g.Name == "Administrators"))
-                {
-                    return true;
-                }
-                // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
+                //if (securityGroups.Any(g => g.Name == "Administrators"))
+                //{
+                //    return true;
+                //}
 
                 if (securityGroups.Any(g => g.Name == UserAuthenticationSettings.AdminADGroup ||
                                             g.Name == UserAuthenticationSettings.ReadWriteADGroup || 
@@ -143,11 +141,10 @@ namespace AllianceAssociationBank.Crm.Identity
             }
 
             // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
-            if (securityGroups.Any(g => g.Name == "Administrators"))
-            {
-                identity.AddClaim(new Claim(ClaimTypes.Role, UserRole.ReadWriteUser));
-            }
-            // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
+            //if (securityGroups.Any(g => g.Name == "Administrators"))
+            //{
+            //    identity.AddClaim(new Claim(ClaimTypes.Role, UserRole.ReadWriteUser));
+            //}
 
             return identity;
         }

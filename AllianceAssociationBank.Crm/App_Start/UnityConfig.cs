@@ -78,7 +78,6 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IAuthenticationService, ADAuthenticationService>(new TransientLifetimeManager());
 
             container.RegisterInstance<IMapper>(CrmAutoMapperProfile.GetMapper());
-            //container.RegisterType<UserController>(new InjectionConstructor());
         }
     }
 }
