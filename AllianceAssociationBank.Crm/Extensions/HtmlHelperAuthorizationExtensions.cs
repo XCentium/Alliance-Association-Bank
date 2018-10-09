@@ -18,7 +18,7 @@ namespace AllianceAssociationBank.Crm.Extensions
         /// </summary>
         /// <param name="htmlHelper"></param>
         /// <returns>Returns true if user is authorized to edit data.</returns>
-        public static bool IsUserAuthorizedToEdit(this HtmlHelper htmlHelper)
+        public static bool IsUserInEditRole(this HtmlHelper htmlHelper)
         {
             return IsUserInEditRole(htmlHelper.ViewContext.HttpContext.User);
         }
@@ -28,9 +28,38 @@ namespace AllianceAssociationBank.Crm.Extensions
         /// </summary>
         /// <param name="ajaxHelper"></param>
         /// <returns>Returns true if user is authorized to edit data.</returns>
-        public static bool IsUserAuthorizedToEdit(this AjaxHelper ajaxHelper)
+        public static bool IsUserInEditRole(this AjaxHelper ajaxHelper)
         {
             return IsUserInEditRole(ajaxHelper.ViewContext.HttpContext.User);
+        }
+
+        /// <summary>
+        /// HtmlHelper extension to check if logged in user belongs to Admin role.
+        /// </summary>
+        /// <param name="htmlHelper"></param>
+        /// <returns>Returns true if user belongs to Admin role.</returns>
+        public static bool IsUserInAdminRole(this HtmlHelper htmlHelper)
+        {
+            return IsUserInAdminRole(htmlHelper.ViewContext.HttpContext.User);
+        }
+
+        /// <summary>
+        /// Check if logged in user belongs to Admin role.
+        /// </summary>
+        /// <param name="contextUser">Logged in user IPrincipal object.</param>
+        /// <returns>Returns true if user belongs to Admin role.</returns>
+        private static bool IsUserInAdminRole(IPrincipal contextUser)
+        {
+            if (contextUser == null)
+            {
+                return false;
+            }
+            else if (contextUser.IsInRole(UserRole.Admin))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                                        Expression<Func<TModel, TValue>> expression, 
                                                                        string cssClass)
         {
-            if (html.IsUserAuthorizedToEdit())
+            if (html.IsUserInEditRole())
             {
                 return html.EditorFor(expression, additionalViewData: new
                 {
@@ -28,10 +28,31 @@ namespace AllianceAssociationBank.Crm.Extensions
             });
         }
 
+        public static MvcHtmlString AdminOnlyEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,
+                                                                       Expression<Func<TModel, TValue>> expression,
+                                                                       string cssClass)
+        {
+            bool addDisabledAttribute = true;
+
+            if (html.IsUserInAdminRole())
+            {
+                addDisabledAttribute = false;
+            }
+            else if (IsModelValueNullOrEmpty(expression, html))
+            {
+                addDisabledAttribute = false;
+            }
+
+            return html.EditorFor(expression, additionalViewData: new
+            {
+                htmlAttributes = Helper.CreateHtmlAttributes(cssClass, addDisabledAttribute)
+            });
+        }
+
         public static MvcHtmlString RoleBasedCheckBoxFor<TModel>(this HtmlHelper<TModel> html, 
                                                                  Expression<Func<TModel, bool>> expression)
         {
-            if (html.IsUserAuthorizedToEdit())
+            if (html.IsUserInEditRole())
             {
                 return html.CheckBoxFor(expression);
             }
@@ -45,7 +66,7 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                                             int columns, 
                                                                             string cssClass)
         {
-            if (html.IsUserAuthorizedToEdit())
+            if (html.IsUserInEditRole())
             {
                 return html.TextAreaFor(expression,rows, columns, Helper.CreateHtmlAttributes(cssClass));
             }
@@ -59,7 +80,7 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                                                 string optionLabel, 
                                                                                 string cssClass)
         {
-            if (html.IsUserAuthorizedToEdit())
+            if (html.IsUserInEditRole())
             {
                 return html.DropDownListFor(expression, selectList, optionLabel, Helper.CreateHtmlAttributes(cssClass));
             }
@@ -72,12 +93,29 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                                                object value, 
                                                                                string cssClass)
         {
-            if (html.IsUserAuthorizedToEdit())
+            if (html.IsUserInEditRole())
             {
                 return html.RadioButtonFor(expression, value, Helper.CreateHtmlAttributes(cssClass));
             }
 
             return html.RadioButtonFor(expression, value, Helper.CreateHtmlAttributes(cssClass, true));
+        }
+
+        private static bool IsModelValueNullOrEmpty<TModel, TValue>(Expression<Func<TModel, TValue>> expression,
+                                                                         HtmlHelper<TModel> html)
+        {
+            var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
+            var type = metadata.ModelType;
+            var value = metadata.Model;
+
+            if (type == typeof(string))
+            {
+                return string.IsNullOrEmpty((string)value);
+            }
+            else
+            {
+                return value == null;
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                         object routeValues,
                                                         string cssClass)
         {
-            if (html.IsUserAuthorizedToEdit())
+            if (html.IsUserInEditRole())
             {
                 return html.ActionLink(linkText, actionName, controllerName, routeValues, Helper.CreateHtmlAttributes(cssClass));
             }

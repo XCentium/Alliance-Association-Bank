@@ -270,7 +270,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.LockboxCMCID, new { @class = "col-3" })
                 <div class="col-7">
-                    @Html.RoleBasedEditorFor(m => m.LockboxCMCID, cssClass: "form-input")
+                    @Html.AdminOnlyEditorFor(m => m.LockboxCMCID, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.LockboxCMCID, "", new { @class = "form-error-msg" })
                 </div>
             </div>

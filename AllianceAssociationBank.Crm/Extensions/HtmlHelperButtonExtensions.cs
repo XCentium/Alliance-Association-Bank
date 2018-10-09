@@ -15,7 +15,7 @@ namespace AllianceAssociationBank.Crm.Extensions
             tagBuilder.MergeAttribute("type", buttonType);
             tagBuilder.MergeAttribute("class", cssClass);
 
-            if (!htmlHelper.IsUserAuthorizedToEdit())
+            if (!htmlHelper.IsUserInEditRole())
             {
                 tagBuilder.MergeAttribute("disabled", "disabled");
             }

@@ -26,7 +26,7 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                        AjaxOptions ajaxOptions,
                                                        object htmlAttributes)
         {
-            if (ajaxHelper.IsUserAuthorizedToEdit())
+            if (ajaxHelper.IsUserInEditRole())
             {
                 return ajaxHelper.RouteLink(linkText, routeName, routeValues, ajaxOptions, htmlAttributes);
             }
