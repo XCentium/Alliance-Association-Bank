@@ -462,6 +462,7 @@
     <Content Include="Reports\ReportsDataSet.xss">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

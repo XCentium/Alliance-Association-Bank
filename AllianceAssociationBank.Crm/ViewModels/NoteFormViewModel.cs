@@ -12,9 +12,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public string NotePreview
         {
-            get { return NoteText?.Length > 137 ? 
-                    NoteText.Substring(0, 137) + " ..." : 
-                    NoteText; }
+            get
+            {
+                return NoteText?.Length > 136 ? 
+                    NoteText.Substring(0, 136) + " ..." : 
+                    NoteText;
+            }
         }
 
         [Required]
