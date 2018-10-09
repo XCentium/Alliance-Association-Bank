@@ -463,6 +463,14 @@
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\appFunctions.js" />
+    <Content Include="Scripts\app\errorHandler.js" />
+    <Content Include="Scripts\app\generalTabController.js" />
+    <Content Include="Scripts\app\navigationSliders.js" />
+    <Content Include="Scripts\app\projectUsersWidget.js" />
+    <Content Include="Scripts\app\searchableSelectPlugin.js" />
+    <Content Include="Scripts\app\searchWidget.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

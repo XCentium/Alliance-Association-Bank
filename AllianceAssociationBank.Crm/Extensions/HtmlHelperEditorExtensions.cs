@@ -54,6 +54,7 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                                        Expression<Func<TModel, TValue>> expression,
                                                                        string cssClass)
         {
+            // TODO: there is a bug here, need to set this to read-only instead of disabled
             bool addDisabledAttribute = true;
 
             if (html.IsUserInAdminRole())
