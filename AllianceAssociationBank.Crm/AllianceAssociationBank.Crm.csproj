@@ -573,13 +573,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\CD-Emails.rdlc" />
-    <EmbeddedResource Include="Reports\Coupon.rdlc" />
-    <EmbeddedResource Include="Reports\CMC-By-Name.rdlc" />
-    <EmbeddedResource Include="Reports\CMC-By-ID.rdlc" />
-    <EmbeddedResource Include="Reports\Software-Transition.rdlc" />
-    <EmbeddedResource Include="Reports\Completed-And-Hold.rdlc" />
-    <EmbeddedResource Include="Reports\Boarding.rdlc" />
+    <Content Include="Reports\CD-Emails.rdlc" />
+    <Content Include="Reports\Coupon.rdlc" />
+    <Content Include="Reports\CMC-By-Name.rdlc" />
+    <Content Include="Reports\CMC-By-ID.rdlc" />
+    <Content Include="Reports\Software-Transition.rdlc" />
+    <Content Include="Reports\Completed-And-Hold.rdlc" />
+    <Content Include="Reports\Boarding.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
