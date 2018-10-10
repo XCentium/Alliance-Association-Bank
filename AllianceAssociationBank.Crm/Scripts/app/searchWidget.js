@@ -57,7 +57,7 @@
 
     // Redirect to Search Results page on Enter keypress
     var bindRedirectToSearchPage = function (searchElementId) {
-        $(searchElementId).on("keypress", function (event) {
+        $(searchElementId).on("keydown", function (event) {
             if (event.which === 13 && this.value.length > 0) {
                 event.preventDefault();
                 location.href = "/Search/Results?term=" + this.value;
