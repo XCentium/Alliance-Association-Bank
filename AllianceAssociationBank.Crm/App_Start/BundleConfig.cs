@@ -46,7 +46,7 @@ namespace AllianceAssociationBank.Crm
                       "~/Scripts/app/generalTabController.js",
                       "~/Scripts/app/navigationSliders.js",
                       "~/Scripts/app/searchWidget.js",
-                      "~/Scripts/app/projectUsersWidget.js",
+                      "~/Scripts/app/usersTabController.js",
                       "~/Scripts/app/app.js",
                       "~/Scripts/app/appFunctions.js"));
         }

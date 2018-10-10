@@ -42,7 +42,7 @@ namespace AllianceAssociationBank.Crm.Extensions
 
         /// <summary>
         /// Returns an HTML input element based on the Linq expression and the role of the current logged in user.
-        /// Once a value been set only users with admin role can make changes, otherwise HTML element will be in the disabled state. 
+        /// Once a value been set only users with admin role can make changes, otherwise HTML element will be in the disabled/read-only state. 
         /// </summary>
         /// <typeparam name="TModel">The type of the model.</typeparam>
         /// <typeparam name="TValue">The type of the value.</typeparam>
@@ -54,22 +54,31 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                                        Expression<Func<TModel, TValue>> expression,
                                                                        string cssClass)
         {
-            // TODO: there is a bug here, need to set this to read-only instead of disabled
-            bool addDisabledAttribute = true;
+            object htmlAttributes = null;
 
             if (html.IsUserInAdminRole())
             {
-                addDisabledAttribute = false;
+                htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
             }
-            else if (IsModelValueNullOrEmpty(expression, html))
+            else if (html.IsUserInEditRole())
             {
-                addDisabledAttribute = false;
+                if (IsModelValueNullOrEmpty(expression, html))
+                {
+                    htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
+                }
+                else
+                {
+                    // if user with edit role and value is not null/empty then add read only css class
+                    htmlAttributes = Helper.CreateHtmlAttributesForReadOnly(cssClass);
+                }
+            }
+            else
+            {
+                // if user with read only role and value add disabled attribute
+                htmlAttributes = Helper.CreateHtmlAttributes(cssClass, true);
             }
 
-            return html.EditorFor(expression, additionalViewData: new
-            {
-                htmlAttributes = Helper.CreateHtmlAttributes(cssClass, addDisabledAttribute)
-            });
+            return html.EditorFor(expression, additionalViewData: new { htmlAttributes });
         }
 
         /// <summary>

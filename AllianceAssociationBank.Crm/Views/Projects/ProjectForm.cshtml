@@ -48,7 +48,7 @@
             <label class="text-muted">Name</label>
         </div>
         <div class="col-11 text-right">
-            <span id="project-form-save-indicator" class="save-indicator badge-light">@Model.SaveIndicator</span>
+            <span id="project-form-save-indicator" class="save-indicator @Model.SaveIndicatorCssClass">@Model.SaveIndicator</span>
             @Html.RoleBasedButton(" ", "submit", "btn-img btn-save-img")
             <button class="btn-img" type="button">
                 <img class="icon-image" src="~/Content/Images/btn-print-icon.png" />

@@ -563,8 +563,17 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public bool Balanced { get; set; }
 
 
-
         public string SaveIndicator { get; set; } = "UNSAVED";
+
+        public string SaveIndicatorCssClass
+        {
+            get
+            {
+                return SaveIndicator == "SAVED" ?
+                                        "badge-success" :
+                                        "badge-light";
+            }
+        }
 
         public string CreateUpdateAction
         {

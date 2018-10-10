@@ -1,16 +1,14 @@
 ﻿$(function () {
 
-    // TODO: Need better solution here
-    var $saveIndicator = $("#project-form-save-indicator");
-    if ($saveIndicator.text() == "SAVED") {
-        $saveIndicator.removeClass("badge-light").addClass("badge-success");
-    };
-
     // Reset save indicator on any form change
     $("#project-form-element").on("change", function () {
+        var $saveIndicator = $("#project-form-save-indicator");
         if ($saveIndicator.text() == "SAVED") {
             $saveIndicator.text("UNSAVED");
             $saveIndicator.removeClass("badge-success").addClass("badge-light");
+
+            // TEST!
+            //$("#ajax-error-alert").removeClass("invisible");
         };
     });
 
