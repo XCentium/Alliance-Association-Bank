@@ -14,20 +14,12 @@ namespace AllianceAssociationBank.Crm.Filters
         {
             //TODO: Need to actually log the exceptions here
             System.Diagnostics.Debug.WriteLine(filterContext.Exception.Message);
-            var url = filterContext.HttpContext.Request.UrlReferrer;
 
-            if (filterContext.HttpContext.Request.IsAjaxRequest())
+            if (!filterContext.HttpContext.Request.IsAjaxRequest())
             {
-               
-            }
-            else
-            {
-                //filterContext.Controller.
-
                 filterContext.Result = new ViewResult()
                 {
                     ViewName = "Error",
-                    //MasterName = "",
                     ViewData = new ViewDataDictionary<ErrorViewModel>(new ErrorViewModel()
                     {
                         PreviousPageUrl = filterContext.HttpContext.Request.UrlReferrer.AbsolutePath

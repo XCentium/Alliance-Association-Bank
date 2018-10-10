@@ -264,7 +264,6 @@
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Core\Models\Aq2Reformat.cs" />
-    <Compile Include="Core\Services\DataProtectionService.cs" />
     <Compile Include="Extensions\HtmlExtensionsHelper.cs" />
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperButtonExtensions.cs" />

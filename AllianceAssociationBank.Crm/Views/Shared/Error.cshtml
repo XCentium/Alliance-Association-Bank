@@ -3,16 +3,24 @@
 @{
     ViewBag.Title = "Error";
 }
-<div class="p-3">
-    <h1 class="text-danger">Oops!</h1>
-    <h2 class="text-danger">An error occurred while processing your request. Please try again later.</h2>
+<div class="row pt-4">
+    <div class="col-12 text-center">
+        <div class="alert">
+            <h1 class="text-danger">Error!</h1>
+            <h2 class="text-danger">An error occurred while processing your request. Please try again later.</h2>
 
-    <div class="my-auto">
-        <a href="@(Model.PreviousPageUrl ?? "/")">< Return to Previous Page</a>
+        </div>
     </div>
-    <div class="my-auto">
-        @Html.ActionLink("< Return to Home", HomeControllerAction.Index, ControllerName.Home)
+</div>
+<div class="row">
+    <div class="col-3 offset-3">
+        <a class="btn btn-outline-danger btn-block" href="@Model.PreviousPageUrl">Return to Previous Page</a>
     </div>
-
+    <div class="col-3">
+        @Html.ActionLink("Go to Home", HomeControllerAction.Index, ControllerName.Home, routeValues: null, htmlAttributes: new
+        {
+           @class = "btn btn-outline-danger btn-block"
+        })
+    </div>
 </div>
 

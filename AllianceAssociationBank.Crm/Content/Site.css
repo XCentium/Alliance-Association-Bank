@@ -423,6 +423,7 @@ a.btn-link-disabled {
 input.read-only {
     pointer-events: none !important;
     background: #eee;
+    display: block;
 }
 
 .btn:disabled, .btn-img:disabled {

@@ -8,7 +8,7 @@
         //alert("An error occurred while processing your request");
         $alert = $("#top-alert");
         $alert.addClass("alert-danger");
-        $alert.find(".js-alert-text").html("<strong>Oops!</strong> An error occurred while processing your request. Please try again later.");
+        $alert.find(".js-alert-text").html("<strong>Error!</strong> An error occurred while processing your request. Please try again later.");
         $alert.show("fade", 200);
     };
 

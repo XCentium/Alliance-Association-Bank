@@ -114,44 +114,26 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(int id, ProjectFormViewModel model)
         {
-            //try
-            //{
-                if (!ModelState.IsValid)
-                {
-                    await PopulateDropDownLists(model);
-                    return View(ProjectsView.ProjectForm, model);
-                }
+            if (!ModelState.IsValid)
+            {
+                await PopulateDropDownLists(model);
+                return View(ProjectsView.ProjectForm, model);
+            }
 
-                //throw new InvalidOperationException();
+            //throw new InvalidOperationException();
 
-                var project = await _projects.GetProjectByIdAsync(model.ID);
-                if (project == null)
-                {
-                    // TODO: need better error handeling
-                    return View("Error");
-                }
+            var project = await _projects.GetProjectByIdAsync(model.ID);
+            if (project == null)
+            {
+                // TODO: need better error handeling
+                return View("Error");
+            }
 
-                _mapper.Map(model, project);
-                await _projects.SaveAllAsync();
+            _mapper.Map(model, project);
+            await _projects.SaveAllAsync();
 
-                TempData[SAVED] = true;
-                return RedirectToAction(nameof(this.Edit), new { id = model.ID });
-
-                // TODO: if nothing actually changes, SaveAllAsync will return false
-                //if (await _repository.SaveAllAsync())
-                //{
-                //    return RedirectToAction(nameof(this.Edit), new { id = model.ID });
-                //}
-                //else
-                //{
-                //    return View("Error"); // TODO: need better error handeling
-                //}
-            //}
-            //catch (Exception ex)
-            //{
-            //    return View("Error");
-            //    //throw;
-            //}
+            TempData[SAVED] = true;
+            return RedirectToAction(nameof(this.Edit), new { id = model.ID });
         }
 
         private async Task PopulateDropDownLists(ProjectFormViewModel model)

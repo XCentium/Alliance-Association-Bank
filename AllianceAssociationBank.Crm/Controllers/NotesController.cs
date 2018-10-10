@@ -86,16 +86,16 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             //try
             //{
-                var note = await _notesRepository.GetNoteByIdAsync(id);
+            var note = await _notesRepository.GetNoteByIdAsync(id);
 
-                if (note == null)
-                {
-                    return HttpNotFound();
-                }
+            if (note == null)
+            {
+                return HttpNotFound();
+            }
 
-                var viewModel = _mapper.Map<NoteFormViewModel>(note);
+            var viewModel = _mapper.Map<NoteFormViewModel>(note);
 
-                return PartialView(NotesView.NoteFormPartial, viewModel);
+            return PartialView(NotesView.NoteFormPartial, viewModel);
             //}
             //catch (Exception ex)
             //{
