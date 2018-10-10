@@ -19,7 +19,7 @@
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "note-form-modal-location",
                         OnSuccess = "showModalTarget",
-                        OnFailure = "handleAjaxError"
+                        OnFailure = "ErrorHandler.handleAjaxError"
                     }, htmlAttributes: new
                     {
                         @class = "btn-img btn-edit-img",
@@ -36,7 +36,7 @@
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "confirm-delete-dialog-location",
                         OnSuccess = "showModalTarget",
-                        OnFailure = "handleAjaxError"
+                        OnFailure = "ErrorHandler.handleAjaxError"
                     }, htmlAttributes: new
                     {
                         @class = "btn-img btn-delete-img",

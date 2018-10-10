@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using AllianceAssociationBank.Crm.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm
@@ -7,7 +8,8 @@ namespace AllianceAssociationBank.Crm
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            //filters.Add(new HandleErrorAttribute());
+            filters.Add(new HandleErrorWithLoggingAttribute());
         }
     }
 }

@@ -112,15 +112,17 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Authorize(Roles = UserRole.EditAccessRoles)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Update(ProjectFormViewModel model)
+        public async Task<ActionResult> Update(int id, ProjectFormViewModel model)
         {
-            try
-            {
+            //try
+            //{
                 if (!ModelState.IsValid)
                 {
                     await PopulateDropDownLists(model);
                     return View(ProjectsView.ProjectForm, model);
                 }
+
+                //throw new InvalidOperationException();
 
                 var project = await _projects.GetProjectByIdAsync(model.ID);
                 if (project == null)
@@ -144,12 +146,12 @@ namespace AllianceAssociationBank.Crm.Controllers
                 //{
                 //    return View("Error"); // TODO: need better error handeling
                 //}
-            }
-            catch (Exception ex)
-            {
-                return View("Error");
-                //throw;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return View("Error");
+            //    //throw;
+            //}
         }
 
         private async Task PopulateDropDownLists(ProjectFormViewModel model)

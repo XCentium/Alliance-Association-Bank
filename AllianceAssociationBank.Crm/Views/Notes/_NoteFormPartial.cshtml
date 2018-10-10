@@ -17,7 +17,7 @@
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "notes-list",
                 OnBegin = "hideModalTarget", // TODO: maybe should change this to OnSuccess?
-                OnFailure = "handleAjaxError"
+                OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {
                 data_modal_target = "#note-form-modal"

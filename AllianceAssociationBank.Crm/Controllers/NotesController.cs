@@ -84,8 +84,8 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Edit/{id}", Name = NotesControllerRoute.EditNote)]
         public async Task<ActionResult> Edit(int projectId, int id)
         {
-            try
-            {
+            //try
+            //{
                 var note = await _notesRepository.GetNoteByIdAsync(id);
 
                 if (note == null)
@@ -96,11 +96,11 @@ namespace AllianceAssociationBank.Crm.Controllers
                 var viewModel = _mapper.Map<NoteFormViewModel>(note);
 
                 return PartialView(NotesView.NoteFormPartial, viewModel);
-            }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            //}
         }
 
         [Authorize(Roles = UserRole.EditAccessRoles)]

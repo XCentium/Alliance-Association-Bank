@@ -1,6 +1,7 @@
 ﻿(function () {
-    $(document).ready(function () {
+    $(function () {
 
+        ErrorHandler.init();
         SearchableSelectPlugin.init();
         GeneralTabController.init();
         NavigationSliders.init();

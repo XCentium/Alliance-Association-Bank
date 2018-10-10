@@ -18,7 +18,7 @@
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "project-users-list",
                 OnBegin = "hideModalTarget", // TODO: maybe should change this to OnSuccess or disable buttons on OnBegin?
-                OnFailure = "handleAjaxError" 
+                OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {
                 id = "user-form-element",

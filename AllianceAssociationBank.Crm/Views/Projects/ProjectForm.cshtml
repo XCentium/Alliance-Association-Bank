@@ -33,14 +33,16 @@
 </div>
 
 
-@using (Html.BeginForm(Model.CreateUpdateAction, ControllerName.Projects, FormMethod.Post, htmlAttributes: new
+@using (Html.BeginForm(Model.CreateUpdateAction, ControllerName.Projects, routeValues: new
+{
+    id = Model.ID
+}, method: FormMethod.Post, htmlAttributes: new
 {
     id = "project-form-element",
     role = "form"
 }))
 {
     @Html.AntiForgeryToken()
-    @*Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
     @Html.HiddenFor(m => m.ID)
 
     <div class="row mb-2">

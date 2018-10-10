@@ -8,7 +8,7 @@
             $saveIndicator.removeClass("badge-success").addClass("badge-light");
 
             // TEST!
-            //$("#ajax-error-alert").removeClass("invisible");
+            //$("#ajax-error-alert").show();
         };
     });
 
