@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.CheckScanners;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.CheckScanners;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
@@ -37,10 +38,10 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             controller = new CheckScannersController(checkScannerRepoMock.Object, mapper);
             // Mock http context so http response object is not null
-            //var response = new Mock<HttpResponseBase>();
-            //var httpContext = new Mock<HttpContextBase>();
-            //httpContext.SetupGet(c => c.Response).Returns(response.Object);
-            //controller.ControllerContext = new ControllerContext(httpContext.Object, new RouteData(), controller);
+            var response = new Mock<HttpResponseBase>();
+            var httpContext = new Mock<HttpContextBase>();
+            httpContext.SetupGet(c => c.Response).Returns(response.Object);
+            controller.ControllerContext = new ControllerContext(httpContext.Object, new RouteData(), controller);
 
             scanner = new CheckScanner()
             {
@@ -60,7 +61,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public void Index_ValidProjectId_ScannersListPartialView()
+        public void Index_ValidProjectId_ShouldReturnPartialView()
         {
             var scanners = new List<CheckScanner>()
             {
@@ -91,7 +92,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public void Index_InvalidProjectId_ScannersListPartialViewWithZeroRecords()
+        public void Index_InvalidProjectId_ShouldReturnPartialViewWithZeroRecords()
         {
             var projectId = 99;
 
@@ -106,7 +107,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public void Create_NewScannerForm_ScannerFormPartialView()
+        public void Create_NewScannerEntry_ShouldReturnPartialView()
         {
             var projectId = 99;
 
@@ -120,7 +121,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Create_CreateNewScanner_ScannersListPartialView()
+        public async Task Create_ValidInputModel_ShouldReturnPartialView()
         {
             var projectId = 99;
             scannerViewModel.ID = 0; // On create Id should be 0
@@ -137,7 +138,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_ValidScannerId_ScannerFormPartialView()
+        public async Task Edit_ValidScannerId_ShouldReturnPartialView()
         {
             var scannerId = scanner.ID;
             checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(scanner);
@@ -149,6 +150,137 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
                 result,
                 CheckScannersView.ScannerFormPartial
             );
+        }
+
+        [Fact]
+        public async Task Edit_InvalidScannerId_ShouldReturnHttpNotFound()
+        {
+            var scannerId = 1;
+            checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(null as CheckScanner);
+
+            var result = await controller.Edit(99, scannerId);
+
+            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task Update_ValidInputModel_ShouldReturnPartialView()
+        {
+            var projectId = scannerViewModel.ProjectID;
+            var scannerId = scannerViewModel.ID;
+            scannerViewModel.Model = "Updated model";
+            checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(scanner);
+            checkScannerRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
+
+            var result = await controller.Update(projectId, scannerId, scannerViewModel);
+
+            TestHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
+            (
+                result,
+                CheckScannersView.ScannersListPartial
+            );
+        }
+
+        [Fact]
+        public async Task Update_InvalidInputModel_ShouldReturnPartialViewWithBadRequestStatusCode()
+        {
+            var projectId = scannerViewModel.ProjectID;
+            var scannerId = scannerViewModel.ID;
+            scannerViewModel.Model = null;
+            controller.ModelState.AddModelError("Model", "The Model field is required.");
+
+            var result = await controller.Update(projectId, scannerId, scannerViewModel);
+
+            TestHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
+            (
+                result,
+                CheckScannersView.ScannerFormPartial
+            );
+        }
+
+        [Fact]
+        public async Task Update_InvalidScannerId_ShouldReturnHttpNotFound()
+        {
+            var projectId = 1;
+            var scannerId = 1;
+            checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(null as CheckScanner);
+
+            var result = await controller.Update(projectId, scannerId, scannerViewModel);
+
+            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task Delete_ValidScannnerId_ShouldReturnPartialView()
+        {
+            var projectId = 1;
+            var scannerId = 99;
+            var scanner = new CheckScanner()
+            {
+                ID = scannerId,
+                ProjectID = projectId,
+                Model = "Model 2",
+                System = "AQ2"
+            };
+            var scanners = new List<CheckScanner>()
+            {
+                new CheckScanner()
+                {
+                    ID = 98,
+                    ProjectID = projectId,
+                    Model = "Model 1",
+                    System = "AQ2"
+                }
+            };
+            checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId))
+                .ReturnsAsync(scanner);
+            checkScannerRepoMock.Setup(r => r.SaveAllAsync())
+                .ReturnsAsync(true);
+            checkScannerRepoMock.Setup(r => r.GetScanners(projectId))
+                .Returns(scanners);
+
+            var result = await controller.Delete(projectId, scannerId);
+
+            TestHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
+            (
+                result,
+                CheckScannersView.ScannersListPartial
+            );
+
+        }
+
+        [Fact]
+        public async Task Delete_InvalidScannerId_ShouldReturnHttpNotFound()
+        {
+            var projectId = 1;
+            var scannerId = 1;
+            checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(null as CheckScanner);
+
+            var result = await controller.Delete(projectId, scannerId);
+
+            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+        }
+
+        [Fact]
+        public void ConfirmDelete_ValidScannerId_ShouldReturnPartialViewWithConfirmDeleteViewModel()
+        {
+            var projectId = 1;
+            var scannerId = 99;
+
+
+            var result = controller.ConfirmDelete(projectId, scannerId);
+
+
+            var partialViewResult = Assert.IsType<PartialViewResult>(result);
+            Assert.NotNull(partialViewResult);
+
+            var viewModel = Assert.IsType<ConfirmDeleteViewModel>(partialViewResult.Model);
+            Assert.NotNull(viewModel);
+
+            Assert.Equal(projectId, viewModel.ProjectId);
+            Assert.Equal(scannerId, viewModel.RecordIdToDelete);
+            Assert.Equal(CheckScannersControllerRoute.DeleteScanner, viewModel.AjaxDeleteRouteName);
+            Assert.Equal("check-scanners-list", viewModel.AjaxUpdateTargetId);
         }
     }
 }
