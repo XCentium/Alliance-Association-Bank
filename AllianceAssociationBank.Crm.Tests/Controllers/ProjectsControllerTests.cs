@@ -142,7 +142,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(project);
             projectsRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
 
-            var result = await controller.Update(projectViewModel);
+            var result = await controller.Update(projectViewModel.ID, projectViewModel);
 
             Assert.IsType<RedirectToRouteResult>(result);
         }
@@ -153,7 +153,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             projectViewModel.ProjectName = null;
             controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
 
-            var result = await controller.Update(projectViewModel);
+            var result = await controller.Update(projectViewModel.ID, projectViewModel);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
@@ -166,7 +166,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         {
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(null as Project);
 
-            var result = await controller.Update(projectViewModel);
+            var result = await controller.Update(projectViewModel.ID, projectViewModel);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
