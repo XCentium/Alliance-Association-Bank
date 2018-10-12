@@ -44,7 +44,7 @@ namespace AllianceAssociationBank.Crm
                       "~/Scripts/app/searchableSelectPlugin.js",
                       "~/Scripts/app/errorHandler.js",
                       "~/Scripts/app/generalTabController.js",
-                      "~/Scripts/app/navigationSliders.js",
+                      "~/Scripts/app/navigationWidgets.js",
                       "~/Scripts/app/searchWidget.js",
                       "~/Scripts/app/usersTabController.js",
                       "~/Scripts/app/app.js",

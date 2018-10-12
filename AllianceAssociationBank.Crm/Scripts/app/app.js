@@ -4,7 +4,7 @@
         ErrorHandler.init();
         SearchableSelectPlugin.init();
         GeneralTabController.init();
-        NavigationSliders.init();
+        NavigationWidgets.init();
         SearchWidget.init();
         UsersTabController.init();
 

@@ -1,7 +1,8 @@
-﻿var NavigationSliders = function ($) {
+﻿var NavigationWidgets = function ($) {
 
     var init = function () {
         bindDataToggleEvents();
+        bindTabBottonNavigationEvents();
         bindScreenOverlayFadeOut();
     };
 
@@ -16,6 +17,16 @@
             var $toggleTarget = $($(this).data("target"));
             $toggleTarget.show("blind", 250);
             screenOverlayFadeIn(250);
+        });
+    };
+
+    var bindTabBottonNavigationEvents = function () {
+        $("#btn-change-tab-left").on("click", function () {
+            $('.nav-tabs > .active').prev('a').trigger('click');
+        });
+
+        $("#btn-change-tab-right").on("click", function () {
+            $('.nav-tabs > .active').next('a').trigger('click');
         });
     };
 

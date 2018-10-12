@@ -387,6 +387,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\aab-logo.png" />
     <Content Include="Content\Images\btn-add-icon.png" />
+    <Content Include="Content\Images\btn-arrow-left.png" />
+    <Content Include="Content\Images\btn-arrow-right.png" />
     <Content Include="Content\Images\btn-close-icon.png" />
     <Content Include="Content\Images\btn-delete-icon.png" />
     <Content Include="Content\Images\btn-edit-icon.png" />
@@ -468,7 +470,7 @@
     <Content Include="Scripts\app\appFunctions.js" />
     <Content Include="Scripts\app\errorHandler.js" />
     <Content Include="Scripts\app\generalTabController.js" />
-    <Content Include="Scripts\app\navigationSliders.js" />
+    <Content Include="Scripts\app\navigationWidgets.js" />
     <Content Include="Scripts\app\usersTabController.js" />
     <Content Include="Scripts\app\searchableSelectPlugin.js" />
     <Content Include="Scripts\app\searchWidget.js" />

@@ -6,9 +6,9 @@
 .body-content {
     border: 1px solid #ced4da;
     border-top: none;
-    /*height: 715px;*/
+    height: 715px;
     max-width: 1280px;
-    min-height: 715px;
+    /*min-height: 715px;*/
     width: 1280px;
 }
 
@@ -285,6 +285,14 @@ textarea {
 .plain-link:hover {
     color: inherit;
     text-decoration: none;
+}
+
+.project-form-content {
+    height: 680px;}
+
+.project-form-footer {
+    height: 30px;
+    margin-bottom: 5px;
 }
 
 .smallnavbar {

@@ -1,121 +1,138 @@
 ﻿@model ProjectFormViewModel
 
-<div class="row">
+<div class="project-form-content">
+    <div class="row">
 
-    <div class="col-1 p-0">
-        <div class="float-left">
-            @Html.Partial(SharedView.SideMenuPartial)
-        </div>
-    </div>
-
-    <div class="col-10 p-0">
-        <nav>
-            <div class="nav nav-tabs small" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general-content" role="tab" aria-controls="nav-general-content" aria-selected="true">GENERAL</a>
-                <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="false">USERS</a>
-                <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
-                <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software-content" role="tab" aria-controls="nav-software-content" aria-selected="false">SOFTWARE</a>
-                <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox-content" role="tab" aria-controls="nav-lockbox-content" aria-selected="false">LOCKBOX</a>
-                <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach-content" role="tab" aria-controls="nav-ach-content" aria-selected="false">ACH</a>
-                <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system-content" role="tab" aria-controls="nav-system-content" aria-selected="false">SYSTEM</a>
-                <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">ACCOUNTS / HOA DDAS</a>
+        <div class="col-1 p-0">
+            <div class="float-left">
+                @Html.Partial(SharedView.SideMenuPartial)
             </div>
-        </nav>
-    </div>
-
-    <div class="col-1 p-0">
-        <div class="float-right">
-            @Html.Partial(SharedView.SearchWidgetPartial)
         </div>
-    </div>
-    @*@Html.Partial(SharedView.SearchWidgetPartial)*@
 
+        <div class="col-10 p-0">
+            <nav>
+                <div class="nav nav-tabs small" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general-content" role="tab" aria-controls="nav-general-content" aria-selected="true">GENERAL</a>
+                    <a class="nav-item nav-link" id="nav-users-tab" data-toggle="tab" href="#nav-users-content" role="tab" aria-controls="nav-users-content" aria-selected="false">USERS</a>
+                    <a class="nav-item nav-link" id="nav-boarding-tab" data-toggle="tab" href="#nav-boarding-content" role="tab" aria-controls="nav-boarding-content" aria-selected="false">BOARDING</a>
+                    <a class="nav-item nav-link" id="nav-software-tab" data-toggle="tab" href="#nav-software-content" role="tab" aria-controls="nav-software-content" aria-selected="false">SOFTWARE</a>
+                    <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox-content" role="tab" aria-controls="nav-lockbox-content" aria-selected="false">LOCKBOX</a>
+                    <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach-content" role="tab" aria-controls="nav-ach-content" aria-selected="false">ACH</a>
+                    <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system-content" role="tab" aria-controls="nav-system-content" aria-selected="false">SYSTEM</a>
+                    <a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">ACCOUNTS / HOA DDAS</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="col-1 p-0">
+            <div class="float-right">
+                @Html.Partial(SharedView.SearchWidgetPartial)
+            </div>
+        </div>
+        @*@Html.Partial(SharedView.SearchWidgetPartial)*@
+
+    </div>
+
+
+    @using (Html.BeginForm(Model.CreateUpdateAction, ControllerName.Projects, routeValues: new
+    {
+        id = Model.ID
+    }, method: FormMethod.Post, htmlAttributes: new
+    {
+        id = "project-form-element",
+        role = "form"
+    }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ID)
+
+        <div class="row mb-2">
+            <div class="col-1" style="margin-bottom: -10px; padding-top:5px;">
+                <label class="text-muted">Name</label>
+            </div>
+            <div class="col-11 text-right">
+                <span id="project-form-save-indicator" class="save-indicator @Model.SaveIndicatorCssClass">@Model.SaveIndicator</span>
+                @Html.RoleBasedButton(" ", "submit", "btn-img btn-save-img")
+                <button class="btn-img" type="button">
+                    <img class="icon-image" src="~/Content/Images/btn-print-icon.png" />
+                </button>
+                <button class="btn-img" type="button" data-toggle="modal" data-target="#close-dialog-modal">
+                    <img class="icon-image" src="~/Content/Images/btn-close-icon.png" />
+                </button>
+            </div>
+        </div>
+
+        @* Name fields shown on every tab *@
+        <div class="row my-2 pb-1 border-bottom">
+            <div class="col-4">
+                <div class="row">
+                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-2 form-label-indent" })
+                    <div class="col-10">
+                        @Html.RoleBasedEditorFor(m => m.ProjectName, cssClass: "form-input")
+                        @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    @Html.LabelFor(m => m.DBA, new { @class = "col-2 form-label-indent" })
+                    <div class="col-10">
+                        @Html.RoleBasedEditorFor(m => m.DBA, cssClass: "form-input")
+                        @Html.ValidationMessageFor(m => m.DBA, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    @Html.LabelFor(m => m.OtherName, new { @class = "col-2 form-label-indent" })
+                    <div class="col-10">
+                        @Html.RoleBasedEditorFor(m => m.OtherName, cssClass: "form-input")
+                        @Html.ValidationMessageFor(m => m.OtherName, "", new { @class = "form-error-msg" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="nav-tabs-content">
+            <div class="tab-pane fade show active" id="nav-general-content" role="tabpanel" aria-labelledby="nav-general-tab">
+                @Html.Partial(ProjectsView.GeneralTabPartial)
+            </div>
+            <div class="tab-pane fade" id="nav-users-content" role="tabpanel" aria-labelledby="nav-users-tab">
+                @Html.Partial(ProjectsView.UsersTabPartial)
+            </div>
+            <div class="tab-pane fade" id="nav-boarding-content" role="tabpanel" aria-labelledby="nav-boarding-tab">
+                @Html.Partial(ProjectsView.BoardingTabPartial)
+            </div>
+            <div class="tab-pane fade" id="nav-software-content" role="tabpanel" aria-labelledby="nav-software-tab">
+                @Html.Partial(ProjectsView.SoftwareTabPartial)
+            </div>
+            <div class="tab-pane fade" id="nav-lockbox-content" role="tabpanel" aria-labelledby="nav-lockbox-tab">
+                @Html.Partial(ProjectsView.LockboxTabPartial)
+            </div>
+            <div class="tab-pane fade" id="nav-ach-content" role="tabpanel" aria-labelledby="nav-ach-tab">
+                @Html.Partial(ProjectsView.AchTabPartial)
+            </div>
+            <div class="tab-pane fade" id="nav-system-content" role="tabpanel" aria-labelledby="nav-system-tab">
+                @Html.Partial(ProjectsView.SystemTabPartial)
+            </div>
+        </div>
+    }
 </div>
 
-
-@using (Html.BeginForm(Model.CreateUpdateAction, ControllerName.Projects, routeValues: new
-{
-    id = Model.ID
-}, method: FormMethod.Post, htmlAttributes: new
-{
-    id = "project-form-element",
-    role = "form"
-}))
-{
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(m => m.ID)
-
-    <div class="row mb-2">
-        <div class="col-1" style="margin-bottom: -10px; padding-top:5px;">
-            <label class="text-muted">Name</label>
-        </div>
-        <div class="col-11 text-right">
-            <span id="project-form-save-indicator" class="save-indicator @Model.SaveIndicatorCssClass">@Model.SaveIndicator</span>
-            @Html.RoleBasedButton(" ", "submit", "btn-img btn-save-img")
-            <button class="btn-img" type="button">
-                <img class="icon-image" src="~/Content/Images/btn-print-icon.png" />
+<div class="project-form-footer">
+    <div class="row">
+        <div class="col-1 text-center">
+            <button class="btn-img" id="btn-change-tab-left" type="button">
+                <img src="~/Content/Images/btn-arrow-left.png" />
             </button>
-            <button class="btn-img" type="button" data-toggle="modal" data-target="#close-dialog-modal">
-                <img class="icon-image" src="~/Content/Images/btn-close-icon.png" />
+        </div>
+        <div class="col-1 offset-10 text-center">
+            <button class="btn-img" id="btn-change-tab-right" type="button">
+                <img src="~/Content/Images/btn-arrow-right.png" />
             </button>
         </div>
     </div>
-
-    @* Name fields shown on every tab *@
-    <div class="row my-2 pb-1 border-bottom">
-        <div class="col-4">
-            <div class="row">
-                @Html.LabelFor(m => m.ProjectName, new { @class = "col-2 form-label-indent" })
-                <div class="col-10">
-                    @Html.RoleBasedEditorFor(m => m.ProjectName, cssClass: "form-input")
-                    @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-error-msg" })
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="row">
-                @Html.LabelFor(m => m.DBA, new { @class = "col-2 form-label-indent" })
-                <div class="col-10">
-                    @Html.RoleBasedEditorFor(m => m.DBA, cssClass: "form-input")
-                    @Html.ValidationMessageFor(m => m.DBA, "", new { @class = "form-error-msg" })
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="row">
-                @Html.LabelFor(m => m.OtherName, new { @class = "col-2 form-label-indent" })
-                <div class="col-10">
-                    @Html.RoleBasedEditorFor(m => m.OtherName, cssClass: "form-input")
-                    @Html.ValidationMessageFor(m => m.OtherName, "", new { @class = "form-error-msg" })
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tab-content" id="nav-tabs-content">
-        <div class="tab-pane fade show active" id="nav-general-content" role="tabpanel" aria-labelledby="nav-general-tab">
-            @Html.Partial(ProjectsView.GeneralTabPartial)
-        </div>
-        <div class="tab-pane fade" id="nav-users-content" role="tabpanel" aria-labelledby="nav-users-tab">
-            @Html.Partial(ProjectsView.UsersTabPartial)
-        </div>
-        <div class="tab-pane fade" id="nav-boarding-content" role="tabpanel" aria-labelledby="nav-boarding-tab">
-            @Html.Partial(ProjectsView.BoardingTabPartial)
-        </div>
-        <div class="tab-pane fade" id="nav-software-content" role="tabpanel" aria-labelledby="nav-software-tab">
-            @Html.Partial(ProjectsView.SoftwareTabPartial)
-        </div>
-        <div class="tab-pane fade" id="nav-lockbox-content" role="tabpanel" aria-labelledby="nav-lockbox-tab">
-            @Html.Partial(ProjectsView.LockboxTabPartial)
-        </div>
-        <div class="tab-pane fade" id="nav-ach-content" role="tabpanel" aria-labelledby="nav-ach-tab">
-            @Html.Partial(ProjectsView.AchTabPartial)
-        </div>
-        <div class="tab-pane fade" id="nav-system-content" role="tabpanel" aria-labelledby="nav-system-tab">
-            @Html.Partial(ProjectsView.SystemTabPartial)
-        </div>
-    </div>
-}
+</div>
 
 
 @* div to render user form modal *@
