@@ -445,6 +445,15 @@ input:disabled {
     opacity: 1;
 }
 
+input[readonly] {
+    pointer-events: none !important;
+    background: #eee;
+}
+
+input[readonly]:focus {
+    background: #eee;
+}
+
 select:disabled {
     background: #eee;
     opacity: 1;

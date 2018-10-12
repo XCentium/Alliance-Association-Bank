@@ -47,7 +47,6 @@
                 <div>
                     @Html.RoleBasedCheckBoxFor(m => m.MailingSameAsPhysical)
                     @Html.LabelFor(m => m.MailingSameAsPhysical)
-                    @*<label>Same as Physical</label>*@
                 </div>
             </div>
 
@@ -185,8 +184,6 @@
                     <span class="display-field">
                         @Html.DisplayFor(m => m.SoftwareReadOnly)
                     </span>
-                    @*@Html.RoleBasedDropDownListFor(m => m.Software, new SelectList(Model.SoftwareList), "", cssClass: "form-input")
-                        @Html.ValidationMessageFor(m => m.Software, "", new { @class = "form-error-msg" })*@
                 </div>
             </div>
 
@@ -272,6 +269,7 @@
                 <div class="col-7">
                     @Html.AdminOnlyEditorFor(m => m.LockboxCMCID, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.LockboxCMCID, "", new { @class = "form-error-msg" })
+                    @Html.HiddenFor(m => m.LockboxCMCID)
                 </div>
             </div>
 

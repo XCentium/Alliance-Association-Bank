@@ -44,7 +44,6 @@
     }))
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.ID)
 
         <div class="row mb-2">
             <div class="col-1" style="margin-bottom: -10px; padding-top:5px;">
@@ -61,6 +60,8 @@
                 </button>
             </div>
         </div>
+
+        @Html.HiddenFor(m => m.ID)
 
         @* Name fields shown on every tab *@
         <div class="row my-2 pb-1 border-bottom">

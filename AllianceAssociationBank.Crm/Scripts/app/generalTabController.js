@@ -36,10 +36,10 @@
 
         if (sameAsPhysical) {
             $mailingElement.val($(physicalElementId).val());
-            $mailingElement.addClass("read-only");
+            $mailingElement.attr("readonly", true);
         } else {
             $mailingElement.val("");
-            $mailingElement.removeClass("read-only");
+            $mailingElement.removeAttr("readonly");
         }
     };
 
@@ -67,23 +67,23 @@
         var $status = $("#LockboxStatus");
 
         if ($status.val() == noLockbox) {
-            disableFieldById(lockboxSystemElementId);
+            disableElementById(lockboxSystemElementId);
         }
 
         $status.on("change", function () {
             if (this.value == noLockbox) {
-                disableFieldById(lockboxSystemElementId);
+                disableElementById(lockboxSystemElementId);
             } else {
-                enableFieldById(lockboxSystemElementId);
+                enableElementById(lockboxSystemElementId);
             }
         });
     };
 
-    var disableFieldById = function (elementId) {
-        $(elementId).attr("disabled", "disabled");
+    var disableElementById = function (elementId) {
+        $(elementId).attr("disabled", true);
     }
 
-    var enableFieldById = function (elementId) {
+    var enableElementById = function (elementId) {
         $(elementId).removeAttr("disabled");
     }
 

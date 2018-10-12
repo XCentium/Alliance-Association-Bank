@@ -42,7 +42,7 @@ namespace AllianceAssociationBank.Crm.Extensions
 
         /// <summary>
         /// Returns an HTML input element based on the Linq expression and the role of the current logged in user.
-        /// Once a value been set only users with admin role can make changes, otherwise HTML element will be in the disabled/read-only state. 
+        /// Once a value been set only users with admin role can make changes, otherwise HTML element will be in the disabled state. 
         /// </summary>
         /// <typeparam name="TModel">The type of the model.</typeparam>
         /// <typeparam name="TValue">The type of the value.</typeparam>
@@ -54,31 +54,40 @@ namespace AllianceAssociationBank.Crm.Extensions
                                                                        Expression<Func<TModel, TValue>> expression,
                                                                        string cssClass)
         {
-            object htmlAttributes = null;
+            //object htmlAttributes = null;
+            bool addDisabledAttribute = true;
 
             if (html.IsUserInAdminRole())
             {
-                htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
+                addDisabledAttribute = false;
+                //htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
             }
             else if (html.IsUserInEditRole())
             {
                 if (IsModelValueNullOrEmpty(expression, html))
                 {
-                    htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
+                    // if user with edit role and value is null or empty then add element as enabled
+                    addDisabledAttribute = false;
+                    //htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
                 }
-                else
-                {
-                    // if user with edit role and value is not null/empty then add read only css class
-                    htmlAttributes = Helper.CreateHtmlAttributesForReadOnly(cssClass);
-                }
+                //else
+                //{
+                //    // if user with edit role and value is not null/empty then add disabled attribute
+                //    //htmlAttributes = Helper.CreateHtmlAttributesForReadOnly(cssClass);
+                //    //htmlAttributes = Helper.CreateHtmlAttributes(cssClass, true);
+                //}
             }
-            else
-            {
-                // if user with read only role and value add disabled attribute
-                htmlAttributes = Helper.CreateHtmlAttributes(cssClass, true);
-            }
+            //else
+            //{
+            //    // if user with read only role and value add disabled attribute
+            //    //htmlAttributes = Helper.CreateHtmlAttributes(cssClass, true);
+            //}
 
-            return html.EditorFor(expression, additionalViewData: new { htmlAttributes });
+            //return html.EditorFor(expression, additionalViewData: new { htmlAttributes });
+            return html.EditorFor(expression, additionalViewData: new
+            {
+                htmlAttributes = Helper.CreateHtmlAttributes(cssClass, addDisabledAttribute)
+            });
         }
 
         /// <summary>

@@ -1,12 +1,15 @@
-﻿using AllianceAssociationBank.Crm.Constants.Projects;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 
@@ -580,6 +583,14 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get
             {
                 return (ID != 0) ? ProjectsControllerAction.Update : ProjectsControllerAction.Create;
+            }
+        }
+
+        public void ResetCmcIdOnUnauthorized(IPrincipal user, string currentValue)
+        {
+            if (user.IsInRole(UserRole.ReadWriteUser) && !string.IsNullOrEmpty(currentValue))
+            {
+                LockboxCMCID = currentValue;
             }
         }
     }

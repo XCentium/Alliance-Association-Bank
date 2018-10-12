@@ -8,6 +8,7 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -128,6 +129,9 @@ namespace AllianceAssociationBank.Crm.Controllers
                 // TODO: need better error handeling
                 return View("Error");
             }
+
+            // Reset PMC/CMC ID value if a user with ReadWrite role attempts to change it.
+            model.ResetCmcIdOnUnauthorized(User, project.LockboxCMCID);
 
             _mapper.Map(model, project);
             await _projects.SaveAllAsync();
