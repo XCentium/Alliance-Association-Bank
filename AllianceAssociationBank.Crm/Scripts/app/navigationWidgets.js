@@ -22,13 +22,30 @@
 
     var bindTabBottonNavigationEvents = function () {
         $("#btn-change-tab-left").on("click", function () {
-            $('.nav-tabs > .active').prev('a').trigger('click');
+            // disable the button a for short period so click event can be fully handled
+            disableElement(this);
+            $(".nav-tabs > .active").prev("a").trigger("click");
+            enableElementAfterTimeout(this, 200);
         });
 
         $("#btn-change-tab-right").on("click", function () {
-            $('.nav-tabs > .active').next('a').trigger('click');
+            // disable the button for a short period so click event can be fully handled
+            disableElement(this);
+            $(".nav-tabs > .active").next("a").trigger("click");
+            enableElementAfterTimeout(this, 200);
         });
     };
+
+    var disableElement = function (e) {
+        e.disabled = true;
+    };
+
+    var enableElementAfterTimeout = function (e, timeout) {
+        var enableElement = function (e) {
+            e.removeAttribute("disabled");
+        };
+        setTimeout(enableElement, timeout, e);
+    }
 
     var bindScreenOverlayFadeOut = function () {
         $(".screen-overlay").on("click", function (event) {
