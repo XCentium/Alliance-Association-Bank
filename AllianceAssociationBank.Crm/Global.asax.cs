@@ -1,4 +1,6 @@
-﻿using System.Security.Claims;
+﻿using AllianceAssociationBank.Crm.Exceptions;
+using System;
+using System.Security.Claims;
 using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -19,5 +21,13 @@ namespace AllianceAssociationBank.Crm
 
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
         }
+
+        //protected void Application_Error(object sender, EventArgs e)
+        //{
+        //    var ex = Server.GetLastError();
+
+        //    Server.TransferRequest($"~/Error/InternalError");
+        //    Server.ClearError();
+        //}
     }
 }

@@ -58,34 +58,25 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(int projectId, NoteFormViewModel viewModel)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView(NotesView.NoteFormPartial, viewModel);
-                }
-
-                var note = _mapper.Map<Note>(viewModel);
-
-                note.SetDefaultsOnCreate();
-
-                _notesRepository.AddNote(note);
-                await _notesRepository.SaveAllAsync();
-
-                return Index(projectId);
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return PartialView(NotesView.NoteFormPartial, viewModel);
             }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
+
+            var note = _mapper.Map<Note>(viewModel);
+
+            note.SetDefaultsOnCreate();
+
+            _notesRepository.AddNote(note);
+            await _notesRepository.SaveAllAsync();
+
+            return Index(projectId);
         }
 
         [Route("Edit/{id}", Name = NotesControllerRoute.EditNote)]
         public async Task<ActionResult> Edit(int projectId, int id)
         {
-            //try
-            //{
             var note = await _notesRepository.GetNoteByIdAsync(id);
 
             if (note == null)
@@ -96,11 +87,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             var viewModel = _mapper.Map<NoteFormViewModel>(note);
 
             return PartialView(NotesView.NoteFormPartial, viewModel);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            //}
         }
 
         [Authorize(Roles = UserRole.EditAccessRoles)]
@@ -109,29 +95,22 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(int projectId, int id, NoteFormViewModel viewModel)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView(NotesView.NoteFormPartial, viewModel);
-                }
-
-                var note = await _notesRepository.GetNoteByIdAsync(id);
-                if (note == null)
-                {
-                    return HttpNotFound();
-                }
-
-                _mapper.Map(viewModel, note);
-                await _notesRepository.SaveAllAsync();
-
-                return Index(projectId);
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return PartialView(NotesView.NoteFormPartial, viewModel);
             }
-            catch (Exception ex)
+
+            var note = await _notesRepository.GetNoteByIdAsync(id);
+            if (note == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                return HttpNotFound();
             }
+
+            _mapper.Map(viewModel, note);
+            await _notesRepository.SaveAllAsync();
+
+            return Index(projectId);
         }
 
         [Authorize(Roles = UserRole.EditAccessRoles)]
@@ -155,23 +134,16 @@ namespace AllianceAssociationBank.Crm.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int projectId, int id)
         {
-            try
+            var note = await _notesRepository.GetNoteByIdAsync(id);
+            if (note == null)
             {
-                var note = await _notesRepository.GetNoteByIdAsync(id);
-                if (note == null)
-                {
-                    return HttpNotFound();
-                }
-
-                _notesRepository.RemoveNote(note);
-                await _notesRepository.SaveAllAsync();
-
-                return Index(projectId);
+                return HttpNotFound();
             }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
+
+            _notesRepository.RemoveNote(note);
+            await _notesRepository.SaveAllAsync();
+
+            return Index(projectId);
         }
     }
 }

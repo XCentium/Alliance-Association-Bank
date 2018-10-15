@@ -16,5 +16,6 @@ namespace AllianceAssociationBank.Crm.Constants
         public const string Reports = "Reports";
         public const string Exports = "Exports";
         public const string Search = "Search";
+        public const string Error = "Error";
     }
 }

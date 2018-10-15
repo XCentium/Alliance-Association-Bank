@@ -255,6 +255,7 @@
     <Compile Include="Constants\Search\SearchControllerAction.cs" />
     <Compile Include="Constants\SortOrder.cs" />
     <Compile Include="Constants\User\UserFilterValue.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Core\Dtos\CDEmailsDatasetDto.cs" />
@@ -264,13 +265,14 @@
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Core\Models\Aq2Reformat.cs" />
+    <Compile Include="Exceptions\HttpNotFoundException.cs" />
     <Compile Include="Extensions\HtmlExtensionsHelper.cs" />
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperButtonExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
-    <Compile Include="Filters\HandleExceptionWithLoggingFilter.cs" />
+    <Compile Include="Filters\HandleErrorWithLoggingFilter.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
     <Compile Include="Helpers\EmailDistributionList.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
@@ -302,7 +304,7 @@
     <Compile Include="Constants\Reports\ReportName.cs" />
     <Compile Include="Constants\Reports\ReportsView.cs" />
     <Compile Include="Constants\Reports\ReportsControllerRoute.cs" />
-    <Compile Include="Constants\UserRoleName.cs" />
+    <Compile Include="Constants\UserRole.cs" />
     <Compile Include="Controllers\Api\ProjectsController.cs" />
     <Compile Include="Controllers\CheckScannersController.cs" />
     <Compile Include="Controllers\ProjectUsersController.cs" />
@@ -364,7 +366,6 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\NoteFormViewModel.cs" />
@@ -578,6 +579,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

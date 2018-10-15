@@ -2,6 +2,7 @@
 using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
@@ -42,13 +44,12 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Authorize(Roles = UserRole.EditAccessRoles)]
         public async Task<ActionResult> Create()
         {
-            ViewBag.Title = "Create Project";
-
             var model = new ProjectFormViewModel();
             await PopulateDropDownLists(model);
             // Default Start Date to today on create
             model.StartDate = DateTime.Today;
 
+            ViewBag.Title = "Create Project";
             return View(ProjectsView.ProjectForm, model);
         }
 
@@ -57,57 +58,56 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectFormViewModel model)
         {
-            try
+            //try
+            //{
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    await PopulateDropDownLists(model);
-                    return View(ProjectsView.ProjectForm, model);
-                }
-
-                var project = _mapper.Map<Project>(model);
-                _projects.AddProject(project);
-                await _projects.SaveAllAsync();
-
-                TempData[SAVED] = true;
-                return RedirectToAction(nameof(this.Edit), new { id = project.ID });
+                await PopulateDropDownLists(model);
+                return View(ProjectsView.ProjectForm, model);
             }
-            catch (Exception ex)
-            {
-                return View("Error");
-            }
+
+            var project = _mapper.Map<Project>(model);
+            _projects.AddProject(project);
+            await _projects.SaveAllAsync();
+
+            TempData[SAVED] = true;
+            return RedirectToAction(nameof(this.Edit), new { id = project.ID });
+            //}
+            //catch (Exception ex)
+            //{
+            //    return View("Error");
+            //}
         }
 
         public async Task<ActionResult> Edit(int id)
         {
-            try
+            //try
+            //{
+            var project = await _projects.GetProjectByIdAsync(id);
+
+            if (project == null)
             {
-                ViewBag.Title = "Edit Project";
-
-                var project = await _projects.GetProjectByIdAsync(id);
-
-                if (project == null)
-                {
-                    // TODO: need better error handeling
-                    return View("Error");    
-                }
-
-                var model = _mapper.Map<ProjectFormViewModel>(project);
-                await PopulateDropDownLists(model);
-
-                if (TempData.ContainsKey(SAVED))
-                {
-                    model.SaveIndicator = SAVED;
-                    TempData.Remove(SAVED);
-                }
-
-                return View(ProjectsView.ProjectForm, model);
+                throw new HttpNotFoundException();
+                //return View("Error");    
             }
-            catch (Exception ex)
+
+            var model = _mapper.Map<ProjectFormViewModel>(project);
+            await PopulateDropDownLists(model);
+
+            if (TempData.ContainsKey(SAVED))
             {
-                return View("Error");
-                //throw;
+                model.SaveIndicator = SAVED;
+                TempData.Remove(SAVED);
             }
+
+            ViewBag.Title = "Edit Project";
+            return View(ProjectsView.ProjectForm, model);
+            //}
+            //catch (Exception ex)
+            //{
+            //    return View("Error");
+            //    //throw;
+            //}
         }
 
         [Authorize(Roles = UserRole.EditAccessRoles)]
@@ -121,13 +121,14 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return View(ProjectsView.ProjectForm, model);
             }
 
-            //throw new InvalidOperationException();
+            //throw new HttpNotFoundException();
+            //return HttpNotFound();
 
             var project = await _projects.GetProjectByIdAsync(model.ID);
             if (project == null)
             {
-                // TODO: need better error handeling
-                return View("Error");
+                throw new HttpNotFoundException();
+                //return View("Error");
             }
 
             // Reset PMC/CMC ID value if a user with ReadWrite role attempts to change it.

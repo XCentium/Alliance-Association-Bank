@@ -4,6 +4,7 @@ using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
@@ -72,49 +73,35 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(int projectId, UserFormViewModel model)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView(ProjectUsersView.UserFormPartial, model);
-                }
-
-                var user = _mapper.Map<ProjectUser>(model);
-
-                user.SetDefaultsOnCreate();
-
-                _userRepository.AddUser(user);
-                await _userRepository.SaveAllAsync();
-
-                return Index(projectId);
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return PartialView(ProjectUsersView.UserFormPartial, model);
             }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
+
+            var user = _mapper.Map<ProjectUser>(model);
+
+            user.SetDefaultsOnCreate();
+
+            _userRepository.AddUser(user);
+            await _userRepository.SaveAllAsync();
+
+            return Index(projectId);
         }
 
         [Route("Edit/{id}", Name = ProjectUsersControllerRoute.EditUser)]
         public async Task<ActionResult> Edit(int projectId, int id)
         {
-            try
+            var user = await _userRepository.GetUserByIdAsync(id);
+
+            if (user == null)
             {
-                var user = await _userRepository.GetUserByIdAsync(id);
-
-                if (user == null)
-                {
-                    return HttpNotFound();
-                }
-
-                var model = _mapper.Map<UserFormViewModel>(user);
-
-                return PartialView(ProjectUsersView.UserFormPartial, model);
+                return HttpNotFound();
             }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
+
+            var model = _mapper.Map<UserFormViewModel>(user);
+
+            return PartialView(ProjectUsersView.UserFormPartial, model);
         }
 
         [Authorize(Roles = UserRole.EditAccessRoles)]
@@ -123,51 +110,37 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(int projectId, int id, UserFormViewModel model)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return PartialView(ProjectUsersView.UserFormPartial, model);
-                }
-
-                var user = await _userRepository.GetUserByIdAsync(id);
-                if (user == null)
-                {
-                    return HttpNotFound();
-                }
-
-                _mapper.Map(model, user);
-
-                user.CheckForStatusChange();
-
-                await _userRepository.SaveAllAsync();
-
-                return Index(projectId);
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return PartialView(ProjectUsersView.UserFormPartial, model);
             }
-            catch (Exception ex)
+
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                return HttpNotFound();
             }
+
+            _mapper.Map(model, user);
+
+            user.CheckForStatusChange();
+
+            await _userRepository.SaveAllAsync();
+
+            return Index(projectId);
         }
 
         [Route("EmailList", Name = ProjectUsersControllerRoute.GetEmailList)]
         public async Task<ActionResult> GetEmailList(int projectId, string emailList)
         {
-            try
-            {
-                var emails = (await _userRepository.GetUsersByEmailList(projectId, emailList.ToLower()))
-                    .Select(u => u.Email);
+            var emails = (await _userRepository.GetUsersByEmailList(projectId, emailList.ToLower()))
+                .Select(u => u.Email);
 
-                ViewBag.ListName = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(emailList);
-                ViewBag.EmailList = EmailListHelper.Concatenate(emails);
+            ViewBag.ListName = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(emailList);
+            ViewBag.EmailList = EmailListHelper.Concatenate(emails);
 
-                return PartialView(ProjectUsersView.UsersEmailListDialogPartial);
-            }
-            catch (Exception ex)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
-            }
+            return PartialView(ProjectUsersView.UsersEmailListDialogPartial);
         }
     } 
 }

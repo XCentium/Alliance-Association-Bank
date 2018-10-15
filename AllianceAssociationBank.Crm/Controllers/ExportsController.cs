@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Exceptions;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -22,21 +23,14 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("{name}", Name = ExportsControllerRoute.GenerateExportFile)]
         public async Task<ActionResult> GenerateExportFile(string name)
         {
-            try
-            {
-                var exportFile = await _dataExportService.GenerateExportFileByName(name);
+            var exportFile = await _dataExportService.GenerateExportFileByName(name);
 
-                if (exportFile == null)
-                {
-                    return HttpNotFound();
-                }
-
-                return exportFile;
-            }
-            catch (Exception ex)
+            if (exportFile == null)
             {
-                return View("Error");
+                throw new HttpNotFoundException();
             }
+
+            return exportFile;
         }
     }
 }
