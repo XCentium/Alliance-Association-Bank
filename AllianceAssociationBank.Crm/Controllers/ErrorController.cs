@@ -14,8 +14,8 @@ namespace AllianceAssociationBank.Crm.Controllers
     {
         public ActionResult InternalError(string aspxerrorpath)
         {
-            var errorTitle = "Error";
-            var errorMessage = "An error occurred while processing your request. Please try again later.";
+            var errorTitle = "!Error";
+            var errorMessage = "!An error occurred while processing your request. Please try again later.";
 
             return GetErrorResult(HttpStatusCode.InternalServerError, errorTitle, errorMessage, aspxerrorpath);
         }
@@ -38,9 +38,22 @@ namespace AllianceAssociationBank.Crm.Controllers
                                             string errorMessage, 
                                             string errorPath)
         {
+            Response.StatusCode = (int)statusCode;
+
             if (Request.IsAjaxRequest())
             {
-                return new HttpStatusCodeResult(statusCode);
+                //return new HttpStatusCodeResult(statusCode);
+                var jsonResult = new JsonResult()
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = new
+                    {
+                        error = errorTitle,
+                        message = errorMessage
+                    }
+                };
+
+                return jsonResult;
             }
             else
             {
@@ -51,7 +64,7 @@ namespace AllianceAssociationBank.Crm.Controllers
                     HttpContext.Request.UrlReferrer?.OriginalString
                 );
 
-                Response.StatusCode = (int)statusCode;
+                //Response.StatusCode = (int)statusCode;
                 return View(SharedView.Error, errorModel);
             }
         }
