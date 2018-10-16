@@ -12,12 +12,13 @@
             source: function (request, response) {
                 $.ajax({
                     url: "/api/Projects",
+                    //url: "Search/JsonResults",
                     method: "GET",
                     dataType: "json",
                     data: {
                         search: request.term
                     },
-                    success: function (data) {
+                    success: function (data, textStatus, jqXHR) {
                         if (data.length > 0) {
                             response($.map(data, function (item) {
                                 return {
@@ -32,7 +33,7 @@
                             }]);
                         }
                     },
-                    error: function () {
+                    error: function (jqXHR, textStatus, errorThrown) {
                         errorUtil.handleAjaxError();
                         response([]);
                     }

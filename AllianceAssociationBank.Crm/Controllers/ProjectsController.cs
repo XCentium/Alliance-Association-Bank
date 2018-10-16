@@ -121,9 +121,6 @@ namespace AllianceAssociationBank.Crm.Controllers
                 return View(ProjectsView.ProjectForm, model);
             }
 
-            //throw new HttpNotFoundException();
-            //return HttpNotFound();
-
             var project = await _projects.GetProjectByIdAsync(model.ID);
             if (project == null)
             {

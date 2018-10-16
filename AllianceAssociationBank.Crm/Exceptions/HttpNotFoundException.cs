@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AllianceAssociationBank.Crm.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,7 +11,7 @@ namespace AllianceAssociationBank.Crm.Exceptions
     public class HttpNotFoundException : HttpException
     {
         public HttpNotFoundException() 
-            : base((int)HttpStatusCode.NotFound, "The requested resource is not found.")
+            : base((int)HttpStatusCode.NotFound, DefaultErrorText.Message.NotFound)
         {
         }
 

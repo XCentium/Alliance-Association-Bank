@@ -246,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Constants\DefaultErrorText.cs" />
     <Compile Include="Constants\Home\HomeView.cs" />
     <Compile Include="Constants\Home\HomeControllerAction.cs" />
     <Compile Include="Constants\Notes\NotesView.cs" />
@@ -265,6 +266,8 @@
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Core\Models\Aq2Reformat.cs" />
+    <Compile Include="Exceptions\ViewErrorResult.cs" />
+    <Compile Include="Exceptions\JsonErrorResult.cs" />
     <Compile Include="Exceptions\HttpNotFoundException.cs" />
     <Compile Include="Extensions\HtmlExtensionsHelper.cs" />
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />

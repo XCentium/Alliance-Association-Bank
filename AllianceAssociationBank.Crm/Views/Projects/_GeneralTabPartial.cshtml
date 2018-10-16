@@ -12,7 +12,7 @@
 
             <div class="row">
                 @Html.LabelFor(m => m.Address, new { @class = "col-3 form-label-indent" })
-                <div class="col-8">
+                <div class="col-8 trigger">
                     @Html.RoleBasedEditorFor(m => m.Address, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.Address, "", new { @class = "form-error-msg" })
                 </div>

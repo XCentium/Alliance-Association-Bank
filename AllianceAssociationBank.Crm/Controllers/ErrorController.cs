@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,57 +15,27 @@ namespace AllianceAssociationBank.Crm.Controllers
     {
         public ActionResult InternalError(string aspxerrorpath)
         {
-            var errorTitle = "!Error";
-            var errorMessage = "!An error occurred while processing your request. Please try again later.";
-
-            return GetErrorResult(HttpStatusCode.InternalServerError, errorTitle, errorMessage, aspxerrorpath);
+            return GetErrorResult(HttpStatusCode.InternalServerError);
         }
 
         public ActionResult NotFound(string aspxerrorpath)
         {
-            var errorTitle = "Non Found";
-            var errorMessage = "The resource you are looking for has been removed or is temporarily unavailable.";
-
-            return GetErrorResult(HttpStatusCode.InternalServerError, errorTitle, errorMessage, aspxerrorpath);
+            return GetErrorResult(HttpStatusCode.NotFound);
         }
 
-        //public ActionResult BadRequest()
-        //{
-        //    return View();
-        //}
-
-        private ActionResult GetErrorResult(HttpStatusCode statusCode, 
-                                            string errorTitle, 
-                                            string errorMessage, 
-                                            string errorPath)
+        private ActionResult GetErrorResult(HttpStatusCode statusCode)
         {
-            Response.StatusCode = (int)statusCode;
+            var errorTitle = DefaultErrorText.Title.GetByStatusCode(statusCode);
+            var errorMessage = DefaultErrorText.Message.GetByStatusCode(statusCode);
+            var previousPageUrl = HttpContext.Request.UrlReferrer?.OriginalString;
 
             if (Request.IsAjaxRequest())
             {
-                //return new HttpStatusCodeResult(statusCode);
-                var jsonResult = new JsonResult()
-                {
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                    Data = new
-                    {
-                        error = errorTitle,
-                        message = errorMessage
-                    }
-                };
-
-                return jsonResult;
+                return new JsonErrorResult(statusCode, errorTitle, errorMessage);
             }
             else
             {
-                var errorModel = new ErrorViewModel
-                (
-                    errorTitle,
-                    errorMessage,
-                    HttpContext.Request.UrlReferrer?.OriginalString
-                );
-
-                return View(SharedView.Error, errorModel);
+                return new ViewErrorResult(statusCode, errorTitle, errorMessage, previousPageUrl);
             }
         }
     }

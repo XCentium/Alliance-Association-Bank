@@ -2,6 +2,7 @@
 using AllianceAssociationBank.Crm.Constants.CheckScanners;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -37,10 +38,10 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Create", Name = CheckScannersControllerRoute.CreateScanner)]
         public ActionResult Create(int projectId)
         {
-            // TODO: if projectId is null need to show an error, but better way to do this
             if (projectId == 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new JsonErrorResult(HttpStatusCode.BadRequest, DefaultErrorText.Message.CreateProjectFirst);
             }
 
             var viewModel = new ScannerFormViewModel();
@@ -84,7 +85,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (scanner == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             var viewModel = _mapper.Map<ScannerFormViewModel>(scanner);
@@ -114,7 +116,8 @@ namespace AllianceAssociationBank.Crm.Controllers
             var scanner = await _scannerRepository.GetScannerByIdAsync(id);
             if (scanner == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             _mapper.Map(viewModel, scanner);
@@ -154,7 +157,8 @@ namespace AllianceAssociationBank.Crm.Controllers
             var scanner = await _scannerRepository.GetScannerByIdAsync(id);
             if (scanner == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             _scannerRepository.RemoveScanner(scanner);

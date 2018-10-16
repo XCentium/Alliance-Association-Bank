@@ -30,6 +30,8 @@ namespace AllianceAssociationBank.Crm
 
             // Register Unity with WebApi
             config.DependencyResolver = new Unity.AspNet.WebApi.UnityDependencyResolver(UnityConfig.Container);
+
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Default;
         }
     }
 }

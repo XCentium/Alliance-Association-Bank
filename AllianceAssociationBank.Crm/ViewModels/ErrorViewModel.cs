@@ -13,16 +13,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string ErrorMessage { get; set; }
         public string PreviousPageUrl { get; set; }
 
-        public ErrorViewModel()
-        {
-
-        }
-
         public ErrorViewModel(string errorTitle, string errorMessage, string previousPageUrl = null)
         {
             ErrorTitle = errorTitle;
             ErrorMessage = errorMessage;
-            PreviousPageUrl = string.IsNullOrEmpty(previousPageUrl) ? "/" : previousPageUrl;
+            PreviousPageUrl = previousPageUrl;
         }
     }
 }

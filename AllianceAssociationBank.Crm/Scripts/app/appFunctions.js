@@ -6,9 +6,6 @@
         if ($saveIndicator.text() == "SAVED") {
             $saveIndicator.text("UNSAVED");
             $saveIndicator.removeClass("badge-success").addClass("badge-light");
-
-            // TEST!
-            //$("#ajax-error-alert").show();
         };
     });
 

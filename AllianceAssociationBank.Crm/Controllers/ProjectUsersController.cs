@@ -15,6 +15,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
@@ -53,10 +54,9 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("Create", Name = ProjectUsersControllerRoute.CreateUser)]
         public ActionResult Create(int projectId)
         {
-            // TODO: if projectId is null need to show an error, but better way to do this
             if (projectId == 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new JsonErrorResult(HttpStatusCode.BadRequest, DefaultErrorText.Message.CreateProjectFirst);
             }
 
             var model = new UserFormViewModel();
@@ -96,7 +96,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (user == null)
             {
-                return HttpNotFound();
+                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             var model = _mapper.Map<UserFormViewModel>(user);
@@ -119,7 +119,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var user = await _userRepository.GetUserByIdAsync(id);
             if (user == null)
             {
-                return HttpNotFound();
+                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             _mapper.Map(model, user);
