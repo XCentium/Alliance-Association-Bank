@@ -15,7 +15,7 @@
                     @Html.LabelFor(m => m.DICompanyID, new { @class = "col-3 label-indented" })
                     <div class="col-8">
                         @Html.RoleBasedEditorFor(m => m.DICompanyID, "form-input")
-                        @Html.ValidationMessageFor(m => m.DICompanyID, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.DICompanyID, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row">
@@ -90,7 +90,7 @@
                     @Html.LabelFor(m => m.SftpUsage, new { @class = "col label-indented" })
                     <div class="col-11 pl-4">
                         @Html.RoleBasedTextAreaFor(m => m.SftpUsage, 3, 10, cssClass: "form-textarea")
-                        @Html.ValidationMessageFor(m => m.SftpUsage, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.SftpUsage, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                     <div class="col-10">
                         @Html.LabelFor(m => m.ACHReportLaruName)
                         @Html.RoleBasedEditorFor(m => m.ACHReportLaruName, cssClass: "form-input")
-                        @Html.ValidationMessageFor(m => m.ACHReportLaruName, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.ACHReportLaruName, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>

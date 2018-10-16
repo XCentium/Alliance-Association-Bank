@@ -94,7 +94,7 @@ textarea {
     margin-bottom: 3px;
 }
 
-.form-error-msg {
+.form-val-error-tooltip {
     background-color: rgba(220,53,69,.8);
     border-radius: 4px;
     color: #fff;
@@ -108,9 +108,9 @@ textarea {
     z-index: 5;
 }
 
-.input-validation-error:focus + .form-error-msg,
-.input-validation-error:hover + .form-error-msg,
-.input-validation-error + .select2:hover + .form-error-msg {
+.input-validation-error:focus + .form-val-error-tooltip,
+.input-validation-error:hover + .form-val-error-tooltip,
+.input-validation-error + .select2:hover + .form-val-error-tooltip {
     display: block;
 }
 
@@ -603,60 +603,3 @@ select.input-validation-error + .select2 > .selection > .select2-selection--sing
 select.select2-hidden {
     visibility: hidden;
 }
-
-/* Need better solution for this */
-/*select {
-    visibility: hidden;
-}*/
-
-
-
-/*.select2-selection--single:focus {
-    border-color: #98c2f2 !important;
-    box-shadow: 0 0 0 0.1rem rgba(39,128,227,0.25);
-    outline: 0;
-    -webkit-box-shadow: 0 0 0 0.1rem rgba(39,128,227,0.25);
-}*/
-
-/*.select2-search__field:focus {
-    border-color: #98c2f2 !important;
-    box-shadow: 0 0 0 0.1rem rgba(39,128,227,0.25);
-    outline: 0;
-    -webkit-box-shadow: 0 0 0 0.1rem rgba(39,128,227,0.25);
-}*/
-
-/*select.input-validation-error + .select2 > .selection > .select2-selection--single {
-    border-color: #FF0039 !important;
-}
-
-select.input-validation-error + .select2 > .selection > .select2-selection--single:focus {
-    border-color: #FF0039;
-    -webkit-box-shadow: 0 0 0 0.1rem rgba(255, 0, 57, 0.25);
-    box-shadow: 0 0 0 0.1rem rgba(255, 0, 57, 0.25);
-}*/
-
-/*.input-validation-error + .select2:hover + .form-error-msg {
-    display: block;
-}*/
-
-
-
-
-/*.form-error-msg {
-    background-color: rgba(220,53,69,.8);
-    border-radius: 4px;
-    color: #fff;
-    display: none;
-    font-size: 12px;
-    line-height: 1;
-    margin-top: 2px;
-    max-width: 100%;
-    padding: 6px;
-    position: absolute;
-    z-index: 5;
-}
-
-.input-validation-error:focus + .form-error-msg,
-.input-validation-error:hover + .form-error-msg {
-    display: block;
-}*/

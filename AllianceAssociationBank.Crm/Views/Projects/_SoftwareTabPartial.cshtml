@@ -15,14 +15,14 @@
                     @Html.LabelFor(m => m.Software, new { @class = "col-3 label-indented" })
                     <div class="col-8">
                         @Html.RoleBasedDropDownListFor(m => m.Software, new SelectList(Model.SoftwareList), "", "select2-hidden")
-                        @Html.ValidationMessageFor(m => m.Software, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.Software, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row mb-2">
                     @Html.LabelFor(m => m.MigratingToSoftware, new { @class = "col-3 label-indented" })
                     <div class="col-8">
                         @Html.RoleBasedDropDownListFor(m => m.MigratingToSoftware, new SelectList(Model.MigratingToSoftwareList), "", "select2-hidden")
-                        @Html.ValidationMessageFor(m => m.MigratingToSoftware, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.MigratingToSoftware, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row">
@@ -53,14 +53,14 @@
                     @Html.LabelFor(m => m.SftpFolderName, new { @class = "col-4 label-indented" })
                     <div class="col-8">
                         @Html.RoleBasedEditorFor(m => m.SftpFolderName, "form-input")
-                        @Html.ValidationMessageFor(m => m.SftpFolderName, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.SftpFolderName, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row mb-2">
                     @Html.LabelFor(m => m.SftpGeneralUserPassword, new { @class = "col-4 label-indented" })
                     <div class="col-8">
                         @Html.RoleBasedEditorFor(m => m.SftpGeneralUserPassword, "form-input")
-                        @Html.ValidationMessageFor(m => m.SftpGeneralUserPassword, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.SftpGeneralUserPassword, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>

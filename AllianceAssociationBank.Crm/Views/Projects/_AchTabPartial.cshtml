@@ -93,7 +93,7 @@
                     @Html.LabelFor(m => m.ACHEstimatedDeposits, new { @class = "col-4 label-indented" })
                     <div class="col-7">
                         @Html.RoleBasedEditorFor(m => m.ACHEstimatedDeposits, "form-input")
-                        @Html.ValidationMessageFor(m => m.ACHEstimatedDeposits, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.ACHEstimatedDeposits, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row field-group">
@@ -106,14 +106,14 @@
                     @Html.LabelFor(m => m.ACHLimit, new { @class = "col-4 label-indented" })
                     <div class="col-7">
                         @Html.RoleBasedEditorFor(m => m.ACHLimit, "form-input")
-                        @Html.ValidationMessageFor(m => m.ACHLimit, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.ACHLimit, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row field-group">
                     @Html.LabelFor(m => m.ACHSystemLimit, new { @class = "col-4 label-indented" })
                     <div class="col-7">
                         @Html.RoleBasedEditorFor(m => m.ACHSystemLimit, "form-input")
-                        @Html.ValidationMessageFor(m => m.ACHSystemLimit, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.ACHSystemLimit, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row field-group">

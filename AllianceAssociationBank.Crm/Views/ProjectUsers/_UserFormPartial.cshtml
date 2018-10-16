@@ -39,7 +39,7 @@
                                 @Html.LabelFor(m => m.Name, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.RoleBasedEditorFor(m => m.Name, "form-input")
-                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "form-error-msg" })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
                             <div class="row">
@@ -65,21 +65,21 @@
                                 @Html.LabelFor(m => m.Email, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.RoleBasedEditorFor(m => m.Email, "form-input")
-                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "form-error-msg" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.RoleBasedEditorFor(m => m.Phone, "form-input")
-                                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-error-msg" })
+                                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Mobile, new { @class = "col-3" })
                                 <div class="col-8">
                                     @Html.RoleBasedEditorFor(m => m.Mobile, "form-input")
-                                    @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "form-error-msg" })
+                                    @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
 
@@ -179,7 +179,7 @@
                                 <div class="col-11">
                                     @Html.LabelFor(m => m.RemoteScannerAccountNotes)
                                     @Html.RoleBasedTextAreaFor(m => m.RemoteScannerAccountNotes, 3, 10, "form-textarea")
-                                    @Html.ValidationMessageFor(m => m.RemoteScannerAccountNotes, "", new { @class = "form-error-msg" })
+                                    @Html.ValidationMessageFor(m => m.RemoteScannerAccountNotes, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
                         </div>

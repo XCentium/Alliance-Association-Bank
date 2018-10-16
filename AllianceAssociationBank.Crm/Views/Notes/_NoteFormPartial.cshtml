@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-10 offset-1">
                                 @Html.RoleBasedTextAreaFor(m => m.NoteText, 10, 10, "form-textarea")
-                                @Html.ValidationMessageFor(m => m.NoteText, "", new { @class = "form-error-msg" })
+                                @Html.ValidationMessageFor(m => m.NoteText, "", new { @class = "form-val-error-tooltip" })
                             </div>
                         </div>
 

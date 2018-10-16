@@ -70,7 +70,7 @@
                     @Html.LabelFor(m => m.ProjectName, new { @class = "col-2 form-label-indent" })
                     <div class="col-10">
                         @Html.RoleBasedEditorFor(m => m.ProjectName, cssClass: "form-input")
-                        @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     @Html.LabelFor(m => m.DBA, new { @class = "col-2 form-label-indent" })
                     <div class="col-10">
                         @Html.RoleBasedEditorFor(m => m.DBA, cssClass: "form-input")
-                        @Html.ValidationMessageFor(m => m.DBA, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.DBA, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     @Html.LabelFor(m => m.OtherName, new { @class = "col-2 form-label-indent" })
                     <div class="col-10">
                         @Html.RoleBasedEditorFor(m => m.OtherName, cssClass: "form-input")
-                        @Html.ValidationMessageFor(m => m.OtherName, "", new { @class = "form-error-msg" })
+                        @Html.ValidationMessageFor(m => m.OtherName, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>
