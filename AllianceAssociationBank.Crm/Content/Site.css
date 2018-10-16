@@ -271,9 +271,9 @@ textarea {
     width: 92px;
 }
 
-.select-hidden {
+/*.select-hidden {
     visibility: hidden;
-}
+}*/
 
 .screen-overlay {
     background-color: #ffffff;
@@ -600,10 +600,14 @@ select.input-validation-error + .select2 > .selection > .select2-selection--sing
     box-shadow: 0 0 0 0.1rem rgba(255, 0, 57, 0.25);
 }
 
-/* Need better solution for this */
-select {
+select.select2-hidden {
     visibility: hidden;
 }
+
+/* Need better solution for this */
+/*select {
+    visibility: hidden;
+}*/
 
 
 

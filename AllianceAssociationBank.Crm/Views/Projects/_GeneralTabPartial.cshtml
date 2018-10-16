@@ -131,7 +131,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.Institution, new { @class = "col-3" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.Institution, new SelectList(Model.InstitutionList), "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.Institution, new SelectList(Model.InstitutionList), "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.Institution, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -157,7 +157,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.OwnerID, new { @class = "col-3" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.OwnerID, Model.EmployeeList, "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.OwnerID, Model.EmployeeList, "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.OwnerID, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -165,7 +165,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.AFPID, new { @class = "col-3" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.AFPID, Model.EmployeeList, "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.AFPID, Model.EmployeeList, "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.AFPID, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -173,7 +173,7 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, Model.EmployeeList, "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, Model.EmployeeList, "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.BoardingManagerID, "", new { @class = "form-error-msg" })
                 </div>
             </div>
@@ -194,14 +194,14 @@
             <div class="row mb-1">
                 @Html.LabelFor(m => m.LockboxStatus, new { @class = "col-3 form-label-indent" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), null, cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), null, cssClass: "select2-hidden")
                 </div>
             </div>
 
-            <div class="row mb-1">
+            <div class="row mb-1 select2-">
                 @Html.LabelFor(m => m.LockboxSystem, new { @class = "col-3 form-label-indent" })
                 <div class="col-8">
-                    @Html.RoleBasedDropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", cssClass: "select2-hidden")
                 </div>
             </div>
 

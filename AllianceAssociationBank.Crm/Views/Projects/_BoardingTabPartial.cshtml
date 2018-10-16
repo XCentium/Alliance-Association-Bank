@@ -10,7 +10,7 @@
             <div class="row">
                 @Html.LabelFor(m => m.Status, new { @class = "col-3" })
                 <div class="col-7">
-                    @Html.RoleBasedDropDownListFor(m => m.Status, new SelectList(Model.StatusList), null, cssClass: "form-input")
+                    @Html.RoleBasedDropDownListFor(m => m.Status, new SelectList(Model.StatusList), null, cssClass: "select2-hidden")
                 </div>
             </div>
             <div class="row">
