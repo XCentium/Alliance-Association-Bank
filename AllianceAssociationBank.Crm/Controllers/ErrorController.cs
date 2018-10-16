@@ -64,7 +64,6 @@ namespace AllianceAssociationBank.Crm.Controllers
                     HttpContext.Request.UrlReferrer?.OriginalString
                 );
 
-                //Response.StatusCode = (int)statusCode;
                 return View(SharedView.Error, errorModel);
             }
         }
