@@ -29,7 +29,7 @@ namespace AllianceAssociationBank.Crm
                       "~/Content/bootstrap.min.css",
                       "~/Content/themes/base/jquery-ui.min.css",
                       "~/Content/select2.min.css",
-                      "~/Content/Site.css"));
+                      "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/popper").Include(
                       "~/Scripts/umd/popper.min.js"));
@@ -48,6 +48,7 @@ namespace AllianceAssociationBank.Crm
                       "~/Scripts/app/achTabController.js",
                       "~/Scripts/app/navigationWidgets.js",
                       "~/Scripts/app/searchWidget.js",
+                      "~/Scripts/app/modalDialogHelper.js",
                       "~/Scripts/app/app.js",
                       "~/Scripts/app/appFunctions.js"));
         }

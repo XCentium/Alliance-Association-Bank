@@ -18,7 +18,7 @@
                         HttpMethod = "GET",
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "note-form-modal-location",
-                        OnSuccess = "showModalTarget",
+                        OnSuccess = "ModalDialogHelper.showModalDialog",
                         OnFailure = "ErrorHandler.handleAjaxError"
                     }, htmlAttributes: new
                     {
@@ -35,7 +35,7 @@
                         HttpMethod = "GET",
                         InsertionMode = InsertionMode.Replace,
                         UpdateTargetId = "confirm-delete-dialog-location",
-                        OnSuccess = "showModalTarget",
+                        OnSuccess = "ModalDialogHelper.showModalDialog",
                         OnFailure = "ErrorHandler.handleAjaxError"
                     }, htmlAttributes: new
                     {

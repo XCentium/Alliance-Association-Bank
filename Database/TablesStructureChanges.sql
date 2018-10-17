@@ -117,8 +117,15 @@ exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftware', 'COLUMN';
 
 ALTER TABLE [dbo].[Projects] ADD OtherName NVARCHAR(255) NULL 
 ALTER TABLE [dbo].[Projects] ADD RelationshipRate NVARCHAR(50) NULL 
-ALTER TABLE [dbo].[Projects] ADD LockboxNotes NVARCHAR(MAX) NULL 
+ALTER TABLE [dbo].[Projects] ADD LockboxNotes NVARCHAR(MAX) NULL
 
+ALTER TABLE [dbo].[Projects] ADD ACHUploadPPD NVARCHAR(10) NULL
+ALTER TABLE [dbo].[Projects] ADD ACHUploadCCD NVARCHAR(10) NULL 
+ALTER TABLE [dbo].[Projects] ADD ACHTemplatePPD NVARCHAR(10) NULL 
+ALTER TABLE [dbo].[Projects] ADD ACHTemplateCCD NVARCHAR(10) NULL 
+ALTER TABLE [dbo].[Projects] ADD ACHSftpPPD NVARCHAR(10) NULL 
+ALTER TABLE [dbo].[Projects] ADD ACHSftpCCD NVARCHAR(10) NULL 
+ALTER TABLE [dbo].[Projects] ADD ACHWebPPD NVARCHAR(10) NULL 
 
 -- Populate LockboxNotes field
 /*UPDATE p

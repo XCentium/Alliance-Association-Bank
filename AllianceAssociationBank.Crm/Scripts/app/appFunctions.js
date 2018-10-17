@@ -11,7 +11,7 @@
 
 });
 
-function showModalTarget(modalId) {
+function showModalTarget() {
     $modalTarget = $($(this).data("modal-target"));
 
     if ($modalTarget.length) {

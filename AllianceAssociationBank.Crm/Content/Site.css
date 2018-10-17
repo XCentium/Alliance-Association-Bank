@@ -1,4 +1,12 @@
-﻿body {
+﻿.alert-fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1099;
+}
+
+body {
     /*padding-top: 50px;*/
     /*padding-bottom: 20px;*/
 }
@@ -275,19 +283,6 @@ textarea {
     visibility: hidden;
 }*/
 
-.screen-overlay {
-    background-color: #ffffff;
-    bottom: 0;
-    display: none;
-    filter: alpha(opacity=85);
-    left: 0;
-    opacity: 0.85;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 98;
-}
-
 .label-small-note {
     color: #FF0039;
     font-style: italic;
@@ -324,6 +319,19 @@ textarea {
 
 .row-radio-grid-top {
     border-bottom: 1px solid #dee2e6;
+}
+
+.screen-overlay {
+    background-color: #ffffff;
+    bottom: 0;
+    display: none;
+    filter: alpha(opacity=85);
+    left: 0;
+    opacity: 0.85;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 98;
 }
 
 .smallnavbar {

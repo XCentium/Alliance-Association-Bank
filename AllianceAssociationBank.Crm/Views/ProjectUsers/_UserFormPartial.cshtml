@@ -17,7 +17,8 @@
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "project-users-list",
-                OnBegin = "hideModalTarget", // TODO: maybe should change this to OnSuccess or disable buttons on OnBegin?
+                OnBegin = "ModalDialogHelper.disableFormSubmitButton", 
+                OnComplete = "ModalDialogHelper.hideModalDialog",
                 OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {
