@@ -470,6 +470,7 @@
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Scripts\app\achTabController.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\appFunctions.js" />
     <Content Include="Scripts\app\errorHandler.js" />

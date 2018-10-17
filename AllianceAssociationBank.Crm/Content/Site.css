@@ -168,7 +168,7 @@ textarea {
     padding-right: 5px;
 }
 
-.label-indented, .form-label-indent {
+.indented, .label-indented, .form-label-indent {
     padding-left: 25px;
     padding-right: 5px;
 }
@@ -311,6 +311,19 @@ textarea {
 .project-form-footer {
     height: 30px;
     margin-bottom: 5px;
+}
+
+.row-radio-grid {
+    border-bottom: 1px solid #dee2e6;
+    padding-top: 4px;
+}
+
+.row-radio-grid-bottom {
+    padding-top: 4px;
+}
+
+.row-radio-grid-top {
+    border-bottom: 1px solid #dee2e6;
 }
 
 .smallnavbar {

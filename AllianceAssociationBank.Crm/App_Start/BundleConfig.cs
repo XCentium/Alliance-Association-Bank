@@ -41,12 +41,13 @@ namespace AllianceAssociationBank.Crm
                       "~/Scripts/select2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                      "~/Scripts/app/searchableSelectPlugin.js",
                       "~/Scripts/app/errorHandler.js",
+                      "~/Scripts/app/searchableSelectPlugin.js",
                       "~/Scripts/app/generalTabController.js",
+                      "~/Scripts/app/usersTabController.js",
+                      "~/Scripts/app/achTabController.js",
                       "~/Scripts/app/navigationWidgets.js",
                       "~/Scripts/app/searchWidget.js",
-                      "~/Scripts/app/usersTabController.js",
                       "~/Scripts/app/app.js",
                       "~/Scripts/app/appFunctions.js"));
         }

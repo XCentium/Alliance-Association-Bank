@@ -437,38 +437,61 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         // ACH Tab
 
-        [Display(Name = "Direct Credit (PPD)")]
-        public bool DirectDepositPayroll { get; set; }
+        [Display(Name = "Upload - PPD")]
+        public string ACHUploadPPD { get; set; }
 
-        [Display(Name = "Direct Debit (PPD)")]
-        public bool DirectDebitCollection { get; set; }
+        [Display(Name = "Upload - CCD")]
+        public string ACHUploadCCD { get; set; }
 
-        [Display(Name = "Direct Credit (CCD)")]
-        public bool DirectCreditPayments { get; set; }
+        [Display(Name = "Template - PPD")]
+        public string ACHTemplatePPD { get; set; }
 
-        [Display(Name = "Direct Debit (CCD)")]
-        public bool DirectDebitBusinessCCD { get; set; }
+        [Display(Name = "Template - CCD")]
+        public string ACHTemplateCCD { get; set; }
 
-        [Display(Name = "Consumer Debit (Web)")]
-        public bool ConsumerDebitWeb { get; set; }
+        [Display(Name = "SFTP - PPD")]
+        public string ACHSftpPPD { get; set; }
 
-        [Display(Name = "ACH Dual Approval")]
+        [Display(Name = "SFTP - CCD")]
+        public string ACHSftpCCD { get; set; }
+
+        [Display(Name = "Web - PPD")]
+        public string ACHWebPPD { get; set; }
+
+        //[Display(Name = "Direct Credit (PPD)")]
+        //public bool DirectDepositPayroll { get; set; }
+
+        //[Display(Name = "Direct Debit (PPD)")]
+        //public bool DirectDebitCollection { get; set; }
+
+        //[Display(Name = "Direct Credit (CCD)")]
+        //public bool DirectCreditPayments { get; set; }
+
+        //[Display(Name = "Direct Debit (CCD)")]
+        //public bool DirectDebitBusinessCCD { get; set; }
+
+        //[Display(Name = "Consumer Debit (Web)")]
+        //public bool ConsumerDebitWeb { get; set; }
+
+        public bool? Balanced { get; set; }
+
+        [Display(Name = "Wire Transfer Template")]
+        public bool WireTransferTemplates { get; set; }
+    
+        [Display(Name = "Dual approval Opt-out")]
         public bool ACHDualApproval { get; set; }
 
-        [Display(Name = "ACH One Time Passcode")]
-        public bool ACHOneTimePasscode { get; set; } 
+        //[Display(Name = "ACH Limit & Spec Submitted")]
+        //public bool ACHLimitAndSpecSubmittedReadOnly
+        //{
+        //    get { return ACHLimitAndSpecSubmitted; }
+        //}
 
-        [Display(Name = "ACH Limit & Spec Submitted")]
-        public bool ACHLimitAndSpecSubmittedReadOnly
-        {
-            get { return ACHLimitAndSpecSubmitted; }
-        }
-
-        [Display(Name = "ACH Successfully Submitted")]
-        public bool ACHSuccessfulSubmittedReadOnly
-        {
-            get { return ACHSuccessfulSubmitted; }
-        }
+        //[Display(Name = "ACH Successfully Submitted")]
+        //public bool ACHSuccessfulSubmittedReadOnly
+        //{
+        //    get { return ACHSuccessfulSubmitted; }
+        //}
 
         [Display(Name = "Est. Deposits")]
         public decimal? ACHEstimatedDeposits { get; set; }
@@ -494,20 +517,24 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Last Review")]
         public DateTime? LastReviewDate { get; set; }
 
+        [Display(Name = "OLB/BST ID")]
+        [StringLength(255)]
+        public string DICompanyID { get; set; }
+
         [Display(Name = "REVIEW NOTES & HISTORY")]
         public string ACHReviewNotes { get; set; }
 
-        [Display(Name = "REVIEW OF HISTORIC PERF.")]
-        public string ACHReviewOfHistoricPerformance { get; set; }
-
-        [Display(Name = "SPEC FORM INSTRUCTIONS")]
+        [Display(Name = "SPEC SHEET")]
         public string ACHSpectFormInstructions { get; set; }
 
         // System Tab
 
-        [Display(Name = "Corp ID")]
+        [Display(Name = "OLB/BST ID")]
         [StringLength(255)]
-        public string DICompanyID { get; set; }
+        public string DICompanyIDReadOnly
+        {
+            get { return DICompanyID; }
+        }
 
         [Display(Name = "Bank")]
         public string InstitutionReadOnly
@@ -533,8 +560,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "ACH Batches / Template")]
         public bool ACHBatches { get; set; }
 
-        [Display(Name = "Wire Transfer Templates")]
-        public bool WireTransferTemplates { get; set; }
+        [Display(Name = "Wire Transfer Template")]
+        public bool WireTransferTemplatesReadOnly
+        {
+            get { return WireTransferTemplates; }
+        }
 
         [Display(Name = "Folder Name")]
         public string SftpFolderNameReadOnly
@@ -556,14 +586,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public bool ValidationFileAutomaticRegularReadOnly
         {
             get { return ValidationFileAutomaticRegular; }
+        }     
+
+        [Display(Name = "ACH File Type")]
+        public bool? BalancedReadOnly
+        {
+            get { return Balanced; }
         }
-
-        [Display(Name = "ACH Report Lara Name")]
-        [StringLength(255)]
-        public string ACHReportLaruName { get; set; }
-
-        [Display(Name = "File Type")]
-        public bool Balanced { get; set; }
 
 
         public string SaveIndicator { get; set; } = "UNSAVED";

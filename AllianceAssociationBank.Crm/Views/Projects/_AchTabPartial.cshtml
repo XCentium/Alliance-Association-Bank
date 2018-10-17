@@ -7,75 +7,106 @@
         @* First column beginning *@
         <div class="col-4">
 
-            <div class="form-fieldset">
+            <div class="form-fieldset-lg">
                 <div class="row">
-                    <label class="col form-label-heading">Type</label>
+                    <label class="col form-label-heading mb-0">Type</label>
                 </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.RoleBasedCheckBoxFor(m => m.DirectDepositPayroll)
+                <div class="col-10 indented">
+                    <div class="row row-radio-grid-top">
+                        <div class="col-3 offset-6 text-center">
+                            <label>Debit</label>
+                        </div>
+                        <div class="col-3 text-center">
+                            <label>Credit</label>
+                        </div>
                     </div>
-                    @Html.LabelFor(m => m.DirectDepositPayroll, new { @class = "col" })
-                </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.RoleBasedCheckBoxFor(m => m.DirectDebitCollection)
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHUploadPPD, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadPPD, "Debit", "js-uncheck-radio align-middle")
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadPPD, "Credit", "js-uncheck-radio align-middle")
+                        </div>
                     </div>
-                    @Html.LabelFor(m => m.DirectDebitCollection, new { @class = "col" })
-                </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.RoleBasedCheckBoxFor(m => m.DirectCreditPayments)
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHUploadCCD, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadCCD, "Debit", "js-uncheck-radio align-middle")
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadCCD, "Credit", "js-uncheck-radio align-middle")
+                        </div>
                     </div>
-                    @Html.LabelFor(m => m.DirectCreditPayments, new { @class = "col" })
-                </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.RoleBasedCheckBoxFor(m => m.DirectDebitBusinessCCD)
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHTemplatePPD, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplatePPD, "Debit", "js-uncheck-radio align-middle")
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplatePPD, "Credit", "js-uncheck-radio align-middle")
+                        </div>
                     </div>
-                    @Html.LabelFor(m => m.DirectDebitBusinessCCD, new { @class = "col" })
-                </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.RoleBasedCheckBoxFor(m => m.ConsumerDebitWeb)
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHTemplateCCD, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplateCCD, "Debit", "js-uncheck-radio align-middle")
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplateCCD, "Credit", "js-uncheck-radio align-middle")
+                        </div>
                     </div>
-                    @Html.LabelFor(m => m.ConsumerDebitWeb, new { @class = "col" })
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHSftpPPD, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpPPD, "Debit", "js-uncheck-radio align-middle")
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpPPD, "Credit", "js-uncheck-radio align-middle")
+                        </div>
+                    </div>
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHSftpCCD, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpCCD, "Debit", "js-uncheck-radio align-middle")
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpCCD, "Credit", "js-uncheck-radio align-middle")
+                        </div>
+                    </div>
+                    <div class="row row-radio-grid-bottom">
+                        @Html.LabelFor(m => m.ACHWebPPD, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedRadioButtonFor(m => m.ACHWebPPD, "Debit", "js-uncheck-radio align-middle")
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="form-fieldset">
-                <div class="row">
-                    <label class="col form-label-heading">Boarding</label>
-                </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.DisplayFor(m => m.ACHLimitAndSpecSubmittedReadOnly)
+                <div class="row check-indented">
+                    <div class="col-4 form-check">
+                        @Html.RoleBasedRadioButtonFor(m => m.Balanced, true, "form-check-input")
+                        <label class="form-check-label">Balanced</label>
                     </div>
-                    @Html.LabelFor(m => m.ACHLimitAndSpecSubmittedReadOnly, new { @class = "col" })
-                </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.DisplayFor(m => m.ACHSuccessfulSubmittedReadOnly)
+                    <div class="col-4 form-check">
+                        @Html.RoleBasedRadioButtonFor(m => m.Balanced, false, "form-check-input")
+                        <label class="form-check-label">Unbalanced</label>
                     </div>
-                    @Html.LabelFor(m => m.ACHSuccessfulSubmittedReadOnly, new { @class = "col" })
                 </div>
             </div>
-
             <div>
                 <div class="row">
-                    <label class="col form-label-heading">ACH Security</label>
+                    <div class="col-1 check-indented">
+                        @Html.RoleBasedCheckBoxFor(m => m.WireTransferTemplates)
+                    </div>
+                    @Html.LabelFor(m => m.WireTransferTemplates, new { @class = "col" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.RoleBasedCheckBoxFor(m => m.ACHDualApproval)
                     </div>
                     @Html.LabelFor(m => m.ACHDualApproval, new { @class = "col" })
-                </div>
-                <div class="row">
-                    <div class="col-1 check-indented">
-                        @Html.RoleBasedCheckBoxFor(m => m.ACHOneTimePasscode)
-                    </div>
-                    @Html.LabelFor(m => m.ACHOneTimePasscode, new { @class = "col" })
                 </div>
             </div>
 
@@ -129,11 +160,53 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="col-12">
-                    @Html.LabelFor(m => m.ACHReviewNotes)
-                    @Html.RoleBasedTextAreaFor(m => m.ACHReviewNotes, 9, 10, cssClass: "form-textarea")
+
+            <div class="form-fieldset-lg">
+                <div class="row field-group">
+                    @Html.LabelFor(m => m.DICompanyID, new { @class = "col-4" })
+                    <div class="col-7">
+                        @Html.RoleBasedEditorFor(m => m.DICompanyID, "form-input")
+                        @Html.ValidationMessageFor(m => m.DICompanyIDReadOnly, "", new { @class = "form-val-error-tooltip" })
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <label class="col form-label-heading">ACH Reports</label>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6 offset-2">
+                        @Html.RouteLink("ACH Spec Report", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                        {
+                            name = "new"
+                        }, htmlAttributes: new
+                        {
+                            @class = "btn btn-primary btn-block btn-sm"
+                        })
+                    </div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-6 offset-2">
+                        @Html.RouteLink("Risk New - Initial", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                        {
+                            name = "new"
+                        }, htmlAttributes: new
+                        {
+                            @class = "btn btn-primary btn-block btn-sm"
+                        })
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6 offset-2">
+                        @Html.RouteLink("Risk New - 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                        {
+                            name = "new"
+                        }, htmlAttributes: new
+                        {
+                            @class = "btn btn-primary btn-block btn-sm"
+                        })
+                    </div>
                 </div>
             </div>
 
@@ -146,8 +219,8 @@
             <div class="form-fieldset-md">
                 <div class="row">
                     <div class="col-12">
-                        @Html.LabelFor(m => m.ACHReviewOfHistoricPerformance)
-                        @Html.RoleBasedTextAreaFor(m => m.ACHReviewOfHistoricPerformance, 9, 10, cssClass: "form-textarea")
+                        @Html.LabelFor(m => m.ACHReviewNotes)
+                        @Html.RoleBasedTextAreaFor(m => m.ACHReviewNotes, 9, 10, cssClass: "form-textarea")
                     </div>
                 </div>
             </div>
