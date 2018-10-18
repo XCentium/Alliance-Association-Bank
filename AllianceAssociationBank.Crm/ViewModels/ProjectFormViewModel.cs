@@ -617,7 +617,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public void ResetCmcIdOnUnauthorized(IPrincipal user, string currentValue)
         {
-            if (user.IsInRole(UserRole.ReadWriteUser) && !string.IsNullOrEmpty(currentValue))
+            if (user == null)
+            {
+                LockboxCMCID = currentValue;
+            }
+            else if (!user.IsInRole(UserRole.Admin) && !string.IsNullOrEmpty(currentValue))
             {
                 LockboxCMCID = currentValue;
             }

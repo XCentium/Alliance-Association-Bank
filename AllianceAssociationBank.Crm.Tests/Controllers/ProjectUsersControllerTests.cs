@@ -16,6 +16,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Xunit;
+using AllianceAssociationBank.Crm.Exceptions;
 
 namespace AllianceAssociationBank.Crm.Tests.Controllers
 {
@@ -146,14 +147,14 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidUserId_HttpNotFoundResult()
+        public async Task Edit_InvalidUserId_JsonErrorResult()
         {
             var userId = 1;
             projectUsersRepoMock.Setup(r => r.GetUserByIdAsync(userId)).ReturnsAsync(null as ProjectUser);
 
             var result = await controller.Edit(99, userId);
 
-            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+            var notFoundResult = Assert.IsType<JsonErrorResult>(result);
         }
 
 
@@ -185,7 +186,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidUserId_HttpNotFoundResult()
+        public async Task Update_InvalidUserId_JsonErrorResult()
         {
             var userId = 1;
             var projectId = 1;
@@ -193,7 +194,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, userId, userViewModel);
 
-            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+            var notFoundResult = Assert.IsType<JsonErrorResult>(result);
         }
     }
 }

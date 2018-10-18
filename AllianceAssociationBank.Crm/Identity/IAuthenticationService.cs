@@ -13,5 +13,10 @@
         /// <param name="isPersistent">Should the authentication session be persisted across multiple requests.</param>
         /// <returns>Returns SignInResult enum with result.</returns>
         SignInResult PasswordSignIn(string userName, string password, bool isPersistent);
+
+        /// <summary>
+        /// Sign out current logged in user.
+        /// </summary>
+        void SignOut();
     }
 }

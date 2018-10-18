@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Mappings;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
@@ -123,16 +124,15 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidProjectId_ErrorViewResult()
+        public async Task Edit_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 99;
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectId)).ReturnsAsync(null as Project);
 
-            var result = await controller.Edit(projectId);
+            var exception = await Record.ExceptionAsync(() => controller.Edit(projectId));
 
-            var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.NotNull(viewResult);
-            Assert.Equal("Error", viewResult.ViewName);
+            Assert.NotNull(exception);
+            Assert.IsType<HttpNotFoundException>(exception);
         }
 
         [Fact]
@@ -162,15 +162,14 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidProjectId_ErrorViewResult()
+        public async Task Update_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(null as Project);
 
-            var result = await controller.Update(projectViewModel.ID, projectViewModel);
+            var exception = await Record.ExceptionAsync(() => controller.Update(projectViewModel.ID, projectViewModel));
 
-            var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.NotNull(viewResult);
-            Assert.Equal("Error", viewResult.ViewName);
+            Assert.NotNull(exception);
+            Assert.IsType<HttpNotFoundException>(exception);
         }
 
     }

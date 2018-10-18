@@ -255,7 +255,8 @@
     <Compile Include="Constants\Search\SearchView.cs" />
     <Compile Include="Constants\Search\SearchControllerAction.cs" />
     <Compile Include="Constants\SortOrder.cs" />
-    <Compile Include="Constants\User\UserFilterValue.cs" />
+    <Compile Include="Constants\ProjectUsers\UserFilterValue.cs" />
+    <Compile Include="Constants\User\UserView.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />

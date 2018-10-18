@@ -14,6 +14,7 @@ namespace AllianceAssociationBank.Crm.Identity
     {
         private PrincipalContext _principalContext;
         private IAuthenticationManager _authenticationManager;
+        private string _authenticationType;
 
         /// <summary>
         /// Initializes a new instance of ADAuthenticationService.
@@ -24,6 +25,7 @@ namespace AllianceAssociationBank.Crm.Identity
         {
             _principalContext = principalContext ?? throw new ArgumentNullException(nameof(principalContext));
             _authenticationManager = authenticationManager ?? throw new ArgumentNullException(nameof(authenticationManager));
+            _authenticationType = AuthenticationType.CrmApplicationCookie;
         }
 
         /// <summary>
@@ -71,13 +73,21 @@ namespace AllianceAssociationBank.Crm.Identity
             {
                 var userIdentity = CreateUserIdentity(userPrincipal);
 
-                _authenticationManager.SignOut(AuthenticationType.CrmApplicationCookie);
+                this.SignOut();
                 _authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, userIdentity);
 
                 return SignInResult.Success;
             }
 
             return SignInResult.NotAuthorized;
+        }
+
+        /// <summary>
+        /// Sign out current logged in user.
+        /// </summary>
+        public void SignOut()
+        {
+            _authenticationManager.SignOut(_authenticationType);
         }
 
         /// <summary>
@@ -90,12 +100,6 @@ namespace AllianceAssociationBank.Crm.Identity
             var securityGroups = userPrincipal.GetAuthorizationGroups();
             if (securityGroups.Count() > 0)
             {
-                // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
-                //if (securityGroups.Any(g => g.Name == "Administrators"))
-                //{
-                //    return true;
-                //}
-
                 if (securityGroups.Any(g => g.Name == UserAuthenticationSettings.AdminADGroup ||
                                             g.Name == UserAuthenticationSettings.ReadWriteADGroup || 
                                             g.Name == UserAuthenticationSettings.ReadOnlyADGroup))
@@ -139,12 +143,6 @@ namespace AllianceAssociationBank.Crm.Identity
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, UserRole.ReadOnlyUser));
             }
-
-            // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
-            //if (securityGroups.Any(g => g.Name == "Administrators"))
-            //{
-            //    identity.AddClaim(new Claim(ClaimTypes.Role, UserRole.ReadWriteUser));
-            //}
 
             return identity;
         }
