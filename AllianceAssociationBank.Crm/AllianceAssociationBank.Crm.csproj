@@ -280,7 +280,9 @@
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
     <Compile Include="Helpers\EmailDistributionList.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
+    <Compile Include="Identity\ActiveDirectoryContext.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />
+    <Compile Include="Identity\IActiveDirectoryContext.cs" />
     <Compile Include="Identity\IAuthenticationService.cs" />
     <Compile Include="Identity\SignInResult.cs" />
     <Compile Include="Identity\UserAuthenticationSettings.cs" />

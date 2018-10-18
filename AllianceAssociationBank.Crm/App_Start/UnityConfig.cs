@@ -64,17 +64,18 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
             container.RegisterType<IDataExportService, DataExportService>(new TransientLifetimeManager());
 
-            container.RegisterType<IAuthenticationManager>
-            (
-                new TransientLifetimeManager(),
-                new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication)
-            );
             container.RegisterType<PrincipalContext>
             (
                 new HierarchicalLifetimeManager(),
                 //new InjectionFactory(c => new PrincipalContext(ContextType.Domain))
                 new InjectionFactory(c => new PrincipalContext(ContextType.Machine)) // TODO: this will change in production (ContextType.Domain)
             );
+            container.RegisterType<IAuthenticationManager>
+            (
+                new TransientLifetimeManager(),
+                new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication)
+            );
+            container.RegisterType<IActiveDirectoryContext, ActiveDirectoryContext>(new TransientLifetimeManager());
             container.RegisterType<IAuthenticationService, ADAuthenticationService>(new TransientLifetimeManager());
 
             container.RegisterInstance<IMapper>(CrmAutoMapperProfile.GetMapper());
