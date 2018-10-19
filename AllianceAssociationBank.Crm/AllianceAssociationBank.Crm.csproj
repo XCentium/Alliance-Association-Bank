@@ -472,7 +472,6 @@
     <Content Include="Reports\ReportsDataSet.xss">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\app\achTabController.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />
@@ -608,6 +607,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\ACH-Spec-Report.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

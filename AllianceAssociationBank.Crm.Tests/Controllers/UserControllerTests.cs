@@ -16,6 +16,7 @@ using System.Web.Routing;
 using Xunit;
 using Microsoft.Owin.Security;
 using Microsoft.Owin;
+using AllianceAssociationBank.Crm.Constants.Home;
 
 namespace AllianceAssociationBank.Crm.Tests.Controllers
 {
@@ -55,6 +56,8 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             var result = controller.Login(loginViewModel, null);
 
             var redirectResult = Assert.IsType<RedirectToRouteResult>(result);
+            Assert.Equal(ControllerName.Home, redirectResult.RouteValues["controller"]);
+            Assert.Equal(HomeControllerAction.Index, redirectResult.RouteValues["action"]);
         }
 
         [Fact]

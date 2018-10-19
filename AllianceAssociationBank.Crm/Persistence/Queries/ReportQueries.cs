@@ -100,6 +100,13 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Project>> GetAchSpecDataSetAsync()
+        {
+            return await _context.Projects
+                .Where(p => p.ProjectName != null || p.ProjectName != string.Empty)
+                .OrderBy(p => p.ProjectName)
+                .ToListAsync();
+        }
 
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
         {

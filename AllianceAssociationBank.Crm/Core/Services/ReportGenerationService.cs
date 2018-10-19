@@ -93,6 +93,12 @@ namespace AllianceAssociationBank.Crm.Core.Services
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
+                case var name when name.Equals(ReportName.AchSpec, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchSpecDataSetAsync())));
+                        //dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        break;
+                    }
             }
 
             return dataSources;
