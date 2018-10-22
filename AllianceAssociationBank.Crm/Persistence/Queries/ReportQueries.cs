@@ -100,10 +100,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Project>> GetAchSpecDataSetAsync()
+        public async Task<IEnumerable<Project>> GetAchSpecDataSetAsync(int? projectId)
         {
             return await _context.Projects
-                .Where(p => p.ProjectName != null || p.ProjectName != string.Empty)
+                .Where(p => p.ID == projectId || projectId == null)
                 .OrderBy(p => p.ProjectName)
                 .ToListAsync();
         }

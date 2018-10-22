@@ -27,10 +27,10 @@ namespace AllianceAssociationBank.Crm.Controllers
             _reportsService = reportsService;
         }
 
-        [Route("{name}", Name = ReportsControllerRoute.ViewReport)]
-        public async Task<ActionResult> ViewReport(string name)
+        [Route("{name}/{projectId?}", Name = ReportsControllerRoute.ViewReport)]
+        public async Task<ActionResult> ViewReport(string name, int? projectId = null)
         {
-            var reportViewer = await _reportsService.GenerateReportByName(name);
+            var reportViewer = await _reportsService.GenerateReportByName(name, projectId);
 
             if (reportViewer == null)
             {
