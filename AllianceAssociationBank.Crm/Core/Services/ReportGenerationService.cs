@@ -33,10 +33,16 @@ namespace AllianceAssociationBank.Crm.Core.Services
             }
 
             var reportViewer = new ReportViewer();
+            reportViewer.LocalReport.ReportPath = reportPath;
             reportViewer.ProcessingMode = ProcessingMode.Local;
             reportViewer.AsyncRendering = true;
             reportViewer.SizeToReportContent = true;
+            //reportViewer.Style = "margin-left: auto; margin-right: auto;";
             reportViewer.LocalReport.ReportPath = reportPath;
+            reportViewer.WaitControlDisplayAfter = 1;
+            reportViewer.ShowBackButton = false;
+            reportViewer.ShowZoomControl = false;
+            reportViewer.CssClass = "crazy-style-css";
 
             foreach (var dataSource in (await GetDataSourcesByReportName(reportName, projectId)))
             {
@@ -96,7 +102,7 @@ namespace AllianceAssociationBank.Crm.Core.Services
                 case var name when name.Equals(ReportName.AchSpec, StringComparison.InvariantCultureIgnoreCase):
                     {
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchSpecDataSetAsync(projectId))));
-                        //dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
             }
