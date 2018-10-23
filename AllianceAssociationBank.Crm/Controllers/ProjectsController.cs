@@ -6,6 +6,7 @@ using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         public async Task<ActionResult> Edit(int id)
         {
+            Log.Information("Logging some info");
+
             //try
             //{
             var project = await _projects.GetProjectByIdAsync(id);

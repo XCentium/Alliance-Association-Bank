@@ -1,12 +1,8 @@
 ﻿using System;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Identity;
-using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Constants;
 
 namespace AllianceAssociationBank.Crm
