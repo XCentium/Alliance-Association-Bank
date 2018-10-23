@@ -195,7 +195,8 @@
                     <div class="col-6 offset-2">
                         @Html.RouteLink("Risk New - Initial", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
-                             name = ReportName.AchInitialReview
+                             name = ReportName.AchInitialReview,
+                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
                             @class = "btn btn-primary btn-block btn-sm"
@@ -206,7 +207,8 @@
                     <div class="col-6 offset-2">
                         @Html.RouteLink("Risk New - 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
-                            name = ReportName.AchSixMonthReview
+                            name = ReportName.AchSixMonthReview,
+                            projectId = Model.ID
                         }, htmlAttributes: new
                         {
                             @class = "btn btn-primary btn-block btn-sm"

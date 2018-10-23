@@ -39,25 +39,6 @@ namespace AllianceAssociationBank.Crm.Core.Services
             reportViewer.SizeToReportContent = true;
             reportViewer.WaitControlDisplayAfter = 1;
             reportViewer.ShowBackButton = false;
-            //reportViewer.ShowZoomControl = false;
-            //reportViewer.CssClass = "crazy-style-css";
-
-            //ReportPageSettings rst = reportViewer.LocalReport.GetDefaultPageSettings();
-            //if (reportViewer.For.ParentForm.Width > rst.PaperSize.Width)
-            //{
-            //    int vPad = (reportViewer.ParentForm.Width - rst.PaperSize.Width) / 2;
-            //    reportViewer.Padding = new Padding(vPad - 20, 1, vPad - 20, 1);
-            //}
-            //var style = reportViewer.Style;
-            //style.
-            //page.Margins.Left = 200;
-            //page.Margins.Right = 200;
-            //reportViewer.ForeColor = System.Drawing.Color.DarkRed;
-
-            var page = reportViewer.LocalReport.GetDefaultPageSettings();
-            page.Margins.Left = 300;
-            page.Margins.Right = 300;
-            reportViewer.LocalReport..SetParameters();
 
             reportViewer.LocalReport.DataSources.Clear();
             foreach (var dataSource in (await GetDataSourcesByReportName(reportName, projectId)))
@@ -119,6 +100,11 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     {
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchSpecDataSetAsync(projectId))));
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        break;
+                    }
+                case var name when name.Equals(ReportName.AchSixMonthReview, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchSpecDataSetAsync(projectId))));
                         break;
                     }
             }
