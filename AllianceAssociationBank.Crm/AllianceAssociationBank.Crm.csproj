@@ -472,6 +472,7 @@
     <Content Include="Reports\ReportsDataSet.xss">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\app\achTabController.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />
