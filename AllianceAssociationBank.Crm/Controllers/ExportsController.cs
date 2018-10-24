@@ -27,7 +27,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (exportFile == null)
             {
-                throw new HttpNotFoundException();
+                return new ViewErrorResult(HttpStatusCode.NotFound, httpContext: HttpContext);
             }
 
             return exportFile;

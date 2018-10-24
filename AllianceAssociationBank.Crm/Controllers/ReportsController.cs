@@ -1,18 +1,9 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
-using AllianceAssociationBank.Crm.Core.Services;
 using AllianceAssociationBank.Crm.Exceptions;
-using AllianceAssociationBank.Crm.Persistence;
-using AllianceAssociationBank.Crm.Persistence.Queries;
-using AllianceAssociationBank.Crm.ViewModels;
-using AutoMapper;
-using CsvHelper;
-using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using X.PagedList;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -34,7 +25,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (reportViewer == null)
             {
-                throw new HttpNotFoundException();
+                return new ViewErrorResult(HttpStatusCode.NotFound, httpContext: HttpContext);
+                //throw new HttpNotFoundException();
             }
 
             ViewBag.ReportViewer = reportViewer;

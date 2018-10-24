@@ -32,7 +32,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public async Task ViewReport_BoardingReport_ViewResult()
         {
             var reportName = ReportName.Boarding;
-            reportsServiceMock.Setup(r => r.GenerateReportByName(reportName)).ReturnsAsync(new ReportViewer());
+            reportsServiceMock.Setup(r => r.GenerateReportByName(reportName, null)).ReturnsAsync(new ReportViewer());
 
             var result = await controller.ViewReport(reportName);
 

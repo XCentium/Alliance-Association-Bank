@@ -40,9 +40,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         // TODO: change sort order to Enum
         public async Task<IEnumerable<Project>> GetProjectsBySearchTermAsync(string searchTerm, string sortOrder)
         {
-            // TODO: remove this
-            _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-
             var searchFormatter = new SearchTermFormatter(searchTerm);
             var formattedForName = searchFormatter.FormatForName();
             var formattedForTIN = searchFormatter.FormatForTIN();

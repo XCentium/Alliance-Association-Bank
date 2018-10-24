@@ -87,6 +87,9 @@
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.7.1\lib\net46\Serilog.dll</HintPath>
     </Reference>
+    <Reference Include="Serilog.Settings.AppSettings, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Settings.AppSettings.2.1.2\lib\net45\Serilog.Settings.AppSettings.dll</HintPath>
+    </Reference>
     <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.Sinks.File.4.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
     </Reference>
@@ -283,7 +286,8 @@
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
-    <Compile Include="Filters\HandleErrorWithLoggingFilter.cs" />
+    <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
+    <Compile Include="Filters\MvcDefaultExceptionFilter.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
     <Compile Include="Helpers\EmailDistributionList.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
@@ -471,6 +475,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="LoggerSettings.config" />
     <None Include="Reports\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

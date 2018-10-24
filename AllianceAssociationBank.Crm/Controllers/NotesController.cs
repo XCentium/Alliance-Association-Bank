@@ -3,6 +3,7 @@ using AllianceAssociationBank.Crm.Constants.Notes;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -18,6 +19,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Notes")]
+    [RedirectOnInvalidAjaxRequest]
     public class NotesController : Controller
     {
         private INoteRepository _notesRepository;
@@ -81,7 +83,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (note == null)
             {
-                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("note", id));
             }
 
             var viewModel = _mapper.Map<NoteFormViewModel>(note);
@@ -104,7 +106,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var note = await _notesRepository.GetNoteByIdAsync(id);
             if (note == null)
             {
-                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("note", id));
             }
 
             _mapper.Map(viewModel, note);
@@ -137,7 +139,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var note = await _notesRepository.GetNoteByIdAsync(id);
             if (note == null)
             {
-                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("note", id));
             }
 
             _notesRepository.RemoveNote(note);

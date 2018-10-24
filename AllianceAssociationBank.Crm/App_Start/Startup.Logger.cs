@@ -7,14 +7,14 @@ namespace AllianceAssociationBank.Crm
     {
         public void ConfigureLogger()
         {
+            var appBaseDir = AppDomain.CurrentDomain.BaseDirectory;
+            Environment.SetEnvironmentVariable("APPBASEDIR", appBaseDir);
+
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Information()
-                .WriteTo.File(AppDomain.CurrentDomain.BaseDirectory + "/Logs/log-.txt", rollingInterval: RollingInterval.Day)
+                .ReadFrom.AppSettings(filePath: $"{appBaseDir}\\LoggerSettings.config")
+                //.MinimumLevel.Information()
+                //.WriteTo.File(AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\log-.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
-                //.ReadFrom.AppSettings()
-
-            Log.Information("Hello, Serilog!");
-
         }
     }
 }

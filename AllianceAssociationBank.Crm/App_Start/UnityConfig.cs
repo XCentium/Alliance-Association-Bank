@@ -16,6 +16,7 @@ using AllianceAssociationBank.Crm.Identity;
 using Microsoft.Owin.Security;
 using System.Web;
 using System.DirectoryServices.AccountManagement;
+using Serilog;
 
 namespace AllianceAssociationBank.Crm
 {
@@ -51,6 +52,13 @@ namespace AllianceAssociationBank.Crm
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
+            // TODO: need to revisit this
+            container.RegisterType<ILogger>
+            (
+                new ContainerControlledLifetimeManager(),
+                new InjectionFactory(c => Log.Logger)
+            );
+
             container.RegisterType<DbContext, CrmApplicationDbContext>(new HierarchicalLifetimeManager());
             container.RegisterType<IProjectRepository, ProjectRepository>(new TransientLifetimeManager());
             container.RegisterType<IProjectUserRepository, ProjectUserRepository>(new TransientLifetimeManager());

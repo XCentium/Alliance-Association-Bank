@@ -23,7 +23,7 @@ namespace AllianceAssociationBank.Crm.Controllers
     // TODO: add logging
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Users")]
-    //[RedirectOnInvalidAjaxRequest]
+    [RedirectOnInvalidAjaxRequest]
     public class ProjectUsersController : Controller
     {
         private IProjectUserRepository _userRepository;
@@ -96,7 +96,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (user == null)
             {
-                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
+                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             var model = _mapper.Map<UserFormViewModel>(user);
@@ -117,9 +118,11 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
 
             var user = await _userRepository.GetUserByIdAsync(id);
+            user = null;
             if (user == null)
             {
-                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
+                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             _mapper.Map(model, user);

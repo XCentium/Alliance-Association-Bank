@@ -12,19 +12,27 @@ namespace AllianceAssociationBank.Crm.Exceptions
     {
         private readonly HttpStatusCode _httpStatusCode;
 
-        public JsonErrorResult(HttpStatusCode statusCode)
-            : this(statusCode, DefaultErrorText.Title.GetByStatusCode(statusCode), DefaultErrorText.Message.GetByStatusCode(statusCode))
-        {
-        }
+        //public JsonErrorResult(HttpStatusCode statusCode)
+        //    : this(statusCode, 
+        //          DefaultErrorText.Title.GetByStatusCode(statusCode), 
+        //          DefaultErrorText.Message.GetByStatusCode(statusCode))
+        //{
+        //}
 
         public JsonErrorResult(HttpStatusCode statusCode, string errorMessage)
-            : this(statusCode, DefaultErrorText.Title.GetByStatusCode(statusCode), errorMessage)
+            : this(statusCode: statusCode,
+                   errorTitle: null,
+                   errorMessage: errorMessage)
         {
         }
 
-        public JsonErrorResult(HttpStatusCode statusCode, string errorTitle, string errorMessage) 
+        public JsonErrorResult(HttpStatusCode statusCode, 
+                               string errorTitle = null, 
+                               string errorMessage = null) 
         {
             _httpStatusCode = statusCode;
+            errorTitle = errorTitle ?? DefaultErrorText.Title.GetByStatusCode(statusCode);
+            errorMessage = errorMessage ?? DefaultErrorText.Message.GetByStatusCode(statusCode);
 
             JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             Data = new
