@@ -23,7 +23,7 @@
         } else {
             errorHandler.handleAjaxError();
         }
-    }
+    };
 
     var disableFormSubmitButton = function () {
         var $btn = $(this).find("button[type='submit']");
@@ -32,13 +32,13 @@
             $btn.text("Saving...");
             $btn.attr("disabled", true);
         }
-    }
+    };
 
     var disableDeleteLink = function () {
         var $link = $(this);
         $link.text("Deleting...");
         $link.addClass("btn-link-disabled");
-    }
+    };
 
     var parseFormValidation = function ($form) {
         $.validator.unobtrusive.parse($form);

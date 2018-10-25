@@ -27,8 +27,8 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
                 .HasColumnType("datetime2")
                 .HasPrecision(0);
 
-            Property(e => e.Attachments)
-                .IsUnicode(false);
+            //Property(e => e.Attachments)
+            //    .IsUnicode(false);
 
             Property(e => e.EstimatedDeposits)
                 .HasPrecision(16, 4);

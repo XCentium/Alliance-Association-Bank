@@ -171,7 +171,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Fax Sig")]
         public bool FacsimileSignature { get; set; }
 
-        [Display(Name = "NOTES")]
+        //[Display(Name = "NOTES")]
         //public string Notes { get; set; }
 
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
@@ -304,7 +304,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [Display(Name = "AAB SFTP")]
         [StringLength(255)]
-        public string SftpGeneralUserPassword { get; set; } // TODO: this field needs masking
+        public string SftpGeneralUserPassword { get; set; }
 
         [Display(Name = "Received")]
         public bool ValidationFileReceivedReadOnly

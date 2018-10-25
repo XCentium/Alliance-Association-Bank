@@ -23,13 +23,13 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.BoardingManager)
                 .ConvertUsing(m => GetEmployeeName(m.BoardingManager))
                 .Name("Boarding Manager");
-            //Category;
-            //Priority;
+            //Category
+            //Priority
             Map(m => m.Status).Name("Status");
             Map(m => m.StartDate).Name("Start Date");
             Map(m => m.EndDate).Name("End Date");
             Map(m => m.TargetLockboxLiveDate).Name("Target Lockbox Live Date");
-            //Notes ???
+            //Notes
             //Attachments
             Map(m => m.Address).Name("Address");
             Map(m => m.City).Name("City");
@@ -51,12 +51,13 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.NumberOfDoors).Name("Number of Doors");
             Map(m => m.EstimatedDeposits).Name("Estimated Deposits");
             Map(m => m.ActualDeposits).Name("Actual Deposits");
-            //CODRate ???
+            //CODRate
             //RateNotes
+            Map(m => m.LockboxCMCID).Name("Lockbox CMC ID");
             Map(m => m.POBoxSize).Name("PO Box Size");
             Map(m => m.POBoxLine1).Name("PO Box Line 1");
             Map(m => m.POBoxZipCode).Name("PO Box Zip Code");
-            //ScannlineNotes ???
+            //ScannlineNotes
             Map(m => m.EnrollmentFormReceived).Name("Enrollment Form Received");
             Map(m => m.MasterSigCardReceived).Name("Master Sig Card Received");
             Map(m => m.WelcomeEmailSent).Name("Welcome Email Sent");
@@ -69,7 +70,7 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.ValidationFileAutomaticRegular).Name("Validation File Automatic/Regular");
             Map(m => m.ValidationFileNotes).Name("Validation File Notes");
             Map(m => m.ValidationFileBulkImporterUsed).Name("Validation File Bulk Importer Used");
-            //CouponPrintingNotes ???
+            //CouponPrintingNotes
             Map(m => m.RemitanceFileTested).Name("Remitance File Tested");
             Map(m => m.RemitanceFileLife).Name("Remitance File Life");
             Map(m => m.LockboxRequestSent).Name("Lockbox Request Sent");
@@ -91,7 +92,7 @@ namespace AllianceAssociationBank.Crm.Mappings
             //DirectDebitCollection
             //DirectCreditPayments
             //DirectDebitBusinessCCD
-            //ConsumerDebitWeb ???
+            //ConsumerDebitWeb
             //ScannerModel
             //ScannerSerialNumber
             //ScannerProvider
@@ -113,21 +114,20 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.OriginalReviewDate).Name("Original Review Date");
             Map(m => m.LastReviewDate).Name("Last Review Date");
             Map(m => m.ACHReviewNotes).Name("ACH Review Notes");
-            Map(m => m.ACHSpectFormInstructions).Name("ACH Spect Form Instructions");           
-            //ACHReviewOfHistoricPerformance
+            Map(m => m.ACHSpectFormInstructions).Name("ACH Spect Form Instructions");
+            Map(m => m.ACHReviewOfHistoricPerformance).Name("ACH Reivew of Historic Performance");
             Map(m => m.ACHDualApproval).Name("ACH Dual Approval");
             //ACHOneTimePasscode
-            //StatementEmail ???
-            //LockboxEmail ???
-            //ACHEmail ???
+            //StatementEmail 
+            //LockboxEmail
+            //ACHEmail
             //AuditNote
             //CIPReviewed
-            //CIPGood
+            Map(m => m.CIPGood).Name("CIP Good");
             Map(m => m.HasCorporateAccounts).Name("Corporate Accounts");
             Map(m => m.CorporateAccounts).Name("Corp Accounts");
             Map(m => m.XmlAutoReconSetup).Name("XML Auto Recon Setup");
             //XmlAutoReconConfirmedUse
-            Map(m => m.XmlAutoReconSentDate).Name("XML Auto Recon Sent Date");
             Map(m => m.XmlAutoReconSentDate).Name("XML Auto Recon Sent Date");
             Map(m => m.Narrative).Name("Narrative");
             Map(m => m.Strongroom).Name("Strongroom");
@@ -145,15 +145,21 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.SftpPath).Name("SFTP Path");
             Map(m => m.ReformatAQ2ID)
                 .ConvertUsing(m => m.ReformatAQ2 != null ? m.ReformatAQ2.ReformatName : string.Empty)
-                .Name("ReformatAQ2");        
+                .Name("ReformatAQ2");
             //ReformatECP
             Map(m => m.ReformatByAssoc).Name("Reformat by Association");
             Map(m => m.MigratingToSoftware).Name("Migrating to Software");
-
             Map(m => m.OtherName).Name("Other Name");
-            Map(m => m.RelationshipRate).Name("Relationship Rate"); // ???
-            Map(m => m.LockboxNotes).Name("Lockbox Notes"); // ???
-            // TODO: need to add new ACH fields
+            Map(m => m.RelationshipRate).Name("Relationship Rate");
+            Map(m => m.LockboxNotes).Name("Lockbox Notes");           
+            // TODO: need to finish adding new ACH fields
+            Map(m => m.ACHUploadPPD).Name("ACH Upload PPD");
+            Map(m => m.ACHUploadCCD).Name("ACH Upload CCD");
+            Map(m => m.ACHTemplatePPD).Name("ACH Template PPD");
+            Map(m => m.ACHTemplateCCD).Name("ACH Template CCD");
+            Map(m => m.ACHSftpPPD).Name("ACH SFTP PPD");
+            Map(m => m.ACHSftpCCD).Name("ACH SFTP CCD");
+            Map(m => m.ACHWebPPD).Name("ACH Web CCD");
         }
 
         private string GetEmployeeName(Employee employee)

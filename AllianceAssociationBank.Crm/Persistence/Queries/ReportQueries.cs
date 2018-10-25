@@ -47,9 +47,9 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         {
             return await _context.Projects
                 .Where(p => p.Status == "Completed" || p.Status == "Deferred")
-                .OrderByDescending(p => p.Status)
-                .ThenBy(p => p.Priority)
-                .ThenByDescending(p => p.EndDate)
+                .OrderBy(p => p.ProjectName)
+                //.ThenBy(p => p.Category)
+                .ThenBy(p => p.OwnerID)
                 .ToListAsync();
         }
 
