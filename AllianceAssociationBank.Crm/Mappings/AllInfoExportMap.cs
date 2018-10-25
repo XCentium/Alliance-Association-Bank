@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Helpers;
 using CsvHelper.Configuration;
 using System;
 using System.Collections.Generic;
@@ -118,7 +119,7 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.ACHReviewOfHistoricPerformance).Name("ACH Reivew of Historic Performance");
             Map(m => m.ACHDualApproval).Name("ACH Dual Approval");
             //ACHOneTimePasscode
-            //StatementEmail 
+            //StatementEmail
             //LockboxEmail
             //ACHEmail
             //AuditNote

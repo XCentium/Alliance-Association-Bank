@@ -9,7 +9,9 @@ namespace AllianceAssociationBank.Crm.Helpers
     {
         public static string Concatenate(IEnumerable<string> emails)
         {
-            return string.Join("; ", emails);
+            var validEmails = emails.Where(e => !string.IsNullOrEmpty(e));
+
+            return string.Join("; ", validEmails);
         }
     }
 }

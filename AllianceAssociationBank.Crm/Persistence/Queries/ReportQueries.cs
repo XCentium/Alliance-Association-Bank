@@ -79,6 +79,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.AFP)
                 .Include(p => p.BoardingManager)
                 .Include(p => p.ReformatAQ2)
+                //.Include(p => p.Users)
                 .ToListAsync();
         }
 
