@@ -35,7 +35,7 @@ namespace AllianceAssociationBank.Crm.Filters
 
             var controllerName = filterContext.RouteData.Values["controller"] ?? "Unknown";
             var actionName = filterContext.RouteData.Values["action"] ?? "Unknown";
-            var httpStatusCode = filterContext.Exception is HttpException ?
+            var httpStatusCode = filterContext.Exception is HttpException ? 
                                  (HttpStatusCode)((HttpException)filterContext.Exception).GetHttpCode() :
                                  HttpStatusCode.InternalServerError;
 
@@ -53,7 +53,6 @@ namespace AllianceAssociationBank.Crm.Filters
             switch (statusCode)
             {
                 case HttpStatusCode.NotFound:
-                case HttpStatusCode.BadRequest:
                     _logger.Warning($"{exception.GetType().Name} exception occured while executing {actionName} action " +
                                     $"in {controllerName} controller: {exception.Message}");
                     break;
@@ -84,7 +83,7 @@ namespace AllianceAssociationBank.Crm.Filters
             }
             else
             {
-                return new ViewErrorResult(statusCode, errorMessage: errorMessage, httpContext: context);
+                return new ViewErrorResult(statusCode, errorMessage: errorMessage, httpRequest: context.Request);
             }
         }
     }

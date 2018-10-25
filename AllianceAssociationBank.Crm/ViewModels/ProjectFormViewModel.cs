@@ -172,7 +172,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public bool FacsimileSignature { get; set; }
 
         [Display(Name = "NOTES")]
-        public string Notes { get; set; }
+        //public string Notes { get; set; }
 
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
 

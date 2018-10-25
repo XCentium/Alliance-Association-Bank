@@ -60,6 +60,10 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     {
                         return await _queries.GetCmcByIdDataSetAsync();
                     }
+                case var name when name.Equals(ExportName.AllInfo, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        return await _queries.GetAllInfoDataSetAsync();
+                    }
                 default:
                     {
                         return null;
@@ -78,6 +82,10 @@ namespace AllianceAssociationBank.Crm.Core.Services
                 case var name when name.Equals(ExportName.CmcUsefulInfoList, StringComparison.InvariantCultureIgnoreCase):
                     {
                         return typeof(CmcUsefulInfoListExportMap);
+                    }
+                case var name when name.Equals(ExportName.AllInfo, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        return typeof(AllInfoExportMap);
                     }
                 default:
                     {

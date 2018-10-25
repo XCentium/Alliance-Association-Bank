@@ -297,6 +297,7 @@
     <Compile Include="Identity\IAuthenticationService.cs" />
     <Compile Include="Identity\SignInResult.cs" />
     <Compile Include="Identity\UserAuthenticationSettings.cs" />
+    <Compile Include="Mappings\AllInfoExportMap.cs" />
     <Compile Include="Mappings\CmcUsefulInfoListExportMap.cs" />
     <Compile Include="Mappings\CrmAutoMapperProfile.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

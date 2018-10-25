@@ -19,8 +19,8 @@ namespace AllianceAssociationBank.Crm.Filters
         public override void OnException(HttpActionExecutedContext context)
         {
             var httpStatusCode = context.Exception is HttpResponseException ?
-                    ((HttpResponseException)context.Exception).Response.StatusCode :
-                    HttpStatusCode.InternalServerError;
+                                 ((HttpResponseException)context.Exception).Response.StatusCode :
+                                 HttpStatusCode.InternalServerError;
 
             var controllerName = context.ActionContext.ControllerContext.RouteData.Values["controller"] ?? "Unknown";
 

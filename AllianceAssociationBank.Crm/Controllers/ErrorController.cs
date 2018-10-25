@@ -41,7 +41,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
             else
             {
-                return new ViewErrorResult(statusCode, httpContext: HttpContext);
+                return new ViewErrorResult(statusCode, httpRequest: HttpContext.Request);
             }
         }
     }

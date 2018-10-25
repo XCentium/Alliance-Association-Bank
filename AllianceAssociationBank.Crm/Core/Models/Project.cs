@@ -16,13 +16,15 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public int? OwnerID { get; set; }
 
-        public Employee OwnerEmployee { get; set; }
+        public Employee Owner { get; set; }
 
         public int? AFPID { get; set; }
 
-        public Employee AFPEmployee { get; set; }
+        public Employee AFP { get; set; }
 
         public int? BoardingManagerID { get; set; }
+
+        public Employee BoardingManager { get; set; }
 
         [StringLength(50)]
         public string Category { get; set; }
@@ -314,13 +316,15 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public int? ReformatAQ2ID { get; set; }
 
+        public Aq2Reformat ReformatAQ2 { get; set; }
+
         public int? ReformatECPID { get; set; }
 
         public bool? ReformatByAssoc { get; set; }
 
-
         [StringLength(255)]
         public string MigratingToSoftware { get; set; }
+
 
         [StringLength(255)]
         public string OtherName { get; set; }

@@ -27,7 +27,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
-                //.OrderBy(p => p.Priority)
                 .ThenBy(p => p.OwnerID)
                 .ThenBy(p => p.EndDate)
                 .ThenBy(p => p.Status)
@@ -41,10 +40,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
-                //.OrderBy(p => p.Priority)
-                //.ThenBy(p => p.OwnerID)
-                //.ThenBy(p => p.EndDate)
-                //.ThenBy(p => p.Status)
                 .ToListAsync();
         }
 
@@ -63,8 +58,8 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return await _context.Projects
                 .OrderBy(p => p.LockboxCMCID)
                 .ThenBy(p => p.ProjectName)
-                .Include(p => p.OwnerEmployee)
-                .Include(p => p.AFPEmployee)
+                .Include(p => p.Owner)
+                .Include(p => p.AFP)
                 .ToListAsync();
         }
 
@@ -74,6 +69,19 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.ProjectName)
                 .ToListAsync();
         }
+
+
+        public async Task<IEnumerable<Project>> GetAllInfoDataSetAsync()
+        {
+            return await _context.Projects
+                .OrderBy(p => p.ID)
+                .Include(p => p.Owner)
+                .Include(p => p.AFP)
+                .Include(p => p.BoardingManager)
+                .Include(p => p.ReformatAQ2)
+                .ToListAsync();
+        }
+
 
         public async Task<IEnumerable<CDEmailsDatasetDto>> GetCDEmailsDataSetAsync()
         {
@@ -100,7 +108,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Project>> GetAchSpecDataSetAsync(int? projectId)
+        public async Task<IEnumerable<Project>> GetAchReportDataSetAsync(int? projectId)
         {
             return await _context.Projects
                 .Where(p => p.ID == projectId || projectId == null)

@@ -13,13 +13,18 @@ namespace AllianceAssociationBank.Crm.Mappings
         {
             Map(m => m.ProjectName).Name("Project Name");
             Map(m => m.LockboxCMCID).Name("Lockbox CMC ID");
-            Map(m => m.AFPEmployee)
-                .ConvertUsing(m => m.AFPEmployee != null ? m.AFPEmployee.FirstName + " " + m.AFPEmployee.LastName : string.Empty)
+            Map(m => m.AFP)
+                .ConvertUsing(m => GetEmployeeName(m.AFP))
                 .Name("AFP");
-            Map(m => m.OwnerEmployee)
-                .ConvertUsing(m => m.OwnerEmployee != null ? m.OwnerEmployee.FirstName + " " + m.OwnerEmployee.LastName : string.Empty)
+            Map(m => m.Owner)
+                .ConvertUsing(m => GetEmployeeName(m.Owner))
                 .Name("Owner");
             Map(m => m.POBoxLine1).Name("PO Box Line 1 ");
+        }
+
+        private string GetEmployeeName(Employee employee)
+        {
+            return employee != null ? employee.FirstName + " " + employee.LastName : string.Empty;
         }
     }
 }
