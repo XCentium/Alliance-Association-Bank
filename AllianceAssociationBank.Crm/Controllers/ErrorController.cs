@@ -11,7 +11,6 @@ using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
-    // TODO: need to log exceptions here
     public class ErrorController : Controller
     {
         private ILogger _logger;

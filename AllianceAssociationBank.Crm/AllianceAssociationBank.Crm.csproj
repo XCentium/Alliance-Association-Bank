@@ -348,7 +348,6 @@
     </Compile>
     <Compile Include="Helpers\DropDownListHelper.cs" />
     <Compile Include="Persistence\EntityConfigurations\CheckScannerEntityConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\ApplicationUserEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\NoteEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ProjectEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\Aq2ReformatEntityConfiguration.cs" />
@@ -357,7 +356,6 @@
     <Compile Include="Persistence\EntityConfigurations\ProjectUserEntityConfiguration.cs" />
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\CrmApplicationDbContext.cs" />
-    <Compile Include="Core\Models\ApplicationUser.cs" />
     <Compile Include="Core\Interfaces\IProjectRepository.cs" />
     <Compile Include="Core\Interfaces\IReportQueries.cs" />
     <Compile Include="Persistence\Queries\ReportQueries.cs" />
@@ -391,9 +389,7 @@
     <Compile Include="ViewModels\PagedListViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="Models\ProjectReportRecordViewModel.cs" />
     <Compile Include="ViewModels\ProjectFormViewModel.cs" />
-    <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="ViewModels\SearchResultsPagedViewModel.cs" />
     <Compile Include="ViewModels\UserFormViewModel.cs" />
     <Compile Include="ViewModels\UsersPagedListViewModel.cs" />
@@ -567,7 +563,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Projects\ProjectForm.cshtml" />
-    <Content Include="Views\Reports\BoardingReport.cshtml" />
     <Content Include="Views\Reports\ViewReport.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />

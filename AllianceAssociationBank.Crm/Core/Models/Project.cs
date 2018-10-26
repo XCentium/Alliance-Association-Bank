@@ -191,7 +191,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         //public bool? DirectDebitBusinessCCD { get; set; }
 
-        //public bool? ConsumerDebitWeb { get; set; } // TODO: need to revisit this
+        //public bool? ConsumerDebitWeb { get; set; }
 
         //[StringLength(255)]
         //public string ScannerModel { get; set; }
@@ -253,13 +253,13 @@ namespace AllianceAssociationBank.Crm.Core.Models
         //public bool? ACHOneTimePasscode { get; set; }
 
         //[StringLength(255)]
-        //public string StatementEmail { get; set; } // TODO: need to revisit this
+        //public string StatementEmail { get; set; }
 
         //[StringLength(255)]
-        //public string LockboxEmail { get; set; } // TODO: need to revisit this
+        //public string LockboxEmail { get; set; }
 
         //[StringLength(255)]
-        //public string ACHEmail { get; set; } // TODO: need to revisit this
+        //public string ACHEmail { get; set; } 
 
         //public string AuditNote { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using Microsoft.Owin.Security;
+using Serilog;
 using System;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace AllianceAssociationBank.Crm.Identity
     /// </summary>
     public class ADAuthenticationService : IAuthenticationService
     {
-        //private PrincipalContext _principalContext;
         private IActiveDirectoryContext _activeDirectoryContext;
         private IAuthenticationManager _authenticationManager;
+        private ILogger _logger;
         private string _authenticationType;
 
         /// <summary>
@@ -22,19 +23,13 @@ namespace AllianceAssociationBank.Crm.Identity
         /// </summary>
         /// <param name="activeDirectoryContext">Active Directory context, encapsulates interaction with System.DirectoryServices.AccountManagement namespace.</param>
         /// <param name="authenticationManager">Owin authentication middleware.</param>
-        public ADAuthenticationService(IActiveDirectoryContext activeDirectoryContext, IAuthenticationManager authenticationManager)
+        public ADAuthenticationService(IActiveDirectoryContext activeDirectoryContext, IAuthenticationManager authenticationManager, ILogger logger)
         {
             _activeDirectoryContext = activeDirectoryContext ?? throw new ArgumentNullException(nameof(activeDirectoryContext));
             _authenticationManager = authenticationManager ?? throw new ArgumentNullException(nameof(authenticationManager));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _authenticationType = AuthenticationType.CrmApplicationCookie;
         }
-
-        //public ADAuthenticationService(PrincipalContext principalContext, IAuthenticationManager authenticationManager)
-        //{
-        //    _principalContext = principalContext ?? throw new ArgumentNullException(nameof(principalContext));
-        //    _authenticationManager = authenticationManager ?? throw new ArgumentNullException(nameof(authenticationManager));
-        //    _authenticationType = AuthenticationType.CrmApplicationCookie;
-        //}
 
         /// <summary>
         /// Sign in a user using Active Directory username and password and create claims based user identity on success.
@@ -49,18 +44,16 @@ namespace AllianceAssociationBank.Crm.Identity
             UserPrincipal userPrincipal = null;
 
             try
-            {
-                //userPrincipal = UserPrincipal.FindByIdentity(_principalContext, userName);
+            { 
                 userPrincipal = _activeDirectoryContext.FindUserByName(userName);
                 if (userPrincipal != null)
                 {
-                    //isAuthenticated = _principalContext.ValidateCredentials(userName, password);
                     isAuthenticated = _activeDirectoryContext.ValidateUserCredentials(userName, password);
                 }
             }
             catch (Exception ex)
             {
-                // TODO: need to log this
+                _logger.Error(ex, "An error occurred while validating user credentials.");
                 return SignInResult.ErrorOccurred;
             }
 
@@ -83,7 +76,7 @@ namespace AllianceAssociationBank.Crm.Identity
             {
                 var userIdentity = CreateUserIdentity(userPrincipal);
 
-                this.SignOut();
+                SignOut();
                 _authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, userIdentity);
 
                 return SignInResult.Success;
@@ -107,7 +100,6 @@ namespace AllianceAssociationBank.Crm.Identity
         /// <returns>Returns true if a user is in one of the specified security groups.</returns>
         private bool IsAuthorized(UserPrincipal userPrincipal)
         {
-            //var securityGroups = userPrincipal.GetAuthorizationGroups();
             var securityGroups = _activeDirectoryContext.GetUserSecurityGroups(userPrincipal);
             if (securityGroups.Count() > 0)
             {
@@ -140,7 +132,6 @@ namespace AllianceAssociationBank.Crm.Identity
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userPrincipal.SamAccountName));
             identity.AddClaim(new Claim(ClaimTypes.Name, userPrincipal.SamAccountName));
 
-            //var securityGroups = userPrincipal.GetAuthorizationGroups();
             var securityGroups = _activeDirectoryContext.GetUserSecurityGroups(userPrincipal);
 
             if (securityGroups.Any(g => g.Name == UserAuthenticationSettings.AdminADGroup))

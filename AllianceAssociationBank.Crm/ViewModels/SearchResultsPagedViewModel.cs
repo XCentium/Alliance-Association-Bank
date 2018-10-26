@@ -22,6 +22,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
+        public int? PreviousRecordId { get; set; }
+
         public string SortOrderParam
         {
             get
@@ -42,11 +44,17 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
         }
 
-        public SearchResultsPagedViewModel(string searchTerm, IEnumerable<ProjectFormViewModel> projects, int pageNumber, int pageSize, string currentSort = null) 
+        public SearchResultsPagedViewModel(string searchTerm, 
+                                           IEnumerable<ProjectFormViewModel> projects, 
+                                           int pageNumber, 
+                                           int pageSize, 
+                                           string currentSort = null,
+                                           int? previousRecordId = null) 
             : base(projects, pageNumber, pageSize)
         {
             SearchTerm = searchTerm;
             CurrentSort = currentSort;
+            PreviousRecordId = previousRecordId;
         }
     }
 }

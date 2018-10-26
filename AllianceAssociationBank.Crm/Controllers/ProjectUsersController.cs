@@ -20,7 +20,6 @@ using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
-    // TODO: add logging
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Users")]
     [RedirectOnInvalidAjaxRequest]
