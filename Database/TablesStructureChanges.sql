@@ -111,8 +111,8 @@ exec sp_rename 'Projects.SFTPwithFile', 'SftpWithFile', 'COLUMN';
 exec sp_rename 'Projects.SFTPManual', 'SftpManual', 'COLUMN';
 exec sp_rename 'Projects.SFTPPath', 'SftpPath', 'COLUMN';
 exec sp_rename 'Projects.REformatByAssoc', 'ReformatByAssoc', 'COLUMN';
---exec sp_rename 'Projects.Software', 'SoftwareID', 'COLUMN';
---exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftwareID', 'COLUMN';
+--exec sp_rename 'Projects.Software', 'SoftwareID', 'COLUMN'; -- This is not needed anymore
+--exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftwareID', 'COLUMN'; -- This is not needed anymore
 exec sp_rename 'Projects.SoftwareMigrateTo', 'MigratingToSoftware', 'COLUMN';
 
 ALTER TABLE [dbo].[Projects] ADD OtherName NVARCHAR(255) NULL 
@@ -126,43 +126,6 @@ ALTER TABLE [dbo].[Projects] ADD ACHTemplateCCD NVARCHAR(10) NULL
 ALTER TABLE [dbo].[Projects] ADD ACHSftpPPD NVARCHAR(10) NULL 
 ALTER TABLE [dbo].[Projects] ADD ACHSftpCCD NVARCHAR(10) NULL 
 ALTER TABLE [dbo].[Projects] ADD ACHWebPPD NVARCHAR(10) NULL 
-
--- Populate LockboxNotes field
-/*UPDATE p
-SET LockboxNotes = 	NULLIF(RTRIM(LTRIM(
-								(CASE WHEN NULLIF(RTRIM(LTRIM(ValidationFileNotes)),'') IS NOT NULL 
-									 THEN N'**** Validation File Notes ****' + CHAR(13) + RTRIM(LTRIM(ValidationFileNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END +
-
-								CASE WHEN NULLIF(RTRIM(LTRIM(ScannlineNotes)),'') IS NOT NULL 
-									 THEN N'**** Scannline Notes ****' + CHAR(13) + RTRIM(LTRIM(ScannlineNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END +
-
-								CASE WHEN NULLIF(RTRIM(LTRIM(CouponPrintingNotes)),'') IS NOT NULL
-									 THEN N'**** Coupon Printing Notes ****' + CHAR(13) + RTRIM(LTRIM(CouponPrintingNotes)) + CHAR(13) + + CHAR(13) ELSE N'' END))),'')
-FROM dbo.Projects p*/
-
-
-/* This is not needed anymore
--- Update Software data columns
---INSERT INTO dbo.Software (SoftwareName)
---SELECT DISTINCT RTRIM(LTRIM(p.SoftwareID)) FROM dbo.Projects p WHERE p.SoftwareID NOT IN (SELECT e.SoftwareName FROM dbo.Software e) ORDER BY 1
-
---INSERT INTO dbo.Software (SoftwareName)
---SELECT DISTINCT RTRIM(LTRIM(p.MigratingToSoftwareID)) FROM dbo.Projects p WHERE p.MigratingToSoftwareID NOT IN (SELECT e.SoftwareName FROM dbo.Software e) ORDER BY 1
-
---UPDATE p
---SET p.SoftwareID = s.ID
---FROM dbo.Projects p
---JOIN dbo.Software s ON RTRIM(LTRIM(s.SoftwareName)) = RTRIM(LTRIM(p.SoftwareID))
-
---UPDATE p
---SET p.MigratingToSoftwareID = s.ID
---FROM dbo.Projects p
---JOIN dbo.Software s ON RTRIM(LTRIM(s.SoftwareName)) = RTRIM(LTRIM(p.MigratingToSoftwareID))
-
--- This is not needed anymore
---ALTER TABLE dbo.Projects ALTER COLUMN SoftwareID INT
---ALTER TABLE dbo.Projects ALTER COLUMN MigratingToSoftwareID INT
-*/
 
 
 -- Employees table RENAME statements
@@ -197,12 +160,6 @@ ALTER TABLE [dbo].[Users] ADD StatementEmail BIT NOT NULL CONSTRAINT DF_Users_St
 ALTER TABLE [dbo].[Users] ADD LockboxEmail BIT NOT NULL CONSTRAINT DF_Users_LockboxEmail DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD ACHEmail BIT NOT NULL CONSTRAINT DF_Users_ACHEmail DEFAULT (0)
 
--- Convert data in Authorization column to 2 new columns
---UPDATE u
---SET EnrollmentFormAuthorization = CASE WHEN [Authorization] = 'Enrollment Form' THEN 1 ELSE 0 END,
---    EmailAuthorization = CASE WHEN [Authorization] = 'eMail' THEN 1 ELSE 0 END
---FROM [dbo].[Users] u
-
 
 -- CheckScanners table RENAME statements
 exec sp_rename 'CheckScanners.ScannerID', 'ID', 'COLUMN';
@@ -215,12 +172,13 @@ exec sp_rename 'ReformatsAQ2.ReformatSpec', 'ReformatName', 'COLUMN';
 ALTER TABLE [dbo].[ReformatsAQ2] ADD ID INT IDENTITY(1,1) NOT NULL
 ALTER TABLE [dbo].[ReformatsAQ2] ADD CONSTRAINT [PK_ReformatsAQ2] PRIMARY KEY CLUSTERED ( ID ASC )
 
--- ReformatsECP tabke RENAME statements
+-- This is not needed anymore
+/*-- ReformatsECP tabke RENAME statements
 exec sp_rename 'ReformatsECP.ReformatDescription', 'Description', 'COLUMN';
 -- Add ID as PK for  ReformatsECP table
 ALTER TABLE [dbo].[ReformatsECP] DROP CONSTRAINT [ReformatsECP$PrimaryKey]
 ALTER TABLE [dbo].[ReformatsECP] ADD ID INT IDENTITY(1,1) NOT NULL
-ALTER TABLE [dbo].[ReformatsECP] ADD CONSTRAINT [PK_ReformatsECP] PRIMARY KEY CLUSTERED ( ID ASC )
+ALTER TABLE [dbo].[ReformatsECP] ADD CONSTRAINT [PK_ReformatsECP] PRIMARY KEY CLUSTERED ( ID ASC )*/
 
 
 -- Create new Notes table 
@@ -239,28 +197,3 @@ CREATE NONCLUSTERED INDEX IX_Notes_ProjectID ON [dbo].[Notes]
 	[ProjectID] ASC
 )
 
--- Migrate existing data Notes data to new table
---INSERT INTO dbo.Notes (ProjectID, NoteText, DateAdded)
-SELECT ID AS ProjectID, Notes AS NoteText, '9/24/2018' AS DateAdded
-  FROM [AAB_CRM_DB].[dbo].[Projects]
-  Where Notes IS NOT NULL AND RTRIM(LTRIM(Notes)) != ''
-    AND ID != 230
-
-
--- Migrate Projects.ReformatAQ2 data to depend on ReformatsAQ2 table as FK
-UPDATE p
-SET p.ReformatAQ2 = r.ID
-FROM [dbo].[Projects] p
-JOIN [dbo].[ReformatsAQ2] r ON r.ReformatName = p.ReformatAQ2
-
-ALTER TABLE [dbo].[Projects] ALTER COLUMN ReformatAQ2 INT NULL
-exec sp_rename 'Projects.ReformatAQ2', 'ReformatAQ2ID', 'COLUMN';
-
--- Migrate Projects.ReformatECP data to depend on ReformatsECP table as FK
-UPDATE p
-SET p.ReformatECP = r.ID
-FROM [dbo].[Projects] p
-JOIN [dbo].[ReformatsECP] r ON r.ReformatName = p.ReformatECP
-
-ALTER TABLE [dbo].[Projects] ALTER COLUMN ReformatECP INT NULL
-exec sp_rename 'Projects.ReformatECP', 'ReformatECPID', 'COLUMN';

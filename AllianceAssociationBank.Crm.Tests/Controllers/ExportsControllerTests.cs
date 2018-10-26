@@ -46,19 +46,19 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task GenerateExportFile_InvalidExport_ShouldReturnViewErrorResult() //ShouldThrowHttpNotFoundException()
+        public async Task GenerateExportFile_InvalidExport_ShouldThrowHttpNotFoundException()
         {
             var exportName = "Wrong Export";
             dataExportServiceMock.Setup(s => s.GenerateExportFileByName(exportName)).ReturnsAsync(null as FileStreamResult);
 
-            var result = await controller.GenerateExportFile(exportName);
+            var exception = await Record.ExceptionAsync(() => controller.GenerateExportFile(exportName));
 
-            var errorViewResult = Assert.IsType<ViewErrorResult>(result);
-            Assert.NotNull(errorViewResult);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
 
-            //var exception = await Record.ExceptionAsync(() => controller.GenerateExportFile(exportName));
-            //Assert.NotNull(exception);
-            //Assert.IsType<HttpNotFoundException>(exception);
+            //var result = await controller.GenerateExportFile(exportName);
+            //var errorViewResult = Assert.IsType<ViewErrorResult>(result);
+            //Assert.NotNull(errorViewResult);
         }
     }
 }

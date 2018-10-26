@@ -6,18 +6,15 @@ FROM [AAB_CRM_DB].[dbo].[Users] u
 JOIN [AAB_CRM_DB].[dbo].[Projects] p ON p.ID = u.ProjectID 
 WHERE 
 	p.StatementEmail like u.Email+';%' OR
-	p.StatementEmail like u.Email+' %' OR
-	
+	p.StatementEmail like u.Email+' %' OR	
 	p.StatementEmail like '%;'+u.Email+';%' OR
 	p.StatementEmail like '%;'+u.Email+' %' OR
 	p.StatementEmail like '% '+u.Email+';%' OR
-	p.StatementEmail like '% '+u.Email+' %' OR
-	
+	p.StatementEmail like '% '+u.Email+' %' OR	
 	p.StatementEmail like '%;'+ u.Email OR
 	p.StatementEmail like '% '+ u.Email
 
 
-	
 -- Update user's LockboxEmail flag based on existing LockboxEmail email dist list
 UPDATE u
 SET u.LockboxEmail = 1
@@ -26,13 +23,11 @@ FROM [AAB_CRM_DB].[dbo].[Users] u
 JOIN [AAB_CRM_DB].[dbo].[Projects] p ON p.ID = u.ProjectID 
 WHERE 
 	p.LockboxEmail like u.Email+';%' OR
-	p.LockboxEmail like u.Email+' %' OR
-	
+	p.LockboxEmail like u.Email+' %' OR	
 	p.LockboxEmail like '%;'+u.Email+';%' OR
 	p.LockboxEmail like '%;'+u.Email+' %' OR
 	p.LockboxEmail like '% '+u.Email+';%' OR
-	p.LockboxEmail like '% '+u.Email+' %' OR
-	
+	p.LockboxEmail like '% '+u.Email+' %' OR	
 	p.LockboxEmail like '%;'+ u.Email OR
 	p.LockboxEmail like '% '+ u.Email
 
@@ -45,12 +40,10 @@ FROM [AAB_CRM_DB].[dbo].[Users] u
 JOIN [AAB_CRM_DB].[dbo].[Projects] p ON p.ID = u.ProjectID 
 WHERE 
 	p.ACHEmail like u.Email+';%' OR
-	p.ACHEmail like u.Email+' %' OR
-	
+	p.ACHEmail like u.Email+' %' OR	
 	p.ACHEmail like '%;'+u.Email+';%' OR
 	p.ACHEmail like '%;'+u.Email+' %' OR
 	p.ACHEmail like '% '+u.Email+';%' OR
-	p.ACHEmail like '% '+u.Email+' %' OR
-	
+	p.ACHEmail like '% '+u.Email+' %' OR	
 	p.ACHEmail like '%;'+ u.Email OR
 	p.ACHEmail like '% '+ u.Email

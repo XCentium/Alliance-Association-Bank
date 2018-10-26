@@ -147,14 +147,15 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidUserId_JsonErrorResult()
+        public async Task Edit_InvalidUserId_ShouldThrowHttpNotFoundException()
         {
             var userId = 1;
             projectUsersRepoMock.Setup(r => r.GetUserByIdAsync(userId)).ReturnsAsync(null as ProjectUser);
 
-            var result = await controller.Edit(99, userId);
+            var exception = await Record.ExceptionAsync(() => controller.Edit(99, userId));
 
-            var notFoundResult = Assert.IsType<JsonErrorResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
 
@@ -186,15 +187,16 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidUserId_JsonErrorResult()
+        public async Task Update_InvalidUserId_ShouldThrowHttpNotFoundException()
         {
             var userId = 1;
             var projectId = 1;
             projectUsersRepoMock.Setup(r => r.GetUserByIdAsync(userId)).ReturnsAsync(null as ProjectUser);
 
-            var result = await controller.Update(projectId, userId, userViewModel);
+            var exception = await Record.ExceptionAsync(() => controller.Update(projectId, userId, userViewModel));
 
-            var notFoundResult = Assert.IsType<JsonErrorResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
     }
 }

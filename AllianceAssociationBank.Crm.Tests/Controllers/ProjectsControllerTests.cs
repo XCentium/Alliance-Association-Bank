@@ -124,15 +124,15 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidProjectId_ShouldReturnViewErrorResult()
+        public async Task Edit_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 99;
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectId)).ReturnsAsync(null as Project);
 
-            var result = await controller.Edit(projectId);
+            var exception = await Record.ExceptionAsync(() => controller.Edit(projectId));
 
-            var errorViewResult = Assert.IsType<ViewErrorResult>(result);
-            Assert.NotNull(errorViewResult);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]
@@ -162,14 +162,14 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidProjectId_ShouldReturnViewErrorResult()
+        public async Task Update_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(null as Project);
 
-            var result = await controller.Update(projectViewModel.ID, projectViewModel);
+            var exception = await Record.ExceptionAsync(() => controller.Update(projectViewModel.ID, projectViewModel));
 
-            var errorViewResult = Assert.IsType<ViewErrorResult>(result);
-            Assert.NotNull(errorViewResult);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
     }

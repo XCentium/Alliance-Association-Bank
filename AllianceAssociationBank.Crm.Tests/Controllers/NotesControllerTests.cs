@@ -151,14 +151,15 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidNoteId_ShouldReturnJsonError()
+        public async Task Edit_InvalidNoteId_ShouldThrowHttpNotFoundException()
         {
             var noteId = 1;
             notesRepoMock.Setup(r => r.GetNoteByIdAsync(noteId)).ReturnsAsync(null as Note);
 
-            var result = await controller.Edit(99, noteId);
+            var exception = await Record.ExceptionAsync(() => controller.Edit(99, noteId));
 
-            var notFoundResult = Assert.IsType<JsonErrorResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]
@@ -197,15 +198,16 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidNoteId_ShouldReturnJsonError()
+        public async Task Update_InvalidNoteId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 1;
             var noteId = 1;
             notesRepoMock.Setup(r => r.GetNoteByIdAsync(noteId)).ReturnsAsync(null as Note);
 
-            var result = await controller.Update(projectId, noteId, noteViewModel);
+            var exception = await Record.ExceptionAsync(() => controller.Update(projectId, noteId, noteViewModel));
 
-            var notFoundResult = Assert.IsType<JsonErrorResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]
@@ -246,15 +248,16 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Delete_InvalidNoteId_ShouldReturnJsonError()
+        public async Task Delete_InvalidNoteId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 1;
             var noteId = 1;
             notesRepoMock.Setup(r => r.GetNoteByIdAsync(noteId)).ReturnsAsync(null as Note);
 
-            var result = await controller.Delete(projectId, noteId);
+            var exception = await Record.ExceptionAsync(() => controller.Delete(projectId, noteId));
 
-            var jsonErrorResult = Assert.IsType<JsonErrorResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]

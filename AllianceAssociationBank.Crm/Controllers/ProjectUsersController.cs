@@ -118,7 +118,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
 
             var user = await _userRepository.GetUserByIdAsync(id);
-            user = null;
             if (user == null)
             {
                 throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
