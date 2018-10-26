@@ -270,6 +270,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Core\Dtos\AchReportDatasetDto.cs" />
     <Compile Include="Core\Dtos\CDEmailsDatasetDto.cs" />
     <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />

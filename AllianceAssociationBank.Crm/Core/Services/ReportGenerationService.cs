@@ -98,18 +98,19 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     }
                 case var name when name.Equals(ReportName.AchSpec, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchReportDataSetAsync(projectId))));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReportDataset, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        //dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        //dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.AchInitialReview, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReportDataset, (await _queries.GetAchReportDataSetAsync(projectId))));
                         break;
                     }
                 case var name when name.Equals(ReportName.AchSixMonthReview, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReportDataset, (await _queries.GetAchReportDataSetAsync(projectId))));
                         break;
                     }
             }
