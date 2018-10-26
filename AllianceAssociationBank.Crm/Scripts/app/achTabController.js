@@ -1,7 +1,6 @@
 ﻿var AchTabController = function ($) {
 
     var init = function () {
-        //bindRadioButtonUncheckEvent();
         $(".js-uncheck-radio").on("click", uncheckRadioButton);
     };
 

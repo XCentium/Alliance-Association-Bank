@@ -12,7 +12,6 @@
             source: function (request, response) {
                 $.ajax({
                     url: "/api/Projects",
-                    //url: "Search/JsonResults",
                     method: "GET",
                     dataType: "json",
                     data: {
