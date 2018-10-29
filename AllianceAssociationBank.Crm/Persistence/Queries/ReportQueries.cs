@@ -115,7 +115,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Where(p => p.ID == projectId || projectId == null)
                 .OrderBy(p => p.ProjectName)
                 .Include(p => p.Owner)
-                .Include(p => p.Users)
+                //.Include(p => p.Users)
                 .ToListAsync();
 
             return results.Select(p => new AchReportDatasetDto()
@@ -142,9 +142,9 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 Narrative = p.Narrative,
                 ACHReviewOfHistoricPerformance = p.ACHReviewOfHistoricPerformance,
                 ACHSpectFormInstructions = p.ACHSpectFormInstructions,
-                OwnerName = p.Owner == null ? null : $"{p.Owner.FirstName} {p.Owner.LastName}",
-                ContactName = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Name,
-                ContactEmail = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Email
+                OwnerName = p.Owner == null ? null : $"{p.Owner.FirstName} {p.Owner.LastName}"
+                //ContactName = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Name,
+                //ContactEmail = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Email
             });
         }
 
