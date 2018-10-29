@@ -11,7 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using AllianceAssociationBank.Crm.Mappings;
 using Xunit;
+using AutoMapper;
 
 namespace AllianceAssociationBank.Crm.Tests.Controllers
 {
@@ -21,15 +23,19 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
         Mock<IProjectRepository> projectsRepoMock;
 
+        private IMapper mapper;
+
         public ApiProjectsControllerTests()
         {
             projectsRepoMock = new Mock<IProjectRepository>();
+            mapper = CrmAutoMapperProfile.GetMapper();
 
-            controller = new ProjectsController(projectsRepoMock.Object);
+            controller = new ProjectsController(projectsRepoMock.Object, mapper);
+
         }
 
         [Fact]
-        public async Task Get_ValidSearchTerm_ProjectsDtoList()
+        public void Get_ValidSearchTerm_ProjectsDtoList()
         {
             var projects = new List<Project>()
             {
@@ -49,11 +55,11 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
                 .Setup(r => r.GetProjectsBySearchTerm(searchTerm, SortOrder.Ascending))
                 .Returns(projects.AsQueryable());
 
-            var results = await controller.Get(searchTerm);
+            var results = controller.Get(searchTerm);
 
             var listOfProjects = Assert.IsAssignableFrom<IEnumerable<ProjectDto>>(results);
             Assert.NotNull(listOfProjects);
-            //Assert.Equal(projects.Count, listOfProjects.ToList().Count);
+            Assert.Equal(projects.Count, listOfProjects.ToList().Count);
         }
     }
 }

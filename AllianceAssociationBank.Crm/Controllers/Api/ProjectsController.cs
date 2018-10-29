@@ -5,6 +5,8 @@ using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,27 +21,35 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     [Authorize]
     public class ProjectsController : ApiController
     {
-        private IProjectRepository _repository;
+        private IProjectRepository _projectRepository;
+        private IMapper _mapper;
 
         private const int MAX_SEARCH_RESULTS = 10;
 
-        public ProjectsController(IProjectRepository repository)
+        public ProjectsController(IProjectRepository repository, IMapper mapper)
         {
-            _repository = repository;
+            _projectRepository = repository;
+            _mapper = mapper;
         }
         
         [HttpGet]
-        public async Task<IEnumerable<ProjectDto>> Get(string search)
+        //public async Task<IEnumerable<ProjectDto>> Get(string search)
+        public IEnumerable<ProjectDto> Get(string search)
         {
+            var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
+                .Take(MAX_SEARCH_RESULTS);
+
+            return results.ProjectTo<ProjectDto>(_mapper.ConfigurationProvider).ToList();
+
             //return (await _repository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
-            return await (_repository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
-                .Take(MAX_SEARCH_RESULTS)
-                .Select(p => new ProjectDto()
-                {
-                    Id = p.ID,
-                    Name = p.ProjectName
-                })
-                .ToListAsync());
+            //return await (_projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
+            //    .Take(MAX_SEARCH_RESULTS)
+            //    .Select(p => new ProjectDto()
+            //    {
+            //        Id = p.ID,
+            //        Name = p.ProjectName
+            //    })
+            //    .ToListAsync());
         }
     }
 }
