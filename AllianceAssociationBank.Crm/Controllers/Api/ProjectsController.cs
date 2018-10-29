@@ -22,14 +22,14 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     public class ProjectsController : ApiController
     {
         private IProjectRepository _projectRepository;
-        private IMapper _mapper;
+        //private IMapper _mapper;
 
         private const int MAX_SEARCH_RESULTS = 10;
 
-        public ProjectsController(IProjectRepository repository, IMapper mapper)
+        public ProjectsController(IProjectRepository repository/*, IMapper mapper*/)
         {
             _projectRepository = repository;
-            _mapper = mapper;
+            //_mapper = mapper;
         }
         
         [HttpGet]
@@ -39,7 +39,12 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
             var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
                 .Take(MAX_SEARCH_RESULTS);
 
-            return results.ProjectTo<ProjectDto>(_mapper.ConfigurationProvider).ToList();
+            return results.Select(p => new ProjectDto()
+            {
+                Id = p.ID,
+                Name = p.ProjectName
+            })
+            .ToList();
 
             //return (await _repository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
             //return await (_projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending)

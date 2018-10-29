@@ -25,63 +25,63 @@
                         </div>
                     </div>
                     <div class="row row-radio-grid">
-                        @Html.LabelFor(m => m.ACHUploadPPD, new { @class = "col-6 pl-0" })
+                        @Html.LabelFor(m => m.ACHUploadPPDDebit, new { @class = "col-6 pl-0" })
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadPPD, DEBIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHUploadPPDDebit)
                         </div>
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadPPD, CREDIT, "js-uncheck-radio align-middle")
-                        </div>
-                    </div>
-                    <div class="row row-radio-grid">
-                        @Html.LabelFor(m => m.ACHUploadCCD, new { @class = "col-6 pl-0" })
-                        <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadCCD, DEBIT, "js-uncheck-radio align-middle")
-                        </div>
-                        <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHUploadCCD, CREDIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHUploadPPDCredit)
                         </div>
                     </div>
                     <div class="row row-radio-grid">
-                        @Html.LabelFor(m => m.ACHTemplatePPD, new { @class = "col-6 pl-0" })
+                        @Html.LabelFor(m => m.ACHUploadCCDDebit, new { @class = "col-6 pl-0" })
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplatePPD, DEBIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHUploadCCDDebit)
                         </div>
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplatePPD, CREDIT, "js-uncheck-radio align-middle")
-                        </div>
-                    </div>
-                    <div class="row row-radio-grid">
-                        @Html.LabelFor(m => m.ACHTemplateCCD, new { @class = "col-6 pl-0" })
-                        <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplateCCD, DEBIT, "js-uncheck-radio align-middle")
-                        </div>
-                        <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHTemplateCCD, CREDIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHUploadCCDCredit)
                         </div>
                     </div>
                     <div class="row row-radio-grid">
-                        @Html.LabelFor(m => m.ACHSftpPPD, new { @class = "col-6 pl-0" })
+                        @Html.LabelFor(m => m.ACHTemplatePPDDebit, new { @class = "col-6 pl-0" })
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpPPD, DEBIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHTemplatePPDDebit)
                         </div>
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpPPD, CREDIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHTemplatePPDCredit)
                         </div>
                     </div>
                     <div class="row row-radio-grid">
-                        @Html.LabelFor(m => m.ACHSftpCCD, new { @class = "col-6 pl-0" })
+                        @Html.LabelFor(m => m.ACHTemplateCCDDebit, new { @class = "col-6 pl-0" })
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpCCD, DEBIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHTemplateCCDDebit)
                         </div>
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHSftpCCD, CREDIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHTemplateCCDCredit)
+                        </div>
+                    </div>
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHSftpPPDDebit, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHSftpPPDDebit)
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHSftpPPDCredit)
+                        </div>
+                    </div>
+                    <div class="row row-radio-grid">
+                        @Html.LabelFor(m => m.ACHSftpCCDDebit, new { @class = "col-6 pl-0" })
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHSftpCCDDebit)
+                        </div>
+                        <div class="col-3 text-center">
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHSftpCCDCredit)
                         </div>
                     </div>
                     <div class="row row-radio-grid-bottom">
-                        @Html.LabelFor(m => m.ACHWebPPD, new { @class = "col-6 pl-0" })
+                        @Html.LabelFor(m => m.ACHWebPPDDebit, new { @class = "col-6 pl-0" })
                         <div class="col-3 text-center">
-                            @Html.RoleBasedRadioButtonFor(m => m.ACHWebPPD, DEBIT, "js-uncheck-radio align-middle")
+                            @Html.RoleBasedCheckBoxFor(m => m.ACHWebPPDDebit)
                         </div>
                     </div>
                 </div>

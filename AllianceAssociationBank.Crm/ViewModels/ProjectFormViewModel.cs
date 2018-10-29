@@ -438,40 +438,31 @@ namespace AllianceAssociationBank.Crm.ViewModels
         // ACH Tab
 
         [Display(Name = "Upload - PPD")]
-        public string ACHUploadPPD { get; set; }
+        public bool ACHUploadPPDDebit { get; set; }
+        public bool ACHUploadPPDCredit { get; set; }
 
         [Display(Name = "Upload - CCD")]
-        public string ACHUploadCCD { get; set; }
+        public bool ACHUploadCCDDebit { get; set; }
+        public bool ACHUploadCCDCredit { get; set; }
 
         [Display(Name = "Template - PPD")]
-        public string ACHTemplatePPD { get; set; }
+        public bool ACHTemplatePPDDebit { get; set; }
+        public bool ACHTemplatePPDCredit { get; set; }
 
         [Display(Name = "Template - CCD")]
-        public string ACHTemplateCCD { get; set; }
+        public bool ACHTemplateCCDDebit { get; set; }
+        public bool ACHTemplateCCDCredit { get; set; }
 
         [Display(Name = "SFTP - PPD")]
-        public string ACHSftpPPD { get; set; }
+        public bool ACHSftpPPDDebit { get; set; }
+        public bool ACHSftpPPDCredit { get; set; }
 
         [Display(Name = "SFTP - CCD")]
-        public string ACHSftpCCD { get; set; }
+        public bool ACHSftpCCDDebit { get; set; }
+        public bool ACHSftpCCDCredit { get; set; }
 
         [Display(Name = "Web - PPD")]
-        public string ACHWebPPD { get; set; }
-
-        //[Display(Name = "Direct Credit (PPD)")]
-        //public bool DirectDepositPayroll { get; set; }
-
-        //[Display(Name = "Direct Debit (PPD)")]
-        //public bool DirectDebitCollection { get; set; }
-
-        //[Display(Name = "Direct Credit (CCD)")]
-        //public bool DirectCreditPayments { get; set; }
-
-        //[Display(Name = "Direct Debit (CCD)")]
-        //public bool DirectDebitBusinessCCD { get; set; }
-
-        //[Display(Name = "Consumer Debit (Web)")]
-        //public bool ConsumerDebitWeb { get; set; }
+        public bool ACHWebPPDDebit { get; set; }
 
         public bool? Balanced { get; set; }
 

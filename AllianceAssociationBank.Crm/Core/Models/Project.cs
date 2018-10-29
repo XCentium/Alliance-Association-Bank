@@ -333,26 +333,52 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string LockboxNotes { get; set; }
 
-        [StringLength(10)]
-        public string ACHUploadPPD { get; set; }
+        public bool ACHUploadPPDDebit { get; set; }
 
-        [StringLength(10)]
-        public string ACHUploadCCD { get; set; }
+        public bool ACHUploadPPDCredit { get; set; }
 
-        [StringLength(10)]
-        public string ACHTemplatePPD { get; set; }
+        public bool ACHUploadCCDDebit { get; set; }
 
-        [StringLength(10)]
-        public string ACHTemplateCCD { get; set; }
+        public bool ACHUploadCCDCredit { get; set; }
 
-        [StringLength(10)]
-        public string ACHSftpPPD { get; set; }
+        public bool ACHTemplatePPDDebit { get; set; }
 
-        [StringLength(10)]
-        public string ACHSftpCCD { get; set; }
+        public bool ACHTemplatePPDCredit { get; set; }
 
-        [StringLength(10)]
-        public string ACHWebPPD { get; set; }
+        public bool ACHTemplateCCDDebit { get; set; }
+
+        public bool ACHTemplateCCDCredit { get; set; }
+
+        public bool ACHSftpPPDDebit { get; set; }
+
+        public bool ACHSftpPPDCredit { get; set; }
+
+        public bool ACHSftpCCDDebit { get; set; }
+
+        public bool ACHSftpCCDCredit { get; set; }
+
+        public bool ACHWebPPDDebit { get; set; }
+
+        //[StringLength(10)]
+        //public string ACHUploadPPD { get; set; }
+
+        //[StringLength(10)]
+        //public string ACHUploadCCD { get; set; }
+
+        //[StringLength(10)]
+        //public string ACHTemplatePPD { get; set; }
+
+        //[StringLength(10)]
+        //public string ACHTemplateCCD { get; set; }
+
+        //[StringLength(10)]
+        //public string ACHSftpPPD { get; set; }
+
+        //[StringLength(10)]
+        //public string ACHSftpCCD { get; set; }
+
+        //[StringLength(10)]
+        //public string ACHWebPPD { get; set; }
 
         public virtual ICollection<ProjectUser> Users { get; set; }
     }

@@ -14,7 +14,7 @@ FROM [dbo].[Projects] p
 
 -- Update new ACH Web PPD - Debit field based on existing data 
 UPDATE p
-SET p.ACHWebPPD = 'Debit'
+SET p.ACHWebPPDDebit = ConsumerDebitWeb
 FROM [dbo].[Projects] p
 WHERE ConsumerDebitWeb = 1
 

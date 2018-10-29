@@ -152,15 +152,20 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.MigratingToSoftware).Name("Migrating to Software");
             Map(m => m.OtherName).Name("Other Name");
             Map(m => m.RelationshipRate).Name("Relationship Rate");
-            Map(m => m.LockboxNotes).Name("Lockbox Notes");           
-            // TODO: need to finish adding new ACH fields
-            Map(m => m.ACHUploadPPD).Name("ACH Upload PPD");
-            Map(m => m.ACHUploadCCD).Name("ACH Upload CCD");
-            Map(m => m.ACHTemplatePPD).Name("ACH Template PPD");
-            Map(m => m.ACHTemplateCCD).Name("ACH Template CCD");
-            Map(m => m.ACHSftpPPD).Name("ACH SFTP PPD");
-            Map(m => m.ACHSftpCCD).Name("ACH SFTP CCD");
-            Map(m => m.ACHWebPPD).Name("ACH Web CCD");
+            Map(m => m.LockboxNotes).Name("Lockbox Notes");
+            Map(m => m.ACHUploadPPDDebit).Name("ACH Upload PPD Debit");
+            Map(m => m.ACHUploadPPDCredit).Name("ACH Upload PPD Credit");
+            Map(m => m.ACHUploadCCDDebit).Name("ACH Upload CCD Debit");
+            Map(m => m.ACHUploadCCDCredit).Name("ACH Upload CCD Credit");
+            Map(m => m.ACHTemplatePPDDebit).Name("ACH Template PPD Debit");
+            Map(m => m.ACHTemplatePPDCredit).Name("ACH Template PPD Credit");
+            Map(m => m.ACHTemplateCCDDebit).Name("ACH Template CCD Debit");
+            Map(m => m.ACHTemplateCCDCredit).Name("ACH Template CCD Credit");
+            Map(m => m.ACHSftpPPDDebit).Name("ACH SFTP PPD Debit");
+            Map(m => m.ACHSftpPPDCredit).Name("ACH SFTP PPD Credit");
+            Map(m => m.ACHSftpCCDDebit).Name("ACH SFTP CCD Debit");
+            Map(m => m.ACHSftpCCDCredit).Name("ACH SFTP CCD Credit");
+            Map(m => m.ACHWebPPDDebit).Name("ACH Web CCD Debit");
         }
 
         private string GetEmployeeName(Employee employee)
