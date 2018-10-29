@@ -51,6 +51,32 @@ namespace AllianceAssociationBank.Crm.Core.Dtos
 
         public string ACHSpectFormInstructions { get; set; }
 
+        public bool ACHUploadPPDDebit { get; set; }
+
+        public bool ACHUploadPPDCredit { get; set; }
+
+        public bool ACHUploadCCDDebit { get; set; }
+
+        public bool ACHUploadCCDCredit { get; set; }
+
+        public bool ACHTemplatePPDDebit { get; set; }
+
+        public bool ACHTemplatePPDCredit { get; set; }
+
+        public bool ACHTemplateCCDDebit { get; set; }
+
+        public bool ACHTemplateCCDCredit { get; set; }
+
+        public bool ACHSftpPPDDebit { get; set; }
+
+        public bool ACHSftpPPDCredit { get; set; }
+
+        public bool ACHSftpCCDDebit { get; set; }
+
+        public bool ACHSftpCCDCredit { get; set; }
+
+        public bool ACHWebPPDDebit { get; set; }
+
         public string OwnerName { get; set; }
 
         public string ContactName { get; set; }
