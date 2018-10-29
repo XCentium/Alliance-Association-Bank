@@ -7,6 +7,7 @@ using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -30,13 +31,15 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
         [HttpGet]
         public async Task<IEnumerable<ProjectDto>> Get(string search)
         {
-            return (await _repository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
+            //return (await _repository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
+            return await (_repository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
                 .Take(MAX_SEARCH_RESULTS)
                 .Select(p => new ProjectDto()
                 {
                     Id = p.ID,
                     Name = p.ProjectName
-                });
+                })
+                .ToListAsync());
         }
     }
 }

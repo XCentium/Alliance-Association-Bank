@@ -1,9 +1,8 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Web;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
@@ -40,12 +39,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         }
 
         public SearchResultsPagedViewModel() 
-            : base(new List<ProjectFormViewModel>(), 1, 10)
+            : base(new Collection<ProjectFormViewModel>(), 1, 10)
         {
         }
 
         public SearchResultsPagedViewModel(string searchTerm, 
-                                           IEnumerable<ProjectFormViewModel> projects, 
+                                           IQueryable<ProjectFormViewModel> projects, 
                                            int pageNumber, 
                                            int pageSize, 
                                            string currentSort = null,

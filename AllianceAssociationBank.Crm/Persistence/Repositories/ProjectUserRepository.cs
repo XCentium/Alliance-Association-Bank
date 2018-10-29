@@ -26,7 +26,8 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         }
 
         // TODO: change filter to Enum
-        public IEnumerable<ProjectUser> GetUsers(int projectId, string filter)
+        //public IEnumerable<ProjectUser> GetUsers(int projectId, string filter)
+        public IQueryable<ProjectUser> GetUsers(int projectId, string filter)
         {
             return _context.ProjectUsers
                 .OrderBy(u => string.IsNullOrEmpty(u.Name) ? 2 : 1) // Users with empty names will be at the end of the list

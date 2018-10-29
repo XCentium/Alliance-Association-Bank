@@ -5,6 +5,7 @@
         initSetMailingOnPhysicalAddressChange();
         setSameAsPhysicalCheckboxOnLoad();
         toggleLockboxSystemDisabled();
+        bindResetSaveIdicatorOnChangeEvent();
     };
 
     // Set Same As Physical checkbox to true if Mailing and Physical are populated with the same address
@@ -75,6 +76,17 @@
                 disableElementById(lockboxSystemElementId);
             } else {
                 enableElementById(lockboxSystemElementId);
+            }
+        });
+    };
+
+    // Reset save indicator on any form change
+    var bindResetSaveIdicatorOnChangeEvent = function () {
+        $("#project-form-element").on("change", function () {
+            var $saveIndicator = $("#project-form-save-indicator");
+            if ($saveIndicator.text() === "SAVED") {
+                $saveIndicator.text("UNSAVED");
+                $saveIndicator.removeClass("badge-success").addClass("badge-light");
             }
         });
     };

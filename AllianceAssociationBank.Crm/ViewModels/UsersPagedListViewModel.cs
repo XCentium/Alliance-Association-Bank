@@ -9,7 +9,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
     {
         public int ProjectID { get; set; }
 
-        public UsersPagedListViewModel(int projectId, IEnumerable<UserFormViewModel> allUsers, int pageNumber, int pageSize)
+        public UsersPagedListViewModel(int projectId, IQueryable<UserFormViewModel> allUsers, int pageNumber, int pageSize)
             : base (allUsers, pageNumber, pageSize)
         {
             ProjectID = projectId;

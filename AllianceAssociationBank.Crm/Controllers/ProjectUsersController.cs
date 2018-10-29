@@ -9,6 +9,7 @@ using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             var users = _userRepository.GetUsers(projectId, filter);
 
-            var usersViewModel = _mapper.Map<List<UserFormViewModel>>(users);
+            var usersViewModel = users.ProjectTo<UserFormViewModel>(_mapper.ConfigurationProvider);
+            //var usersViewModel = _mapper.Map<List<UserFormViewModel>>(users);
             var pagedModel = new UsersPagedListViewModel(projectId, usersViewModel, page, PAGE_SIZE);
 
             return PartialView(ProjectUsersView.UsersListPartial, pagedModel);

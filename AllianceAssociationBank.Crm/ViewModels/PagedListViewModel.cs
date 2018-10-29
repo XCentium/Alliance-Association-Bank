@@ -60,7 +60,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public IEnumerable<T> Items { get; set; }
 
 
-        public PagedListViewModel(IEnumerable<T> allItems, int pageNumber, int pageSize)
+        public PagedListViewModel(IEnumerable<T> allItems, int pageNumber, int pageSize) 
+            : this (allItems.AsQueryable(), pageNumber, pageSize)
+        {
+        }
+
+        public PagedListViewModel(IQueryable<T> allItems, int pageNumber, int pageSize)
         {
             //pageSize = pageSize < 1 ? 5 : pageSize;
             //pageNumber = pageNumber < 1 ? 1 : pageNumber;

@@ -1,15 +1,15 @@
-﻿$(function () {
+﻿//$(function () {
 
-    // Reset save indicator on any form change
-    $("#project-form-element").on("change", function () {
-        var $saveIndicator = $("#project-form-save-indicator");
-        if ($saveIndicator.text() === "SAVED") {
-            $saveIndicator.text("UNSAVED");
-            $saveIndicator.removeClass("badge-success").addClass("badge-light");
-        }
-    });
+//    // Reset save indicator on any form change
+//    $("#project-form-element").on("change", function () {
+//        var $saveIndicator = $("#project-form-save-indicator");
+//        if ($saveIndicator.text() === "SAVED") {
+//            $saveIndicator.text("UNSAVED");
+//            $saveIndicator.removeClass("badge-success").addClass("badge-light");
+//        }
+//    });
 
-});
+//});
 
 //function showModalTarget() {
 //    $modalTarget = $($(this).data("modal-target"));
