@@ -359,27 +359,6 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool ACHWebPPDDebit { get; set; }
 
-        //[StringLength(10)]
-        //public string ACHUploadPPD { get; set; }
-
-        //[StringLength(10)]
-        //public string ACHUploadCCD { get; set; }
-
-        //[StringLength(10)]
-        //public string ACHTemplatePPD { get; set; }
-
-        //[StringLength(10)]
-        //public string ACHTemplateCCD { get; set; }
-
-        //[StringLength(10)]
-        //public string ACHSftpPPD { get; set; }
-
-        //[StringLength(10)]
-        //public string ACHSftpCCD { get; set; }
-
-        //[StringLength(10)]
-        //public string ACHWebPPD { get; set; }
-
         public virtual ICollection<ProjectUser> Users { get; set; }
     }
 }

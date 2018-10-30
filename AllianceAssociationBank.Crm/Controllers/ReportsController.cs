@@ -12,6 +12,7 @@ namespace AllianceAssociationBank.Crm.Controllers
     public class ReportsController : Controller
     {
         private IReportGenerationService _reportsService;
+        //private static readonly object reportViewerLock = new object();
 
         public ReportsController(IReportGenerationService reportsService)
         {

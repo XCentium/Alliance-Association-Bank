@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 using System.Web;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Helpers;
+using AutoMapper;
 
 namespace AllianceAssociationBank.Crm.Persistence.Queries
 {
     public class ReportQueries : IReportQueries
     {
         private CrmApplicationDbContext _context;
+        private IMapper _mapper;
 
-        public ReportQueries(CrmApplicationDbContext context)
+        public ReportQueries(CrmApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<Project>> GetBoardingDataSetAsync()
@@ -115,37 +118,38 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Where(p => p.ID == projectId || projectId == null)
                 .OrderBy(p => p.ProjectName)
                 .Include(p => p.Owner)
-                //.Include(p => p.Users)
                 .ToListAsync();
 
-            return results.Select(p => new AchReportDatasetDto()
-            {
-                ID = p.ID,
-                ProjectName = p.ProjectName,
-                Institution = p.Institution,
-                Address = p.Address,
-                City = p.City,
-                State = p.State,
-                ZipCode = p.ZipCode,
-                TIN = p.TIN,
-                Fax = p.Fax,
-                Phone = p.Phone,
-                DICompanyID = p.DICompanyID,
-                ACHPassThru = p.ACHPassThru,
-                ACHBatches = p.ACHBatches,
-                ACHSystemLimit = p.ACHSystemLimit,
-                ACHLimit = p.ACHLimit,
-                ACHEstimatedDeposits = p.ACHEstimatedDeposits,
-                OriginalReviewDate = p.OriginalReviewDate,
-                LastReviewDate = p.LastReviewDate,
-                Balanced = p.Balanced,
-                Narrative = p.Narrative,
-                ACHReviewOfHistoricPerformance = p.ACHReviewOfHistoricPerformance,
-                ACHSpectFormInstructions = p.ACHSpectFormInstructions,
-                OwnerName = p.Owner == null ? null : $"{p.Owner.FirstName} {p.Owner.LastName}"
-                //ContactName = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Name,
-                //ContactEmail = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Email
-            });
+            return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
+
+            //return results.Select(p => new AchReportDatasetDto()
+            //{
+            //    ID = p.ID,
+            //    ProjectName = p.ProjectName,
+            //    Institution = p.Institution,
+            //    Address = p.Address,
+            //    City = p.City,
+            //    State = p.State,
+            //    ZipCode = p.ZipCode,
+            //    TIN = p.TIN,
+            //    Fax = p.Fax,
+            //    Phone = p.Phone,
+            //    DICompanyID = p.DICompanyID,
+            //    ACHPassThru = p.ACHPassThru,
+            //    ACHBatches = p.ACHBatches,
+            //    ACHSystemLimit = p.ACHSystemLimit,
+            //    ACHLimit = p.ACHLimit,
+            //    ACHEstimatedDeposits = p.ACHEstimatedDeposits,
+            //    OriginalReviewDate = p.OriginalReviewDate,
+            //    LastReviewDate = p.LastReviewDate,
+            //    Balanced = p.Balanced,
+            //    Narrative = p.Narrative,
+            //    ACHReviewOfHistoricPerformance = p.ACHReviewOfHistoricPerformance,
+            //    ACHSpectFormInstructions = p.ACHSpectFormInstructions,
+            //    OwnerName = p.Owner == null ? null : $"{p.Owner.FirstName} {p.Owner.LastName}"
+            //    //ContactName = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Name,
+            //    //ContactEmail = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Email
+            //});
         }
 
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()

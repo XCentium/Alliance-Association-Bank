@@ -165,6 +165,7 @@ exec sp_rename 'Users.Lockbox Web', 'LockboxWeb', 'COLUMN';
 exec sp_rename 'Users.E Deposit', 'EDeposit', 'COLUMN';
 exec sp_rename 'Users.RemoteScannerAcctNotes', 'RemoteScannerAccountNotes', 'COLUMN';
 exec sp_rename 'Users.AuthorizedOpenClose', 'AuthorizedToOpenClose', 'COLUMN';
+ALTER TABLE [dbo].[Users] ALTER COLUMN ProjectID INT NOT NULL
 
 ALTER TABLE [dbo].[Users] ALTER COLUMN Active BIT NOT NULL
 ALTER TABLE [dbo].[Users] ALTER COLUMN [Admin] BIT NOT NULL
@@ -178,6 +179,7 @@ ALTER TABLE [dbo].[Users] ADD ACHEmail BIT NOT NULL CONSTRAINT DF_Users_ACHEmail
 -- CheckScanners table RENAME statements
 exec sp_rename 'CheckScanners.ScannerID', 'ID', 'COLUMN';
 exec sp_rename 'CheckScanners.Serial Number', 'SerialNumber', 'COLUMN';
+ALTER TABLE [dbo].[CheckScanners] ALTER COLUMN ProjectID INT NOT NULL
 
 
 -- ReformatsAQ2 tabke RENAME statements

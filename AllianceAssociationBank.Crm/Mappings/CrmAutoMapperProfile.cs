@@ -20,19 +20,23 @@ namespace AllianceAssociationBank.Crm.Mappings
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
 
-            //CreateMap<Project, ProjectDto>();
+            CreateMap<Project, AchReportDatasetDto>()
+                .ForMember(
+                    dest => dest.OwnerName, 
+                    opt => opt.MapFrom(src => src.Owner == null ? null : $"{src.Owner.FirstName} {src.Owner.LastName}")
+                 );
 
             CreateMap<ProjectUser, UserFormViewModel>();
             CreateMap<UserFormViewModel, ProjectUser>()
-                .ForMember(u => u.DateAdded, o => o.Ignore())
-                .ForMember(u => u.DateDeleted, o => o.Ignore());
+                .ForMember(dest => dest.DateAdded, opt => opt.Ignore())
+                .ForMember(dest => dest.DateDeleted, opt => opt.Ignore());
 
             CreateMap<CheckScanner, ScannerFormViewModel>()
                 .ReverseMap();
 
             CreateMap<Note, NoteFormViewModel>();
             CreateMap<NoteFormViewModel, Note>()
-                .ForMember(n => n.DateAdded, o => o.Ignore());
+                .ForMember(dest => dest.DateAdded, opt => opt.Ignore());
         }
 
         public static IMapper GetMapper()

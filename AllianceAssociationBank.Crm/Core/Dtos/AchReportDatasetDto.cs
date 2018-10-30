@@ -79,8 +79,8 @@ namespace AllianceAssociationBank.Crm.Core.Dtos
 
         public string OwnerName { get; set; }
 
-        public string ContactName { get; set; }
+        //public string ContactName { get; set; }
 
-        public string ContactEmail { get; set; }
+        //public string ContactEmail { get; set; }
     }
 }
