@@ -72,14 +72,14 @@
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.RoleBasedEditorFor(m => m.Phone, "form-input")
+                                    @Html.RoleBasedEditorFor(m => m.Phone, "form-input js-phone-mask")
                                     @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Mobile, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.RoleBasedEditorFor(m => m.Mobile, "form-input")
+                                    @Html.RoleBasedEditorFor(m => m.Mobile, "form-input js-phone-mask")
                                     @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>

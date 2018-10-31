@@ -48,7 +48,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string State { get; set; }
 
         [Required]
-        [StringLength(255)]
+        [StringLength(15)]
+        [RegularExpression(ValidationRegex.UsaZipCode, ErrorMessage = ValidationErrorMessage.UsaZipCode)]
         [Display(Name = "ZIP")]
         public string ZipCode { get; set; }
 
@@ -67,11 +68,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "State")]
         public string MailingState { get; set; }
 
-        [StringLength(255)]
+        [StringLength(15)]
+        [RegularExpression(ValidationRegex.UsaZipCode, ErrorMessage = ValidationErrorMessage.UsaZipCode)]
         [Display(Name = "ZIP")]
         public string MailingZipCode { get; set; }
 
-        [StringLength(255)]
+        [StringLength(15)]
+        [RegularExpression(ValidationRegex.TIN, ErrorMessage = ValidationErrorMessage.TIN)]
         [Required]
         public string TIN { get; set; }
 
@@ -80,12 +83,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string TimeZone { get; set; }
 
         [Required]
-        [StringLength(255)]
-        [Phone]
+        [StringLength(75)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
         public string Phone { get; set; }
 
-        [StringLength(255)]
-        [Phone]
+        [StringLength(75)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
         public string Fax { get; set; }
 
         [StringLength(255)]

@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.ProjectUsers;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -37,12 +38,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         public string Email { get; set; }
 
-        [Phone]
-        [StringLength(255)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
+        [StringLength(75)]
         public string Phone { get; set; }
 
-        [Phone]
-        [StringLength(255)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
+        [StringLength(75)]
         public string Mobile { get; set; }
 
         [Display(Name = "Enroll. Form")]

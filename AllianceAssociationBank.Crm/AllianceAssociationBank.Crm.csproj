@@ -267,6 +267,8 @@
     <Compile Include="Constants\SortOrder.cs" />
     <Compile Include="Constants\ProjectUsers\UserFilterValue.cs" />
     <Compile Include="Constants\User\UserView.cs" />
+    <Compile Include="Constants\ValidationErrorMessage.cs" />
+    <Compile Include="Constants\ValidationRegex.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -484,6 +486,7 @@
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\app\achTabController.js" />
+    <Content Include="Scripts\app\inputMaskHelper.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\appFunctions.js" />

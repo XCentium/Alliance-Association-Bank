@@ -1,11 +1,19 @@
 ﻿var GeneralTabController = function ($) {
 
     var init = function () {
+        bindPrintFormContentEvent();
         bindMailingSameAsPhysicalChangeEvent();
         initSetMailingOnPhysicalAddressChange();
         setSameAsPhysicalCheckboxOnLoad();
         toggleLockboxSystemDisabled();
         bindResetSaveIdicatorOnChangeEvent();
+    };
+
+    var bindPrintFormContentEvent = function () {
+        $("#btn-print-form-content").on("click", function () {
+            window.print();
+            window.close;;
+        });
     };
 
     // Set Same As Physical checkbox to true if Mailing and Physical are populated with the same address

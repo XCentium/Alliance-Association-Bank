@@ -167,34 +167,34 @@ CREATE TABLE [dbo].[Projects](
 	[POBoxLine1] [nvarchar](255) NULL,
 	[POBoxZipCode] [nvarchar](255) NULL,
 	[ScannlineNotes] [nvarchar](max) NULL,
-	[EnrollmentFormReceived] [bit] NULL,
-	[MasterSigCardReceived] [bit] NULL,
-	[WelcomeEmailSent] [bit] NULL,
-	[AssociationListReceived] [bit] NULL,
-	[AssociationAccountsAssigned] [bit] NULL,
-	[MgmtCompanyAgreemetnsReceived] [bit] NULL,
-	[AssociationSignatureCardsSent] [bit] NULL,
-	[LockboxWanted] [bit] NULL,
-	[ValidationFileReceived] [bit] NULL,
-	[ValidationFileAutomaticRegular] [bit] NULL,
+	[EnrollmentFormReceived] [bit] NOT NULL,
+	[MasterSigCardReceived] [bit] NOT NULL,
+	[WelcomeEmailSent] [bit] NOT NULL,
+	[AssociationListReceived] [bit] NOT NULL,
+	[AssociationAccountsAssigned] [bit] NOT NULL,
+	[MgmtCompanyAgreemetnsReceived] [bit] NOT NULL,
+	[AssociationSignatureCardsSent] [bit] NOT NULL,
+	[LockboxWanted] [bit] NOT NULL,
+	[ValidationFileReceived] [bit] NOT NULL,
+	[ValidationFileAutomaticRegular] [bit] NOT NULL,
 	[ValidationFileNotes] [nvarchar](max) NULL,
-	[ValidationFileBulkImporterUsed] [bit] NULL,
+	[ValidationFileBulkImporterUsed] [bit] NOT NULL,
 	[CouponPrintingNotes] [nvarchar](max) NULL,
-	[RemitanceFileTested] [bit] NULL,
-	[RemitanceFileLife] [bit] NULL,
-	[LockboxRequestSent] [bit] NULL,
-	[POBoxAssigned] [bit] NULL,
-	[ScannerWanted] [bit] NULL,
-	[MMOnCheckScanner] [bit] NULL,
-	[ScannerSent] [bit] NULL,
-	[ScannerAQ2SetupRequested] [bit] NULL,
-	[ScannerLive] [bit] NULL,
-	[ACHLimitAndSpecSubmitted] [bit] NULL,
-	[ACHSuccessfulSubmitted] [bit] NULL,
-	[OnlineBankingSetup] [bit] NULL,
-	[OnlineBankingTrained] [bit] NULL,
-	[CouponsOrdered] [bit] NULL,
-	[CouponProofReviewed] [bit] NULL,
+	[RemitanceFileTested] [bit] NOT NULL,
+	[RemitanceFileLife] [bit] NOT NULL,
+	[LockboxRequestSent] [bit] NOT NULL,
+	[POBoxAssigned] [bit] NOT NULL,
+	[ScannerWanted] [bit] NOT NULL,
+	[MMOnCheckScanner] [bit] NOT NULL,
+	[ScannerSent] [bit] NOT NULL,
+	[ScannerAQ2SetupRequested] [bit] NOT NULL,
+	[ScannerLive] [bit] NOT NULL,
+	[ACHLimitAndSpecSubmitted] [bit] NOT NULL,
+	[ACHSuccessfulSubmitted] [bit] NOT NULL,
+	[OnlineBankingSetup] [bit] NOT NULL,
+	[OnlineBankingTrained] [bit] NOT NULL,
+	[CouponsOrdered] [bit] NOT NULL,
+	[CouponProofReviewed] [bit] NOT NULL,
 	[CouponVender] [nvarchar](255) NULL,
 	[CouponVenderNumber] [nvarchar](255) NULL,
 	[ScannerModel] [nvarchar](255) NULL,
@@ -208,9 +208,9 @@ CREATE TABLE [dbo].[Projects](
 	[SftpFolderName] [nvarchar](255) NULL,
 	[SftpGeneralUserName] [nvarchar](255) NULL,
 	[SftpGeneralUserPassword] [nvarchar](255) NULL,
-	[ACHPassThru] [bit] NULL,
-	[ACHBatches] [bit] NULL,
-	[WireTransferTemplates] [bit] NULL,
+	[ACHPassThru] [bit] NOT NULL,
+	[ACHBatches] [bit] NOT NULL,
+	[WireTransferTemplates] [bit] NOT NULL,
 	[ACHEstimatedDeposits] [decimal](16, 4) NULL,
 	[ACHEstimatedDepositsDate] [datetime2](0) NULL,
 	[ACHLimit] [decimal](16, 4) NULL,
@@ -220,34 +220,34 @@ CREATE TABLE [dbo].[Projects](
 	[ACHReviewNotes] [nvarchar](max) NULL,
 	[ACHSpectFormInstructions] [nvarchar](max) NULL,
 	[ACHReviewOfHistoricPerformance] [nvarchar](max) NULL,
-	[ACHDualApproval] [bit] NULL,
-	[ACHOneTimePasscode] [bit] NULL,
+	[ACHDualApproval] [bit] NOT NULL,
+	[ACHOneTimePasscode] [bit] NOT NULL,
 	[StatementEmail] [nvarchar](255) NULL,
 	[LockboxEmail] [nvarchar](255) NULL,
 	[ACHEmail] [nvarchar](255) NULL,
 	[AuditNote] [nvarchar](max) NULL,
 	[CIPReviewed] [nvarchar](255) NULL,
-	[CIPGood] [bit] NULL,
-	[HasCorporateAccounts] [bit] NULL,
+	[CIPGood] [bit] NOT NULL,
+	[HasCorporateAccounts] [bit] NOT NULL,
 	[CorporateAccounts] [nvarchar](255) NULL,
-	[XmlAutoReconSetup] [bit] NULL,
-	[XmlAutoReconConfirmedUse] [bit] NULL,
+	[XmlAutoReconSetup] [bit] NOT NULL,
+	[XmlAutoReconConfirmedUse] [bit] NOT NULL,
 	[XmlAutoReconSentDate] [datetime2](0) NULL,
 	[Narrative] [nvarchar](max) NULL,
-	[Strongroom] [bit] NULL,
-	[EStatements] [bit] NULL,
+	[Strongroom] [bit] NOT NULL,
+	[EStatements] [bit] NOT NULL,
 	[SftpUsage] [nvarchar](255) NULL,
 	[XmlUsage] [nvarchar](255) NULL,
-	[FacsimileSignature] [bit] NULL,
+	[FacsimileSignature] [bit] NOT NULL,
 	[Balanced] [bit] NULL,
 	[LockboxLiveDate] [datetime2](0) NULL,
 	[LockboxStatus] [nvarchar](50) NULL,
 	[LockboxSystem] [nvarchar](50) NULL,
-	[SftpWithFile] [bit] NULL,
-	[SftpManual] [bit] NULL,
+	[SftpWithFile] [bit] NOT NULL,
+	[SftpManual] [bit] NOT NULL,
 	[SftpPath] [nvarchar](100) NULL,
 	[ReformatAQ2ID] [int] NULL,
-	[ReformatByAssoc] [bit] NULL,
+	[ReformatByAssoc] [bit] NOT NULL,
 	[MigratingToSoftware] [nvarchar](255) NULL,
 	[OtherName] [nvarchar](255) NULL,
 	[RelationshipRate] [nvarchar](50) NULL,
@@ -289,6 +289,21 @@ CREATE NONCLUSTERED INDEX [IX_Projects_TIN] ON [dbo].[Projects]
 	[TIN] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
+
+CREATE NONCLUSTERED INDEX [IX_Projects_DBA] ON [dbo].[Projects]
+(
+	[DBA] ASC
+)
+
+CREATE NONCLUSTERED INDEX [IX_Projects_OtherName] ON [dbo].[Projects]
+(
+	[OtherName] ASC
+)
+
+CREATE NONCLUSTERED INDEX [IX_Projects_Phone] ON [dbo].[Projects]
+(
+	[Phone] ASC
+)
 
 
 ALTER TABLE [dbo].[Projects] ADD  DEFAULT ((0)) FOR [EnrollmentFormReceived]
@@ -403,9 +418,6 @@ ALTER TABLE [dbo].[Projects] ADD  DEFAULT ((0)) FOR [EStatements]
 GO
 
 ALTER TABLE [dbo].[Projects] ADD  DEFAULT ((0)) FOR [FacsimileSignature]
-GO
-
-ALTER TABLE [dbo].[Projects] ADD  DEFAULT ((0)) FOR [Balanced]
 GO
 
 ALTER TABLE [dbo].[Projects] ADD  DEFAULT ((0)) FOR [SftpWithFile]
@@ -903,15 +915,15 @@ CREATE TABLE [dbo].[Users](
 	[Mobile] [nvarchar](255) NULL,
 	[Authorization] [nvarchar](255) NULL,
 	[Admin] [bit] NOT NULL,
-	[CorpOnlineUser] [bit] NULL,
-	[RemoteScannerUser] [bit] NULL,
+	[CorpOnlineUser] [bit] NOT NULL,
+	[RemoteScannerUser] [bit] NOT NULL,
 	[RemoteScannerAccountNotes] [nvarchar](255) NULL,
 	[Birthday] [datetime2](0) NULL,
 	[DateAdded] [datetime2](0) NULL,
 	[DateDeleted] [datetime2](0) NULL,
 	[Active] [bit] NOT NULL,
 	[Notes] [nvarchar](max) NULL,
-	[AuthorizedToOpenClose] [bit] NULL,
+	[AuthorizedToOpenClose] [bit] NOT NULL,
 	[StatementEmail] [bit] NOT NULL,
 	[LockboxEmail] [bit] NOT NULL,
 	[ACHEmail] [bit] NOT NULL,
@@ -935,6 +947,16 @@ CREATE NONCLUSTERED INDEX [IX_Users_Name] ON [dbo].[Users]
 	[Name] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
+
+CREATE NONCLUSTERED INDEX [IX_Users_Email] ON [dbo].[Users]
+(
+	[Email] ASC
+)
+
+CREATE NONCLUSTERED INDEX [IX_Users_Phone] ON [dbo].[Users]
+(
+	[Phone] ASC
+)
 
 
 ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_Admin] DEFAULT ((0)) FOR [Admin]

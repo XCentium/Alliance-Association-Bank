@@ -43,9 +43,9 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool Admin { get; set; }
 
-        public bool? CorpOnlineUser { get; set; }
+        public bool CorpOnlineUser { get; set; }
 
-        public bool? RemoteScannerUser { get; set; }
+        public bool RemoteScannerUser { get; set; }
 
         [StringLength(255)]
         public string RemoteScannerAccountNotes { get; set; }
@@ -63,7 +63,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         //[StringLength(8000)]
         //public string Attachments { get; set; }
 
-        public bool? AuthorizedToOpenClose { get; set; }
+        public bool AuthorizedToOpenClose { get; set; }
 
         public bool EnrollmentFormAuthorization { get; set; }
 

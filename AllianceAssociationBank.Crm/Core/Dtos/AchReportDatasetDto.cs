@@ -29,9 +29,9 @@ namespace AllianceAssociationBank.Crm.Core.Dtos
 
         public string DICompanyID { get; set; }
 
-        public bool? ACHPassThru { get; set; }
+        public bool ACHPassThru { get; set; }
 
-        public bool? ACHBatches { get; set; }
+        public bool ACHBatches { get; set; }
 
         public decimal? ACHSystemLimit { get; set; }
 
