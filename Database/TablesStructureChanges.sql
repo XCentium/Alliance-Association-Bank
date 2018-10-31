@@ -138,20 +138,20 @@ CREATE NONCLUSTERED INDEX [IX_Projects_TIN] ON [dbo].[Projects]
 	[TIN] ASC
 )
 
-CREATE NONCLUSTERED INDEX [IX_Projects_DBA] ON [dbo].[Projects]
-(
-	[DBA] ASC
-)
+--CREATE NONCLUSTERED INDEX [IX_Projects_DBA] ON [dbo].[Projects]
+--(
+--	[DBA] ASC
+--)
 
-CREATE NONCLUSTERED INDEX [IX_Projects_OtherName] ON [dbo].[Projects]
-(
-	[OtherName] ASC
-)
+--CREATE NONCLUSTERED INDEX [IX_Projects_OtherName] ON [dbo].[Projects]
+--(
+--	[OtherName] ASC
+--)
 
-CREATE NONCLUSTERED INDEX [IX_Projects_Phone] ON [dbo].[Projects]
-(
-	[Phone] ASC
-)
+--CREATE NONCLUSTERED INDEX [IX_Projects_Phone] ON [dbo].[Projects]
+--(
+--	[Phone] ASC
+--)
 
 
 -- Employees table RENAME statements
@@ -187,20 +187,20 @@ ALTER TABLE [dbo].[Users] ADD StatementEmail BIT NOT NULL CONSTRAINT DF_Users_St
 ALTER TABLE [dbo].[Users] ADD LockboxEmail BIT NOT NULL CONSTRAINT DF_Users_LockboxEmail DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD ACHEmail BIT NOT NULL CONSTRAINT DF_Users_ACHEmail DEFAULT (0)
 
-CREATE NONCLUSTERED INDEX [IX_Users_Name] ON [dbo].[Users]
-(
-	[Name] ASC
-)
+--CREATE NONCLUSTERED INDEX [IX_Users_Name] ON [dbo].[Users]
+--(
+--	[Name] ASC
+--)
 
-CREATE NONCLUSTERED INDEX [IX_Users_Email] ON [dbo].[Users]
-(
-	[Email] ASC
-)
+--CREATE NONCLUSTERED INDEX [IX_Users_Email] ON [dbo].[Users]
+--(
+--	[Email] ASC
+--)
 
-CREATE NONCLUSTERED INDEX [IX_Users_Phone] ON [dbo].[Users]
-(
-	[Phone] ASC
-)
+--CREATE NONCLUSTERED INDEX [IX_Users_Phone] ON [dbo].[Users]
+--(
+--	[Phone] ASC
+--)
 
 -- CheckScanners table RENAME statements
 exec sp_rename 'CheckScanners.ScannerID', 'ID', 'COLUMN';

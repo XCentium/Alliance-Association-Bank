@@ -477,18 +477,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Dual approval Opt-out")]
         public bool ACHDualApproval { get; set; }
 
-        //[Display(Name = "ACH Limit & Spec Submitted")]
-        //public bool ACHLimitAndSpecSubmittedReadOnly
-        //{
-        //    get { return ACHLimitAndSpecSubmitted; }
-        //}
-
-        //[Display(Name = "ACH Successfully Submitted")]
-        //public bool ACHSuccessfulSubmittedReadOnly
-        //{
-        //    get { return ACHSuccessfulSubmitted; }
-        //}
-
         [Range(0, 999999999999)]
         [Display(Name = "Est. Deposits")]
         public decimal? ACHEstimatedDeposits { get; set; }
