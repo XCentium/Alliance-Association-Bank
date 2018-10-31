@@ -200,7 +200,7 @@ textarea {
     padding-left: 3px;
 }
 
-.hoverable-area .hidden-menu {
+/*.hoverable-area .hidden-menu {
     -webkit-transition: all 0.75s ease;
     -moz-transition: all 0.75s ease;
     -o-transition: all 0.75s ease;
@@ -224,7 +224,7 @@ textarea {
     -moz-transform: translateY(0);
     -o-transform: translateY(0);
     transform: translateY(0);
-}
+}*/
 
 .icon-image {
     height: 25px;

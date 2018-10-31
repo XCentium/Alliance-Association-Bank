@@ -133,9 +133,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return NumberOfDoors; }
         }
 
+        [Range(0, 999999999999)]
         [Display(Name = "Est'd")]
         public decimal? EstimatedDeposits { get; set; }
 
+        [Range(0, 999999999999)]
         [Display(Name = "Actual")]
         public decimal? ActualDeposits { get; set; }
 
@@ -484,6 +486,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         //    get { return ACHSuccessfulSubmitted; }
         //}
 
+        [Range(0, 999999999999)]
         [Display(Name = "Est. Deposits")]
         public decimal? ACHEstimatedDeposits { get; set; }
 
@@ -492,9 +495,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Est. $")]
         public DateTime? ACHEstimatedDepositsDate { get; set; }
 
+        [Range(0, 999999999999)]
         [Display(Name = "Limit")]
         public decimal? ACHLimit { get; set; }
 
+        [Range(0, 999999999999)]
         [Display(Name = "System Limit")]
         public decimal? ACHSystemLimit { get; set; }
 
