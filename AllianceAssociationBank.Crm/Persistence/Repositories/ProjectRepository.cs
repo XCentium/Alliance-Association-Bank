@@ -72,11 +72,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             _context.Projects.Add(project);
         }
 
-        //public void UpdateProject(Project project)
-        //{
-        //    _dbContext.Projects.Update(project);
-        //}
-
         public async Task<bool> SaveAllAsync()
         {
             return (await _context.SaveChangesAsync()) > 0;
