@@ -11,7 +11,7 @@
             </div>
 
             <div class="row">
-                @Html.LabelFor(m => m.Address, new { @class = "col-3 form-label-indent" })
+                @Html.LabelFor(m => m.Address, new { @class = "col-3 form-label-indent required" })
                 <div class="col-8 trigger">
                     @Html.RoleBasedEditorFor(m => m.Address, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.Address, "", new { @class = "form-val-error-tooltip" })
@@ -19,7 +19,7 @@
             </div>
 
             <div class="row">
-                @Html.LabelFor(m => m.City, new { @class = "col-3 form-label-indent" })
+                @Html.LabelFor(m => m.City, new { @class = "col-3 form-label-indent required" })
                 <div class="col-8">
                     @Html.RoleBasedEditorFor(m => m.City, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.City, "", new { @class = "form-val-error-tooltip" })
@@ -27,7 +27,7 @@
             </div>
 
             <div class="row">
-                @Html.LabelFor(m => m.State, new { @class = "col-3 form-label-indent" })
+                @Html.LabelFor(m => m.State, new { @class = "col-3 form-label-indent required" })
                 <div class="col-5">
                     @Html.RoleBasedEditorFor(m => m.State, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.State, "", new { @class = "form-val-error-tooltip" })
@@ -35,7 +35,7 @@
             </div>
 
             <div class="row">
-                @Html.LabelFor(m => m.ZipCode, new { @class = "col-3 form-label-indent" })
+                @Html.LabelFor(m => m.ZipCode, new { @class = "col-3 form-label-indent required" })
                 <div class="col-5">
                     @Html.RoleBasedEditorFor(m => m.ZipCode, cssClass: "form-input js-zipcode-mask")
                     @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "form-val-error-tooltip" })
@@ -83,7 +83,7 @@
             </div>
 
             <div class="row mt-4 mb-2">
-                @Html.LabelFor(m => m.TIN, new { @class = "col-3" })
+                @Html.LabelFor(m => m.TIN, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedEditorFor(m => m.TIN, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.TIN, "", new { @class = "form-val-error-tooltip" })
@@ -99,7 +99,7 @@
             </div>
 
             <div class="row my-2">
-                @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
+                @Html.LabelFor(m => m.Phone, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedEditorFor(m => m.Phone, cssClass: "form-input js-phone-mask")
                     @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-val-error-tooltip" })
@@ -129,7 +129,7 @@
         <div class="col-4">
 
             <div class="row my-2">
-                @Html.LabelFor(m => m.Institution, new { @class = "col-3" })
+                @Html.LabelFor(m => m.Institution, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.Institution, new SelectList(Model.InstitutionList), "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.Institution, "", new { @class = "form-val-error-tooltip" })
@@ -155,7 +155,7 @@
             </div>
 
             <div class="row my-2">
-                @Html.LabelFor(m => m.OwnerID, new { @class = "col-3" })
+                @Html.LabelFor(m => m.OwnerID, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.OwnerID, Model.EmployeeList, "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.OwnerID, "", new { @class = "form-val-error-tooltip" })
@@ -163,7 +163,7 @@
             </div>
 
             <div class="row my-2">
-                @Html.LabelFor(m => m.AFPID, new { @class = "col-3" })
+                @Html.LabelFor(m => m.AFPID, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.AFPID, Model.EmployeeList, "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.AFPID, "", new { @class = "form-val-error-tooltip" })
@@ -171,7 +171,7 @@
             </div>
 
             <div class="row my-2">
-                @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3" })
+                @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, Model.EmployeeList, "", cssClass: "select2-hidden")
                     @Html.ValidationMessageFor(m => m.BoardingManagerID, "", new { @class = "form-val-error-tooltip" })
@@ -265,7 +265,7 @@
             </div>
 
             <div class="row my-2">
-                @Html.LabelFor(m => m.LockboxCMCID, new { @class = "col-3" })
+                @Html.LabelFor(m => m.LockboxCMCID, new { @class = "col-3 required" })
                 <div class="col-7">
                     @Html.AdminOnlyEditorFor(m => m.LockboxCMCID, cssClass: "form-input")
                     @Html.ValidationMessageFor(m => m.LockboxCMCID, "", new { @class = "form-val-error-tooltip" })

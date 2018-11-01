@@ -37,7 +37,7 @@
                         @* First column beginning *@
                         <div class="col-6 pl-4">
                             <div class="row mb-2">
-                                @Html.LabelFor(m => m.Name, new { @class = "col-3" })
+                                @Html.LabelFor(m => m.Name, new { @class = "col-3 required" })
                                 <div class="col-8">
                                     @Html.RoleBasedEditorFor(m => m.Name, "form-input")
                                     @Html.ValidationMessageFor(m => m.Name, "", new { @class = "form-val-error-tooltip" })

@@ -417,6 +417,8 @@
     <Content Include="Content\Images\search-loader.gif" />
     <Content Include="Content\Images\sort-order-icon.png" />
     <Content Include="Content\Images\toggle-img.png" />
+    <Content Include="Content\Images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Images\ui-icons_555555_256x240.png" />
     <Content Include="Content\Images\warning-icon.png" />
     <Content Include="Content\select2.min.css" />
     <Content Include="Content\themes\base\accordion.css" />

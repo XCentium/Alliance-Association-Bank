@@ -1,14 +1,19 @@
-﻿.alert-fixed-top {
+﻿body {
+    /*padding-top: 50px;*/
+    /*padding-bottom: 20px;*/
+}
+
+label.required::after {
+    content: "*";
+    color: rgba(220,53,69,1);
+}
+
+.alert-fixed-top {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1099;
-}
-
-body {
-    /*padding-top: 50px;*/
-    /*padding-bottom: 20px;*/
 }
 
 .body-content {
@@ -182,6 +187,13 @@ textarea {
     padding-right: 5px;
 }
 
+.label-small-note {
+    color: #FF0039;
+    font-style: italic;
+    font-size: 80%;
+    font-weight: 400;
+}
+
 .list-widget {
     border: 1px solid #dee2e6;
     overflow-y: scroll;
@@ -283,13 +295,6 @@ textarea {
 /*.select-hidden {
     visibility: hidden;
 }*/
-
-.label-small-note {
-    color: #FF0039;
-    font-style: italic;
-    font-size: 80%;
-    font-weight: 400;
-}
 
 .plain-link {
     color: #373a3c;
