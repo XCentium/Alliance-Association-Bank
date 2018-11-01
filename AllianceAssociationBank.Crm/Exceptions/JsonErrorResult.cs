@@ -44,6 +44,7 @@ namespace AllianceAssociationBank.Crm.Exceptions
 
         public override void ExecuteResult(ControllerContext context)
         {
+            context.RequestContext.HttpContext.Response.TrySkipIisCustomErrors = true;
             context.RequestContext.HttpContext.Response.StatusCode = (int)_httpStatusCode;
             base.ExecuteResult(context);
         }
