@@ -75,8 +75,7 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<PrincipalContext>
             (
                 new HierarchicalLifetimeManager(),
-                //new InjectionFactory(c => new PrincipalContext(ContextType.Domain))
-                new InjectionFactory(c => new PrincipalContext(ContextType.Machine)) // TODO: this will change in production (ContextType.Domain)
+                new InjectionFactory(c => GetPrincipalContext())
             );
             container.RegisterType<IAuthenticationManager>
             (
@@ -87,6 +86,15 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IAuthenticationService, ADAuthenticationService>(new TransientLifetimeManager());
 
             container.RegisterInstance<IMapper>(CrmAutoMapperProfile.GetMapper());
+        }
+
+        private static PrincipalContext GetPrincipalContext()
+        {
+#if (!DEBUG)
+            return new PrincipalContext(ContextType.Domain);
+#else
+            return new PrincipalContext(ContextType.Machine);
+#endif
         }
     }
 }
