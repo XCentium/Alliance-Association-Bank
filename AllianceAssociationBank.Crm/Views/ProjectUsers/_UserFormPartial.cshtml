@@ -144,7 +144,8 @@
                             <div class="row">
                                 @Html.LabelFor(m => m.Birthday, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.RoleBasedEditorFor(m => m.Birthday, "form-input")
+                                    @Html.RoleBasedEditorFor(m => m.Birthday, "form-input js-date-picker")
+                                    @Html.ValidationMessageFor(m => m.Birthday, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
 

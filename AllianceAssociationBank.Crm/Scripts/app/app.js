@@ -8,6 +8,7 @@
         NavigationWidgets.init();
         SearchWidget.init();
         InputMaskHelper.init();
+        DatePickerWidget.init();
 
     });
 })();

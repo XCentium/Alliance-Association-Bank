@@ -30,13 +30,15 @@
                 <div class="row field-group">
                     @Html.LabelFor(m => m.TargetLockboxLiveDate, new { @class = "col-3 label-indented" })
                     <div class="col-7">
-                        @Html.RoleBasedEditorFor(m => m.TargetLockboxLiveDate, "form-input")
+                        @Html.RoleBasedEditorFor(m => m.TargetLockboxLiveDate, "form-input js-date-picker")
+                        @Html.ValidationMessageFor(m => m.TargetLockboxLiveDate, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row field-group">
                     @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-3 label-indented" })
                     <div class="col-7">
-                        @Html.RoleBasedEditorFor(m => m.LockboxLiveDate, "form-input")
+                        @Html.RoleBasedEditorFor(m => m.LockboxLiveDate, "form-input js-date-picker")
+                        @Html.ValidationMessageFor(m => m.LockboxLiveDate, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>

@@ -16,13 +16,15 @@
             <div class="row">
                 @Html.LabelFor(m => m.StartDate, new { @class = "col-3" })
                 <div class="col-7">
-                    @Html.RoleBasedEditorFor(m => m.StartDate, cssClass: "form-input")
+                    @Html.RoleBasedEditorFor(m => m.StartDate, cssClass: "form-input js-date-picker")
+                    @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "form-val-error-tooltip" })
                 </div>
             </div>
             <div class="row">
                 @Html.LabelFor(m => m.EndDate, new { @class = "col-3" })
                 <div class="col-7">
-                    @Html.RoleBasedEditorFor(m => m.EndDate, cssClass: "form-input")
+                    @Html.RoleBasedEditorFor(m => m.EndDate, cssClass: "form-input js-date-picker")
+                    @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "form-val-error-tooltip" })
                 </div>
             </div>
 

@@ -17,7 +17,6 @@
                         <span class="display-field">
                             @Html.DisplayFor(m => m.DICompanyIDReadOnly)
                         </span>
-                            @*@Html.ValidationMessageFor(m => m.DICompanyIDReadOnly, "", new { @class = "form-val-error-tooltip" })*@
                     </div>
                 </div>
                 <div class="row">
@@ -89,7 +88,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    @Html.LabelFor(m => m.SftpUsage, new { @class = "col label-indented" })
+                    <div>
+                        @Html.LabelFor(m => m.SftpUsage, new { @class = "col label-indented" })
+                    </div>
                     <div class="col-11 pl-4">
                         @Html.RoleBasedTextAreaFor(m => m.SftpUsage, 3, 10, cssClass: "form-textarea")
                         @Html.ValidationMessageFor(m => m.SftpUsage, "", new { @class = "form-val-error-tooltip" })

@@ -134,7 +134,8 @@
                 <div class="row field-group">
                     @Html.LabelFor(m => m.ACHEstimatedDepositsDate, new { @class = "col-4 label-indented" })
                     <div class="col-7">
-                        @Html.RoleBasedEditorFor(m => m.ACHEstimatedDepositsDate, "form-input")
+                        @Html.RoleBasedEditorFor(m => m.ACHEstimatedDepositsDate, "form-input js-date-picker")
+                        @Html.ValidationMessageFor(m => m.ACHEstimatedDepositsDate, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row field-group">
@@ -154,13 +155,15 @@
                 <div class="row field-group">
                     @Html.LabelFor(m => m.OriginalReviewDate, new { @class = "col-4 label-indented" })
                     <div class="col-7">
-                        @Html.RoleBasedEditorFor(m => m.OriginalReviewDate, "form-input")
+                        @Html.RoleBasedEditorFor(m => m.OriginalReviewDate, "form-input js-date-picker")
+                        @Html.ValidationMessageFor(m => m.OriginalReviewDate, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row field-group">
                     @Html.LabelFor(m => m.LastReviewDate, new { @class = "col-4 label-indented" })
                     <div class="col-7">
-                        @Html.RoleBasedEditorFor(m => m.LastReviewDate, "form-input")
+                        @Html.RoleBasedEditorFor(m => m.LastReviewDate, "form-input js-date-picker")
+                        @Html.ValidationMessageFor(m => m.LastReviewDate, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
             </div>

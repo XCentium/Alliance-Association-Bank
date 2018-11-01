@@ -23,6 +23,7 @@ namespace AllianceAssociationBank.Crm.Controllers
     public class ProjectsController : Controller
     {
         private const string SAVED = "SAVED";
+        private const string ERROR = "ERROR";
 
         private IProjectRepository _projects;
         private IEmployeeRepository _employees;
@@ -65,6 +66,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (!ModelState.IsValid)
             {
                 await PopulateDropDownLists(model);
+                model.SaveIndicator = ERROR;
                 return View(ProjectsView.ProjectForm, model);
             }
 
@@ -112,6 +114,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (!ModelState.IsValid)
             {
                 await PopulateDropDownLists(model);
+                model.SaveIndicator = ERROR;
                 return View(ProjectsView.ProjectForm, model);
             }
 

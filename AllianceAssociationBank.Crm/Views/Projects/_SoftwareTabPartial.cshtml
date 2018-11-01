@@ -89,6 +89,7 @@
                     @Html.LabelFor(m => m.XmlAutoReconSentDate, new { @class = "col-3 label-indented" })
                     <div class="col-8">
                         @Html.RoleBasedEditorFor(m => m.XmlAutoReconSentDate, "form-input")
+                        @Html.ValidationMessageFor(m => m.XmlAutoReconSentDate, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>
                 <div class="row">

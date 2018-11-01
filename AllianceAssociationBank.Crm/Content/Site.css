@@ -113,7 +113,8 @@ textarea {
     max-width: 100%;
     padding: 6px;
     position: absolute;
-    z-index: 5;
+    /*z-index: 5;*/
+    z-index: 1052;
 }
 
 .input-validation-error:focus + .form-val-error-tooltip,

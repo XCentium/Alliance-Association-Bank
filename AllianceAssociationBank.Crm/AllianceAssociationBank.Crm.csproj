@@ -412,6 +412,7 @@
     <Content Include="Content\Images\btn-edit-icon.png" />
     <Content Include="Content\Images\btn-print-icon.png" />
     <Content Include="Content\Images\btn-save-icon.png" />
+    <Content Include="Content\Images\datepicker-icon.png" />
     <Content Include="Content\Images\search-img.png" />
     <Content Include="Content\Images\search-loader.gif" />
     <Content Include="Content\Images\sort-order-icon.png" />
@@ -493,6 +494,7 @@
     <Content Include="Scripts\app\errorHandler.js" />
     <Content Include="Scripts\app\generalTabController.js" />
     <Content Include="Scripts\app\navigationWidgets.js" />
+    <Content Include="Scripts\app\datePickerWidget.js" />
     <Content Include="Scripts\app\usersTabController.js" />
     <Content Include="Scripts\app\searchableSelectPlugin.js" />
     <Content Include="Scripts\app\searchWidget.js" />

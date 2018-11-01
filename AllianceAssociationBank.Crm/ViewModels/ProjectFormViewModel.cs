@@ -153,7 +153,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Status")]
         public string LockboxStatus { get; set; }
 
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Live")]
         public DateTime? LockboxLiveDateReadOnly
         {
@@ -190,13 +190,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         // Boarding Tab
         public string Status { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start")]
         public DateTime? StartDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "End")]
         public DateTime? EndDate { get; set; }
 
@@ -296,8 +296,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "XML Auto Recon Setup")]
         public bool XmlAutoReconSetup { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Info Sent")]
         public DateTime? XmlAutoReconSentDate { get; set; }
 
@@ -344,13 +344,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return LockboxStatus; }
         }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Target Live")]
         public DateTime? TargetLockboxLiveDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Actual Live")]
         public DateTime? LockboxLiveDate { get; set; }
 
@@ -481,8 +481,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Est. Deposits")]
         public decimal? ACHEstimatedDeposits { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Est. $")]
         public DateTime? ACHEstimatedDepositsDate { get; set; }
 
@@ -494,13 +494,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "System Limit")]
         public decimal? ACHSystemLimit { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Original Review")]
         public DateTime? OriginalReviewDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Last Review")]
         public DateTime? LastReviewDate { get; set; }
 
@@ -588,9 +588,21 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                return SaveIndicator == "SAVED" ?
-                                        "badge-success" :
-                                        "badge-light";
+                if (SaveIndicator == "SAVED")
+                {
+                    return "badge-success";
+                }
+                else if (SaveIndicator == "ERROR")
+                {
+                    return "badge-danger";
+                }
+                else
+                {
+                    return "badge-light";
+                }
+                //return SaveIndicator == "SAVED" ?
+                //                        "badge-success" :
+                //                        "badge-light";
             }
         }
 
