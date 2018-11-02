@@ -93,8 +93,16 @@ textarea {
     width: 25px;
 }
 
+.check-grid-label {
+    padding-left: 0;
+}
+
 .check-indented {
     padding-left: 25px;
+}
+
+.check-label {
+    padding-left: 10px;
 }
 
 .display-field {
@@ -170,7 +178,11 @@ textarea {
 }
 
 .form-input-prepend {
-    width: 80%;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: -21px;
+    display: inline-block;
+    width: 16px;
 }
 
 .form-label-heading {
@@ -314,16 +326,16 @@ textarea {
     margin-bottom: 5px;
 }
 
-.row-radio-grid {
+.row-check-grid {
     border-bottom: 1px solid #dee2e6;
     padding-top: 4px;
 }
 
-.row-radio-grid-bottom {
+.row-check-grid-bottom {
     padding-top: 4px;
 }
 
-.row-radio-grid-top {
+.row-check-grid-top {
     border-bottom: 1px solid #dee2e6;
 }
 
@@ -423,6 +435,10 @@ textarea {
 
 .ui-autocomplete-loading {
     background: url('Images/search-loader.gif') no-repeat right center;
+}
+
+.width-80 {
+    width: 80%;
 }
 
 .word-break {

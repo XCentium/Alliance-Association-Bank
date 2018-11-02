@@ -29,13 +29,13 @@
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.LockboxWantedReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.LockboxWantedReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.LockboxWantedReadOnly, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.LockboxRequestSentReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.LockboxRequestSentReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.LockboxRequestSentReadOnly, new { @class = "check-label" })
                 </div>
             </div>
 
@@ -83,7 +83,7 @@
                     <div class="col-1 check-indented">
                         @Html.RoleBasedCheckBoxFor(m => m.XmlAutoReconSetup)
                     </div>
-                    @Html.LabelFor(m => m.XmlAutoReconSetup, new { @class = "col-8" })
+                    @Html.LabelFor(m => m.XmlAutoReconSetup, new { @class = "check-label" })
                 </div>
                 <div class="row mb-1">
                     @Html.LabelFor(m => m.XmlAutoReconSentDate, new { @class = "col-3 label-indented" })
@@ -113,19 +113,19 @@
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.ValidationFileReceivedReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.ValidationFileReceivedReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.ValidationFileReceivedReadOnly, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.RoleBasedCheckBoxFor(m => m.ValidationFileAutomaticRegular)
                     </div>
-                    @Html.LabelFor(m => m.ValidationFileAutomaticRegular, new { @class = "col" })
+                    @Html.LabelFor(m => m.ValidationFileAutomaticRegular, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.RoleBasedCheckBoxFor(m => m.ValidationFileBulkImporterUsed)
                     </div>
-                    @Html.LabelFor(m => m.ValidationFileBulkImporterUsed, new { @class = "col" })
+                    @Html.LabelFor(m => m.ValidationFileBulkImporterUsed, new { @class = "check-label" })
                 </div>
             </div>
 

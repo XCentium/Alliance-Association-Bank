@@ -241,26 +241,25 @@
             <div class="row my-2">
                 @Html.LabelFor(m => m.EstimatedDeposits, new { @class = "col-3" })
                 <div class="col-6">
-                    <div class="input-group">
-                        <div class="input-group-prepend  input-group-prepend-sm">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        @Html.RoleBasedEditorFor(m => m.EstimatedDeposits, cssClass: "form-input form-input-prepend")
-                        @Html.ValidationMessageFor(m => m.EstimatedDeposits, "", new { @class = "form-val-error-tooltip" })
-                    </div>
+                    <span class="form-input-prepend">$</span>
+                    @Html.RoleBasedEditorFor(m => m.EstimatedDeposits, cssClass: "form-input width-80")
+                    @Html.ValidationMessageFor(m => m.EstimatedDeposits, "", new { @class = "form-val-error-tooltip" })
                 </div>
             </div>
 
             <div class="row my-2">
                 @Html.LabelFor(m => m.ActualDeposits, new { @class = "col-3" })
                 <div class="col-6">
-                    <div class="input-group">
+                    <span class="form-input-prepend">$</span>
+                    @Html.RoleBasedEditorFor(m => m.ActualDeposits, cssClass: "form-input width-80")
+                    @Html.ValidationMessageFor(m => m.ActualDeposits, "", new { @class = "form-val-error-tooltip" })
+                    @*<div class="input-group">
                         <div class="input-group-prepend input-group-prepend-sm">
                             <span class="input-group-text">$</span>
                         </div>
                         @Html.RoleBasedEditorFor(m => m.ActualDeposits, cssClass: "form-input form-input-prepend")
                         @Html.ValidationMessageFor(m => m.ActualDeposits, "", new { @class = "form-val-error-tooltip" })
-                    </div>
+                    </div>*@
                 </div>
             </div>
 
