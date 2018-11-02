@@ -12,5 +12,6 @@ namespace AllianceAssociationBank.Crm.Constants
         public const string SearchWidgetPartial = "_SearchWidgetPartial";
         public const string SideMenuPartial = "_SideMenuPartial";
         public const string TopNavigationPartial = "_TopNavigationPartial";
+        public const string LegalSectionPartial = "_LegalSectionPartial";
     }
 }

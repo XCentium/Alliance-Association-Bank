@@ -318,6 +318,15 @@ textarea {
     z-index: 98;
 }
 
+.small-muted-text {
+    color: #868e96;
+    display: block;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 /*.smallnavbar {
     background-color: rgba(153, 153, 153, 1);
     height: 15px;
@@ -443,6 +452,12 @@ a.top-nav-item:hover {
     position: absolute;
     top: 45px;
     width: 220px;
+}
+
+#legal-content {
+    position: absolute;
+    top: 680px;
+    width: 1250px;
 }
 
 #notes-list {

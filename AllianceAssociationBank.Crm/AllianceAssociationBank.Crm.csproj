@@ -600,6 +600,7 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Shared\_SearchWidgetPartial.cshtml" />
     <Content Include="Views\Projects\_SystemTabPartial.cshtml" />
+    <Content Include="Views\Shared\_LegalSectionPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
