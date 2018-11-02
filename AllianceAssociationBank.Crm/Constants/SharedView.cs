@@ -11,5 +11,6 @@ namespace AllianceAssociationBank.Crm.Constants
         public const string ConfirmDeleteDialogPartial = "_ConfirmDeleteDialogPartial";
         public const string SearchWidgetPartial = "_SearchWidgetPartial";
         public const string SideMenuPartial = "_SideMenuPartial";
+        public const string TopNavigationPartial = "_TopNavigationPartial";
     }
 }

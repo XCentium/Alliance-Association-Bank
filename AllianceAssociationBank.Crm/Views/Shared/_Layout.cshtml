@@ -6,20 +6,10 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @*@Scripts.Render("~/bundles/modernizr")*@
-    @*<style type="text/css" media="print">
-        @@page { size: landscape; }
-        body { padding: 20px; }
-    </style>*@
 
 </head>
 <body>
-    <div class="container smallnavbar" style="max-width: 1280px;">
-        <div class="navbar navbar-expand-sm smallnavbar justify-content-end">
-            <div class="justify-content-end mx-2">
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
+    @Html.Partial(SharedView.TopNavigationPartial)
     <div class="container body-content">
         @RenderBody()
     </div>

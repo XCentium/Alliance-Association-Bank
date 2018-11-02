@@ -1,9 +1,4 @@
-﻿body {
-    /*padding-top: 50px;*/
-    /*padding-bottom: 20px;*/
-}
-
-label.required::after {
+﻿label.required::after {
     content: "*";
     color: rgba(220,53,69,1);
 }
@@ -25,9 +20,6 @@ label.required::after {
     width: 1280px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -109,6 +101,10 @@ textarea {
     border-bottom: 1px solid #dee2e6;
     padding-left: 4px;
     padding-right: 4px;
+}
+
+.error-page-message {
+    padding-top: 18%;
 }
 
 .field-group {
@@ -225,32 +221,6 @@ textarea {
     padding-left: 3px;
 }
 
-/*.hoverable-area .hidden-menu {
-    -webkit-transition: all 0.75s ease;
-    -moz-transition: all 0.75s ease;
-    -o-transition: all 0.75s ease;
-    transition: all 0.75s ease;
-    -webkit-transition-delay: 3s;
-    -moz-transition-delay: 3s;
-    -o-transition-delay: 3s;
-    transition-delay: 3s;
-    -webkit-transform: translateY(-110%);
-    -moz-transform: translateY(-110%);
-    -o-transform: translateY(-110%);
-    transform: translateY(-110%);
-}
-
-.hoverable-area:hover .hidden-menu {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
-}*/
-
 .icon-image {
     height: 25px;
     width: 25px;
@@ -304,10 +274,6 @@ textarea {
     width: 92px;
 }
 
-/*.select-hidden {
-    visibility: hidden;
-}*/
-
 .plain-link {
     color: #373a3c;
 }
@@ -352,7 +318,7 @@ textarea {
     z-index: 98;
 }
 
-.smallnavbar {
+/*.smallnavbar {
     background-color: rgba(153, 153, 153, 1);
     height: 15px;
     padding: 0px;
@@ -364,7 +330,7 @@ textarea {
     font-size: 11px;
     padding: 0px;
     padding-bottom: 1px;
-}
+}*/
 
 .sort-icon {
     border: none;
@@ -431,6 +397,27 @@ textarea {
 
 .table-row-70 {
     width: 70%;
+}
+
+.top-nav-content {
+    background-color: rgba(153, 153, 153, 1);
+    height: 15px;
+    max-width: 1280px;
+    width: 1280px;
+    line-height: 11px;
+}
+
+.top-nav-item {
+    color: #E4E4E4;
+    display: inline-block;
+    font-size: 11px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+a.top-nav-item:hover {
+    color: #E4E4E4;
+    text-decoration: underline;
 }
 
 .ui-autocomplete-loading {
