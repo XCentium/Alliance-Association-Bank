@@ -17,7 +17,8 @@
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "project-users-list",
-                OnBegin = "hideModalTarget", // TODO: maybe should change this to OnSuccess or disable buttons on OnBegin?
+                OnBegin = "ModalDialogHelper.disableFormSubmitButton", 
+                OnComplete = "ModalDialogHelper.hideModalDialog",
                 OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {
@@ -36,20 +37,20 @@
                         @* First column beginning *@
                         <div class="col-6 pl-4">
                             <div class="row mb-2">
-                                @Html.LabelFor(m => m.Name, new { @class = "col-3" })
+                                @Html.LabelFor(m => m.Name, new { @class = "col-3 required" })
                                 <div class="col-8">
                                     @Html.RoleBasedEditorFor(m => m.Name, "form-input")
                                     @Html.ValidationMessageFor(m => m.Name, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
                             <div class="row">
-                                @Html.LabelFor(m => m.Active, new { @class = "col-3 offset-3" })
+                                @Html.LabelFor(m => m.Active, new { @class = "col-2 offset-3" })
                                 <div class="col-6">
                                     @Html.RoleBasedCheckBoxFor(m => m.Active)
                                 </div>
                             </div>
                             <div class="row">
-                                @Html.LabelFor(m => m.Admin, new { @class = "col-3 offset-3" })
+                                @Html.LabelFor(m => m.Admin, new { @class = "col-2 offset-3" })
                                 <div class="col-6">
                                     @Html.RoleBasedCheckBoxFor(m => m.Admin)
                                 </div>
@@ -71,14 +72,14 @@
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Phone, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.RoleBasedEditorFor(m => m.Phone, "form-input")
+                                    @Html.RoleBasedEditorFor(m => m.Phone, "form-input js-phone-mask")
                                     @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 @Html.LabelFor(m => m.Mobile, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.RoleBasedEditorFor(m => m.Mobile, "form-input")
+                                    @Html.RoleBasedEditorFor(m => m.Mobile, "form-input js-phone-mask")
                                     @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
@@ -143,7 +144,8 @@
                             <div class="row">
                                 @Html.LabelFor(m => m.Birthday, new { @class = "col-3" })
                                 <div class="col-8">
-                                    @Html.RoleBasedEditorFor(m => m.Birthday, "form-input")
+                                    @Html.RoleBasedEditorFor(m => m.Birthday, "form-input js-date-picker")
+                                    @Html.ValidationMessageFor(m => m.Birthday, "", new { @class = "form-val-error-tooltip" })
                                 </div>
                             </div>
 

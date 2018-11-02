@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Mappings;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
@@ -74,7 +75,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Create_ValidState_ResultIsNotNull()
+        public async Task Create_ValidState_ShouldReturnNotNullResult()
         {
             var result = await controller.Create();
 
@@ -85,7 +86,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Create_ValidModel_RedirectToRouteResult()
+        public async Task Create_ValidModel_ShouldReturnRedirectToRouteResult()
         {
             projectViewModel.ID = 0; // On create Id should be 0
             projectsRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
@@ -96,7 +97,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Create_InvalidModel_ViewResult()
+        public async Task Create_InvalidModel_ShouldReturnViewResult()
         {
             var inputModel = new ProjectFormViewModel();
             controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
@@ -110,7 +111,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_ValidProjectId_ViewResult()
+        public async Task Edit_ValidProjectId_ShouldReturnViewResult()
         {
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(project.ID)).ReturnsAsync(project);
 
@@ -123,20 +124,19 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidProjectId_ErrorViewResult()
+        public async Task Edit_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 99;
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectId)).ReturnsAsync(null as Project);
 
-            var result = await controller.Edit(projectId);
+            var exception = await Record.ExceptionAsync(() => controller.Edit(projectId));
 
-            var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.NotNull(viewResult);
-            Assert.Equal("Error", viewResult.ViewName);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]
-        public async Task Update_ValidModel_RedirectToRouteResult()
+        public async Task Update_ValidModel_ShouldReturnRedirectToRouteResult()
         {
             projectViewModel.ProjectName = "Changed Project Name";
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(project);
@@ -148,7 +148,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidModel_ViewResult()
+        public async Task Update_InvalidModel_ShouldReturnViewResult()
         {
             projectViewModel.ProjectName = null;
             controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
@@ -162,15 +162,14 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidProjectId_ErrorViewResult()
+        public async Task Update_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
             projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(null as Project);
 
-            var result = await controller.Update(projectViewModel.ID, projectViewModel);
+            var exception = await Record.ExceptionAsync(() => controller.Update(projectViewModel.ID, projectViewModel));
 
-            var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.NotNull(viewResult);
-            Assert.Equal("Error", viewResult.ViewName);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
     }

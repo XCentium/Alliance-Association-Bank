@@ -12,14 +12,15 @@
                     <label class="col form-label-heading">Digital Insight</label>
                 </div>
                 <div class="row field-group">
-                    @Html.LabelFor(m => m.DICompanyID, new { @class = "col-3 label-indented" })
+                    @Html.LabelFor(m => m.DICompanyIDReadOnly, new { @class = "col-4 label-indented" })
                     <div class="col-8">
-                        @Html.RoleBasedEditorFor(m => m.DICompanyID, "form-input")
-                        @Html.ValidationMessageFor(m => m.DICompanyID, "", new { @class = "form-val-error-tooltip" })
+                        <span class="display-field">
+                            @Html.DisplayFor(m => m.DICompanyIDReadOnly)
+                        </span>
                     </div>
                 </div>
                 <div class="row">
-                    @Html.LabelFor(m => m.InstitutionReadOnly, new { @class = "col-3 label-indented" })
+                    @Html.LabelFor(m => m.InstitutionReadOnly, new { @class = "col-4 label-indented" })
                     <div class="col-8">
                         <span class="display-field">
                             @Html.DisplayFor(m => m.InstitutionReadOnly)
@@ -32,31 +33,31 @@
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.OnlineBankingSetupReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.OnlineBankingSetupReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.OnlineBankingSetupReadOnly, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.OnlineBankingTrainedReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.OnlineBankingTrainedReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.OnlineBankingTrainedReadOnly, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.RoleBasedCheckBoxFor(m => m.ACHPassThru)
                     </div>
-                    @Html.LabelFor(m => m.ACHPassThru, new { @class = "col" })
+                    @Html.LabelFor(m => m.ACHPassThru, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.RoleBasedCheckBoxFor(m => m.ACHBatches)
                     </div>
-                    @Html.LabelFor(m => m.ACHBatches, new { @class = "col" })
+                    @Html.LabelFor(m => m.ACHBatches, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
-                        @Html.RoleBasedCheckBoxFor(m => m.WireTransferTemplates)
+                        @Html.DisplayFor(m => m.WireTransferTemplatesReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.WireTransferTemplates, new { @class = "col" })
+                    @Html.LabelFor(m => m.WireTransferTemplatesReadOnly, new { @class = "check-label" })
                 </div>
             </div>
 
@@ -87,7 +88,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    @Html.LabelFor(m => m.SftpUsage, new { @class = "col label-indented" })
+                    <div>
+                        @Html.LabelFor(m => m.SftpUsage, new { @class = "col label-indented" })
+                    </div>
                     <div class="col-11 pl-4">
                         @Html.RoleBasedTextAreaFor(m => m.SftpUsage, 3, 10, cssClass: "form-textarea")
                         @Html.ValidationMessageFor(m => m.SftpUsage, "", new { @class = "form-val-error-tooltip" })
@@ -103,19 +106,19 @@
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.ValidationFileReceivedReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.ValidationFileReceivedReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.ValidationFileReceivedReadOnly, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.ValidationFileAutomaticRegularReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.ValidationFileAutomaticRegularReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.ValidationFileAutomaticRegularReadOnly, new { @class = "check-label" })
                 </div>
                 <div class="row">
                     <div class="col-1 check-indented">
                         @Html.DisplayFor(m => m.ValidationFileBulkImporterUsedReadOnly)
                     </div>
-                    @Html.LabelFor(m => m.ValidationFileBulkImporterUsedReadOnly, new { @class = "col" })
+                    @Html.LabelFor(m => m.ValidationFileBulkImporterUsedReadOnly, new { @class = "check-label" })
                 </div>
             </div>
 
@@ -125,26 +128,16 @@
         @* Third column beginning *@
         <div class="col-4">
 
-            <div class="form-fieldset-lg">
-                <div class="row">
-                    <div class="col-10">
-                        @Html.LabelFor(m => m.ACHReportLaruName)
-                        @Html.RoleBasedEditorFor(m => m.ACHReportLaruName, cssClass: "form-input")
-                        @Html.ValidationMessageFor(m => m.ACHReportLaruName, "", new { @class = "form-val-error-tooltip" })
-                    </div>
-                </div>
-            </div>
-
             <div class="form-fieldset">
                 <div class="row">
-                    @Html.LabelFor(m => m.Balanced, new { @class = "col-10" })
-                    <div class="col-8 offset-2">
+                    @Html.LabelFor(m => m.BalancedReadOnly, new { @class = "col-10" })
+                    <div class="col-8 offset-1">
                         <div class="form-check">
-                            @Html.RoleBasedRadioButtonFor(m => m.Balanced, true, cssClass: "form-check-input")
+                            @Html.RadioButtonFor(m => m.BalancedReadOnly, true, htmlAttributes: new { @class = "form-check-input", disabled = "disabled" })
                             <label class="form-check-label">Balanced</label>
                         </div>
                         <div class="form-check">
-                            @Html.RoleBasedRadioButtonFor(m => m.Balanced, false, cssClass: "form-check-input")
+                            @Html.RadioButtonFor(m => m.BalancedReadOnly, false, htmlAttributes: new { @class = "form-check-input", disabled = "disabled" })
                             <label class="form-check-label">Unbalanced</label>
                         </div>
                     </div>

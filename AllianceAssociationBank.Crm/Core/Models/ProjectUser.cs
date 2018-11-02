@@ -33,19 +33,19 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string Phone { get; set; }
 
-        public byte? Order { get; set; }
+        //public byte? Order { get; set; }
 
         [StringLength(255)]
         public string Mobile { get; set; }
 
-        [StringLength(255)]
-        public string Authorization { get; set; }
+        //[StringLength(255)]
+        //public string Authorization { get; set; }
 
         public bool Admin { get; set; }
 
-        public bool? CorpOnlineUser { get; set; }
+        public bool CorpOnlineUser { get; set; }
 
-        public bool? RemoteScannerUser { get; set; }
+        public bool RemoteScannerUser { get; set; }
 
         [StringLength(255)]
         public string RemoteScannerAccountNotes { get; set; }
@@ -60,10 +60,10 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string Notes { get; set; }
 
-        [StringLength(8000)]
-        public string Attachments { get; set; }
+        //[StringLength(8000)]
+        //public string Attachments { get; set; }
 
-        public bool? AuthorizedToOpenClose { get; set; }
+        public bool AuthorizedToOpenClose { get; set; }
 
         public bool EnrollmentFormAuthorization { get; set; }
 

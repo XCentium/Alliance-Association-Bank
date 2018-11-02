@@ -1,5 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using Microsoft.Owin.Security;
+using Serilog;
 using System;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
@@ -8,22 +9,26 @@ using System.Security.Claims;
 namespace AllianceAssociationBank.Crm.Identity
 {
     /// <summary>
-    /// Active Directory authentication service
+    /// Active Directory claims-based user authentication service.
     /// </summary>
     public class ADAuthenticationService : IAuthenticationService
     {
-        private PrincipalContext _principalContext;
+        private IActiveDirectoryContext _activeDirectoryContext;
         private IAuthenticationManager _authenticationManager;
+        private ILogger _logger;
+        private string _authenticationType;
 
         /// <summary>
         /// Initializes a new instance of ADAuthenticationService.
         /// </summary>
-        /// <param name="principalContext">Active Directory principal context.</param>
+        /// <param name="activeDirectoryContext">Active Directory context, encapsulates interaction with System.DirectoryServices.AccountManagement namespace.</param>
         /// <param name="authenticationManager">Owin authentication middleware.</param>
-        public ADAuthenticationService(PrincipalContext principalContext, IAuthenticationManager authenticationManager)
+        public ADAuthenticationService(IActiveDirectoryContext activeDirectoryContext, IAuthenticationManager authenticationManager, ILogger logger)
         {
-            _principalContext = principalContext ?? throw new ArgumentNullException(nameof(principalContext));
+            _activeDirectoryContext = activeDirectoryContext ?? throw new ArgumentNullException(nameof(activeDirectoryContext));
             _authenticationManager = authenticationManager ?? throw new ArgumentNullException(nameof(authenticationManager));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _authenticationType = AuthenticationType.CrmApplicationCookie;
         }
 
         /// <summary>
@@ -39,16 +44,16 @@ namespace AllianceAssociationBank.Crm.Identity
             UserPrincipal userPrincipal = null;
 
             try
-            {
-                userPrincipal = UserPrincipal.FindByIdentity(_principalContext, userName);
+            { 
+                userPrincipal = _activeDirectoryContext.FindUserByName(userName);
                 if (userPrincipal != null)
                 {
-                    isAuthenticated = _principalContext.ValidateCredentials(userName, password);
+                    isAuthenticated = _activeDirectoryContext.ValidateUserCredentials(userName, password);
                 }
             }
             catch (Exception ex)
             {
-                // TODO: need to log this
+                _logger.Error(ex, "An error occurred while validating user credentials.");
                 return SignInResult.ErrorOccurred;
             }
 
@@ -71,7 +76,7 @@ namespace AllianceAssociationBank.Crm.Identity
             {
                 var userIdentity = CreateUserIdentity(userPrincipal);
 
-                _authenticationManager.SignOut(AuthenticationType.CrmApplicationCookie);
+                SignOut();
                 _authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, userIdentity);
 
                 return SignInResult.Success;
@@ -81,21 +86,23 @@ namespace AllianceAssociationBank.Crm.Identity
         }
 
         /// <summary>
+        /// Sign out current logged in user.
+        /// </summary>
+        public void SignOut()
+        {
+            _authenticationManager.SignOut(_authenticationType);
+        }
+
+        /// <summary>
         /// Check if a user is authorized to access the application, needs to belong to one of the security groups.
         /// </summary>
         /// <param name="userPrincipal">Active Directory user principal object.</param>
         /// <returns>Returns true if a user is in one of the specified security groups.</returns>
         private bool IsAuthorized(UserPrincipal userPrincipal)
         {
-            var securityGroups = userPrincipal.GetAuthorizationGroups();
+            var securityGroups = _activeDirectoryContext.GetUserSecurityGroups(userPrincipal);
             if (securityGroups.Count() > 0)
             {
-                // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
-                //if (securityGroups.Any(g => g.Name == "Administrators"))
-                //{
-                //    return true;
-                //}
-
                 if (securityGroups.Any(g => g.Name == UserAuthenticationSettings.AdminADGroup ||
                                             g.Name == UserAuthenticationSettings.ReadWriteADGroup || 
                                             g.Name == UserAuthenticationSettings.ReadOnlyADGroup))
@@ -112,7 +119,7 @@ namespace AllianceAssociationBank.Crm.Identity
         /// </summary>
         /// <param name="userPrincipal">Active Directory user principal object.</param>
         /// <returns>Return a new ClaimsIdentity object for authenticated user.</returns>
-        private ClaimsIdentity CreateUserIdentity(UserPrincipal userPrincipal)
+        public ClaimsIdentity CreateUserIdentity(UserPrincipal userPrincipal)
         {
             var identity = new ClaimsIdentity
             (
@@ -125,7 +132,7 @@ namespace AllianceAssociationBank.Crm.Identity
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userPrincipal.SamAccountName));
             identity.AddClaim(new Claim(ClaimTypes.Name, userPrincipal.SamAccountName));
 
-            var securityGroups = userPrincipal.GetAuthorizationGroups();
+            var securityGroups = _activeDirectoryContext.GetUserSecurityGroups(userPrincipal);
 
             if (securityGroups.Any(g => g.Name == UserAuthenticationSettings.AdminADGroup))
             {
@@ -139,12 +146,11 @@ namespace AllianceAssociationBank.Crm.Identity
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, UserRole.ReadOnlyUser));
             }
-
-            // FOR DEVELOPMENT ONLY - TODO: NEED TO REMOVE THIS !!
-            //if (securityGroups.Any(g => g.Name == "Administrators"))
-            //{
-            //    identity.AddClaim(new Claim(ClaimTypes.Role, UserRole.ReadWriteUser));
-            //}
+            else
+            {
+                // Return null is user doesn't belong to a valid security group 
+                return null;
+            }
 
             return identity;
         }

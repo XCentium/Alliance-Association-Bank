@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 using System.Web;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Helpers;
+using AutoMapper;
 
 namespace AllianceAssociationBank.Crm.Persistence.Queries
 {
     public class ReportQueries : IReportQueries
     {
         private CrmApplicationDbContext _context;
+        private IMapper _mapper;
 
-        public ReportQueries(CrmApplicationDbContext context)
+        public ReportQueries(CrmApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<Project>> GetBoardingDataSetAsync()
@@ -27,7 +30,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
-                //.OrderBy(p => p.Priority)
                 .ThenBy(p => p.OwnerID)
                 .ThenBy(p => p.EndDate)
                 .ThenBy(p => p.Status)
@@ -41,10 +43,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
-                //.OrderBy(p => p.Priority)
-                //.ThenBy(p => p.OwnerID)
-                //.ThenBy(p => p.EndDate)
-                //.ThenBy(p => p.Status)
                 .ToListAsync();
         }
 
@@ -52,9 +50,9 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         {
             return await _context.Projects
                 .Where(p => p.Status == "Completed" || p.Status == "Deferred")
-                .OrderByDescending(p => p.Status)
-                .ThenBy(p => p.Priority)
-                .ThenByDescending(p => p.EndDate)
+                .OrderBy(p => p.ProjectName)
+                //.ThenBy(p => p.Category)
+                .ThenBy(p => p.OwnerID)
                 .ToListAsync();
         }
 
@@ -63,8 +61,8 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return await _context.Projects
                 .OrderBy(p => p.LockboxCMCID)
                 .ThenBy(p => p.ProjectName)
-                .Include(p => p.OwnerEmployee)
-                .Include(p => p.AFPEmployee)
+                .Include(p => p.Owner)
+                .Include(p => p.AFP)
                 .ToListAsync();
         }
 
@@ -74,6 +72,20 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.ProjectName)
                 .ToListAsync();
         }
+
+
+        public async Task<IEnumerable<Project>> GetAllInfoDataSetAsync()
+        {
+            return await _context.Projects
+                .OrderBy(p => p.ID)
+                .Include(p => p.Owner)
+                .Include(p => p.AFP)
+                .Include(p => p.BoardingManager)
+                .Include(p => p.ReformatAQ2)
+                //.Include(p => p.Users)
+                .ToListAsync();
+        }
+
 
         public async Task<IEnumerable<CDEmailsDatasetDto>> GetCDEmailsDataSetAsync()
         {
@@ -100,6 +112,45 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<AchReportDatasetDto>> GetAchReportDataSetAsync(int? projectId)
+        {
+            var results = await _context.Projects
+                .Where(p => p.ID == projectId || projectId == null)
+                .OrderBy(p => p.ProjectName)
+                .Include(p => p.Owner)
+                .ToListAsync();
+
+            return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
+
+            //return results.Select(p => new AchReportDatasetDto()
+            //{
+            //    ID = p.ID,
+            //    ProjectName = p.ProjectName,
+            //    Institution = p.Institution,
+            //    Address = p.Address,
+            //    City = p.City,
+            //    State = p.State,
+            //    ZipCode = p.ZipCode,
+            //    TIN = p.TIN,
+            //    Fax = p.Fax,
+            //    Phone = p.Phone,
+            //    DICompanyID = p.DICompanyID,
+            //    ACHPassThru = p.ACHPassThru,
+            //    ACHBatches = p.ACHBatches,
+            //    ACHSystemLimit = p.ACHSystemLimit,
+            //    ACHLimit = p.ACHLimit,
+            //    ACHEstimatedDeposits = p.ACHEstimatedDeposits,
+            //    OriginalReviewDate = p.OriginalReviewDate,
+            //    LastReviewDate = p.LastReviewDate,
+            //    Balanced = p.Balanced,
+            //    Narrative = p.Narrative,
+            //    ACHReviewOfHistoricPerformance = p.ACHReviewOfHistoricPerformance,
+            //    ACHSpectFormInstructions = p.ACHSpectFormInstructions,
+            //    OwnerName = p.Owner == null ? null : $"{p.Owner.FirstName} {p.Owner.LastName}"
+            //    //ContactName = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Name,
+            //    //ContactEmail = p.Users.OrderBy(u => u.Name).FirstOrDefault(u => u.Active)?.Email
+            //});
+        }
 
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
         {

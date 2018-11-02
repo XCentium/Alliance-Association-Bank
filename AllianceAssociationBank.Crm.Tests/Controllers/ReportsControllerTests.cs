@@ -8,6 +8,7 @@ using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Tests.Helpers;
 using Microsoft.Reporting.WebForms;
 using Moq;
@@ -29,16 +30,28 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task ViewReport_BoardingReport_ViewResult()
+        public async Task ViewReport_BoardingReport_ShouldReturnViewResult()
         {
             var reportName = ReportName.Boarding;
-            reportsServiceMock.Setup(r => r.GenerateReportByName(reportName)).ReturnsAsync(new ReportViewer());
+            reportsServiceMock.Setup(r => r.GenerateReportByName(reportName, null)).ReturnsAsync(new ReportViewer());
 
             var result = await controller.ViewReport(reportName);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
             Assert.Equal(ReportsView.ViewReport, viewResult.ViewName);
+        }
+
+        [Fact]
+        public async Task ViewReport_InvalidReport_ShouldThrowHttpNotFoundException()
+        {
+            var reportName = "Wrong Report";
+            reportsServiceMock.Setup(s => s.GenerateReportByName(reportName, null)).ReturnsAsync(null as ReportViewer);
+
+            var exception = await Record.ExceptionAsync(() => controller.ViewReport(reportName));
+
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
     }
 }

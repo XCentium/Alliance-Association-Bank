@@ -13,28 +13,20 @@ namespace AllianceAssociationBank.Crm.Exceptions
     {
         private readonly HttpStatusCode _httpStatusCode;
 
-        public ViewErrorResult(HttpStatusCode statusCode)
-            : this(statusCode, 
-                  DefaultErrorText.Title.GetByStatusCode(statusCode), 
-                  DefaultErrorText.Message.GetByStatusCode(statusCode))
-        {
-        }
-
-        public ViewErrorResult(HttpStatusCode statusCode, string errorMessage)
-            : this(statusCode, 
-                  DefaultErrorText.Title.GetByStatusCode(statusCode), errorMessage)
-        {
-        }
-
-        public ViewErrorResult(HttpStatusCode statusCode, string errorTitle, string errorMessage, string previousPageUrl = null)
+        public ViewErrorResult(HttpStatusCode statusCode, 
+                               string errorTitle = null, 
+                               string errorMessage = null, 
+                               HttpRequestBase httpRequest = null)
         {
             _httpStatusCode = statusCode;
+            errorTitle = errorTitle ?? DefaultErrorText.Title.GetByStatusCode(statusCode);
+            errorMessage = errorMessage ?? DefaultErrorText.Message.GetByStatusCode(statusCode);
 
             var model = new ErrorViewModel
             (
                 errorTitle,
                 errorMessage,
-                previousPageUrl = string.IsNullOrEmpty(previousPageUrl) ? "/" : previousPageUrl
+                httpRequest?.UrlReferrer?.OriginalString ?? "/"
             );
 
             ViewName = SharedView.Error;

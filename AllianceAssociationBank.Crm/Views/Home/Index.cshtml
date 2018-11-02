@@ -83,7 +83,10 @@
             })
         </div>
         <div class="pb-2">
-            <a href="#">All info</a>
+            @Html.RouteLink("All Info", routeName: ExportsControllerRoute.GenerateExportFile, routeValues: new
+            {
+                name = ExportName.AllInfo
+            })
         </div>
     </div>
 </div>

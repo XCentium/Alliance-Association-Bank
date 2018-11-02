@@ -1,7 +1,10 @@
-﻿namespace AllianceAssociationBank.Crm.Identity
+﻿using System.DirectoryServices.AccountManagement;
+using System.Security.Claims;
+
+namespace AllianceAssociationBank.Crm.Identity
 {
     /// <summary>
-    /// This is used to perform user authentication.
+    /// A claims-based user authentication service.
     /// </summary>
     public interface IAuthenticationService
     {
@@ -13,5 +16,10 @@
         /// <param name="isPersistent">Should the authentication session be persisted across multiple requests.</param>
         /// <returns>Returns SignInResult enum with result.</returns>
         SignInResult PasswordSignIn(string userName, string password, bool isPersistent);
+
+        /// <summary>
+        /// Sign out current logged in user.
+        /// </summary>
+        void SignOut();
     }
 }

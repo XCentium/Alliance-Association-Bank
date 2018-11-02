@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Constants.ProjectUsers;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -37,12 +38,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         public string Email { get; set; }
 
-        [Phone]
-        [StringLength(255)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
+        [StringLength(75)]
         public string Phone { get; set; }
 
-        [Phone]
-        [StringLength(255)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
+        [StringLength(75)]
         public string Mobile { get; set; }
 
         [Display(Name = "Enroll. Form")]
@@ -74,15 +75,18 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "FTP/SFTP")]
         public string Sftp { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
 
-        [DataType(DataType.Date)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Added")]
         public DateTime? DateAdded { get; set; }
 
-        [DataType(DataType.Date)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Inactive")]
         public DateTime? DateDeleted { get; set; }
 

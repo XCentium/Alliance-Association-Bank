@@ -6,9 +6,11 @@ using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web;
@@ -21,6 +23,7 @@ namespace AllianceAssociationBank.Crm.Controllers
     public class ProjectsController : Controller
     {
         private const string SAVED = "SAVED";
+        private const string ERROR = "ERROR";
 
         private IProjectRepository _projects;
         private IEmployeeRepository _employees;
@@ -63,6 +66,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (!ModelState.IsValid)
             {
                 await PopulateDropDownLists(model);
+                model.SaveIndicator = ERROR;
                 return View(ProjectsView.ProjectForm, model);
             }
 
@@ -81,14 +85,12 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         public async Task<ActionResult> Edit(int id)
         {
-            //try
-            //{
             var project = await _projects.GetProjectByIdAsync(id);
 
             if (project == null)
             {
-                throw new HttpNotFoundException();
-                //return View("Error");    
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("project", id));
+                //return new ViewErrorResult(HttpStatusCode.NotFound, httpContext: HttpContext);   
             }
 
             var model = _mapper.Map<ProjectFormViewModel>(project);
@@ -102,12 +104,6 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             ViewBag.Title = "Edit Project";
             return View(ProjectsView.ProjectForm, model);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return View("Error");
-            //    //throw;
-            //}
         }
 
         [Authorize(Roles = UserRole.EditAccessRoles)]
@@ -118,14 +114,15 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (!ModelState.IsValid)
             {
                 await PopulateDropDownLists(model);
+                model.SaveIndicator = ERROR;
                 return View(ProjectsView.ProjectForm, model);
             }
 
             var project = await _projects.GetProjectByIdAsync(model.ID);
             if (project == null)
             {
-                throw new HttpNotFoundException();
-                //return View("Error");
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("project", id));
+                //return new ViewErrorResult(HttpStatusCode.NotFound, httpContext: HttpContext);
             }
 
             // Reset PMC/CMC ID value if a user with ReadWrite role attempts to change it.

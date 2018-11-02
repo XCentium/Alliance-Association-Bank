@@ -6,6 +6,7 @@ using AllianceAssociationBank.Crm.ViewModels;
 using AllianceAssociationBank.Crm.Constants;
 using System;
 using AllianceAssociationBank.Crm.Constants.Home;
+using AllianceAssociationBank.Crm.Constants.User;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -13,10 +14,6 @@ namespace AllianceAssociationBank.Crm.Controllers
     public class UserController : Controller
     {
         private IAuthenticationService _authenticationService;
-
-        public UserController()
-        {
-        }
 
         public UserController(IAuthenticationService authenticationService)
         {
@@ -32,13 +29,12 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
 
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View(UserView.Login);
         }
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
-        //public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -53,15 +49,15 @@ namespace AllianceAssociationBank.Crm.Controllers
                     return RedirectToLocal(returnUrl);
                 case SignInResult.NotAuthorized:
                     ModelState.AddModelError("", SignInErrorMessage.NotAuthorizedUser);
-                    return View(model);
+                    return View(UserView.Login, model);
                 case SignInResult.Disabled:
                     ModelState.AddModelError("", SignInErrorMessage.DisabledUser);
-                    return View(model);
+                    return View(UserView.Login, model);
                 case SignInResult.InvalidCredentials:
                 case SignInResult.ErrorOccurred:
                 default:
                     ModelState.AddModelError("", SignInErrorMessage.InvalidUserCredentials);
-                    return View(model);
+                    return View(UserView.Login, model);
             }
         }
 
@@ -69,8 +65,8 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
-            AuthenticationManager.SignOut(AuthenticationType.CrmApplicationCookie);
-            return RedirectToAction(HomeControllerAction.Index, ControllerName.Home);
+            _authenticationService.SignOut();
+            return RedirectToAction(UserControllerAction.Login, ControllerName.User);
         }
 
         //protected override void Dispose(bool disposing)
@@ -93,23 +89,22 @@ namespace AllianceAssociationBank.Crm.Controllers
         //    base.Dispose(disposing);
         //}
 
-        #region Helpers
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        //public IAuthenticationManager AuthenticationManager
+        //{
+        //    get
+        //    {
+        //        return HttpContext.GetOwinContext().Authentication;
+        //    }
+        //}
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl))
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
             }
+
             return RedirectToAction(HomeControllerAction.Index, ControllerName.Home);
         }
-        #endregion
     }
 }

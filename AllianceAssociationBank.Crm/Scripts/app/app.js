@@ -4,9 +4,11 @@
         ErrorHandler.init();
         SearchableSelectPlugin.init();
         GeneralTabController.init();
+        UsersTabController.init();
         NavigationWidgets.init();
         SearchWidget.init();
-        UsersTabController.init();
+        InputMaskHelper.init();
+        DatePickerWidget.init();
 
     });
 })();

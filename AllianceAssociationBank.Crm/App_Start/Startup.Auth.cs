@@ -1,13 +1,11 @@
 ﻿using System;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Identity;
-using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Constants;
+using System.Web.Helpers;
+using System.Security.Claims;
 
 namespace AllianceAssociationBank.Crm
 {
@@ -15,6 +13,8 @@ namespace AllianceAssociationBank.Crm
     {
         public void ConfigureAuth(IAppBuilder app)
         {
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+
             // Configure the db context, user manager and signin manager to use a single instance per request
             //app.CreatePerOwinContext(CrmApplicationDbContext.Create);
 

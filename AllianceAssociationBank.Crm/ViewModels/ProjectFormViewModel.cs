@@ -48,7 +48,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string State { get; set; }
 
         [Required]
-        [StringLength(255)]
+        [StringLength(15)]
+        [RegularExpression(ValidationRegex.UsaZipCode, ErrorMessage = ValidationErrorMessage.UsaZipCode)]
         [Display(Name = "ZIP")]
         public string ZipCode { get; set; }
 
@@ -67,11 +68,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "State")]
         public string MailingState { get; set; }
 
-        [StringLength(255)]
+        [StringLength(15)]
+        [RegularExpression(ValidationRegex.UsaZipCode, ErrorMessage = ValidationErrorMessage.UsaZipCode)]
         [Display(Name = "ZIP")]
         public string MailingZipCode { get; set; }
 
-        [StringLength(255)]
+        [StringLength(15)]
+        [RegularExpression(ValidationRegex.TIN, ErrorMessage = ValidationErrorMessage.TIN)]
         [Required]
         public string TIN { get; set; }
 
@@ -80,12 +83,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string TimeZone { get; set; }
 
         [Required]
-        [StringLength(255)]
-        [Phone]
+        [StringLength(75)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
         public string Phone { get; set; }
 
-        [StringLength(255)]
-        [Phone]
+        [StringLength(75)]
+        [RegularExpression(ValidationRegex.PhoneNumber, ErrorMessage = ValidationErrorMessage.Phone)]
         public string Fax { get; set; }
 
         [StringLength(255)]
@@ -133,9 +136,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return NumberOfDoors; }
         }
 
+        [Range(0, 999999999999)]
         [Display(Name = "Est'd")]
         public decimal? EstimatedDeposits { get; set; }
 
+        [Range(0, 999999999999)]
         [Display(Name = "Actual")]
         public decimal? ActualDeposits { get; set; }
 
@@ -148,7 +153,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Status")]
         public string LockboxStatus { get; set; }
 
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Live")]
         public DateTime? LockboxLiveDateReadOnly
         {
@@ -171,8 +176,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Fax Sig")]
         public bool FacsimileSignature { get; set; }
 
-        [Display(Name = "NOTES")]
-        public string Notes { get; set; }
+        //[Display(Name = "NOTES")]
+        //public string Notes { get; set; }
 
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
 
@@ -185,13 +190,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         // Boarding Tab
         public string Status { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start")]
         public DateTime? StartDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "End")]
         public DateTime? EndDate { get; set; }
 
@@ -291,8 +296,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "XML Auto Recon Setup")]
         public bool XmlAutoReconSetup { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Info Sent")]
         public DateTime? XmlAutoReconSentDate { get; set; }
 
@@ -304,7 +309,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [Display(Name = "AAB SFTP")]
         [StringLength(255)]
-        public string SftpGeneralUserPassword { get; set; } // TODO: this field needs masking
+        public string SftpGeneralUserPassword { get; set; }
 
         [Display(Name = "Received")]
         public bool ValidationFileReceivedReadOnly
@@ -339,13 +344,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return LockboxStatus; }
         }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Target Live")]
         public DateTime? TargetLockboxLiveDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Actual Live")]
         public DateTime? LockboxLiveDate { get; set; }
 
@@ -437,77 +442,86 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         // ACH Tab
 
-        [Display(Name = "Direct Credit (PPD)")]
-        public bool DirectDepositPayroll { get; set; }
+        [Display(Name = "Upload - PPD")]
+        public bool ACHUploadPPDDebit { get; set; }
+        public bool ACHUploadPPDCredit { get; set; }
 
-        [Display(Name = "Direct Debit (PPD)")]
-        public bool DirectDebitCollection { get; set; }
+        [Display(Name = "Upload - CCD")]
+        public bool ACHUploadCCDDebit { get; set; }
+        public bool ACHUploadCCDCredit { get; set; }
 
-        [Display(Name = "Direct Credit (CCD)")]
-        public bool DirectCreditPayments { get; set; }
+        [Display(Name = "Template - PPD")]
+        public bool ACHTemplatePPDDebit { get; set; }
+        public bool ACHTemplatePPDCredit { get; set; }
 
-        [Display(Name = "Direct Debit (CCD)")]
-        public bool DirectDebitBusinessCCD { get; set; }
+        [Display(Name = "Template - CCD")]
+        public bool ACHTemplateCCDDebit { get; set; }
+        public bool ACHTemplateCCDCredit { get; set; }
 
-        [Display(Name = "Consumer Debit (Web)")]
-        public bool ConsumerDebitWeb { get; set; }
+        [Display(Name = "SFTP - PPD")]
+        public bool ACHSftpPPDDebit { get; set; }
+        public bool ACHSftpPPDCredit { get; set; }
 
-        [Display(Name = "ACH Dual Approval")]
+        [Display(Name = "SFTP - CCD")]
+        public bool ACHSftpCCDDebit { get; set; }
+        public bool ACHSftpCCDCredit { get; set; }
+
+        [Display(Name = "Web - PPD")]
+        public bool ACHWebPPDDebit { get; set; }
+
+        public bool? Balanced { get; set; }
+
+        [Display(Name = "Wire Transfer Template")]
+        public bool WireTransferTemplates { get; set; }
+    
+        [Display(Name = "Dual approval Opt-out")]
         public bool ACHDualApproval { get; set; }
 
-        [Display(Name = "ACH One Time Passcode")]
-        public bool ACHOneTimePasscode { get; set; } 
-
-        [Display(Name = "ACH Limit & Spec Submitted")]
-        public bool ACHLimitAndSpecSubmittedReadOnly
-        {
-            get { return ACHLimitAndSpecSubmitted; }
-        }
-
-        [Display(Name = "ACH Successfully Submitted")]
-        public bool ACHSuccessfulSubmittedReadOnly
-        {
-            get { return ACHSuccessfulSubmitted; }
-        }
-
+        [Range(0, 999999999999)]
         [Display(Name = "Est. Deposits")]
         public decimal? ACHEstimatedDeposits { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Est. $")]
         public DateTime? ACHEstimatedDepositsDate { get; set; }
 
+        [Range(0, 999999999999)]
         [Display(Name = "Limit")]
         public decimal? ACHLimit { get; set; }
 
+        [Range(0, 999999999999)]
         [Display(Name = "System Limit")]
         public decimal? ACHSystemLimit { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Original Review")]
         public DateTime? OriginalReviewDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Last Review")]
         public DateTime? LastReviewDate { get; set; }
+
+        [Display(Name = "OLB/BST ID")]
+        [StringLength(255)]
+        public string DICompanyID { get; set; }
 
         [Display(Name = "REVIEW NOTES & HISTORY")]
         public string ACHReviewNotes { get; set; }
 
-        [Display(Name = "REVIEW OF HISTORIC PERF.")]
-        public string ACHReviewOfHistoricPerformance { get; set; }
-
-        [Display(Name = "SPEC FORM INSTRUCTIONS")]
+        [Display(Name = "SPEC SHEET")]
         public string ACHSpectFormInstructions { get; set; }
 
         // System Tab
 
-        [Display(Name = "Corp ID")]
+        [Display(Name = "OLB/BST ID")]
         [StringLength(255)]
-        public string DICompanyID { get; set; }
+        public string DICompanyIDReadOnly
+        {
+            get { return DICompanyID; }
+        }
 
         [Display(Name = "Bank")]
         public string InstitutionReadOnly
@@ -533,8 +547,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "ACH Batches / Template")]
         public bool ACHBatches { get; set; }
 
-        [Display(Name = "Wire Transfer Templates")]
-        public bool WireTransferTemplates { get; set; }
+        [Display(Name = "Wire Transfer Template")]
+        public bool WireTransferTemplatesReadOnly
+        {
+            get { return WireTransferTemplates; }
+        }
 
         [Display(Name = "Folder Name")]
         public string SftpFolderNameReadOnly
@@ -556,14 +573,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public bool ValidationFileAutomaticRegularReadOnly
         {
             get { return ValidationFileAutomaticRegular; }
+        }     
+
+        [Display(Name = "ACH File Type")]
+        public bool? BalancedReadOnly
+        {
+            get { return Balanced; }
         }
-
-        [Display(Name = "ACH Report Lara Name")]
-        [StringLength(255)]
-        public string ACHReportLaruName { get; set; }
-
-        [Display(Name = "File Type")]
-        public bool Balanced { get; set; }
 
 
         public string SaveIndicator { get; set; } = "UNSAVED";
@@ -572,9 +588,21 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                return SaveIndicator == "SAVED" ?
-                                        "badge-success" :
-                                        "badge-light";
+                if (SaveIndicator == "SAVED")
+                {
+                    return "badge-success";
+                }
+                else if (SaveIndicator == "ERROR")
+                {
+                    return "badge-danger";
+                }
+                else
+                {
+                    return "badge-light";
+                }
+                //return SaveIndicator == "SAVED" ?
+                //                        "badge-success" :
+                //                        "badge-light";
             }
         }
 
@@ -588,7 +616,11 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public void ResetCmcIdOnUnauthorized(IPrincipal user, string currentValue)
         {
-            if (user.IsInRole(UserRole.ReadWriteUser) && !string.IsNullOrEmpty(currentValue))
+            if (user == null)
+            {
+                LockboxCMCID = currentValue;
+            }
+            else if (!user.IsInRole(UserRole.Admin) && !string.IsNullOrEmpty(currentValue))
             {
                 LockboxCMCID = currentValue;
             }

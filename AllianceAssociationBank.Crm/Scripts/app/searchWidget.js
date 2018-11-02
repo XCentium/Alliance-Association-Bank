@@ -12,7 +12,6 @@
             source: function (request, response) {
                 $.ajax({
                     url: "/api/Projects",
-                    //url: "Search/JsonResults",
                     method: "GET",
                     dataType: "json",
                     data: {
@@ -61,7 +60,13 @@
         $(searchElementId).on("keydown", function (event) {
             if (event.which === 13 && this.value.length > 0) {
                 event.preventDefault();
-                location.href = "/Search/Results?term=" + this.value;
+
+                var query = "?term=" + this.value;
+                var url = location.href.toLowerCase();
+                if (url.indexOf("/projects/edit/") > 0) {
+                    query = query + "&previousId=" + url.substring(url.lastIndexOf("/") + 1);
+                }
+                location.href = "/Search/Results" + query;
             }
         });
     };

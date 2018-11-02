@@ -28,7 +28,8 @@
                     HttpMethod = "DELETE",
                     InsertionMode = InsertionMode.Replace,
                     UpdateTargetId = Model.AjaxUpdateTargetId,
-                    OnBegin = "hideModalTarget",
+                    OnBegin = "ModalDialogHelper.disableDeleteLink",
+                    OnComplete = "ModalDialogHelper.hideModalDialog",
                     OnFailure = "ErrorHandler.handleAjaxError"
                 }, htmlAttributes: new
                 {

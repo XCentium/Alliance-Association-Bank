@@ -9,7 +9,7 @@ using AllianceAssociationBank.Crm.Persistence.EntityConfigurations;
 
 namespace AllianceAssociationBank.Crm.Persistence
 {
-    public class CrmApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class CrmApplicationDbContext : DbContext
     {
         public virtual DbSet<CheckScanner> CheckScanners { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
@@ -20,14 +20,14 @@ namespace AllianceAssociationBank.Crm.Persistence
         public virtual DbSet<Aq2Reformat> Aq2Reformats { get; set; }
 
         public CrmApplicationDbContext()
-            : base("CrmApplicationDbConnection", throwIfV1Schema: false)
+            : base("CrmApplicationDbConnection")
         {
         }
 
-        public static CrmApplicationDbContext Create()
-        {
-            return new CrmApplicationDbContext();
-        }
+        //public static CrmApplicationDbContext Create()
+        //{
+        //    return new CrmApplicationDbContext();
+        //}
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

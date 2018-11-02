@@ -1,9 +1,8 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Web;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
@@ -22,6 +21,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
+        public int? PreviousRecordId { get; set; }
+
         public string SortOrderParam
         {
             get
@@ -38,15 +39,21 @@ namespace AllianceAssociationBank.Crm.ViewModels
         }
 
         public SearchResultsPagedViewModel() 
-            : base(new List<ProjectFormViewModel>(), 1, 10)
+            : base(new Collection<ProjectFormViewModel>(), 1, 10)
         {
         }
 
-        public SearchResultsPagedViewModel(string searchTerm, IEnumerable<ProjectFormViewModel> projects, int pageNumber, int pageSize, string currentSort = null) 
+        public SearchResultsPagedViewModel(string searchTerm, 
+                                           IQueryable<ProjectFormViewModel> projects, 
+                                           int pageNumber, 
+                                           int pageSize, 
+                                           string currentSort = null,
+                                           int? previousRecordId = null) 
             : base(projects, pageNumber, pageSize)
         {
             SearchTerm = searchTerm;
             CurrentSort = currentSort;
+            PreviousRecordId = previousRecordId;
         }
     }
 }

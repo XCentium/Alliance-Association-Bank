@@ -38,11 +38,9 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         }
 
         // TODO: change sort order to Enum
-        public async Task<IEnumerable<Project>> GetProjectsBySearchTermAsync(string searchTerm, string sortOrder)
+        //public async Task<IEnumerable<Project>> GetProjectsBySearchTermAsync(string searchTerm, string sortOrder)
+        public IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, string sortOrder)
         {
-            // TODO: remove this
-            _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-
             var searchFormatter = new SearchTermFormatter(searchTerm);
             var formattedForName = searchFormatter.FormatForName();
             var formattedForTIN = searchFormatter.FormatForTIN();
@@ -61,11 +59,11 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
 
             if (sortOrder == SortOrder.Descending)
             {
-                return await results.OrderByDescending(p => p.ProjectName).ToListAsync();
+                return results.OrderByDescending(p => p.ProjectName);
             }
             else
             {
-                return await results.OrderBy(p => p.ProjectName).ToListAsync();
+                return results.OrderBy(p => p.ProjectName);
             }
         }
 
@@ -73,11 +71,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         {
             _context.Projects.Add(project);
         }
-
-        //public void UpdateProject(Project project)
-        //{
-        //    _dbContext.Projects.Update(project);
-        //}
 
         public async Task<bool> SaveAllAsync()
         {

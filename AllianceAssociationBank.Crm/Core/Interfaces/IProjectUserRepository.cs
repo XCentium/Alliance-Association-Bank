@@ -8,7 +8,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
     public interface IProjectUserRepository
     {
         IEnumerable<ProjectUser> GetUsers(int projectId);
-        IEnumerable<ProjectUser> GetUsers(int projectId, string filter);
+        IQueryable<ProjectUser> GetUsers(int projectId, string filter);
         Task<IEnumerable<ProjectUser>> GetUsersByEmailList(int projectId, string emailList);
         Task<ProjectUser> GetUserByIdAsync(int id);
         void AddUser(ProjectUser user);

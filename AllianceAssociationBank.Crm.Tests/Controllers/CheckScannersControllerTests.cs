@@ -3,6 +3,7 @@ using AllianceAssociationBank.Crm.Constants.CheckScanners;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Mappings;
 using AllianceAssociationBank.Crm.Tests.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
@@ -153,14 +154,15 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidScannerId_ShouldReturnHttpNotFound()
+        public async Task Edit_InvalidScannerId_ShouldThrowHttpNotFoundException()
         {
             var scannerId = 1;
             checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(null as CheckScanner);
 
-            var result = await controller.Edit(99, scannerId);
+            var exception = await Record.ExceptionAsync(() => controller.Edit(99, scannerId));
 
-            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]
@@ -199,15 +201,16 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidScannerId_ShouldReturnHttpNotFound()
+        public async Task Update_InvalidScannerId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 1;
             var scannerId = 1;
             checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(null as CheckScanner);
 
-            var result = await controller.Update(projectId, scannerId, scannerViewModel);
+            var exception = await Record.ExceptionAsync(() => controller.Update(projectId, scannerId, scannerViewModel));
 
-            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]
@@ -250,15 +253,16 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Delete_InvalidScannerId_ShouldReturnHttpNotFound()
+        public async Task Delete_InvalidScannerId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 1;
             var scannerId = 1;
             checkScannerRepoMock.Setup(r => r.GetScannerByIdAsync(scannerId)).ReturnsAsync(null as CheckScanner);
 
-            var result = await controller.Delete(projectId, scannerId);
+            var exception = await Record.ExceptionAsync(() => controller.Delete(projectId, scannerId));
 
-            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
         [Fact]

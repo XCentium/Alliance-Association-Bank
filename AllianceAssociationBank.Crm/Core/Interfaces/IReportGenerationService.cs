@@ -5,6 +5,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
 {
     public interface IReportGenerationService
     {
-        Task<ReportViewer> GenerateReportByName(string reportName);
+        Task<ReportViewer> GenerateReportByName(string reportName, int? projectId = null);
+        //ReportViewer GenerateReportByName(string reportName, int? projectId = null);
     }
 }

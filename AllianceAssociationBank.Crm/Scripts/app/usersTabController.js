@@ -3,6 +3,7 @@
     var init = function () {
         bindUserFilterChangeEvent();
         bindUserListPageChangeEvent();
+        bindEmailListCopyToClipboardEvent();
     };
 
     // Bind Users tab radio buttons filter change logic
@@ -38,6 +39,13 @@
             .fail(function () {
                 errorUtil.handleAjaxError();
             });
+    };
+
+    var bindEmailListCopyToClipboardEvent = function () {
+        $("#users-email-list-modal-location").on("click", ".js-copy-to-clipboard", function () {
+            $("#users-email-list-textarea").select();
+            document.execCommand("copy");
+        });
     };
 
     return {

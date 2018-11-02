@@ -16,19 +16,21 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public int? OwnerID { get; set; }
 
-        public Employee OwnerEmployee { get; set; }
+        public Employee Owner { get; set; }
 
         public int? AFPID { get; set; }
 
-        public Employee AFPEmployee { get; set; }
+        public Employee AFP { get; set; }
 
         public int? BoardingManagerID { get; set; }
 
-        [StringLength(50)]
-        public string Category { get; set; }
+        public Employee BoardingManager { get; set; }
 
-        [StringLength(50)]
-        public string Priority { get; set; }
+        //[StringLength(50)]
+        //public string Category { get; set; }
+
+        //[StringLength(50)]
+        //public string Priority { get; set; }
 
         [StringLength(50)]
         public string Status { get; set; }
@@ -39,10 +41,10 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public DateTime? TargetLockboxLiveDate { get; set; }
 
-        public string Notes { get; set; }
+        //public string Notes { get; set; }
 
-        [StringLength(8000)]
-        public string Attachments { get; set; }
+        //[StringLength(8000)]
+        //public string Attachments { get; set; }
 
         [StringLength(255)]
         public string Address { get; set; }
@@ -83,13 +85,12 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string Phone { get; set; }
 
-        [StringLength(255)]
-        public string Type { get; set; }
+        //[StringLength(255)]
+        //public string Type { get; set; }
 
         [StringLength(255)]
         public string TimeZone { get; set; }
 
-        //public int? SoftwareID { get; set; }
         [StringLength(255)]
         public string Software { get; set; }
 
@@ -101,10 +102,10 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public decimal? ActualDeposits { get; set; }
 
-        [StringLength(255)]
-        public string CODRate { get; set; }
+        //[StringLength(255)]
+        //public string CODRate { get; set; }
 
-        public string RateNotes { get; set; }
+        //public string RateNotes { get; set; }
 
         [StringLength(10)]
         public string LockboxCMCID { get; set; }
@@ -118,63 +119,63 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string POBoxZipCode { get; set; }
 
-        public string ScannlineNotes { get; set; }
+        //public string ScannlineNotes { get; set; }
 
-        public bool? EnrollmentFormReceived { get; set; }
+        public bool EnrollmentFormReceived { get; set; }
 
-        public bool? MasterSigCardReceived { get; set; }
+        public bool MasterSigCardReceived { get; set; }
 
-        public bool? WelcomeEmailSent { get; set; }
+        public bool WelcomeEmailSent { get; set; }
 
-        public bool? AssociationListReceived { get; set; }
+        public bool AssociationListReceived { get; set; }
 
-        public bool? AssociationAccountsAssigned { get; set; }
+        public bool AssociationAccountsAssigned { get; set; }
 
-        public bool? MgmtCompanyAgreemetnsReceived { get; set; }
+        //public bool? MgmtCompanyAgreemetnsReceived { get; set; }
 
-        public bool? AssociationSignatureCardsSent { get; set; }
+        public bool AssociationSignatureCardsSent { get; set; }
 
-        public bool? LockboxWanted { get; set; }
+        public bool LockboxWanted { get; set; }
 
-        public bool? ValidationFileReceived { get; set; }
+        public bool ValidationFileReceived { get; set; }
 
-        public bool? ValidationFileAutomaticRegular { get; set; }
+        public bool ValidationFileAutomaticRegular { get; set; }
 
         public string ValidationFileNotes { get; set; }
 
-        public bool? ValidationFileBulkImporterUsed { get; set; }
+        public bool ValidationFileBulkImporterUsed { get; set; }
 
-        public string CouponPrintingNotes { get; set; }
+        //public string CouponPrintingNotes { get; set; }
 
-        public bool? RemitanceFileTested { get; set; }
+        public bool RemitanceFileTested { get; set; }
 
-        public bool? RemitanceFileLife { get; set; }
+        public bool RemitanceFileLife { get; set; }
 
-        public bool? LockboxRequestSent { get; set; }
+        public bool LockboxRequestSent { get; set; }
 
-        public bool? POBoxAssigned { get; set; }
+        public bool POBoxAssigned { get; set; }
 
-        public bool? ScannerWanted { get; set; }
+        public bool ScannerWanted { get; set; }
 
-        public bool? MMOnCheckScanner { get; set; }
+        public bool MMOnCheckScanner { get; set; }
 
-        public bool? ScannerSent { get; set; }
+        //public bool? ScannerSent { get; set; }
 
-        public bool? ScannerAQ2SetupRequested { get; set; }
+        //public bool? ScannerAQ2SetupRequested { get; set; }
 
-        public bool? ScannerLive { get; set; }
+        //public bool? ScannerLive { get; set; }
 
-        public bool? ACHLimitAndSpecSubmitted { get; set; }
+        public bool ACHLimitAndSpecSubmitted { get; set; }
 
-        public bool? ACHSuccessfulSubmitted { get; set; }
+        public bool ACHSuccessfulSubmitted { get; set; }
 
-        public bool? OnlineBankingSetup { get; set; }
+        public bool OnlineBankingSetup { get; set; }
 
-        public bool? OnlineBankingTrained { get; set; }
+        public bool OnlineBankingTrained { get; set; }
 
-        public bool? CouponsOrdered { get; set; }
+        public bool CouponsOrdered { get; set; }
 
-        public bool? CouponProofReviewed { get; set; }
+        public bool CouponProofReviewed { get; set; }
 
         [StringLength(255)]
         public string CouponVender { get; set; }
@@ -182,52 +183,52 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string CouponVenderNumber { get; set; }
 
-        public bool? DirectDepositPayroll { get; set; }
+        //public bool? DirectDepositPayroll { get; set; }
 
-        public bool? DirectDebitCollection { get; set; }
+        //public bool? DirectDebitCollection { get; set; }
 
-        public bool? DirectCreditPayments { get; set; }
+        //public bool? DirectCreditPayments { get; set; }
 
-        public bool? DirectDebitBusinessCCD { get; set; }
+        //public bool? DirectDebitBusinessCCD { get; set; }
 
-        public bool? ConsumerDebitWeb { get; set; }
+        //public bool? ConsumerDebitWeb { get; set; }
 
-        [StringLength(255)]
-        public string ScannerModel { get; set; }
+        //[StringLength(255)]
+        //public string ScannerModel { get; set; }
 
-        [StringLength(255)]
-        public string ScannerSerialNumber { get; set; }
+        //[StringLength(255)]
+        //public string ScannerSerialNumber { get; set; }
 
-        [StringLength(255)]
-        public string ScannerProvider { get; set; }
+        //[StringLength(255)]
+        //public string ScannerProvider { get; set; }
 
         public string BoardingNextSteps { get; set; }
 
         public string BoardingNotes { get; set; }
 
-        [StringLength(255)]
-        public string Ports { get; set; }
+        //[StringLength(255)]
+        //public string Ports { get; set; }
 
         [StringLength(255)]
         public string DICompanyID { get; set; }
 
-        [StringLength(255)]
-        public string DICompanyPassword { get; set; }
+        //[StringLength(255)]
+        //public string DICompanyPassword { get; set; }
 
         [StringLength(255)]
         public string SftpFolderName { get; set; }
 
-        [StringLength(255)]
-        public string SftpGeneralUserName { get; set; }
+        //[StringLength(255)]
+        //public string SftpGeneralUserName { get; set; }
 
         [StringLength(255)]
         public string SftpGeneralUserPassword { get; set; }
 
-        public bool? ACHPassThru { get; set; }
+        public bool ACHPassThru { get; set; }
 
-        public bool? ACHBatches { get; set; }
+        public bool ACHBatches { get; set; }
 
-        public bool? WireTransferTemplates { get; set; }
+        public bool WireTransferTemplates { get; set; }
 
         public decimal? ACHEstimatedDeposits { get; set; }
 
@@ -245,44 +246,44 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string ACHSpectFormInstructions { get; set; }
 
-        public string ACHReviewOfHistoricPerformance { get; set; }
+        public string ACHReviewOfHistoricPerformance { get; set; } // TODO: need to revisit this, this field is not on any views
 
-        public bool? ACHDualApproval { get; set; }
+        public bool ACHDualApproval { get; set; }
 
-        public bool? ACHOneTimePasscode { get; set; }
+        //public bool? ACHOneTimePasscode { get; set; }
 
-        [StringLength(255)]
-        public string StatementEmail { get; set; }
+        //[StringLength(255)]
+        //public string StatementEmail { get; set; }
 
-        [StringLength(255)]
-        public string LockboxEmail { get; set; }
+        //[StringLength(255)]
+        //public string LockboxEmail { get; set; }
 
-        [StringLength(255)]
-        public string ACHEmail { get; set; }
+        //[StringLength(255)]
+        //public string ACHEmail { get; set; } 
 
-        public string AuditNote { get; set; }
+        //public string AuditNote { get; set; }
 
-        [StringLength(255)]
-        public string CIPReviewed { get; set; }
+        //[StringLength(255)]
+        //public string CIPReviewed { get; set; }
 
-        public bool? CIPGood { get; set; }
+        public bool CIPGood { get; set; } // TODO: need to revisit this, this field is not on any views
 
-        public bool? HasCorporateAccounts { get; set; }
+        public bool HasCorporateAccounts { get; set; }
 
         [StringLength(255)]
         public string CorporateAccounts { get; set; }
 
-        public bool? XmlAutoReconSetup { get; set; }
+        public bool XmlAutoReconSetup { get; set; }
 
-        public bool? XmlAutoReconConfirmedUse { get; set; }
+        //public bool? XmlAutoReconConfirmedUse { get; set; }
 
         public DateTime? XmlAutoReconSentDate { get; set; }
 
         public string Narrative { get; set; }
 
-        public bool? Strongroom { get; set; }
+        public bool Strongroom { get; set; }
 
-        public bool? EStatements { get; set; }
+        public bool EStatements { get; set; }
 
         [StringLength(255)]
         public string SftpUsage { get; set; }
@@ -290,10 +291,10 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(255)]
         public string XmlUsage { get; set; }
 
-        public bool? FacsimileSignature { get; set; }
+        public bool FacsimileSignature { get; set; }
 
-        [StringLength(255)]
-        public string ACHReportLaruName { get; set; }
+        //[StringLength(255)]
+        //public string ACHReportLaruName { get; set; }
 
         public bool? Balanced { get; set; }
 
@@ -305,22 +306,24 @@ namespace AllianceAssociationBank.Crm.Core.Models
         [StringLength(50)]
         public string LockboxSystem { get; set; }
 
-        public bool? SftpWithFile { get; set; }
+        public bool SftpWithFile { get; set; }
 
-        public bool? SftpManual { get; set; }
+        public bool SftpManual { get; set; }
 
         [StringLength(100)]
         public string SftpPath { get; set; }
 
         public int? ReformatAQ2ID { get; set; }
 
-        public int? ReformatECPID { get; set; }
+        public Aq2Reformat ReformatAQ2 { get; set; }
 
-        public bool? ReformatByAssoc { get; set; }
+        //public int? ReformatECPID { get; set; }
 
+        public bool ReformatByAssoc { get; set; }
 
         [StringLength(255)]
         public string MigratingToSoftware { get; set; }
+
 
         [StringLength(255)]
         public string OtherName { get; set; }
@@ -329,6 +332,32 @@ namespace AllianceAssociationBank.Crm.Core.Models
         public string RelationshipRate { get; set; }
 
         public string LockboxNotes { get; set; }
+
+        public bool ACHUploadPPDDebit { get; set; }
+
+        public bool ACHUploadPPDCredit { get; set; }
+
+        public bool ACHUploadCCDDebit { get; set; }
+
+        public bool ACHUploadCCDCredit { get; set; }
+
+        public bool ACHTemplatePPDDebit { get; set; }
+
+        public bool ACHTemplatePPDCredit { get; set; }
+
+        public bool ACHTemplateCCDDebit { get; set; }
+
+        public bool ACHTemplateCCDCredit { get; set; }
+
+        public bool ACHSftpPPDDebit { get; set; }
+
+        public bool ACHSftpPPDCredit { get; set; }
+
+        public bool ACHSftpCCDDebit { get; set; }
+
+        public bool ACHSftpCCDCredit { get; set; }
+
+        public bool ACHWebPPDDebit { get; set; }
 
         public virtual ICollection<ProjectUser> Users { get; set; }
     }

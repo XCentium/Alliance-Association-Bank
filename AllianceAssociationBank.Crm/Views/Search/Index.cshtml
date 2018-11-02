@@ -5,14 +5,23 @@
 
 <div class="row">
 
-    <div class="col-1 p-0">
+    <div class="p-0">
         <div class="float-left">
             @Html.Partial(SharedView.SideMenuPartial)
         </div>
     </div>
-    @*<div class="my-auto" style="margin-left: -50px;">
-            <a class="small" href="#">< Back to Record</a>
-        </div>*@
+    @if (Model.PreviousRecordId.HasValue)
+    {
+    <div class="my-auto mx-3">
+        @Html.ActionLink("< Back to Record", ProjectsControllerAction.Edit, ControllerName.Projects, routeValues: new
+        {
+            id = Model.PreviousRecordId
+        }, htmlAttributes: new
+        {
+            @class = "small"
+        })
+    </div>
+    }
 
 </div>
 
@@ -118,7 +127,8 @@
                     {
                         term = Model.SearchTerm,
                         page = Model.PreviousPageNumber,
-                        sort = Model.CurrentSort
+                        sort = Model.CurrentSort,
+                        previousId = Model.PreviousRecordId
                     }, htmlAttributes: new
                     {
                         @class = "page-link"
@@ -131,7 +141,8 @@
                         {
                             term = Model.SearchTerm,
                             page = Model.SecondPreviousPageNumber,
-                            sort = Model.CurrentSort
+                            sort = Model.CurrentSort,
+                            previousId = Model.PreviousRecordId
                         }, htmlAttributes: new
                         {
                             @class = "page-link"
@@ -145,7 +156,8 @@
                         {
                             term = Model.SearchTerm,
                             page = Model.PreviousPageNumber,
-                            sort = Model.CurrentSort
+                            sort = Model.CurrentSort,
+                            previousId = Model.PreviousRecordId
                         }, htmlAttributes: new
                         {
                             @class = "page-link"
@@ -162,7 +174,8 @@
                         {
                             term = Model.SearchTerm,
                             page = Model.NextPageNumber,
-                            sort = Model.CurrentSort
+                            sort = Model.CurrentSort,
+                            previousId = Model.PreviousRecordId
                         }, htmlAttributes: new
                         {
                             @class = "page-link"
@@ -176,7 +189,8 @@
                         {
                             term = Model.SearchTerm,
                             page = Model.SecondNextPageNumber,
-                            sort = Model.CurrentSort
+                            sort = Model.CurrentSort,
+                            previousId = Model.PreviousRecordId
                         }, htmlAttributes: new
                         {
                             @class = "page-link"
@@ -188,7 +202,8 @@
                     {
                         term = Model.SearchTerm,
                         page = Model.NextPageNumber,
-                        sort = Model.CurrentSort
+                        sort = Model.CurrentSort,
+                        previousId = Model.PreviousRecordId
                     }, htmlAttributes: new
                     {
                         @class = "page-link"

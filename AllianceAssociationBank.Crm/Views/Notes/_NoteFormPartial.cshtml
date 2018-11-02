@@ -16,7 +16,8 @@
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "notes-list",
-                OnBegin = "hideModalTarget", // TODO: maybe should change this to OnSuccess?
+                OnBegin = "ModalDialogHelper.disableFormSubmitButton",
+                OnComplete = "ModalDialogHelper.hideModalDialog",
                 OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {

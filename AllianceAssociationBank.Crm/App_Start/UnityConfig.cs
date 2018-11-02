@@ -16,6 +16,7 @@ using AllianceAssociationBank.Crm.Identity;
 using Microsoft.Owin.Security;
 using System.Web;
 using System.DirectoryServices.AccountManagement;
+using Serilog;
 
 namespace AllianceAssociationBank.Crm
 {
@@ -51,6 +52,13 @@ namespace AllianceAssociationBank.Crm
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
+            // TODO: need to revisit this
+            container.RegisterType<ILogger>
+            (
+                new ContainerControlledLifetimeManager(),
+                new InjectionFactory(c => Log.Logger)
+            );
+
             container.RegisterType<DbContext, CrmApplicationDbContext>(new HierarchicalLifetimeManager());
             container.RegisterType<IProjectRepository, ProjectRepository>(new TransientLifetimeManager());
             container.RegisterType<IProjectUserRepository, ProjectUserRepository>(new TransientLifetimeManager());
@@ -64,20 +72,29 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
             container.RegisterType<IDataExportService, DataExportService>(new TransientLifetimeManager());
 
+            container.RegisterType<PrincipalContext>
+            (
+                new HierarchicalLifetimeManager(),
+                new InjectionFactory(c => GetPrincipalContext())
+            );
             container.RegisterType<IAuthenticationManager>
             (
                 new TransientLifetimeManager(),
                 new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication)
             );
-            container.RegisterType<PrincipalContext>
-            (
-                new HierarchicalLifetimeManager(),
-                //new InjectionFactory(c => new PrincipalContext(ContextType.Domain))
-                new InjectionFactory(c => new PrincipalContext(ContextType.Machine)) // TODO: this will change in production (ContextType.Domain)
-            );
+            container.RegisterType<IActiveDirectoryContext, ActiveDirectoryContext>(new TransientLifetimeManager());
             container.RegisterType<IAuthenticationService, ADAuthenticationService>(new TransientLifetimeManager());
 
             container.RegisterInstance<IMapper>(CrmAutoMapperProfile.GetMapper());
+        }
+
+        private static PrincipalContext GetPrincipalContext()
+        {
+#if (!DEBUG)
+            return new PrincipalContext(ContextType.Domain);
+#else
+            return new PrincipalContext(ContextType.Machine);
+#endif
         }
     }
 }

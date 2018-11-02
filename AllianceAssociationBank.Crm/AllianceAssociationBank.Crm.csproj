@@ -54,26 +54,26 @@
       <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -83,6 +83,15 @@
     </Reference>
     <Reference Include="ReportViewerForMvc, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Chaso.ReportViewerForMvc.1.1.1.1\lib\net461\ReportViewerForMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.7.1\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Settings.AppSettings, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Settings.AppSettings.2.1.2\lib\net45\Serilog.Settings.AppSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.4.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -246,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Startup.Logger.cs" />
     <Compile Include="Constants\DefaultErrorText.cs" />
     <Compile Include="Constants\Home\HomeView.cs" />
     <Compile Include="Constants\Home\HomeControllerAction.cs" />
@@ -255,10 +265,14 @@
     <Compile Include="Constants\Search\SearchView.cs" />
     <Compile Include="Constants\Search\SearchControllerAction.cs" />
     <Compile Include="Constants\SortOrder.cs" />
-    <Compile Include="Constants\User\UserFilterValue.cs" />
+    <Compile Include="Constants\ProjectUsers\UserFilterValue.cs" />
+    <Compile Include="Constants\User\UserView.cs" />
+    <Compile Include="Constants\ValidationErrorMessage.cs" />
+    <Compile Include="Constants\ValidationRegex.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Core\Dtos\AchReportDatasetDto.cs" />
     <Compile Include="Core\Dtos\CDEmailsDatasetDto.cs" />
     <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />
@@ -275,14 +289,18 @@
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
-    <Compile Include="Filters\HandleErrorWithLoggingFilter.cs" />
+    <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
+    <Compile Include="Filters\MvcDefaultExceptionFilter.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
     <Compile Include="Helpers\EmailDistributionList.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
+    <Compile Include="Identity\ActiveDirectoryContext.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />
+    <Compile Include="Identity\IActiveDirectoryContext.cs" />
     <Compile Include="Identity\IAuthenticationService.cs" />
     <Compile Include="Identity\SignInResult.cs" />
     <Compile Include="Identity\UserAuthenticationSettings.cs" />
+    <Compile Include="Mappings\AllInfoExportMap.cs" />
     <Compile Include="Mappings\CmcUsefulInfoListExportMap.cs" />
     <Compile Include="Mappings\CrmAutoMapperProfile.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -332,7 +350,6 @@
     </Compile>
     <Compile Include="Helpers\DropDownListHelper.cs" />
     <Compile Include="Persistence\EntityConfigurations\CheckScannerEntityConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\ApplicationUserEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\NoteEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ProjectEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\Aq2ReformatEntityConfiguration.cs" />
@@ -341,7 +358,6 @@
     <Compile Include="Persistence\EntityConfigurations\ProjectUserEntityConfiguration.cs" />
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\CrmApplicationDbContext.cs" />
-    <Compile Include="Core\Models\ApplicationUser.cs" />
     <Compile Include="Core\Interfaces\IProjectRepository.cs" />
     <Compile Include="Core\Interfaces\IReportQueries.cs" />
     <Compile Include="Persistence\Queries\ReportQueries.cs" />
@@ -375,9 +391,7 @@
     <Compile Include="ViewModels\PagedListViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="Models\ProjectReportRecordViewModel.cs" />
     <Compile Include="ViewModels\ProjectFormViewModel.cs" />
-    <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="ViewModels\SearchResultsPagedViewModel.cs" />
     <Compile Include="ViewModels\UserFormViewModel.cs" />
     <Compile Include="ViewModels\UsersPagedListViewModel.cs" />
@@ -398,10 +412,13 @@
     <Content Include="Content\Images\btn-edit-icon.png" />
     <Content Include="Content\Images\btn-print-icon.png" />
     <Content Include="Content\Images\btn-save-icon.png" />
+    <Content Include="Content\Images\datepicker-icon.png" />
     <Content Include="Content\Images\search-img.png" />
     <Content Include="Content\Images\search-loader.gif" />
     <Content Include="Content\Images\sort-order-icon.png" />
     <Content Include="Content\Images\toggle-img.png" />
+    <Content Include="Content\Images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Images\ui-icons_555555_256x240.png" />
     <Content Include="Content\Images\warning-icon.png" />
     <Content Include="Content\select2.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -447,7 +464,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -461,6 +478,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="LoggerSettings.config" />
     <None Include="Reports\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -470,11 +488,15 @@
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Scripts\app\achTabController.js" />
+    <Content Include="Scripts\app\inputMaskHelper.js" />
+    <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\appFunctions.js" />
     <Content Include="Scripts\app\errorHandler.js" />
     <Content Include="Scripts\app\generalTabController.js" />
     <Content Include="Scripts\app\navigationWidgets.js" />
+    <Content Include="Scripts\app\datePickerWidget.js" />
     <Content Include="Scripts\app\usersTabController.js" />
     <Content Include="Scripts\app\searchableSelectPlugin.js" />
     <Content Include="Scripts\app\searchWidget.js" />
@@ -531,7 +553,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -546,7 +570,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Projects\ProjectForm.cshtml" />
-    <Content Include="Views\Reports\BoardingReport.cshtml" />
     <Content Include="Views\Reports\ViewReport.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -582,6 +605,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Logs\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
@@ -603,6 +627,15 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\ACH-Spec-Report.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\ACH-6-Month-Review.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\ACH-Initial-Review.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -19,7 +19,6 @@
                     <a class="nav-item nav-link" id="nav-lockbox-tab" data-toggle="tab" href="#nav-lockbox-content" role="tab" aria-controls="nav-lockbox-content" aria-selected="false">LOCKBOX</a>
                     <a class="nav-item nav-link" id="nav-ach-tab" data-toggle="tab" href="#nav-ach-content" role="tab" aria-controls="nav-ach-content" aria-selected="false">ACH</a>
                     <a class="nav-item nav-link" id="nav-system-tab" data-toggle="tab" href="#nav-system-content" role="tab" aria-controls="nav-system-content" aria-selected="false">SYSTEM</a>
-                    @*<a class="nav-item nav-link" id="nav-accounts-tab" data-toggle="tab" href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="false">ACCOUNTS / HOA DDAS</a>*@
                 </div>
             </nav>
         </div>
@@ -29,7 +28,6 @@
                 @Html.Partial(SharedView.SearchWidgetPartial)
             </div>
         </div>
-        @*@Html.Partial(SharedView.SearchWidgetPartial)*@
 
     </div>
 
@@ -50,12 +48,12 @@
                 <label class="text-muted">Name</label>
             </div>
             <div class="col-11 text-right">
-                <span id="project-form-save-indicator" class="save-indicator @Model.SaveIndicatorCssClass">@Model.SaveIndicator</span>
-                @Html.RoleBasedButton(" ", "submit", "btn-img btn-save-img")
-                <button class="btn-img" type="button">
+                <span class="save-indicator @Model.SaveIndicatorCssClass" id="project-form-save-indicator" >@Model.SaveIndicator</span>
+                @Html.RoleBasedButton(" ", "submit", "btn-img btn-save-img", "Save")
+                <button class="btn-img" id="btn-print-form-content" type="button" title="Print">
                     <img class="icon-image" src="~/Content/Images/btn-print-icon.png" />
                 </button>
-                <button class="btn-img" type="button" data-toggle="modal" data-target="#close-dialog-modal">
+                <button class="btn-img" type="button" data-toggle="modal" data-target="#close-dialog-modal" title="Close">
                     <img class="icon-image" src="~/Content/Images/btn-close-icon.png" />
                 </button>
             </div>
@@ -67,7 +65,7 @@
         <div class="row my-2 pb-1 border-bottom">
             <div class="col-4">
                 <div class="row">
-                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-2 form-label-indent" })
+                    @Html.LabelFor(m => m.ProjectName, new { @class = "col-2 form-label-indent required" })
                     <div class="col-10">
                         @Html.RoleBasedEditorFor(m => m.ProjectName, cssClass: "form-input")
                         @Html.ValidationMessageFor(m => m.ProjectName, "", new { @class = "form-val-error-tooltip" })

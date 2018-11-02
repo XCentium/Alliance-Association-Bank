@@ -9,6 +9,7 @@ using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,9 @@ using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
-    // TODO: add logging
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Users")]
-    //[RedirectOnInvalidAjaxRequest]
+    [RedirectOnInvalidAjaxRequest]
     public class ProjectUsersController : Controller
     {
         private IProjectUserRepository _userRepository;
@@ -44,7 +44,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             var users = _userRepository.GetUsers(projectId, filter);
 
-            var usersViewModel = _mapper.Map<List<UserFormViewModel>>(users);
+            var usersViewModel = users.ProjectTo<UserFormViewModel>(_mapper.ConfigurationProvider);
+            //var usersViewModel = _mapper.Map<List<UserFormViewModel>>(users);
             var pagedModel = new UsersPagedListViewModel(projectId, usersViewModel, page, PAGE_SIZE);
 
             return PartialView(ProjectUsersView.UsersListPartial, pagedModel);
@@ -96,7 +97,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (user == null)
             {
-                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
+                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             var model = _mapper.Map<UserFormViewModel>(user);
@@ -119,7 +121,8 @@ namespace AllianceAssociationBank.Crm.Controllers
             var user = await _userRepository.GetUserByIdAsync(id);
             if (user == null)
             {
-                return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
+                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             _mapper.Map(model, user);

@@ -30,6 +30,8 @@ namespace AllianceAssociationBank.Crm.Reports {
         
         private EmployeesDatasetDataTable tableEmployeesDataset;
         
+        private AchReportDatasetDataTable tableAchReportDataset;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +68,9 @@ namespace AllianceAssociationBank.Crm.Reports {
                 }
                 if ((ds.Tables["EmployeesDataset"] != null)) {
                     base.Tables.Add(new EmployeesDatasetDataTable(ds.Tables["EmployeesDataset"]));
+                }
+                if ((ds.Tables["AchReportDataset"] != null)) {
+                    base.Tables.Add(new AchReportDatasetDataTable(ds.Tables["AchReportDataset"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +117,16 @@ namespace AllianceAssociationBank.Crm.Reports {
         public EmployeesDatasetDataTable EmployeesDataset {
             get {
                 return this.tableEmployeesDataset;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public AchReportDatasetDataTable AchReportDataset {
+            get {
+                return this.tableAchReportDataset;
             }
         }
         
@@ -191,6 +206,9 @@ namespace AllianceAssociationBank.Crm.Reports {
                 if ((ds.Tables["EmployeesDataset"] != null)) {
                     base.Tables.Add(new EmployeesDatasetDataTable(ds.Tables["EmployeesDataset"]));
                 }
+                if ((ds.Tables["AchReportDataset"] != null)) {
+                    base.Tables.Add(new AchReportDatasetDataTable(ds.Tables["AchReportDataset"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +260,12 @@ namespace AllianceAssociationBank.Crm.Reports {
                     this.tableEmployeesDataset.InitVars();
                 }
             }
+            this.tableAchReportDataset = ((AchReportDatasetDataTable)(base.Tables["AchReportDataset"]));
+            if ((initTable == true)) {
+                if ((this.tableAchReportDataset != null)) {
+                    this.tableAchReportDataset.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +282,8 @@ namespace AllianceAssociationBank.Crm.Reports {
             base.Tables.Add(this.tableCDEmailsDataset);
             this.tableEmployeesDataset = new EmployeesDatasetDataTable();
             base.Tables.Add(this.tableEmployeesDataset);
+            this.tableAchReportDataset = new AchReportDatasetDataTable();
+            base.Tables.Add(this.tableAchReportDataset);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +301,12 @@ namespace AllianceAssociationBank.Crm.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeEmployeesDataset() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeAchReportDataset() {
             return false;
         }
         
@@ -341,6 +373,9 @@ namespace AllianceAssociationBank.Crm.Reports {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void EmployeesDatasetRowChangeEventHandler(object sender, EmployeesDatasetRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void AchReportDatasetRowChangeEventHandler(object sender, AchReportDatasetRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -614,6 +649,32 @@ namespace AllianceAssociationBank.Crm.Reports {
             private global::System.Data.DataColumn columnRelationshipRate;
             
             private global::System.Data.DataColumn columnLockboxNotes;
+            
+            private global::System.Data.DataColumn columnACHUploadPPDDebit;
+            
+            private global::System.Data.DataColumn columnACHUploadPPDCredit;
+            
+            private global::System.Data.DataColumn columnACHUploadCCDDebit;
+            
+            private global::System.Data.DataColumn columnACHUploadCCDCredit;
+            
+            private global::System.Data.DataColumn columnACHTemplatePPDDebit;
+            
+            private global::System.Data.DataColumn columnACHTemplatePPDCredit;
+            
+            private global::System.Data.DataColumn columnACHTemplateCCDDebit;
+            
+            private global::System.Data.DataColumn columnACHTemplateCCDCredit;
+            
+            private global::System.Data.DataColumn columnACHSftpPPDDebit;
+            
+            private global::System.Data.DataColumn columnACHSftpPPDCredit;
+            
+            private global::System.Data.DataColumn columnACHSftpCCDDebit;
+            
+            private global::System.Data.DataColumn columnACHSftpCCDCredit;
+            
+            private global::System.Data.DataColumn columnACHWebPPDDebit;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1714,6 +1775,110 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadPPDDebitColumn {
+                get {
+                    return this.columnACHUploadPPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadPPDCreditColumn {
+                get {
+                    return this.columnACHUploadPPDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadCCDDebitColumn {
+                get {
+                    return this.columnACHUploadCCDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadCCDCreditColumn {
+                get {
+                    return this.columnACHUploadCCDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplatePPDDebitColumn {
+                get {
+                    return this.columnACHTemplatePPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplatePPDCreditColumn {
+                get {
+                    return this.columnACHTemplatePPDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplateCCDDebitColumn {
+                get {
+                    return this.columnACHTemplateCCDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplateCCDCreditColumn {
+                get {
+                    return this.columnACHTemplateCCDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpPPDDebitColumn {
+                get {
+                    return this.columnACHSftpPPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpPPDCreditColumn {
+                get {
+                    return this.columnACHSftpPPDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpCCDDebitColumn {
+                get {
+                    return this.columnACHSftpCCDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpCCDCreditColumn {
+                get {
+                    return this.columnACHSftpCCDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHWebPPDDebitColumn {
+                get {
+                    return this.columnACHWebPPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1881,7 +2046,20 @@ namespace AllianceAssociationBank.Crm.Reports {
                         string MigratingToSoftware, 
                         string OtherName, 
                         string RelationshipRate, 
-                        string LockboxNotes) {
+                        string LockboxNotes, 
+                        bool ACHUploadPPDDebit, 
+                        bool ACHUploadPPDCredit, 
+                        bool ACHUploadCCDDebit, 
+                        bool ACHUploadCCDCredit, 
+                        bool ACHTemplatePPDDebit, 
+                        bool ACHTemplatePPDCredit, 
+                        bool ACHTemplateCCDDebit, 
+                        bool ACHTemplateCCDCredit, 
+                        bool ACHSftpPPDDebit, 
+                        bool ACHSftpPPDCredit, 
+                        bool ACHSftpCCDDebit, 
+                        bool ACHSftpCCDCredit, 
+                        bool ACHWebPPDDebit) {
                 ProjectsRow rowProjectsRow = ((ProjectsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2016,7 +2194,20 @@ namespace AllianceAssociationBank.Crm.Reports {
                         MigratingToSoftware,
                         OtherName,
                         RelationshipRate,
-                        LockboxNotes};
+                        LockboxNotes,
+                        ACHUploadPPDDebit,
+                        ACHUploadPPDCredit,
+                        ACHUploadCCDDebit,
+                        ACHUploadCCDCredit,
+                        ACHTemplatePPDDebit,
+                        ACHTemplatePPDCredit,
+                        ACHTemplateCCDDebit,
+                        ACHTemplateCCDCredit,
+                        ACHSftpPPDDebit,
+                        ACHSftpPPDCredit,
+                        ACHSftpCCDDebit,
+                        ACHSftpCCDCredit,
+                        ACHWebPPDDebit};
                 rowProjectsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProjectsRow);
                 return rowProjectsRow;
@@ -2179,6 +2370,19 @@ namespace AllianceAssociationBank.Crm.Reports {
                 this.columnOtherName = base.Columns["OtherName"];
                 this.columnRelationshipRate = base.Columns["RelationshipRate"];
                 this.columnLockboxNotes = base.Columns["LockboxNotes"];
+                this.columnACHUploadPPDDebit = base.Columns["ACHUploadPPDDebit"];
+                this.columnACHUploadPPDCredit = base.Columns["ACHUploadPPDCredit"];
+                this.columnACHUploadCCDDebit = base.Columns["ACHUploadCCDDebit"];
+                this.columnACHUploadCCDCredit = base.Columns["ACHUploadCCDCredit"];
+                this.columnACHTemplatePPDDebit = base.Columns["ACHTemplatePPDDebit"];
+                this.columnACHTemplatePPDCredit = base.Columns["ACHTemplatePPDCredit"];
+                this.columnACHTemplateCCDDebit = base.Columns["ACHTemplateCCDDebit"];
+                this.columnACHTemplateCCDCredit = base.Columns["ACHTemplateCCDCredit"];
+                this.columnACHSftpPPDDebit = base.Columns["ACHSftpPPDDebit"];
+                this.columnACHSftpPPDCredit = base.Columns["ACHSftpPPDCredit"];
+                this.columnACHSftpCCDDebit = base.Columns["ACHSftpCCDDebit"];
+                this.columnACHSftpCCDCredit = base.Columns["ACHSftpCCDCredit"];
+                this.columnACHWebPPDDebit = base.Columns["ACHWebPPDDebit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2450,6 +2654,32 @@ namespace AllianceAssociationBank.Crm.Reports {
                 base.Columns.Add(this.columnRelationshipRate);
                 this.columnLockboxNotes = new global::System.Data.DataColumn("LockboxNotes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLockboxNotes);
+                this.columnACHUploadPPDDebit = new global::System.Data.DataColumn("ACHUploadPPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadPPDDebit);
+                this.columnACHUploadPPDCredit = new global::System.Data.DataColumn("ACHUploadPPDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadPPDCredit);
+                this.columnACHUploadCCDDebit = new global::System.Data.DataColumn("ACHUploadCCDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadCCDDebit);
+                this.columnACHUploadCCDCredit = new global::System.Data.DataColumn("ACHUploadCCDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadCCDCredit);
+                this.columnACHTemplatePPDDebit = new global::System.Data.DataColumn("ACHTemplatePPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplatePPDDebit);
+                this.columnACHTemplatePPDCredit = new global::System.Data.DataColumn("ACHTemplatePPDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplatePPDCredit);
+                this.columnACHTemplateCCDDebit = new global::System.Data.DataColumn("ACHTemplateCCDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplateCCDDebit);
+                this.columnACHTemplateCCDCredit = new global::System.Data.DataColumn("ACHTemplateCCDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplateCCDCredit);
+                this.columnACHSftpPPDDebit = new global::System.Data.DataColumn("ACHSftpPPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpPPDDebit);
+                this.columnACHSftpPPDCredit = new global::System.Data.DataColumn("ACHSftpPPDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpPPDCredit);
+                this.columnACHSftpCCDDebit = new global::System.Data.DataColumn("ACHSftpCCDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpCCDDebit);
+                this.columnACHSftpCCDCredit = new global::System.Data.DataColumn("ACHSftpCCDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpCCDCredit);
+                this.columnACHWebPPDDebit = new global::System.Data.DataColumn("ACHWebPPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHWebPPDDebit);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2523,6 +2753,19 @@ namespace AllianceAssociationBank.Crm.Reports {
                 this.columnOtherName.MaxLength = 255;
                 this.columnRelationshipRate.MaxLength = 50;
                 this.columnLockboxNotes.MaxLength = 2147483647;
+                this.columnACHUploadPPDDebit.AllowDBNull = false;
+                this.columnACHUploadPPDCredit.AllowDBNull = false;
+                this.columnACHUploadCCDDebit.AllowDBNull = false;
+                this.columnACHUploadCCDCredit.AllowDBNull = false;
+                this.columnACHTemplatePPDDebit.AllowDBNull = false;
+                this.columnACHTemplatePPDCredit.AllowDBNull = false;
+                this.columnACHTemplateCCDDebit.AllowDBNull = false;
+                this.columnACHTemplateCCDCredit.AllowDBNull = false;
+                this.columnACHSftpPPDDebit.AllowDBNull = false;
+                this.columnACHSftpPPDCredit.AllowDBNull = false;
+                this.columnACHSftpCCDDebit.AllowDBNull = false;
+                this.columnACHSftpCCDCredit.AllowDBNull = false;
+                this.columnACHWebPPDDebit.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3173,6 +3416,848 @@ namespace AllianceAssociationBank.Crm.Reports {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "EmployeesDatasetDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class AchReportDatasetDataTable : global::System.Data.TypedTableBase<AchReportDatasetRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnProjectName;
+            
+            private global::System.Data.DataColumn columnInstitution;
+            
+            private global::System.Data.DataColumn columnAddress;
+            
+            private global::System.Data.DataColumn columnCity;
+            
+            private global::System.Data.DataColumn columnState;
+            
+            private global::System.Data.DataColumn columnZipCode;
+            
+            private global::System.Data.DataColumn columnTIN;
+            
+            private global::System.Data.DataColumn columnFax;
+            
+            private global::System.Data.DataColumn columnPhone;
+            
+            private global::System.Data.DataColumn columnDICompanyID;
+            
+            private global::System.Data.DataColumn columnACHPassThru;
+            
+            private global::System.Data.DataColumn columnACHBatches;
+            
+            private global::System.Data.DataColumn columnACHSystemLimit;
+            
+            private global::System.Data.DataColumn columnACHLimit;
+            
+            private global::System.Data.DataColumn columnACHEstimatedDeposits;
+            
+            private global::System.Data.DataColumn columnOriginalReviewDate;
+            
+            private global::System.Data.DataColumn columnLastReviewDate;
+            
+            private global::System.Data.DataColumn columnBalanced;
+            
+            private global::System.Data.DataColumn columnNarrative;
+            
+            private global::System.Data.DataColumn columnACHReviewOfHistoricPerformance;
+            
+            private global::System.Data.DataColumn columnACHSpectFormInstructions;
+            
+            private global::System.Data.DataColumn columnACHUploadPPDDebit;
+            
+            private global::System.Data.DataColumn columnACHUploadPPDCredit;
+            
+            private global::System.Data.DataColumn columnACHUploadCCDDebit;
+            
+            private global::System.Data.DataColumn columnACHUploadCCDCredit;
+            
+            private global::System.Data.DataColumn columnACHTemplatePPDDebit;
+            
+            private global::System.Data.DataColumn columnACHTemplatePPDCredit;
+            
+            private global::System.Data.DataColumn columnACHTemplateCCDDebit;
+            
+            private global::System.Data.DataColumn columnACHTemplateCCDCredit;
+            
+            private global::System.Data.DataColumn columnACHSftpPPDDebit;
+            
+            private global::System.Data.DataColumn columnACHSftpPPDCredit;
+            
+            private global::System.Data.DataColumn columnACHSftpCCDDebit;
+            
+            private global::System.Data.DataColumn columnACHSftpCCDCredit;
+            
+            private global::System.Data.DataColumn columnACHWebPPDDebit;
+            
+            private global::System.Data.DataColumn columnOwnerName;
+            
+            private global::System.Data.DataColumn columnContactName;
+            
+            private global::System.Data.DataColumn columnContactEmail;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AchReportDatasetDataTable() {
+                this.TableName = "AchReportDataset";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal AchReportDatasetDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected AchReportDatasetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ProjectNameColumn {
+                get {
+                    return this.columnProjectName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn InstitutionColumn {
+                get {
+                    return this.columnInstitution;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AddressColumn {
+                get {
+                    return this.columnAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CityColumn {
+                get {
+                    return this.columnCity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StateColumn {
+                get {
+                    return this.columnState;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ZipCodeColumn {
+                get {
+                    return this.columnZipCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TINColumn {
+                get {
+                    return this.columnTIN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FaxColumn {
+                get {
+                    return this.columnFax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PhoneColumn {
+                get {
+                    return this.columnPhone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DICompanyIDColumn {
+                get {
+                    return this.columnDICompanyID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHPassThruColumn {
+                get {
+                    return this.columnACHPassThru;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHBatchesColumn {
+                get {
+                    return this.columnACHBatches;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSystemLimitColumn {
+                get {
+                    return this.columnACHSystemLimit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHLimitColumn {
+                get {
+                    return this.columnACHLimit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHEstimatedDepositsColumn {
+                get {
+                    return this.columnACHEstimatedDeposits;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OriginalReviewDateColumn {
+                get {
+                    return this.columnOriginalReviewDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LastReviewDateColumn {
+                get {
+                    return this.columnLastReviewDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn BalancedColumn {
+                get {
+                    return this.columnBalanced;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NarrativeColumn {
+                get {
+                    return this.columnNarrative;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHReviewOfHistoricPerformanceColumn {
+                get {
+                    return this.columnACHReviewOfHistoricPerformance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSpectFormInstructionsColumn {
+                get {
+                    return this.columnACHSpectFormInstructions;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadPPDDebitColumn {
+                get {
+                    return this.columnACHUploadPPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadPPDCreditColumn {
+                get {
+                    return this.columnACHUploadPPDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadCCDDebitColumn {
+                get {
+                    return this.columnACHUploadCCDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHUploadCCDCreditColumn {
+                get {
+                    return this.columnACHUploadCCDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplatePPDDebitColumn {
+                get {
+                    return this.columnACHTemplatePPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplatePPDCreditColumn {
+                get {
+                    return this.columnACHTemplatePPDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplateCCDDebitColumn {
+                get {
+                    return this.columnACHTemplateCCDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHTemplateCCDCreditColumn {
+                get {
+                    return this.columnACHTemplateCCDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpPPDDebitColumn {
+                get {
+                    return this.columnACHSftpPPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpPPDCreditColumn {
+                get {
+                    return this.columnACHSftpPPDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpCCDDebitColumn {
+                get {
+                    return this.columnACHSftpCCDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSftpCCDCreditColumn {
+                get {
+                    return this.columnACHSftpCCDCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHWebPPDDebitColumn {
+                get {
+                    return this.columnACHWebPPDDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OwnerNameColumn {
+                get {
+                    return this.columnOwnerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ContactNameColumn {
+                get {
+                    return this.columnContactName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ContactEmailColumn {
+                get {
+                    return this.columnContactEmail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AchReportDatasetRow this[int index] {
+                get {
+                    return ((AchReportDatasetRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event AchReportDatasetRowChangeEventHandler AchReportDatasetRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event AchReportDatasetRowChangeEventHandler AchReportDatasetRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event AchReportDatasetRowChangeEventHandler AchReportDatasetRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event AchReportDatasetRowChangeEventHandler AchReportDatasetRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddAchReportDatasetRow(AchReportDatasetRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AchReportDatasetRow AddAchReportDatasetRow(
+                        string ProjectName, 
+                        string Institution, 
+                        string Address, 
+                        string City, 
+                        string State, 
+                        string ZipCode, 
+                        string TIN, 
+                        string Fax, 
+                        string Phone, 
+                        string DICompanyID, 
+                        bool ACHPassThru, 
+                        bool ACHBatches, 
+                        decimal ACHSystemLimit, 
+                        decimal ACHLimit, 
+                        decimal ACHEstimatedDeposits, 
+                        System.DateTime OriginalReviewDate, 
+                        System.DateTime LastReviewDate, 
+                        bool Balanced, 
+                        string Narrative, 
+                        string ACHReviewOfHistoricPerformance, 
+                        string ACHSpectFormInstructions, 
+                        bool ACHUploadPPDDebit, 
+                        bool ACHUploadPPDCredit, 
+                        bool ACHUploadCCDDebit, 
+                        bool ACHUploadCCDCredit, 
+                        bool ACHTemplatePPDDebit, 
+                        bool ACHTemplatePPDCredit, 
+                        bool ACHTemplateCCDDebit, 
+                        bool ACHTemplateCCDCredit, 
+                        bool ACHSftpPPDDebit, 
+                        bool ACHSftpPPDCredit, 
+                        bool ACHSftpCCDDebit, 
+                        bool ACHSftpCCDCredit, 
+                        bool ACHWebPPDDebit, 
+                        string OwnerName, 
+                        string ContactName, 
+                        string ContactEmail) {
+                AchReportDatasetRow rowAchReportDatasetRow = ((AchReportDatasetRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        ProjectName,
+                        Institution,
+                        Address,
+                        City,
+                        State,
+                        ZipCode,
+                        TIN,
+                        Fax,
+                        Phone,
+                        DICompanyID,
+                        ACHPassThru,
+                        ACHBatches,
+                        ACHSystemLimit,
+                        ACHLimit,
+                        ACHEstimatedDeposits,
+                        OriginalReviewDate,
+                        LastReviewDate,
+                        Balanced,
+                        Narrative,
+                        ACHReviewOfHistoricPerformance,
+                        ACHSpectFormInstructions,
+                        ACHUploadPPDDebit,
+                        ACHUploadPPDCredit,
+                        ACHUploadCCDDebit,
+                        ACHUploadCCDCredit,
+                        ACHTemplatePPDDebit,
+                        ACHTemplatePPDCredit,
+                        ACHTemplateCCDDebit,
+                        ACHTemplateCCDCredit,
+                        ACHSftpPPDDebit,
+                        ACHSftpPPDCredit,
+                        ACHSftpCCDDebit,
+                        ACHSftpCCDCredit,
+                        ACHWebPPDDebit,
+                        OwnerName,
+                        ContactName,
+                        ContactEmail};
+                rowAchReportDatasetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAchReportDatasetRow);
+                return rowAchReportDatasetRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                AchReportDatasetDataTable cln = ((AchReportDatasetDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new AchReportDatasetDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnProjectName = base.Columns["ProjectName"];
+                this.columnInstitution = base.Columns["Institution"];
+                this.columnAddress = base.Columns["Address"];
+                this.columnCity = base.Columns["City"];
+                this.columnState = base.Columns["State"];
+                this.columnZipCode = base.Columns["ZipCode"];
+                this.columnTIN = base.Columns["TIN"];
+                this.columnFax = base.Columns["Fax"];
+                this.columnPhone = base.Columns["Phone"];
+                this.columnDICompanyID = base.Columns["DICompanyID"];
+                this.columnACHPassThru = base.Columns["ACHPassThru"];
+                this.columnACHBatches = base.Columns["ACHBatches"];
+                this.columnACHSystemLimit = base.Columns["ACHSystemLimit"];
+                this.columnACHLimit = base.Columns["ACHLimit"];
+                this.columnACHEstimatedDeposits = base.Columns["ACHEstimatedDeposits"];
+                this.columnOriginalReviewDate = base.Columns["OriginalReviewDate"];
+                this.columnLastReviewDate = base.Columns["LastReviewDate"];
+                this.columnBalanced = base.Columns["Balanced"];
+                this.columnNarrative = base.Columns["Narrative"];
+                this.columnACHReviewOfHistoricPerformance = base.Columns["ACHReviewOfHistoricPerformance"];
+                this.columnACHSpectFormInstructions = base.Columns["ACHSpectFormInstructions"];
+                this.columnACHUploadPPDDebit = base.Columns["ACHUploadPPDDebit"];
+                this.columnACHUploadPPDCredit = base.Columns["ACHUploadPPDCredit"];
+                this.columnACHUploadCCDDebit = base.Columns["ACHUploadCCDDebit"];
+                this.columnACHUploadCCDCredit = base.Columns["ACHUploadCCDCredit"];
+                this.columnACHTemplatePPDDebit = base.Columns["ACHTemplatePPDDebit"];
+                this.columnACHTemplatePPDCredit = base.Columns["ACHTemplatePPDCredit"];
+                this.columnACHTemplateCCDDebit = base.Columns["ACHTemplateCCDDebit"];
+                this.columnACHTemplateCCDCredit = base.Columns["ACHTemplateCCDCredit"];
+                this.columnACHSftpPPDDebit = base.Columns["ACHSftpPPDDebit"];
+                this.columnACHSftpPPDCredit = base.Columns["ACHSftpPPDCredit"];
+                this.columnACHSftpCCDDebit = base.Columns["ACHSftpCCDDebit"];
+                this.columnACHSftpCCDCredit = base.Columns["ACHSftpCCDCredit"];
+                this.columnACHWebPPDDebit = base.Columns["ACHWebPPDDebit"];
+                this.columnOwnerName = base.Columns["OwnerName"];
+                this.columnContactName = base.Columns["ContactName"];
+                this.columnContactEmail = base.Columns["ContactEmail"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnProjectName = new global::System.Data.DataColumn("ProjectName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjectName);
+                this.columnInstitution = new global::System.Data.DataColumn("Institution", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstitution);
+                this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddress);
+                this.columnCity = new global::System.Data.DataColumn("City", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCity);
+                this.columnState = new global::System.Data.DataColumn("State", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnState);
+                this.columnZipCode = new global::System.Data.DataColumn("ZipCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZipCode);
+                this.columnTIN = new global::System.Data.DataColumn("TIN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIN);
+                this.columnFax = new global::System.Data.DataColumn("Fax", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFax);
+                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhone);
+                this.columnDICompanyID = new global::System.Data.DataColumn("DICompanyID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDICompanyID);
+                this.columnACHPassThru = new global::System.Data.DataColumn("ACHPassThru", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHPassThru);
+                this.columnACHBatches = new global::System.Data.DataColumn("ACHBatches", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHBatches);
+                this.columnACHSystemLimit = new global::System.Data.DataColumn("ACHSystemLimit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSystemLimit);
+                this.columnACHLimit = new global::System.Data.DataColumn("ACHLimit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHLimit);
+                this.columnACHEstimatedDeposits = new global::System.Data.DataColumn("ACHEstimatedDeposits", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHEstimatedDeposits);
+                this.columnOriginalReviewDate = new global::System.Data.DataColumn("OriginalReviewDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOriginalReviewDate);
+                this.columnLastReviewDate = new global::System.Data.DataColumn("LastReviewDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastReviewDate);
+                this.columnBalanced = new global::System.Data.DataColumn("Balanced", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBalanced);
+                this.columnNarrative = new global::System.Data.DataColumn("Narrative", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNarrative);
+                this.columnACHReviewOfHistoricPerformance = new global::System.Data.DataColumn("ACHReviewOfHistoricPerformance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHReviewOfHistoricPerformance);
+                this.columnACHSpectFormInstructions = new global::System.Data.DataColumn("ACHSpectFormInstructions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSpectFormInstructions);
+                this.columnACHUploadPPDDebit = new global::System.Data.DataColumn("ACHUploadPPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadPPDDebit);
+                this.columnACHUploadPPDCredit = new global::System.Data.DataColumn("ACHUploadPPDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadPPDCredit);
+                this.columnACHUploadCCDDebit = new global::System.Data.DataColumn("ACHUploadCCDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadCCDDebit);
+                this.columnACHUploadCCDCredit = new global::System.Data.DataColumn("ACHUploadCCDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHUploadCCDCredit);
+                this.columnACHTemplatePPDDebit = new global::System.Data.DataColumn("ACHTemplatePPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplatePPDDebit);
+                this.columnACHTemplatePPDCredit = new global::System.Data.DataColumn("ACHTemplatePPDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplatePPDCredit);
+                this.columnACHTemplateCCDDebit = new global::System.Data.DataColumn("ACHTemplateCCDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplateCCDDebit);
+                this.columnACHTemplateCCDCredit = new global::System.Data.DataColumn("ACHTemplateCCDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHTemplateCCDCredit);
+                this.columnACHSftpPPDDebit = new global::System.Data.DataColumn("ACHSftpPPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpPPDDebit);
+                this.columnACHSftpPPDCredit = new global::System.Data.DataColumn("ACHSftpPPDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpPPDCredit);
+                this.columnACHSftpCCDDebit = new global::System.Data.DataColumn("ACHSftpCCDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpCCDDebit);
+                this.columnACHSftpCCDCredit = new global::System.Data.DataColumn("ACHSftpCCDCredit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSftpCCDCredit);
+                this.columnACHWebPPDDebit = new global::System.Data.DataColumn("ACHWebPPDDebit", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHWebPPDDebit);
+                this.columnOwnerName = new global::System.Data.DataColumn("OwnerName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOwnerName);
+                this.columnContactName = new global::System.Data.DataColumn("ContactName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContactName);
+                this.columnContactEmail = new global::System.Data.DataColumn("ContactEmail", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContactEmail);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint11", new global::System.Data.DataColumn[] {
+                                this.columnID}, false));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
+                this.columnProjectName.MaxLength = 150;
+                this.columnInstitution.MaxLength = 255;
+                this.columnAddress.MaxLength = 255;
+                this.columnCity.MaxLength = 255;
+                this.columnState.MaxLength = 255;
+                this.columnZipCode.MaxLength = 255;
+                this.columnTIN.MaxLength = 255;
+                this.columnFax.MaxLength = 255;
+                this.columnPhone.MaxLength = 255;
+                this.columnDICompanyID.MaxLength = 255;
+                this.columnNarrative.MaxLength = 2147483647;
+                this.columnACHReviewOfHistoricPerformance.MaxLength = 2147483647;
+                this.columnACHSpectFormInstructions.MaxLength = 2147483647;
+                this.columnACHUploadPPDDebit.AllowDBNull = false;
+                this.columnACHUploadPPDCredit.AllowDBNull = false;
+                this.columnACHUploadCCDDebit.AllowDBNull = false;
+                this.columnACHUploadCCDCredit.AllowDBNull = false;
+                this.columnACHTemplatePPDDebit.AllowDBNull = false;
+                this.columnACHTemplatePPDCredit.AllowDBNull = false;
+                this.columnACHTemplateCCDDebit.AllowDBNull = false;
+                this.columnACHTemplateCCDCredit.AllowDBNull = false;
+                this.columnACHSftpPPDDebit.AllowDBNull = false;
+                this.columnACHSftpPPDCredit.AllowDBNull = false;
+                this.columnACHSftpCCDDebit.AllowDBNull = false;
+                this.columnACHSftpCCDCredit.AllowDBNull = false;
+                this.columnACHWebPPDDebit.AllowDBNull = false;
+                this.columnOwnerName.Caption = "LastName";
+                this.columnOwnerName.MaxLength = 255;
+                this.columnContactName.Caption = "LastName";
+                this.columnContactName.MaxLength = 255;
+                this.columnContactEmail.Caption = "LastName";
+                this.columnContactEmail.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AchReportDatasetRow NewAchReportDatasetRow() {
+                return ((AchReportDatasetRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new AchReportDatasetRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(AchReportDatasetRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.AchReportDatasetRowChanged != null)) {
+                    this.AchReportDatasetRowChanged(this, new AchReportDatasetRowChangeEvent(((AchReportDatasetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.AchReportDatasetRowChanging != null)) {
+                    this.AchReportDatasetRowChanging(this, new AchReportDatasetRowChangeEvent(((AchReportDatasetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.AchReportDatasetRowDeleted != null)) {
+                    this.AchReportDatasetRowDeleted(this, new AchReportDatasetRowChangeEvent(((AchReportDatasetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.AchReportDatasetRowDeleting != null)) {
+                    this.AchReportDatasetRowDeleting(this, new AchReportDatasetRowChangeEvent(((AchReportDatasetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveAchReportDatasetRow(AchReportDatasetRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ReportsDataSet ds = new ReportsDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "AchReportDatasetDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5358,6 +6443,149 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadPPDDebit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHUploadPPDDebitColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHUploadPPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadPPDCredit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHUploadPPDCreditColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHUploadPPDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadCCDDebit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHUploadCCDDebitColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHUploadCCDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadCCDCredit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHUploadCCDCreditColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHUploadCCDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplatePPDDebit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHTemplatePPDDebitColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHTemplatePPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplatePPDCredit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHTemplatePPDCreditColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHTemplatePPDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplateCCDDebit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHTemplateCCDDebitColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHTemplateCCDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplateCCDCredit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHTemplateCCDCreditColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHTemplateCCDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpPPDDebit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHSftpPPDDebitColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHSftpPPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpPPDCredit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHSftpPPDCreditColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHSftpPPDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpCCDDebit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHSftpCCDDebitColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHSftpCCDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpCCDCredit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHSftpCCDCreditColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHSftpCCDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHWebPPDDebit {
+                get {
+                    return ((bool)(this[this.tableProjects.ACHWebPPDDebitColumn]));
+                }
+                set {
+                    this[this.tableProjects.ACHWebPPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProjectNameNull() {
                 return this.IsNull(this.tableProjects.ProjectNameColumn);
             }
@@ -7123,6 +8351,850 @@ namespace AllianceAssociationBank.Crm.Reports {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class AchReportDatasetRow : global::System.Data.DataRow {
+            
+            private AchReportDatasetDataTable tableAchReportDataset;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal AchReportDatasetRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAchReportDataset = ((AchReportDatasetDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableAchReportDataset.IDColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ProjectName {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.ProjectNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProjectName\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ProjectNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Institution {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.InstitutionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Institution\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.InstitutionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Address {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.AddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string City {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.CityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'City\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.CityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string State {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.StateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'State\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.StateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ZipCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.ZipCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ZipCode\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ZipCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string TIN {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.TINColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TIN\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.TINColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Fax {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.FaxColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fax\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.FaxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Phone {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.PhoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.PhoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DICompanyID {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.DICompanyIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DICompanyID\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.DICompanyIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHPassThru {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAchReportDataset.ACHPassThruColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHPassThru\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHPassThruColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHBatches {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAchReportDataset.ACHBatchesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHBatches\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHBatchesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal ACHSystemLimit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableAchReportDataset.ACHSystemLimitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHSystemLimit\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHSystemLimitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal ACHLimit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableAchReportDataset.ACHLimitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHLimit\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHLimitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal ACHEstimatedDeposits {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableAchReportDataset.ACHEstimatedDepositsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHEstimatedDeposits\' in table \'AchReportDataset\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHEstimatedDepositsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime OriginalReviewDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAchReportDataset.OriginalReviewDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OriginalReviewDate\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.OriginalReviewDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime LastReviewDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAchReportDataset.LastReviewDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastReviewDate\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.LastReviewDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Balanced {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAchReportDataset.BalancedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Balanced\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.BalancedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Narrative {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.NarrativeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Narrative\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.NarrativeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ACHReviewOfHistoricPerformance {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.ACHReviewOfHistoricPerformanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHReviewOfHistoricPerformance\' in table \'AchReportDataset\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHReviewOfHistoricPerformanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ACHSpectFormInstructions {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.ACHSpectFormInstructionsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHSpectFormInstructions\' in table \'AchReportDataset\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHSpectFormInstructionsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadPPDDebit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHUploadPPDDebitColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHUploadPPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadPPDCredit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHUploadPPDCreditColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHUploadPPDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadCCDDebit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHUploadCCDDebitColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHUploadCCDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHUploadCCDCredit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHUploadCCDCreditColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHUploadCCDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplatePPDDebit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHTemplatePPDDebitColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHTemplatePPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplatePPDCredit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHTemplatePPDCreditColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHTemplatePPDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplateCCDDebit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHTemplateCCDDebitColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHTemplateCCDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHTemplateCCDCredit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHTemplateCCDCreditColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHTemplateCCDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpPPDDebit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHSftpPPDDebitColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHSftpPPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpPPDCredit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHSftpPPDCreditColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHSftpPPDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpCCDDebit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHSftpCCDDebitColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHSftpCCDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHSftpCCDCredit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHSftpCCDCreditColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHSftpCCDCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHWebPPDDebit {
+                get {
+                    return ((bool)(this[this.tableAchReportDataset.ACHWebPPDDebitColumn]));
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHWebPPDDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string OwnerName {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.OwnerNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OwnerName\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.OwnerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ContactName {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.ContactNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContactName\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ContactNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ContactEmail {
+                get {
+                    try {
+                        return ((string)(this[this.tableAchReportDataset.ContactEmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContactEmail\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ContactEmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsProjectNameNull() {
+                return this.IsNull(this.tableAchReportDataset.ProjectNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetProjectNameNull() {
+                this[this.tableAchReportDataset.ProjectNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsInstitutionNull() {
+                return this.IsNull(this.tableAchReportDataset.InstitutionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetInstitutionNull() {
+                this[this.tableAchReportDataset.InstitutionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAddressNull() {
+                return this.IsNull(this.tableAchReportDataset.AddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAddressNull() {
+                this[this.tableAchReportDataset.AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCityNull() {
+                return this.IsNull(this.tableAchReportDataset.CityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCityNull() {
+                this[this.tableAchReportDataset.CityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsStateNull() {
+                return this.IsNull(this.tableAchReportDataset.StateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetStateNull() {
+                this[this.tableAchReportDataset.StateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsZipCodeNull() {
+                return this.IsNull(this.tableAchReportDataset.ZipCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetZipCodeNull() {
+                this[this.tableAchReportDataset.ZipCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTINNull() {
+                return this.IsNull(this.tableAchReportDataset.TINColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTINNull() {
+                this[this.tableAchReportDataset.TINColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFaxNull() {
+                return this.IsNull(this.tableAchReportDataset.FaxColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFaxNull() {
+                this[this.tableAchReportDataset.FaxColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPhoneNull() {
+                return this.IsNull(this.tableAchReportDataset.PhoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPhoneNull() {
+                this[this.tableAchReportDataset.PhoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDICompanyIDNull() {
+                return this.IsNull(this.tableAchReportDataset.DICompanyIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDICompanyIDNull() {
+                this[this.tableAchReportDataset.DICompanyIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHPassThruNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHPassThruColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHPassThruNull() {
+                this[this.tableAchReportDataset.ACHPassThruColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHBatchesNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHBatchesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHBatchesNull() {
+                this[this.tableAchReportDataset.ACHBatchesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHSystemLimitNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHSystemLimitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHSystemLimitNull() {
+                this[this.tableAchReportDataset.ACHSystemLimitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHLimitNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHLimitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHLimitNull() {
+                this[this.tableAchReportDataset.ACHLimitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHEstimatedDepositsNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHEstimatedDepositsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHEstimatedDepositsNull() {
+                this[this.tableAchReportDataset.ACHEstimatedDepositsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsOriginalReviewDateNull() {
+                return this.IsNull(this.tableAchReportDataset.OriginalReviewDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetOriginalReviewDateNull() {
+                this[this.tableAchReportDataset.OriginalReviewDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLastReviewDateNull() {
+                return this.IsNull(this.tableAchReportDataset.LastReviewDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLastReviewDateNull() {
+                this[this.tableAchReportDataset.LastReviewDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsBalancedNull() {
+                return this.IsNull(this.tableAchReportDataset.BalancedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetBalancedNull() {
+                this[this.tableAchReportDataset.BalancedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsNarrativeNull() {
+                return this.IsNull(this.tableAchReportDataset.NarrativeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetNarrativeNull() {
+                this[this.tableAchReportDataset.NarrativeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHReviewOfHistoricPerformanceNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHReviewOfHistoricPerformanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHReviewOfHistoricPerformanceNull() {
+                this[this.tableAchReportDataset.ACHReviewOfHistoricPerformanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHSpectFormInstructionsNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHSpectFormInstructionsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHSpectFormInstructionsNull() {
+                this[this.tableAchReportDataset.ACHSpectFormInstructionsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsOwnerNameNull() {
+                return this.IsNull(this.tableAchReportDataset.OwnerNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetOwnerNameNull() {
+                this[this.tableAchReportDataset.OwnerNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsContactNameNull() {
+                return this.IsNull(this.tableAchReportDataset.ContactNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetContactNameNull() {
+                this[this.tableAchReportDataset.ContactNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsContactEmailNull() {
+                return this.IsNull(this.tableAchReportDataset.ContactEmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetContactEmailNull() {
+                this[this.tableAchReportDataset.ContactEmailColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -7210,6 +9282,40 @@ namespace AllianceAssociationBank.Crm.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public EmployeesDatasetRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class AchReportDatasetRowChangeEvent : global::System.EventArgs {
+            
+            private AchReportDatasetRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AchReportDatasetRowChangeEvent(AchReportDatasetRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AchReportDatasetRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7482,74 +9588,93 @@ namespace AllianceAssociationBank.Crm.Reports.ReportsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("OtherName", "OtherName");
             tableMapping.ColumnMappings.Add("RelationshipRate", "RelationshipRate");
             tableMapping.ColumnMappings.Add("LockboxNotes", "LockboxNotes");
+            tableMapping.ColumnMappings.Add("ACHUploadPPDDebit", "ACHUploadPPDDebit");
+            tableMapping.ColumnMappings.Add("ACHUploadPPDCredit", "ACHUploadPPDCredit");
+            tableMapping.ColumnMappings.Add("ACHUploadCCDDebit", "ACHUploadCCDDebit");
+            tableMapping.ColumnMappings.Add("ACHUploadCCDCredit", "ACHUploadCCDCredit");
+            tableMapping.ColumnMappings.Add("ACHTemplatePPDDebit", "ACHTemplatePPDDebit");
+            tableMapping.ColumnMappings.Add("ACHTemplatePPDCredit", "ACHTemplatePPDCredit");
+            tableMapping.ColumnMappings.Add("ACHTemplateCCDDebit", "ACHTemplateCCDDebit");
+            tableMapping.ColumnMappings.Add("ACHTemplateCCDCredit", "ACHTemplateCCDCredit");
+            tableMapping.ColumnMappings.Add("ACHSftpPPDDebit", "ACHSftpPPDDebit");
+            tableMapping.ColumnMappings.Add("ACHSftpPPDCredit", "ACHSftpPPDCredit");
+            tableMapping.ColumnMappings.Add("ACHSftpCCDDebit", "ACHSftpCCDDebit");
+            tableMapping.ColumnMappings.Add("ACHSftpCCDCredit", "ACHSftpCCDCredit");
+            tableMapping.ColumnMappings.Add("ACHWebPPDDebit", "ACHWebPPDDebit");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Projects] WHERE (([ID] = @Original_ID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Projects] WHERE (([ID] = @Original_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Projects] ([ProjectName], [Institution], [OwnerID], [AFPID], [" +
-                "BoardingManagerID], [Category], [Priority], [Status], [StartDate], [EndDate], [T" +
-                "argetLockboxLiveDate], [Notes], [Attachments], [Address], [City], [State], [ZipC" +
-                "ode], [MailingAddress], [MailingCity], [MailingState], [MailingZipCode], [Websit" +
-                "e], [TIN], [DBA], [Fax], [Phone], [Type], [TimeZone], [Software], [NumberOfAssoc" +
-                "iations], [NumberOfDoors], [EstimatedDeposits], [ActualDeposits], [CODRate], [Ra" +
-                "teNotes], [LockboxCMCID], [POBoxSize], [POBoxLine1], [POBoxZipCode], [ScannlineN" +
-                "otes], [EnrollmentFormReceived], [MasterSigCardReceived], [WelcomeEmailSent], [A" +
-                "ssociationListReceived], [AssociationAccountsAssigned], [MgmtCompanyAgreemetnsRe" +
-                "ceived], [AssociationSignatureCardsSent], [LockboxWanted], [ValidationFileReceiv" +
-                "ed], [ValidationFileAutomaticRegular], [ValidationFileNotes], [ValidationFileBul" +
-                "kImporterUsed], [CouponPrintingNotes], [RemitanceFileTested], [RemitanceFileLife" +
-                "], [LockboxRequestSent], [POBoxAssigned], [ScannerWanted], [MMOnCheckScanner], [" +
-                "ScannerSent], [ScannerAQ2SetupRequested], [ScannerLive], [ACHLimitAndSpecSubmitt" +
-                "ed], [ACHSuccessfulSubmitted], [OnlineBankingSetup], [OnlineBankingTrained], [Co" +
-                "uponsOrdered], [CouponProofReviewed], [CouponVender], [CouponVenderNumber], [Dir" +
-                "ectDepositPayroll], [DirectDebitCollection], [DirectCreditPayments], [DirectDebi" +
-                "tBusinessCCD], [ConsumerDebitWeb], [ScannerModel], [ScannerSerialNumber], [Scann" +
-                "erProvider], [BoardingNextSteps], [BoardingNotes], [Ports], [DICompanyID], [DICo" +
-                "mpanyPassword], [SftpFolderName], [SftpGeneralUserName], [SftpGeneralUserPasswor" +
-                "d], [ACHPassThru], [ACHBatches], [WireTransferTemplates], [ACHEstimatedDeposits]" +
-                ", [ACHEstimatedDepositsDate], [ACHLimit], [ACHSystemLimit], [OriginalReviewDate]" +
-                ", [LastReviewDate], [ACHReviewNotes], [ACHSpectFormInstructions], [ACHReviewOfHi" +
-                "storicPerformance], [ACHDualApproval], [ACHOneTimePasscode], [StatementEmail], [" +
-                "LockboxEmail], [ACHEmail], [AuditNote], [CIPReviewed], [CIPGood], [HasCorporateA" +
-                "ccounts], [CorporateAccounts], [XmlAutoReconSetup], [XmlAutoReconConfirmedUse], " +
-                "[XmlAutoReconSentDate], [Narrative], [Strongroom], [EStatements], [SftpUsage], [" +
-                "XmlUsage], [FacsimileSignature], [ACHReportLaruName], [Balanced], [LockboxLiveDa" +
-                "te], [LockboxStatus], [LockboxSystem], [SftpWithFile], [SftpManual], [SftpPath]," +
-                " [ReformatAQ2ID], [ReformatECPID], [ReformatByAssoc], [MigratingToSoftware], [Ot" +
-                "herName], [RelationshipRate], [LockboxNotes]) VALUES (@ProjectName, @Institution" +
-                ", @OwnerID, @AFPID, @BoardingManagerID, @Category, @Priority, @Status, @StartDat" +
-                "e, @EndDate, @TargetLockboxLiveDate, @Notes, @Attachments, @Address, @City, @Sta" +
-                "te, @ZipCode, @MailingAddress, @MailingCity, @MailingState, @MailingZipCode, @We" +
-                "bsite, @TIN, @DBA, @Fax, @Phone, @Type, @TimeZone, @Software, @NumberOfAssociati" +
-                "ons, @NumberOfDoors, @EstimatedDeposits, @ActualDeposits, @CODRate, @RateNotes, " +
-                "@LockboxCMCID, @POBoxSize, @POBoxLine1, @POBoxZipCode, @ScannlineNotes, @Enrollm" +
-                "entFormReceived, @MasterSigCardReceived, @WelcomeEmailSent, @AssociationListRece" +
-                "ived, @AssociationAccountsAssigned, @MgmtCompanyAgreemetnsReceived, @Association" +
-                "SignatureCardsSent, @LockboxWanted, @ValidationFileReceived, @ValidationFileAuto" +
-                "maticRegular, @ValidationFileNotes, @ValidationFileBulkImporterUsed, @CouponPrin" +
-                "tingNotes, @RemitanceFileTested, @RemitanceFileLife, @LockboxRequestSent, @POBox" +
-                "Assigned, @ScannerWanted, @MMOnCheckScanner, @ScannerSent, @ScannerAQ2SetupReque" +
-                "sted, @ScannerLive, @ACHLimitAndSpecSubmitted, @ACHSuccessfulSubmitted, @OnlineB" +
-                "ankingSetup, @OnlineBankingTrained, @CouponsOrdered, @CouponProofReviewed, @Coup" +
-                "onVender, @CouponVenderNumber, @DirectDepositPayroll, @DirectDebitCollection, @D" +
-                "irectCreditPayments, @DirectDebitBusinessCCD, @ConsumerDebitWeb, @ScannerModel, " +
-                "@ScannerSerialNumber, @ScannerProvider, @BoardingNextSteps, @BoardingNotes, @Por" +
-                "ts, @DICompanyID, @DICompanyPassword, @SftpFolderName, @SftpGeneralUserName, @Sf" +
-                "tpGeneralUserPassword, @ACHPassThru, @ACHBatches, @WireTransferTemplates, @ACHEs" +
-                "timatedDeposits, @ACHEstimatedDepositsDate, @ACHLimit, @ACHSystemLimit, @Origina" +
-                "lReviewDate, @LastReviewDate, @ACHReviewNotes, @ACHSpectFormInstructions, @ACHRe" +
-                "viewOfHistoricPerformance, @ACHDualApproval, @ACHOneTimePasscode, @StatementEmai" +
-                "l, @LockboxEmail, @ACHEmail, @AuditNote, @CIPReviewed, @CIPGood, @HasCorporateAc" +
-                "counts, @CorporateAccounts, @XmlAutoReconSetup, @XmlAutoReconConfirmedUse, @XmlA" +
-                "utoReconSentDate, @Narrative, @Strongroom, @EStatements, @SftpUsage, @XmlUsage, " +
-                "@FacsimileSignature, @ACHReportLaruName, @Balanced, @LockboxLiveDate, @LockboxSt" +
-                "atus, @LockboxSystem, @SftpWithFile, @SftpManual, @SftpPath, @ReformatAQ2ID, @Re" +
-                "formatECPID, @ReformatByAssoc, @MigratingToSoftware, @OtherName, @RelationshipRa" +
-                "te, @LockboxNotes)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Projects] ([ProjectName], [Institution], [OwnerID], [AFPID], [Boardi" +
+                "ngManagerID], [Category], [Priority], [Status], [StartDate], [EndDate], [TargetL" +
+                "ockboxLiveDate], [Notes], [Attachments], [Address], [City], [State], [ZipCode], " +
+                "[MailingAddress], [MailingCity], [MailingState], [MailingZipCode], [Website], [T" +
+                "IN], [DBA], [Fax], [Phone], [Type], [TimeZone], [Software], [NumberOfAssociation" +
+                "s], [NumberOfDoors], [EstimatedDeposits], [ActualDeposits], [CODRate], [RateNote" +
+                "s], [LockboxCMCID], [POBoxSize], [POBoxLine1], [POBoxZipCode], [ScannlineNotes]," +
+                " [EnrollmentFormReceived], [MasterSigCardReceived], [WelcomeEmailSent], [Associa" +
+                "tionListReceived], [AssociationAccountsAssigned], [MgmtCompanyAgreemetnsReceived" +
+                "], [AssociationSignatureCardsSent], [LockboxWanted], [ValidationFileReceived], [" +
+                "ValidationFileAutomaticRegular], [ValidationFileNotes], [ValidationFileBulkImpor" +
+                "terUsed], [CouponPrintingNotes], [RemitanceFileTested], [RemitanceFileLife], [Lo" +
+                "ckboxRequestSent], [POBoxAssigned], [ScannerWanted], [MMOnCheckScanner], [Scanne" +
+                "rSent], [ScannerAQ2SetupRequested], [ScannerLive], [ACHLimitAndSpecSubmitted], [" +
+                "ACHSuccessfulSubmitted], [OnlineBankingSetup], [OnlineBankingTrained], [CouponsO" +
+                "rdered], [CouponProofReviewed], [CouponVender], [CouponVenderNumber], [DirectDep" +
+                "ositPayroll], [DirectDebitCollection], [DirectCreditPayments], [DirectDebitBusin" +
+                "essCCD], [ConsumerDebitWeb], [ScannerModel], [ScannerSerialNumber], [ScannerProv" +
+                "ider], [BoardingNextSteps], [BoardingNotes], [Ports], [DICompanyID], [DICompanyP" +
+                "assword], [SftpFolderName], [SftpGeneralUserName], [SftpGeneralUserPassword], [A" +
+                "CHPassThru], [ACHBatches], [WireTransferTemplates], [ACHEstimatedDeposits], [ACH" +
+                "EstimatedDepositsDate], [ACHLimit], [ACHSystemLimit], [OriginalReviewDate], [Las" +
+                "tReviewDate], [ACHReviewNotes], [ACHSpectFormInstructions], [ACHReviewOfHistoric" +
+                "Performance], [ACHDualApproval], [ACHOneTimePasscode], [StatementEmail], [Lockbo" +
+                "xEmail], [ACHEmail], [AuditNote], [CIPReviewed], [CIPGood], [HasCorporateAccount" +
+                "s], [CorporateAccounts], [XmlAutoReconSetup], [XmlAutoReconConfirmedUse], [XmlAu" +
+                "toReconSentDate], [Narrative], [Strongroom], [EStatements], [SftpUsage], [XmlUsa" +
+                "ge], [FacsimileSignature], [ACHReportLaruName], [Balanced], [LockboxLiveDate], [" +
+                "LockboxStatus], [LockboxSystem], [SftpWithFile], [SftpManual], [SftpPath], [Refo" +
+                "rmatAQ2ID], [ReformatECPID], [ReformatByAssoc], [MigratingToSoftware], [OtherNam" +
+                "e], [RelationshipRate], [LockboxNotes], [ACHUploadPPDDebit], [ACHUploadPPDCredit" +
+                "], [ACHUploadCCDDebit], [ACHUploadCCDCredit], [ACHTemplatePPDDebit], [ACHTemplat" +
+                "ePPDCredit], [ACHTemplateCCDDebit], [ACHTemplateCCDCredit], [ACHSftpPPDDebit], [" +
+                "ACHSftpPPDCredit], [ACHSftpCCDDebit], [ACHSftpCCDCredit], [ACHWebPPDDebit]) VALU" +
+                "ES (@ProjectName, @Institution, @OwnerID, @AFPID, @BoardingManagerID, @Category," +
+                " @Priority, @Status, @StartDate, @EndDate, @TargetLockboxLiveDate, @Notes, @Atta" +
+                "chments, @Address, @City, @State, @ZipCode, @MailingAddress, @MailingCity, @Mail" +
+                "ingState, @MailingZipCode, @Website, @TIN, @DBA, @Fax, @Phone, @Type, @TimeZone," +
+                " @Software, @NumberOfAssociations, @NumberOfDoors, @EstimatedDeposits, @ActualDe" +
+                "posits, @CODRate, @RateNotes, @LockboxCMCID, @POBoxSize, @POBoxLine1, @POBoxZipC" +
+                "ode, @ScannlineNotes, @EnrollmentFormReceived, @MasterSigCardReceived, @WelcomeE" +
+                "mailSent, @AssociationListReceived, @AssociationAccountsAssigned, @MgmtCompanyAg" +
+                "reemetnsReceived, @AssociationSignatureCardsSent, @LockboxWanted, @ValidationFil" +
+                "eReceived, @ValidationFileAutomaticRegular, @ValidationFileNotes, @ValidationFil" +
+                "eBulkImporterUsed, @CouponPrintingNotes, @RemitanceFileTested, @RemitanceFileLif" +
+                "e, @LockboxRequestSent, @POBoxAssigned, @ScannerWanted, @MMOnCheckScanner, @Scan" +
+                "nerSent, @ScannerAQ2SetupRequested, @ScannerLive, @ACHLimitAndSpecSubmitted, @AC" +
+                "HSuccessfulSubmitted, @OnlineBankingSetup, @OnlineBankingTrained, @CouponsOrdere" +
+                "d, @CouponProofReviewed, @CouponVender, @CouponVenderNumber, @DirectDepositPayro" +
+                "ll, @DirectDebitCollection, @DirectCreditPayments, @DirectDebitBusinessCCD, @Con" +
+                "sumerDebitWeb, @ScannerModel, @ScannerSerialNumber, @ScannerProvider, @BoardingN" +
+                "extSteps, @BoardingNotes, @Ports, @DICompanyID, @DICompanyPassword, @SftpFolderN" +
+                "ame, @SftpGeneralUserName, @SftpGeneralUserPassword, @ACHPassThru, @ACHBatches, " +
+                "@WireTransferTemplates, @ACHEstimatedDeposits, @ACHEstimatedDepositsDate, @ACHLi" +
+                "mit, @ACHSystemLimit, @OriginalReviewDate, @LastReviewDate, @ACHReviewNotes, @AC" +
+                "HSpectFormInstructions, @ACHReviewOfHistoricPerformance, @ACHDualApproval, @ACHO" +
+                "neTimePasscode, @StatementEmail, @LockboxEmail, @ACHEmail, @AuditNote, @CIPRevie" +
+                "wed, @CIPGood, @HasCorporateAccounts, @CorporateAccounts, @XmlAutoReconSetup, @X" +
+                "mlAutoReconConfirmedUse, @XmlAutoReconSentDate, @Narrative, @Strongroom, @EState" +
+                "ments, @SftpUsage, @XmlUsage, @FacsimileSignature, @ACHReportLaruName, @Balanced" +
+                ", @LockboxLiveDate, @LockboxStatus, @LockboxSystem, @SftpWithFile, @SftpManual, " +
+                "@SftpPath, @ReformatAQ2ID, @ReformatECPID, @ReformatByAssoc, @MigratingToSoftwar" +
+                "e, @OtherName, @RelationshipRate, @LockboxNotes, @ACHUploadPPDDebit, @ACHUploadP" +
+                "PDCredit, @ACHUploadCCDDebit, @ACHUploadCCDCredit, @ACHTemplatePPDDebit, @ACHTem" +
+                "platePPDCredit, @ACHTemplateCCDDebit, @ACHTemplateCCDCredit, @ACHSftpPPDDebit, @" +
+                "ACHSftpPPDCredit, @ACHSftpCCDDebit, @ACHSftpCCDCredit, @ACHWebPPDDebit)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProjectName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProjectName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Institution", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Institution", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7683,70 +9808,89 @@ namespace AllianceAssociationBank.Crm.Reports.ReportsDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OtherName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelationshipRate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelationshipRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LockboxNotes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockboxNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadPPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadPPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadPPDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadPPDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadCCDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadCCDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadCCDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadCCDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplatePPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplatePPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplatePPDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplatePPDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplateCCDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplateCCDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplateCCDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplateCCDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpPPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpPPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpPPDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpPPDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpCCDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpCCDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpCCDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpCCDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHWebPPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHWebPPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Projects] SET [ProjectName] = @ProjectName, [Institution] = @Instit" +
-                "ution, [OwnerID] = @OwnerID, [AFPID] = @AFPID, [BoardingManagerID] = @BoardingMa" +
-                "nagerID, [Category] = @Category, [Priority] = @Priority, [Status] = @Status, [St" +
-                "artDate] = @StartDate, [EndDate] = @EndDate, [TargetLockboxLiveDate] = @TargetLo" +
-                "ckboxLiveDate, [Notes] = @Notes, [Attachments] = @Attachments, [Address] = @Addr" +
-                "ess, [City] = @City, [State] = @State, [ZipCode] = @ZipCode, [MailingAddress] = " +
-                "@MailingAddress, [MailingCity] = @MailingCity, [MailingState] = @MailingState, [" +
-                "MailingZipCode] = @MailingZipCode, [Website] = @Website, [TIN] = @TIN, [DBA] = @" +
-                "DBA, [Fax] = @Fax, [Phone] = @Phone, [Type] = @Type, [TimeZone] = @TimeZone, [So" +
-                "ftware] = @Software, [NumberOfAssociations] = @NumberOfAssociations, [NumberOfDo" +
-                "ors] = @NumberOfDoors, [EstimatedDeposits] = @EstimatedDeposits, [ActualDeposits" +
-                "] = @ActualDeposits, [CODRate] = @CODRate, [RateNotes] = @RateNotes, [LockboxCMC" +
-                "ID] = @LockboxCMCID, [POBoxSize] = @POBoxSize, [POBoxLine1] = @POBoxLine1, [POBo" +
-                "xZipCode] = @POBoxZipCode, [ScannlineNotes] = @ScannlineNotes, [EnrollmentFormRe" +
-                "ceived] = @EnrollmentFormReceived, [MasterSigCardReceived] = @MasterSigCardRecei" +
-                "ved, [WelcomeEmailSent] = @WelcomeEmailSent, [AssociationListReceived] = @Associ" +
-                "ationListReceived, [AssociationAccountsAssigned] = @AssociationAccountsAssigned," +
-                " [MgmtCompanyAgreemetnsReceived] = @MgmtCompanyAgreemetnsReceived, [AssociationS" +
-                "ignatureCardsSent] = @AssociationSignatureCardsSent, [LockboxWanted] = @LockboxW" +
-                "anted, [ValidationFileReceived] = @ValidationFileReceived, [ValidationFileAutoma" +
-                "ticRegular] = @ValidationFileAutomaticRegular, [ValidationFileNotes] = @Validati" +
-                "onFileNotes, [ValidationFileBulkImporterUsed] = @ValidationFileBulkImporterUsed," +
-                " [CouponPrintingNotes] = @CouponPrintingNotes, [RemitanceFileTested] = @Remitanc" +
-                "eFileTested, [RemitanceFileLife] = @RemitanceFileLife, [LockboxRequestSent] = @L" +
-                "ockboxRequestSent, [POBoxAssigned] = @POBoxAssigned, [ScannerWanted] = @ScannerW" +
-                "anted, [MMOnCheckScanner] = @MMOnCheckScanner, [ScannerSent] = @ScannerSent, [Sc" +
-                "annerAQ2SetupRequested] = @ScannerAQ2SetupRequested, [ScannerLive] = @ScannerLiv" +
-                "e, [ACHLimitAndSpecSubmitted] = @ACHLimitAndSpecSubmitted, [ACHSuccessfulSubmitt" +
-                "ed] = @ACHSuccessfulSubmitted, [OnlineBankingSetup] = @OnlineBankingSetup, [Onli" +
-                "neBankingTrained] = @OnlineBankingTrained, [CouponsOrdered] = @CouponsOrdered, [" +
-                "CouponProofReviewed] = @CouponProofReviewed, [CouponVender] = @CouponVender, [Co" +
-                "uponVenderNumber] = @CouponVenderNumber, [DirectDepositPayroll] = @DirectDeposit" +
-                "Payroll, [DirectDebitCollection] = @DirectDebitCollection, [DirectCreditPayments" +
-                "] = @DirectCreditPayments, [DirectDebitBusinessCCD] = @DirectDebitBusinessCCD, [" +
-                "ConsumerDebitWeb] = @ConsumerDebitWeb, [ScannerModel] = @ScannerModel, [ScannerS" +
-                "erialNumber] = @ScannerSerialNumber, [ScannerProvider] = @ScannerProvider, [Boar" +
-                "dingNextSteps] = @BoardingNextSteps, [BoardingNotes] = @BoardingNotes, [Ports] =" +
-                " @Ports, [DICompanyID] = @DICompanyID, [DICompanyPassword] = @DICompanyPassword," +
-                " [SftpFolderName] = @SftpFolderName, [SftpGeneralUserName] = @SftpGeneralUserNam" +
-                "e, [SftpGeneralUserPassword] = @SftpGeneralUserPassword, [ACHPassThru] = @ACHPas" +
-                "sThru, [ACHBatches] = @ACHBatches, [WireTransferTemplates] = @WireTransferTempla" +
-                "tes, [ACHEstimatedDeposits] = @ACHEstimatedDeposits, [ACHEstimatedDepositsDate] " +
-                "= @ACHEstimatedDepositsDate, [ACHLimit] = @ACHLimit, [ACHSystemLimit] = @ACHSyst" +
-                "emLimit, [OriginalReviewDate] = @OriginalReviewDate, [LastReviewDate] = @LastRev" +
-                "iewDate, [ACHReviewNotes] = @ACHReviewNotes, [ACHSpectFormInstructions] = @ACHSp" +
-                "ectFormInstructions, [ACHReviewOfHistoricPerformance] = @ACHReviewOfHistoricPerf" +
-                "ormance, [ACHDualApproval] = @ACHDualApproval, [ACHOneTimePasscode] = @ACHOneTim" +
-                "ePasscode, [StatementEmail] = @StatementEmail, [LockboxEmail] = @LockboxEmail, [" +
-                "ACHEmail] = @ACHEmail, [AuditNote] = @AuditNote, [CIPReviewed] = @CIPReviewed, [" +
-                "CIPGood] = @CIPGood, [HasCorporateAccounts] = @HasCorporateAccounts, [CorporateA" +
-                "ccounts] = @CorporateAccounts, [XmlAutoReconSetup] = @XmlAutoReconSetup, [XmlAut" +
-                "oReconConfirmedUse] = @XmlAutoReconConfirmedUse, [XmlAutoReconSentDate] = @XmlAu" +
-                "toReconSentDate, [Narrative] = @Narrative, [Strongroom] = @Strongroom, [EStateme" +
-                "nts] = @EStatements, [SftpUsage] = @SftpUsage, [XmlUsage] = @XmlUsage, [Facsimil" +
-                "eSignature] = @FacsimileSignature, [ACHReportLaruName] = @ACHReportLaruName, [Ba" +
-                "lanced] = @Balanced, [LockboxLiveDate] = @LockboxLiveDate, [LockboxStatus] = @Lo" +
-                "ckboxStatus, [LockboxSystem] = @LockboxSystem, [SftpWithFile] = @SftpWithFile, [" +
-                "SftpManual] = @SftpManual, [SftpPath] = @SftpPath, [ReformatAQ2ID] = @ReformatAQ" +
-                "2ID, [ReformatECPID] = @ReformatECPID, [ReformatByAssoc] = @ReformatByAssoc, [Mi" +
-                "gratingToSoftware] = @MigratingToSoftware, [OtherName] = @OtherName, [Relationsh" +
-                "ipRate] = @RelationshipRate, [LockboxNotes] = @LockboxNotes WHERE (([ID] = @Orig" +
-                "inal_ID))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Projects] SET [ProjectName] = @ProjectName, [Institution] = @Institution," +
+                " [OwnerID] = @OwnerID, [AFPID] = @AFPID, [BoardingManagerID] = @BoardingManagerI" +
+                "D, [Category] = @Category, [Priority] = @Priority, [Status] = @Status, [StartDat" +
+                "e] = @StartDate, [EndDate] = @EndDate, [TargetLockboxLiveDate] = @TargetLockboxL" +
+                "iveDate, [Notes] = @Notes, [Attachments] = @Attachments, [Address] = @Address, [" +
+                "City] = @City, [State] = @State, [ZipCode] = @ZipCode, [MailingAddress] = @Maili" +
+                "ngAddress, [MailingCity] = @MailingCity, [MailingState] = @MailingState, [Mailin" +
+                "gZipCode] = @MailingZipCode, [Website] = @Website, [TIN] = @TIN, [DBA] = @DBA, [" +
+                "Fax] = @Fax, [Phone] = @Phone, [Type] = @Type, [TimeZone] = @TimeZone, [Software" +
+                "] = @Software, [NumberOfAssociations] = @NumberOfAssociations, [NumberOfDoors] =" +
+                " @NumberOfDoors, [EstimatedDeposits] = @EstimatedDeposits, [ActualDeposits] = @A" +
+                "ctualDeposits, [CODRate] = @CODRate, [RateNotes] = @RateNotes, [LockboxCMCID] = " +
+                "@LockboxCMCID, [POBoxSize] = @POBoxSize, [POBoxLine1] = @POBoxLine1, [POBoxZipCo" +
+                "de] = @POBoxZipCode, [ScannlineNotes] = @ScannlineNotes, [EnrollmentFormReceived" +
+                "] = @EnrollmentFormReceived, [MasterSigCardReceived] = @MasterSigCardReceived, [" +
+                "WelcomeEmailSent] = @WelcomeEmailSent, [AssociationListReceived] = @AssociationL" +
+                "istReceived, [AssociationAccountsAssigned] = @AssociationAccountsAssigned, [Mgmt" +
+                "CompanyAgreemetnsReceived] = @MgmtCompanyAgreemetnsReceived, [AssociationSignatu" +
+                "reCardsSent] = @AssociationSignatureCardsSent, [LockboxWanted] = @LockboxWanted," +
+                " [ValidationFileReceived] = @ValidationFileReceived, [ValidationFileAutomaticReg" +
+                "ular] = @ValidationFileAutomaticRegular, [ValidationFileNotes] = @ValidationFile" +
+                "Notes, [ValidationFileBulkImporterUsed] = @ValidationFileBulkImporterUsed, [Coup" +
+                "onPrintingNotes] = @CouponPrintingNotes, [RemitanceFileTested] = @RemitanceFileT" +
+                "ested, [RemitanceFileLife] = @RemitanceFileLife, [LockboxRequestSent] = @Lockbox" +
+                "RequestSent, [POBoxAssigned] = @POBoxAssigned, [ScannerWanted] = @ScannerWanted," +
+                " [MMOnCheckScanner] = @MMOnCheckScanner, [ScannerSent] = @ScannerSent, [ScannerA" +
+                "Q2SetupRequested] = @ScannerAQ2SetupRequested, [ScannerLive] = @ScannerLive, [AC" +
+                "HLimitAndSpecSubmitted] = @ACHLimitAndSpecSubmitted, [ACHSuccessfulSubmitted] = " +
+                "@ACHSuccessfulSubmitted, [OnlineBankingSetup] = @OnlineBankingSetup, [OnlineBank" +
+                "ingTrained] = @OnlineBankingTrained, [CouponsOrdered] = @CouponsOrdered, [Coupon" +
+                "ProofReviewed] = @CouponProofReviewed, [CouponVender] = @CouponVender, [CouponVe" +
+                "nderNumber] = @CouponVenderNumber, [DirectDepositPayroll] = @DirectDepositPayrol" +
+                "l, [DirectDebitCollection] = @DirectDebitCollection, [DirectCreditPayments] = @D" +
+                "irectCreditPayments, [DirectDebitBusinessCCD] = @DirectDebitBusinessCCD, [Consum" +
+                "erDebitWeb] = @ConsumerDebitWeb, [ScannerModel] = @ScannerModel, [ScannerSerialN" +
+                "umber] = @ScannerSerialNumber, [ScannerProvider] = @ScannerProvider, [BoardingNe" +
+                "xtSteps] = @BoardingNextSteps, [BoardingNotes] = @BoardingNotes, [Ports] = @Port" +
+                "s, [DICompanyID] = @DICompanyID, [DICompanyPassword] = @DICompanyPassword, [Sftp" +
+                "FolderName] = @SftpFolderName, [SftpGeneralUserName] = @SftpGeneralUserName, [Sf" +
+                "tpGeneralUserPassword] = @SftpGeneralUserPassword, [ACHPassThru] = @ACHPassThru," +
+                " [ACHBatches] = @ACHBatches, [WireTransferTemplates] = @WireTransferTemplates, [" +
+                "ACHEstimatedDeposits] = @ACHEstimatedDeposits, [ACHEstimatedDepositsDate] = @ACH" +
+                "EstimatedDepositsDate, [ACHLimit] = @ACHLimit, [ACHSystemLimit] = @ACHSystemLimi" +
+                "t, [OriginalReviewDate] = @OriginalReviewDate, [LastReviewDate] = @LastReviewDat" +
+                "e, [ACHReviewNotes] = @ACHReviewNotes, [ACHSpectFormInstructions] = @ACHSpectFor" +
+                "mInstructions, [ACHReviewOfHistoricPerformance] = @ACHReviewOfHistoricPerformanc" +
+                "e, [ACHDualApproval] = @ACHDualApproval, [ACHOneTimePasscode] = @ACHOneTimePassc" +
+                "ode, [StatementEmail] = @StatementEmail, [LockboxEmail] = @LockboxEmail, [ACHEma" +
+                "il] = @ACHEmail, [AuditNote] = @AuditNote, [CIPReviewed] = @CIPReviewed, [CIPGoo" +
+                "d] = @CIPGood, [HasCorporateAccounts] = @HasCorporateAccounts, [CorporateAccount" +
+                "s] = @CorporateAccounts, [XmlAutoReconSetup] = @XmlAutoReconSetup, [XmlAutoRecon" +
+                "ConfirmedUse] = @XmlAutoReconConfirmedUse, [XmlAutoReconSentDate] = @XmlAutoReco" +
+                "nSentDate, [Narrative] = @Narrative, [Strongroom] = @Strongroom, [EStatements] =" +
+                " @EStatements, [SftpUsage] = @SftpUsage, [XmlUsage] = @XmlUsage, [FacsimileSigna" +
+                "ture] = @FacsimileSignature, [ACHReportLaruName] = @ACHReportLaruName, [Balanced" +
+                "] = @Balanced, [LockboxLiveDate] = @LockboxLiveDate, [LockboxStatus] = @LockboxS" +
+                "tatus, [LockboxSystem] = @LockboxSystem, [SftpWithFile] = @SftpWithFile, [SftpMa" +
+                "nual] = @SftpManual, [SftpPath] = @SftpPath, [ReformatAQ2ID] = @ReformatAQ2ID, [" +
+                "ReformatECPID] = @ReformatECPID, [ReformatByAssoc] = @ReformatByAssoc, [Migratin" +
+                "gToSoftware] = @MigratingToSoftware, [OtherName] = @OtherName, [RelationshipRate" +
+                "] = @RelationshipRate, [LockboxNotes] = @LockboxNotes, [ACHUploadPPDDebit] = @AC" +
+                "HUploadPPDDebit, [ACHUploadPPDCredit] = @ACHUploadPPDCredit, [ACHUploadCCDDebit]" +
+                " = @ACHUploadCCDDebit, [ACHUploadCCDCredit] = @ACHUploadCCDCredit, [ACHTemplateP" +
+                "PDDebit] = @ACHTemplatePPDDebit, [ACHTemplatePPDCredit] = @ACHTemplatePPDCredit," +
+                " [ACHTemplateCCDDebit] = @ACHTemplateCCDDebit, [ACHTemplateCCDCredit] = @ACHTemp" +
+                "lateCCDCredit, [ACHSftpPPDDebit] = @ACHSftpPPDDebit, [ACHSftpPPDCredit] = @ACHSf" +
+                "tpPPDCredit, [ACHSftpCCDDebit] = @ACHSftpCCDDebit, [ACHSftpCCDCredit] = @ACHSftp" +
+                "CCDCredit, [ACHWebPPDDebit] = @ACHWebPPDDebit WHERE (([ID] = @Original_ID))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProjectName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProjectName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Institution", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Institution", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7880,6 +10024,19 @@ namespace AllianceAssociationBank.Crm.Reports.ReportsDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OtherName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelationshipRate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelationshipRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LockboxNotes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockboxNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadPPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadPPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadPPDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadPPDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadCCDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadCCDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHUploadCCDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHUploadCCDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplatePPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplatePPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplatePPDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplatePPDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplateCCDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplateCCDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHTemplateCCDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHTemplateCCDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpPPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpPPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpPPDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpPPDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpCCDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpCCDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHSftpCCDCredit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHSftpCCDCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACHWebPPDDebit", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACHWebPPDDebit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -7896,34 +10053,41 @@ namespace AllianceAssociationBank.Crm.Reports.ReportsDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, ProjectName, Institution, OwnerID, AFPID, BoardingManagerID, Category," +
-                " Priority, Status, StartDate, EndDate, TargetLockboxLiveDate, Notes, Attachments" +
-                ", Address, City, State, ZipCode, MailingAddress, MailingCity, MailingState, Mail" +
-                "ingZipCode, Website, TIN, DBA, Fax, Phone, Type, TimeZone, Software, NumberOfAss" +
-                "ociations, NumberOfDoors, EstimatedDeposits, ActualDeposits, CODRate, RateNotes," +
-                " LockboxCMCID, POBoxSize, POBoxLine1, POBoxZipCode, ScannlineNotes, EnrollmentFo" +
-                "rmReceived, MasterSigCardReceived, WelcomeEmailSent, AssociationListReceived, As" +
-                "sociationAccountsAssigned, MgmtCompanyAgreemetnsReceived, AssociationSignatureCa" +
-                "rdsSent, LockboxWanted, ValidationFileReceived, ValidationFileAutomaticRegular, " +
-                "ValidationFileNotes, ValidationFileBulkImporterUsed, CouponPrintingNotes, Remita" +
-                "nceFileTested, RemitanceFileLife, LockboxRequestSent, POBoxAssigned, ScannerWant" +
-                "ed, MMOnCheckScanner, ScannerSent, ScannerAQ2SetupRequested, ScannerLive, ACHLim" +
-                "itAndSpecSubmitted, ACHSuccessfulSubmitted, OnlineBankingSetup, OnlineBankingTra" +
-                "ined, CouponsOrdered, CouponProofReviewed, CouponVender, CouponVenderNumber, Dir" +
-                "ectDepositPayroll, DirectDebitCollection, DirectCreditPayments, DirectDebitBusin" +
-                "essCCD, ConsumerDebitWeb, ScannerModel, ScannerSerialNumber, ScannerProvider, Bo" +
-                "ardingNextSteps, BoardingNotes, Ports, DICompanyID, DICompanyPassword, SftpFolde" +
-                "rName, SftpGeneralUserName, SftpGeneralUserPassword, ACHPassThru, ACHBatches, Wi" +
-                "reTransferTemplates, ACHEstimatedDeposits, ACHEstimatedDepositsDate, ACHLimit, A" +
-                "CHSystemLimit, OriginalReviewDate, LastReviewDate, ACHReviewNotes, ACHSpectFormI" +
-                "nstructions, ACHReviewOfHistoricPerformance, ACHDualApproval, ACHOneTimePasscode" +
-                ", StatementEmail, LockboxEmail, ACHEmail, AuditNote, CIPReviewed, CIPGood, HasCo" +
-                "rporateAccounts, CorporateAccounts, XmlAutoReconSetup, XmlAutoReconConfirmedUse," +
-                " XmlAutoReconSentDate, Narrative, Strongroom, EStatements, SftpUsage, XmlUsage, " +
-                "FacsimileSignature, ACHReportLaruName, Balanced, LockboxLiveDate, LockboxStatus," +
-                " LockboxSystem, SftpWithFile, SftpManual, SftpPath, ReformatAQ2ID, ReformatECPID" +
-                ", ReformatByAssoc, MigratingToSoftware, OtherName, RelationshipRate, LockboxNote" +
-                "s FROM dbo.Projects";
+            this._commandCollection[0].CommandText = "SELECT        ID, ProjectName, Institution, OwnerID, AFPID, BoardingManagerID, Ca" +
+                "tegory, Priority, Status, StartDate, EndDate, TargetLockboxLiveDate, Notes, Atta" +
+                "chments, Address, City, State, ZipCode, MailingAddress, MailingCity, \r\n         " +
+                "                MailingState, MailingZipCode, Website, TIN, DBA, Fax, Phone, Typ" +
+                "e, TimeZone, Software, NumberOfAssociations, NumberOfDoors, EstimatedDeposits, A" +
+                "ctualDeposits, CODRate, RateNotes, LockboxCMCID, POBoxSize, \r\n                  " +
+                "       POBoxLine1, POBoxZipCode, ScannlineNotes, EnrollmentFormReceived, MasterS" +
+                "igCardReceived, WelcomeEmailSent, AssociationListReceived, AssociationAccountsAs" +
+                "signed, MgmtCompanyAgreemetnsReceived, \r\n                         AssociationSig" +
+                "natureCardsSent, LockboxWanted, ValidationFileReceived, ValidationFileAutomaticR" +
+                "egular, ValidationFileNotes, ValidationFileBulkImporterUsed, CouponPrintingNotes" +
+                ", RemitanceFileTested, RemitanceFileLife, \r\n                         LockboxRequ" +
+                "estSent, POBoxAssigned, ScannerWanted, MMOnCheckScanner, ScannerSent, ScannerAQ2" +
+                "SetupRequested, ScannerLive, ACHLimitAndSpecSubmitted, ACHSuccessfulSubmitted, O" +
+                "nlineBankingSetup, \r\n                         OnlineBankingTrained, CouponsOrder" +
+                "ed, CouponProofReviewed, CouponVender, CouponVenderNumber, DirectDepositPayroll," +
+                " DirectDebitCollection, DirectCreditPayments, DirectDebitBusinessCCD, ConsumerDe" +
+                "bitWeb, \r\n                         ScannerModel, ScannerSerialNumber, ScannerPro" +
+                "vider, BoardingNextSteps, BoardingNotes, Ports, DICompanyID, DICompanyPassword, " +
+                "SftpFolderName, SftpGeneralUserName, SftpGeneralUserPassword, ACHPassThru, \r\n   " +
+                "                      ACHBatches, WireTransferTemplates, ACHEstimatedDeposits, A" +
+                "CHEstimatedDepositsDate, ACHLimit, ACHSystemLimit, OriginalReviewDate, LastRevie" +
+                "wDate, ACHReviewNotes, ACHSpectFormInstructions, \r\n                         ACHR" +
+                "eviewOfHistoricPerformance, ACHDualApproval, ACHOneTimePasscode, StatementEmail," +
+                " LockboxEmail, ACHEmail, AuditNote, CIPReviewed, CIPGood, HasCorporateAccounts, " +
+                "CorporateAccounts, XmlAutoReconSetup, \r\n                         XmlAutoReconCon" +
+                "firmedUse, XmlAutoReconSentDate, Narrative, Strongroom, EStatements, SftpUsage, " +
+                "XmlUsage, FacsimileSignature, ACHReportLaruName, Balanced, LockboxLiveDate, Lock" +
+                "boxStatus, LockboxSystem, \r\n                         SftpWithFile, SftpManual, S" +
+                "ftpPath, ReformatAQ2ID, ReformatECPID, ReformatByAssoc, MigratingToSoftware, Oth" +
+                "erName, RelationshipRate, LockboxNotes, ACHUploadPPDDebit, ACHUploadPPDCredit, A" +
+                "CHUploadCCDDebit, \r\n                         ACHUploadCCDCredit, ACHTemplatePPDD" +
+                "ebit, ACHTemplatePPDCredit, ACHTemplateCCDDebit, ACHTemplateCCDCredit, ACHSftpPP" +
+                "DDebit, ACHSftpPPDCredit, ACHSftpCCDDebit, ACHSftpCCDCredit, ACHWebPPDDebit\r\nFRO" +
+                "M            Projects";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7978,1920 +10142,6 @@ namespace AllianceAssociationBank.Crm.Reports.ReportsDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string ProjectName, 
-                    string Institution, 
-                    global::System.Nullable<int> OwnerID, 
-                    global::System.Nullable<int> AFPID, 
-                    global::System.Nullable<int> BoardingManagerID, 
-                    string Category, 
-                    string Priority, 
-                    string Status, 
-                    global::System.Nullable<global::System.DateTime> StartDate, 
-                    global::System.Nullable<global::System.DateTime> EndDate, 
-                    global::System.Nullable<global::System.DateTime> TargetLockboxLiveDate, 
-                    string Notes, 
-                    string Attachments, 
-                    string Address, 
-                    string City, 
-                    string State, 
-                    string ZipCode, 
-                    string MailingAddress, 
-                    string MailingCity, 
-                    string MailingState, 
-                    string MailingZipCode, 
-                    string Website, 
-                    string TIN, 
-                    string DBA, 
-                    string Fax, 
-                    string Phone, 
-                    string Type, 
-                    string TimeZone, 
-                    string Software, 
-                    global::System.Nullable<int> NumberOfAssociations, 
-                    global::System.Nullable<int> NumberOfDoors, 
-                    global::System.Nullable<decimal> EstimatedDeposits, 
-                    global::System.Nullable<decimal> ActualDeposits, 
-                    string CODRate, 
-                    string RateNotes, 
-                    string LockboxCMCID, 
-                    string POBoxSize, 
-                    string POBoxLine1, 
-                    string POBoxZipCode, 
-                    string ScannlineNotes, 
-                    global::System.Nullable<bool> EnrollmentFormReceived, 
-                    global::System.Nullable<bool> MasterSigCardReceived, 
-                    global::System.Nullable<bool> WelcomeEmailSent, 
-                    global::System.Nullable<bool> AssociationListReceived, 
-                    global::System.Nullable<bool> AssociationAccountsAssigned, 
-                    global::System.Nullable<bool> MgmtCompanyAgreemetnsReceived, 
-                    global::System.Nullable<bool> AssociationSignatureCardsSent, 
-                    global::System.Nullable<bool> LockboxWanted, 
-                    global::System.Nullable<bool> ValidationFileReceived, 
-                    global::System.Nullable<bool> ValidationFileAutomaticRegular, 
-                    string ValidationFileNotes, 
-                    global::System.Nullable<bool> ValidationFileBulkImporterUsed, 
-                    string CouponPrintingNotes, 
-                    global::System.Nullable<bool> RemitanceFileTested, 
-                    global::System.Nullable<bool> RemitanceFileLife, 
-                    global::System.Nullable<bool> LockboxRequestSent, 
-                    global::System.Nullable<bool> POBoxAssigned, 
-                    global::System.Nullable<bool> ScannerWanted, 
-                    global::System.Nullable<bool> MMOnCheckScanner, 
-                    global::System.Nullable<bool> ScannerSent, 
-                    global::System.Nullable<bool> ScannerAQ2SetupRequested, 
-                    global::System.Nullable<bool> ScannerLive, 
-                    global::System.Nullable<bool> ACHLimitAndSpecSubmitted, 
-                    global::System.Nullable<bool> ACHSuccessfulSubmitted, 
-                    global::System.Nullable<bool> OnlineBankingSetup, 
-                    global::System.Nullable<bool> OnlineBankingTrained, 
-                    global::System.Nullable<bool> CouponsOrdered, 
-                    global::System.Nullable<bool> CouponProofReviewed, 
-                    string CouponVender, 
-                    string CouponVenderNumber, 
-                    global::System.Nullable<bool> DirectDepositPayroll, 
-                    global::System.Nullable<bool> DirectDebitCollection, 
-                    global::System.Nullable<bool> DirectCreditPayments, 
-                    global::System.Nullable<bool> DirectDebitBusinessCCD, 
-                    global::System.Nullable<bool> ConsumerDebitWeb, 
-                    string ScannerModel, 
-                    string ScannerSerialNumber, 
-                    string ScannerProvider, 
-                    string BoardingNextSteps, 
-                    string BoardingNotes, 
-                    string Ports, 
-                    string DICompanyID, 
-                    string DICompanyPassword, 
-                    string SftpFolderName, 
-                    string SftpGeneralUserName, 
-                    string SftpGeneralUserPassword, 
-                    global::System.Nullable<bool> ACHPassThru, 
-                    global::System.Nullable<bool> ACHBatches, 
-                    global::System.Nullable<bool> WireTransferTemplates, 
-                    global::System.Nullable<decimal> ACHEstimatedDeposits, 
-                    global::System.Nullable<global::System.DateTime> ACHEstimatedDepositsDate, 
-                    global::System.Nullable<decimal> ACHLimit, 
-                    global::System.Nullable<decimal> ACHSystemLimit, 
-                    global::System.Nullable<global::System.DateTime> OriginalReviewDate, 
-                    global::System.Nullable<global::System.DateTime> LastReviewDate, 
-                    string ACHReviewNotes, 
-                    string ACHSpectFormInstructions, 
-                    string ACHReviewOfHistoricPerformance, 
-                    global::System.Nullable<bool> ACHDualApproval, 
-                    global::System.Nullable<bool> ACHOneTimePasscode, 
-                    string StatementEmail, 
-                    string LockboxEmail, 
-                    string ACHEmail, 
-                    string AuditNote, 
-                    string CIPReviewed, 
-                    global::System.Nullable<bool> CIPGood, 
-                    global::System.Nullable<bool> HasCorporateAccounts, 
-                    string CorporateAccounts, 
-                    global::System.Nullable<bool> XmlAutoReconSetup, 
-                    global::System.Nullable<bool> XmlAutoReconConfirmedUse, 
-                    global::System.Nullable<global::System.DateTime> XmlAutoReconSentDate, 
-                    string Narrative, 
-                    global::System.Nullable<bool> Strongroom, 
-                    global::System.Nullable<bool> EStatements, 
-                    string SftpUsage, 
-                    string XmlUsage, 
-                    global::System.Nullable<bool> FacsimileSignature, 
-                    string ACHReportLaruName, 
-                    global::System.Nullable<bool> Balanced, 
-                    global::System.Nullable<global::System.DateTime> LockboxLiveDate, 
-                    string LockboxStatus, 
-                    string LockboxSystem, 
-                    global::System.Nullable<bool> SftpWithFile, 
-                    global::System.Nullable<bool> SftpManual, 
-                    string SftpPath, 
-                    global::System.Nullable<int> ReformatAQ2ID, 
-                    global::System.Nullable<int> ReformatECPID, 
-                    global::System.Nullable<bool> ReformatByAssoc, 
-                    string MigratingToSoftware, 
-                    string OtherName, 
-                    string RelationshipRate, 
-                    string LockboxNotes) {
-            if ((ProjectName == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ProjectName));
-            }
-            if ((Institution == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Institution));
-            }
-            if ((OwnerID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(OwnerID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((AFPID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(AFPID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((BoardingManagerID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(BoardingManagerID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Category == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Category));
-            }
-            if ((Priority == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Priority));
-            }
-            if ((Status == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Status));
-            }
-            if ((StartDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(StartDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((EndDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(EndDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((TargetLockboxLiveDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(TargetLockboxLiveDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Notes == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Notes));
-            }
-            if ((Attachments == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Attachments));
-            }
-            if ((Address == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Address));
-            }
-            if ((City == null)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(City));
-            }
-            if ((State == null)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(State));
-            }
-            if ((ZipCode == null)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(ZipCode));
-            }
-            if ((MailingAddress == null)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(MailingAddress));
-            }
-            if ((MailingCity == null)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(MailingCity));
-            }
-            if ((MailingState == null)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(MailingState));
-            }
-            if ((MailingZipCode == null)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(MailingZipCode));
-            }
-            if ((Website == null)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(Website));
-            }
-            if ((TIN == null)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(TIN));
-            }
-            if ((DBA == null)) {
-                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(DBA));
-            }
-            if ((Fax == null)) {
-                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(Fax));
-            }
-            if ((Phone == null)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(Phone));
-            }
-            if ((Type == null)) {
-                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(Type));
-            }
-            if ((TimeZone == null)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(TimeZone));
-            }
-            if ((Software == null)) {
-                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(Software));
-            }
-            if ((NumberOfAssociations.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((int)(NumberOfAssociations.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((NumberOfDoors.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((int)(NumberOfDoors.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            if ((EstimatedDeposits.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(EstimatedDeposits.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((ActualDeposits.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((decimal)(ActualDeposits.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((CODRate == null)) {
-                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((string)(CODRate));
-            }
-            if ((RateNotes == null)) {
-                this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[34].Value = ((string)(RateNotes));
-            }
-            if ((LockboxCMCID == null)) {
-                this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[35].Value = ((string)(LockboxCMCID));
-            }
-            if ((POBoxSize == null)) {
-                this.Adapter.InsertCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[36].Value = ((string)(POBoxSize));
-            }
-            if ((POBoxLine1 == null)) {
-                this.Adapter.InsertCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[37].Value = ((string)(POBoxLine1));
-            }
-            if ((POBoxZipCode == null)) {
-                this.Adapter.InsertCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[38].Value = ((string)(POBoxZipCode));
-            }
-            if ((ScannlineNotes == null)) {
-                this.Adapter.InsertCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[39].Value = ((string)(ScannlineNotes));
-            }
-            if ((EnrollmentFormReceived.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[40].Value = ((bool)(EnrollmentFormReceived.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            if ((MasterSigCardReceived.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[41].Value = ((bool)(MasterSigCardReceived.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
-            }
-            if ((WelcomeEmailSent.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[42].Value = ((bool)(WelcomeEmailSent.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            if ((AssociationListReceived.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[43].Value = ((bool)(AssociationListReceived.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            if ((AssociationAccountsAssigned.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[44].Value = ((bool)(AssociationAccountsAssigned.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
-            }
-            if ((MgmtCompanyAgreemetnsReceived.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[45].Value = ((bool)(MgmtCompanyAgreemetnsReceived.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
-            }
-            if ((AssociationSignatureCardsSent.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[46].Value = ((bool)(AssociationSignatureCardsSent.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[46].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxWanted.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[47].Value = ((bool)(LockboxWanted.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[47].Value = global::System.DBNull.Value;
-            }
-            if ((ValidationFileReceived.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[48].Value = ((bool)(ValidationFileReceived.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[48].Value = global::System.DBNull.Value;
-            }
-            if ((ValidationFileAutomaticRegular.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[49].Value = ((bool)(ValidationFileAutomaticRegular.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[49].Value = global::System.DBNull.Value;
-            }
-            if ((ValidationFileNotes == null)) {
-                this.Adapter.InsertCommand.Parameters[50].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[50].Value = ((string)(ValidationFileNotes));
-            }
-            if ((ValidationFileBulkImporterUsed.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[51].Value = ((bool)(ValidationFileBulkImporterUsed.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[51].Value = global::System.DBNull.Value;
-            }
-            if ((CouponPrintingNotes == null)) {
-                this.Adapter.InsertCommand.Parameters[52].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[52].Value = ((string)(CouponPrintingNotes));
-            }
-            if ((RemitanceFileTested.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[53].Value = ((bool)(RemitanceFileTested.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[53].Value = global::System.DBNull.Value;
-            }
-            if ((RemitanceFileLife.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[54].Value = ((bool)(RemitanceFileLife.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[54].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxRequestSent.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[55].Value = ((bool)(LockboxRequestSent.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[55].Value = global::System.DBNull.Value;
-            }
-            if ((POBoxAssigned.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[56].Value = ((bool)(POBoxAssigned.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[56].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerWanted.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[57].Value = ((bool)(ScannerWanted.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[57].Value = global::System.DBNull.Value;
-            }
-            if ((MMOnCheckScanner.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[58].Value = ((bool)(MMOnCheckScanner.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[58].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerSent.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[59].Value = ((bool)(ScannerSent.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[59].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerAQ2SetupRequested.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[60].Value = ((bool)(ScannerAQ2SetupRequested.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[60].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerLive.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[61].Value = ((bool)(ScannerLive.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[61].Value = global::System.DBNull.Value;
-            }
-            if ((ACHLimitAndSpecSubmitted.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[62].Value = ((bool)(ACHLimitAndSpecSubmitted.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[62].Value = global::System.DBNull.Value;
-            }
-            if ((ACHSuccessfulSubmitted.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[63].Value = ((bool)(ACHSuccessfulSubmitted.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[63].Value = global::System.DBNull.Value;
-            }
-            if ((OnlineBankingSetup.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[64].Value = ((bool)(OnlineBankingSetup.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[64].Value = global::System.DBNull.Value;
-            }
-            if ((OnlineBankingTrained.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[65].Value = ((bool)(OnlineBankingTrained.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[65].Value = global::System.DBNull.Value;
-            }
-            if ((CouponsOrdered.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[66].Value = ((bool)(CouponsOrdered.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[66].Value = global::System.DBNull.Value;
-            }
-            if ((CouponProofReviewed.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[67].Value = ((bool)(CouponProofReviewed.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[67].Value = global::System.DBNull.Value;
-            }
-            if ((CouponVender == null)) {
-                this.Adapter.InsertCommand.Parameters[68].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[68].Value = ((string)(CouponVender));
-            }
-            if ((CouponVenderNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[69].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[69].Value = ((string)(CouponVenderNumber));
-            }
-            if ((DirectDepositPayroll.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[70].Value = ((bool)(DirectDepositPayroll.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[70].Value = global::System.DBNull.Value;
-            }
-            if ((DirectDebitCollection.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[71].Value = ((bool)(DirectDebitCollection.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[71].Value = global::System.DBNull.Value;
-            }
-            if ((DirectCreditPayments.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[72].Value = ((bool)(DirectCreditPayments.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[72].Value = global::System.DBNull.Value;
-            }
-            if ((DirectDebitBusinessCCD.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[73].Value = ((bool)(DirectDebitBusinessCCD.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[73].Value = global::System.DBNull.Value;
-            }
-            if ((ConsumerDebitWeb.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[74].Value = ((bool)(ConsumerDebitWeb.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[74].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerModel == null)) {
-                this.Adapter.InsertCommand.Parameters[75].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[75].Value = ((string)(ScannerModel));
-            }
-            if ((ScannerSerialNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[76].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[76].Value = ((string)(ScannerSerialNumber));
-            }
-            if ((ScannerProvider == null)) {
-                this.Adapter.InsertCommand.Parameters[77].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[77].Value = ((string)(ScannerProvider));
-            }
-            if ((BoardingNextSteps == null)) {
-                this.Adapter.InsertCommand.Parameters[78].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[78].Value = ((string)(BoardingNextSteps));
-            }
-            if ((BoardingNotes == null)) {
-                this.Adapter.InsertCommand.Parameters[79].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[79].Value = ((string)(BoardingNotes));
-            }
-            if ((Ports == null)) {
-                this.Adapter.InsertCommand.Parameters[80].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[80].Value = ((string)(Ports));
-            }
-            if ((DICompanyID == null)) {
-                this.Adapter.InsertCommand.Parameters[81].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[81].Value = ((string)(DICompanyID));
-            }
-            if ((DICompanyPassword == null)) {
-                this.Adapter.InsertCommand.Parameters[82].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[82].Value = ((string)(DICompanyPassword));
-            }
-            if ((SftpFolderName == null)) {
-                this.Adapter.InsertCommand.Parameters[83].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[83].Value = ((string)(SftpFolderName));
-            }
-            if ((SftpGeneralUserName == null)) {
-                this.Adapter.InsertCommand.Parameters[84].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[84].Value = ((string)(SftpGeneralUserName));
-            }
-            if ((SftpGeneralUserPassword == null)) {
-                this.Adapter.InsertCommand.Parameters[85].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[85].Value = ((string)(SftpGeneralUserPassword));
-            }
-            if ((ACHPassThru.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[86].Value = ((bool)(ACHPassThru.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[86].Value = global::System.DBNull.Value;
-            }
-            if ((ACHBatches.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[87].Value = ((bool)(ACHBatches.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[87].Value = global::System.DBNull.Value;
-            }
-            if ((WireTransferTemplates.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[88].Value = ((bool)(WireTransferTemplates.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[88].Value = global::System.DBNull.Value;
-            }
-            if ((ACHEstimatedDeposits.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[89].Value = ((decimal)(ACHEstimatedDeposits.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[89].Value = global::System.DBNull.Value;
-            }
-            if ((ACHEstimatedDepositsDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[90].Value = ((System.DateTime)(ACHEstimatedDepositsDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[90].Value = global::System.DBNull.Value;
-            }
-            if ((ACHLimit.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[91].Value = ((decimal)(ACHLimit.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[91].Value = global::System.DBNull.Value;
-            }
-            if ((ACHSystemLimit.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[92].Value = ((decimal)(ACHSystemLimit.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[92].Value = global::System.DBNull.Value;
-            }
-            if ((OriginalReviewDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[93].Value = ((System.DateTime)(OriginalReviewDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[93].Value = global::System.DBNull.Value;
-            }
-            if ((LastReviewDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[94].Value = ((System.DateTime)(LastReviewDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[94].Value = global::System.DBNull.Value;
-            }
-            if ((ACHReviewNotes == null)) {
-                this.Adapter.InsertCommand.Parameters[95].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[95].Value = ((string)(ACHReviewNotes));
-            }
-            if ((ACHSpectFormInstructions == null)) {
-                this.Adapter.InsertCommand.Parameters[96].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[96].Value = ((string)(ACHSpectFormInstructions));
-            }
-            if ((ACHReviewOfHistoricPerformance == null)) {
-                this.Adapter.InsertCommand.Parameters[97].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[97].Value = ((string)(ACHReviewOfHistoricPerformance));
-            }
-            if ((ACHDualApproval.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[98].Value = ((bool)(ACHDualApproval.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[98].Value = global::System.DBNull.Value;
-            }
-            if ((ACHOneTimePasscode.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[99].Value = ((bool)(ACHOneTimePasscode.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[99].Value = global::System.DBNull.Value;
-            }
-            if ((StatementEmail == null)) {
-                this.Adapter.InsertCommand.Parameters[100].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[100].Value = ((string)(StatementEmail));
-            }
-            if ((LockboxEmail == null)) {
-                this.Adapter.InsertCommand.Parameters[101].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[101].Value = ((string)(LockboxEmail));
-            }
-            if ((ACHEmail == null)) {
-                this.Adapter.InsertCommand.Parameters[102].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[102].Value = ((string)(ACHEmail));
-            }
-            if ((AuditNote == null)) {
-                this.Adapter.InsertCommand.Parameters[103].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[103].Value = ((string)(AuditNote));
-            }
-            if ((CIPReviewed == null)) {
-                this.Adapter.InsertCommand.Parameters[104].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[104].Value = ((string)(CIPReviewed));
-            }
-            if ((CIPGood.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[105].Value = ((bool)(CIPGood.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[105].Value = global::System.DBNull.Value;
-            }
-            if ((HasCorporateAccounts.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[106].Value = ((bool)(HasCorporateAccounts.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[106].Value = global::System.DBNull.Value;
-            }
-            if ((CorporateAccounts == null)) {
-                this.Adapter.InsertCommand.Parameters[107].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[107].Value = ((string)(CorporateAccounts));
-            }
-            if ((XmlAutoReconSetup.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[108].Value = ((bool)(XmlAutoReconSetup.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[108].Value = global::System.DBNull.Value;
-            }
-            if ((XmlAutoReconConfirmedUse.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[109].Value = ((bool)(XmlAutoReconConfirmedUse.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[109].Value = global::System.DBNull.Value;
-            }
-            if ((XmlAutoReconSentDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[110].Value = ((System.DateTime)(XmlAutoReconSentDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[110].Value = global::System.DBNull.Value;
-            }
-            if ((Narrative == null)) {
-                this.Adapter.InsertCommand.Parameters[111].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[111].Value = ((string)(Narrative));
-            }
-            if ((Strongroom.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[112].Value = ((bool)(Strongroom.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[112].Value = global::System.DBNull.Value;
-            }
-            if ((EStatements.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[113].Value = ((bool)(EStatements.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[113].Value = global::System.DBNull.Value;
-            }
-            if ((SftpUsage == null)) {
-                this.Adapter.InsertCommand.Parameters[114].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[114].Value = ((string)(SftpUsage));
-            }
-            if ((XmlUsage == null)) {
-                this.Adapter.InsertCommand.Parameters[115].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[115].Value = ((string)(XmlUsage));
-            }
-            if ((FacsimileSignature.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[116].Value = ((bool)(FacsimileSignature.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[116].Value = global::System.DBNull.Value;
-            }
-            if ((ACHReportLaruName == null)) {
-                this.Adapter.InsertCommand.Parameters[117].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[117].Value = ((string)(ACHReportLaruName));
-            }
-            if ((Balanced.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[118].Value = ((bool)(Balanced.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[118].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxLiveDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[119].Value = ((System.DateTime)(LockboxLiveDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[119].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxStatus == null)) {
-                this.Adapter.InsertCommand.Parameters[120].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[120].Value = ((string)(LockboxStatus));
-            }
-            if ((LockboxSystem == null)) {
-                this.Adapter.InsertCommand.Parameters[121].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[121].Value = ((string)(LockboxSystem));
-            }
-            if ((SftpWithFile.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[122].Value = ((bool)(SftpWithFile.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[122].Value = global::System.DBNull.Value;
-            }
-            if ((SftpManual.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[123].Value = ((bool)(SftpManual.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[123].Value = global::System.DBNull.Value;
-            }
-            if ((SftpPath == null)) {
-                this.Adapter.InsertCommand.Parameters[124].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[124].Value = ((string)(SftpPath));
-            }
-            if ((ReformatAQ2ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[125].Value = ((int)(ReformatAQ2ID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[125].Value = global::System.DBNull.Value;
-            }
-            if ((ReformatECPID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[126].Value = ((int)(ReformatECPID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[126].Value = global::System.DBNull.Value;
-            }
-            if ((ReformatByAssoc.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[127].Value = ((bool)(ReformatByAssoc.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[127].Value = global::System.DBNull.Value;
-            }
-            if ((MigratingToSoftware == null)) {
-                this.Adapter.InsertCommand.Parameters[128].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[128].Value = ((string)(MigratingToSoftware));
-            }
-            if ((OtherName == null)) {
-                this.Adapter.InsertCommand.Parameters[129].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[129].Value = ((string)(OtherName));
-            }
-            if ((RelationshipRate == null)) {
-                this.Adapter.InsertCommand.Parameters[130].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[130].Value = ((string)(RelationshipRate));
-            }
-            if ((LockboxNotes == null)) {
-                this.Adapter.InsertCommand.Parameters[131].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[131].Value = ((string)(LockboxNotes));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string ProjectName, 
-                    string Institution, 
-                    global::System.Nullable<int> OwnerID, 
-                    global::System.Nullable<int> AFPID, 
-                    global::System.Nullable<int> BoardingManagerID, 
-                    string Category, 
-                    string Priority, 
-                    string Status, 
-                    global::System.Nullable<global::System.DateTime> StartDate, 
-                    global::System.Nullable<global::System.DateTime> EndDate, 
-                    global::System.Nullable<global::System.DateTime> TargetLockboxLiveDate, 
-                    string Notes, 
-                    string Attachments, 
-                    string Address, 
-                    string City, 
-                    string State, 
-                    string ZipCode, 
-                    string MailingAddress, 
-                    string MailingCity, 
-                    string MailingState, 
-                    string MailingZipCode, 
-                    string Website, 
-                    string TIN, 
-                    string DBA, 
-                    string Fax, 
-                    string Phone, 
-                    string Type, 
-                    string TimeZone, 
-                    string Software, 
-                    global::System.Nullable<int> NumberOfAssociations, 
-                    global::System.Nullable<int> NumberOfDoors, 
-                    global::System.Nullable<decimal> EstimatedDeposits, 
-                    global::System.Nullable<decimal> ActualDeposits, 
-                    string CODRate, 
-                    string RateNotes, 
-                    string LockboxCMCID, 
-                    string POBoxSize, 
-                    string POBoxLine1, 
-                    string POBoxZipCode, 
-                    string ScannlineNotes, 
-                    global::System.Nullable<bool> EnrollmentFormReceived, 
-                    global::System.Nullable<bool> MasterSigCardReceived, 
-                    global::System.Nullable<bool> WelcomeEmailSent, 
-                    global::System.Nullable<bool> AssociationListReceived, 
-                    global::System.Nullable<bool> AssociationAccountsAssigned, 
-                    global::System.Nullable<bool> MgmtCompanyAgreemetnsReceived, 
-                    global::System.Nullable<bool> AssociationSignatureCardsSent, 
-                    global::System.Nullable<bool> LockboxWanted, 
-                    global::System.Nullable<bool> ValidationFileReceived, 
-                    global::System.Nullable<bool> ValidationFileAutomaticRegular, 
-                    string ValidationFileNotes, 
-                    global::System.Nullable<bool> ValidationFileBulkImporterUsed, 
-                    string CouponPrintingNotes, 
-                    global::System.Nullable<bool> RemitanceFileTested, 
-                    global::System.Nullable<bool> RemitanceFileLife, 
-                    global::System.Nullable<bool> LockboxRequestSent, 
-                    global::System.Nullable<bool> POBoxAssigned, 
-                    global::System.Nullable<bool> ScannerWanted, 
-                    global::System.Nullable<bool> MMOnCheckScanner, 
-                    global::System.Nullable<bool> ScannerSent, 
-                    global::System.Nullable<bool> ScannerAQ2SetupRequested, 
-                    global::System.Nullable<bool> ScannerLive, 
-                    global::System.Nullable<bool> ACHLimitAndSpecSubmitted, 
-                    global::System.Nullable<bool> ACHSuccessfulSubmitted, 
-                    global::System.Nullable<bool> OnlineBankingSetup, 
-                    global::System.Nullable<bool> OnlineBankingTrained, 
-                    global::System.Nullable<bool> CouponsOrdered, 
-                    global::System.Nullable<bool> CouponProofReviewed, 
-                    string CouponVender, 
-                    string CouponVenderNumber, 
-                    global::System.Nullable<bool> DirectDepositPayroll, 
-                    global::System.Nullable<bool> DirectDebitCollection, 
-                    global::System.Nullable<bool> DirectCreditPayments, 
-                    global::System.Nullable<bool> DirectDebitBusinessCCD, 
-                    global::System.Nullable<bool> ConsumerDebitWeb, 
-                    string ScannerModel, 
-                    string ScannerSerialNumber, 
-                    string ScannerProvider, 
-                    string BoardingNextSteps, 
-                    string BoardingNotes, 
-                    string Ports, 
-                    string DICompanyID, 
-                    string DICompanyPassword, 
-                    string SftpFolderName, 
-                    string SftpGeneralUserName, 
-                    string SftpGeneralUserPassword, 
-                    global::System.Nullable<bool> ACHPassThru, 
-                    global::System.Nullable<bool> ACHBatches, 
-                    global::System.Nullable<bool> WireTransferTemplates, 
-                    global::System.Nullable<decimal> ACHEstimatedDeposits, 
-                    global::System.Nullable<global::System.DateTime> ACHEstimatedDepositsDate, 
-                    global::System.Nullable<decimal> ACHLimit, 
-                    global::System.Nullable<decimal> ACHSystemLimit, 
-                    global::System.Nullable<global::System.DateTime> OriginalReviewDate, 
-                    global::System.Nullable<global::System.DateTime> LastReviewDate, 
-                    string ACHReviewNotes, 
-                    string ACHSpectFormInstructions, 
-                    string ACHReviewOfHistoricPerformance, 
-                    global::System.Nullable<bool> ACHDualApproval, 
-                    global::System.Nullable<bool> ACHOneTimePasscode, 
-                    string StatementEmail, 
-                    string LockboxEmail, 
-                    string ACHEmail, 
-                    string AuditNote, 
-                    string CIPReviewed, 
-                    global::System.Nullable<bool> CIPGood, 
-                    global::System.Nullable<bool> HasCorporateAccounts, 
-                    string CorporateAccounts, 
-                    global::System.Nullable<bool> XmlAutoReconSetup, 
-                    global::System.Nullable<bool> XmlAutoReconConfirmedUse, 
-                    global::System.Nullable<global::System.DateTime> XmlAutoReconSentDate, 
-                    string Narrative, 
-                    global::System.Nullable<bool> Strongroom, 
-                    global::System.Nullable<bool> EStatements, 
-                    string SftpUsage, 
-                    string XmlUsage, 
-                    global::System.Nullable<bool> FacsimileSignature, 
-                    string ACHReportLaruName, 
-                    global::System.Nullable<bool> Balanced, 
-                    global::System.Nullable<global::System.DateTime> LockboxLiveDate, 
-                    string LockboxStatus, 
-                    string LockboxSystem, 
-                    global::System.Nullable<bool> SftpWithFile, 
-                    global::System.Nullable<bool> SftpManual, 
-                    string SftpPath, 
-                    global::System.Nullable<int> ReformatAQ2ID, 
-                    global::System.Nullable<int> ReformatECPID, 
-                    global::System.Nullable<bool> ReformatByAssoc, 
-                    string MigratingToSoftware, 
-                    string OtherName, 
-                    string RelationshipRate, 
-                    string LockboxNotes, 
-                    int Original_ID) {
-            if ((ProjectName == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ProjectName));
-            }
-            if ((Institution == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Institution));
-            }
-            if ((OwnerID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(OwnerID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((AFPID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(AFPID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((BoardingManagerID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(BoardingManagerID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Category == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Category));
-            }
-            if ((Priority == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Priority));
-            }
-            if ((Status == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Status));
-            }
-            if ((StartDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(StartDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((EndDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(EndDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((TargetLockboxLiveDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(TargetLockboxLiveDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Notes == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Notes));
-            }
-            if ((Attachments == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Attachments));
-            }
-            if ((Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Address));
-            }
-            if ((City == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(City));
-            }
-            if ((State == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(State));
-            }
-            if ((ZipCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(ZipCode));
-            }
-            if ((MailingAddress == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(MailingAddress));
-            }
-            if ((MailingCity == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(MailingCity));
-            }
-            if ((MailingState == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(MailingState));
-            }
-            if ((MailingZipCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(MailingZipCode));
-            }
-            if ((Website == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Website));
-            }
-            if ((TIN == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(TIN));
-            }
-            if ((DBA == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(DBA));
-            }
-            if ((Fax == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Fax));
-            }
-            if ((Phone == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Phone));
-            }
-            if ((Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Type));
-            }
-            if ((TimeZone == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(TimeZone));
-            }
-            if ((Software == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Software));
-            }
-            if ((NumberOfAssociations.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(NumberOfAssociations.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((NumberOfDoors.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(NumberOfDoors.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            if ((EstimatedDeposits.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(EstimatedDeposits.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((ActualDeposits.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((decimal)(ActualDeposits.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((CODRate == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(CODRate));
-            }
-            if ((RateNotes == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(RateNotes));
-            }
-            if ((LockboxCMCID == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(LockboxCMCID));
-            }
-            if ((POBoxSize == null)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(POBoxSize));
-            }
-            if ((POBoxLine1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(POBoxLine1));
-            }
-            if ((POBoxZipCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(POBoxZipCode));
-            }
-            if ((ScannlineNotes == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(ScannlineNotes));
-            }
-            if ((EnrollmentFormReceived.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((bool)(EnrollmentFormReceived.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            if ((MasterSigCardReceived.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((bool)(MasterSigCardReceived.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
-            }
-            if ((WelcomeEmailSent.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((bool)(WelcomeEmailSent.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            if ((AssociationListReceived.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((bool)(AssociationListReceived.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            if ((AssociationAccountsAssigned.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((bool)(AssociationAccountsAssigned.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
-            }
-            if ((MgmtCompanyAgreemetnsReceived.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((bool)(MgmtCompanyAgreemetnsReceived.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
-            }
-            if ((AssociationSignatureCardsSent.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((bool)(AssociationSignatureCardsSent.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxWanted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((bool)(LockboxWanted.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
-            }
-            if ((ValidationFileReceived.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((bool)(ValidationFileReceived.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
-            }
-            if ((ValidationFileAutomaticRegular.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((bool)(ValidationFileAutomaticRegular.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
-            }
-            if ((ValidationFileNotes == null)) {
-                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(ValidationFileNotes));
-            }
-            if ((ValidationFileBulkImporterUsed.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(ValidationFileBulkImporterUsed.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
-            }
-            if ((CouponPrintingNotes == null)) {
-                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(CouponPrintingNotes));
-            }
-            if ((RemitanceFileTested.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((bool)(RemitanceFileTested.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
-            }
-            if ((RemitanceFileLife.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((bool)(RemitanceFileLife.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxRequestSent.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((bool)(LockboxRequestSent.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
-            }
-            if ((POBoxAssigned.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((bool)(POBoxAssigned.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerWanted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((bool)(ScannerWanted.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
-            }
-            if ((MMOnCheckScanner.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((bool)(MMOnCheckScanner.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerSent.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((bool)(ScannerSent.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerAQ2SetupRequested.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((bool)(ScannerAQ2SetupRequested.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerLive.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((bool)(ScannerLive.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
-            }
-            if ((ACHLimitAndSpecSubmitted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((bool)(ACHLimitAndSpecSubmitted.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
-            }
-            if ((ACHSuccessfulSubmitted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((bool)(ACHSuccessfulSubmitted.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
-            }
-            if ((OnlineBankingSetup.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((bool)(OnlineBankingSetup.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
-            }
-            if ((OnlineBankingTrained.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((bool)(OnlineBankingTrained.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
-            }
-            if ((CouponsOrdered.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((bool)(CouponsOrdered.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
-            }
-            if ((CouponProofReviewed.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((bool)(CouponProofReviewed.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
-            }
-            if ((CouponVender == null)) {
-                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(CouponVender));
-            }
-            if ((CouponVenderNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(CouponVenderNumber));
-            }
-            if ((DirectDepositPayroll.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((bool)(DirectDepositPayroll.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
-            }
-            if ((DirectDebitCollection.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((bool)(DirectDebitCollection.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
-            }
-            if ((DirectCreditPayments.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((bool)(DirectCreditPayments.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
-            }
-            if ((DirectDebitBusinessCCD.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((bool)(DirectDebitBusinessCCD.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
-            }
-            if ((ConsumerDebitWeb.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[74].Value = ((bool)(ConsumerDebitWeb.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
-            }
-            if ((ScannerModel == null)) {
-                this.Adapter.UpdateCommand.Parameters[75].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[75].Value = ((string)(ScannerModel));
-            }
-            if ((ScannerSerialNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[76].Value = ((string)(ScannerSerialNumber));
-            }
-            if ((ScannerProvider == null)) {
-                this.Adapter.UpdateCommand.Parameters[77].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[77].Value = ((string)(ScannerProvider));
-            }
-            if ((BoardingNextSteps == null)) {
-                this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[78].Value = ((string)(BoardingNextSteps));
-            }
-            if ((BoardingNotes == null)) {
-                this.Adapter.UpdateCommand.Parameters[79].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[79].Value = ((string)(BoardingNotes));
-            }
-            if ((Ports == null)) {
-                this.Adapter.UpdateCommand.Parameters[80].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[80].Value = ((string)(Ports));
-            }
-            if ((DICompanyID == null)) {
-                this.Adapter.UpdateCommand.Parameters[81].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[81].Value = ((string)(DICompanyID));
-            }
-            if ((DICompanyPassword == null)) {
-                this.Adapter.UpdateCommand.Parameters[82].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[82].Value = ((string)(DICompanyPassword));
-            }
-            if ((SftpFolderName == null)) {
-                this.Adapter.UpdateCommand.Parameters[83].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[83].Value = ((string)(SftpFolderName));
-            }
-            if ((SftpGeneralUserName == null)) {
-                this.Adapter.UpdateCommand.Parameters[84].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[84].Value = ((string)(SftpGeneralUserName));
-            }
-            if ((SftpGeneralUserPassword == null)) {
-                this.Adapter.UpdateCommand.Parameters[85].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[85].Value = ((string)(SftpGeneralUserPassword));
-            }
-            if ((ACHPassThru.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[86].Value = ((bool)(ACHPassThru.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[86].Value = global::System.DBNull.Value;
-            }
-            if ((ACHBatches.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[87].Value = ((bool)(ACHBatches.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[87].Value = global::System.DBNull.Value;
-            }
-            if ((WireTransferTemplates.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[88].Value = ((bool)(WireTransferTemplates.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[88].Value = global::System.DBNull.Value;
-            }
-            if ((ACHEstimatedDeposits.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[89].Value = ((decimal)(ACHEstimatedDeposits.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[89].Value = global::System.DBNull.Value;
-            }
-            if ((ACHEstimatedDepositsDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[90].Value = ((System.DateTime)(ACHEstimatedDepositsDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[90].Value = global::System.DBNull.Value;
-            }
-            if ((ACHLimit.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[91].Value = ((decimal)(ACHLimit.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[91].Value = global::System.DBNull.Value;
-            }
-            if ((ACHSystemLimit.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[92].Value = ((decimal)(ACHSystemLimit.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[92].Value = global::System.DBNull.Value;
-            }
-            if ((OriginalReviewDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[93].Value = ((System.DateTime)(OriginalReviewDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[93].Value = global::System.DBNull.Value;
-            }
-            if ((LastReviewDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[94].Value = ((System.DateTime)(LastReviewDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[94].Value = global::System.DBNull.Value;
-            }
-            if ((ACHReviewNotes == null)) {
-                this.Adapter.UpdateCommand.Parameters[95].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[95].Value = ((string)(ACHReviewNotes));
-            }
-            if ((ACHSpectFormInstructions == null)) {
-                this.Adapter.UpdateCommand.Parameters[96].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[96].Value = ((string)(ACHSpectFormInstructions));
-            }
-            if ((ACHReviewOfHistoricPerformance == null)) {
-                this.Adapter.UpdateCommand.Parameters[97].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[97].Value = ((string)(ACHReviewOfHistoricPerformance));
-            }
-            if ((ACHDualApproval.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[98].Value = ((bool)(ACHDualApproval.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[98].Value = global::System.DBNull.Value;
-            }
-            if ((ACHOneTimePasscode.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[99].Value = ((bool)(ACHOneTimePasscode.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[99].Value = global::System.DBNull.Value;
-            }
-            if ((StatementEmail == null)) {
-                this.Adapter.UpdateCommand.Parameters[100].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[100].Value = ((string)(StatementEmail));
-            }
-            if ((LockboxEmail == null)) {
-                this.Adapter.UpdateCommand.Parameters[101].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[101].Value = ((string)(LockboxEmail));
-            }
-            if ((ACHEmail == null)) {
-                this.Adapter.UpdateCommand.Parameters[102].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[102].Value = ((string)(ACHEmail));
-            }
-            if ((AuditNote == null)) {
-                this.Adapter.UpdateCommand.Parameters[103].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[103].Value = ((string)(AuditNote));
-            }
-            if ((CIPReviewed == null)) {
-                this.Adapter.UpdateCommand.Parameters[104].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[104].Value = ((string)(CIPReviewed));
-            }
-            if ((CIPGood.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[105].Value = ((bool)(CIPGood.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[105].Value = global::System.DBNull.Value;
-            }
-            if ((HasCorporateAccounts.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[106].Value = ((bool)(HasCorporateAccounts.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[106].Value = global::System.DBNull.Value;
-            }
-            if ((CorporateAccounts == null)) {
-                this.Adapter.UpdateCommand.Parameters[107].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[107].Value = ((string)(CorporateAccounts));
-            }
-            if ((XmlAutoReconSetup.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[108].Value = ((bool)(XmlAutoReconSetup.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[108].Value = global::System.DBNull.Value;
-            }
-            if ((XmlAutoReconConfirmedUse.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[109].Value = ((bool)(XmlAutoReconConfirmedUse.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[109].Value = global::System.DBNull.Value;
-            }
-            if ((XmlAutoReconSentDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[110].Value = ((System.DateTime)(XmlAutoReconSentDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[110].Value = global::System.DBNull.Value;
-            }
-            if ((Narrative == null)) {
-                this.Adapter.UpdateCommand.Parameters[111].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[111].Value = ((string)(Narrative));
-            }
-            if ((Strongroom.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[112].Value = ((bool)(Strongroom.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[112].Value = global::System.DBNull.Value;
-            }
-            if ((EStatements.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[113].Value = ((bool)(EStatements.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[113].Value = global::System.DBNull.Value;
-            }
-            if ((SftpUsage == null)) {
-                this.Adapter.UpdateCommand.Parameters[114].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[114].Value = ((string)(SftpUsage));
-            }
-            if ((XmlUsage == null)) {
-                this.Adapter.UpdateCommand.Parameters[115].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[115].Value = ((string)(XmlUsage));
-            }
-            if ((FacsimileSignature.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[116].Value = ((bool)(FacsimileSignature.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[116].Value = global::System.DBNull.Value;
-            }
-            if ((ACHReportLaruName == null)) {
-                this.Adapter.UpdateCommand.Parameters[117].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[117].Value = ((string)(ACHReportLaruName));
-            }
-            if ((Balanced.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[118].Value = ((bool)(Balanced.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[118].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxLiveDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[119].Value = ((System.DateTime)(LockboxLiveDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[119].Value = global::System.DBNull.Value;
-            }
-            if ((LockboxStatus == null)) {
-                this.Adapter.UpdateCommand.Parameters[120].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[120].Value = ((string)(LockboxStatus));
-            }
-            if ((LockboxSystem == null)) {
-                this.Adapter.UpdateCommand.Parameters[121].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[121].Value = ((string)(LockboxSystem));
-            }
-            if ((SftpWithFile.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[122].Value = ((bool)(SftpWithFile.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[122].Value = global::System.DBNull.Value;
-            }
-            if ((SftpManual.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[123].Value = ((bool)(SftpManual.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[123].Value = global::System.DBNull.Value;
-            }
-            if ((SftpPath == null)) {
-                this.Adapter.UpdateCommand.Parameters[124].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[124].Value = ((string)(SftpPath));
-            }
-            if ((ReformatAQ2ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[125].Value = ((int)(ReformatAQ2ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[125].Value = global::System.DBNull.Value;
-            }
-            if ((ReformatECPID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[126].Value = ((int)(ReformatECPID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[126].Value = global::System.DBNull.Value;
-            }
-            if ((ReformatByAssoc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[127].Value = ((bool)(ReformatByAssoc.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[127].Value = global::System.DBNull.Value;
-            }
-            if ((MigratingToSoftware == null)) {
-                this.Adapter.UpdateCommand.Parameters[128].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[128].Value = ((string)(MigratingToSoftware));
-            }
-            if ((OtherName == null)) {
-                this.Adapter.UpdateCommand.Parameters[129].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[129].Value = ((string)(OtherName));
-            }
-            if ((RelationshipRate == null)) {
-                this.Adapter.UpdateCommand.Parameters[130].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[130].Value = ((string)(RelationshipRate));
-            }
-            if ((LockboxNotes == null)) {
-                this.Adapter.UpdateCommand.Parameters[131].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[131].Value = ((string)(LockboxNotes));
-            }
-            this.Adapter.UpdateCommand.Parameters[132].Value = ((int)(Original_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
     }
     

@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    @*<style type="text/css" media="print">
+        @@page { size: landscape; }
+        body { padding: 20px; }
+    </style>*@
 
 </head>
 <body>
@@ -20,7 +24,7 @@
         @RenderBody()
     </div>
     @* Top Alert Meesage *@
-    <div class="fixed-top alert alert-dismissible" id="top-alert" role="alert" style="display: none;">
+    <div class="alert-fixed-top alert alert-dismissible" id="top-alert" role="alert" style="display: none;">
         <button type="button" class="close js-btn-hide-alert" data-hide-target="#top-alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

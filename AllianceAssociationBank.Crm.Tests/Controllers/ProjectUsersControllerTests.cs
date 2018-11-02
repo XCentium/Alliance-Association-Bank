@@ -16,6 +16,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Xunit;
+using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 
 namespace AllianceAssociationBank.Crm.Tests.Controllers
 {
@@ -76,11 +78,11 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
                 }
             };
             var projectId = 99;
-            projectUsersRepoMock.Setup(r => r.GetUsers(projectId)).Returns(users);
+            projectUsersRepoMock.Setup(r => r.GetUsers(projectId, UserFilterValue.All)).Returns(users.AsQueryable());
 
             var result = controller.Index(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel> (result, ProjectUsersView.UsersListPartial/*,users.Count*/);
+            TestHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel>(result, ProjectUsersView.UsersListPartial/*,users.Count*/);
         }
 
         [Fact]
@@ -88,7 +90,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         {
             var users = new List<ProjectUser>(); // Empty list
             var projectId = 1;
-            projectUsersRepoMock.Setup(r => r.GetUsers(projectId)).Returns(users);
+            projectUsersRepoMock.Setup(r => r.GetUsers(projectId, UserFilterValue.All)).Returns(users.AsQueryable());
 
             var result = controller.Index(projectId);
 
@@ -146,14 +148,15 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Edit_InvalidUserId_HttpNotFoundResult()
+        public async Task Edit_InvalidUserId_ShouldThrowHttpNotFoundException()
         {
             var userId = 1;
             projectUsersRepoMock.Setup(r => r.GetUserByIdAsync(userId)).ReturnsAsync(null as ProjectUser);
 
-            var result = await controller.Edit(99, userId);
+            var exception = await Record.ExceptionAsync(() => controller.Edit(99, userId));
 
-            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
 
 
@@ -185,15 +188,16 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidUserId_HttpNotFoundResult()
+        public async Task Update_InvalidUserId_ShouldThrowHttpNotFoundException()
         {
             var userId = 1;
             var projectId = 1;
             projectUsersRepoMock.Setup(r => r.GetUserByIdAsync(userId)).ReturnsAsync(null as ProjectUser);
 
-            var result = await controller.Update(projectId, userId, userViewModel);
+            var exception = await Record.ExceptionAsync(() => controller.Update(projectId, userId, userViewModel));
 
-            var notFoundResult = Assert.IsType<HttpNotFoundResult>(result);
+            Assert.IsType<HttpNotFoundException>(exception);
+            Assert.NotNull(exception);
         }
     }
 }

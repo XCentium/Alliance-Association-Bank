@@ -21,7 +21,7 @@ namespace AllianceAssociationBank.Crm.Core.Services
             _queries = queries;
         }
 
-        public async Task<ReportViewer> GenerateReportByName(string reportName)
+        public async Task<ReportViewer> GenerateReportByName(string reportName, int? projectId = null)
         {
             var reportPath = 
                 HttpContext.Current.Request.MapPath(HttpContext.Current.Request.ApplicationPath) + $"{REPORTS_DIRECTORY}\\{reportName}.rdlc";
@@ -33,12 +33,15 @@ namespace AllianceAssociationBank.Crm.Core.Services
             }
 
             var reportViewer = new ReportViewer();
+            reportViewer.LocalReport.ReportPath = reportPath;
             reportViewer.ProcessingMode = ProcessingMode.Local;
             reportViewer.AsyncRendering = true;
             reportViewer.SizeToReportContent = true;
-            reportViewer.LocalReport.ReportPath = reportPath;
+            reportViewer.WaitControlDisplayAfter = 1;
+            reportViewer.ShowBackButton = false;
 
-            foreach (var dataSource in (await GetDataSourcesByReportName(reportName)))
+            reportViewer.LocalReport.DataSources.Clear();
+            foreach (var dataSource in (await GetDataSourcesByReportName(reportName, projectId)))
             {
                 reportViewer.LocalReport.DataSources.Add(dataSource);
             }
@@ -46,7 +49,7 @@ namespace AllianceAssociationBank.Crm.Core.Services
             return reportViewer;
         }
 
-        private async Task<IEnumerable<ReportDataSource>> GetDataSourcesByReportName(string reportName)
+        private async Task<IEnumerable<ReportDataSource>> GetDataSourcesByReportName(string reportName, int? projectId = null)
         {
             var dataSources = new Collection<ReportDataSource>();
 
@@ -91,6 +94,23 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     {
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCouponDataSetAsync())));
                         dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        break;
+                    }
+                case var name when name.Equals(ReportName.AchSpec, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReportDataset, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        //dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        //dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        break;
+                    }
+                case var name when name.Equals(ReportName.AchInitialReview, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReportDataset, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        break;
+                    }
+                case var name when name.Equals(ReportName.AchSixMonthReview, StringComparison.InvariantCultureIgnoreCase):
+                    {
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReportDataset, (await _queries.GetAchReportDataSetAsync(projectId))));
                         break;
                     }
             }
