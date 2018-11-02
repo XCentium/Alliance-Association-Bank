@@ -31,14 +31,11 @@ namespace AllianceAssociationBank.Crm.Controllers
             return View(SearchView.Index, new SearchResultsPagedViewModel());
         }
 
-        //public async Task<ActionResult> Results(string term, int page = 1, string sort = SortOrder.Ascending, int? previousId = null)
         public ActionResult Results(string term, int page = 1, string sort = SortOrder.Ascending, int? previousId = null)
         {
             var results = _projectRepository.GetProjectsBySearchTerm(term, sort);
-            //var results = await _projectRepository.GetProjectsBySearchTermAsync(term, sort);
 
             var projectsViewModel = results.ProjectTo<ProjectFormViewModel>(_mapper.ConfigurationProvider);
-            //var projectsViewModel = _mapper.Map<IEnumerable<ProjectFormViewModel>>(results);
 
             var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, PAGE_SIZE, sort, previousId);
 

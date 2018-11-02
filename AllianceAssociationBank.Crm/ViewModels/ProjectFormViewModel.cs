@@ -176,9 +176,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Fax Sig")]
         public bool FacsimileSignature { get; set; }
 
-        //[Display(Name = "NOTES")]
-        //public string Notes { get; set; }
-
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
 
         public IEnumerable<string> InstitutionList { get; set; }
@@ -190,12 +187,10 @@ namespace AllianceAssociationBank.Crm.ViewModels
         // Boarding Tab
         public string Status { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start")]
         public DateTime? StartDate { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "End")]
         public DateTime? EndDate { get; set; }
@@ -494,12 +489,10 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "System Limit")]
         public decimal? ACHSystemLimit { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Original Review")]
         public DateTime? OriginalReviewDate { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Last Review")]
         public DateTime? LastReviewDate { get; set; }
@@ -600,9 +593,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
                 {
                     return "badge-light";
                 }
-                //return SaveIndicator == "SAVED" ?
-                //                        "badge-success" :
-                //                        "badge-light";
             }
         }
 

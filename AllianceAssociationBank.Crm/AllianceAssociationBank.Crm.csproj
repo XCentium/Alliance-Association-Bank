@@ -488,7 +488,6 @@
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
-    <Content Include="Scripts\app\achTabController.js" />
     <Content Include="Scripts\app\inputMaskHelper.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />
@@ -567,7 +566,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Projects\ProjectForm.cshtml" />
     <Content Include="Views\Reports\ViewReport.cshtml" />
