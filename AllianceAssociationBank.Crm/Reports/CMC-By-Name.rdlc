@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.31769in</Width>
+              <Width>3.41144in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.01041in</Width>
+              <Width>2.12499in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.96874in</Width>
+              <Width>2.10416in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.99739in</Width>
+              <Width>2.13281in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.64325in</Width>
+              <Width>2.16408in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -128,7 +128,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -171,7 +171,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -214,7 +214,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -380,7 +380,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Lookup(Fields!AFPID.Value, Fields!ID.Value, Fields!FirstName.Value+" "+Fields!LastName.Value, "EmployeesDataset")</Value>
+                              <Value>=Lookup(Fields!OwnerID.Value, Fields!ID.Value, Fields!FirstName.Value+" "+Fields!LastName.Value, "EmployeesDataset")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
