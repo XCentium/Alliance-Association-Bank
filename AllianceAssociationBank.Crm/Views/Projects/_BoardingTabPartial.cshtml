@@ -163,7 +163,7 @@
                 @Html.LabelFor(m => m.CouponProofReviewed, new { @class = "check-label" })
             </div>
 
-            <div class="row mt-3">
+            <div class="row mt-2">
                 <label class="col-12 form-label-heading">Check Scanners</label>
             </div>
             <div class="row">
@@ -217,21 +217,21 @@
                 <div class="col-12">
                     @Html.LabelFor(m => m.BoardingNextSteps)
                     <div class="label-small-note">Prints on Boarding Report</div>
-                    @Html.RoleBasedTextAreaFor(m => m.BoardingNextSteps, 5, 10, cssClass: "form-textarea")
+                    @Html.RoleBasedTextAreaFor(m => m.BoardingNextSteps, 5, 10, cssClass: "form-textarea textarea-size-sm")
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-12">
                     @Html.LabelFor(m => m.BoardingNotes)
-                    @Html.RoleBasedTextAreaFor(m => m.BoardingNotes, 6, 10, cssClass: "form-textarea")
+                    @Html.RoleBasedTextAreaFor(m => m.BoardingNotes, 6, 10, cssClass: "form-textarea textarea-size-sm")
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-12">
                     @Html.LabelFor(m => m.Narrative)
-                    @Html.RoleBasedTextAreaFor(m => m.Narrative, 6, 10, cssClass: "form-textarea")
+                    @Html.RoleBasedTextAreaFor(m => m.Narrative, 6, 10, cssClass: "form-textarea textarea-size-sm")
                 </div>
             </div>
 

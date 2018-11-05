@@ -23,11 +23,6 @@ namespace AllianceAssociationBank.Crm.Filters
 
         public void OnException(ExceptionContext filterContext)
         {
-            //if (filterContext.HttpContext.IsCustomErrorEnabled)
-            //{
-            //    return;
-            //}
-
             if (filterContext.ExceptionHandled)
             {
                 return;

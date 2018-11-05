@@ -45,7 +45,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             var users = _userRepository.GetUsers(projectId, filter);
 
             var usersViewModel = users.ProjectTo<UserFormViewModel>(_mapper.ConfigurationProvider);
-            //var usersViewModel = _mapper.Map<List<UserFormViewModel>>(users);
             var pagedModel = new UsersPagedListViewModel(projectId, usersViewModel, page, PAGE_SIZE);
 
             return PartialView(ProjectUsersView.UsersListPartial, pagedModel);
@@ -98,7 +97,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (user == null)
             {
                 throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
-                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             var model = _mapper.Map<UserFormViewModel>(user);
@@ -122,7 +120,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (user == null)
             {
                 throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
-                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             _mapper.Map(model, user);

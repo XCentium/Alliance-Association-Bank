@@ -11,7 +11,6 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
     public interface IProjectRepository
     {
         Task<IEnumerable<Project>> GetProjectsAsync();
-        //Task<IEnumerable<Project>> GetProjectsBySearchTermAsync(string searchTerm, string sortOrder);
         IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, string sortOrder);
         Task<Project> GetProjectByIdAsync(int id);
         void AddProject(Project project);

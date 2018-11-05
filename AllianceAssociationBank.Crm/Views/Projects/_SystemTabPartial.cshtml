@@ -92,7 +92,7 @@
                         @Html.LabelFor(m => m.SftpUsage, new { @class = "col label-indented" })
                     </div>
                     <div class="col-11 pl-4">
-                        @Html.RoleBasedTextAreaFor(m => m.SftpUsage, 3, 10, cssClass: "form-textarea")
+                        @Html.RoleBasedTextAreaFor(m => m.SftpUsage, 3, 10, cssClass: "form-textarea textarea-size-xsm")
                         @Html.ValidationMessageFor(m => m.SftpUsage, "", new { @class = "form-val-error-tooltip" })
                     </div>
                 </div>

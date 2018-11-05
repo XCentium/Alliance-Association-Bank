@@ -41,22 +41,5 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             return View(SearchView.Index, pagedModel);
         }
-
-        //public async Task<ActionResult> JsonResults(string search)
-        //{
-        //    var results = (await _projectRepository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
-        //        .Take(JSON_MAX_SEARCH_RESULTS)
-        //        .Select(p => new
-        //        {
-        //            id = p.ID,
-        //            name = p.ProjectName
-        //        });
-
-        //    return new JsonResult()
-        //    {
-        //        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        //        Data = results          
-        //    };
-        //}
     }
 }

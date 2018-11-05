@@ -12,13 +12,6 @@ namespace AllianceAssociationBank.Crm.Exceptions
     {
         private readonly HttpStatusCode _httpStatusCode;
 
-        //public JsonErrorResult(HttpStatusCode statusCode)
-        //    : this(statusCode, 
-        //          DefaultErrorText.Title.GetByStatusCode(statusCode), 
-        //          DefaultErrorText.Message.GetByStatusCode(statusCode))
-        //{
-        //}
-
         public JsonErrorResult(HttpStatusCode statusCode, string errorMessage)
             : this(statusCode: statusCode,
                    errorTitle: null,

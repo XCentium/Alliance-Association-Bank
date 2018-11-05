@@ -408,6 +408,26 @@ textarea {
     width: 70%;
 }
 
+.textarea-size-xsm {
+    height: 75px;
+    width: 380px;
+}
+
+.textarea-size-sm {
+    height: 128px;
+    width: 380px;
+}
+
+.textarea-size-md {
+    height: 200px;
+    width: 380px;
+}
+
+.textarea-size-lg {
+    height: 490px;
+    width: 380px;
+}
+
 .top-nav-content {
     background-color: rgba(153, 153, 153, 1);
     height: 15px;
