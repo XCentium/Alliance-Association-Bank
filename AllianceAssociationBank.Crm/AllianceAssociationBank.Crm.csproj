@@ -491,7 +491,6 @@
     <Content Include="Scripts\app\inputMaskHelper.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\appFunctions.js" />
     <Content Include="Scripts\app\errorHandler.js" />
     <Content Include="Scripts\app\generalTabController.js" />
     <Content Include="Scripts\app\navigationWidgets.js" />

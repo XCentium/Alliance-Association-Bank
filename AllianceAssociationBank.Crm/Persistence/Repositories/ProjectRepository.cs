@@ -38,7 +38,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
         }
 
         // TODO: change sort order to Enum
-        //public async Task<IEnumerable<Project>> GetProjectsBySearchTermAsync(string searchTerm, string sortOrder)
         public IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, string sortOrder)
         {
             var searchFormatter = new SearchTermFormatter(searchTerm);
