@@ -1923,6 +1923,7 @@
                           </Style>
                         </Rectangle>
                         <Textbox Name="Textbox82">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -1943,9 +1944,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox51</rd:DefaultName>
                           <Top>6.10301in</Top>
-                          <Left>6.0665in</Left>
+                          <Left>5.88942in</Left>
                           <Height>0.1875in</Height>
-                          <Width>1.54731in</Width>
+                          <Width>1.85456in</Width>
                           <ZIndex>52</ZIndex>
                           <Style>
                             <Border>
