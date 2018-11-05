@@ -12,7 +12,7 @@
     var bindPrintFormContentEvent = function () {
         $("#btn-print-form-content").on("click", function () {
             window.print();
-            window.close;;
+            window.close;
         });
     };
 

@@ -31,6 +31,9 @@ namespace AllianceAssociationBank.Crm
                       "~/Content/select2.min.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/printcss").Include(
+                      "~/Content/print.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/popper").Include(
                       "~/Scripts/umd/popper.min.js"));
 
