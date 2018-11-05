@@ -197,6 +197,27 @@
                         })
                     </li>
                 }
+                @if (Model.ShowLastPage)
+                {
+                    if (Model.ShowLastPageVisualSeparator)
+                    {
+                    <li class="page-item disabled">
+                        <a class="page-link">...</a>
+                    </li>
+                    }
+                    <li class="page-item">
+                        @Html.ActionLink(Model.TotalPages.ToString(), SearchControllerAction.Results, routeValues: new
+                        {
+                            term = Model.SearchTerm,
+                            page = Model.TotalPages,
+                            sort = Model.CurrentSort,
+                            previousId = Model.PreviousRecordId
+                        }, htmlAttributes: new
+                        {
+                            @class = "page-link"
+                        })
+                    </li>
+                }
                 <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
                     @Html.ActionLink("Next", SearchControllerAction.Results, routeValues: new
                     {

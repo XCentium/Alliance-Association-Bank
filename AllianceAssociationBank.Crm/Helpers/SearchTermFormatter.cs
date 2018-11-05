@@ -15,6 +15,11 @@ namespace AllianceAssociationBank.Crm.Helpers
             SearchTerm = TrimString(searchTerm);
         }
 
+        public string FormatForExactMatch()
+        {
+            return SearchTerm;
+        }
+
         public string FormatForTIN()
         {
             var value = SearchTerm;

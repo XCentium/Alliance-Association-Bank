@@ -183,13 +183,22 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-6 offset-2">
+                        @{ 
+                            var buttonCssClass = "btn btn-primary btn-block btn-sm";
+                            if (Model.ID == 0)
+                            {
+                                buttonCssClass += " btn-link-disabled";
+                            }
+                        }
+                        
                         @Html.RouteLink("ACH Spec Report", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             name = ReportName.AchSpec,
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = "btn btn-primary btn-block btn-sm"
+                            @class = buttonCssClass
+                            
                         })
                     </div>
                 </div> 
@@ -201,7 +210,7 @@
                              projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = "btn btn-primary btn-block btn-sm"
+                            @class = buttonCssClass
                         })
                     </div>
                 </div>
@@ -213,7 +222,7 @@
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = "btn btn-primary btn-block btn-sm"
+                            @class = buttonCssClass
                         })
                     </div>
                 </div>

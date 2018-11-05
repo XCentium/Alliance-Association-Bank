@@ -44,15 +44,16 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             var formattedForName = searchFormatter.FormatForName();
             var formattedForTIN = searchFormatter.FormatForTIN();
             var formattedForPhone = searchFormatter.FormatForPhone();
+            var formattedForExactMatch = searchFormatter.FormatForExactMatch();
 
             var results = _context.Projects.Where(p =>
-                    p.LockboxCMCID == searchTerm ||
+                    p.LockboxCMCID == formattedForExactMatch ||
                     DbFunctions.Like(p.ProjectName, formattedForName) ||
                     DbFunctions.Like(p.DBA, formattedForName) ||
                     DbFunctions.Like(p.OtherName, formattedForName) ||
                     DbFunctions.Like(p.TIN, formattedForTIN) ||
                     DbFunctions.Like(p.Phone, formattedForPhone) ||
-                    p.Users.Any(u => u.Email == searchTerm && u.Active) ||
+                    p.Users.Any(u => u.Email == formattedForExactMatch && u.Active) ||
                     p.Users.Any(u => DbFunctions.Like(u.Name, formattedForName) && u.Active)||
                     p.Users.Any(u => DbFunctions.Like(u.Phone, formattedForPhone) && u.Active));
 
