@@ -292,6 +292,7 @@
     <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
     <Compile Include="Filters\MvcDefaultExceptionFilter.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
+    <Compile Include="Helpers\TextContentHelper.cs" />
     <Compile Include="Helpers\EmailDistributionList.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
     <Compile Include="Identity\ActiveDirectoryContext.cs" />
@@ -480,6 +481,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="LoggerSettings.config" />
+    <Content Include="AppTextContent.config" />
     <None Include="Reports\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
