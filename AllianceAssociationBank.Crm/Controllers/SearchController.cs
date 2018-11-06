@@ -4,9 +4,6 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers

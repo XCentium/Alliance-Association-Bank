@@ -61,7 +61,7 @@
             if (event.which === 13 && this.value.length > 0) {
                 event.preventDefault();
 
-                var query = "?term=" + this.value;
+                var query = "?term=" + this.value.trim();
                 var url = location.href.toLowerCase();
                 if (url.indexOf("/projects/edit/") > 0) {
                     query = query + "&previousId=" + url.substring(url.lastIndexOf("/") + 1);

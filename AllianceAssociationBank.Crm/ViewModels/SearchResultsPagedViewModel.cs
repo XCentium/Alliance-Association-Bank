@@ -51,7 +51,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
                                            int? previousRecordId = null) 
             : base(projects, pageNumber, pageSize)
         {
-            SearchTerm = searchTerm;
+            SearchTerm = searchTerm.Trim();
             CurrentSort = currentSort;
             PreviousRecordId = previousRecordId;
         }
