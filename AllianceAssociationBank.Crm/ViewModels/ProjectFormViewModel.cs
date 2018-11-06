@@ -176,6 +176,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Fax Sig")]
         public bool FacsimileSignature { get; set; }
 
+        [Display(Name = "CIP Good")]
+        public bool CIPGood { get; set; }
+
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
 
         public IEnumerable<string> InstitutionList { get; set; }
@@ -291,7 +294,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "XML Auto Recon Setup")]
         public bool XmlAutoReconSetup { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Info Sent")]
         public DateTime? XmlAutoReconSentDate { get; set; }
@@ -339,12 +341,10 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return LockboxStatus; }
         }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Target Live")]
         public DateTime? TargetLockboxLiveDate { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Actual Live")]
         public DateTime? LockboxLiveDate { get; set; }
@@ -361,10 +361,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         public string POBoxZipCode { get; set; }
 
+        [Range(0, 2147483647)]
         [Display(Name = "Assoc's")]
         public int? NumberOfAssociations { get; set; }
 
         [Display(Name = "Donors")]
+        [Range(0, 2147483647)]
         public int? NumberOfDoors { get; set; }
 
         [Display(Name = "Vendor")]
@@ -407,9 +409,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         [Display(Name = "AQ2")]
         public int? ReformatAQ2ID { get; set; }
-
-        //[Display(Name = "ECP")]
-        //public int? ReformatECPID { get; set; } // This is not needed anymore
 
         [Display(Name = "By Association")]
         public bool ReformatByAssoc { get; set; }
@@ -476,7 +475,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Est. Deposits")]
         public decimal? ACHEstimatedDeposits { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Est. $")]
         public DateTime? ACHEstimatedDepositsDate { get; set; }
