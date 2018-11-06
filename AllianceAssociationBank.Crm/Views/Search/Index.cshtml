@@ -122,8 +122,21 @@
         <nav aria-label="Search Pagination Nav">
             <ul class="pagination justify-content-center">
 
+                <li class="page-item @(Model.ShowFirstPage ? "" : "disabled")">
+                    @Html.ActionLink("First", SearchControllerAction.Results, routeValues: new
+                    {
+                        term = Model.SearchTerm,
+                        page = 1,
+                        sort = Model.CurrentSort,
+                        previousId = Model.PreviousRecordId
+                    }, htmlAttributes: new
+                    {
+                        @class = "page-link",
+                        title = "First Page"
+                    })
+                </li>
                 <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
-                    @Html.ActionLink("Previous", SearchControllerAction.Results, routeValues: new
+                    @Html.ActionLink("<", SearchControllerAction.Results, routeValues: new
                     {
                         term = Model.SearchTerm,
                         page = Model.PreviousPageNumber,
@@ -131,7 +144,8 @@
                         previousId = Model.PreviousRecordId
                     }, htmlAttributes: new
                     {
-                        @class = "page-link"
+                        @class = "page-link",
+                        title = "Previous Page"
                     })
                 </li>
                 @if (Model.ShowSecondPreviousPage)
@@ -197,29 +211,8 @@
                         })
                     </li>
                 }
-                @if (Model.ShowLastPage)
-                {
-                    if (Model.ShowLastPageVisualSeparator)
-                    {
-                    <li class="page-item disabled">
-                        <a class="page-link">...</a>
-                    </li>
-                    }
-                    <li class="page-item">
-                        @Html.ActionLink(Model.TotalPages.ToString(), SearchControllerAction.Results, routeValues: new
-                        {
-                            term = Model.SearchTerm,
-                            page = Model.TotalPages,
-                            sort = Model.CurrentSort,
-                            previousId = Model.PreviousRecordId
-                        }, htmlAttributes: new
-                        {
-                            @class = "page-link"
-                        })
-                    </li>
-                }
                 <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
-                    @Html.ActionLink("Next", SearchControllerAction.Results, routeValues: new
+                    @Html.ActionLink(">", SearchControllerAction.Results, routeValues: new
                     {
                         term = Model.SearchTerm,
                         page = Model.NextPageNumber,
@@ -227,7 +220,21 @@
                         previousId = Model.PreviousRecordId
                     }, htmlAttributes: new
                     {
-                        @class = "page-link"
+                        @class = "page-link",
+                        title = "Next Page"
+                    })
+                </li>
+                <li class="page-item @(Model.ShowLastPage ? "" : "disabled")">
+                    @Html.ActionLink("Last", SearchControllerAction.Results, routeValues: new
+                    {
+                        term = Model.SearchTerm,
+                        page = Model.TotalPages,
+                        sort = Model.CurrentSort,
+                        previousId = Model.PreviousRecordId
+                    }, htmlAttributes: new
+                    {
+                        @class = "page-link",
+                        title = "Last Page"
                     })
                 </li>
 

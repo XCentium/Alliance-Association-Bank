@@ -15,12 +15,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public bool ShowLastPage
         {
-            get { return TotalPages > NextPageNumber; }
+            get { return TotalPages > PageNumber; }
         }
 
-        public bool ShowLastPageVisualSeparator
+        public bool ShowFirstPage
         {
-            get { return TotalPages > (NextPageNumber + 1); }
+            get { return PageNumber > 1; }
         }
 
         public int TotalPages
