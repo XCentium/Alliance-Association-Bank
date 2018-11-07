@@ -6,7 +6,6 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Mappings;
-using AllianceAssociationBank.Crm.Tests.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using Moq;

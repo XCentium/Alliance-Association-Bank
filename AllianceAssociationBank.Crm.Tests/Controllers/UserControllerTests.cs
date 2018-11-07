@@ -2,7 +2,6 @@
 using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Identity;
-using AllianceAssociationBank.Crm.Tests.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using Moq;
 using System;

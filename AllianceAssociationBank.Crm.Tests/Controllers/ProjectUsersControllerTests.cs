@@ -3,7 +3,6 @@ using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
-using AllianceAssociationBank.Crm.Tests.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using Moq;

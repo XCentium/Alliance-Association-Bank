@@ -266,7 +266,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
         //[StringLength(255)]
         //public string CIPReviewed { get; set; }
 
-        public bool CIPGood { get; set; } // TODO: need to revisit this, this field is not on any views
+        public bool CIPGood { get; set; }
 
         public bool HasCorporateAccounts { get; set; }
 
