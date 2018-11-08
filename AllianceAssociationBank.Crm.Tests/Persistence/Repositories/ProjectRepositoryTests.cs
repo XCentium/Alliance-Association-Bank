@@ -3,10 +3,12 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Persistence;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
+using Microsoft.QualityTools.Testing.Fakes;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Fakes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +43,6 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
         public async Task GetProjectsAsync_AllEntities_ShouldReturnProjectList()
         {
             _mockProjectsDbSet.SetupData(_projects);
-            //_mockDbContext.SetupGet(c => c.Projects).Returns(() => _mockProjectDbSet.Object);
 
             var results = await _projectRepository.GetProjectsAsync();
 
@@ -103,22 +104,66 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
             Assert.True(result);
         }
 
-        //[Fact]
-        //public void GetProjectsBySearchTerm_SearchByProjectNameFuzzy_ShouldReturnCorrectProject()
-        //{
-        //    var project = new Project()
-        //    {
-        //        ID = 3,
-        //        ProjectName = "First Property Bank LLC"
-        //    };
-        //    projects.Add(project);
-        //    _mockProjectDbSet.SetupData(projects);
-        //    var term = "first llc";
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByProjectName_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                var project = new Project()
+                {
+                        ID = 1,
+                        ProjectName = "First Property Bank LLC"
+                };
+                SetupNewProjectsDbSet(project);
+                var term = "property";
+                SetupDbFunctions();
 
-        //    var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
 
-        //    Assert.Equal(1, results.Count());
-        //    Assert.Equal(project.ID, results.FirstOrDefault().ID);
-        //}
+                Assert.Equal(1, results.Count());
+                Assert.Equal(1, results.FirstOrDefault().ID);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByDBA_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Bank",
+                    DBA = "First Property Bank LLC"
+                };
+                SetupNewProjectsDbSet(project);
+                var term = "property";
+                SetupDbFunctions();
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.Equal(1, results.Count());
+                Assert.Equal(1, results.FirstOrDefault().ID);
+            }
+        }
+
+        private void SetupNewProjectsDbSet(Project project)
+        {
+            var projects = new List<Project>()
+            {
+                project
+            };
+            _mockProjectsDbSet.SetupData(projects);
+        }
+
+        private void SetupDbFunctions()
+        {
+            ShimDbFunctions.LikeStringString = (string searchString, string likeExpression) =>
+            {
+                if (searchString == null) { return false; }
+
+                return searchString.ToLower().Contains(likeExpression.Replace("%", "").ToLower());
+            };
+        }
     }
 }
