@@ -111,12 +111,12 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
             {
                 var project = new Project()
                 {
-                        ID = 1,
-                        ProjectName = "First Property Bank LLC"
+                    ID = 1,
+                    ProjectName = "First Property Bank LLC"
                 };
                 SetupNewProjectsDbSet(project);
                 var term = "property";
-                SetupDbFunctions();
+                SetupShimDbFunctions();
 
                 var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
 
@@ -138,7 +138,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
                 };
                 SetupNewProjectsDbSet(project);
                 var term = "property";
-                SetupDbFunctions();
+                SetupShimDbFunctions();
 
                 var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
 
@@ -156,7 +156,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
             _mockProjectsDbSet.SetupData(projects);
         }
 
-        private void SetupDbFunctions()
+        private void SetupShimDbFunctions()
         {
             ShimDbFunctions.LikeStringString = (string searchString, string likeExpression) =>
             {
