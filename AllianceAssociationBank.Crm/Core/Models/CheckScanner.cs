@@ -8,7 +8,7 @@ namespace AllianceAssociationBank.Crm.Core.Models
     {
         public int ID { get; set; }
 
-        public int? ProjectID { get; set; }
+        public int ProjectID { get; set; }
 
         [StringLength(255)]
         public string Model { get; set; }

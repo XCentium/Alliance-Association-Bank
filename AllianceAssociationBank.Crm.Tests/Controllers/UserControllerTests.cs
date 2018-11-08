@@ -68,7 +68,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Login(loginViewModel, null);
 
-            TestHelper.AssertActionResult<ViewResult, LoginViewModel>(result, UserView.Login);
+            AssertHelper.AssertActionResult<ViewResult, LoginViewModel>(result, UserView.Login);
         }
 
         [Fact]

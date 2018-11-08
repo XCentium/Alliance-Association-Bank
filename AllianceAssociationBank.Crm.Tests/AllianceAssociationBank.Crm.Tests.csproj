@@ -48,6 +48,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.Testing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkTesting.1.2.2\lib\net45\EntityFramework.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Testing.Moq, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkTesting.Moq.1.2.2\lib\net45\EntityFramework.Testing.Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
@@ -158,13 +164,20 @@
     <Compile Include="Controllers\ExportsControllerTests.cs" />
     <Compile Include="Controllers\ReportsControllerTests.cs" />
     <Compile Include="Controllers\UserControllerTests.cs" />
+    <Compile Include="Extensions\AjaxHelperAuthorizationExtensionsTests.cs" />
+    <Compile Include="Extensions\HtmlHelperAuthorizationExtensionsTests.cs" />
     <Compile Include="Extensions\HtmlHelperButtonExtensionsTests.cs" />
-    <Compile Include="Extensions\HtmlHelperEditorExtensionsTests.cs" />
-    <Compile Include="TestHelper.cs" />
+    <Compile Include="Persistence\Repositories\NoteRepositoryTests.cs" />
+    <Compile Include="Persistence\Repositories\CheckScannerRepositoryTests.cs" />
+    <Compile Include="Persistence\Repositories\ProjectUserRepositoryTests.cs" />
+    <Compile Include="TestHelpers\MockViewContextExtensions.cs" />
+    <Compile Include="Persistence\Repositories\ProjectRepositoryTests.cs" />
+    <Compile Include="TestHelpers\AssertHelper.cs" />
     <Compile Include="Identity\ADAuthenticationServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTests.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="TestHelpers\MockDbSetExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

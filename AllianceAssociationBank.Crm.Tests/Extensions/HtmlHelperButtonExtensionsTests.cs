@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Extensions;
+using AllianceAssociationBank.Crm.Tests.TestHelpers;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -27,13 +28,7 @@ namespace AllianceAssociationBank.Crm.Tests.Extensions
 
         public HtmlHelperButtonExtensionsTests()
         {
-            mockViewContext = new Mock<ViewContext>(
-                new Mock<ControllerContext>().Object,
-                new Mock<IView>().Object,
-                new ViewDataDictionary(),
-                new TempDataDictionary(),
-                TextWriter.Null);
-
+            mockViewContext = new Mock<ViewContext>();
             mockViewDataContainer = new Mock<IViewDataContainer>();
 
             htmlHelper = new HtmlHelper(mockViewContext.Object, mockViewDataContainer.Object);
@@ -42,7 +37,7 @@ namespace AllianceAssociationBank.Crm.Tests.Extensions
         [Fact]
         public void RoleBasedButton_UserWithAdminRole_ShouldReturnHtmlStringWithoutDisabledAttribute()
         {
-            SetupUserRoleForViewContextMock(mockViewContext, UserRole.Admin);
+            mockViewContext.SetupHttpContextUserRole(UserRole.Admin);
 
             var result = htmlHelper.RoleBasedButton("SAVE", "submit", null);
 
@@ -52,7 +47,7 @@ namespace AllianceAssociationBank.Crm.Tests.Extensions
         [Fact]
         public void RoleBasedButton_UserWithReadWriteRole_ShouldReturnHtmlStringWithoutDisabledAttribute()
         {
-            SetupUserRoleForViewContextMock(mockViewContext, UserRole.ReadWriteUser);
+            mockViewContext.SetupHttpContextUserRole(UserRole.ReadWriteUser);
 
             var result = htmlHelper.RoleBasedButton("SAVE", "submit", null);
 
@@ -62,16 +57,11 @@ namespace AllianceAssociationBank.Crm.Tests.Extensions
         [Fact]
         public void RoleBasedButton_UserWithReadOnlyRole_ShouldReturnHtmlStringWithDisabledAttribute()
         {
-            SetupUserRoleForViewContextMock(mockViewContext, UserRole.ReadOnlyUser);
+            mockViewContext.SetupHttpContextUserRole(UserRole.ReadOnlyUser);
 
             var result = htmlHelper.RoleBasedButton("SAVE", "submit", null);
 
             Assert.Contains(disabledAttribute, result.ToString());
-        }
-
-        private void SetupUserRoleForViewContextMock(Mock<ViewContext> viewContextMock, string userRole)
-        {
-            viewContextMock.Setup(c => c.HttpContext.User.IsInRole(userRole)).Returns(true);
         }
     }
 }

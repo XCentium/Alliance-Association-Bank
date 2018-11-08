@@ -7,7 +7,7 @@ namespace AllianceAssociationBank.Crm.Extensions
 {
     using Helper = HtmlExtensionsHelper;
 
-    public static class HtmlHelperAjxExtensions
+    public static class AjaxHelperLinkExtensions
     {
         public static MvcHtmlString RoleBasedRouteLink(this AjaxHelper ajaxHelper,
                                                        string linkText,

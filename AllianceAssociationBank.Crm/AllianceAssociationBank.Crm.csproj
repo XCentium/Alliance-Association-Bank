@@ -281,7 +281,7 @@
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperButtonExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
-    <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
+    <Compile Include="Extensions\AjaxHelperLinkExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
     <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
     <Compile Include="Filters\MvcDefaultExceptionFilter.cs" />

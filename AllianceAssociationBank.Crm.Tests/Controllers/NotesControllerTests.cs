@@ -80,7 +80,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Index(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
             (
                 result, 
                 NotesView.NotesListPartial,
@@ -95,7 +95,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Index(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
             (
                 result,
                 NotesView.NotesListPartial,
@@ -110,7 +110,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Create(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, NoteFormViewModel>
+            AssertHelper.AssertActionResult<PartialViewResult, NoteFormViewModel>
             (
                 result,
                 NotesView.NoteFormPartial
@@ -127,7 +127,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Create(projectId, noteViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
             (
                 result,
                 NotesView.NotesListPartial
@@ -142,7 +142,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Edit(99, noteId);
 
-            TestHelper.AssertActionResult<PartialViewResult, NoteFormViewModel>
+            AssertHelper.AssertActionResult<PartialViewResult, NoteFormViewModel>
             (
                 result,
                 NotesView.NoteFormPartial
@@ -172,7 +172,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, noteId, noteViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
             (
                 result,
                 NotesView.NotesListPartial
@@ -189,7 +189,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, noteId, noteViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, NoteFormViewModel>
+            AssertHelper.AssertActionResult<PartialViewResult, NoteFormViewModel>
             (
                 result,
                 NotesView.NoteFormPartial
@@ -238,7 +238,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Delete(projectId, noteId);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<NoteFormViewModel>>
             (
                 result,
                 NotesView.NotesListPartial

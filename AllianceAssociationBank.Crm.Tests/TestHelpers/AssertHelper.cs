@@ -3,7 +3,7 @@ using Xunit;
 
 namespace AllianceAssociationBank.Crm.Tests
 {
-    public class TestHelper
+    public class AssertHelper
     {
         /// <summary>
         /// Helper test assert method to reduce code duplicaiton. This will check action result type,

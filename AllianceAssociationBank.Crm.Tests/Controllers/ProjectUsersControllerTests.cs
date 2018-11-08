@@ -81,7 +81,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Index(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel>(result, ProjectUsersView.UsersListPartial/*,users.Count*/);
+            AssertHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel>(result, ProjectUsersView.UsersListPartial/*,users.Count*/);
         }
 
         [Fact]
@@ -93,7 +93,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Index(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel> (result, ProjectUsersView.UsersListPartial/*, 0*/);
+            AssertHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel> (result, ProjectUsersView.UsersListPartial/*, 0*/);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Create(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
+            AssertHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Create(projectId, userViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel> (result, ProjectUsersView.UsersListPartial);
+            AssertHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel> (result, ProjectUsersView.UsersListPartial);
         }
 
         [Fact]
@@ -131,7 +131,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Create(projectId, userViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
+            AssertHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
         }
 
 
@@ -143,7 +143,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Edit(99, userId);
 
-            TestHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
+            AssertHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
         }
 
         [Fact]
@@ -170,7 +170,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, userId, userViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel> (result, ProjectUsersView.UsersListPartial);
+            AssertHelper.AssertActionResult<PartialViewResult, UsersPagedListViewModel> (result, ProjectUsersView.UsersListPartial);
         }
 
         [Fact]
@@ -183,7 +183,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, userId, userViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
+            AssertHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
         }
 
         [Fact]

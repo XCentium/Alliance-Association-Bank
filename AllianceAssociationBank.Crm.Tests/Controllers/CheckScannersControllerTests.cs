@@ -54,7 +54,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             scannerViewModel = new ScannerFormViewModel()
             {
                 ID = scanner.ID,
-                ProjectID = scanner.ProjectID ?? 0,
+                ProjectID = scanner.ProjectID,
                 Model = scanner.Model,
                 System = scanner.System
             };
@@ -83,7 +83,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Index(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
             (
                 result, 
                 CheckScannersView.ScannersListPartial,
@@ -98,7 +98,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Index(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
             (
                 result, 
                 CheckScannersView.ScannersListPartial,
@@ -113,7 +113,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Create(projectId);
 
-            TestHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
+            AssertHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
             (
                 result,
                 CheckScannersView.ScannerFormPartial
@@ -130,7 +130,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Create(projectId, scannerViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
             (
                 result,
                 CheckScannersView.ScannersListPartial
@@ -145,7 +145,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Edit(99, scannerId);
 
-            TestHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
+            AssertHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
             (
                 result,
                 CheckScannersView.ScannerFormPartial
@@ -175,7 +175,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, scannerId, scannerViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
             (
                 result,
                 CheckScannersView.ScannersListPartial
@@ -192,7 +192,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, scannerId, scannerViewModel);
 
-            TestHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
+            AssertHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
             (
                 result,
                 CheckScannersView.ScannerFormPartial
@@ -243,7 +243,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Delete(projectId, scannerId);
 
-            TestHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
+            AssertHelper.AssertActionResult<PartialViewResult, Collection<ScannerFormViewModel>>
             (
                 result,
                 CheckScannersView.ScannersListPartial
