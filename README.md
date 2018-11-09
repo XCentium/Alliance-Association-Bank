@@ -17,7 +17,8 @@
 **ReportViewerForMvc v1.1.1** - Web Forms ReportViewer control adapter for MVC ([more info](https://github.com/chasoliveira/ReportViewerForMvc))  
 
 ## Config Files
-
+#### Web.config
+The connection string entry with name of **CrmApplicationDbConnection** needs to be updated to point to the correct SQL Server database.
 #### UserAuthenticationSettings.config
 Configurations for user authentication against Active Directory. 3 AD security group names must be specified here correctly for admin, read-write and read-only users.
 #### DropDownListSettings.config
