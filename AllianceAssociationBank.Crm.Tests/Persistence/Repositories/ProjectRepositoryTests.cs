@@ -109,6 +109,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
         {
             using (ShimsContext.Create())
             {
+                SetupShimDbFunctions();
                 var project = new Project()
                 {
                     ID = 1,
@@ -116,12 +117,11 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
                 };
                 SetupNewProjectsDbSet(project);
                 var term = "property";
-                SetupShimDbFunctions();
 
                 var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
 
-                Assert.Equal(1, results.Count());
-                Assert.Equal(1, results.FirstOrDefault().ID);
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
             }
         }
 
@@ -130,6 +130,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
         {
             using (ShimsContext.Create())
             {
+                SetupShimDbFunctions();
                 var project = new Project()
                 {
                     ID = 1,
@@ -138,17 +139,197 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
                 };
                 SetupNewProjectsDbSet(project);
                 var term = "property";
-                SetupShimDbFunctions();
 
                 var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
 
-                Assert.Equal(1, results.Count());
-                Assert.Equal(1, results.FirstOrDefault().ID);
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
             }
         }
 
-        private void SetupNewProjectsDbSet(Project project)
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByOtherName_ShouldReturnProject()
         {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Bank",
+                    OtherName = "First Property Bank LLC"
+                };
+                SetupNewProjectsDbSet(project);
+                var term = "property";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByCmcId_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Property Bank LLC",
+                    LockboxCMCID = "1234"
+                };
+                SetupNewProjectsDbSet(project);
+                var term = "1234";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByTIN_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Property Bank LLC",
+                    TIN = "211234567"
+                };
+                SetupNewProjectsDbSet(project);
+                var term = "211234567";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByPhone_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Property Bank LLC",
+                    Phone = "1233545678"
+                };
+                SetupNewProjectsDbSet(project);
+                var term = "1233545678";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByUserName_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Property Bank LLC"
+                };
+                var user = new ProjectUser()
+                {
+                    ID = 10,
+                    ProjectID = project.ID,
+                    Name = "Alex Smith",
+                    Active = true
+                };
+                SetupNewProjectsDbSet(project, user);
+                var term = "smith";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByUserEmail_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Property Bank LLC"
+                };
+                var user = new ProjectUser()
+                {
+                    ID = 10,
+                    ProjectID = project.ID,
+                    Email = "email@email.com",
+                    Active = true
+                };
+                SetupNewProjectsDbSet(project, user);
+                var term = "email@email.com";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_SearchByUserPhone_ShouldReturnProject()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Property Bank LLC"
+                };
+                var user = new ProjectUser()
+                {
+                    ID = 10,
+                    ProjectID = project.ID,
+                    Phone = "1233545678",
+                    Active = true
+                };
+                SetupNewProjectsDbSet(project, user);
+                var term = "1233545678";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending);
+
+                Assert.NotEmpty(results);
+                Assert.Equal(project.ID, results.FirstOrDefault().ID);
+            }
+        }
+
+        private void SetupNewProjectsDbSet(Project project, ProjectUser user = null)
+        {
+            if (user != null)
+            {
+                var users = new List<ProjectUser>()
+                {
+                    user
+                };
+                project.Users = users;
+            }
+
             var projects = new List<Project>()
             {
                 project
