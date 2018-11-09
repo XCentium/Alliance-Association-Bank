@@ -21,9 +21,9 @@
 #### UserAuthenticationSettings.config
 Configurations for user authentication against Active Directory.
 #### DropDownListSettings.config
-Configurations for dropdown lists possible values.
+Configuration of possible values for some of the dropdown lists. However, some dropdown lists are controlled by SQL tables (Employees, Software/MigrateTo and ReformatAQ2).
 #### LoggerSettings.config
-Configurations for Serilog logging.
+Configurations for Serilog logging such as log files location and minimum logging level.
 #### AppTextContent.config
-The config file to specify various pieces of text content. 
+The config file to specify various pieces of text content. At point legal message copy can be set here.
 
