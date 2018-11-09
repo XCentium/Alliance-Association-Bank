@@ -92,9 +92,9 @@
     var bindResetSaveIdicatorOnChangeEvent = function () {
         $("#project-form-element").on("change", function () {
             var $saveIndicator = $("#project-form-save-indicator");
-            if ($saveIndicator.text() === "SAVED") {
+            if ($saveIndicator.text() === "SAVED" || $saveIndicator.text() === "ERROR") {
                 $saveIndicator.text("UNSAVED");
-                $saveIndicator.removeClass("badge-success").addClass("badge-light");
+                $saveIndicator.removeClass("badge-success").removeClass("badge-danger").addClass("badge-light");
             }
         });
     };
