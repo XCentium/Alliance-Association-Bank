@@ -75,12 +75,12 @@
 
         var $status = $("#LockboxStatus");
 
-        if ($status.val() == noLockbox) {
+        if ($status.val() === noLockbox) {
             disableElementById(lockboxSystemElementId);
         }
 
         $status.on("change", function () {
-            if (this.value == noLockbox) {
+            if (this.value === noLockbox) {
                 disableElementById(lockboxSystemElementId);
             } else {
                 enableElementById(lockboxSystemElementId);
@@ -101,11 +101,11 @@
 
     var disableElementById = function (elementId) {
         $(elementId).attr("disabled", true);
-    }
+    };
 
     var enableElementById = function (elementId) {
         $(elementId).removeAttr("disabled");
-    }
+    };
 
     return {
         init: init
