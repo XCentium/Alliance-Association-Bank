@@ -258,7 +258,7 @@
     <Compile Include="Constants\Notes\NotesControllerRoute.cs" />
     <Compile Include="Constants\Search\SearchView.cs" />
     <Compile Include="Constants\Search\SearchControllerAction.cs" />
-    <Compile Include="Constants\SortOrder.cs" />
+    <Compile Include="Constants\SortOrderString.cs" />
     <Compile Include="Constants\ProjectUsers\UserFilterValue.cs" />
     <Compile Include="Constants\User\UserView.cs" />
     <Compile Include="Constants\ValidationErrorMessage.cs" />
@@ -351,6 +351,9 @@
     <Compile Include="Persistence\EntityConfigurations\SoftwareEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\EmployeeEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ProjectUserEntityConfiguration.cs" />
+    <Compile Include="Persistence\Enums\EnumConversionExtensions.cs" />
+    <Compile Include="Persistence\Enums\SortOrder.cs" />
+    <Compile Include="Persistence\Enums\UserFilter.cs" />
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\CrmApplicationDbContext.cs" />
     <Compile Include="Core\Interfaces\IProjectRepository.cs" />

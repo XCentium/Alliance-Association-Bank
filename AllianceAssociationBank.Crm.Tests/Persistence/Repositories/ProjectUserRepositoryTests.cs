@@ -3,6 +3,7 @@ using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Persistence;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
 using Moq;
 using System;
@@ -74,7 +75,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
             _users.Add(adminUser);
             _mockProjectUsersDbSet.SetupData(_users);
 
-            var results = _projectUserRepository.GetUsers(_projectId, UserFilterValue.Admin);
+            var results = _projectUserRepository.GetUsers(_projectId, UserFilter.Admin);
 
             Assert.Equal(_users.Where(u => u.ProjectID == _projectId && u.Admin).Count(), results.Count());
         }
@@ -92,7 +93,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
             _users.Add(anotherUser);
             _mockProjectUsersDbSet.SetupData(_users);
 
-            var results = _projectUserRepository.GetUsers(_projectId, UserFilterValue.Active);
+            var results = _projectUserRepository.GetUsers(_projectId, UserFilter.Active);
 
             Assert.Equal(_users.Where(u => u.ProjectID == _projectId && u.Active).Count(), results.Count());
         }
@@ -110,7 +111,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
             _users.Add(anotherUser);
             _mockProjectUsersDbSet.SetupData(_users);
 
-            var results = _projectUserRepository.GetUsers(_projectId, UserFilterValue.Inactive);
+            var results = _projectUserRepository.GetUsers(_projectId, UserFilter.Inactive);
 
             Assert.Equal(_users.Where(u => u.ProjectID == _projectId && !u.Active).Count(), results.Count());
         }

@@ -1,16 +1,14 @@
-﻿using AllianceAssociationBank.Crm.Constants;
-using AllianceAssociationBank.Crm.Core.Interfaces;
+﻿using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Persistence;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using AllianceAssociationBank.Crm.Persistence.Repositories;
 using Microsoft.QualityTools.Testing.Fakes;
 using Moq;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Fakes;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

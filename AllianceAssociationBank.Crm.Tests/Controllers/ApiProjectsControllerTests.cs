@@ -14,6 +14,7 @@ using System.Data.Entity;
 using AllianceAssociationBank.Crm.Mappings;
 using Xunit;
 using AutoMapper;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 
 namespace AllianceAssociationBank.Crm.Tests.Controllers
 {

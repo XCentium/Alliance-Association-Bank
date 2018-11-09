@@ -27,13 +27,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                if (CurrentSort == SortOrder.Descending)
+                if (CurrentSort == SortOrderString.Descending)
                 {
-                    return SortOrder.Ascending;
+                    return SortOrderString.Ascending;
                 }
                 else
                 {
-                    return SortOrder.Descending;
+                    return SortOrderString.Descending;
                 }
             }
         }

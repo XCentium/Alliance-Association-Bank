@@ -1,16 +1,11 @@
-﻿using AllianceAssociationBank.Crm.Constants;
-using AllianceAssociationBank.Crm.Core.Dtos;
-using AllianceAssociationBank.Crm.Core.Interfaces;
+﻿using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Helpers;
-using System;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Persistence.Repositories
 {
@@ -37,8 +32,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .SingleOrDefaultAsync();
         }
 
-        // TODO: change sort order to Enum
-        public IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, string sortOrder)
+        public IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, SortOrder sortOrder)
         {
             var searchFormatter = new SearchTermFormatter(searchTerm);
             var formattedForName = searchFormatter.FormatForName();

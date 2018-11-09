@@ -1,19 +1,9 @@
-﻿using AllianceAssociationBank.Crm.Constants;
-using AllianceAssociationBank.Crm.Core.Dtos;
+﻿using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
-using AllianceAssociationBank.Crm.Exceptions;
-using AllianceAssociationBank.Crm.Filters;
-using AllianceAssociationBank.Crm.Persistence;
-using AllianceAssociationBank.Crm.Persistence.Repositories;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using System;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace AllianceAssociationBank.Crm.Controllers.Api

@@ -60,7 +60,7 @@
             e.removeAttribute("disabled");
         };
         setTimeout(enableElement, timeout, e);
-    }
+    };
 
     var bindScreenOverlayFadeOut = function () {
         $(".screen-overlay").on("click", function (event) {

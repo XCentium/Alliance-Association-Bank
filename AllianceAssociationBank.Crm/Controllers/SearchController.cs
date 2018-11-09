@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.Search;
 using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -28,9 +29,9 @@ namespace AllianceAssociationBank.Crm.Controllers
             return View(SearchView.Index, new SearchResultsPagedViewModel());
         }
 
-        public ActionResult Results(string term, int page = 1, string sort = SortOrder.Ascending, int? previousId = null)
+        public ActionResult Results(string term, int page = 1, string sort = SortOrderString.Ascending, int? previousId = null)
         {
-            var results = _projectRepository.GetProjectsBySearchTerm(term, sort);
+            var results = _projectRepository.GetProjectsBySearchTerm(term, sort.ToSortOrderEnum());
 
             var projectsViewModel = results.ProjectTo<ProjectFormViewModel>(_mapper.ConfigurationProvider);
 
