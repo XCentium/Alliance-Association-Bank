@@ -60,7 +60,6 @@ namespace AllianceAssociationBank.Crm.Extensions
             if (html.IsUserInAdminRole())
             {
                 addDisabledAttribute = false;
-                //htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
             }
             else if (html.IsUserInEditRole())
             {
@@ -68,22 +67,9 @@ namespace AllianceAssociationBank.Crm.Extensions
                 {
                     // if user with edit role and value is null or empty then add element as enabled
                     addDisabledAttribute = false;
-                    //htmlAttributes = Helper.CreateHtmlAttributes(cssClass);
                 }
-                //else
-                //{
-                //    // if user with edit role and value is not null/empty then add disabled attribute
-                //    //htmlAttributes = Helper.CreateHtmlAttributesForReadOnly(cssClass);
-                //    //htmlAttributes = Helper.CreateHtmlAttributes(cssClass, true);
-                //}
             }
-            //else
-            //{
-            //    // if user with read only role and value add disabled attribute
-            //    //htmlAttributes = Helper.CreateHtmlAttributes(cssClass, true);
-            //}
 
-            //return html.EditorFor(expression, additionalViewData: new { htmlAttributes });
             return html.EditorFor(expression, additionalViewData: new
             {
                 htmlAttributes = Helper.CreateHtmlAttributes(cssClass, addDisabledAttribute)

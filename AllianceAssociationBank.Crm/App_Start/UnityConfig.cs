@@ -52,7 +52,6 @@ namespace AllianceAssociationBank.Crm
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // TODO: need to revisit this
             container.RegisterType<ILogger>
             (
                 new ContainerControlledLifetimeManager(),

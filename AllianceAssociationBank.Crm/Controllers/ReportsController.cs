@@ -27,7 +27,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (reportViewer == null)
             {
                 throw new HttpNotFoundException();
-                //return new ViewErrorResult(HttpStatusCode.NotFound, httpRequest: HttpContext.Request);
             }
 
             ViewBag.ReportViewer = reportViewer;

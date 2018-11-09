@@ -5,21 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @*@Scripts.Render("~/bundles/modernizr")*@
-    @*<style type="text/css" media="print">
-        @@page { size: landscape; }
-        body { padding: 20px; }
-    </style>*@
+    @Styles.RenderFormat(@"<link href=""{0}"" rel=""stylesheet"" media=""print"">", "~/Content/printcss")
 
 </head>
 <body>
-    <div class="container smallnavbar" style="max-width: 1280px;">
-        <div class="navbar navbar-expand-sm smallnavbar justify-content-end">
-            <div class="justify-content-end mx-2">
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
+    @Html.Partial(SharedView.TopNavigationPartial)
     <div class="container body-content">
         @RenderBody()
     </div>

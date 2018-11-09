@@ -1,9 +1,4 @@
-﻿body {
-    /*padding-top: 50px;*/
-    /*padding-bottom: 20px;*/
-}
-
-label.required::after {
+﻿label.required::after {
     content: "*";
     color: rgba(220,53,69,1);
 }
@@ -25,23 +20,9 @@ label.required::after {
     width: 1280px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-/*input,
-select,
-textarea {
-    max-width: 280px;
-}*/
-
-/*.full-width {
-    max-width: none;
-}*/
 
 .btn-add-img {
     background-image: url('Images/btn-add-icon.png');
@@ -107,8 +88,10 @@ textarea {
 
 .display-field {
     border-bottom: 1px solid #dee2e6;
-    padding-left: 4px;
-    padding-right: 4px;
+}
+
+.error-page-message {
+    padding-top: 18%;
 }
 
 .field-group {
@@ -136,10 +119,6 @@ textarea {
     display: block;
 }
 
-/*.form-fieldset-sm {
-    margin-bottom: 8px;
-}*/
-
 .form-fieldset {
     margin-bottom: 18px;
 }
@@ -157,8 +136,7 @@ textarea {
 }
 
 .form-input {
-    border: 1px solid #ced4da ;
-    /*border-color: #aaa;*/
+    border: 1px solid #ced4da;
     color: #495057;
     font-size: 15px;
     height: 25px;
@@ -225,32 +203,6 @@ textarea {
     padding-left: 3px;
 }
 
-/*.hoverable-area .hidden-menu {
-    -webkit-transition: all 0.75s ease;
-    -moz-transition: all 0.75s ease;
-    -o-transition: all 0.75s ease;
-    transition: all 0.75s ease;
-    -webkit-transition-delay: 3s;
-    -moz-transition-delay: 3s;
-    -o-transition-delay: 3s;
-    transition-delay: 3s;
-    -webkit-transform: translateY(-110%);
-    -moz-transform: translateY(-110%);
-    -o-transform: translateY(-110%);
-    transform: translateY(-110%);
-}
-
-.hoverable-area:hover .hidden-menu {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
-}*/
-
 .icon-image {
     height: 25px;
     width: 25px;
@@ -273,13 +225,9 @@ textarea {
 }
 
 .report-viewer {
-    /*border: 1px solid #ced4da;
-    border-top: none;*/
     border: none;
     margin-left: -15px;
     margin-right: -15px;
-    /*padding-right: 0;
-    padding-left: 0;*/
     min-height: 714px;
     /*min-width: 1260px;*/
     padding-bottom: 15px;
@@ -303,10 +251,6 @@ textarea {
     white-space: nowrap;
     width: 92px;
 }
-
-/*.select-hidden {
-    visibility: hidden;
-}*/
 
 .plain-link {
     color: #373a3c;
@@ -352,18 +296,13 @@ textarea {
     z-index: 98;
 }
 
-.smallnavbar {
-    background-color: rgba(153, 153, 153, 1);
-    height: 15px;
-    padding: 0px;
-    z-index: 1;
-}
-
-.smallnavbar .nav-link {
-    color: #E4E4E4;
-    font-size: 11px;
-    padding: 0px;
-    padding-bottom: 1px;
+.small-muted-text {
+    color: #868e96;
+    display: block;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .sort-icon {
@@ -433,6 +372,47 @@ textarea {
     width: 70%;
 }
 
+.textarea-size-xsm {
+    height: 75px;
+    width: 380px;
+}
+
+.textarea-size-sm {
+    height: 128px;
+    width: 380px;
+}
+
+.textarea-size-md {
+    height: 200px;
+    width: 380px;
+}
+
+.textarea-size-lg {
+    height: 490px;
+    width: 380px;
+}
+
+.top-nav-content {
+    background-color: rgba(153, 153, 153, 1);
+    height: 15px;
+    max-width: 1280px;
+    width: 1280px;
+    line-height: 11px;
+}
+
+.top-nav-item {
+    color: #E4E4E4;
+    display: inline-block;
+    font-size: 11px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+a.top-nav-item:hover {
+    color: #E4E4E4;
+    text-decoration: underline;
+}
+
 .ui-autocomplete-loading {
     background: url('Images/search-loader.gif') no-repeat right center;
 }
@@ -456,6 +436,12 @@ textarea {
     position: absolute;
     top: 45px;
     width: 220px;
+}
+
+#legal-content {
+    position: absolute;
+    top: 685px;
+    width: 1250px;
 }
 
 #notes-list {
@@ -529,13 +515,6 @@ textarea:disabled {
 .page-item.active .page-link:hover {
     color: #fff;
 }
-
-/*@media (min-width: 1280px) {
-    .container {
-        max-width: none;
-        width: 1280px;
-    }
-}*/
 
 .input-group-prepend-sm {
     height: 25px;

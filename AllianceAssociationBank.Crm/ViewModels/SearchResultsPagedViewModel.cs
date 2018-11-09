@@ -27,13 +27,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get
             {
-                if (CurrentSort == SortOrder.Descending)
+                if (CurrentSort == SortOrderString.Descending)
                 {
-                    return SortOrder.Ascending;
+                    return SortOrderString.Ascending;
                 }
                 else
                 {
-                    return SortOrder.Descending;
+                    return SortOrderString.Descending;
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
                                            int? previousRecordId = null) 
             : base(projects, pageNumber, pageSize)
         {
-            SearchTerm = searchTerm;
+            SearchTerm = searchTerm?.Trim();
             CurrentSort = currentSort;
             PreviousRecordId = previousRecordId;
         }

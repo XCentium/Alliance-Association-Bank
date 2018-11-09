@@ -3,6 +3,7 @@ using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,22 +23,20 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
 
         public IEnumerable<ProjectUser> GetUsers(int projectId)
         {
-            return GetUsers(projectId, UserFilterValue.All);
+            return GetUsers(projectId, UserFilter.All);
         }
 
-        // TODO: change filter to Enum
-        //public IEnumerable<ProjectUser> GetUsers(int projectId, string filter)
-        public IQueryable<ProjectUser> GetUsers(int projectId, string filter)
+        public IQueryable<ProjectUser> GetUsers(int projectId, UserFilter filter)
         {
             return _context.ProjectUsers
                 .OrderBy(u => string.IsNullOrEmpty(u.Name) ? 2 : 1) // Users with empty names will be at the end of the list
                 .ThenBy(u => u.Name)
                 .Where(u => u.ProjectID == projectId)
                 .Where(u =>
-                     filter == UserFilterValue.All ||
-                    (filter == UserFilterValue.Admin && u.Admin) ||
-                    (filter == UserFilterValue.Active && u.Active) ||
-                    (filter == UserFilterValue.Inactive && !u.Active));
+                     filter == UserFilter.All ||
+                    (filter == UserFilter.Admin && u.Admin) ||
+                    (filter == UserFilter.Active && u.Active) ||
+                    (filter == UserFilter.Inactive && !u.Active));
         }
 
         public async Task<IEnumerable<ProjectUser>> GetUsersByEmailList(int projectId, string emailList)

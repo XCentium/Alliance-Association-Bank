@@ -1,8 +1,4 @@
 ﻿@model ProjectFormViewModel
-@{
-    const string DEBIT = "Debit";
-    const string CREDIT = "Credit";
-}
 
 <div class="tab-body-content">
 
@@ -187,13 +183,22 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-6 offset-2">
+                        @{ 
+                            var buttonCssClass = "btn btn-primary btn-block btn-sm";
+                            if (Model.ID == 0)
+                            {
+                                buttonCssClass += " btn-link-disabled";
+                            }
+                        }
+                        
                         @Html.RouteLink("ACH Spec Report", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             name = ReportName.AchSpec,
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = "btn btn-primary btn-block btn-sm"
+                            @class = buttonCssClass
+                            
                         })
                     </div>
                 </div> 
@@ -205,7 +210,7 @@
                              projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = "btn btn-primary btn-block btn-sm"
+                            @class = buttonCssClass
                         })
                     </div>
                 </div>
@@ -217,7 +222,7 @@
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = "btn btn-primary btn-block btn-sm"
+                            @class = buttonCssClass
                         })
                     </div>
                 </div>
@@ -233,7 +238,7 @@
                 <div class="row">
                     <div class="col-12">
                         @Html.LabelFor(m => m.ACHReviewNotes)
-                        @Html.RoleBasedTextAreaFor(m => m.ACHReviewNotes, 9, 10, cssClass: "form-textarea")
+                        @Html.RoleBasedTextAreaFor(m => m.ACHReviewNotes, 9, 10, cssClass: "form-textarea textarea-size-md")
                     </div>
                 </div>
             </div>
@@ -243,7 +248,7 @@
                     <div class="col-12">
                         @Html.LabelFor(m => m.ACHSpectFormInstructions)
                         <div class="label-small-note">Prints on form sent to ACH Dept.</div>
-                        @Html.RoleBasedTextAreaFor(m => m.ACHSpectFormInstructions, 9, 10, cssClass: "form-textarea")
+                        @Html.RoleBasedTextAreaFor(m => m.ACHSpectFormInstructions, 9, 10, cssClass: "form-textarea textarea-size-md")
                     </div>
                 </div>
             </div>

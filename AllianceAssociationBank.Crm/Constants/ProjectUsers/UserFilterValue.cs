@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants.ProjectUsers
 {
-    public class UserFilterValue
+    public class UserFilterString
     {
         public const string All = "all";
         public const string Admin = "admin";

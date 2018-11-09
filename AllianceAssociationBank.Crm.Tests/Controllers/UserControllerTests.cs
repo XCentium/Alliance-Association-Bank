@@ -2,7 +2,6 @@
 using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Identity;
-using AllianceAssociationBank.Crm.Tests.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using Moq;
 using System;
@@ -69,7 +68,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = controller.Login(loginViewModel, null);
 
-            TestHelper.AssertActionResult<ViewResult, LoginViewModel>(result, UserView.Login);
+            AssertHelper.AssertActionResult<ViewResult, LoginViewModel>(result, UserView.Login);
         }
 
         [Fact]

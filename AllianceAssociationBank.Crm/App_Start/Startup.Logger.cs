@@ -12,8 +12,6 @@ namespace AllianceAssociationBank.Crm
 
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.AppSettings(filePath: $"{appBaseDir}\\LoggerSettings.config")
-                //.MinimumLevel.Information()
-                //.WriteTo.File(AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\log-.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
         }
     }

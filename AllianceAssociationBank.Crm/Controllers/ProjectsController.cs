@@ -61,8 +61,6 @@ namespace AllianceAssociationBank.Crm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProjectFormViewModel model)
         {
-            //try
-            //{
             if (!ModelState.IsValid)
             {
                 await PopulateDropDownLists(model);
@@ -76,11 +74,6 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             TempData[SAVED] = true;
             return RedirectToAction(nameof(this.Edit), new { id = project.ID });
-            //}
-            //catch (Exception ex)
-            //{
-            //    return View("Error");
-            //}
         }
 
         public async Task<ActionResult> Edit(int id)
@@ -89,8 +82,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (project == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("project", id));
-                //return new ViewErrorResult(HttpStatusCode.NotFound, httpContext: HttpContext);   
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("project", id));   
             }
 
             var model = _mapper.Map<ProjectFormViewModel>(project);
@@ -122,7 +114,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (project == null)
             {
                 throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("project", id));
-                //return new ViewErrorResult(HttpStatusCode.NotFound, httpContext: HttpContext);
             }
 
             // Reset PMC/CMC ID value if a user with ReadWrite role attempts to change it.

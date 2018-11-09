@@ -1,19 +1,9 @@
-﻿using AllianceAssociationBank.Crm.Constants;
-using AllianceAssociationBank.Crm.Core.Dtos;
+﻿using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
-using AllianceAssociationBank.Crm.Exceptions;
-using AllianceAssociationBank.Crm.Filters;
-using AllianceAssociationBank.Crm.Persistence;
-using AllianceAssociationBank.Crm.Persistence.Repositories;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using System;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace AllianceAssociationBank.Crm.Controllers.Api
@@ -22,18 +12,15 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     public class ProjectsController : ApiController
     {
         private IProjectRepository _projectRepository;
-        //private IMapper _mapper;
 
         private const int MAX_SEARCH_RESULTS = 10;
 
-        public ProjectsController(IProjectRepository repository/*, IMapper mapper*/)
+        public ProjectsController(IProjectRepository repository)
         {
             _projectRepository = repository;
-            //_mapper = mapper;
         }
         
         [HttpGet]
-        //public async Task<IEnumerable<ProjectDto>> Get(string search)
         public IEnumerable<ProjectDto> Get(string search)
         {
             var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
@@ -45,16 +32,6 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
                 Name = p.ProjectName
             })
             .ToList();
-
-            //return (await _repository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
-            //return await (_projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
-            //    .Take(MAX_SEARCH_RESULTS)
-            //    .Select(p => new ProjectDto()
-            //    {
-            //        Id = p.ID,
-            //        Name = p.ProjectName
-            //    })
-            //    .ToListAsync());
         }
     }
 }

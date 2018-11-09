@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNet.Identity
+
+<div class="container top-nav-content">
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm(UserControllerAction.Logout, ControllerName.User, FormMethod.Post, new
+    {
+        id = "top-logout-form"
+    }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="text-right">
+            <span class="top-nav-item">@User.Identity.GetUserName()</span>
+            <span class="top-nav-item">|</span>
+            <a class="top-nav-item" href="javascript:document.getElementById('top-logout-form').submit()">Logout</a>
+        </div>
+    }
+}
+</div>

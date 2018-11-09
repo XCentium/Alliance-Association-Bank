@@ -7,6 +7,7 @@ using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.Helpers;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -38,14 +39,13 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Route("Index", Name = ProjectUsersControllerRoute.GetUsers)]
-        public ActionResult Index(int projectId, int page = 1, string filter = UserFilterValue.All)
+        public ActionResult Index(int projectId, int page = 1, string filter = UserFilterString.All)
         {
             filter = filter.ToLower();
 
-            var users = _userRepository.GetUsers(projectId, filter);
+            var users = _userRepository.GetUsers(projectId, filter.ToUserFilterEnum());
 
             var usersViewModel = users.ProjectTo<UserFormViewModel>(_mapper.ConfigurationProvider);
-            //var usersViewModel = _mapper.Map<List<UserFormViewModel>>(users);
             var pagedModel = new UsersPagedListViewModel(projectId, usersViewModel, page, PAGE_SIZE);
 
             return PartialView(ProjectUsersView.UsersListPartial, pagedModel);
@@ -98,7 +98,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (user == null)
             {
                 throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
-                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             var model = _mapper.Map<UserFormViewModel>(user);
@@ -122,7 +121,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             if (user == null)
             {
                 throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
-                //return new JsonErrorResult(HttpStatusCode.NotFound, DefaultErrorText.Message.RecordNotFound);
             }
 
             _mapper.Map(model, user);

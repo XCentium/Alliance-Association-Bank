@@ -16,9 +16,5 @@ namespace AllianceAssociationBank.Crm.Persistence.Migrations
             AutomaticMigrationsEnabled = false;
             ContextKey = "AllianceAssociationBank.Crm.Persistence.CrmApplicationDbContext";
         }
-
-        //protected override void Seed(CrmApplicationDbContext context)
-        //{
-        //}
     }
 }

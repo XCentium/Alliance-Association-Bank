@@ -154,7 +154,7 @@
                 </div>
             </div>
 
-            <div class="row my-2">
+            <div class="row my-1">
                 @Html.LabelFor(m => m.OwnerID, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.OwnerID, Model.EmployeeList, "", cssClass: "select2-hidden")
@@ -162,7 +162,7 @@
                 </div>
             </div>
 
-            <div class="row my-2">
+            <div class="row my-1">
                 @Html.LabelFor(m => m.AFPID, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.AFPID, Model.EmployeeList, "", cssClass: "select2-hidden")
@@ -170,7 +170,7 @@
                 </div>
             </div>
 
-            <div class="row my-2">
+            <div class="row my-1">
                 @Html.LabelFor(m => m.BoardingManagerID, new { @class = "col-3 required" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.BoardingManagerID, Model.EmployeeList, "", cssClass: "select2-hidden")
@@ -190,21 +190,18 @@
             <div class="row mt-2">
                 <label class="col-4 form-label-heading">Lock Box</label>
             </div>
-
             <div class="row mb-1">
                 @Html.LabelFor(m => m.LockboxStatus, new { @class = "col-3 form-label-indent" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.LockboxStatus, new SelectList(Model.LockboxStatusList), null, cssClass: "select2-hidden")
                 </div>
             </div>
-
             <div class="row mb-1 select2-">
                 @Html.LabelFor(m => m.LockboxSystem, new { @class = "col-3 form-label-indent" })
                 <div class="col-8">
                     @Html.RoleBasedDropDownListFor(m => m.LockboxSystem, new SelectList(Model.LockboxSystemList), "", cssClass: "select2-hidden")
                 </div>
             </div>
-
             <div class="row mb-1">
                 @Html.LabelFor(m => m.LockboxLiveDate, new { @class = "col-3 form-label-indent" })
                 <div class="col-8">
@@ -214,7 +211,7 @@
                 </div>
             </div>
 
-            <div class="row mt-4 mb-1">
+            <div class="row mt-2 mb-1">
                 @Html.LabelFor(m => m.NumberOfAssociationsReadOnly, new { @class = "col-3" })
                 <div class="col-4">
                     <span class="display-field">
@@ -222,13 +219,19 @@
                     </span>
                 </div>
             </div>
-
             <div class="row my-1">
                 @Html.LabelFor(m => m.NumberOfDoorsReadOnly, new { @class = "col-3" })
                 <div class="col-4">
                     <span class="display-field">
                         @Html.DisplayFor(m => m.NumberOfDoorsReadOnly)
                     </span>
+                </div>
+            </div>
+
+            <div class="row my-0">
+                @Html.LabelFor(m => m.CIPGood, new { @class = "col-3 form-label" })
+                <div class="col-7">
+                    @Html.RoleBasedCheckBoxFor(m => m.CIPGood)
                 </div>
             </div>
 
@@ -253,13 +256,6 @@
                     <span class="form-input-prepend">$</span>
                     @Html.RoleBasedEditorFor(m => m.ActualDeposits, cssClass: "form-input width-80")
                     @Html.ValidationMessageFor(m => m.ActualDeposits, "", new { @class = "form-val-error-tooltip" })
-                    @*<div class="input-group">
-                        <div class="input-group-prepend input-group-prepend-sm">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        @Html.RoleBasedEditorFor(m => m.ActualDeposits, cssClass: "form-input form-input-prepend")
-                        @Html.ValidationMessageFor(m => m.ActualDeposits, "", new { @class = "form-val-error-tooltip" })
-                    </div>*@
                 </div>
             </div>
 

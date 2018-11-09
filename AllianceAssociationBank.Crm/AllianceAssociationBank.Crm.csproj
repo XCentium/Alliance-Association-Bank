@@ -181,12 +181,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="X.PagedList, Version=7.5.0.0, Culture=neutral, PublicKeyToken=00b6c4f97602e5e8, processorArchitecture=MSIL">
-      <HintPath>..\packages\X.PagedList.7.5.0\lib\net461\X.PagedList.dll</HintPath>
-    </Reference>
-    <Reference Include="X.PagedList.Mvc, Version=7.5.0.0, Culture=neutral, PublicKeyToken=c6e0b5b21f916f4f, processorArchitecture=MSIL">
-      <HintPath>..\packages\X.PagedList.Mvc.7.5.0\lib\net461\X.PagedList.Mvc.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -264,7 +258,7 @@
     <Compile Include="Constants\Notes\NotesControllerRoute.cs" />
     <Compile Include="Constants\Search\SearchView.cs" />
     <Compile Include="Constants\Search\SearchControllerAction.cs" />
-    <Compile Include="Constants\SortOrder.cs" />
+    <Compile Include="Constants\SortOrderString.cs" />
     <Compile Include="Constants\ProjectUsers\UserFilterValue.cs" />
     <Compile Include="Constants\User\UserView.cs" />
     <Compile Include="Constants\ValidationErrorMessage.cs" />
@@ -287,11 +281,12 @@
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperButtonExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
-    <Compile Include="Extensions\HtmlHelperAjaxExtensions.cs" />
+    <Compile Include="Extensions\AjaxHelperLinkExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
     <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
     <Compile Include="Filters\MvcDefaultExceptionFilter.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
+    <Compile Include="Helpers\TextContentHelper.cs" />
     <Compile Include="Helpers\EmailDistributionList.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
     <Compile Include="Identity\ActiveDirectoryContext.cs" />
@@ -356,6 +351,9 @@
     <Compile Include="Persistence\EntityConfigurations\SoftwareEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\EmployeeEntityConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ProjectUserEntityConfiguration.cs" />
+    <Compile Include="Persistence\Enums\EnumConversionExtensions.cs" />
+    <Compile Include="Persistence\Enums\SortOrder.cs" />
+    <Compile Include="Persistence\Enums\UserFilter.cs" />
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\CrmApplicationDbContext.cs" />
     <Compile Include="Core\Interfaces\IProjectRepository.cs" />
@@ -420,6 +418,7 @@
     <Content Include="Content\Images\ui-icons_444444_256x240.png" />
     <Content Include="Content\Images\ui-icons_555555_256x240.png" />
     <Content Include="Content\Images\warning-icon.png" />
+    <Content Include="Content\print.css" />
     <Content Include="Content\select2.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -479,6 +478,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="LoggerSettings.config" />
+    <Content Include="AppTextContent.config" />
     <None Include="Reports\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -488,11 +488,9 @@
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
-    <Content Include="Scripts\app\achTabController.js" />
     <Content Include="Scripts\app\inputMaskHelper.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\appFunctions.js" />
     <Content Include="Scripts\app\errorHandler.js" />
     <Content Include="Scripts\app\generalTabController.js" />
     <Content Include="Scripts\app\navigationWidgets.js" />
@@ -567,8 +565,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_TopNavigationPartial.cshtml" />
     <Content Include="Views\Projects\ProjectForm.cshtml" />
     <Content Include="Views\Reports\ViewReport.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -602,11 +599,11 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Shared\_SearchWidgetPartial.cshtml" />
     <Content Include="Views\Projects\_SystemTabPartial.cshtml" />
+    <Content Include="Views\Shared\_LegalSectionPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Logs\" />
-    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

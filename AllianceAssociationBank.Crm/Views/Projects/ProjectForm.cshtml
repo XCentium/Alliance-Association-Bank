@@ -43,12 +43,12 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="row mb-2">
-            <div class="col-1" style="margin-bottom: -10px; padding-top:5px;">
-                <label class="text-muted">Name</label>
+        <div class="row"> @*mb-2*@
+            <div class="col-1">
+                <label class="text-muted mb-0">Name</label>
             </div>
             <div class="col-11 text-right">
-                <span class="save-indicator @Model.SaveIndicatorCssClass" id="project-form-save-indicator" >@Model.SaveIndicator</span>
+                <span class="save-indicator @Model.SaveIndicatorCssClass" id="project-form-save-indicator">@Model.SaveIndicator</span>
                 @Html.RoleBasedButton(" ", "submit", "btn-img btn-save-img", "Save")
                 <button class="btn-img" id="btn-print-form-content" type="button" title="Print">
                     <img class="icon-image" src="~/Content/Images/btn-print-icon.png" />

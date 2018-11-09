@@ -10,7 +10,7 @@ namespace AllianceAssociationBank.Crm.Constants
     {
         public static class Title
         {
-            public const string BadRequest = "Invalid Request";
+            public const string BadRequest = "Invalid Operation";
             public const string NotFound = "Not Found";
             public const string InternalServerError = "Error";
 
@@ -33,7 +33,7 @@ namespace AllianceAssociationBank.Crm.Constants
         public static class Message
         {
             public const string BadRequest = "Your request resulted in a error.";
-            public const string CreateProjectFirst = "Please create a project record before performing this operation.";
+            public const string CreateProjectFirst = "Please save a project record before performing this operation.";
             public const string NotFound = "The resource you are looking for has been removed or is temporarily unavailable.";
             public const string RecordNotFound = "The requested record was not found.";
             public const string InternalServerError = "An error occurred while processing your request. Please try again later.";

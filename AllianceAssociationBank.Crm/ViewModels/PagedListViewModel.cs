@@ -13,6 +13,16 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public int PageNumber { get; }
 
+        public bool ShowLastPage
+        {
+            get { return TotalPages > PageNumber; }
+        }
+
+        public bool ShowFirstPage
+        {
+            get { return PageNumber > 1; }
+        }
+
         public int TotalPages
         {
             get { return (int)Math.Ceiling(TotalItems / (double)PageSize); }

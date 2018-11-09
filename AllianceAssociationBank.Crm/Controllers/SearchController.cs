@@ -1,12 +1,10 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.Search;
 using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Persistence.Enums;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
@@ -31,35 +29,15 @@ namespace AllianceAssociationBank.Crm.Controllers
             return View(SearchView.Index, new SearchResultsPagedViewModel());
         }
 
-        //public async Task<ActionResult> Results(string term, int page = 1, string sort = SortOrder.Ascending, int? previousId = null)
-        public ActionResult Results(string term, int page = 1, string sort = SortOrder.Ascending, int? previousId = null)
+        public ActionResult Results(string term, int page = 1, string sort = SortOrderString.Ascending, int? previousId = null)
         {
-            var results = _projectRepository.GetProjectsBySearchTerm(term, sort);
-            //var results = await _projectRepository.GetProjectsBySearchTermAsync(term, sort);
+            var results = _projectRepository.GetProjectsBySearchTerm(term, sort.ToSortOrderEnum());
 
             var projectsViewModel = results.ProjectTo<ProjectFormViewModel>(_mapper.ConfigurationProvider);
-            //var projectsViewModel = _mapper.Map<IEnumerable<ProjectFormViewModel>>(results);
 
             var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, PAGE_SIZE, sort, previousId);
 
             return View(SearchView.Index, pagedModel);
         }
-
-        //public async Task<ActionResult> JsonResults(string search)
-        //{
-        //    var results = (await _projectRepository.GetProjectsBySearchTermAsync(search, SortOrder.Ascending))
-        //        .Take(JSON_MAX_SEARCH_RESULTS)
-        //        .Select(p => new
-        //        {
-        //            id = p.ID,
-        //            name = p.ProjectName
-        //        });
-
-        //    return new JsonResult()
-        //    {
-        //        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        //        Data = results          
-        //    };
-        //}
     }
 }

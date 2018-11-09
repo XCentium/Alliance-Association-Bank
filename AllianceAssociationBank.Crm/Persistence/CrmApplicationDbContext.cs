@@ -24,11 +24,6 @@ namespace AllianceAssociationBank.Crm.Persistence
         {
         }
 
-        //public static CrmApplicationDbContext Create()
-        //{
-        //    return new CrmApplicationDbContext();
-        //}
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CheckScannerEntityConfiguration());
