@@ -26,5 +26,5 @@ Configuration of possible values for some of the dropdown lists. However, some d
 #### LoggerSettings.config
 Configurations for Serilog logging such as log files location and minimum logging level.
 #### AppTextContent.config
-The config file to specify various pieces of text content. At point legal message copy can be set here.
+The config file to specify various pieces of text content. At this point legal message copy can be set here.
 
