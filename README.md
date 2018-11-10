@@ -5,7 +5,7 @@
 **ASP.NET MVC 5**  
 
 ## Packages
-**EntityFramework 6.2** - object-relational mapper  
+**EntityFramework v6.2** - object-relational mapper  
 **Unity.MVC v5.0.15** - IoC container ([more info](https://github.com/unitycontainer))  
 **Serilog v2.7.1** - .NET logger ([more info](https://serilog.net/))  
 **AutoMapper v7.0.1** - domain entity to view model object mapper ([more info](https://automapper.org/))  
