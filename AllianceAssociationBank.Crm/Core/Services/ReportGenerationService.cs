@@ -14,20 +14,21 @@ namespace AllianceAssociationBank.Crm.Core.Services
     public class ReportGenerationService : IReportGenerationService
     {
         private IReportQueries _queries;
+        private IFileSystemService _fileSystem;
         private const string REPORTS_DIRECTORY = "Reports";
 
-        public ReportGenerationService(IReportQueries queries)
+        public ReportGenerationService(IReportQueries queries, IFileSystemService fileSystem)
         {
             _queries = queries;
+            _fileSystem = fileSystem;
         }
 
         public async Task<ReportViewer> GenerateReportByName(string reportName, int? projectId = null)
         {
-            var reportPath = 
-                HttpContext.Current.Request.MapPath(HttpContext.Current.Request.ApplicationPath) + $"{REPORTS_DIRECTORY}\\{reportName}.rdlc";
+            var reportPath = _fileSystem.GetAppBaseDirectory() + $"{REPORTS_DIRECTORY}\\{reportName}.rdlc";
 
             // if report rdlc file doesn't exist return null
-            if (!System.IO.File.Exists(reportPath))
+            if (!_fileSystem.IsFileExists(reportPath))
             {
                 return null;
             }

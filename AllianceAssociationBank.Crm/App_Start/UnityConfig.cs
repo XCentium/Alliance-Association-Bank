@@ -68,6 +68,7 @@ namespace AllianceAssociationBank.Crm
             container.RegisterType<IReformatRepository, ReformatRepository>(new TransientLifetimeManager());
 
             container.RegisterType<IReportQueries, ReportQueries>(new TransientLifetimeManager());
+            container.RegisterType<IFileSystemService, FileSystemService>(new TransientLifetimeManager());
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
             container.RegisterType<IDataExportService, DataExportService>(new TransientLifetimeManager());
 

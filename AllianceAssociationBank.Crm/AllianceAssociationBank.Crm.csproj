@@ -265,6 +265,8 @@
     <Compile Include="Constants\SignInErrorMessage.cs" />
     <Compile Include="Constants\User\UserControllerAction.cs" />
     <Compile Include="Core\Models\Aq2Reformat.cs" />
+    <Compile Include="Core\Services\FileSystemService.cs" />
+    <Compile Include="Core\Interfaces\IFileSystemService.cs" />
     <Compile Include="Exceptions\ViewErrorResult.cs" />
     <Compile Include="Exceptions\JsonErrorResult.cs" />
     <Compile Include="Exceptions\HttpNotFoundException.cs" />

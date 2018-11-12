@@ -21,17 +21,17 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
     public class SearchControllerTests
     {
         private SearchController _controller;
-        private Mock<IProjectRepository> _projectRepository;
+        private Mock<IProjectRepository> _mockProjectRepository;
         private IMapper _mapper;
 
         private List<Project> _projects;
 
         public SearchControllerTests()
         {
-            _projectRepository = new Mock<IProjectRepository>();
+            _mockProjectRepository = new Mock<IProjectRepository>();
             _mapper = CrmAutoMapperProfile.GetMapper();
 
-            _controller = new SearchController(_projectRepository.Object, _mapper);
+            _controller = new SearchController(_mockProjectRepository.Object, _mapper);
 
             _projects = new List<Project>()
             {
@@ -44,7 +44,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public void Results_ValidSearchTerm_ShouldReturnViewResultModelWithItems()
         {
             var term = "project";
-            _projectRepository.Setup(r => r.GetProjectsBySearchTerm(term, SortOrder.Ascending)).Returns(_projects.AsQueryable());
+            _mockProjectRepository.Setup(r => r.GetProjectsBySearchTerm(term, SortOrder.Ascending)).Returns(_projects.AsQueryable());
 
             var result = _controller.Results(term);
 
@@ -57,7 +57,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public void Results_NotValidSearchTerm_ShouldReturnViewResultModelWithNoItems()
         {
             var term = "abcde";
-            _projectRepository.Setup(r => r.GetProjectsBySearchTerm(term, SortOrder.Ascending)).Returns(new List<Project>().AsQueryable());
+            _mockProjectRepository.Setup(r => r.GetProjectsBySearchTerm(term, SortOrder.Ascending)).Returns(new List<Project>().AsQueryable());
 
             var result = _controller.Results(term);
 
@@ -71,7 +71,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         {
             var term = "project";
             var projectId = 999;
-            _projectRepository.Setup(r => r.GetProjectsBySearchTerm(term, SortOrder.Ascending)).Returns(_projects.AsQueryable());
+            _mockProjectRepository.Setup(r => r.GetProjectsBySearchTerm(term, SortOrder.Ascending)).Returns(_projects.AsQueryable());
 
             var result = _controller.Results(term, 1, SortOrderString.Ascending, projectId);
 

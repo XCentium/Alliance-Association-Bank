@@ -15,7 +15,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
     {
         private ErrorController _controller;
         private ILogger _logger;
-        private Mock<HttpContextBase> _httpContext;
+        private Mock<HttpContextBase> _mockHttpContext;
         private string aspxerrorpath;
 
         private const string X_REQUEST_WITH = "X-Requested-With";
@@ -24,17 +24,17 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public ErrorControllerTests()
         {
             _logger = new LoggerConfiguration().CreateLogger();
-            _httpContext = new Mock<HttpContextBase>();
+            _mockHttpContext = new Mock<HttpContextBase>();
             aspxerrorpath = "/Home/Index";
 
             _controller = new ErrorController(_logger);
-            _controller.ControllerContext = new ControllerContext(_httpContext.Object, new RouteData(), _controller);
+            _controller.ControllerContext = new ControllerContext(_mockHttpContext.Object, new RouteData(), _controller);
         }
 
         [Fact]
         public void InternalError_StandardRequest_ShouldReturnViewErrorResult()
         {
-            _httpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(string.Empty);
+            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(string.Empty);
 
             var result = _controller.InternalError(aspxerrorpath);
 
@@ -44,7 +44,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void InternalError_AjaxRequest_ShouldReturnJsonErrorResult()
         {
-            _httpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(XML_HTTP_REQUEST);
+            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(XML_HTTP_REQUEST);
 
             var result = _controller.InternalError(aspxerrorpath);
 
@@ -55,7 +55,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void NotFound_StandardRequest_ShouldReturnViewErrorResult()
         {
-            _httpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(string.Empty);
+            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(string.Empty);
 
             var result = _controller.NotFound(aspxerrorpath);
 
@@ -65,7 +65,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void NotFound_AjaxRequest_ShouldReturnJsonErrorResult()
         {
-            _httpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(XML_HTTP_REQUEST);
+            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(XML_HTTP_REQUEST);
 
             var result = _controller.NotFound(aspxerrorpath);
 
