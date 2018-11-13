@@ -28,17 +28,14 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         public string ComputerInstalledOn { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Mailed")]
         public DateTime? DateMailed { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Installed")]
         public DateTime? DateInstalled { get; set; }
 
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date Trained")]
         public DateTime? DateTrained { get; set; }

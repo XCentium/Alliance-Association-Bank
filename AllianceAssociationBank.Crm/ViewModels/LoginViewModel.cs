@@ -6,7 +6,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
     {
         [Required]
         [Display(Name = "Username")]
-        //[EmailAddress]
         public string UserName { get; set; }
 
         [Required]
