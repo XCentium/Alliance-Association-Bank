@@ -1,7 +1,4 @@
-﻿using System.DirectoryServices.AccountManagement;
-using System.Security.Claims;
-
-namespace AllianceAssociationBank.Crm.Identity
+﻿namespace AllianceAssociationBank.Crm.Identity
 {
     /// <summary>
     /// A claims-based user authentication service.
