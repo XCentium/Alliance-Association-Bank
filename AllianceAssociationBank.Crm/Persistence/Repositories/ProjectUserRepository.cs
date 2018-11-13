@@ -1,6 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Constants.User;
-using AllianceAssociationBank.Crm.Core.Dtos;
+using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Persistence.Enums;

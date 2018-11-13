@@ -1,5 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
-using AllianceAssociationBank.Crm.Core.Dtos;
+using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Core.Services;

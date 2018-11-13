@@ -17,11 +17,6 @@ namespace AllianceAssociationBank.Crm
             bundles.Add(new ScriptBundle("~/bundles/ajaxhelper").Include(
                       "~/Scripts/jquery.unobtrusive-ajax*"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.min.js"));
 
@@ -38,7 +33,7 @@ namespace AllianceAssociationBank.Crm
                       "~/Scripts/umd/popper.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                      "~/Scripts/jquery-ui-1.12.1.min.js"));
+                      "~/Scripts/jquery-ui-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/select2").Include(
                       "~/Scripts/select2.min.js"));

@@ -1,4 +1,4 @@
-﻿using AllianceAssociationBank.Crm.Core.Dtos;
+﻿using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Persistence.Enums;
 using System.Collections.Generic;

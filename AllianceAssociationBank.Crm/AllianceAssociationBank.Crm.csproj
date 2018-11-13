@@ -258,8 +258,8 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Core\Dtos\AchReportDatasetDto.cs" />
-    <Compile Include="Core\Dtos\CDEmailsDatasetDto.cs" />
+    <Compile Include="Dtos\AchReportDatasetDto.cs" />
+    <Compile Include="Dtos\CDEmailsDatasetDto.cs" />
     <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
@@ -324,7 +324,7 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Mappings\CmcListExportMap.cs" />
-    <Compile Include="Core\Dtos\ProjectDto.cs" />
+    <Compile Include="Dtos\ProjectDto.cs" />
     <Compile Include="Core\Models\CheckScanner.cs" />
     <Compile Include="Core\Models\Employee.cs" />
     <Compile Include="Core\Models\Project.cs" />

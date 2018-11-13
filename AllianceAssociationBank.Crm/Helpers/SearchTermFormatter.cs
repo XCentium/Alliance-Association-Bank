@@ -62,11 +62,6 @@ namespace AllianceAssociationBank.Crm.Helpers
         {
             var value = SearchTerm;
 
-            //if (string.IsNullOrEmpty(value))
-            //{
-            //    return value;
-            //}
-
             return WILDCARD + value.Replace(" ", WILDCARD) + WILDCARD;
         }
 

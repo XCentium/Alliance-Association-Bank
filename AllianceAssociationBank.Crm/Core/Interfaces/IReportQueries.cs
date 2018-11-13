@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using AllianceAssociationBank.Crm.Core.Dtos;
+using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Core.Models;
 
 namespace AllianceAssociationBank.Crm.Core.Interfaces

@@ -1,6 +1,6 @@
 ﻿namespace AllianceAssociationBank.Crm.Constants
 {
-    // TODO: move this to web.config/app.config
+    // TODO: move this to .config file
     public static class SignInErrorMessage
     {
         public const string InvalidUserCredentials = "Invalid login attempt. Please try again.";
