@@ -22,7 +22,6 @@ namespace AllianceAssociationBank.Crm
 
             var config = new HttpConfiguration();
             ConfigureAuth(app);
-            //WebApiConfig.Register(config);
             app.UseWebApi(config);
         }
     }
