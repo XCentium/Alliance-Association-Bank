@@ -18,26 +18,26 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 {
     public class ProjectsControllerTests
     {
-        private ProjectsController controller;
-        private IMapper mapper;
+        private ProjectsController _controller;
+        private IMapper _mapper;
 
-        private Mock<IProjectRepository> projectsRepoMock;
-        private Mock<IEmployeeRepository> employeesRepoMock;
-        private Mock<ISoftwareRepository> softwareRepoMock;
-        private Mock<IReformatRepository> reformatRepoMock;
+        private Mock<IProjectRepository> _projectsRepoMock;
+        private Mock<IEmployeeRepository> _employeesRepoMock;
+        private Mock<ISoftwareRepository> _softwareRepoMock;
+        private Mock<IReformatRepository> _reformatRepoMock;
 
         private ProjectFormViewModel projectViewModel;
         private Project project;
 
         public ProjectsControllerTests()
         {
-            projectsRepoMock = new Mock<IProjectRepository>();
-            employeesRepoMock = new Mock<IEmployeeRepository>();
-            softwareRepoMock = new Mock<ISoftwareRepository>();
-            reformatRepoMock = new Mock<IReformatRepository>();
-            mapper = CrmAutoMapperProfile.GetMapper();
+            _projectsRepoMock = new Mock<IProjectRepository>();
+            _employeesRepoMock = new Mock<IEmployeeRepository>();
+            _softwareRepoMock = new Mock<ISoftwareRepository>();
+            _reformatRepoMock = new Mock<IReformatRepository>();
+            _mapper = CrmAutoMapperProfile.GetMapper();
 
-            controller = new ProjectsController(projectsRepoMock.Object, employeesRepoMock.Object, softwareRepoMock.Object, reformatRepoMock.Object, mapper);
+            _controller = new ProjectsController(_projectsRepoMock.Object, _employeesRepoMock.Object, _softwareRepoMock.Object, _reformatRepoMock.Object, _mapper);
 
             projectViewModel = new ProjectFormViewModel()
             {
@@ -77,7 +77,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public async Task Create_ValidState_ShouldReturnNotNullResult()
         {
-            var result = await controller.Create();
+            var result = await _controller.Create();
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
@@ -89,9 +89,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public async Task Create_ValidModel_ShouldReturnRedirectToRouteResult()
         {
             projectViewModel.ID = 0; // On create Id should be 0
-            projectsRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
+            _projectsRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
 
-            var result = await controller.Create(projectViewModel);
+            var result = await _controller.Create(projectViewModel);
 
             Assert.IsType<RedirectToRouteResult>(result);
         }
@@ -100,9 +100,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public async Task Create_InvalidModel_ShouldReturnViewResult()
         {
             var inputModel = new ProjectFormViewModel();
-            controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
+            _controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
 
-            var result = await controller.Create(inputModel);
+            var result = await _controller.Create(inputModel);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
@@ -113,9 +113,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public async Task Edit_ValidProjectId_ShouldReturnViewResult()
         {
-            projectsRepoMock.Setup(r => r.GetProjectByIdAsync(project.ID)).ReturnsAsync(project);
+            _projectsRepoMock.Setup(r => r.GetProjectByIdAsync(project.ID)).ReturnsAsync(project);
 
-            var result = await controller.Edit(project.ID);
+            var result = await _controller.Edit(project.ID);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
@@ -127,9 +127,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public async Task Edit_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
             var projectId = 99;
-            projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectId)).ReturnsAsync(null as Project);
+            _projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectId)).ReturnsAsync(null as Project);
 
-            var exception = await Record.ExceptionAsync(() => controller.Edit(projectId));
+            var exception = await Record.ExceptionAsync(() => _controller.Edit(projectId));
 
             Assert.IsType<HttpNotFoundException>(exception);
             Assert.NotNull(exception);
@@ -139,10 +139,10 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public async Task Update_ValidModel_ShouldReturnRedirectToRouteResult()
         {
             projectViewModel.ProjectName = "Changed Project Name";
-            projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(project);
-            projectsRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
+            _projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(project);
+            _projectsRepoMock.Setup(r => r.SaveAllAsync()).ReturnsAsync(true);
 
-            var result = await controller.Update(projectViewModel.ID, projectViewModel);
+            var result = await _controller.Update(projectViewModel.ID, projectViewModel);
 
             Assert.IsType<RedirectToRouteResult>(result);
         }
@@ -151,9 +151,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         public async Task Update_InvalidModel_ShouldReturnViewResult()
         {
             projectViewModel.ProjectName = null;
-            controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
+            _controller.ModelState.AddModelError("ProjectName", "The Project Name field is required.");
 
-            var result = await controller.Update(projectViewModel.ID, projectViewModel);
+            var result = await _controller.Update(projectViewModel.ID, projectViewModel);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
@@ -164,9 +164,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public async Task Update_InvalidProjectId_ShouldThrowHttpNotFoundException()
         {
-            projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(null as Project);
+            _projectsRepoMock.Setup(r => r.GetProjectByIdAsync(projectViewModel.ID)).ReturnsAsync(null as Project);
 
-            var exception = await Record.ExceptionAsync(() => controller.Update(projectViewModel.ID, projectViewModel));
+            var exception = await Record.ExceptionAsync(() => _controller.Update(projectViewModel.ID, projectViewModel));
 
             Assert.IsType<HttpNotFoundException>(exception);
             Assert.NotNull(exception);

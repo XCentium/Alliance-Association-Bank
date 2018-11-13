@@ -37,6 +37,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         {
             get { return HasPreviousPage ? PageNumber - 1 : 1; }
         }
+
+        // Show this second previous page only when a user is at the end of pagination (the last page)
         public bool ShowSecondPreviousPage
         {
             get { return !HasNextPage && TotalPages > 2; }
@@ -57,6 +59,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return HasNextPage ? PageNumber + 1 : TotalPages; }
         }
 
+        // Show this second next page only when a user is at the beginning of pagination (the first page)
         public bool ShowSecondNextPage
         {
             get { return !HasPreviousPage && TotalPages > 2; }
@@ -77,9 +80,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public PagedListViewModel(IQueryable<T> allItems, int pageNumber, int pageSize)
         {
-            //pageSize = pageSize < 1 ? 5 : pageSize;
-            //pageNumber = pageNumber < 1 ? 1 : pageNumber;
-
             TotalItems = allItems.Count();
             PageNumber = pageNumber;
             PageSize = pageSize;

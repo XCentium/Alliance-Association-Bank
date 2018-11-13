@@ -54,10 +54,6 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             Assert.IsType<HttpNotFoundException>(exception);
             Assert.NotNull(exception);
-
-            //var result = await controller.GenerateExportFile(exportName);
-            //var errorViewResult = Assert.IsType<ViewErrorResult>(result);
-            //Assert.NotNull(errorViewResult);
         }
     }
 }

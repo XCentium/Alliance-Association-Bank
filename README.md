@@ -5,7 +5,7 @@
 **ASP.NET MVC 5**  
 
 ## Packages
-**EntityFramework 6.2** - object-relational mapper  
+**EntityFramework v6.2** - object-relational mapper  
 **Unity.MVC v5.0.15** - IoC container ([more info](https://github.com/unitycontainer))  
 **Serilog v2.7.1** - .NET logger ([more info](https://serilog.net/))  
 **AutoMapper v7.0.1** - domain entity to view model object mapper ([more info](https://automapper.org/))  
@@ -20,11 +20,11 @@
 #### Web.config
 The connection string entry with name of **CrmApplicationDbConnection** needs to be updated to point to the correct SQL Server database.
 #### UserAuthenticationSettings.config
-Configurations for user authentication against Active Directory. 3 AD security group names must be specified here correctly for admin, read-write and read-only users.
+Configurations for user authentication against Active Directory. Three AD security group names must be set in this file correctly for admin, read-write and read-only users.
 #### DropDownListSettings.config
 Configuration of possible values for some of the dropdown lists. However, some dropdown lists are controlled by SQL tables (Employees, Software/MigrateTo and ReformatAQ2).
 #### LoggerSettings.config
 Configurations for Serilog logging such as log files location and minimum logging level.
 #### AppTextContent.config
-The config file to specify various pieces of text content. At point legal message copy can be set here.
+The config file to specify various pieces of text content. At this point legal message copy can be set here.
 
