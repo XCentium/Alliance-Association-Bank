@@ -20,7 +20,7 @@
 #### Web.config
 The connection string entry with name of **CrmApplicationDbConnection** needs to be updated to point to the correct SQL Server database.
 #### UserAuthenticationSettings.config
-Configurations for user authentication against Active Directory. 3 AD security group names must be specified here correctly for admin, read-write and read-only users.
+Configurations for user authentication against Active Directory. Three AD security group names must be set in this file correctly for admin, read-write and read-only users.
 #### DropDownListSettings.config
 Configuration of possible values for some of the dropdown lists. However, some dropdown lists are controlled by SQL tables (Employees, Software/MigrateTo and ReformatAQ2).
 #### LoggerSettings.config
