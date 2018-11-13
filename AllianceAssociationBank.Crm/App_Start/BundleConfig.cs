@@ -33,7 +33,7 @@ namespace AllianceAssociationBank.Crm
                       "~/Scripts/umd/popper.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                      "~/Scripts/jquery-ui-1.12.1.min.js"));
+                      "~/Scripts/jquery-ui-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/select2").Include(
                       "~/Scripts/select2.min.js"));
