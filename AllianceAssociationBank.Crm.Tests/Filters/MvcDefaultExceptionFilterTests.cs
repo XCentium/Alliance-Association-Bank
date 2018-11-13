@@ -1,5 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
+using AllianceAssociationBank.Crm.Tests.TestHelpers.Constants;
 using Moq;
 using Serilog;
 using System;
@@ -18,15 +19,16 @@ namespace AllianceAssociationBank.Crm.Tests.Filters
     {
         private MvcDefaultExceptionFilter _exceptionFilter;
         private ExceptionContext _exceptionContext;
+        private Mock<HttpContextBase> _mockHttpContext;
 
         public MvcDefaultExceptionFilterTests()
         {
             var logger = new LoggerConfiguration().CreateLogger();
-            var _mockHttpContext = new Mock<HttpContextBase>();
-            var _mockHttpRequest = new Mock<HttpRequestBase>();
-            var _mockHttpResponse = new Mock<HttpResponseBase>();
-            _mockHttpContext.Setup(c => c.Request).Returns(_mockHttpRequest.Object);
-            _mockHttpContext.Setup(c => c.Response).Returns(_mockHttpResponse.Object);
+            _mockHttpContext = new Mock<HttpContextBase>();
+            var mockHttpRequest = new Mock<HttpRequestBase>();
+            var mockHttpResponse = new Mock<HttpResponseBase>();
+            _mockHttpContext.Setup(c => c.Request).Returns(mockHttpRequest.Object);
+            _mockHttpContext.Setup(c => c.Response).Returns(mockHttpResponse.Object);
             var controllerContext = new ControllerContext(
                 _mockHttpContext.Object, 
                 new RouteData(), 
@@ -37,12 +39,25 @@ namespace AllianceAssociationBank.Crm.Tests.Filters
         }
 
         [Fact]
-        public void OnException_NotAjaxRequest_ShouldHandleExceptionAndReturnViewErrorResult()
+        public void OnException_NonAjaxRequest_ShouldHandleExceptionAndReturnViewErrorResult()
         {
             _exceptionFilter.OnException(_exceptionContext);
 
             Assert.True(_exceptionContext.ExceptionHandled);
             Assert.IsType<ViewErrorResult>(_exceptionContext.Result);
+        }
+
+        [Fact]
+        public void OnException_AjaxRequest_ShouldHandleExceptionAndReturnJsonErrorResult()
+        {
+            _mockHttpContext
+                .Setup(c => c.Request[HttpRequestValue.XRequestWith])
+                .Returns(HttpRequestValue.XmlHttpRequest);
+
+            _exceptionFilter.OnException(_exceptionContext);
+
+            Assert.True(_exceptionContext.ExceptionHandled);
+            Assert.IsType<JsonErrorResult>(_exceptionContext.Result);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Controllers;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Tests.TestHelpers.Constants;
 using AllianceAssociationBank.Crm.ViewModels;
 using Moq;
 using Serilog;
@@ -34,7 +35,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void InternalError_StandardRequest_ShouldReturnViewErrorResult()
         {
-            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(string.Empty);
+            _mockHttpContext
+                .Setup(c => c.Request[HttpRequestValue.XRequestWith])
+                .Returns(string.Empty);
 
             var result = _controller.InternalError(aspxerrorpath);
 
@@ -44,7 +47,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void InternalError_AjaxRequest_ShouldReturnJsonErrorResult()
         {
-            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(XML_HTTP_REQUEST);
+            _mockHttpContext
+                .Setup(c => c.Request[HttpRequestValue.XRequestWith])
+                .Returns(HttpRequestValue.XmlHttpRequest);
 
             var result = _controller.InternalError(aspxerrorpath);
 
@@ -55,7 +60,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void NotFound_StandardRequest_ShouldReturnViewErrorResult()
         {
-            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(string.Empty);
+            _mockHttpContext
+                .Setup(c => c.Request[HttpRequestValue.XRequestWith])
+                .Returns(string.Empty);
 
             var result = _controller.NotFound(aspxerrorpath);
 
@@ -65,7 +72,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void NotFound_AjaxRequest_ShouldReturnJsonErrorResult()
         {
-            _mockHttpContext.Setup(c => c.Request[X_REQUEST_WITH]).Returns(XML_HTTP_REQUEST);
+            _mockHttpContext
+                .Setup(c => c.Request[HttpRequestValue.XRequestWith])
+                .Returns(HttpRequestValue.XmlHttpRequest);
 
             var result = _controller.NotFound(aspxerrorpath);
 
