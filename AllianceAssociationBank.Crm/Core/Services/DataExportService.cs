@@ -9,7 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AllianceAssociationBank.Crm.Mappings;
-using AllianceAssociationBank.Crm.Core.Dtos;
+using AllianceAssociationBank.Crm.Dtos;
 
 namespace AllianceAssociationBank.Crm.Core.Services
 {
