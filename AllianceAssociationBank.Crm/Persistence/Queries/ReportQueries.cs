@@ -9,6 +9,7 @@ using System.Web;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Helpers;
 using AutoMapper;
+using AllianceAssociationBank.Crm.Constants.Projects;
 
 namespace AllianceAssociationBank.Crm.Persistence.Queries
 {
@@ -26,7 +27,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         public async Task<IEnumerable<Project>> GetBoardingDataSetAsync()
         {
             return await _context.Projects
-                .Where(p => p.Status == "In Progress" || p.Status == "Audit Concern")
+                .Where(p => p.Status == ProjectStatus.InProgress || p.Status == ProjectStatus.AuditConcern)
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
@@ -39,7 +40,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         public async Task<IEnumerable<Project>> GetSoftwareTransitionDataSetAsync()
         {
             return await _context.Projects
-                .Where(p => p.Status == "Software Transition")
+                .Where(p => p.Status == ProjectStatus.SoftwareTransition)
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
@@ -49,7 +50,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         public async Task<IEnumerable<Project>> GetCompletedAndHoldDataSetAsync()
         {
             return await _context.Projects
-                .Where(p => p.Status == "Completed" || p.Status == "Deferred")
+                .Where(p => p.Status == ProjectStatus.Completed || p.Status == ProjectStatus.Deferred)
                 .OrderBy(p => p.ProjectName)
                 .ThenBy(p => p.OwnerID)
                 .ToListAsync();

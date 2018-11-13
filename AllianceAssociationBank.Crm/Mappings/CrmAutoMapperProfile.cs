@@ -2,11 +2,6 @@
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Web;
 
 namespace AllianceAssociationBank.Crm.Mappings
 {
