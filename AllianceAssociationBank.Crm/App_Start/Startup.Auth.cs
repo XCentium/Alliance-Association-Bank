@@ -21,6 +21,7 @@ namespace AllianceAssociationBank.Crm
             {
                 AuthenticationType = AuthenticationType.CrmApplicationCookie,
                 LoginPath = new PathString("/User/Login"),
+                //TicketDataFormat = new TicketDataFormat(app.CreateDataProtector(typeof(CookieAuthenticationMiddleware).FullName, "Auth_Cookie", "v1")),
                 Provider = new CookieAuthenticationProvider(),
                 CookieName = "Aab.Crm.ApplicationIdentity",
                 ExpireTimeSpan = TimeSpan.FromHours(UserAuthenticationSettings.CookieAuthExpireHours)
