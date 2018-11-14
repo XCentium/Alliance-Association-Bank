@@ -10,10 +10,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public int ProjectID { get; set; }
 
-        [StringLength(255)]
         public string Model { get; set; }
 
-        [StringLength(255)]
         public string SerialNumber { get; set; }
 
         public DateTime? DateMailed { get; set; }
@@ -22,10 +20,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public DateTime? DateTrained { get; set; }
 
-        [StringLength(255)]
         public string ComputerInstalledOn { get; set; }
 
-        [StringLength(255)]
         public string System { get; set; }
 
         public string Notes { get; set; }

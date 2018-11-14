@@ -15,6 +15,36 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
 
             HasKey(e => e.ID);
 
+            Property(e => e.Name)
+                .HasMaxLength(255);
+
+            Property(e => e.Email)
+                .HasMaxLength(255);
+
+            Property(e => e.Title)
+                .HasMaxLength(255);
+
+            Property(e => e.DI)
+                .HasMaxLength(255);
+
+            Property(e => e.Sftp)
+                .HasMaxLength(255);
+
+            Property(e => e.LockboxWeb)
+                .HasMaxLength(255);
+
+            Property(e => e.EDeposit)
+                .HasMaxLength(255);
+
+            Property(e => e.Phone)
+                .HasMaxLength(255);
+
+            Property(e => e.Mobile)
+                .HasMaxLength(255);
+
+            Property(e => e.RemoteScannerAccountNotes)
+                .HasMaxLength(255);
+
             Property(e => e.Birthday)
                 .HasColumnType("datetime2")
                 .HasPrecision(0);
@@ -26,9 +56,6 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
             Property(e => e.DateDeleted)
                 .HasColumnType("datetime2")
                 .HasPrecision(0);
-
-            //Property(e => e.Attachments)
-            //    .IsUnicode(false);
 
             HasRequired(u => u.Project)
                 .WithMany(p => p.Users)

@@ -10,6 +10,15 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
             ToTable("Software");
 
             HasKey(e => e.ID);
+
+            Property(e => e.SoftwareName)
+                .HasMaxLength(255);
+
+            Property(e => e.CurrentSoftware)
+                .HasMaxLength(255);
+
+            Property(e => e.MigratingTo)
+                .HasMaxLength(255);
         }
     }
 }
