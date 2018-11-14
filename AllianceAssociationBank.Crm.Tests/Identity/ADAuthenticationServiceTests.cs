@@ -95,7 +95,7 @@ namespace AllianceAssociationBank.Crm.Tests.Identity
         }
 
         [Fact]
-        public void CreateUserIdentity_ValidAdminUser_ShouldReturnIdentiyWithAdminRole()
+        public void CreateUserIdentity_ValidAdminUser_ShouldReturnIdentityWithAdminRole()
         {
             activeDirectoryContextMock.Setup(c => c.GetUserSecurityGroups(userPrincipal)).Returns(userSecurityGroups);
             userAdminGroup.Name = UserAuthenticationSettings.AdminADGroup;
@@ -108,7 +108,7 @@ namespace AllianceAssociationBank.Crm.Tests.Identity
         }
 
         [Fact]
-        public void CreateUserIdentity_ValidReadWriteUser_ShouldReturnIdentiyWithReadWriteRole()
+        public void CreateUserIdentity_ValidReadWriteUser_ShouldReturnIdentityWithReadWriteRole()
         {
             activeDirectoryContextMock.Setup(c => c.GetUserSecurityGroups(userPrincipal)).Returns(userSecurityGroups);
             userAdminGroup.Name = UserAuthenticationSettings.ReadWriteADGroup;
@@ -122,7 +122,7 @@ namespace AllianceAssociationBank.Crm.Tests.Identity
 
 
         [Fact]
-        public void CreateUserIdentity_ValidReadOnlyUser_ShouldReturnIdentiyWithReadOnlyRole()
+        public void CreateUserIdentity_ValidReadOnlyUser_ShouldReturnIdentityWithReadOnlyRole()
         {
             activeDirectoryContextMock.Setup(c => c.GetUserSecurityGroups(userPrincipal)).Returns(userSecurityGroups);
             userAdminGroup.Name = UserAuthenticationSettings.ReadOnlyADGroup;
