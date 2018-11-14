@@ -1,6 +1,7 @@
 # Alliance Association Bank CRM Project
 
 ## Framework
+**Visual Studio 2017**  
 **.NET Framework 4.7.2**  
 **ASP.NET MVC 5**  
 
