@@ -8,10 +8,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
     {
         public int ID { get; set; }
 
-        //[StringLength(150)]
         public string ProjectName { get; set; }
 
-        //[StringLength(255)]
         public string Institution { get; set; }
 
         public int? OwnerID { get; set; }
@@ -26,7 +24,6 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public Employee BoardingManager { get; set; }
 
-        //[StringLength(50)]
         public string Status { get; set; }
 
         public DateTime? StartDate { get; set; }
@@ -35,49 +32,34 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public DateTime? TargetLockboxLiveDate { get; set; }
 
-        //[StringLength(255)]
         public string Address { get; set; }
 
-        //[StringLength(255)]
         public string City { get; set; }
 
-        //[StringLength(255)]
         public string State { get; set; }
 
-        //[StringLength(255)]
         public string ZipCode { get; set; }
 
-        //[StringLength(255)]
         public string MailingAddress { get; set; }
 
-        //[StringLength(255)]
         public string MailingCity { get; set; }
 
-        //[StringLength(255)]
         public string MailingState { get; set; }
 
-        //[StringLength(255)]
         public string MailingZipCode { get; set; }
 
-        //[StringLength(255)]
         public string Website { get; set; }
 
-        //[StringLength(255)]
         public string TIN { get; set; }
 
-        //[StringLength(255)]
         public string DBA { get; set; }
 
-        //[StringLength(255)]
         public string Fax { get; set; }
 
-        //[StringLength(255)]
         public string Phone { get; set; }
 
-        //[StringLength(255)]
         public string TimeZone { get; set; }
 
-        //[StringLength(255)]
         public string Software { get; set; }
 
         public int? NumberOfAssociations { get; set; }
@@ -88,16 +70,12 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public decimal? ActualDeposits { get; set; }
 
-        //[StringLength(10)]
         public string LockboxCMCID { get; set; }
 
-        //[StringLength(255)]
         public string POBoxSize { get; set; }
 
-        //[StringLength(255)]
         public string POBoxLine1 { get; set; }
 
-        //[StringLength(255)]
         public string POBoxZipCode { get; set; }
 
         public bool EnrollmentFormReceived { get; set; }
@@ -220,17 +198,14 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public DateTime? LockboxLiveDate { get; set; }
 
-        //[StringLength(50)]
         public string LockboxStatus { get; set; }
 
-        //[StringLength(50)]
         public string LockboxSystem { get; set; }
 
         public bool SftpWithFile { get; set; }
 
         public bool SftpManual { get; set; }
 
-        //[StringLength(100)]
         public string SftpPath { get; set; }
 
         public int? ReformatAQ2ID { get; set; }
@@ -239,13 +214,10 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool ReformatByAssoc { get; set; }
 
-        //[StringLength(255)]
         public string MigratingToSoftware { get; set; }
 
-        //[StringLength(255)]
         public string OtherName { get; set; }
 
-        //[StringLength(50)]
         public string RelationshipRate { get; set; }
 
         public string LockboxNotes { get; set; }
