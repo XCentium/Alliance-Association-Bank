@@ -1233,6 +1233,69 @@ FROM            Projects</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="CmcReportDataset" msprop:Generator_TableClassName="CmcReportDatasetDataTable" msprop:Generator_TableVarName="tableCmcReportDataset" msprop:Generator_RowChangedName="CmcReportDatasetRowChanged" msprop:Generator_TablePropName="CmcReportDataset" msprop:Generator_RowDeletingName="CmcReportDatasetRowDeleting" msprop:Generator_RowChangingName="CmcReportDatasetRowChanging" msprop:Generator_RowEvHandlerName="CmcReportDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="CmcReportDatasetRowDeleted" msprop:Generator_RowClassName="CmcReportDatasetRow" msprop:Generator_UserTableName="CmcReportDataset" msprop:Generator_RowEvArgName="CmcReportDatasetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="ProjectName" msprop:Generator_ColumnVarNameInTable="columnProjectName" msprop:Generator_ColumnPropNameInRow="ProjectName" msprop:Generator_ColumnPropNameInTable="ProjectNameColumn" msprop:Generator_UserColumnName="ProjectName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="State" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnPropNameInTable="StateColumn" msprop:Generator_UserColumnName="State" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZipCode" msprop:Generator_ColumnVarNameInTable="columnZipCode" msprop:Generator_ColumnPropNameInRow="ZipCode" msprop:Generator_ColumnPropNameInTable="ZipCodeColumn" msprop:Generator_UserColumnName="ZipCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LockboxCMCID" msprop:Generator_ColumnVarNameInTable="columnLockboxCMCID" msprop:Generator_ColumnPropNameInRow="LockboxCMCID" msprop:Generator_ColumnPropNameInTable="LockboxCMCIDColumn" msprop:Generator_UserColumnName="LockboxCMCID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="POBoxLine1" msprop:Generator_ColumnVarNameInTable="columnPOBoxLine1" msprop:Generator_ColumnPropNameInRow="POBoxLine1" msprop:Generator_ColumnPropNameInTable="POBoxLine1Column" msprop:Generator_UserColumnName="POBoxLine1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint11">
@@ -1245,6 +1308,10 @@ FROM            Projects</CommandText>
     </xs:unique>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Projects" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="CmcReportDataset_Constraint11" msdata:ConstraintName="Constraint11">
+      <xs:selector xpath=".//mstns:CmcReportDataset" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>

@@ -1,20 +1,21 @@
-﻿using System.Threading.Tasks;
+﻿
 using AllianceAssociationBank.Crm.Constants.Reports;
 using Microsoft.Reporting.WebForms;
+using System.Threading.Tasks;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class AchAllCompaniesReport : ReportBase, IReport
+    public class CmcAddressByNameReport : ReportBase, IReport
     {
-        public AchAllCompaniesReport() : base(ReportName.AchAllCompanies)
+        public CmcAddressByNameReport() : base(ReportName.CmcAddressByName)
         {
         }
 
         public async Task ExecuteReport()
         {
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Master, 
-                (await Queries.GetAchAllCompaniesDataSetAsync())));
+                ReportDatasetName.Master,
+                (await Queries.GetCmcAddressByNameDataSetAsync())));
         }
     }
 }

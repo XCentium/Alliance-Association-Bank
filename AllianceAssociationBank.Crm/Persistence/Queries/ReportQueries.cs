@@ -73,6 +73,12 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Project>> GetCmcAddressByNameDataSetAsync()
+        {
+            return await _context.Projects
+                .OrderBy(p => p.ProjectName)
+                .ToListAsync();
+        }
 
         public async Task<IEnumerable<Project>> GetAllInfoDataSetAsync()
         {
