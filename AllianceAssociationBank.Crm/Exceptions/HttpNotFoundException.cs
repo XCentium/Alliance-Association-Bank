@@ -19,5 +19,10 @@ namespace AllianceAssociationBank.Crm.Exceptions
             : base((int)HttpStatusCode.NotFound, message)
         {
         }
+
+        public HttpNotFoundException(Exception innerException)
+            : base((int)HttpStatusCode.NotFound, DefaultErrorText.Message.NotFound, innerException)
+        {
+        }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Reports;
+using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -22,17 +24,31 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("{name}/{projectId?}", Name = ReportsControllerRoute.ViewReport)]
         public async Task<ActionResult> ViewReport(string name, int? projectId = null)
         {
-            var reportViewer = await _reportsService.GenerateReportByName(name, projectId);
-
-            if (reportViewer == null)
+            try
             {
-                throw new HttpNotFoundException();
+                var report = ReportSelector.ResolveByName(name);
+                await report.ExecuteReport();
+
+                ViewBag.ReportViewer = report.ReportViewer;
+                ViewBag.Title = name;
+                return View(ReportsView.ViewReport);
+            }
+            catch (Exception e)
+            {
+                throw new HttpNotFoundException(e);
             }
 
-            ViewBag.ReportViewer = reportViewer;
-            ViewBag.Title = name;
+            //var reportViewer = await _reportsService.GenerateReportByName(name, projectId);
 
-            return View(ReportsView.ViewReport);
+            //if (reportViewer == null)
+            //{
+            //    throw new HttpNotFoundException();
+            //}
+
+            //ViewBag.ReportViewer = reportViewer;
+            //ViewBag.Title = name;
+
+            //return View(ReportsView.ViewReport);
         }
     }
 }
