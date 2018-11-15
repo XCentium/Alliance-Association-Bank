@@ -3503,6 +3503,10 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             private global::System.Data.DataColumn columnNarrative;
             
+            private global::System.Data.DataColumn columnACHLimitAndSpecSubmitted;
+            
+            private global::System.Data.DataColumn columnACHDualApproval;
+            
             private global::System.Data.DataColumn columnACHReviewOfHistoricPerformance;
             
             private global::System.Data.DataColumn columnACHSpectFormInstructions;
@@ -3734,6 +3738,22 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHLimitAndSpecSubmittedColumn {
+                get {
+                    return this.columnACHLimitAndSpecSubmitted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHDualApprovalColumn {
+                get {
+                    return this.columnACHDualApproval;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn ACHReviewOfHistoricPerformanceColumn {
                 get {
                     return this.columnACHReviewOfHistoricPerformance;
@@ -3933,6 +3953,8 @@ namespace AllianceAssociationBank.Crm.Reports {
                         System.DateTime LastReviewDate, 
                         bool Balanced, 
                         string Narrative, 
+                        bool ACHLimitAndSpecSubmitted, 
+                        bool ACHDualApproval, 
                         string ACHReviewOfHistoricPerformance, 
                         string ACHSpectFormInstructions, 
                         bool ACHUploadPPDDebit, 
@@ -3973,6 +3995,8 @@ namespace AllianceAssociationBank.Crm.Reports {
                         LastReviewDate,
                         Balanced,
                         Narrative,
+                        ACHLimitAndSpecSubmitted,
+                        ACHDualApproval,
                         ACHReviewOfHistoricPerformance,
                         ACHSpectFormInstructions,
                         ACHUploadPPDDebit,
@@ -4033,6 +4057,8 @@ namespace AllianceAssociationBank.Crm.Reports {
                 this.columnLastReviewDate = base.Columns["LastReviewDate"];
                 this.columnBalanced = base.Columns["Balanced"];
                 this.columnNarrative = base.Columns["Narrative"];
+                this.columnACHLimitAndSpecSubmitted = base.Columns["ACHLimitAndSpecSubmitted"];
+                this.columnACHDualApproval = base.Columns["ACHDualApproval"];
                 this.columnACHReviewOfHistoricPerformance = base.Columns["ACHReviewOfHistoricPerformance"];
                 this.columnACHSpectFormInstructions = base.Columns["ACHSpectFormInstructions"];
                 this.columnACHUploadPPDDebit = base.Columns["ACHUploadPPDDebit"];
@@ -4096,6 +4122,10 @@ namespace AllianceAssociationBank.Crm.Reports {
                 base.Columns.Add(this.columnBalanced);
                 this.columnNarrative = new global::System.Data.DataColumn("Narrative", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNarrative);
+                this.columnACHLimitAndSpecSubmitted = new global::System.Data.DataColumn("ACHLimitAndSpecSubmitted", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHLimitAndSpecSubmitted);
+                this.columnACHDualApproval = new global::System.Data.DataColumn("ACHDualApproval", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHDualApproval);
                 this.columnACHReviewOfHistoricPerformance = new global::System.Data.DataColumn("ACHReviewOfHistoricPerformance", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnACHReviewOfHistoricPerformance);
                 this.columnACHSpectFormInstructions = new global::System.Data.DataColumn("ACHSpectFormInstructions", typeof(string), null, global::System.Data.MappingType.Element);
@@ -8682,6 +8712,39 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHLimitAndSpecSubmitted {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAchReportDataset.ACHLimitAndSpecSubmittedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHLimitAndSpecSubmitted\' in table \'AchReportDataset\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHLimitAndSpecSubmittedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool ACHDualApproval {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAchReportDataset.ACHDualApprovalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHDualApproval\' in table \'AchReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHDualApprovalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string ACHReviewOfHistoricPerformance {
                 get {
                     try {
@@ -9131,6 +9194,30 @@ namespace AllianceAssociationBank.Crm.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNarrativeNull() {
                 this[this.tableAchReportDataset.NarrativeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHLimitAndSpecSubmittedNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHLimitAndSpecSubmittedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHLimitAndSpecSubmittedNull() {
+                this[this.tableAchReportDataset.ACHLimitAndSpecSubmittedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHDualApprovalNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHDualApprovalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHDualApprovalNull() {
+                this[this.tableAchReportDataset.ACHDualApprovalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

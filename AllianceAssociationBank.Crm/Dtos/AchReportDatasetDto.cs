@@ -47,6 +47,10 @@ namespace AllianceAssociationBank.Crm.Dtos
 
         public string Narrative { get; set; }
 
+        public bool ACHLimitAndSpecSubmitted { get; set; }
+
+        public bool ACHDualApproval { get; set; }
+
         public string ACHReviewOfHistoricPerformance { get; set; }
 
         public string ACHSpectFormInstructions { get; set; }
@@ -78,9 +82,5 @@ namespace AllianceAssociationBank.Crm.Dtos
         public bool ACHWebPPDDebit { get; set; }
 
         public string OwnerName { get; set; }
-
-        //public string ContactName { get; set; }
-
-        //public string ContactEmail { get; set; }
     }
 }

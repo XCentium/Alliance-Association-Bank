@@ -8,21 +8,17 @@ using Microsoft.Reporting.WebForms;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class BoardingReport : ReportBase, IReport
+    public class AchAllCompaniesReport : ReportBase, IReport
     {
-        public BoardingReport() : base(ReportName.Boarding)
+        public AchAllCompaniesReport() : base(ReportName.AchAllCompanies)
         {
         }
 
         public async Task ExecuteReport()
         {
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Projects, 
-                (await Queries.GetBoardingDataSetAsync())));
-
-            DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Employees, 
-                (await Queries.GetEmployeesDataSetAsync())));
+                ReportDatasetName.AchReportDataset, 
+                (await Queries.GetAchAllCompaniesDataSetAsync())));
         }
     }
 }

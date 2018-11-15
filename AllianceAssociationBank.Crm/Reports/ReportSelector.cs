@@ -13,10 +13,10 @@ namespace AllianceAssociationBank.Crm.Reports
     {
         private static readonly string REPORTS_NAMESPACE = MethodBase.GetCurrentMethod().DeclaringType.Namespace;
 
-        public static IReport ResolveByName(string reportName, params int[] reportParameters)
+        public static IReport ResolveByName(string reportName, params object[] reportParameters)
         {
             var reportType = GetTypeByReportName(reportName);
-            var reportInstance = (IReport)Activator.CreateInstance(reportType);
+            var reportInstance = (IReport)Activator.CreateInstance(reportType, reportParameters);
             return reportInstance;
 
             //switch (reportName)
@@ -33,6 +33,7 @@ namespace AllianceAssociationBank.Crm.Reports
         private static Type GetTypeByReportName(string reportName)
         {
             var reportClassName = FormatName(reportName);
+
             var types = Assembly.GetExecutingAssembly()
                 .GetTypes()
                 .Where(t => t.Name.EqualsIgnoreCase(reportClassName) && t.Namespace == REPORTS_NAMESPACE);

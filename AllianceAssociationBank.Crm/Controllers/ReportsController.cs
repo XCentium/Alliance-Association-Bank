@@ -26,7 +26,16 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             try
             {
-                var report = ReportSelector.ResolveByName(name);
+                IReport report;
+                if (projectId.HasValue)
+                {
+                    report = ReportSelector.ResolveByName(name, (int)projectId);
+                }
+                else
+                {
+                    report = ReportSelector.ResolveByName(name);
+                }
+
                 await report.ExecuteReport();
 
                 ViewBag.ReportViewer = report.ReportViewer;

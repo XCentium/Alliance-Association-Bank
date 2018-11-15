@@ -122,6 +122,18 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
         }
 
+        public async Task<IEnumerable<AchReportDatasetDto>> GetAchAllCompaniesDataSetAsync()
+        {
+            var results = await _context.Projects
+                .OrderByDescending(p => p.ACHLimitAndSpecSubmitted) // True first then False
+                .ThenBy(p => p.Institution)
+                .ThenBy(p => p.ProjectName)
+                .Include(p => p.Owner)
+                .ToListAsync();
+
+            return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
+        }
+
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
         {
             return await _context.Employees

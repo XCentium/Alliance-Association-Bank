@@ -18,13 +18,14 @@ namespace AllianceAssociationBank.Crm.Reports
 
         protected virtual ReportDataSourceCollection DataSources
         {
-            get
-            {
-                return ReportViewer.LocalReport.DataSources;
-            }
+            get { return ReportViewer.LocalReport.DataSources; }
         }
 
-        private const string REPORTS_DIRECTORY = "Reports";
+        protected virtual string ReportsDirectory
+        {
+            get { return @"Reports\Definitions"; }
+        }
+
         private IFileSystemService _fileSystem;
 
         public ReportBase(string reportDefinitionFileName)
@@ -59,7 +60,7 @@ namespace AllianceAssociationBank.Crm.Reports
 
         protected virtual string GetDefinitionFileFullPath(string reportDefinitionFileName)
         {
-            return _fileSystem.GetAppBaseDirectory() + $"{REPORTS_DIRECTORY}\\{reportDefinitionFileName}.rdlc";
+            return _fileSystem.GetAppBaseDirectory() + $@"{ReportsDirectory}\{reportDefinitionFileName}.rdlc";
         }
 
         protected virtual bool IsValidDefinitionFile(string fileFullPath)
