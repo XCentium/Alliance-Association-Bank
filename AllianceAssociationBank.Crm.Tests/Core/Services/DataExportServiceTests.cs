@@ -2,6 +2,7 @@
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Core.Services;
+using AllianceAssociationBank.Crm.Dtos;
 using Moq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,17 +14,17 @@ namespace AllianceAssociationBank.Crm.Tests.Core.Services
     {
         private IDataExportService _dataExport;
         private Mock<IReportQueries> _mockReportQueries;
-        private List<Project> _projects;
+        private List<CmcReportDatasetDto> _projects;
 
         public DataExportServiceTests()
         {
             _mockReportQueries = new Mock<IReportQueries>();
             _dataExport = new DataExportService(_mockReportQueries.Object);
 
-            _projects = new List<Project>()
+            _projects = new List<CmcReportDatasetDto>()
             {
-                new Project() { ID = 1, ProjectName = "Project 1" },
-                new Project() { ID = 2, ProjectName = "Project 2" }
+                new CmcReportDatasetDto() { ID = 1, ProjectName = "Project 1" },
+                new CmcReportDatasetDto() { ID = 2, ProjectName = "Project 2" }
             };
         }
 

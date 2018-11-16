@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using AllianceAssociationBank.Crm.Constants.Reports;
+using AllianceAssociationBank.Crm.Reports.Interfaces;
 using Microsoft.Reporting.WebForms;
 
 namespace AllianceAssociationBank.Crm.Reports

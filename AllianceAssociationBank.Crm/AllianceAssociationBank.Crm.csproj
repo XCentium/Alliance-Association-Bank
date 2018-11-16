@@ -372,9 +372,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\AchAllCompaniesReport.cs" />
     <Compile Include="Reports\BoardingReport.cs" />
+    <Compile Include="Reports\CmcByNameReport.cs" />
+    <Compile Include="Reports\CmcByIdReport.cs" />
     <Compile Include="Reports\CmcByIdUsefulInfoReport.cs" />
     <Compile Include="Reports\CmcAddressByNameReport.cs" />
-    <Compile Include="Reports\IReport.cs" />
+    <Compile Include="Reports\Interfaces\IReport.cs" />
+    <Compile Include="Reports\Interfaces\IReportSelector.cs" />
     <Compile Include="Reports\ReportBase.cs" />
     <Compile Include="Reports\ReportsDataSet.cs">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
@@ -616,8 +619,8 @@
   <ItemGroup>
     <Content Include="Reports\CD-Emails.rdlc" />
     <Content Include="Reports\Coupon.rdlc" />
-    <Content Include="Reports\CMC-By-Name.rdlc" />
-    <Content Include="Reports\CMC-By-ID.rdlc" />
+    <Content Include="Reports\Definitions\CMC-By-Name.rdlc" />
+    <Content Include="Reports\Definitions\CMC-By-ID.rdlc" />
     <Content Include="Reports\Software-Transition.rdlc" />
     <Content Include="Reports\Completed-And-Hold.rdlc" />
     <Content Include="Reports\Definitions\Boarding.rdlc" />

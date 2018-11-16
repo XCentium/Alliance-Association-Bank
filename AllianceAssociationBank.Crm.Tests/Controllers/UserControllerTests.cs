@@ -21,22 +21,23 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 {
     public class UserControllerTests
     {
-        private UserController controller;
-        private Mock<IAuthenticationService> authServiceMock;
-        private Mock<HttpRequestBase> httpRequest;
+        private UserController _controller;
+        private Mock<IAuthenticationService> _mockAuthService;
+        private Mock<HttpRequestBase> _mockHttpRequest;
 
         private LoginViewModel loginViewModel;
+        private bool isPersistent = true;
 
         public UserControllerTests()
         {
-            authServiceMock = new Mock<IAuthenticationService>();
-            controller = new UserController(authServiceMock.Object);
+            _mockAuthService = new Mock<IAuthenticationService>();
+            _controller = new UserController(_mockAuthService.Object);
 
             // Mock http context so http request object is not null
-            httpRequest = new Mock<HttpRequestBase>();
-            var httpContext = new Mock<HttpContextBase>();
-            httpContext.SetupGet(c => c.Request).Returns(httpRequest.Object);
-            controller.ControllerContext = new ControllerContext(httpContext.Object, new RouteData(), controller);
+            _mockHttpRequest = new Mock<HttpRequestBase>();
+            var mockHttpContext = new Mock<HttpContextBase>();
+            mockHttpContext.SetupGet(c => c.Request).Returns(_mockHttpRequest.Object);
+            _controller.ControllerContext = new ControllerContext(mockHttpContext.Object, new RouteData(), _controller);
 
             loginViewModel = new LoginViewModel()
             {
@@ -48,11 +49,11 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void Login_ValidUserCredentials_ShouldReturnRedirectToRoute()
         {
-            authServiceMock
-                .Setup(s => s.PasswordSignIn(loginViewModel.UserName, loginViewModel.Password, false))
+            _mockAuthService
+                .Setup(s => s.PasswordSignIn(loginViewModel.UserName, loginViewModel.Password, isPersistent))
                 .Returns(SignInResult.Success);
 
-            var result = controller.Login(loginViewModel, null);
+            var result = _controller.Login(loginViewModel, null);
 
             var redirectResult = Assert.IsType<RedirectToRouteResult>(result);
             Assert.Equal(ControllerName.Home, redirectResult.RouteValues["controller"]);
@@ -62,11 +63,11 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void Login_InvalidUserCredentials_ShouldReturnViewResult()
         {
-            authServiceMock
-                .Setup(s => s.PasswordSignIn(loginViewModel.UserName, loginViewModel.Password, false))
+            _mockAuthService
+                .Setup(s => s.PasswordSignIn(loginViewModel.UserName, loginViewModel.Password, isPersistent))
                 .Returns(SignInResult.InvalidCredentials);
 
-            var result = controller.Login(loginViewModel, null);
+            var result = _controller.Login(loginViewModel, null);
 
             AssertHelper.AssertActionResult<ViewResult, LoginViewModel>(result, UserView.Login);
         }
@@ -74,9 +75,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void Login_AuthenticatedUser_ShouldReturnRedirectToRoute()
         {
-            httpRequest.SetupGet(r => r.IsAuthenticated).Returns(true);
+            _mockHttpRequest.SetupGet(r => r.IsAuthenticated).Returns(true);
 
-            var result = controller.Login(null);
+            var result = _controller.Login(null);
 
             var redirectResult = Assert.IsType<RedirectToRouteResult>(result);
         }
@@ -84,9 +85,9 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void Login_NotAuthenticatedUser_ShouldReturnViewResult()
         {
-            httpRequest.SetupGet(r => r.IsAuthenticated).Returns(false);
+            _mockHttpRequest.SetupGet(r => r.IsAuthenticated).Returns(false);
 
-            var result = controller.Login(null);
+            var result = _controller.Login(null);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
@@ -96,7 +97,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         [Fact]
         public void Logout_ValidState_ShouldReturnRedirectToRoute()
         {
-            var result = controller.Logout();
+            var result = _controller.Logout();
 
             var redirectResult = Assert.IsType<RedirectToRouteResult>(result);
             Assert.Equal(ControllerName.User, redirectResult.RouteValues["controller"]);

@@ -1,5 +1,5 @@
-﻿
-using AllianceAssociationBank.Crm.Constants.Reports;
+﻿using AllianceAssociationBank.Crm.Constants.Reports;
+using AllianceAssociationBank.Crm.Reports.Interfaces;
 using Microsoft.Reporting.WebForms;
 using System.Threading.Tasks;
 

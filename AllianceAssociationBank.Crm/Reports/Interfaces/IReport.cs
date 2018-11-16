@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AllianceAssociationBank.Crm.Reports
+namespace AllianceAssociationBank.Crm.Reports.Interfaces
 {
     public interface IReport
     {

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class CmcByIdUsefulInfoReport : ReportBase, IReport
+    public class CmcByNameReport : ReportBase, IReport
     {
-        public CmcByIdUsefulInfoReport() : base(ReportName.CmcByIdUsefulInfo)
+        public CmcByNameReport() : base(ReportName.CmcByName)
         {
         }
 
@@ -15,7 +15,7 @@ namespace AllianceAssociationBank.Crm.Reports
         {
             DataSources.Add(new ReportDataSource(
                 ReportDatasetName.Master,
-                (await Queries.GetCmcByIdDataSetAsync())));
+                (await Queries.GetCmcByNameDataSetAsync())));
         }
     }
 }

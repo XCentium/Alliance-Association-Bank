@@ -17,6 +17,8 @@ using Microsoft.Owin.Security;
 using System.Web;
 using System.DirectoryServices.AccountManagement;
 using Serilog;
+using AllianceAssociationBank.Crm.Reports.Interfaces;
+using AllianceAssociationBank.Crm.Reports;
 
 namespace AllianceAssociationBank.Crm
 {
@@ -69,6 +71,7 @@ namespace AllianceAssociationBank.Crm
 
             container.RegisterType<IReportQueries, ReportQueries>(new TransientLifetimeManager());
             container.RegisterType<IFileSystemService, FileSystemService>(new TransientLifetimeManager());
+            container.RegisterType<IReportSelector, ReportSelector>(new TransientLifetimeManager());
             container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
             container.RegisterType<IDataExportService, DataExportService>(new TransientLifetimeManager());
 

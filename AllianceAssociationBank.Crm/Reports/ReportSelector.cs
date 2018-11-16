@@ -1,36 +1,28 @@
-﻿using AllianceAssociationBank.Crm.Constants.Reports;
+﻿using AllianceAssociationBank.Crm.Reports.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Extensions;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Web;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class ReportSelector
+    public class ReportSelector : IReportSelector
     {
         private static readonly string REPORTS_NAMESPACE = MethodBase.GetCurrentMethod().DeclaringType.Namespace;
 
-        public static IReport ResolveByName(string reportName, params object[] reportParameters)
+        //public ReportSelector()
+        //{
+        //}
+
+        public IReport ResolveByName(string reportName, params object[] reportParameters)
         {
             var reportType = GetTypeByReportName(reportName);
             var reportInstance = (IReport)Activator.CreateInstance(reportType, reportParameters);
             return reportInstance;
-
-            //switch (reportName)
-            //{
-            //    case var name when name.EqualsIgnoreCase(ReportName.Boarding):
-            //        {
-            //            return new BoardingReport();
-            //        }
-            //    default:
-            //        throw new InvalidReportException($"Cannot identify report by the name of {reportName}.");
-            //}
         }
 
-        private static Type GetTypeByReportName(string reportName)
+        private Type GetTypeByReportName(string reportName)
         {
             var reportClassName = FormatName(reportName);
 
@@ -48,7 +40,7 @@ namespace AllianceAssociationBank.Crm.Reports
             }
         }
 
-        private static string FormatName(string name)
+        private string FormatName(string name)
         {
             const string REPORT = "Report";
 

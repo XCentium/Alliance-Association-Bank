@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class CmcByIdUsefulInfoReport : ReportBase, IReport
+    public class CmcByIdReport : ReportBase, IReport
     {
-        public CmcByIdUsefulInfoReport() : base(ReportName.CmcByIdUsefulInfo)
+        public CmcByIdReport() : base(ReportName.CmcById)
         {
         }
 
