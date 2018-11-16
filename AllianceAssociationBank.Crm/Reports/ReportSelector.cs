@@ -11,10 +11,6 @@ namespace AllianceAssociationBank.Crm.Reports
     {
         private static readonly string REPORTS_NAMESPACE = MethodBase.GetCurrentMethod().DeclaringType.Namespace;
 
-        //public ReportSelector()
-        //{
-        //}
-
         public IReport ResolveByName(string reportName, params object[] reportParameters)
         {
             var reportType = GetTypeByReportName(reportName);
