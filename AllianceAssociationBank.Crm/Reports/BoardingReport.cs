@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using AllianceAssociationBank.Crm.Constants.Reports;
+using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Reports.Interfaces;
 using Microsoft.Reporting.WebForms;
 
@@ -7,7 +8,16 @@ namespace AllianceAssociationBank.Crm.Reports
 {
     public class BoardingReport : ReportBase, IReport
     {
-        public BoardingReport() : base(ReportName.Boarding)
+        public BoardingReport() 
+            : base(ReportName.Boarding)
+        {
+        }
+
+        /// <summary>
+        /// This constructor is used for unit testing.
+        /// </summary>
+        public BoardingReport(IReportQueries reportQueries, IFileSystemService fileSystemService) 
+            : base(reportQueries, fileSystemService, ReportName.Boarding)
         {
         }
 

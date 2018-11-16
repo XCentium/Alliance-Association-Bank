@@ -30,8 +30,16 @@ namespace AllianceAssociationBank.Crm.Reports
 
         public ReportBase(string reportDefinitionFileName)
         {
-            _fileSystem = UnityConfig.Container.Resolve<IFileSystemService>();
             Queries = UnityConfig.Container.Resolve<IReportQueries>();
+            _fileSystem = UnityConfig.Container.Resolve<IFileSystemService>();
+
+            ReportViewer = InitializeReportViewer(reportDefinitionFileName);
+        }
+
+        public ReportBase(IReportQueries reportQueries, IFileSystemService fileSystem, string reportDefinitionFileName)
+        {
+            Queries = reportQueries;
+            _fileSystem = fileSystem;
 
             ReportViewer = InitializeReportViewer(reportDefinitionFileName);
         }
