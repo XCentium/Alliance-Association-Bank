@@ -24,40 +24,37 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("{name}/{projectId?}", Name = ReportsControllerRoute.ViewReport)]
         public async Task<ActionResult> ViewReport(string name, int? projectId = null)
         {
-            //try
-            //{
-            //    IReport report;
-            //    if (projectId.HasValue)
-            //    {
-            //        report = ReportSelector.ResolveByName(name, (int)projectId);
-            //    }
-            //    else
-            //    {
-            //        report = ReportSelector.ResolveByName(name);
-            //    }
-
-            //    await report.ExecuteReport();
-
-            //    ViewBag.ReportViewer = report.ReportViewer;
-            //    ViewBag.Title = name;
-            //    return View(ReportsView.ViewReport);
-            //}
-            //catch (Exception e)
-            //{
-            //    throw new HttpNotFoundException(e);
-            //}
-
-            var reportViewer = await _reportsService.GenerateReportByName(name, projectId);
-
-            if (reportViewer == null)
+            try
             {
-                throw new HttpNotFoundException();
+                IReport report;
+                if (projectId.HasValue)
+                {
+                    report = ReportSelector.ResolveByName(name, (int)projectId);
+                }
+                else
+                {
+                    report = ReportSelector.ResolveByName(name);
+                }
+
+                await report.ExecuteReport();
+
+                ViewBag.ReportViewer = report.ReportViewer;
+                ViewBag.Title = name;
+                return View(ReportsView.ViewReport);
+            }
+            catch (Exception e)
+            {
+                throw new HttpNotFoundException(e);
             }
 
-            ViewBag.ReportViewer = reportViewer;
-            ViewBag.Title = name;
-
-            return View(ReportsView.ViewReport);
+            //var reportViewer = await _reportsService.GenerateReportByName(name, projectId);
+            //if (reportViewer == null)
+            //{
+            //    throw new HttpNotFoundException();
+            //}
+            //ViewBag.ReportViewer = reportViewer;
+            //ViewBag.Title = name;
+            //return View(ReportsView.ViewReport);
         }
     }
 }

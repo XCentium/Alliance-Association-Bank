@@ -11,26 +11,17 @@ namespace AllianceAssociationBank.Crm.Identity
         /// <summary>
         /// Active Directory security group name that corresponds to Admin user role.
         /// </summary>
-        public static string AdminADGroup
-        {
-            get { return GetValueFromConfig("AdminUserADGroupName"); }
-        }
+        public static string AdminADGroup => GetValueFromConfig("AdminUserADGroupName");
 
         /// <summary>
         /// Active Directory security group name that corresponds to ReadWriteUser role.
         /// </summary>
-        public static string ReadWriteADGroup
-        {
-            get { return GetValueFromConfig("ReadWriteUserADGroupName"); }
-        }
+        public static string ReadWriteADGroup => GetValueFromConfig("ReadWriteUserADGroupName");
 
         /// <summary>
         /// Active Directory security group name that corresponds to ReadOnlyUser role.
         /// </summary>
-        public static string ReadOnlyADGroup
-        {
-            get { return GetValueFromConfig("ReadOnlyUserADGroupName"); }
-        }
+        public static string ReadOnlyADGroup => GetValueFromConfig("ReadOnlyUserADGroupName");
 
         /// <summary>
         /// The cookie authentication expiration time in hours.
@@ -45,6 +36,22 @@ namespace AllianceAssociationBank.Crm.Identity
                 }
 
                 return 12; // this is default
+            }
+        }
+
+        /// <summary>
+        /// Boolean identifier if authentication session should be persisted across multiple requests.
+        /// </summary>
+        public static bool UsePersistentCookie
+        {
+            get
+            {
+                if (bool.TryParse(GetValueFromConfig("UsePersistentCookie"), out bool value))
+                {
+                    return value;
+                }
+
+                return true; // this is default
             }
         }
 

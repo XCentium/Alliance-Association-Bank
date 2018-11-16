@@ -8,6 +8,7 @@ namespace AllianceAssociationBank.Crm.Constants.Reports
         public const string SoftwareTransition = "Software-Transition";
         public const string CmcById = "CMC-By-ID";
         public const string CmcByName = "CMC-By-Name";
+        public const string CmcByIdUsefulInfo = "CMC-By-ID-Useful-Info";
         public const string CmcAddressByName = "CMC-Address-By-Name";
         public const string CDEmails = "CD-Emails";
         public const string Coupon = "Coupon";

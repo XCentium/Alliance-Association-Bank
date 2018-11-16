@@ -8,6 +8,7 @@ using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Helpers;
 using AutoMapper;
 using AllianceAssociationBank.Crm.Constants.Projects;
+using AutoMapper.QueryableExtensions;
 
 namespace AllianceAssociationBank.Crm.Persistence.Queries
 {
@@ -54,6 +55,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
+        /// <summary>
+        ///This query is used by CmcById report, CmcByIdUsefulInfo report, CmcList export and CmcUsefulInfoList export.
+        /// </summary>
+        /// <returns>Returns a collection of CmcReportDatasetDto objects.</returns>
         public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcByIdDataSetAsync()
         {
             var results = await _context.Projects
@@ -66,6 +71,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
         }
 
+        /// <summary>
+        ///This query is used by CmcByName report and CmcAddressByName report.
+        /// </summary>
+        /// <returns>Returns a collection of CmcReportDatasetDto objects.</returns>
         public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcByNameDataSetAsync()
         {
             var results = await _context.Projects
@@ -84,11 +93,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         //        .ToListAsync();
 
         //    return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
-
-        //    //var results = _context.Projects
-        //    //    .OrderBy(p => p.ProjectName)
-        //    //    .ProjectTo<CmcReportDatasetDto>(_mapper.ConfigurationProvider);
-        //    //return await results.ToListAsync();
         //}
 
         public async Task<IEnumerable<Project>> GetAllInfoDataSetAsync()
@@ -108,6 +112,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.Users)
                 .ToListAsync();
 
+            // TODO: move this to automapper profile
             return results.Select(p => new CDEmailsDatasetDto()
             {
                 ProjectName = p.ProjectName,

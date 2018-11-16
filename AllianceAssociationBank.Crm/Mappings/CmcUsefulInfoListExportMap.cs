@@ -8,6 +8,7 @@ namespace AllianceAssociationBank.Crm.Mappings
     {
         public CmcUsefulInfoListExportMap()
         {
+            Map(m => m.ID).Name("ID");
             Map(m => m.ProjectName).Name("Project Name");
             Map(m => m.LockboxCMCID).Name("Lockbox CMC ID");
             Map(m => m.TIN).Name("TIN");
@@ -21,7 +22,6 @@ namespace AllianceAssociationBank.Crm.Mappings
             //    .ConvertUsing(m => MapEmployeeName(m.Owner))
             //    .Name("Owner");
             Map(m => m.Software).Name("Software");
-            Map(m => m.ID).Name("ID");
             //Map(m => m.ACHPassThru).Name("ACH Pass Thru");
             //Map(m => m.ACHBatches).Name("ACH Batches");
             //Map(m => m.WireTransferTemplates).Name("Wire Transfer Templates");
@@ -45,10 +45,5 @@ namespace AllianceAssociationBank.Crm.Mappings
             //Map(m => m.ValidationFileAutomaticRegular).Name("Validation File Automatic Regular");
             //Map(m => m.ValidationFileBulkImporterUsed).Name("Validation File Bulk Importer Used");
         }
-
-        //private string MapEmployeeName(Employee employee)
-        //{
-        //    return employee != null ? $"{employee.FirstName} {employee.LastName}" : string.Empty;
-        //}
     }
 }

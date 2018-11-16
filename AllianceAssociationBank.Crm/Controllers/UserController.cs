@@ -40,8 +40,10 @@ namespace AllianceAssociationBank.Crm.Controllers
             {
                 return View(model);
             }
-
-            var result = _authenticationService.PasswordSignIn(model.UserName, model.Password, false);
+            
+            // isPersistent = true will create persistent auth cookie 
+            var isPersistent = UserAuthenticationSettings.UsePersistentCookie;
+            var result = _authenticationService.PasswordSignIn(model.UserName, model.Password, isPersistent);
 
             switch (result)
             {
