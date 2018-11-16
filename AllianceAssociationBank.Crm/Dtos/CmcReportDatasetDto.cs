@@ -21,8 +21,6 @@ namespace AllianceAssociationBank.Crm.Dtos
 
         public string ValidationFileNotes { get; set; }
 
-        public string POBoxLine1 { get; set; }
-
         public string MailingAddress { get; set; }
 
         public string MailingCity { get; set; }
@@ -44,6 +42,8 @@ namespace AllianceAssociationBank.Crm.Dtos
         public string LockboxCMCID { get; set; }
 
         public string Status { get; set; }
+
+        public string POBoxLine1 { get; set; }
 
         public string OwnerName { get; set; }
 

@@ -3078,7 +3078,6 @@ namespace AllianceAssociationBank.Crm.Reports {
                 base.Columns.Add(this.columnStatementEmails);
                 this.columnProjectName.MaxLength = 150;
                 this.columnLockboxCMCID.MaxLength = 10;
-                this.columnStatementEmails.Caption = "StatementEmail";
                 this.columnStatementEmails.MaxLength = 8000;
             }
             
@@ -3574,10 +3573,6 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             private global::System.Data.DataColumn columnOwnerName;
             
-            private global::System.Data.DataColumn columnContactName;
-            
-            private global::System.Data.DataColumn columnContactEmail;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AchReportDatasetDataTable() {
@@ -3917,22 +3912,6 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ContactNameColumn {
-                get {
-                    return this.columnContactName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ContactEmailColumn {
-                get {
-                    return this.columnContactEmail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4005,9 +3984,7 @@ namespace AllianceAssociationBank.Crm.Reports {
                         bool ACHSftpCCDDebit, 
                         bool ACHSftpCCDCredit, 
                         bool ACHWebPPDDebit, 
-                        string OwnerName, 
-                        string ContactName, 
-                        string ContactEmail) {
+                        string OwnerName) {
                 AchReportDatasetRow rowAchReportDatasetRow = ((AchReportDatasetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4047,9 +4024,7 @@ namespace AllianceAssociationBank.Crm.Reports {
                         ACHSftpCCDDebit,
                         ACHSftpCCDCredit,
                         ACHWebPPDDebit,
-                        OwnerName,
-                        ContactName,
-                        ContactEmail};
+                        OwnerName};
                 rowAchReportDatasetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAchReportDatasetRow);
                 return rowAchReportDatasetRow;
@@ -4110,8 +4085,6 @@ namespace AllianceAssociationBank.Crm.Reports {
                 this.columnACHSftpCCDCredit = base.Columns["ACHSftpCCDCredit"];
                 this.columnACHWebPPDDebit = base.Columns["ACHWebPPDDebit"];
                 this.columnOwnerName = base.Columns["OwnerName"];
-                this.columnContactName = base.Columns["ContactName"];
-                this.columnContactEmail = base.Columns["ContactEmail"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4193,10 +4166,6 @@ namespace AllianceAssociationBank.Crm.Reports {
                 base.Columns.Add(this.columnACHWebPPDDebit);
                 this.columnOwnerName = new global::System.Data.DataColumn("OwnerName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOwnerName);
-                this.columnContactName = new global::System.Data.DataColumn("ContactName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnContactName);
-                this.columnContactEmail = new global::System.Data.DataColumn("ContactEmail", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnContactEmail);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint11", new global::System.Data.DataColumn[] {
                                 this.columnID}, false));
                 this.columnID.AutoIncrement = true;
@@ -4231,12 +4200,7 @@ namespace AllianceAssociationBank.Crm.Reports {
                 this.columnACHSftpCCDDebit.AllowDBNull = false;
                 this.columnACHSftpCCDCredit.AllowDBNull = false;
                 this.columnACHWebPPDDebit.AllowDBNull = false;
-                this.columnOwnerName.Caption = "LastName";
                 this.columnOwnerName.MaxLength = 255;
-                this.columnContactName.Caption = "LastName";
-                this.columnContactName.MaxLength = 255;
-                this.columnContactEmail.Caption = "LastName";
-                this.columnContactEmail.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4374,7 +4338,23 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             private global::System.Data.DataColumn columnProjectName;
             
-            private global::System.Data.DataColumn columnPhone;
+            private global::System.Data.DataColumn columnTIN;
+            
+            private global::System.Data.DataColumn columnDICompanyID;
+            
+            private global::System.Data.DataColumn columnSoftware;
+            
+            private global::System.Data.DataColumn columnACHSystemLimit;
+            
+            private global::System.Data.DataColumn columnValidationFileNotes;
+            
+            private global::System.Data.DataColumn columnMailingAddress;
+            
+            private global::System.Data.DataColumn columnMailingCity;
+            
+            private global::System.Data.DataColumn columnMailingState;
+            
+            private global::System.Data.DataColumn columnMailingZipCode;
             
             private global::System.Data.DataColumn columnAddress;
             
@@ -4384,9 +4364,17 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             private global::System.Data.DataColumn columnZipCode;
             
+            private global::System.Data.DataColumn columnPhone;
+            
             private global::System.Data.DataColumn columnLockboxCMCID;
             
+            private global::System.Data.DataColumn columnStatus;
+            
             private global::System.Data.DataColumn columnPOBoxLine1;
+            
+            private global::System.Data.DataColumn columnOwnerName;
+            
+            private global::System.Data.DataColumn columnAFPName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -4439,9 +4427,73 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PhoneColumn {
+            public global::System.Data.DataColumn TINColumn {
                 get {
-                    return this.columnPhone;
+                    return this.columnTIN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DICompanyIDColumn {
+                get {
+                    return this.columnDICompanyID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SoftwareColumn {
+                get {
+                    return this.columnSoftware;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHSystemLimitColumn {
+                get {
+                    return this.columnACHSystemLimit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ValidationFileNotesColumn {
+                get {
+                    return this.columnValidationFileNotes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MailingAddressColumn {
+                get {
+                    return this.columnMailingAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MailingCityColumn {
+                get {
+                    return this.columnMailingCity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MailingStateColumn {
+                get {
+                    return this.columnMailingState;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MailingZipCodeColumn {
+                get {
+                    return this.columnMailingZipCode;
                 }
             }
             
@@ -4479,6 +4531,14 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PhoneColumn {
+                get {
+                    return this.columnPhone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn LockboxCMCIDColumn {
                 get {
                     return this.columnLockboxCMCID;
@@ -4487,9 +4547,33 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn POBoxLine1Column {
                 get {
                     return this.columnPOBoxLine1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OwnerNameColumn {
+                get {
+                    return this.columnOwnerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AFPNameColumn {
+                get {
+                    return this.columnAFPName;
                 }
             }
             
@@ -4530,18 +4614,50 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CmcReportDatasetRow AddCmcReportDatasetRow(string ProjectName, string Phone, string Address, string City, string State, string ZipCode, string LockboxCMCID, string POBoxLine1) {
+            public CmcReportDatasetRow AddCmcReportDatasetRow(
+                        string ProjectName, 
+                        string TIN, 
+                        string DICompanyID, 
+                        string Software, 
+                        decimal ACHSystemLimit, 
+                        string ValidationFileNotes, 
+                        string MailingAddress, 
+                        string MailingCity, 
+                        string MailingState, 
+                        string MailingZipCode, 
+                        string Address, 
+                        string City, 
+                        string State, 
+                        string ZipCode, 
+                        string Phone, 
+                        string LockboxCMCID, 
+                        string Status, 
+                        string POBoxLine1, 
+                        string OwnerName, 
+                        System.TimeSpan AFPName) {
                 CmcReportDatasetRow rowCmcReportDatasetRow = ((CmcReportDatasetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         ProjectName,
-                        Phone,
+                        TIN,
+                        DICompanyID,
+                        Software,
+                        ACHSystemLimit,
+                        ValidationFileNotes,
+                        MailingAddress,
+                        MailingCity,
+                        MailingState,
+                        MailingZipCode,
                         Address,
                         City,
                         State,
                         ZipCode,
+                        Phone,
                         LockboxCMCID,
-                        POBoxLine1};
+                        Status,
+                        POBoxLine1,
+                        OwnerName,
+                        AFPName};
                 rowCmcReportDatasetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCmcReportDatasetRow);
                 return rowCmcReportDatasetRow;
@@ -4566,13 +4682,25 @@ namespace AllianceAssociationBank.Crm.Reports {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnProjectName = base.Columns["ProjectName"];
-                this.columnPhone = base.Columns["Phone"];
+                this.columnTIN = base.Columns["TIN"];
+                this.columnDICompanyID = base.Columns["DICompanyID"];
+                this.columnSoftware = base.Columns["Software"];
+                this.columnACHSystemLimit = base.Columns["ACHSystemLimit"];
+                this.columnValidationFileNotes = base.Columns["ValidationFileNotes"];
+                this.columnMailingAddress = base.Columns["MailingAddress"];
+                this.columnMailingCity = base.Columns["MailingCity"];
+                this.columnMailingState = base.Columns["MailingState"];
+                this.columnMailingZipCode = base.Columns["MailingZipCode"];
                 this.columnAddress = base.Columns["Address"];
                 this.columnCity = base.Columns["City"];
                 this.columnState = base.Columns["State"];
                 this.columnZipCode = base.Columns["ZipCode"];
+                this.columnPhone = base.Columns["Phone"];
                 this.columnLockboxCMCID = base.Columns["LockboxCMCID"];
+                this.columnStatus = base.Columns["Status"];
                 this.columnPOBoxLine1 = base.Columns["POBoxLine1"];
+                this.columnOwnerName = base.Columns["OwnerName"];
+                this.columnAFPName = base.Columns["AFPName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4582,8 +4710,24 @@ namespace AllianceAssociationBank.Crm.Reports {
                 base.Columns.Add(this.columnID);
                 this.columnProjectName = new global::System.Data.DataColumn("ProjectName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProjectName);
-                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPhone);
+                this.columnTIN = new global::System.Data.DataColumn("TIN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIN);
+                this.columnDICompanyID = new global::System.Data.DataColumn("DICompanyID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDICompanyID);
+                this.columnSoftware = new global::System.Data.DataColumn("Software", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSoftware);
+                this.columnACHSystemLimit = new global::System.Data.DataColumn("ACHSystemLimit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHSystemLimit);
+                this.columnValidationFileNotes = new global::System.Data.DataColumn("ValidationFileNotes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValidationFileNotes);
+                this.columnMailingAddress = new global::System.Data.DataColumn("MailingAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMailingAddress);
+                this.columnMailingCity = new global::System.Data.DataColumn("MailingCity", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMailingCity);
+                this.columnMailingState = new global::System.Data.DataColumn("MailingState", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMailingState);
+                this.columnMailingZipCode = new global::System.Data.DataColumn("MailingZipCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMailingZipCode);
                 this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddress);
                 this.columnCity = new global::System.Data.DataColumn("City", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4592,10 +4736,18 @@ namespace AllianceAssociationBank.Crm.Reports {
                 base.Columns.Add(this.columnState);
                 this.columnZipCode = new global::System.Data.DataColumn("ZipCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnZipCode);
+                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhone);
                 this.columnLockboxCMCID = new global::System.Data.DataColumn("LockboxCMCID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLockboxCMCID);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.columnPOBoxLine1 = new global::System.Data.DataColumn("POBoxLine1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPOBoxLine1);
+                this.columnOwnerName = new global::System.Data.DataColumn("OwnerName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOwnerName);
+                this.columnAFPName = new global::System.Data.DataColumn("AFPName", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAFPName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint11", new global::System.Data.DataColumn[] {
                                 this.columnID}, false));
                 this.columnID.AutoIncrement = true;
@@ -4605,13 +4757,23 @@ namespace AllianceAssociationBank.Crm.Reports {
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
                 this.columnProjectName.MaxLength = 150;
-                this.columnPhone.MaxLength = 255;
+                this.columnTIN.MaxLength = 255;
+                this.columnDICompanyID.MaxLength = 255;
+                this.columnSoftware.MaxLength = 255;
+                this.columnValidationFileNotes.MaxLength = 2147483647;
+                this.columnMailingAddress.MaxLength = 255;
+                this.columnMailingCity.MaxLength = 255;
+                this.columnMailingState.MaxLength = 255;
+                this.columnMailingZipCode.MaxLength = 255;
                 this.columnAddress.MaxLength = 255;
                 this.columnCity.MaxLength = 255;
                 this.columnState.MaxLength = 255;
                 this.columnZipCode.MaxLength = 255;
+                this.columnPhone.MaxLength = 255;
                 this.columnLockboxCMCID.MaxLength = 10;
+                this.columnStatus.MaxLength = 50;
                 this.columnPOBoxLine1.MaxLength = 255;
+                this.columnOwnerName.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9348,38 +9510,6 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ContactName {
-                get {
-                    try {
-                        return ((string)(this[this.tableAchReportDataset.ContactNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ContactName\' in table \'AchReportDataset\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAchReportDataset.ContactNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ContactEmail {
-                get {
-                    try {
-                        return ((string)(this[this.tableAchReportDataset.ContactEmailColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ContactEmail\' in table \'AchReportDataset\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAchReportDataset.ContactEmailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProjectNameNull() {
                 return this.IsNull(this.tableAchReportDataset.ProjectNameColumn);
             }
@@ -9665,30 +9795,6 @@ namespace AllianceAssociationBank.Crm.Reports {
             public void SetOwnerNameNull() {
                 this[this.tableAchReportDataset.OwnerNameColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsContactNameNull() {
-                return this.IsNull(this.tableAchReportDataset.ContactNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetContactNameNull() {
-                this[this.tableAchReportDataset.ContactNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsContactEmailNull() {
-                return this.IsNull(this.tableAchReportDataset.ContactEmailColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetContactEmailNull() {
-                this[this.tableAchReportDataset.ContactEmailColumn] = global::System.Convert.DBNull;
-            }
         }
         
         /// <summary>
@@ -9734,17 +9840,146 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Phone {
+            public string TIN {
                 get {
                     try {
-                        return ((string)(this[this.tableCmcReportDataset.PhoneColumn]));
+                        return ((string)(this[this.tableCmcReportDataset.TINColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'CmcReportDataset\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TIN\' in table \'CmcReportDataset\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCmcReportDataset.PhoneColumn] = value;
+                    this[this.tableCmcReportDataset.TINColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DICompanyID {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.DICompanyIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DICompanyID\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.DICompanyIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Software {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.SoftwareColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Software\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.SoftwareColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal ACHSystemLimit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCmcReportDataset.ACHSystemLimitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHSystemLimit\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.ACHSystemLimitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ValidationFileNotes {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.ValidationFileNotesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ValidationFileNotes\' in table \'CmcReportDataset\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.ValidationFileNotesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string MailingAddress {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.MailingAddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MailingAddress\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.MailingAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string MailingCity {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.MailingCityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MailingCity\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.MailingCityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string MailingState {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.MailingStateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MailingState\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.MailingStateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string MailingZipCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.MailingZipCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MailingZipCode\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.MailingZipCodeColumn] = value;
                 }
             }
             
@@ -9814,6 +10049,22 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Phone {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.PhoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.PhoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string LockboxCMCID {
                 get {
                     try {
@@ -9825,6 +10076,22 @@ namespace AllianceAssociationBank.Crm.Reports {
                 }
                 set {
                     this[this.tableCmcReportDataset.LockboxCMCIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.StatusColumn] = value;
                 }
             }
             
@@ -9846,6 +10113,38 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string OwnerName {
+                get {
+                    try {
+                        return ((string)(this[this.tableCmcReportDataset.OwnerNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OwnerName\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.OwnerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.TimeSpan AFPName {
+                get {
+                    try {
+                        return ((global::System.TimeSpan)(this[this.tableCmcReportDataset.AFPNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AFPName\' in table \'CmcReportDataset\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCmcReportDataset.AFPNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProjectNameNull() {
                 return this.IsNull(this.tableCmcReportDataset.ProjectNameColumn);
             }
@@ -9858,14 +10157,110 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsPhoneNull() {
-                return this.IsNull(this.tableCmcReportDataset.PhoneColumn);
+            public bool IsTINNull() {
+                return this.IsNull(this.tableCmcReportDataset.TINColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetPhoneNull() {
-                this[this.tableCmcReportDataset.PhoneColumn] = global::System.Convert.DBNull;
+            public void SetTINNull() {
+                this[this.tableCmcReportDataset.TINColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDICompanyIDNull() {
+                return this.IsNull(this.tableCmcReportDataset.DICompanyIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDICompanyIDNull() {
+                this[this.tableCmcReportDataset.DICompanyIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSoftwareNull() {
+                return this.IsNull(this.tableCmcReportDataset.SoftwareColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSoftwareNull() {
+                this[this.tableCmcReportDataset.SoftwareColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHSystemLimitNull() {
+                return this.IsNull(this.tableCmcReportDataset.ACHSystemLimitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHSystemLimitNull() {
+                this[this.tableCmcReportDataset.ACHSystemLimitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsValidationFileNotesNull() {
+                return this.IsNull(this.tableCmcReportDataset.ValidationFileNotesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetValidationFileNotesNull() {
+                this[this.tableCmcReportDataset.ValidationFileNotesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMailingAddressNull() {
+                return this.IsNull(this.tableCmcReportDataset.MailingAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMailingAddressNull() {
+                this[this.tableCmcReportDataset.MailingAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMailingCityNull() {
+                return this.IsNull(this.tableCmcReportDataset.MailingCityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMailingCityNull() {
+                this[this.tableCmcReportDataset.MailingCityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMailingStateNull() {
+                return this.IsNull(this.tableCmcReportDataset.MailingStateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMailingStateNull() {
+                this[this.tableCmcReportDataset.MailingStateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMailingZipCodeNull() {
+                return this.IsNull(this.tableCmcReportDataset.MailingZipCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMailingZipCodeNull() {
+                this[this.tableCmcReportDataset.MailingZipCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9918,6 +10313,18 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPhoneNull() {
+                return this.IsNull(this.tableCmcReportDataset.PhoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPhoneNull() {
+                this[this.tableCmcReportDataset.PhoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLockboxCMCIDNull() {
                 return this.IsNull(this.tableCmcReportDataset.LockboxCMCIDColumn);
             }
@@ -9930,6 +10337,18 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tableCmcReportDataset.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tableCmcReportDataset.StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPOBoxLine1Null() {
                 return this.IsNull(this.tableCmcReportDataset.POBoxLine1Column);
             }
@@ -9938,6 +10357,30 @@ namespace AllianceAssociationBank.Crm.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPOBoxLine1Null() {
                 this[this.tableCmcReportDataset.POBoxLine1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsOwnerNameNull() {
+                return this.IsNull(this.tableCmcReportDataset.OwnerNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetOwnerNameNull() {
+                this[this.tableCmcReportDataset.OwnerNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAFPNameNull() {
+                return this.IsNull(this.tableCmcReportDataset.AFPNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAFPNameNull() {
+                this[this.tableCmcReportDataset.AFPNameColumn] = global::System.Convert.DBNull;
             }
         }
         

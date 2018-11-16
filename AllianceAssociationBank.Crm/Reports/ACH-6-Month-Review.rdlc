@@ -4740,6 +4740,14 @@ $1,000,000</Value>
           <DataField>Narrative</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ACHLimitAndSpecSubmitted">
+          <DataField>ACHLimitAndSpecSubmitted</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ACHDualApproval">
+          <DataField>ACHDualApproval</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
         <Field Name="ACHReviewOfHistoricPerformance">
           <DataField>ACHReviewOfHistoricPerformance</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -4802,14 +4810,6 @@ $1,000,000</Value>
         </Field>
         <Field Name="OwnerName">
           <DataField>OwnerName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ContactName">
-          <DataField>ContactName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ContactEmail">
-          <DataField>ContactEmail</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

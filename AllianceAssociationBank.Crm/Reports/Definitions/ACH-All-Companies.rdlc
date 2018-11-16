@@ -1106,14 +1106,6 @@
           <DataField>OwnerName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ContactName">
-          <DataField>ContactName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ContactEmail">
-          <DataField>ContactEmail</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReportsDataSet</rd:DataSetName>

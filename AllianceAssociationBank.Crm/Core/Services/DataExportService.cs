@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using AllianceAssociationBank.Crm.Mappings;
 using AllianceAssociationBank.Crm.Dtos;
+using AllianceAssociationBank.Crm.Extensions;
 
 namespace AllianceAssociationBank.Crm.Core.Services
 {
@@ -52,15 +53,15 @@ namespace AllianceAssociationBank.Crm.Core.Services
         {
             switch (exportName)
             {
-                case var name when name.Equals(ExportName.CmcList, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.EqualsIgnoreCase(ExportName.CmcList):
                     {
                         return await _queries.GetCmcByIdDataSetAsync();
                     }
-                case var name when name.Equals(ExportName.CmcUsefulInfoList, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.EqualsIgnoreCase(ExportName.CmcUsefulInfoList):
                     {
                         return await _queries.GetCmcByIdDataSetAsync();
                     }
-                case var name when name.Equals(ExportName.AllInfo, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.EqualsIgnoreCase(ExportName.AllInfo):
                     {
                         return await _queries.GetAllInfoDataSetAsync();
                     }
@@ -75,15 +76,15 @@ namespace AllianceAssociationBank.Crm.Core.Services
         {
             switch (exportName)
             {
-                case var name when name.Equals(ExportName.CmcList, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.EqualsIgnoreCase(ExportName.CmcList):
                     {
                         return typeof(CmcListExportMap);
                     }
-                case var name when name.Equals(ExportName.CmcUsefulInfoList, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.EqualsIgnoreCase(ExportName.CmcUsefulInfoList):
                     {
                         return typeof(CmcUsefulInfoListExportMap);
                     }
-                case var name when name.Equals(ExportName.AllInfo, StringComparison.InvariantCultureIgnoreCase):
+                case var name when name.EqualsIgnoreCase(ExportName.AllInfo):
                     {
                         return typeof(AllInfoExportMap);
                     }

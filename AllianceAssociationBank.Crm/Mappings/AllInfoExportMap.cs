@@ -1,10 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Core.Models;
-using AllianceAssociationBank.Crm.Helpers;
 using CsvHelper.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace AllianceAssociationBank.Crm.Mappings
 {
@@ -16,13 +11,13 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.ProjectName).Name("Project Name");
             Map(m => m.Institution).Name("Institution");
             Map(m => m.Owner)
-                .ConvertUsing(m => GetEmployeeName(m.Owner))
+                .ConvertUsing(m => MapEmployeeName(m.Owner))
                 .Name("Owner");
             Map(m => m.AFP)
-                .ConvertUsing(m => GetEmployeeName(m.AFP))
+                .ConvertUsing(m => MapEmployeeName(m.AFP))
                 .Name("AFP");
             Map(m => m.BoardingManager)
-                .ConvertUsing(m => GetEmployeeName(m.BoardingManager))
+                .ConvertUsing(m => MapEmployeeName(m.BoardingManager))
                 .Name("Boarding Manager");
             Map(m => m.Status).Name("Status");
             Map(m => m.StartDate).Name("Start Date");
@@ -92,11 +87,7 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.LastReviewDate).Name("Last Review Date");
             Map(m => m.ACHReviewNotes).Name("ACH Review Notes");
             Map(m => m.ACHSpectFormInstructions).Name("ACH Spect Form Instructions");
-            //ACHReviewOfHistoricPerformance
             Map(m => m.ACHDualApproval).Name("ACH Dual Approval");
-            //StatementEmail
-            //LockboxEmail
-            //ACHEmail
             Map(m => m.CIPGood).Name("CIP Good");
             Map(m => m.HasCorporateAccounts).Name("Corporate Accounts");
             Map(m => m.CorporateAccounts).Name("Corp Accounts");
@@ -138,9 +129,9 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.ACHWebPPDDebit).Name("ACH Web CCD Debit");
         }
 
-        private string GetEmployeeName(Employee employee)
+        private string MapEmployeeName(Employee employee)
         {
-            return employee != null ? employee.FirstName + " " + employee.LastName : string.Empty;
+            return employee != null ? $"{employee.FirstName} {employee.LastName}" : string.Empty;
         }
     }
 }

@@ -17,9 +17,17 @@ namespace AllianceAssociationBank.Crm.Mappings
 
             CreateMap<Project, AchReportDatasetDto>()
                 .ForMember(
-                    dest => dest.OwnerName, 
-                    opt => opt.MapFrom(src => src.Owner == null ? null : $"{src.Owner.FirstName} {src.Owner.LastName}")
-                 );
+                    dest => dest.OwnerName,
+                    opt => opt.MapFrom(src => MapEmployeeName(src.Owner)));
+                    //opt => opt.MapFrom(src => src.Owner == null ? null : $"{src.Owner.FirstName} {src.Owner.LastName}"));
+
+            CreateMap<Project, CmcReportDatasetDto>()
+                .ForMember(
+                    dest => dest.OwnerName,
+                    opt => opt.MapFrom(src => MapEmployeeName(src.Owner)))
+                .ForMember(
+                    dest => dest.AFPName,
+                    opt => opt.MapFrom(src => MapEmployeeName(src.AFP)));
 
             CreateMap<ProjectUser, UserFormViewModel>();
             CreateMap<UserFormViewModel, ProjectUser>()
@@ -40,6 +48,11 @@ namespace AllianceAssociationBank.Crm.Mappings
             {
                 cfg.AddProfile<CrmAutoMapperProfile>();
             }).CreateMapper();
+        }
+
+        private string MapEmployeeName(Employee employee)
+        {
+            return employee != null ? $"{employee.FirstName} {employee.LastName}" : null;
         }
     }
 }

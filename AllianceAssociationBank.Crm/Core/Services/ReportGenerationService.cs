@@ -76,14 +76,12 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     }
                 case var name when name.Equals(ReportName.CmcById, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCmcByIdDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Master, (await _queries.GetCmcByIdDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CmcByName, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCmcByNameDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDatasetName.Master, (await _queries.GetCmcByNameDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CDEmails, StringComparison.InvariantCultureIgnoreCase):

@@ -695,8 +695,40 @@
           <DataField>ProjectName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Phone">
-          <DataField>Phone</DataField>
+        <Field Name="TIN">
+          <DataField>TIN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DICompanyID">
+          <DataField>DICompanyID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Software">
+          <DataField>Software</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ACHSystemLimit">
+          <DataField>ACHSystemLimit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ValidationFileNotes">
+          <DataField>ValidationFileNotes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MailingAddress">
+          <DataField>MailingAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MailingCity">
+          <DataField>MailingCity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MailingState">
+          <DataField>MailingState</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MailingZipCode">
+          <DataField>MailingZipCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Address">
@@ -715,13 +747,29 @@
           <DataField>ZipCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Phone">
+          <DataField>Phone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="LockboxCMCID">
           <DataField>LockboxCMCID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="POBoxLine1">
           <DataField>POBoxLine1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerName">
+          <DataField>OwnerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AFPName">
+          <DataField>AFPName</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

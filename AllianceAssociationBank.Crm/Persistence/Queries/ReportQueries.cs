@@ -1,11 +1,9 @@
 ﻿using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Core.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Helpers;
 using AutoMapper;
@@ -56,29 +54,42 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Project>> GetCmcByIdDataSetAsync()
+        public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcByIdDataSetAsync()
         {
-            return await _context.Projects
+            var results = await _context.Projects
                 .OrderBy(p => p.LockboxCMCID)
                 .ThenBy(p => p.ProjectName)
                 .Include(p => p.Owner)
                 .Include(p => p.AFP)
                 .ToListAsync();
+
+            return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
         }
 
-        public async Task<IEnumerable<Project>> GetCmcByNameDataSetAsync()
+        public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcByNameDataSetAsync()
         {
-            return await _context.Projects
+            var results = await _context.Projects
                 .OrderBy(p => p.ProjectName)
+                .Include(p => p.Owner)
+                .Include(p => p.AFP)
                 .ToListAsync();
+
+            return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
         }
 
-        public async Task<IEnumerable<Project>> GetCmcAddressByNameDataSetAsync()
-        {
-            return await _context.Projects
-                .OrderBy(p => p.ProjectName)
-                .ToListAsync();
-        }
+        //public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcAddressByNameDataSetAsync()
+        //{
+        //    var results = await _context.Projects
+        //        .OrderBy(p => p.ProjectName)
+        //        .ToListAsync();
+
+        //    return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
+
+        //    //var results = _context.Projects
+        //    //    .OrderBy(p => p.ProjectName)
+        //    //    .ProjectTo<CmcReportDatasetDto>(_mapper.ConfigurationProvider);
+        //    //return await results.ToListAsync();
+        //}
 
         public async Task<IEnumerable<Project>> GetAllInfoDataSetAsync()
         {
@@ -90,7 +101,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.ReformatAQ2)
                 .ToListAsync();
         }
-
 
         public async Task<IEnumerable<CDEmailsDatasetDto>> GetCDEmailsDataSetAsync()
         {
