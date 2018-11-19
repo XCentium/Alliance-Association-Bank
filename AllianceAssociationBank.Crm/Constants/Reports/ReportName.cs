@@ -15,6 +15,9 @@ namespace AllianceAssociationBank.Crm.Constants.Reports
         public const string AchSpec = "ACH-Spec-Report";
         public const string AchInitialReview = "ACH-Initial-Review";
         public const string AchSixMonthReview = "ACH-6-Month-Review";
+        public const string AchRiskInitial = "ACH-Risk-Initial";
+        public const string AchRiskSixMonth = "ACH-Risk-6-Month";
+        public const string AchRiskPostSixMonth = "ACH-Risk-Post-6-Month";
         public const string AchAllCompanies = "ACH-All-Companies";
     }
 }
