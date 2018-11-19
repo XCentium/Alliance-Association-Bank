@@ -28,6 +28,8 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
+        [InlineData(typeof(CmcByIdReport), ReportDatasetName.Master)]
+        [InlineData(typeof(CmcByNameReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchAllCompaniesReport), ReportDatasetName.Master)]
         [InlineData(typeof(CmcAddressByNameReport), ReportDatasetName.Master)]
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportDatasetName.Master)]
@@ -56,10 +58,12 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
+        [InlineData(typeof(CmcByIdReport), ReportName.CmcById)]
+        [InlineData(typeof(CmcByNameReport), ReportName.CmcByName)]
         [InlineData(typeof(AchAllCompaniesReport), ReportName.AchAllCompanies)]
         [InlineData(typeof(CmcAddressByNameReport), ReportName.CmcAddressByName)]
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportName.CmcByIdUsefulInfo)]
-        public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetReportDefinitionFileNameCorrectly(Type reportType, string definitionFileName)
+        public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetDefinitionFileNameCorrectly(Type reportType, string definitionFileName)
         {
             var report = CreateReportInstance(reportType);
 
@@ -72,7 +76,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [Theory]
         [InlineData(typeof(AchRiskInitialReport), ReportName.AchRiskInitial)]
         [InlineData(typeof(AchRisk6MonthReport), ReportName.AchRiskSixMonth)]
-        public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetReportDefinitionFileNameCorrectly(Type reportType, string definitionFileName)
+        public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetDefinitionFileNameCorrectly(Type reportType, string definitionFileName)
         {
             var projectId = 99;
             var report = CreateReportInstance(reportType, projectId);
@@ -95,7 +99,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Fact]
-        public async Task ExecuteReport_BoardingReport_ShouldSetReportDataSourcesAndDefinitionFileCorrectly()
+        public async Task ExecuteReport_BoardingReport_ShouldSetReportDataSourcesAndDefinitionFileNameCorrectly()
         {
             var report = new BoardingReport(_queries.Object, _fileSystem.Object);
 

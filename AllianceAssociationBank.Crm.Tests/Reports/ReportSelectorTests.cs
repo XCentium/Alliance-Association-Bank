@@ -30,6 +30,8 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
 
         [Theory]
         [InlineData(ReportName.Boarding, typeof(BoardingReport))]
+        [InlineData(ReportName.CmcById, typeof(CmcByIdReport))]
+        [InlineData(ReportName.CmcByName, typeof(CmcByNameReport))]
         [InlineData(ReportName.AchAllCompanies, typeof(AchAllCompaniesReport))]
         [InlineData(ReportName.CmcAddressByName, typeof(CmcAddressByNameReport))]
         [InlineData(ReportName.CmcByIdUsefulInfo, typeof(CmcByIdUsefulInfoReport))]

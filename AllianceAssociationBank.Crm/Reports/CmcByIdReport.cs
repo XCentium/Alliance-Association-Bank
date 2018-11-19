@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
+using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Reports.Interfaces;
 using Microsoft.Reporting.WebForms;
 using System.Threading.Tasks;
@@ -7,7 +8,17 @@ namespace AllianceAssociationBank.Crm.Reports
 {
     public class CmcByIdReport : ReportBase, IReport
     {
-        public CmcByIdReport() : base(ReportName.CmcById)
+        private const string definitionFileName = ReportName.CmcById;
+
+        public CmcByIdReport() : base(definitionFileName)
+        {
+        }
+
+        /// <summary>
+        /// This constructor is used for unit testing.
+        /// </summary>
+        public CmcByIdReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
+            : base(reportQueries, fileSystemService, definitionFileName)
         {
         }
 
