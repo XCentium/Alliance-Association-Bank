@@ -3529,6 +3529,8 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             private global::System.Data.DataColumn columnACHEstimatedDeposits;
             
+            private global::System.Data.DataColumn columnACHEstimatedDepositsDate;
+            
             private global::System.Data.DataColumn columnOriginalReviewDate;
             
             private global::System.Data.DataColumn columnLastReviewDate;
@@ -3731,6 +3733,14 @@ namespace AllianceAssociationBank.Crm.Reports {
             public global::System.Data.DataColumn ACHEstimatedDepositsColumn {
                 get {
                     return this.columnACHEstimatedDeposits;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACHEstimatedDepositsDateColumn {
+                get {
+                    return this.columnACHEstimatedDepositsDate;
                 }
             }
             
@@ -3963,6 +3973,7 @@ namespace AllianceAssociationBank.Crm.Reports {
                         decimal ACHSystemLimit, 
                         decimal ACHLimit, 
                         decimal ACHEstimatedDeposits, 
+                        System.DateTime ACHEstimatedDepositsDate, 
                         System.DateTime OriginalReviewDate, 
                         System.DateTime LastReviewDate, 
                         bool Balanced, 
@@ -4003,6 +4014,7 @@ namespace AllianceAssociationBank.Crm.Reports {
                         ACHSystemLimit,
                         ACHLimit,
                         ACHEstimatedDeposits,
+                        ACHEstimatedDepositsDate,
                         OriginalReviewDate,
                         LastReviewDate,
                         Balanced,
@@ -4063,6 +4075,7 @@ namespace AllianceAssociationBank.Crm.Reports {
                 this.columnACHSystemLimit = base.Columns["ACHSystemLimit"];
                 this.columnACHLimit = base.Columns["ACHLimit"];
                 this.columnACHEstimatedDeposits = base.Columns["ACHEstimatedDeposits"];
+                this.columnACHEstimatedDepositsDate = base.Columns["ACHEstimatedDepositsDate"];
                 this.columnOriginalReviewDate = base.Columns["OriginalReviewDate"];
                 this.columnLastReviewDate = base.Columns["LastReviewDate"];
                 this.columnBalanced = base.Columns["Balanced"];
@@ -4122,6 +4135,8 @@ namespace AllianceAssociationBank.Crm.Reports {
                 base.Columns.Add(this.columnACHLimit);
                 this.columnACHEstimatedDeposits = new global::System.Data.DataColumn("ACHEstimatedDeposits", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnACHEstimatedDeposits);
+                this.columnACHEstimatedDepositsDate = new global::System.Data.DataColumn("ACHEstimatedDepositsDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACHEstimatedDepositsDate);
                 this.columnOriginalReviewDate = new global::System.Data.DataColumn("OriginalReviewDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOriginalReviewDate);
                 this.columnLastReviewDate = new global::System.Data.DataColumn("LastReviewDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -9220,6 +9235,23 @@ namespace AllianceAssociationBank.Crm.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime ACHEstimatedDepositsDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAchReportDataset.ACHEstimatedDepositsDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACHEstimatedDepositsDate\' in table \'AchReportDataset\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableAchReportDataset.ACHEstimatedDepositsDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public System.DateTime OriginalReviewDate {
                 get {
                     try {
@@ -9686,6 +9718,18 @@ namespace AllianceAssociationBank.Crm.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetACHEstimatedDepositsNull() {
                 this[this.tableAchReportDataset.ACHEstimatedDepositsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACHEstimatedDepositsDateNull() {
+                return this.IsNull(this.tableAchReportDataset.ACHEstimatedDepositsDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACHEstimatedDepositsDateNull() {
+                this[this.tableAchReportDataset.ACHEstimatedDepositsDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
