@@ -132,6 +132,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
+        /// <summary>
+        ///This query is used by AchSpec, AchInitialReview, AchSixMonthReview, AchRiskInitial, AchRiskSixMonth and AchRiskPostSixMonth reports.
+        /// </summary>
+        /// <returns>Returns a collection of AchReportDatasetDto objects.</returns>
         public async Task<IEnumerable<AchReportDatasetDto>> GetAchReportDataSetAsync(int? projectId)
         {
             var results = await _context.Projects

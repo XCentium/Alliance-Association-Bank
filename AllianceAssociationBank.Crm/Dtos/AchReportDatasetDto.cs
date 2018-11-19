@@ -39,6 +39,8 @@ namespace AllianceAssociationBank.Crm.Dtos
 
         public decimal? ACHEstimatedDeposits { get; set; }
 
+        public DateTime? ACHEstimatedDepositsDate { get; set; }
+
         public DateTime? OriginalReviewDate { get; set; }
 
         public DateTime? LastReviewDate { get; set; }

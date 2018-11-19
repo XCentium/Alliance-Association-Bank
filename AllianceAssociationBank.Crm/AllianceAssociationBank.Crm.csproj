@@ -491,7 +491,7 @@
     <None Include="Reports\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportsDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>ReportsDataSet1.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Reports\ReportsDataSet.xss">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
