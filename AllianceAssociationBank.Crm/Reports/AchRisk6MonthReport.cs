@@ -6,13 +6,13 @@ using Microsoft.Reporting.WebForms;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class AchRiskSixMonthReport : ReportBase, IReport
+    public class AchRisk6MonthReport : ReportBase, IReport
     {
         private const string definitionFileName = ReportName.AchRiskSixMonth;
 
         public int ProjectId { get; }
 
-        public AchRiskSixMonthReport(int projectId) 
+        public AchRisk6MonthReport(int projectId) 
             : base(definitionFileName)
         {
             ProjectId = projectId;
@@ -21,7 +21,7 @@ namespace AllianceAssociationBank.Crm.Reports
         /// <summary>
         /// This constructor is used for unit testing.
         /// </summary>
-        public AchRiskSixMonthReport(int projectId, IReportQueries reportQueries, IFileSystemService fileSystemService) 
+        public AchRisk6MonthReport(int projectId, IReportQueries reportQueries, IFileSystemService fileSystemService) 
             : base(reportQueries, fileSystemService, definitionFileName)
         {
             ProjectId = projectId;

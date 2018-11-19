@@ -216,7 +216,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!OriginalReviewDate.Value</Value>
+                                  <Value />
                                   <Style>
                                     <Format>M/d/yyyy</Format>
                                     <TextDecoration>None</TextDecoration>
@@ -286,7 +286,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ACHEstimatedDeposits.Value</Value>
+                                  <Value />
                                   <Style>
                                     <Format>'$'#,0.00;('$'#,0.00)</Format>
                                   </Style>
@@ -356,7 +356,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ACHLimit.Value</Value>
+                                  <Value />
                                   <Style>
                                     <Format>'$'#,0.00;('$'#,0.00)</Format>
                                   </Style>
@@ -560,7 +560,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!LastReviewDate.Value</Value>
                                   <Style>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -629,7 +629,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!ACHEstimatedDeposits.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -696,7 +696,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!ACHLimit.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>

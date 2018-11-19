@@ -33,11 +33,24 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(ReportName.AchAllCompanies, typeof(AchAllCompaniesReport))]
         [InlineData(ReportName.CmcAddressByName, typeof(CmcAddressByNameReport))]
         [InlineData(ReportName.CmcByIdUsefulInfo, typeof(CmcByIdUsefulInfoReport))]
-        public void ResolveByName_InlineReportName_ShouldReturnCorrectReportInstance(string reportName, Type reportType)
+        public void ResolveByName_InlineReportWithNoParams_ShouldReturnCorrectReportInstance(string reportName, Type reportType)
         {
             _fileSystem.Setup(s => s.IsFileExists(It.IsAny<string>())).Returns(true);
 
             var report = _reportSelector.ResolveByName(reportName, _queries.Object, _fileSystem.Object);
+
+            Assert.IsType(reportType, report);
+        }
+
+        [Theory]
+        [InlineData(ReportName.AchRiskInitial, typeof(AchRiskInitialReport))]
+        [InlineData(ReportName.AchRiskSixMonth, typeof(AchRisk6MonthReport))]
+        public void ResolveByName_InlineReportWithProjectIdParam_ShouldReturnCorrectReportInstance(string reportName, Type reportType)
+        {
+            _fileSystem.Setup(s => s.IsFileExists(It.IsAny<string>())).Returns(true);
+            var projectId = 99;
+
+            var report = _reportSelector.ResolveByName(reportName, projectId, _queries.Object, _fileSystem.Object);
 
             Assert.IsType(reportType, report);
         }
