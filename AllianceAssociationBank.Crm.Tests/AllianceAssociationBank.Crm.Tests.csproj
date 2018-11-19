@@ -186,7 +186,7 @@
     <Compile Include="Persistence\Repositories\NoteRepositoryTests.cs" />
     <Compile Include="Persistence\Repositories\CheckScannerRepositoryTests.cs" />
     <Compile Include="Persistence\Repositories\ProjectUserRepositoryTests.cs" />
-    <Compile Include="Reports\BoardingReportTests.cs" />
+    <Compile Include="Reports\ReportBaseTests.cs" />
     <Compile Include="Reports\ReportSelectorTests.cs" />
     <Compile Include="TestHelpers\Constants\HttpRequestValue.cs" />
     <Compile Include="TestHelpers\MockViewContextExtensions.cs" />

@@ -8,8 +8,10 @@ namespace AllianceAssociationBank.Crm.Reports
 {
     public class AchAllCompaniesReport : ReportBase, IReport
     {
+        private const string definitionFileName = ReportName.AchAllCompanies;
+
         public AchAllCompaniesReport() 
-            : base(ReportName.AchAllCompanies)
+            : base(definitionFileName)
         {
         }
 
@@ -17,7 +19,7 @@ namespace AllianceAssociationBank.Crm.Reports
         /// This constructor is used for unit testing.
         /// </summary>
         public AchAllCompaniesReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
-            : base(reportQueries, fileSystemService, ReportName.AchAllCompanies)
+            : base(reportQueries, fileSystemService, definitionFileName)
         {
         }
 

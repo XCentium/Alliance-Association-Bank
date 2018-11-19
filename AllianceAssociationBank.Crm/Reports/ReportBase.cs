@@ -26,27 +26,29 @@ namespace AllianceAssociationBank.Crm.Reports
             get { return @"Reports\Definitions"; }
         }
 
+        public virtual string ReportDefinitionFileName { get; }
+
         private IFileSystemService _fileSystem;
 
-        public ReportBase(string reportDefinitionFileName)
+        public ReportBase(string reportDefinitionFileName) 
+            : this(UnityConfig.Container.Resolve<IReportQueries>(), 
+                   UnityConfig.Container.Resolve<IFileSystemService>(), 
+                   reportDefinitionFileName)
         {
-            Queries = UnityConfig.Container.Resolve<IReportQueries>();
-            _fileSystem = UnityConfig.Container.Resolve<IFileSystemService>();
-
-            ReportViewer = InitializeReportViewer(reportDefinitionFileName);
         }
 
         public ReportBase(IReportQueries reportQueries, IFileSystemService fileSystem, string reportDefinitionFileName)
         {
             Queries = reportQueries;
             _fileSystem = fileSystem;
+            ReportDefinitionFileName = reportDefinitionFileName;
 
-            ReportViewer = InitializeReportViewer(reportDefinitionFileName);
+            ReportViewer = InitializeReportViewer();
         }
 
-        protected virtual ReportViewer InitializeReportViewer(string reportDefinitionFileName)
+        protected virtual ReportViewer InitializeReportViewer()
         {
-            var reportFileFullPath = GetDefinitionFileFullPath(reportDefinitionFileName);
+            var reportFileFullPath = GetDefinitionFileFullPath(ReportDefinitionFileName);
 
             if (!IsValidDefinitionFile(reportFileFullPath))
             {

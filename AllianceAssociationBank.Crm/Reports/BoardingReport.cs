@@ -8,8 +8,10 @@ namespace AllianceAssociationBank.Crm.Reports
 {
     public class BoardingReport : ReportBase, IReport
     {
+        private const string definitionFileName = ReportName.Boarding;
+
         public BoardingReport() 
-            : base(ReportName.Boarding)
+            : base(definitionFileName)
         {
         }
 
@@ -17,7 +19,7 @@ namespace AllianceAssociationBank.Crm.Reports
         /// This constructor is used for unit testing.
         /// </summary>
         public BoardingReport(IReportQueries reportQueries, IFileSystemService fileSystemService) 
-            : base(reportQueries, fileSystemService, ReportName.Boarding)
+            : base(reportQueries, fileSystemService, definitionFileName)
         {
         }
 

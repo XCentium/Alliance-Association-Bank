@@ -1,5 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Reports;
 using AllianceAssociationBank.Crm.Reports.Interfaces;
 using Moq;
@@ -39,6 +40,15 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
             var report = _reportSelector.ResolveByName(reportName, _queries.Object, _fileSystem.Object);
 
             Assert.IsType(reportType, report);
+        }
+
+        [Fact]
+        public void ResolveByName_InvalidReportName_ShouldThrowInvalidReportException()
+        {
+            var exception = Record.Exception(() => _reportSelector.ResolveByName("Some-Wrong-Report"));
+
+            Assert.NotNull(exception);
+            Assert.IsType<InvalidReportException>(exception);
         }
     }
 }

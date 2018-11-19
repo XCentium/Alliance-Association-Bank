@@ -8,7 +8,10 @@ namespace AllianceAssociationBank.Crm.Reports
 {
     public class CmcByIdUsefulInfoReport : ReportBase, IReport
     {
-        public CmcByIdUsefulInfoReport() : base(ReportName.CmcByIdUsefulInfo)
+        private const string definitionFileName = ReportName.CmcByIdUsefulInfo;
+
+        public CmcByIdUsefulInfoReport() 
+            : base(definitionFileName)
         {
         }
 
@@ -16,7 +19,7 @@ namespace AllianceAssociationBank.Crm.Reports
         /// This constructor is used for unit testing.
         /// </summary>
         public CmcByIdUsefulInfoReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
-            : base(reportQueries, fileSystemService, ReportName.CmcByIdUsefulInfo)
+            : base(reportQueries, fileSystemService, definitionFileName)
         {
         }
 
