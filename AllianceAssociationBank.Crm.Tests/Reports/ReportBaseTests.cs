@@ -62,6 +62,9 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
+        [InlineData(typeof(BoardingReport), ReportName.Boarding)]
+        [InlineData(typeof(CompletedAndHoldReport), ReportName.CompletedAndHold)]
+        [InlineData(typeof(SoftwareTransitionReport), ReportName.SoftwareTransition)]
         [InlineData(typeof(CmcByIdReport), ReportName.CmcById)]
         [InlineData(typeof(CmcByNameReport), ReportName.CmcByName)]
         [InlineData(typeof(AchAllCompaniesReport), ReportName.AchAllCompanies)]
@@ -107,7 +110,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Fact]
-        public async Task ExecuteReport_BoardingReport_ShouldSetReportDataSourcesAndDefinitionFileNameCorrectly()
+        public async Task ExecuteReport_BoardingReport_ShouldSetReportDataSourcesCorrectly()
         {
             var report = new BoardingReport(_queries.Object, _fileSystem.Object);
 
@@ -115,7 +118,30 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
 
             Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
             Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
-            Assert.Equal(ReportName.Boarding, report.ReportDefinitionFileName);
+            Assert.NotNull(report.ReportViewer);
+        }
+
+        [Fact]
+        public async Task ExecuteReport_CompletedAndHoldReport_ShouldSetReportDataSourcesCorrectly()
+        {
+            var report = new CompletedAndHoldReport(_queries.Object, _fileSystem.Object);
+
+            await report.ExecuteReport();
+
+            Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
+            Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
+            Assert.NotNull(report.ReportViewer);
+        }
+
+        [Fact]
+        public async Task ExecuteReport_SoftwareTransitionReport_ShouldSetReportDataSourcesCorrectly()
+        {
+            var report = new SoftwareTransitionReport(_queries.Object, _fileSystem.Object);
+
+            await report.ExecuteReport();
+
+            Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
+            Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
             Assert.NotNull(report.ReportViewer);
         }
 

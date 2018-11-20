@@ -377,6 +377,8 @@
     <Compile Include="Reports\AchRiskPost6MonthReport.cs" />
     <Compile Include="Reports\AchRisk6MonthReport.cs" />
     <Compile Include="Reports\AchRiskInitialReport.cs" />
+    <Compile Include="Reports\SoftwareTransitionReport.cs" />
+    <Compile Include="Reports\CompletedAndHoldReport.cs" />
     <Compile Include="Reports\BoardingReport.cs" />
     <Compile Include="Reports\CmcByNameReport.cs" />
     <Compile Include="Reports\CmcByIdReport.cs" />
@@ -627,8 +629,8 @@
     <Content Include="Reports\Coupon.rdlc" />
     <Content Include="Reports\Definitions\CMC-By-Name.rdlc" />
     <Content Include="Reports\Definitions\CMC-By-ID.rdlc" />
-    <Content Include="Reports\Software-Transition.rdlc" />
-    <Content Include="Reports\Completed-And-Hold.rdlc" />
+    <Content Include="Reports\Definitions\Software-Transition.rdlc" />
+    <Content Include="Reports\Definitions\Completed-And-Hold.rdlc" />
     <Content Include="Reports\Definitions\Boarding.rdlc" />
   </ItemGroup>
   <ItemGroup>
