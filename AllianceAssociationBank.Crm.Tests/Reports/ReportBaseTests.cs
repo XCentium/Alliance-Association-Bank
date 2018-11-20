@@ -44,6 +44,9 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
+        [InlineData(typeof(AchSpecReport), ReportDatasetName.AchReportDataset)]
+        [InlineData(typeof(AchInitialReviewReport), ReportDatasetName.AchReportDataset)]
+        [InlineData(typeof(Ach6MonthReviewReport), ReportDatasetName.AchReportDataset)]
         [InlineData(typeof(AchRiskInitialReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchRisk6MonthReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchRiskPost6MonthReport), ReportDatasetName.Master)]
@@ -75,6 +78,9 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
+        [InlineData(typeof(AchSpecReport), ReportName.AchSpec)]
+        [InlineData(typeof(AchInitialReviewReport), ReportName.AchInitialReview)]
+        [InlineData(typeof(Ach6MonthReviewReport), ReportName.AchSixMonthReview)]
         [InlineData(typeof(AchRiskInitialReport), ReportName.AchRiskInitial)]
         [InlineData(typeof(AchRisk6MonthReport), ReportName.AchRiskSixMonth)]
         [InlineData(typeof(AchRiskPost6MonthReport), ReportName.AchRiskPostSixMonth)]

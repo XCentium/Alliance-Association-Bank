@@ -371,6 +371,9 @@
     <Compile Include="Persistence\Repositories\SoftwareRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\AchAllCompaniesReport.cs" />
+    <Compile Include="Reports\Ach6MonthReviewReport.cs" />
+    <Compile Include="Reports\AchInitialReviewReport.cs" />
+    <Compile Include="Reports\AchSpecReport.cs" />
     <Compile Include="Reports\AchRiskPost6MonthReport.cs" />
     <Compile Include="Reports\AchRisk6MonthReport.cs" />
     <Compile Include="Reports\AchRiskInitialReport.cs" />
@@ -635,13 +638,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\ACH-Spec-Report.rdlc" />
+    <Content Include="Reports\Definitions\ACH-Spec-Report.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\ACH-6-Month-Review.rdlc" />
+    <Content Include="Reports\Definitions\ACH-6-Month-Review.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\ACH-Initial-Review.rdlc" />
+    <Content Include="Reports\Definitions\ACH-Initial-Review.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Definitions\ACH-All-Companies.rdlc" />

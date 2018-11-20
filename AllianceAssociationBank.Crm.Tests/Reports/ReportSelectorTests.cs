@@ -45,6 +45,9 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
+        [InlineData(ReportName.AchSpec, typeof(AchSpecReport))]
+        [InlineData(ReportName.AchInitialReview, typeof(AchInitialReviewReport))]
+        [InlineData(ReportName.AchSixMonthReview, typeof(Ach6MonthReviewReport))]
         [InlineData(ReportName.AchRiskInitial, typeof(AchRiskInitialReport))]
         [InlineData(ReportName.AchRiskSixMonth, typeof(AchRisk6MonthReport))]
         [InlineData(ReportName.AchRiskPostSixMonth, typeof(AchRiskPost6MonthReport))]
