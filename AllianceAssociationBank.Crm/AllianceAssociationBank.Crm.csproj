@@ -379,7 +379,7 @@
     <Compile Include="Reports\AchRisk6MonthReport.cs" />
     <Compile Include="Reports\AchRiskInitialReport.cs" />
     <Compile Include="Reports\CDEmailsReport.cs" />
-    <Compile Include="Reports\IncorrectEmployeesDataReport.cs" />
+    <Compile Include="Reports\IncorrectEmployeeDataReport.cs" />
     <Compile Include="Reports\CouponReport.cs" />
     <Compile Include="Reports\SoftwareTransitionReport.cs" />
     <Compile Include="Reports\CompletedAndHoldReport.cs" />
@@ -391,10 +391,10 @@
     <Compile Include="Reports\Infrastructure\IReport.cs" />
     <Compile Include="Reports\Infrastructure\IReportSelector.cs" />
     <Compile Include="Reports\Infrastructure\ReportBase.cs" />
-    <Compile Include="Reports\ReportsDataSet.cs">
+    <Compile Include="Reports\Infrastructure\ReportsDataSet.cs">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ReportsDataSet.Designer.cs">
+    <Compile Include="Reports\Infrastructure\ReportsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
@@ -486,7 +486,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DropDownListSettings.config" />
-    <Content Include="Reports\ReportsDataSet.xsc">
+    <Content Include="Reports\Infrastructure\ReportsDataSet.xsc">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.min.css.map" />
@@ -497,12 +497,12 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="LoggerSettings.config" />
     <Content Include="AppTextContent.config" />
-    <None Include="Reports\ReportsDataSet.xsd">
+    <None Include="Reports\Infrastructure\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ReportsDataSet1.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Reports\ReportsDataSet.xss">
+    <Content Include="Reports\Infrastructure\ReportsDataSet.xss">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
@@ -671,7 +671,7 @@
     <Content Include="Reports\Definitions\ACH-Risk-Post-6-Month.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\Definitions\Incorrect-Employees-Data.rdlc" />
+    <Content Include="Reports\Definitions\Incorrect-Employee-Data.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

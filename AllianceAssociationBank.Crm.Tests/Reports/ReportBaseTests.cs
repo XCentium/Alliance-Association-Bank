@@ -29,7 +29,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(AchAllCompaniesReport), ReportDatasetName.Master)]
         [InlineData(typeof(CmcAddressByNameReport), ReportDatasetName.Master)]
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportDatasetName.Master)]
-        [InlineData(typeof(IncorrectEmployeesDataReport), ReportDatasetName.Master)]
+        [InlineData(typeof(IncorrectEmployeeDataReport), ReportDatasetName.Master)]
         public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetReportDataSourceCorrectly(Type reportType, 
                                                                                                     string dataSourceName)
         {
@@ -89,7 +89,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(AchAllCompaniesReport), ReportName.AchAllCompanies)]
         [InlineData(typeof(CmcAddressByNameReport), ReportName.CmcAddressByName)]
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportName.CmcByIdUsefulInfo)]
-        [InlineData(typeof(IncorrectEmployeesDataReport), ReportName.IncorrectEmployeesData)]
+        [InlineData(typeof(IncorrectEmployeeDataReport), ReportName.IncorrectEmployeeData)]
         public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
                                                                                                       string definitionFileName)
         {

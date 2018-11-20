@@ -1017,6 +1017,10 @@
           <DataField>ACHEstimatedDeposits</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="ACHEstimatedDepositsDate">
+          <DataField>ACHEstimatedDepositsDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
         <Field Name="OriginalReviewDate">
           <DataField>OriginalReviewDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -1108,7 +1112,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReportsDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\XCentium\source\repos\AllianceAssociationBank.Crm\AllianceAssociationBank.Crm\Reports\ReportsDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\XCentium\source\repos\AllianceAssociationBank.Crm\AllianceAssociationBank.Crm\Reports\Infrastructure\ReportsDataSet.xsd</rd:SchemaPath>
         <rd:TableName>AchReportDataset</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

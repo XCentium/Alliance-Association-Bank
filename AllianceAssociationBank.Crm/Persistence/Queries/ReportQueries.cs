@@ -158,7 +158,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
         }
 
-        public async Task<IEnumerable<IncorrectEmployeeDatasetDto>> GetIncorrectEmployeesDataSetAsync()
+        public async Task<IEnumerable<IncorrectEmployeeDatasetDto>> GetIncorrectEmployeeDataSetAsync()
         {
             var results = await _context.Projects
                 .Where(p => 

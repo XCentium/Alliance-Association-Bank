@@ -777,7 +777,6 @@
         </TablixRowHierarchy>
         <DataSetName>MasterDataset</DataSetName>
         <Top>1.38818in</Top>
-        <Left>0in</Left>
         <Height>7.48688in</Height>
         <Width>8in</Width>
         <Style>
@@ -991,7 +990,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReportsDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\XCentium\source\repos\AllianceAssociationBank.Crm\AllianceAssociationBank.Crm\Reports\ReportsDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\XCentium\source\repos\AllianceAssociationBank.Crm\AllianceAssociationBank.Crm\Reports\Infrastructure\ReportsDataSet.xsd</rd:SchemaPath>
         <rd:TableName>AchReportDataset</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

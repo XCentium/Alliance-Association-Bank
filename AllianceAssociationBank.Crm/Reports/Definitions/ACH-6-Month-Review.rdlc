@@ -4819,7 +4819,7 @@ $1,000,000</Value>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ReportsDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\XCentium\source\repos\AllianceAssociationBank.Crm\AllianceAssociationBank.Crm\Reports\ReportsDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\XCentium\source\repos\AllianceAssociationBank.Crm\AllianceAssociationBank.Crm\Reports\Infrastructure\ReportsDataSet.xsd</rd:SchemaPath>
         <rd:TableName>AchReportDataset</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

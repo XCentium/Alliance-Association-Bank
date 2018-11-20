@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class IncorrectEmployeesDataReport : ReportBase, IReport
+    public class IncorrectEmployeeDataReport : ReportBase, IReport
     {
-        private const string definitionFileName = ReportName.IncorrectEmployeesData;
+        private const string definitionFileName = ReportName.IncorrectEmployeeData;
 
-        public IncorrectEmployeesDataReport() : base(definitionFileName)
+        public IncorrectEmployeeDataReport() : base(definitionFileName)
         {
         }
 
         /// <summary>
         /// This constructor is used for unit testing.
         /// </summary>
-        public IncorrectEmployeesDataReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
+        public IncorrectEmployeeDataReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
             : base(reportQueries, fileSystemService, definitionFileName)
         {
         }
@@ -26,7 +26,7 @@ namespace AllianceAssociationBank.Crm.Reports
         {
             DataSources.Add(new ReportDataSource(
                 ReportDatasetName.Master,
-                (await Queries.GetIncorrectEmployeesDataSetAsync())));
+                (await Queries.GetIncorrectEmployeeDataSetAsync())));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<Project>> GetCouponDataSetAsync();
         Task<IEnumerable<AchReportDatasetDto>> GetAchReportDataSetAsync(int? projectId);
         Task<IEnumerable<AchReportDatasetDto>> GetAchAllCompaniesDataSetAsync();
-        Task<IEnumerable<IncorrectEmployeeDatasetDto>> GetIncorrectEmployeesDataSetAsync();
+        Task<IEnumerable<IncorrectEmployeeDatasetDto>> GetIncorrectEmployeeDataSetAsync();
         Task<IEnumerable<Employee>> GetEmployeesDataSetAsync();
     }
 }
