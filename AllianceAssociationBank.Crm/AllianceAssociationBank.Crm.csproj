@@ -658,6 +658,9 @@
   <ItemGroup>
     <Content Include="Reports\Definitions\ACH-Risk-6-Month.rdlc" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Definitions\ACH-Risk-Post-6-Month.rdlc" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

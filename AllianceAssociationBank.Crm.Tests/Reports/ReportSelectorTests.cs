@@ -47,6 +47,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [Theory]
         [InlineData(ReportName.AchRiskInitial, typeof(AchRiskInitialReport))]
         [InlineData(ReportName.AchRiskSixMonth, typeof(AchRisk6MonthReport))]
+        [InlineData(ReportName.AchRiskPostSixMonth, typeof(AchRiskPost6MonthReport))]
         public void ResolveByName_InlineReportWithProjectIdParam_ShouldReturnCorrectReportInstance(string reportName, Type reportType)
         {
             _fileSystem.Setup(s => s.IsFileExists(It.IsAny<string>())).Returns(true);

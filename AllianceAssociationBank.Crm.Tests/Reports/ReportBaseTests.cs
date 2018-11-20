@@ -46,6 +46,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [Theory]
         [InlineData(typeof(AchRiskInitialReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchRisk6MonthReport), ReportDatasetName.Master)]
+        [InlineData(typeof(AchRiskPost6MonthReport), ReportDatasetName.Master)]
         public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetReportDataSourceCorrectly(Type reportType, string dataSourceName)
         {
             var projectId = 99;
@@ -76,6 +77,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [Theory]
         [InlineData(typeof(AchRiskInitialReport), ReportName.AchRiskInitial)]
         [InlineData(typeof(AchRisk6MonthReport), ReportName.AchRiskSixMonth)]
+        [InlineData(typeof(AchRiskPost6MonthReport), ReportName.AchRiskPostSixMonth)]
         public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetDefinitionFileNameCorrectly(Type reportType, string definitionFileName)
         {
             var projectId = 99;
