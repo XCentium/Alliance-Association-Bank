@@ -1,15 +1,14 @@
-﻿using AllianceAssociationBank.Crm.Reports.Interfaces;
-using AllianceAssociationBank.Crm.Exceptions;
+﻿using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Extensions;
 using System;
 using System.Linq;
 using System.Reflection;
 
-namespace AllianceAssociationBank.Crm.Reports
+namespace AllianceAssociationBank.Crm.Reports.Infrastructure
 {
     public class ReportSelector : IReportSelector
     {
-        private static readonly string REPORTS_NAMESPACE = MethodBase.GetCurrentMethod().DeclaringType.Namespace;
+        private static readonly string REPORTS_NAMESPACE = "AllianceAssociationBank.Crm.Reports";
 
         public IReport ResolveByName(string reportName, params object[] reportParameters)
         {

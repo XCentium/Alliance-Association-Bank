@@ -186,7 +186,7 @@
                         <RightBorder>
                           <Style>None</Style>
                         </RightBorder>
-                        <BackgroundColor>=IIF(RowNumber("CDEmailsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                        <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -228,7 +228,7 @@
                         <RightBorder>
                           <Style>None</Style>
                         </RightBorder>
-                        <BackgroundColor>=IIF(RowNumber("CDEmailsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                        <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -270,7 +270,7 @@
                         <RightBorder>
                           <Style>None</Style>
                         </RightBorder>
-                        <BackgroundColor>=IIF(RowNumber("CDEmailsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                        <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -304,7 +304,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>CDEmailsDataset</DataSetName>
+        <DataSetName>MasterDataset</DataSetName>
         <Top>0.46403in</Top>
         <Left>0.70833in</Left>
         <Height>0.66666in</Height>
@@ -406,7 +406,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="CDEmailsDataset">
+    <DataSet Name="MasterDataset">
       <Query>
         <DataSourceName>ReportsDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>

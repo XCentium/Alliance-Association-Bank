@@ -8,7 +8,7 @@ using AllianceAssociationBank.Crm.Exceptions;
 using Microsoft.Reporting.WebForms;
 using Unity;
 
-namespace AllianceAssociationBank.Crm.Reports
+namespace AllianceAssociationBank.Crm.Reports.Infrastructure
 {
     public abstract class ReportBase
     {

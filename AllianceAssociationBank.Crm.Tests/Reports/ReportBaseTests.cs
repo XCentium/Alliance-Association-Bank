@@ -2,7 +2,7 @@
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Reports;
-using AllianceAssociationBank.Crm.Reports.Interfaces;
+using AllianceAssociationBank.Crm.Reports.Infrastructure;
 using Microsoft.Reporting.WebForms;
 using Moq;
 using System;
@@ -30,6 +30,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [Theory]
         [InlineData(typeof(CmcByIdReport), ReportDatasetName.Master)]
         [InlineData(typeof(CmcByNameReport), ReportDatasetName.Master)]
+        [InlineData(typeof(CDEmailsReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchAllCompaniesReport), ReportDatasetName.Master)]
         [InlineData(typeof(CmcAddressByNameReport), ReportDatasetName.Master)]
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportDatasetName.Master)]
@@ -44,9 +45,9 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
-        [InlineData(typeof(AchSpecReport), ReportDatasetName.AchReportDataset)]
-        [InlineData(typeof(AchInitialReviewReport), ReportDatasetName.AchReportDataset)]
-        [InlineData(typeof(Ach6MonthReviewReport), ReportDatasetName.AchReportDataset)]
+        [InlineData(typeof(AchSpecReport), ReportDatasetName.Master)]
+        [InlineData(typeof(AchInitialReviewReport), ReportDatasetName.Master)]
+        [InlineData(typeof(Ach6MonthReviewReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchRiskInitialReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchRisk6MonthReport), ReportDatasetName.Master)]
         [InlineData(typeof(AchRiskPost6MonthReport), ReportDatasetName.Master)]
@@ -67,6 +68,8 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(SoftwareTransitionReport), ReportName.SoftwareTransition)]
         [InlineData(typeof(CmcByIdReport), ReportName.CmcById)]
         [InlineData(typeof(CmcByNameReport), ReportName.CmcByName)]
+        [InlineData(typeof(CDEmailsReport), ReportName.CDEmails)]
+        [InlineData(typeof(CouponReport), ReportName.Coupon)]
         [InlineData(typeof(AchAllCompaniesReport), ReportName.AchAllCompanies)]
         [InlineData(typeof(CmcAddressByNameReport), ReportName.CmcAddressByName)]
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportName.CmcByIdUsefulInfo)]
@@ -137,6 +140,18 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         public async Task ExecuteReport_SoftwareTransitionReport_ShouldSetReportDataSourcesCorrectly()
         {
             var report = new SoftwareTransitionReport(_queries.Object, _fileSystem.Object);
+
+            await report.ExecuteReport();
+
+            Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
+            Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
+            Assert.NotNull(report.ReportViewer);
+        }
+
+        [Fact]
+        public async Task ExecuteReport_CouponReport_ShouldSetReportDataSourcesCorrectly()
+        {
+            var report = new CouponReport(_queries.Object, _fileSystem.Object);
 
             await report.ExecuteReport();
 

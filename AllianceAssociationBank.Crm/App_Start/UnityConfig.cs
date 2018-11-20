@@ -17,8 +17,7 @@ using Microsoft.Owin.Security;
 using System.Web;
 using System.DirectoryServices.AccountManagement;
 using Serilog;
-using AllianceAssociationBank.Crm.Reports.Interfaces;
-using AllianceAssociationBank.Crm.Reports;
+using AllianceAssociationBank.Crm.Reports.Infrastructure;
 
 namespace AllianceAssociationBank.Crm
 {

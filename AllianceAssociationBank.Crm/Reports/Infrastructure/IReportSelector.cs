@@ -1,6 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Reports;
 
-namespace AllianceAssociationBank.Crm.Reports.Interfaces
+namespace AllianceAssociationBank.Crm.Reports.Infrastructure
 {
     public interface IReportSelector
     {

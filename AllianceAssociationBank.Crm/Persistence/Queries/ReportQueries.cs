@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using AllianceAssociationBank.Crm.Dtos;
+using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Helpers;
 using AutoMapper;
 using AllianceAssociationBank.Crm.Constants.Projects;

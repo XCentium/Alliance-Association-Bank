@@ -1,5 +1,4 @@
-﻿using AllianceAssociationBank.Crm.Core.Models;
-using AllianceAssociationBank.Crm.Dtos;
+﻿using AllianceAssociationBank.Crm.Core.Dtos;
 using CsvHelper.Configuration;
 
 namespace AllianceAssociationBank.Crm.Mappings

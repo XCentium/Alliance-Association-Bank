@@ -1,6 +1,4 @@
 ﻿using AllianceAssociationBank.Crm.Constants.ProjectUsers;
-using AllianceAssociationBank.Crm.Constants.User;
-using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Persistence.Enums;
@@ -8,7 +6,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Persistence.Repositories
 {

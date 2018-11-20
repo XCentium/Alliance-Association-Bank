@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
-using AllianceAssociationBank.Crm.Reports.Interfaces;
+using AllianceAssociationBank.Crm.Reports.Infrastructure;
 using Microsoft.Reporting.WebForms;
 
 namespace AllianceAssociationBank.Crm.Reports
@@ -30,7 +30,7 @@ namespace AllianceAssociationBank.Crm.Reports
         public async Task ExecuteReport()
         {
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.AchReportDataset, 
+                ReportDatasetName.Master, 
                 (await Queries.GetAchReportDataSetAsync(ProjectId))));
         }
     }

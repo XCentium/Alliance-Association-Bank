@@ -258,8 +258,8 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Dtos\AchReportDatasetDto.cs" />
-    <Compile Include="Dtos\CDEmailsDatasetDto.cs" />
+    <Compile Include="Core\Dtos\AchReportDatasetDto.cs" />
+    <Compile Include="Core\Dtos\CDEmailsDatasetDto.cs" />
     <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
@@ -268,7 +268,7 @@
     <Compile Include="Core\Models\Aq2Reformat.cs" />
     <Compile Include="Core\Services\FileSystemService.cs" />
     <Compile Include="Core\Interfaces\IFileSystemService.cs" />
-    <Compile Include="Dtos\CmcReportDatasetDto.cs" />
+    <Compile Include="Core\Dtos\CmcReportDatasetDto.cs" />
     <Compile Include="Exceptions\InvalidReportException.cs" />
     <Compile Include="Exceptions\ViewErrorResult.cs" />
     <Compile Include="Exceptions\JsonErrorResult.cs" />
@@ -327,7 +327,7 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Mappings\CmcListExportMap.cs" />
-    <Compile Include="Dtos\ProjectDto.cs" />
+    <Compile Include="Core\Dtos\ProjectDto.cs" />
     <Compile Include="Core\Models\CheckScanner.cs" />
     <Compile Include="Core\Models\Employee.cs" />
     <Compile Include="Core\Models\Project.cs" />
@@ -377,6 +377,8 @@
     <Compile Include="Reports\AchRiskPost6MonthReport.cs" />
     <Compile Include="Reports\AchRisk6MonthReport.cs" />
     <Compile Include="Reports\AchRiskInitialReport.cs" />
+    <Compile Include="Reports\CDEmailsReport.cs" />
+    <Compile Include="Reports\CouponReport.cs" />
     <Compile Include="Reports\SoftwareTransitionReport.cs" />
     <Compile Include="Reports\CompletedAndHoldReport.cs" />
     <Compile Include="Reports\BoardingReport.cs" />
@@ -384,9 +386,9 @@
     <Compile Include="Reports\CmcByIdReport.cs" />
     <Compile Include="Reports\CmcByIdUsefulInfoReport.cs" />
     <Compile Include="Reports\CmcAddressByNameReport.cs" />
-    <Compile Include="Reports\Interfaces\IReport.cs" />
-    <Compile Include="Reports\Interfaces\IReportSelector.cs" />
-    <Compile Include="Reports\ReportBase.cs" />
+    <Compile Include="Reports\Infrastructure\IReport.cs" />
+    <Compile Include="Reports\Infrastructure\IReportSelector.cs" />
+    <Compile Include="Reports\Infrastructure\ReportBase.cs" />
     <Compile Include="Reports\ReportsDataSet.cs">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Compile>
@@ -395,7 +397,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ReportSelector.cs" />
+    <Compile Include="Reports\Infrastructure\ReportSelector.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
@@ -625,8 +627,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\CD-Emails.rdlc" />
-    <Content Include="Reports\Coupon.rdlc" />
+    <Content Include="Reports\Definitions\CD-Emails.rdlc" />
+    <Content Include="Reports\Definitions\Coupon.rdlc" />
     <Content Include="Reports\Definitions\CMC-By-Name.rdlc" />
     <Content Include="Reports\Definitions\CMC-By-ID.rdlc" />
     <Content Include="Reports\Definitions\Software-Transition.rdlc" />

@@ -2,7 +2,7 @@
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Reports;
-using AllianceAssociationBank.Crm.Reports.Interfaces;
+using AllianceAssociationBank.Crm.Reports.Infrastructure;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -31,8 +31,11 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [Theory]
         [InlineData(ReportName.Boarding, typeof(BoardingReport))]
         [InlineData(ReportName.CompletedAndHold, typeof(CompletedAndHoldReport))]
+        [InlineData(ReportName.SoftwareTransition, typeof(SoftwareTransitionReport))]
         [InlineData(ReportName.CmcById, typeof(CmcByIdReport))]
         [InlineData(ReportName.CmcByName, typeof(CmcByNameReport))]
+        [InlineData(ReportName.CDEmails, typeof(CDEmailsReport))]
+        [InlineData(ReportName.Coupon, typeof(CouponReport))]
         [InlineData(ReportName.AchAllCompanies, typeof(AchAllCompaniesReport))]
         [InlineData(ReportName.CmcAddressByName, typeof(CmcAddressByNameReport))]
         [InlineData(ReportName.CmcByIdUsefulInfo, typeof(CmcByIdUsefulInfoReport))]

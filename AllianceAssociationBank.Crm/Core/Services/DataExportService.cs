@@ -1,15 +1,12 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
-using AutoMapper;
 using CsvHelper;
 using System;
-using System.Collections.Generic;
 using System.Collections;
 using System.IO;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AllianceAssociationBank.Crm.Mappings;
-using AllianceAssociationBank.Crm.Dtos;
 using AllianceAssociationBank.Crm.Extensions;
 
 namespace AllianceAssociationBank.Crm.Core.Services

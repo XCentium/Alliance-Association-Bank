@@ -2,7 +2,7 @@
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Core.Services;
-using AllianceAssociationBank.Crm.Dtos;
+using AllianceAssociationBank.Crm.Core.Dtos;
 using Moq;
 using System.Collections.Generic;
 using System.Threading.Tasks;

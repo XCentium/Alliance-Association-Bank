@@ -6,32 +6,32 @@ using Microsoft.Reporting.WebForms;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class AchRiskPost6MonthReport : ReportBase, IReport
+    public class CouponReport : ReportBase, IReport
     {
-        private const string definitionFileName = ReportName.AchRiskPostSixMonth;
+        private const string definitionFileName = ReportName.Coupon;
 
-        public int ProjectId { get; }
-
-        public AchRiskPost6MonthReport(int projectId) 
+        public CouponReport() 
             : base(definitionFileName)
         {
-            ProjectId = projectId;
         }
 
         /// <summary>
         /// This constructor is used for unit testing.
         /// </summary>
-        public AchRiskPost6MonthReport(int projectId, IReportQueries reportQueries, IFileSystemService fileSystemService) 
+        public CouponReport(IReportQueries reportQueries, IFileSystemService fileSystemService) 
             : base(reportQueries, fileSystemService, definitionFileName)
         {
-            ProjectId = projectId;
         }
 
         public async Task ExecuteReport()
         {
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Master, 
-                (await Queries.GetAchReportDataSetAsync(ProjectId))));
+                ReportDatasetName.Projects, 
+                (await Queries.GetCouponDataSetAsync())));
+
+            DataSources.Add(new ReportDataSource(
+                ReportDatasetName.Employees, 
+                (await Queries.GetEmployeesDataSetAsync())));
         }
     }
 }

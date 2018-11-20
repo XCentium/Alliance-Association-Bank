@@ -1,8 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
-using AllianceAssociationBank.Crm.Reports;
-using AllianceAssociationBank.Crm.Reports.Interfaces;
+using AllianceAssociationBank.Crm.Reports.Infrastructure;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
