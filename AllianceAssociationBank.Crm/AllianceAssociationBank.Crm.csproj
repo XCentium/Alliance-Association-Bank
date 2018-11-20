@@ -260,6 +260,7 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Core\Dtos\AchReportDatasetDto.cs" />
     <Compile Include="Core\Dtos\CDEmailsDatasetDto.cs" />
+    <Compile Include="Core\Dtos\IncorrectEmployeeDatasetDto.cs" />
     <Compile Include="Core\Models\Note.cs" />
     <Compile Include="Constants\AuthenticationType.cs" />
     <Compile Include="Constants\SharedView.cs" />
@@ -378,6 +379,7 @@
     <Compile Include="Reports\AchRisk6MonthReport.cs" />
     <Compile Include="Reports\AchRiskInitialReport.cs" />
     <Compile Include="Reports\CDEmailsReport.cs" />
+    <Compile Include="Reports\IncorrectEmployeesDataReport.cs" />
     <Compile Include="Reports\CouponReport.cs" />
     <Compile Include="Reports\SoftwareTransitionReport.cs" />
     <Compile Include="Reports\CompletedAndHoldReport.cs" />
@@ -667,6 +669,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Definitions\ACH-Risk-Post-6-Month.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Definitions\Incorrect-Employees-Data.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

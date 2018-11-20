@@ -501,7 +501,7 @@ FROM            Projects</CommandText>
   <xs:element name="ReportsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportsDataSet" msprop:Generator_UserDSName="ReportsDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CDEmailsDataset" msprop:Generator_TableClassName="CDEmailsDatasetDataTable" msprop:Generator_TableVarName="tableCDEmailsDataset" msprop:Generator_TablePropName="CDEmailsDataset" msprop:Generator_RowDeletingName="CDEmailsDatasetRowDeleting" msprop:Generator_RowChangingName="CDEmailsDatasetRowChanging" msprop:Generator_RowEvHandlerName="CDEmailsDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="CDEmailsDatasetRowDeleted" msprop:Generator_UserTableName="CDEmailsDataset" msprop:Generator_RowChangedName="CDEmailsDatasetRowChanged" msprop:Generator_RowEvArgName="CDEmailsDatasetRowChangeEvent" msprop:Generator_RowClassName="CDEmailsDatasetRow">
+        <xs:element name="CDEmailsDataset" msprop:Generator_TableClassName="CDEmailsDatasetDataTable" msprop:Generator_TableVarName="tableCDEmailsDataset" msprop:Generator_RowChangedName="CDEmailsDatasetRowChanged" msprop:Generator_TablePropName="CDEmailsDataset" msprop:Generator_RowDeletingName="CDEmailsDatasetRowDeleting" msprop:Generator_RowChangingName="CDEmailsDatasetRowChanging" msprop:Generator_RowEvHandlerName="CDEmailsDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="CDEmailsDatasetRowDeleted" msprop:Generator_RowClassName="CDEmailsDatasetRow" msprop:Generator_UserTableName="CDEmailsDataset" msprop:Generator_RowEvArgName="CDEmailsDatasetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProjectName" msprop:Generator_ColumnVarNameInTable="columnProjectName" msprop:Generator_ColumnPropNameInRow="ProjectName" msprop:Generator_ColumnPropNameInTable="ProjectNameColumn" msprop:Generator_UserColumnName="ProjectName" minOccurs="0">
@@ -528,7 +528,7 @@ FROM            Projects</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EmployeesDataset" msprop:Generator_TableClassName="EmployeesDatasetDataTable" msprop:Generator_TableVarName="tableEmployeesDataset" msprop:Generator_RowChangedName="EmployeesDatasetRowChanged" msprop:Generator_TablePropName="EmployeesDataset" msprop:Generator_RowDeletingName="EmployeesDatasetRowDeleting" msprop:Generator_RowChangingName="EmployeesDatasetRowChanging" msprop:Generator_RowEvHandlerName="EmployeesDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeesDatasetRowDeleted" msprop:Generator_RowClassName="EmployeesDatasetRow" msprop:Generator_UserTableName="EmployeesDataset" msprop:Generator_RowEvArgName="EmployeesDatasetRowChangeEvent">
+        <xs:element name="EmployeesDataset" msprop:Generator_TableClassName="EmployeesDatasetDataTable" msprop:Generator_TableVarName="tableEmployeesDataset" msprop:Generator_TablePropName="EmployeesDataset" msprop:Generator_RowDeletingName="EmployeesDatasetRowDeleting" msprop:Generator_RowChangingName="EmployeesDatasetRowChanging" msprop:Generator_RowEvHandlerName="EmployeesDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeesDatasetRowDeleted" msprop:Generator_UserTableName="EmployeesDataset" msprop:Generator_RowChangedName="EmployeesDatasetRowChanged" msprop:Generator_RowEvArgName="EmployeesDatasetRowChangeEvent" msprop:Generator_RowClassName="EmployeesDatasetRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -549,7 +549,7 @@ FROM            Projects</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AchReportDataset" msprop:Generator_TableClassName="AchReportDatasetDataTable" msprop:Generator_TableVarName="tableAchReportDataset" msprop:Generator_TablePropName="AchReportDataset" msprop:Generator_RowDeletingName="AchReportDatasetRowDeleting" msprop:Generator_RowChangingName="AchReportDatasetRowChanging" msprop:Generator_RowEvHandlerName="AchReportDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="AchReportDatasetRowDeleted" msprop:Generator_UserTableName="AchReportDataset" msprop:Generator_RowChangedName="AchReportDatasetRowChanged" msprop:Generator_RowEvArgName="AchReportDatasetRowChangeEvent" msprop:Generator_RowClassName="AchReportDatasetRow">
+        <xs:element name="AchReportDataset" msprop:Generator_TableClassName="AchReportDatasetDataTable" msprop:Generator_TableVarName="tableAchReportDataset" msprop:Generator_RowChangedName="AchReportDatasetRowChanged" msprop:Generator_TablePropName="AchReportDataset" msprop:Generator_RowDeletingName="AchReportDatasetRowDeleting" msprop:Generator_RowChangingName="AchReportDatasetRowChanging" msprop:Generator_RowEvHandlerName="AchReportDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="AchReportDatasetRowDeleted" msprop:Generator_RowClassName="AchReportDatasetRow" msprop:Generator_UserTableName="AchReportDataset" msprop:Generator_RowEvArgName="AchReportDatasetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -678,7 +678,7 @@ FROM            Projects</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Projects" msprop:Generator_TableClassName="ProjectsDataTable" msprop:Generator_TableVarName="tableProjects" msprop:Generator_RowChangedName="ProjectsRowChanged" msprop:Generator_TablePropName="Projects" msprop:Generator_RowDeletingName="ProjectsRowDeleting" msprop:Generator_RowChangingName="ProjectsRowChanging" msprop:Generator_RowEvHandlerName="ProjectsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectsRowDeleted" msprop:Generator_RowClassName="ProjectsRow" msprop:Generator_UserTableName="Projects" msprop:Generator_RowEvArgName="ProjectsRowChangeEvent">
+        <xs:element name="Projects" msprop:Generator_TableClassName="ProjectsDataTable" msprop:Generator_TableVarName="tableProjects" msprop:Generator_TablePropName="Projects" msprop:Generator_RowDeletingName="ProjectsRowDeleting" msprop:Generator_RowChangingName="ProjectsRowChanging" msprop:Generator_RowEvHandlerName="ProjectsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectsRowDeleted" msprop:Generator_UserTableName="Projects" msprop:Generator_RowChangedName="ProjectsRowChanged" msprop:Generator_RowEvArgName="ProjectsRowChangeEvent" msprop:Generator_RowClassName="ProjectsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1220,7 +1220,7 @@ FROM            Projects</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CmcReportDataset" msprop:Generator_TableClassName="CmcReportDatasetDataTable" msprop:Generator_TableVarName="tableCmcReportDataset" msprop:Generator_RowChangedName="CmcReportDatasetRowChanged" msprop:Generator_TablePropName="CmcReportDataset" msprop:Generator_RowDeletingName="CmcReportDatasetRowDeleting" msprop:Generator_RowChangingName="CmcReportDatasetRowChanging" msprop:Generator_RowEvHandlerName="CmcReportDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="CmcReportDatasetRowDeleted" msprop:Generator_RowClassName="CmcReportDatasetRow" msprop:Generator_UserTableName="CmcReportDataset" msprop:Generator_RowEvArgName="CmcReportDatasetRowChangeEvent">
+        <xs:element name="CmcReportDataset" msprop:Generator_TableClassName="CmcReportDatasetDataTable" msprop:Generator_TableVarName="tableCmcReportDataset" msprop:Generator_TablePropName="CmcReportDataset" msprop:Generator_RowDeletingName="CmcReportDatasetRowDeleting" msprop:Generator_RowChangingName="CmcReportDatasetRowChanging" msprop:Generator_RowEvHandlerName="CmcReportDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="CmcReportDatasetRowDeleted" msprop:Generator_UserTableName="CmcReportDataset" msprop:Generator_RowChangedName="CmcReportDatasetRowChanged" msprop:Generator_RowEvArgName="CmcReportDatasetRowChangeEvent" msprop:Generator_RowClassName="CmcReportDatasetRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -1355,6 +1355,38 @@ FROM            Projects</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ProjectsDataQualityDataset" msprop:Generator_TableClassName="ProjectsDataQualityDatasetDataTable" msprop:Generator_TableVarName="tableProjectsDataQualityDataset" msprop:Generator_TablePropName="ProjectsDataQualityDataset" msprop:Generator_RowDeletingName="ProjectsDataQualityDatasetRowDeleting" msprop:Generator_RowChangingName="ProjectsDataQualityDatasetRowChanging" msprop:Generator_RowEvHandlerName="ProjectsDataQualityDatasetRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectsDataQualityDatasetRowDeleted" msprop:Generator_UserTableName="ProjectsDataQualityDataset" msprop:Generator_RowChangedName="ProjectsDataQualityDatasetRowChanged" msprop:Generator_RowEvArgName="ProjectsDataQualityDatasetRowChangeEvent" msprop:Generator_RowClassName="ProjectsDataQualityDatasetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="ProjectName" msprop:Generator_ColumnVarNameInTable="columnProjectName" msprop:Generator_ColumnPropNameInRow="ProjectName" msprop:Generator_ColumnPropNameInTable="ProjectNameColumn" msprop:Generator_UserColumnName="ProjectName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OwnerID" msprop:Generator_ColumnVarNameInTable="columnOwnerID" msprop:Generator_ColumnPropNameInRow="OwnerID" msprop:Generator_ColumnPropNameInTable="OwnerIDColumn" msprop:Generator_UserColumnName="OwnerID" type="xs:int" minOccurs="0" />
+              <xs:element name="OwnerName" msprop:Generator_ColumnVarNameInTable="columnOwnerName" msprop:Generator_ColumnPropNameInRow="OwnerName" msprop:Generator_ColumnPropNameInTable="OwnerNameColumn" msprop:Generator_UserColumnName="OwnerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AFPID" msprop:Generator_ColumnVarNameInTable="columnAFPID" msprop:Generator_ColumnPropNameInRow="AFPID" msprop:Generator_ColumnPropNameInTable="AFPIDColumn" msprop:Generator_UserColumnName="AFPID" type="xs:int" minOccurs="0" />
+              <xs:element name="AFPName" msprop:Generator_ColumnVarNameInTable="columnAFPName" msprop:Generator_ColumnPropNameInRow="AFPName" msprop:Generator_ColumnPropNameInTable="AFPNameColumn" msprop:Generator_UserColumnName="AFPName" type="xs:duration" minOccurs="0" />
+              <xs:element name="BoardingManagerID" msprop:Generator_ColumnVarNameInTable="columnBoardingManagerID" msprop:Generator_ColumnPropNameInRow="BoardingManagerID" msprop:Generator_ColumnPropNameInTable="BoardingManagerIDColumn" msprop:Generator_UserColumnName="BoardingManagerID" type="xs:int" minOccurs="0" />
+              <xs:element name="BoardingManagerName" msprop:Generator_ColumnVarNameInTable="columnBoardingManagerName" msprop:Generator_ColumnPropNameInRow="BoardingManagerName" msprop:Generator_ColumnPropNameInTable="BoardingManagerNameColumn" msprop:Generator_UserColumnName="BoardingManagerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint11">
@@ -1371,6 +1403,10 @@ FROM            Projects</CommandText>
     </xs:unique>
     <xs:unique name="CmcReportDataset_Constraint11" msdata:ConstraintName="Constraint11">
       <xs:selector xpath=".//mstns:CmcReportDataset" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="ProjectsDataQualityDataset_Constraint11" msdata:ConstraintName="Constraint11">
+      <xs:selector xpath=".//mstns:ProjectsDataQualityDataset" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>

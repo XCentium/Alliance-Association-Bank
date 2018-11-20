@@ -1,14 +1,13 @@
-﻿using AllianceAssociationBank.Crm.Core.Models;
+﻿using AllianceAssociationBank.Crm.Constants.Projects;
+using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Helpers;
+using AutoMapper;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using AllianceAssociationBank.Crm.Core.Dtos;
-using AllianceAssociationBank.Crm.Helpers;
-using AutoMapper;
-using AllianceAssociationBank.Crm.Constants.Projects;
-using AutoMapper.QueryableExtensions;
 
 namespace AllianceAssociationBank.Crm.Persistence.Queries
 {
@@ -157,6 +156,24 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
 
             return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
+        }
+
+        public async Task<IEnumerable<IncorrectEmployeeDatasetDto>> GetIncorrectEmployeesDataSetAsync()
+        {
+            var results = await _context.Projects
+                .Where(p => 
+                        (p.AFPID != null && p.AFP == null) || 
+                        (p.OwnerID != null && p.Owner == null) || 
+                        (p.BoardingManagerID != null && p.BoardingManager == null)
+                      )
+                .Where(p => !p.ProjectName.StartsWith("INACTIVE")) // TODO: need a better way to identify active records
+                .OrderBy(p => p.ProjectName)
+                .Include(p => p.AFP)
+                .Include(p => p.Owner)
+                .Include(p => p.BoardingManager)
+                .ToListAsync();
+
+            return _mapper.Map<IEnumerable<IncorrectEmployeeDatasetDto>>(results);
         }
 
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()
