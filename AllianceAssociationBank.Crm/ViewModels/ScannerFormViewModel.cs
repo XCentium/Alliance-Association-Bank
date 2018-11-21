@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
@@ -40,6 +41,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Date Trained")]
         public DateTime? DateTrained { get; set; }
 
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "GENERAL NOTES")]
         public string Notes { get; set; }
 

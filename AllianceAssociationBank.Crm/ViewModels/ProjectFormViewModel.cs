@@ -258,13 +258,18 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "MM on Check Scanner")]
         public bool MMOnCheckScanner { get; set; }
 
-        //[AllowHtml]
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "BOARDING NEXT STEPS")]
         public string BoardingNextSteps { get; set; }
 
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "TIMELINE")]
         public string BoardingNotes { get; set; }
 
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "NARRATIVE")]
         public string Narrative { get; set; }
 
@@ -430,6 +435,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(100)]
         public string SftpPath { get; set; }
 
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "LOCKBOX NOTES")]
         public string LockboxNotes { get; set; }
 
@@ -500,9 +507,13 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [StringLength(255)]
         public string DICompanyID { get; set; }
 
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "REVIEW NOTES & HISTORY")]
         public string ACHReviewNotes { get; set; }
 
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "SPEC SHEET")]
         public string ACHSpectFormInstructions { get; set; }
 
@@ -557,8 +568,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
             get { return SftpGeneralUserPassword; }
         }
 
-        [Display(Name = "USAGE")]
+        [AllowHtml]
         [StringLength(255)]
+        [Display(Name = "USAGE")]
         public string SftpUsage { get; set; }
 
         [Display(Name = "Automatic / Regular")]

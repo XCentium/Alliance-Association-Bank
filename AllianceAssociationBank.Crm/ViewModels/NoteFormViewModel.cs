@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Notes;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
@@ -20,7 +21,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
+        [AllowHtml]
         [Required]
+        [StringLength(128000)]
         [Display(Name = "Note Text")]
         public string NoteText { get; set; }
 

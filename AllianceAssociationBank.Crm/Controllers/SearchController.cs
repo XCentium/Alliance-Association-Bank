@@ -29,6 +29,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             return View(SearchView.Index, new SearchResultsPagedViewModel());
         }
 
+        //[ValidateInput(false)]
         public ActionResult Results(string term, int page = 1, string sort = SortOrderString.Ascending, int? previousId = null)
         {
             var results = _projectRepository.GetProjectsBySearchTerm(term, sort.ToSortOrderEnum());

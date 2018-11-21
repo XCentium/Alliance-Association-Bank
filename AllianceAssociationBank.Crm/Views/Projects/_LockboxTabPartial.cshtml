@@ -222,6 +222,7 @@
                 <div class="col-12">
                     @Html.LabelFor(m => m.LockboxNotes)
                     @Html.RoleBasedTextAreaFor(m => m.LockboxNotes, 22, 10, cssClass: "form-textarea textarea-size-lg")
+                    @Html.ValidationMessageFor(m => m.LockboxNotes, "", new { @class = "form-val-error-tooltip" })
                 </div>
             </div>
 

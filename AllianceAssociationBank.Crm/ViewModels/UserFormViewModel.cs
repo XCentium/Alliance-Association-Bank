@@ -87,10 +87,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Date Inactive")]
         public DateTime? DateDeleted { get; set; }
 
-        //[AllowHtml]
+        [AllowHtml]
+        [StringLength(128000)]
         [Display(Name = "General Notes")]
         public string Notes { get; set; }
 
+        [AllowHtml]
         [StringLength(255)]
         [Display(Name = "Remote Deposit Account Notes")]
         public string RemoteScannerAccountNotes { get; set; }

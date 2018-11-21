@@ -218,6 +218,7 @@
                     @Html.LabelFor(m => m.BoardingNextSteps)
                     <div class="label-small-note">Prints on Boarding Report</div>
                     @Html.RoleBasedTextAreaFor(m => m.BoardingNextSteps, 5, 10, cssClass: "form-textarea textarea-size-sm")
+                    @Html.ValidationMessageFor(m => m.BoardingNextSteps, "", new { @class = "form-val-error-tooltip" })
                 </div>
             </div>
 
@@ -225,6 +226,7 @@
                 <div class="col-12">
                     @Html.LabelFor(m => m.BoardingNotes)
                     @Html.RoleBasedTextAreaFor(m => m.BoardingNotes, 6, 10, cssClass: "form-textarea textarea-size-sm")
+                    @Html.ValidationMessageFor(m => m.BoardingNotes, "", new { @class = "form-val-error-tooltip" })
                 </div>
             </div>
 
@@ -232,6 +234,7 @@
                 <div class="col-12">
                     @Html.LabelFor(m => m.Narrative)
                     @Html.RoleBasedTextAreaFor(m => m.Narrative, 6, 10, cssClass: "form-textarea textarea-size-sm")
+                    @Html.ValidationMessageFor(m => m.Narrative, "", new { @class = "form-val-error-tooltip" })
                 </div>
             </div>
 
