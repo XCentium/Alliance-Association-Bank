@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.UI.WebControls;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
 using Microsoft.Reporting.WebForms;
@@ -60,6 +61,10 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
             reportViewer.ProcessingMode = ProcessingMode.Local;
             reportViewer.AsyncRendering = true;
             reportViewer.SizeToReportContent = true;
+            //reportViewer.SizeToReportContent = false;
+            //reportViewer.ZoomMode = ZoomMode.PageWidth;
+            //reportViewer.Width = Unit.Pixel(1278);
+            //reportViewer.Height = Unit.Percentage(100.00);
             reportViewer.WaitControlDisplayAfter = 1;
             reportViewer.ShowBackButton = false;
 

@@ -11,6 +11,9 @@ using System.Web.UI.WebControls;
 
 namespace AllianceAssociationBank.Crm.Core.Services
 {
+    /// <summary>
+    /// This service class been deprecated and replaced with ReportBase class and IReport interface.
+    /// </summary>
     public class ReportGenerationService : IReportGenerationService
     {
         private IReportQueries _queries;

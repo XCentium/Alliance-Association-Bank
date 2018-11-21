@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
+    // TODO: need to add Phone to this report
+    // TODO: also need to fit in scanner info here
     public class CmcByIdUsefulInfoReport : ReportBase, IReport
     {
         private const string definitionFileName = ReportName.CmcByIdUsefulInfo;
