@@ -12,11 +12,13 @@ namespace AllianceAssociationBank.Crm.Exceptions
         {
         }
 
-        public InvalidReportException(string message) : base(message)
+        public InvalidReportException(string message) 
+            : base(message)
         {
         }
 
-        public InvalidReportException(string message, Exception innerException) : base(message, innerException)
+        public InvalidReportException(string message, Exception innerException) 
+            : base(message, innerException)
         {
         }
     }

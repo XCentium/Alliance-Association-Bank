@@ -121,7 +121,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Fact]
-        public void Constructor_BoardingReport_ShouldThrowInvalidReportException()
+        public void Constructor_BoardingReportWithInvalidDefinitionFile_ShouldThrowInvalidReportException()
         {
             _fileSystem.Setup(s => s.IsFileExists(It.IsAny<string>())).Returns(false);
 

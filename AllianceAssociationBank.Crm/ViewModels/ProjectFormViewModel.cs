@@ -258,6 +258,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "MM on Check Scanner")]
         public bool MMOnCheckScanner { get; set; }
 
+        //[AllowHtml]
         [Display(Name = "BOARDING NEXT STEPS")]
         public string BoardingNextSteps { get; set; }
 

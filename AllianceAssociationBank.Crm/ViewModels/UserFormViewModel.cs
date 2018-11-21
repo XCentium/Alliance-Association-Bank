@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.ViewModels
 {
@@ -86,6 +87,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "Date Inactive")]
         public DateTime? DateDeleted { get; set; }
 
+        //[AllowHtml]
         [Display(Name = "General Notes")]
         public string Notes { get; set; }
 

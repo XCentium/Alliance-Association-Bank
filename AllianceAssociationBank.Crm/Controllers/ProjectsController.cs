@@ -19,7 +19,6 @@ using System.Web.Mvc;
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
-    //[ValidateInput(false)]
     public class ProjectsController : Controller
     {
         private const string SAVED = "SAVED";

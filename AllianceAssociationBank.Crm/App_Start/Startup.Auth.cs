@@ -23,7 +23,10 @@ namespace AllianceAssociationBank.Crm
                 LoginPath = new PathString("/User/Login"),
                 Provider = new CookieAuthenticationProvider(),
                 CookieName = "Aab.Crm.ApplicationIdentity",
+                CookieHttpOnly = true,
+                CookieSecure = CookieSecureOption.SameAsRequest,
                 ExpireTimeSpan = TimeSpan.FromHours(UserAuthenticationSettings.CookieAuthExpireHours)
+                //,SlidingExpiration = false
             });
         }
     }
