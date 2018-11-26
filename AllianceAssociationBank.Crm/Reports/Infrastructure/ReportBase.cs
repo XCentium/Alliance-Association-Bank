@@ -61,12 +61,11 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
             reportViewer.ProcessingMode = ProcessingMode.Local;
             reportViewer.AsyncRendering = true;
             reportViewer.SizeToReportContent = true;
-            //reportViewer.SizeToReportContent = false;
-            //reportViewer.ZoomMode = ZoomMode.PageWidth;
-            //reportViewer.Width = Unit.Pixel(1278);
-            //reportViewer.Height = Unit.Percentage(100.00);
             reportViewer.WaitControlDisplayAfter = 1;
             reportViewer.ShowBackButton = false;
+            //reportViewer.SizeToReportContent = false;
+            //reportViewer.Width = Unit.Pixel(1278);
+            //reportViewer.Height = Unit.Percentage(100);
 
             reportViewer.LocalReport.DataSources.Clear();
 

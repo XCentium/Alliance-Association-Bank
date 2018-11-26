@@ -1995,7 +1995,7 @@
         <Top>0.47917in</Top>
         <Left>0.10833in</Left>
         <Height>0.66666in</Height>
-        <Width>13.96794in</Width>
+        <Width>13.96793in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2043,6 +2043,8 @@
   <Page>
     <PageHeight>8.5in</PageHeight>
     <PageWidth>14in</PageWidth>
+    <InteractiveHeight>5.5in</InteractiveHeight>
+    <InteractiveWidth>14in</InteractiveWidth>
     <LeftMargin>0.1in</LeftMargin>
     <RightMargin>0.1in</RightMargin>
     <TopMargin>0.25in</TopMargin>

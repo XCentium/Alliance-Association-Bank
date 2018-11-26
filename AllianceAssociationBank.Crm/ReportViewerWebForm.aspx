@@ -7,10 +7,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        html,body,form,#div1 {
+            height: 100%; 
+        }
+    </style>
 </head>
 <body style="margin: 0px; padding: 0px;">
     <form id="form1" runat="server">
-        <div>
+        <div id="div1">
             <asp:ScriptManager ID="ScriptManager1" runat="server">
                 <Scripts>
                     <asp:ScriptReference Assembly="ReportViewerForMvc" Name="ReportViewerForMvc.Scripts.PostMessage.js" />
