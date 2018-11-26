@@ -179,6 +179,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
         [Display(Name = "CIP Good")]
         public bool CIPGood { get; set; }
 
+        [Display(Name = "Active")]
+        public bool Active { get; set; }
+
         public IEnumerable<SelectListItem> EmployeeList { get; set; }
 
         public IEnumerable<string> InstitutionList { get; set; }

@@ -265,6 +265,7 @@ CREATE TABLE [dbo].[Projects](
 	[ACHSftpCCDDebit] [bit] NOT NULL,
 	[ACHSftpCCDCredit] [bit] NOT NULL,
 	[ACHWebPPDDebit] [bit] NOT NULL,
+	[Active] [bit] NOT NULL
  CONSTRAINT [PK_Projects] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -451,6 +452,9 @@ ALTER TABLE [dbo].[Projects] ADD  CONSTRAINT [DF_Projects_ACHSftpCCDCredit]  DEF
 GO
 
 ALTER TABLE [dbo].[Projects] ADD  CONSTRAINT [DF_Projects_ACHWebPPDDebit]  DEFAULT ((0)) FOR [ACHWebPPDDebit]
+GO
+
+ALTER TABLE [dbo].[Projects] ADD CONSTRAINT [DF_Projects_Active] DEFAULT ((0)) FOR [Active]
 GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_SSMA_SOURCE', @value=N'AAB_Database_be.[Projects].[ID]' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Projects', @level2type=N'COLUMN',@level2name=N'ID'

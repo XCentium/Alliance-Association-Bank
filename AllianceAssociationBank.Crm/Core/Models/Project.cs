@@ -124,23 +124,18 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool CouponProofReviewed { get; set; }
 
-        //[StringLength(255)]
         public string CouponVender { get; set; }
 
-        //[StringLength(255)]
         public string CouponVenderNumber { get; set; }
 
         public string BoardingNextSteps { get; set; }
 
         public string BoardingNotes { get; set; }
 
-        //[StringLength(255)]
         public string DICompanyID { get; set; }
 
-        //[StringLength(255)]
         public string SftpFolderName { get; set; }
 
-        //[StringLength(255)]
         public string SftpGeneralUserPassword { get; set; }
 
         public bool ACHPassThru { get; set; }
@@ -173,7 +168,6 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool HasCorporateAccounts { get; set; }
 
-        //[StringLength(255)]
         public string CorporateAccounts { get; set; }
 
         public bool XmlAutoReconSetup { get; set; }
@@ -186,10 +180,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool EStatements { get; set; }
 
-        //[StringLength(255)]
         public string SftpUsage { get; set; }
 
-        //[StringLength(255)]
         public string XmlUsage { get; set; }
 
         public bool FacsimileSignature { get; set; }
@@ -247,6 +239,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
         public bool ACHSftpCCDCredit { get; set; }
 
         public bool ACHWebPPDDebit { get; set; }
+
+        public bool Active { get; set; } // New column added
 
         public virtual ICollection<ProjectUser> Users { get; set; }
     }
