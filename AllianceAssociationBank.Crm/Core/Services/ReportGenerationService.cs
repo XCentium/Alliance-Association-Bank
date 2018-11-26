@@ -61,56 +61,56 @@ namespace AllianceAssociationBank.Crm.Core.Services
             {
                 case var name when name.Equals(ReportName.Boarding, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetBoardingDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Projects, (await _queries.GetBoardingDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CompletedAndHold, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCompletedAndHoldDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Projects, (await _queries.GetCompletedAndHoldDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.SoftwareTransition, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetSoftwareTransitionDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Projects, (await _queries.GetSoftwareTransitionDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CmcById, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Master, (await _queries.GetCmcByIdDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Master, (await _queries.GetCmcByIdDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CmcByName, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Master, (await _queries.GetCmcByNameDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Master, (await _queries.GetCmcByNameDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.CDEmails, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.CDEmails, (await _queries.GetCDEmailsDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.CDEmails, (await _queries.GetCDEmailsDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.Coupon, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Projects, (await _queries.GetCouponDataSetAsync())));
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Projects, (await _queries.GetCouponDataSetAsync())));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.Employees, (await _queries.GetEmployeesDataSetAsync())));
                         break;
                     }
                 case var name when name.Equals(ReportName.AchSpec, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
                         break;
                     }
                 case var name when name.Equals(ReportName.AchInitialReview, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
                         break;
                     }
                 case var name when name.Equals(ReportName.AchSixMonthReview, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDatasetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
                         break;
                     }
             }

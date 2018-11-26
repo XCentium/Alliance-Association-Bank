@@ -10,14 +10,15 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<Project>> GetBoardingDataSetAsync();
         Task<IEnumerable<Project>> GetCompletedAndHoldDataSetAsync();
         Task<IEnumerable<Project>> GetSoftwareTransitionDataSetAsync();
-        Task<IEnumerable<CmcReportDatasetDto>> GetCmcByIdDataSetAsync();
-        Task<IEnumerable<CmcReportDatasetDto>> GetCmcByNameDataSetAsync();
+        Task<IEnumerable<CmcReportDataSetDto>> GetCmcByIdDataSetAsync();
+        Task<IEnumerable<CmcReportDataSetDto>> GetCmcByNameDataSetAsync();
         Task<IEnumerable<Project>> GetAllInfoDataSetAsync();
-        Task<IEnumerable<CDEmailsDatasetDto>> GetCDEmailsDataSetAsync();
+        Task<IEnumerable<CDEmailsDataSetDto>> GetCDEmailsDataSetAsync();
         Task<IEnumerable<Project>> GetCouponDataSetAsync();
-        Task<IEnumerable<AchReportDatasetDto>> GetAchReportDataSetAsync(int? projectId);
-        Task<IEnumerable<AchReportDatasetDto>> GetAchAllCompaniesDataSetAsync();
-        Task<IEnumerable<IncorrectEmployeeDatasetDto>> GetIncorrectEmployeeDataSetAsync();
+        Task<IEnumerable<AchReportDataSetDto>> GetAchReportDataSetAsync(int? projectId);
+        Task<IEnumerable<AchReportDataSetDto>> GetAchAllCompaniesDataSetAsync();
+        Task<IEnumerable<ProjectReportDataSetDto>> GetCipReviewDataSetAsync();
+        Task<IEnumerable<IncorrectEmployeeDataSetDto>> GetIncorrectEmployeeDataSetAsync();
         Task<IEnumerable<Employee>> GetEmployeesDataSetAsync();
     }
 }

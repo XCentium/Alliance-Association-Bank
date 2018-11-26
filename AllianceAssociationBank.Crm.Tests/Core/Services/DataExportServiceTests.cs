@@ -14,17 +14,17 @@ namespace AllianceAssociationBank.Crm.Tests.Core.Services
     {
         private IDataExportService _dataExport;
         private Mock<IReportQueries> _mockReportQueries;
-        private List<CmcReportDatasetDto> _projects;
+        private List<CmcReportDataSetDto> _projects;
 
         public DataExportServiceTests()
         {
             _mockReportQueries = new Mock<IReportQueries>();
             _dataExport = new DataExportService(_mockReportQueries.Object);
 
-            _projects = new List<CmcReportDatasetDto>()
+            _projects = new List<CmcReportDataSetDto>()
             {
-                new CmcReportDatasetDto() { ID = 1, ProjectName = "Project 1" },
-                new CmcReportDatasetDto() { ID = 2, ProjectName = "Project 2" }
+                new CmcReportDataSetDto() { ID = 1, ProjectName = "Project 1" },
+                new CmcReportDataSetDto() { ID = 2, ProjectName = "Project 2" }
             };
         }
 

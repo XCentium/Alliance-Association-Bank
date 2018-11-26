@@ -15,12 +15,12 @@ namespace AllianceAssociationBank.Crm.Mappings
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
 
-            CreateMap<Project, AchReportDatasetDto>()
+            CreateMap<Project, AchReportDataSetDto>()
                 .ForMember(
                     dest => dest.OwnerName,
                     opt => opt.MapFrom(src => MapEmployeeName(src.Owner)));
 
-            CreateMap<Project, CmcReportDatasetDto>()
+            CreateMap<Project, CmcReportDataSetDto>()
                 .ForMember(
                     dest => dest.OwnerName,
                     opt => opt.MapFrom(src => MapEmployeeName(src.Owner)))
@@ -28,7 +28,15 @@ namespace AllianceAssociationBank.Crm.Mappings
                     dest => dest.AFPName,
                     opt => opt.MapFrom(src => MapEmployeeName(src.AFP)));
 
-            CreateMap<Project, IncorrectEmployeeDatasetDto>()
+            CreateMap<Project, ProjectReportDataSetDto>()
+                .ForMember(
+                    dest => dest.OwnerName,
+                    opt => opt.MapFrom(src => MapEmployeeName(src.Owner)))
+                .ForMember(
+                    dest => dest.AFPName,
+                    opt => opt.MapFrom(src => MapEmployeeName(src.AFP)));
+
+            CreateMap<Project, IncorrectEmployeeDataSetDto>()
                 .ForMember(
                     dest => dest.OwnerName,
                     opt => opt.MapFrom(src => MapEmployeeName(src.Owner)))

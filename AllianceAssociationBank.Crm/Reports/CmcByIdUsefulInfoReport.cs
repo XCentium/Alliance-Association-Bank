@@ -34,7 +34,7 @@ namespace AllianceAssociationBank.Crm.Reports
             ReportViewer.Height = Unit.Percentage(100);
 
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Master,
+                ReportDataSetName.Master,
                 (await Queries.GetCmcByIdDataSetAsync())));
         }
     }

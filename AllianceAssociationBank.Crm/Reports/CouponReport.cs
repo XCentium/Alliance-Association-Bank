@@ -26,11 +26,11 @@ namespace AllianceAssociationBank.Crm.Reports
         public async Task ExecuteReport()
         {
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Projects, 
+                ReportDataSetName.Projects, 
                 (await Queries.GetCouponDataSetAsync())));
 
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Employees, 
+                ReportDataSetName.Employees, 
                 (await Queries.GetEmployeesDataSetAsync())));
         }
     }

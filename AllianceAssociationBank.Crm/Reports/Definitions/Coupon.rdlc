@@ -662,6 +662,8 @@
   <Page>
     <PageHeight>8.5in</PageHeight>
     <PageWidth>14in</PageWidth>
+    <InteractiveHeight>7in</InteractiveHeight>
+    <InteractiveWidth>14in</InteractiveWidth>
     <LeftMargin>0.35in</LeftMargin>
     <RightMargin>0.35in</RightMargin>
     <TopMargin>0.25in</TopMargin>

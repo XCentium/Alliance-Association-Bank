@@ -23,13 +23,14 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
-        [InlineData(typeof(CmcByIdReport), ReportDatasetName.Master)]
-        [InlineData(typeof(CmcByNameReport), ReportDatasetName.Master)]
-        [InlineData(typeof(CDEmailsReport), ReportDatasetName.Master)]
-        [InlineData(typeof(AchAllCompaniesReport), ReportDatasetName.Master)]
-        [InlineData(typeof(CmcAddressByNameReport), ReportDatasetName.Master)]
-        [InlineData(typeof(CmcByIdUsefulInfoReport), ReportDatasetName.Master)]
-        [InlineData(typeof(IncorrectEmployeeDataReport), ReportDatasetName.Master)]
+        [InlineData(typeof(CmcByIdReport), ReportDataSetName.Master)]
+        [InlineData(typeof(CmcByNameReport), ReportDataSetName.Master)]
+        [InlineData(typeof(CDEmailsReport), ReportDataSetName.Master)]
+        [InlineData(typeof(AchAllCompaniesReport), ReportDataSetName.Master)]
+        [InlineData(typeof(CmcAddressByNameReport), ReportDataSetName.Master)]
+        [InlineData(typeof(CmcByIdUsefulInfoReport), ReportDataSetName.Master)]
+        [InlineData(typeof(CipReviewReport), ReportDataSetName.Master)]
+        [InlineData(typeof(IncorrectEmployeeDataReport), ReportDataSetName.Master)]
         public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetReportDataSourceCorrectly(Type reportType, 
                                                                                                     string dataSourceName)
         {
@@ -42,12 +43,12 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
-        [InlineData(typeof(AchSpecReport), ReportDatasetName.Master)]
-        [InlineData(typeof(AchInitialReviewReport), ReportDatasetName.Master)]
-        [InlineData(typeof(Ach6MonthReviewReport), ReportDatasetName.Master)]
-        [InlineData(typeof(AchRiskInitialReport), ReportDatasetName.Master)]
-        [InlineData(typeof(AchRisk6MonthReport), ReportDatasetName.Master)]
-        [InlineData(typeof(AchRiskPost6MonthReport), ReportDatasetName.Master)]
+        [InlineData(typeof(AchSpecReport), ReportDataSetName.Master)]
+        [InlineData(typeof(AchInitialReviewReport), ReportDataSetName.Master)]
+        [InlineData(typeof(Ach6MonthReviewReport), ReportDataSetName.Master)]
+        [InlineData(typeof(AchRiskInitialReport), ReportDataSetName.Master)]
+        [InlineData(typeof(AchRisk6MonthReport), ReportDataSetName.Master)]
+        [InlineData(typeof(AchRiskPost6MonthReport), ReportDataSetName.Master)]
         public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetReportDataSourceCorrectly(Type reportType, 
                                                                                                           string dataSourceName)
         {
@@ -61,10 +62,10 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         }
 
         [Theory]
-        [InlineData(typeof(BoardingReport), ReportDatasetName.Projects, ReportDatasetName.Employees)]
-        [InlineData(typeof(CompletedAndHoldReport), ReportDatasetName.Projects, ReportDatasetName.Employees)]
-        [InlineData(typeof(SoftwareTransitionReport), ReportDatasetName.Projects, ReportDatasetName.Employees)]
-        [InlineData(typeof(CouponReport), ReportDatasetName.Projects, ReportDatasetName.Employees)]
+        [InlineData(typeof(BoardingReport), ReportDataSetName.Projects, ReportDataSetName.Employees)]
+        [InlineData(typeof(CompletedAndHoldReport), ReportDataSetName.Projects, ReportDataSetName.Employees)]
+        [InlineData(typeof(SoftwareTransitionReport), ReportDataSetName.Projects, ReportDataSetName.Employees)]
+        [InlineData(typeof(CouponReport), ReportDataSetName.Projects, ReportDataSetName.Employees)]
         public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetTwoReportDataSourcesCorrectly(Type reportType, 
                                                                                                         string dataSourceNameOne, 
                                                                                                         string dataSourceNameTwo)
@@ -89,6 +90,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(AchAllCompaniesReport), ReportName.AchAllCompanies)]
         [InlineData(typeof(CmcAddressByNameReport), ReportName.CmcAddressByName)]
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportName.CmcByIdUsefulInfo)]
+        [InlineData(typeof(CipReviewReport), ReportName.CipReview)]
         [InlineData(typeof(IncorrectEmployeeDataReport), ReportName.IncorrectEmployeeData)]
         public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
                                                                                                       string definitionFileName)

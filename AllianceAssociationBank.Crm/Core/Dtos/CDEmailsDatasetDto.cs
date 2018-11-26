@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Core.Dtos
 {
-    public class CDEmailsDatasetDto
+    public class CDEmailsDataSetDto
     {
         public string ProjectName { get; set; }
 

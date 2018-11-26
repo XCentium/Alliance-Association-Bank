@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class CmcAddressByNameReport : ReportBase, IReport
+    public class CipReviewReport : ReportBase, IReport
     {
-        private const string definitionFileName = ReportName.CmcAddressByName;
+        private const string DefinitionFileName = ReportName.CipReview;
 
-        public CmcAddressByNameReport() 
-            : base(definitionFileName)
+        public CipReviewReport() : base(DefinitionFileName)
         {
         }
 
         /// <summary>
         /// This constructor is used for unit testing.
         /// </summary>
-        public CmcAddressByNameReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
-            : base(reportQueries, fileSystemService, definitionFileName)
+        public CipReviewReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
+            : base(reportQueries, fileSystemService, DefinitionFileName)
         {
         }
 
@@ -27,7 +26,7 @@ namespace AllianceAssociationBank.Crm.Reports
         {
             DataSources.Add(new ReportDataSource(
                 ReportDataSetName.Master,
-                (await Queries.GetCmcByNameDataSetAsync())));
+                (await Queries.GetCipReviewDataSetAsync())));
         }
     }
 }

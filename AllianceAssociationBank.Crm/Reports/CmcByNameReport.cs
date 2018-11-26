@@ -25,7 +25,7 @@ namespace AllianceAssociationBank.Crm.Reports
         public async Task ExecuteReport()
         {
             DataSources.Add(new ReportDataSource(
-                ReportDatasetName.Master,
+                ReportDataSetName.Master,
                 (await Queries.GetCmcByNameDataSetAsync())));
         }
     }

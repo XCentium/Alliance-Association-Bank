@@ -3,7 +3,7 @@ using CsvHelper.Configuration;
 
 namespace AllianceAssociationBank.Crm.Mappings
 {
-    public class CmcListExportMap : ClassMap<CmcReportDatasetDto>
+    public class CmcListExportMap : ClassMap<CmcReportDataSetDto>
     {
         public CmcListExportMap()
         {

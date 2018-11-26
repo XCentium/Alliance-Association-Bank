@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Core.Dtos
 {
-    public class IncorrectEmployeeDatasetDto
+    public class IncorrectEmployeeDataSetDto
     {
         public int ID { get; set; }
 

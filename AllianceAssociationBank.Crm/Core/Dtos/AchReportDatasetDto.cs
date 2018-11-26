@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Core.Dtos
 {
-    public class AchReportDatasetDto
+    public class AchReportDataSetDto
     {
         public int ID { get; set; }
 

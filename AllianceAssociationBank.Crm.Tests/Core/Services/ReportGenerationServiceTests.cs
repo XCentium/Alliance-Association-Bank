@@ -53,9 +53,9 @@ namespace AllianceAssociationBank.Crm.Tests.Core.Services
         {
             _mockFileSystem.Setup(f => f.IsFileExists(It.IsAny<string>())).Returns(true);
             var projectId = 99;
-            var achReportDataset = new List<AchReportDatasetDto>()
+            var achReportDataset = new List<AchReportDataSetDto>()
             {
-                new AchReportDatasetDto() { ID = 1, ProjectName = "ACH Report Project" }
+                new AchReportDataSetDto() { ID = 1, ProjectName = "ACH Report Project" }
             };
             _mockReportQueries.Setup(q => q.GetAchReportDataSetAsync(projectId)).ReturnsAsync(achReportDataset);
 

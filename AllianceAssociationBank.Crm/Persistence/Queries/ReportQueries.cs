@@ -58,7 +58,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         ///This query is used by CmcById report, CmcByIdUsefulInfo report, CmcList export and CmcUsefulInfoList export.
         /// </summary>
         /// <returns>Returns a collection of CmcReportDatasetDto objects.</returns>
-        public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcByIdDataSetAsync()
+        public async Task<IEnumerable<CmcReportDataSetDto>> GetCmcByIdDataSetAsync()
         {
             var results = await _context.Projects
                 .OrderBy(p => p.LockboxCMCID)
@@ -67,14 +67,14 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.AFP)
                 .ToListAsync();
 
-            return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
+            return _mapper.Map<IEnumerable<CmcReportDataSetDto>>(results);
         }
 
         /// <summary>
         ///This query is used by CmcByName report and CmcAddressByName report.
         /// </summary>
         /// <returns>Returns a collection of CmcReportDatasetDto objects.</returns>
-        public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcByNameDataSetAsync()
+        public async Task<IEnumerable<CmcReportDataSetDto>> GetCmcByNameDataSetAsync()
         {
             var results = await _context.Projects
                 .OrderBy(p => p.ProjectName)
@@ -82,7 +82,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.AFP)
                 .ToListAsync();
 
-            return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
+            return _mapper.Map<IEnumerable<CmcReportDataSetDto>>(results);
         }
 
         //public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcAddressByNameDataSetAsync()
@@ -105,14 +105,14 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<CDEmailsDatasetDto>> GetCDEmailsDataSetAsync()
+        public async Task<IEnumerable<CDEmailsDataSetDto>> GetCDEmailsDataSetAsync()
         {
             var results = await _context.Projects
                 .Include(p => p.Users)
                 .ToListAsync();
 
             // TODO: move this to automapper profile
-            return results.Select(p => new CDEmailsDatasetDto()
+            return results.Select(p => new CDEmailsDataSetDto()
             {
                 ProjectName = p.ProjectName,
                 LockboxCMCID = p.LockboxCMCID,
@@ -135,7 +135,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         ///This query is used by AchSpec, AchInitialReview, AchSixMonthReview, AchRiskInitial, AchRiskSixMonth and AchRiskPostSixMonth reports.
         /// </summary>
         /// <returns>Returns a collection of AchReportDatasetDto objects.</returns>
-        public async Task<IEnumerable<AchReportDatasetDto>> GetAchReportDataSetAsync(int? projectId)
+        public async Task<IEnumerable<AchReportDataSetDto>> GetAchReportDataSetAsync(int? projectId)
         {
             var results = await _context.Projects
                 .Where(p => p.ID == projectId || projectId == null)
@@ -143,10 +143,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.Owner)
                 .ToListAsync();
 
-            return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
+            return _mapper.Map<IEnumerable<AchReportDataSetDto>>(results);
         }
 
-        public async Task<IEnumerable<AchReportDatasetDto>> GetAchAllCompaniesDataSetAsync()
+        public async Task<IEnumerable<AchReportDataSetDto>> GetAchAllCompaniesDataSetAsync()
         {
             var results = await _context.Projects
                 .OrderByDescending(p => p.ACHLimitAndSpecSubmitted) // True first then False
@@ -155,10 +155,21 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.Owner)
                 .ToListAsync();
 
-            return _mapper.Map<IEnumerable<AchReportDatasetDto>>(results);
+            return _mapper.Map<IEnumerable<AchReportDataSetDto>>(results);
         }
 
-        public async Task<IEnumerable<IncorrectEmployeeDatasetDto>> GetIncorrectEmployeeDataSetAsync()
+        public async Task<IEnumerable<ProjectReportDataSetDto>> GetCipReviewDataSetAsync()
+        {
+            var results = await _context.Projects
+                .OrderBy(p => p.ProjectName)
+                .Include(p => p.Owner)
+                .Include(p => p.AFP)
+                .ToListAsync();
+
+            return _mapper.Map<IEnumerable<ProjectReportDataSetDto>>(results);
+        }
+
+        public async Task<IEnumerable<IncorrectEmployeeDataSetDto>> GetIncorrectEmployeeDataSetAsync()
         {
             var results = await _context.Projects
                 .Where(p => 
@@ -173,7 +184,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .Include(p => p.BoardingManager)
                 .ToListAsync();
 
-            return _mapper.Map<IEnumerable<IncorrectEmployeeDatasetDto>>(results);
+            return _mapper.Map<IEnumerable<IncorrectEmployeeDataSetDto>>(results);
         }
 
         public async Task<IEnumerable<Employee>> GetEmployeesDataSetAsync()

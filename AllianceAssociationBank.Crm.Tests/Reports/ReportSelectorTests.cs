@@ -39,6 +39,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(ReportName.AchAllCompanies, typeof(AchAllCompaniesReport))]
         [InlineData(ReportName.CmcAddressByName, typeof(CmcAddressByNameReport))]
         [InlineData(ReportName.CmcByIdUsefulInfo, typeof(CmcByIdUsefulInfoReport))]
+        [InlineData(ReportName.CipReview, typeof(CipReviewReport))]
         [InlineData(ReportName.IncorrectEmployeeData, typeof(IncorrectEmployeeDataReport))]
         public void ResolveByName_InlineReportWithNoParams_ShouldReturnCorrectReportInstance(string reportName, Type reportType)
         {
