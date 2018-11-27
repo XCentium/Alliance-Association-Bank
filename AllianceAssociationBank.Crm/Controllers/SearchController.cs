@@ -15,8 +15,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         private IProjectRepository _projectRepository;
         private IMapper _mapper;
 
-        private const int PAGE_SIZE = 10;
-        private const int JSON_MAX_SEARCH_RESULTS = 10;
+        private const int DefaultPageSize = 10;
 
         public SearchController(IProjectRepository projectRepository, IMapper mapper)
         {
@@ -30,13 +29,13 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         //[ValidateInput(false)]
-        public ActionResult Results(string term, int page = 1, string sort = SortOrderString.Ascending, int? previousId = null)
+        public ActionResult Results(string term, int page = 1, string sort = SortOrderString.Ascending, bool activeOnly = false, int? previousId = null)
         {
-            var results = _projectRepository.GetProjectsBySearchTerm(term, sort.ToSortOrderEnum());
+            var results = _projectRepository.GetProjectsBySearchTerm(term, sort.ToSortOrderEnum(), activeOnly);
 
             var projectsViewModel = results.ProjectTo<ProjectFormViewModel>(_mapper.ConfigurationProvider);
 
-            var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, PAGE_SIZE, sort, previousId);
+            var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, DefaultPageSize, activeOnly, sort, previousId);
 
             return View(SearchView.Index, pagedModel);
         }

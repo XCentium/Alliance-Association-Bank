@@ -48,8 +48,9 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             var model = new ProjectFormViewModel();
             await PopulateDropDownLists(model);
-            // Default Start Date to today on create
-            model.StartDate = DateTime.Today;
+
+            // Set default values on create
+            model.SetDefaults();
 
             ViewBag.Title = "Create Project";
             return View(ProjectsView.ProjectForm, model);

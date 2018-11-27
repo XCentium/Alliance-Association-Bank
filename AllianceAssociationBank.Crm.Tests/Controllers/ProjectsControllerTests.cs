@@ -3,6 +3,7 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Mappings;
+using AllianceAssociationBank.Crm.Tests.TestHelpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using Moq;
@@ -83,6 +84,24 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             Assert.NotNull(viewResult);
             var model = Assert.IsType<ProjectFormViewModel>(viewResult.Model);
             Assert.NotNull(model);
+        }
+
+        [Fact]
+        public async Task Create_DefaultValuesOnCreate_ShouldSetActiveValue()
+        {
+            var result = await _controller.Create();
+            var viewModel = result.GetModelFromActionResult<ProjectFormViewModel>();
+
+            Assert.True(viewModel.Active);
+        }
+
+        [Fact]
+        public async Task Create_DefaultValuesOnCreate_ShouldSetStartDateValue()
+        {
+            var result = await _controller.Create();
+            var viewModel = result.GetModelFromActionResult<ProjectFormViewModel>();
+
+            Assert.True(viewModel.StartDate.HasValue);
         }
 
         [Fact]

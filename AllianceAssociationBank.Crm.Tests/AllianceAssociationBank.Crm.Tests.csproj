@@ -188,6 +188,7 @@
     <Compile Include="Persistence\Repositories\ProjectUserRepositoryTests.cs" />
     <Compile Include="Reports\ReportBaseTests.cs" />
     <Compile Include="Reports\ReportSelectorTests.cs" />
+    <Compile Include="TestHelpers\ActionResultExtensions.cs" />
     <Compile Include="TestHelpers\Constants\HttpRequestValue.cs" />
     <Compile Include="TestHelpers\MockViewContextExtensions.cs" />
     <Compile Include="Persistence\Repositories\ProjectRepositoryTests.cs" />
@@ -198,6 +199,7 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TestHelpers\MockDbSetExtensions.cs" />
     <Compile Include="ViewModels\PagedListViewModelTests.cs" />
+    <Compile Include="ViewModels\ProjectFormViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

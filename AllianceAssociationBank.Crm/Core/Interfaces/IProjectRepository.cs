@@ -10,6 +10,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
     {
         Task<IEnumerable<Project>> GetProjectsAsync();
         IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, SortOrder sortOrder);
+        IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, SortOrder sortOrder, bool activeOnly);
         Task<Project> GetProjectByIdAsync(int id);
         void AddProject(Project project);
         Task<bool> SaveAllAsync();

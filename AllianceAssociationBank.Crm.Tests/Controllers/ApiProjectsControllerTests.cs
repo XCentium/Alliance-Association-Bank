@@ -36,31 +36,32 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public void Get_ValidSearchTerm_ProjectsDtoList()
+        public void Get_ValidSearchTerm_ShouldReturnTwoProjectDtos()
         {
             var projects = new List<Project>()
             {
                 new Project()
                 {
                     ID = 1001,
-                    ProjectName = "Project name 1"
+                    ProjectName = "Project name 1",
+                    Active = true
                 },
                 new Project()
                 {
                     ID = 1002,
-                    ProjectName = "Project name 2"
+                    ProjectName = "Project name 2",
+                    Active = true
                 },
             };
             var searchTerm = "name";
             projectsRepoMock
-                .Setup(r => r.GetProjectsBySearchTerm(searchTerm, SortOrder.Ascending))
+                .Setup(r => r.GetProjectsBySearchTerm(searchTerm, SortOrder.Ascending, true))
                 .Returns(projects.AsQueryable());
 
             var results = controller.Get(searchTerm);
 
             var listOfProjects = Assert.IsAssignableFrom<IEnumerable<ProjectDto>>(results);
-            Assert.NotNull(listOfProjects);
-            Assert.Equal(projects.Count, listOfProjects.ToList().Count);
+            Assert.Equal(2, listOfProjects.ToList().Count);
         }
     }
 }

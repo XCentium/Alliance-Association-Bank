@@ -13,7 +13,8 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     {
         private IProjectRepository _projectRepository;
 
-        private const int MAX_SEARCH_RESULTS = 10;
+        private const bool ActiveProjectsOnly = true;
+        private const int MaxSearchResults = 10;
 
         public ProjectsController(IProjectRepository repository)
         {
@@ -23,8 +24,8 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
         [HttpGet]
         public IEnumerable<ProjectDto> Get(string search)
         {
-            var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending)
-                .Take(MAX_SEARCH_RESULTS);
+            var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending, ActiveProjectsOnly)
+                .Take(MaxSearchResults);
 
             return results.Select(p => new ProjectDto()
             {

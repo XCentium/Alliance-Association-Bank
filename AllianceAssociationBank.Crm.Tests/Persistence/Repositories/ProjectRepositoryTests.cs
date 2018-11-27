@@ -124,6 +124,59 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
         }
 
         [Fact]
+        public void GetProjectsBySearchTerm_ActiveProjectsOnly_ShouldReturnEmptyList()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var project = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Test Bank",
+                    Active = false
+                };
+                SetupNewProjectsDbSet(project);
+                var term = "First";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending, true);
+
+                Assert.Empty(results);
+            }
+        }
+
+        [Fact]
+        public void GetProjectsBySearchTerm_ActiveAndInactiveProjects_ShouldReturnTwoProjects()
+        {
+            using (ShimsContext.Create())
+            {
+                SetupShimDbFunctions();
+                var projects = new List<Project>();
+                var project1 = new Project()
+                {
+                    ID = 1,
+                    ProjectName = "First Inactive Bank",
+                    Active = false,
+                    Users = new List<ProjectUser>()
+                };
+                projects.Add(project1);
+                var project2 = new Project()
+                {
+                    ID = 2,
+                    ProjectName = "First Active Bank",
+                    Active = true,
+                    Users = new List<ProjectUser>()
+                };
+                projects.Add(project2);
+                _mockProjectsDbSet.SetupData(projects);
+                var term = "First";
+
+                var results = _projectRepository.GetProjectsBySearchTerm(term, SortOrder.Ascending, false);
+
+                Assert.Equal(2, results.Count());
+            }
+        }
+
+        [Fact]
         public void GetProjectsBySearchTerm_SearchByDBA_ShouldReturnProject()
         {
             using (ShimsContext.Create())
@@ -319,19 +372,18 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
 
         private void SetupNewProjectsDbSet(Project project, ProjectUser user = null)
         {
+            var users = new List<ProjectUser>();
             if (user != null)
             {
-                var users = new List<ProjectUser>()
-                {
-                    user
-                };
-                project.Users = users;
+                users.Add(user);
             }
+            project.Users = users;
 
             var projects = new List<Project>()
             {
                 project
             };
+
             _mockProjectsDbSet.SetupData(projects);
         }
 

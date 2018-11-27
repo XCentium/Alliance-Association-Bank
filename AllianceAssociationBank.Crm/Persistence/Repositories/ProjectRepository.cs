@@ -34,13 +34,22 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
 
         public IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, SortOrder sortOrder)
         {
+            return GetProjectsBySearchTerm(searchTerm, sortOrder, false);
+        }
+
+        public IQueryable<Project> GetProjectsBySearchTerm(string searchTerm, SortOrder sortOrder, bool activeOnly)
+        {
             var searchFormatter = new SearchTermFormatter(searchTerm);
             var formattedForName = searchFormatter.FormatForName();
             var formattedForTIN = searchFormatter.FormatForTIN();
             var formattedForPhone = searchFormatter.FormatForPhone();
             var formattedForExactMatch = searchFormatter.FormatForExactMatch();
 
-            var results = _context.Projects.Where(p =>
+            var results = _context.Projects
+                .Where(p =>
+                    (activeOnly == true && p.Active == activeOnly) ||
+                    (activeOnly == false))
+                .Where(p =>
                     p.LockboxCMCID == formattedForExactMatch ||
                     DbFunctions.Like(p.ProjectName, formattedForName) ||
                     DbFunctions.Like(p.DBA, formattedForName) ||

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -15,6 +16,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
         public string SearchTerm { get; set; }
 
         public string CurrentSort { get; set; }
+
+        [Display(Name = "Active only")]
+        public bool ActiveProjectsOnly { get; set; }
 
         public string ResultsLabel
         {
@@ -55,18 +59,21 @@ namespace AllianceAssociationBank.Crm.ViewModels
         /// <param name="projects">IQueryable collection of all projects returned based on the search phrase/term.</param>
         /// <param name="pageNumber">A page number that should be diplayed as the current page.</param>
         /// <param name="pageSize">A number of search results that should be dipslayed on the page.</param>
+        /// <param name="activeProjectsOnly"></param>
         /// <param name="currentSort">Specify "asc" for ascending and "desc" for descending to sort the search page results.</param>
         /// <param name="previousRecordId">Specify previous project record Id if user navigated from a project record edit form.</param>
-        public SearchResultsPagedViewModel(string searchTerm, 
-                                           IQueryable<ProjectFormViewModel> projects, 
-                                           int pageNumber, 
-                                           int pageSize, 
-                                           string currentSort = null,
-                                           int? previousRecordId = null) 
+        public SearchResultsPagedViewModel(string searchTerm,
+                                           IQueryable<ProjectFormViewModel> projects,
+                                           int pageNumber,
+                                           int pageSize,
+                                           bool activeProjectsOnly,
+                                           string currentSort,
+                                           int? previousRecordId) 
             : base(projects, pageNumber, pageSize)
         {
-            SearchTerm = searchTerm?.Trim();
+            SearchTerm = string.IsNullOrEmpty(searchTerm) ? null : searchTerm.Trim();
             CurrentSort = currentSort;
+            ActiveProjectsOnly = activeProjectsOnly;
             PreviousRecordId = previousRecordId;
         }
     }

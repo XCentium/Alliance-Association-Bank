@@ -618,6 +618,12 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
+        public void SetDefaults()
+        {
+            Active = true;
+            StartDate = DateTime.Today;
+        }
+
         public void ResetCmcIdOnUnauthorized(IPrincipal user, string currentValue)
         {
             if (user == null)
