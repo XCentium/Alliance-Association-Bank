@@ -11,15 +11,15 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         public int ProjectID { get; set; }
 
-        public string NotePreview
-        {
-            get
-            {
-                return NoteText?.Length > 92 ? 
-                    NoteText.Substring(0, 92) + " ..." : 
-                    NoteText;
-            }
-        }
+        //public string NotePreview
+        //{
+        //    get
+        //    {
+        //        return NoteText?.Length > 92 ? 
+        //            NoteText.Substring(0, 92) + " ..." : 
+        //            NoteText;
+        //    }
+        //}
 
         [AllowHtml]
         [Required]

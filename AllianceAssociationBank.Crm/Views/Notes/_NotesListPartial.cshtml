@@ -46,7 +46,9 @@
             </tr>
             <tr>
                 <td class="border-top-0 word-break pb-1 pt-0" colspan="2">
-                    @Html.DisplayFor(m => note.NotePreview)
+                    <p class="text-block-ellipsis">
+                        @Html.DisplayFor(m => note.NoteText)
+                    </p>
                 </td>
             </tr>
         }

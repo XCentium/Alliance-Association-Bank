@@ -392,6 +392,34 @@
     width: 380px;
 }
 
+.text-block-ellipsis {
+    line-height: 1.1em;
+    margin-bottom: 6px;
+    margin-right: -1em;
+    max-height: 3.3em; /* max-height = line-height (1.1) * lines max number (3) */
+    overflow: hidden;
+    padding-right: 1em;
+    position: relative;
+    text-align: justify;
+}
+
+.text-block-ellipsis:before {
+    bottom: 0;
+    content: '...';
+    position: absolute;
+    right: 0;
+}
+
+.text-block-ellipsis:after {
+    background: white;
+    content: '';
+    height: 1em;
+    margin-top: 0.2em;
+    position: absolute;
+    right: 0;
+    width: 1em;
+}
+
 .top-nav-content {
     background-color: rgba(153, 153, 153, 1);
     height: 15px;
