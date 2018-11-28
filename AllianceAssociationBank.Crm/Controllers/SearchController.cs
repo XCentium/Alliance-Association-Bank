@@ -25,17 +25,28 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         public ActionResult Index()
         {
-            return View(SearchView.Index, new SearchResultsPagedViewModel());
+            //return View(SearchView.Index, new SearchResultsPagedViewModel());
+            return RedirectToAction(nameof(Results));
         }
 
-        //[ValidateInput(false)]
-        public ActionResult Results(string term, int page = 1, string sort = SortOrderString.Ascending, bool activeOnly = false, int? previousId = null)
+        [ValidateInput(false)]
+        public ActionResult Results(string term, 
+                                    int page = 1, 
+                                    string sort = SortOrderString.Ascending, 
+                                    bool activeOnly = false, 
+                                    int? previousId = null)
         {
             var results = _projectRepository.GetProjectsBySearchTerm(term, sort.ToSortOrderEnum(), activeOnly);
 
-            var projectsViewModel = results.ProjectTo<ProjectFormViewModel>(_mapper.ConfigurationProvider);
+            var projectsViewModel = results.ProjectTo<SearchResultViewModel>(_mapper.ConfigurationProvider);
 
-            var pagedModel = new SearchResultsPagedViewModel(term, projectsViewModel, page, DefaultPageSize, activeOnly, sort, previousId);
+            var pagedModel = new SearchResultsPagedViewModel(term, 
+                                                             projectsViewModel, 
+                                                             page, 
+                                                             DefaultPageSize, 
+                                                             activeOnly, 
+                                                             sort, 
+                                                             previousId);
 
             return View(SearchView.Index, pagedModel);
         }

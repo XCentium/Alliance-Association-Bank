@@ -15,6 +15,8 @@ namespace AllianceAssociationBank.Crm.Mappings
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
 
+            CreateMap<Project, SearchResultViewModel>();
+
             CreateMap<Project, AchReportDataSetDto>()
                 .ForMember(
                     dest => dest.OwnerName,

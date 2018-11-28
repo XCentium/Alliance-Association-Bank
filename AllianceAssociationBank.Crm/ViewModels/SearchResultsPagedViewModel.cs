@@ -11,7 +11,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
     /// <summary>
     /// Paginated list view model that is used on the search page to display list of search results.
     /// </summary>
-    public class SearchResultsPagedViewModel : PagedListViewModel<ProjectFormViewModel>
+    public class SearchResultsPagedViewModel : PagedListViewModel<SearchResultViewModel>
     {
         public string SearchTerm { get; set; }
 
@@ -48,7 +48,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
 
         /// Initialize an empty new instance of SearchResultsPagedViewModel.
         public SearchResultsPagedViewModel() 
-            : base(new Collection<ProjectFormViewModel>(), 1, 10)
+            : base(new Collection<SearchResultViewModel>(), 1, 10)
         {
         }
 
@@ -63,7 +63,7 @@ namespace AllianceAssociationBank.Crm.ViewModels
         /// <param name="currentSort">Specify "asc" for ascending and "desc" for descending to sort the search page results.</param>
         /// <param name="previousRecordId">Specify previous project record Id if user navigated from a project record edit form.</param>
         public SearchResultsPagedViewModel(string searchTerm,
-                                           IQueryable<ProjectFormViewModel> projects,
+                                           IQueryable<SearchResultViewModel> projects,
                                            int pageNumber,
                                            int pageSize,
                                            bool activeProjectsOnly,
