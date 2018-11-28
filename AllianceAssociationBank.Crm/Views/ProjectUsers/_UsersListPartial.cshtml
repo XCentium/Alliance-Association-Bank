@@ -29,7 +29,7 @@
             @foreach (var user in Model.Items)
             {
                 <tr class="border-bottom border-top border-left border-right">
-                    <td class="text-center">
+                    <td class="text-center" title="@user.Name">
                         @Html.DisplayFor(m => user.Name)
                     </td>
                     <td class="text-center">

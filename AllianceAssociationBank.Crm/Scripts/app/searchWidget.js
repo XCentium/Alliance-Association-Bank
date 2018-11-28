@@ -1,5 +1,7 @@
 ﻿var SearchWidget = function ($, errorUtil) {
 
+    var ENTER_KEY = 13;
+
     var init = function () {
         var searchInputId = "#project-search";
         bindAutocomplete(searchInputId);
@@ -45,6 +47,12 @@
             select: function (event, ui) {
                 event.preventDefault();
 
+                if (event.type === "autocompleteselect" && event.which === ENTER_KEY) {
+                    // prevent propagation of the event for bindRedirectToSearchPage function
+                    // when Enter is pressed to select the item
+                    event.stopImmediatePropagation();
+                }
+
                 if (ui.item.value === -1) {
                     $(this).val("");
                 } else {
@@ -55,10 +63,10 @@
         });
     };
 
-    // Redirect to Search Results page on Enter keypress
+    // Redirect to Search Results page on Enter keydown
     var bindRedirectToSearchPage = function (searchElementId) {
         $(searchElementId).on("keydown", function (event) {
-            if (event.which === 13 && this.value.length > 0) {
+            if (event.which === ENTER_KEY && this.value.length > 0) {
                 event.preventDefault();
 
                 var query = "?term=" + encodeURIComponent(this.value.trim());
