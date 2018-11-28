@@ -4,6 +4,7 @@ using AllianceAssociationBank.Crm.Persistence.Enums;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace AllianceAssociationBank.Crm.Controllers.Api
@@ -13,8 +14,7 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     {
         private IProjectRepository _projectRepository;
 
-        private const bool ActiveProjectsOnly = true;
-        private const int MaxSearchResults = 10;
+        private const int DefaultResultSize = 10;
 
         public ProjectsController(IProjectRepository repository)
         {
@@ -22,17 +22,17 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
         }
         
         [HttpGet]
-        public IEnumerable<ProjectDto> Get(string search)
+        public async Task<IEnumerable<ProjectDto>> Get(string search, bool activeOnly = false, int limit = DefaultResultSize)
         {
-            var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending, ActiveProjectsOnly)
-                .Take(MaxSearchResults);
+            var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending, activeOnly)
+                .Take(limit);
 
-            return results.Select(p => new ProjectDto()
+            return await results.Select(p => new ProjectDto()
             {
                 Id = p.ID,
                 Name = p.ProjectName
             })
-            .ToList();
+            .ToListAsync();
         }
     }
 }

@@ -46,12 +46,6 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
-        /// Initialize an empty new instance of SearchResultsPagedViewModel.
-        public SearchResultsPagedViewModel() 
-            : base(new Collection<SearchResultViewModel>(), 1, 10)
-        {
-        }
-
         /// <summary>
         /// Initialize a new instance of SearchResultsPagedViewModel.
         /// </summary>

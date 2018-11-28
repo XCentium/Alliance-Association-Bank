@@ -1,5 +1,6 @@
 ﻿var SearchWidget = function ($, errorUtil) {
 
+    var ACTIVE_PROJECTS_ONLY = true;
     var ENTER_KEY = 13;
 
     var init = function () {
@@ -17,7 +18,8 @@
                     method: "GET",
                     dataType: "json",
                     data: {
-                        search: request.term
+                        search: request.term,
+                        activeOnly: ACTIVE_PROJECTS_ONLY
                     },
                     success: function (data, textStatus, jqXHR) {
                         if (data.length > 0) {

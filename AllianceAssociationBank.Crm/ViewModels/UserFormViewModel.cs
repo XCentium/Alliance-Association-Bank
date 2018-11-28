@@ -105,8 +105,9 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
-        public void SetDefaults()
+        public void SetDefaults(int projectId)
         {
+            ProjectID = projectId;
             Active = true;
         }
     }

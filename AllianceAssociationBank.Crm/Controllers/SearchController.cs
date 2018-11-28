@@ -25,8 +25,8 @@ namespace AllianceAssociationBank.Crm.Controllers
 
         public ActionResult Index()
         {
-            //return View(SearchView.Index, new SearchResultsPagedViewModel());
-            return RedirectToAction(nameof(Results));
+            // This will return all projects
+            return RedirectToAction(nameof(Results), new { term = (string)null });
         }
 
         [ValidateInput(false)]

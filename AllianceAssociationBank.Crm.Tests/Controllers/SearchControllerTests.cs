@@ -85,5 +85,25 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             var model = Assert.IsType<SearchResultsPagedViewModel>(viewResult.Model);
             Assert.NotNull(model.PreviousRecordId);
         }
+
+        [Fact]
+        public void Results_DefaultActiveProjectsOnly_ShouldSetValueToFalse()
+        {
+            var term = "project";
+
+            var result = _controller.Results(term);
+
+            var viewModel = AssertHelper.AssertActionResult<ViewResult, SearchResultsPagedViewModel>(result);
+            Assert.False(viewModel.ActiveProjectsOnly);
+        }
+
+        [Fact]
+        public void Index_ValidRedirect_ShouldReturnRedirectToResultsAction()
+        {
+            var result = _controller.Index();
+
+            var redirectToRoute = Assert.IsType<RedirectToRouteResult>(result);
+            Assert.Equal(SearchControllerAction.Results, redirectToRoute.RouteValues["action"]);
+        }
     }
 }
