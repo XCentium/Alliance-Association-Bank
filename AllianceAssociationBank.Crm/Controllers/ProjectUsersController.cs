@@ -61,9 +61,8 @@ namespace AllianceAssociationBank.Crm.Controllers
             }
 
             var model = new UserFormViewModel();
-            model.ProjectID = projectId;
-            // Default to active on create
-            model.Active = true;
+            // Set view model defaults on create
+            model.SetDefaults(projectId);
 
             return PartialView(ProjectUsersView.UserFormPartial, model);
         }

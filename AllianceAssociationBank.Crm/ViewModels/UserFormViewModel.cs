@@ -104,5 +104,10 @@ namespace AllianceAssociationBank.Crm.ViewModels
                 return (ID != 0) ? ProjectUsersControllerRoute.UpdateUser : ProjectUsersControllerRoute.CreateUserHttpPost;
             }
         }
+
+        public void SetDefaults()
+        {
+            Active = true;
+        }
     }
 }
