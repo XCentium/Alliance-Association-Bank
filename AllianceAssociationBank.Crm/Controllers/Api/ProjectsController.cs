@@ -1,8 +1,11 @@
 ﻿using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Persistence.Enums;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -13,26 +16,23 @@ namespace AllianceAssociationBank.Crm.Controllers.Api
     public class ProjectsController : ApiController
     {
         private IProjectRepository _projectRepository;
-
+        private IMapper _mapper;
         private const int DefaultResultSize = 10;
 
-        public ProjectsController(IProjectRepository repository)
+        public ProjectsController(IProjectRepository repository, IMapper mapper)
         {
             _projectRepository = repository;
+            _mapper = mapper;
         }
         
         [HttpGet]
-        public async Task<IEnumerable<ProjectDto>> Get(string search, bool activeOnly = false, int limit = DefaultResultSize)
+        public IEnumerable<ProjectDto> Get(string search, bool activeOnly = false, int limit = DefaultResultSize)
         {
             var results = _projectRepository.GetProjectsBySearchTerm(search, SortOrder.Ascending, activeOnly)
                 .Take(limit);
 
-            return await results.Select(p => new ProjectDto()
-            {
-                Id = p.ID,
-                Name = p.ProjectName
-            })
-            .ToListAsync();
+            return results.ProjectTo<ProjectDto>(_mapper.ConfigurationProvider)
+                .ToList();
         }
     }
 }

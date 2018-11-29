@@ -26,7 +26,7 @@ namespace AllianceAssociationBank.Crm.Reports
         {
             DataSources.Add(new ReportDataSource(
                 ReportDataSetName.Master,
-                (await Queries.GetCipReviewDataSetAsync())));
+                await Queries.GetCipReviewDataSetAsync()));
         }
     }
 }

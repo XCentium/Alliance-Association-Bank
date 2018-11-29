@@ -9,14 +9,28 @@ namespace AllianceAssociationBank.Crm.Mappings
     {
         public CrmAutoMapperProfile()
         {
-            // Default rule to map nullable boolean to boolean as false
-            CreateMap<bool?, bool>().ConstructUsing(b => b ?? false);
-
             CreateMap<Project, ProjectFormViewModel>()
                 .ReverseMap();
 
             CreateMap<Project, SearchResultViewModel>();
 
+            CreateMap<Project, ProjectDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.ID))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ProjectName));
+
+            CreateMap<ProjectUser, UserFormViewModel>();
+            CreateMap<UserFormViewModel, ProjectUser>()
+                .ForMember(dest => dest.DateAdded, opt => opt.Ignore())
+                .ForMember(dest => dest.DateDeleted, opt => opt.Ignore());
+
+            CreateMap<CheckScanner, ScannerFormViewModel>()
+                .ReverseMap();
+
+            CreateMap<Note, NoteFormViewModel>();
+            CreateMap<NoteFormViewModel, Note>()
+                .ForMember(dest => dest.DateAdded, opt => opt.Ignore());
+
+            // Mappings used for reports
             CreateMap<Project, AchReportDataSetDto>()
                 .ForMember(
                     dest => dest.OwnerName,
@@ -49,17 +63,8 @@ namespace AllianceAssociationBank.Crm.Mappings
                     dest => dest.BoardingManagerName,
                     opt => opt.MapFrom(src => MapEmployeeName(src.BoardingManager)));
 
-            CreateMap<ProjectUser, UserFormViewModel>();
-            CreateMap<UserFormViewModel, ProjectUser>()
-                .ForMember(dest => dest.DateAdded, opt => opt.Ignore())
-                .ForMember(dest => dest.DateDeleted, opt => opt.Ignore());
-
-            CreateMap<CheckScanner, ScannerFormViewModel>()
-                .ReverseMap();
-
-            CreateMap<Note, NoteFormViewModel>();
-            CreateMap<NoteFormViewModel, Note>()
-                .ForMember(dest => dest.DateAdded, opt => opt.Ignore());
+            // Default rule to map nullable boolean to boolean as false
+            CreateMap<bool?, bool>().ConstructUsing(b => b ?? false);
         }
 
         public static IMapper GetMapper()

@@ -16,27 +16,29 @@ using Xunit;
 using AutoMapper;
 using AllianceAssociationBank.Crm.Persistence.Enums;
 
-namespace AllianceAssociationBank.Crm.Tests.Controllers
+using System.Data.Entity.Infrastructure;
+using AllianceAssociationBank.Crm.Tests.TestHelpers.Extensions;
+
+namespace AllianceAssociationBank.Crm.Tests.Controllers.Api
 {
-    public class ApiProjectsControllerTests
+    public class ProjectsControllerTests
     {
-        ProjectsController controller;
+        ProjectsController _controller;
 
-        Mock<IProjectRepository> projectsRepoMock;
+        Mock<IProjectRepository> _mockProjectRepository;
+        private IMapper _mapper;
 
-        private IMapper mapper;
-
-        public ApiProjectsControllerTests()
+        public ProjectsControllerTests()
         {
-            projectsRepoMock = new Mock<IProjectRepository>();
-            mapper = CrmAutoMapperProfile.GetMapper();
+            _mockProjectRepository = new Mock<IProjectRepository>();
+            _mapper = CrmAutoMapperProfile.GetMapper();
 
-            controller = new ProjectsController(projectsRepoMock.Object);
+            _controller = new ProjectsController(_mockProjectRepository.Object, _mapper);
 
         }
 
         [Fact]
-        public void Get_ValidSearchTerm_ShouldReturnTwoProjectDtos()
+        public void Get_ValidSearchTerm_ShouldReturnProjectDtoIEnumerable()
         {
             var projects = new List<Project>()
             {
@@ -54,11 +56,11 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
                 },
             };
             var searchTerm = "name";
-            projectsRepoMock
+            _mockProjectRepository
                 .Setup(r => r.GetProjectsBySearchTerm(searchTerm, SortOrder.Ascending, true))
                 .Returns(projects.AsQueryable());
 
-            var results = controller.Get(searchTerm);
+            var results = _controller.Get(searchTerm, true);
 
             var listOfProjects = Assert.IsAssignableFrom<IEnumerable<ProjectDto>>(results);
             Assert.Equal(2, listOfProjects.ToList().Count);

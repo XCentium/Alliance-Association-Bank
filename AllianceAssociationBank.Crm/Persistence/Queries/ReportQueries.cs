@@ -4,6 +4,7 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Helpers;
 using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -169,6 +170,16 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return _mapper.Map<IEnumerable<ProjectReportDataSetDto>>(results);
         }
 
+        public async Task<IEnumerable<ProjectReportDataSetDto>> GetWelcomeChecklistDataSetAsync(int projectId)
+        {
+            var results = await _context.Projects
+                .Where(p => p.ID == projectId)
+                //.OrderBy(p => p.ProjectName)
+                .ToListAsync();
+
+            return _mapper.Map<IEnumerable<ProjectReportDataSetDto>>(results);
+        }
+
         public async Task<IEnumerable<IncorrectEmployeeDataSetDto>> GetIncorrectEmployeeDataSetAsync()
         {
             var results = await _context.Projects
@@ -177,7 +188,8 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                         (p.OwnerID != null && p.Owner == null) || 
                         (p.BoardingManagerID != null && p.BoardingManager == null)
                       )
-                .Where(p => !p.ProjectName.StartsWith("INACTIVE")) // TODO: need a better way to identify active records
+                .Where(p => p.Active) // Include only active projects
+                //.Where(p => !p.ProjectName.StartsWith("INACTIVE")) // TODO: need a better way to identify active records
                 .OrderBy(p => p.ProjectName)
                 .Include(p => p.AFP)
                 .Include(p => p.Owner)

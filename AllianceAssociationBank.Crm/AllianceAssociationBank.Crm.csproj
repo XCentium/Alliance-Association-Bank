@@ -402,6 +402,7 @@
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\Infrastructure\ReportSelector.cs" />
+    <Compile Include="Reports\WelcomeChecklistReport.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
@@ -678,6 +679,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Definitions\CIP-Review.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Definitions\Welcome-Checklist.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

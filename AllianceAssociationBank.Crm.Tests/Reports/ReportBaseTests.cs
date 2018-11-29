@@ -49,6 +49,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(AchRiskInitialReport), ReportDataSetName.Master)]
         [InlineData(typeof(AchRisk6MonthReport), ReportDataSetName.Master)]
         [InlineData(typeof(AchRiskPost6MonthReport), ReportDataSetName.Master)]
+        [InlineData(typeof(WelcomeChecklistReport), ReportDataSetName.Master)]
         public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetReportDataSourceCorrectly(Type reportType, 
                                                                                                           string dataSourceName)
         {
@@ -110,6 +111,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(AchRiskInitialReport), ReportName.AchRiskInitial)]
         [InlineData(typeof(AchRisk6MonthReport), ReportName.AchRiskSixMonth)]
         [InlineData(typeof(AchRiskPost6MonthReport), ReportName.AchRiskPostSixMonth)]
+        [InlineData(typeof(WelcomeChecklistReport), ReportName.WelcomeChecklist)]
         public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
                                                                                                             string definitionFileName)
         {
@@ -132,54 +134,6 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
             Assert.NotNull(exception);
             Assert.IsType<InvalidReportException>(exception);
         }
-
-        //[Fact]
-        //public async Task ExecuteReport_BoardingReport_ShouldSetReportDataSourcesCorrectly()
-        //{
-        //    var report = new BoardingReport(_queries.Object, _fileSystem.Object);
-
-        //    await report.ExecuteReport();
-
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
-        //    Assert.NotNull(report.ReportViewer);
-        //}
-
-        //[Fact]
-        //public async Task ExecuteReport_CompletedAndHoldReport_ShouldSetReportDataSourcesCorrectly()
-        //{
-        //    var report = new CompletedAndHoldReport(_queries.Object, _fileSystem.Object);
-
-        //    await report.ExecuteReport();
-
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
-        //    Assert.NotNull(report.ReportViewer);
-        //}
-
-        //[Fact]
-        //public async Task ExecuteReport_SoftwareTransitionReport_ShouldSetReportDataSourcesCorrectly()
-        //{
-        //    var report = new SoftwareTransitionReport(_queries.Object, _fileSystem.Object);
-
-        //    await report.ExecuteReport();
-
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
-        //    Assert.NotNull(report.ReportViewer);
-        //}
-
-        //[Fact]
-        //public async Task ExecuteReport_CouponReport_ShouldSetReportDataSourcesCorrectly()
-        //{
-        //    var report = new CouponReport(_queries.Object, _fileSystem.Object);
-
-        //    await report.ExecuteReport();
-
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Projects);
-        //    Assert.Contains(report.ReportViewer.LocalReport.DataSources, d => d.Name == ReportDatasetName.Employees);
-        //    Assert.NotNull(report.ReportViewer);
-        //}
 
         private IReport CreateReportInstance(Type reportType, int? projectId = null)
         {

@@ -1,4 +1,5 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Projects;
+using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Mappings;
@@ -133,7 +134,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Queries
         }
 
         [Fact]
-        public async Task GetGetAchReportDataSetAsync_ValidProjectId_ShouldReturnOneProject()
+        public async Task GetAchReportDataSetAsync_ValidProjectId_ShouldReturnOneProject()
         {
             var projectId = _projects.First().ID;
 
@@ -141,6 +142,17 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Queries
 
             Assert.NotNull(results);
             Assert.Single(results);
+        }
+
+        [Fact]
+        public async Task GetWelcomeChecklistDataSetAsync_SingleProject_ShouldReturnSingleProjectReportDataSetDto()
+        {
+            var projectId = _projects.First().ID;
+
+            var results = await _reportQueries.GetWelcomeChecklistDataSetAsync(projectId);
+
+            Assert.Single(results);
+            Assert.IsAssignableFrom<IEnumerable<ProjectReportDataSetDto>>(results);
         }
 
         [Fact]
