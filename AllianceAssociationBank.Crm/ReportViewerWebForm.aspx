@@ -8,12 +8,24 @@
 <head runat="server">
     <title></title>
     <style>
+        body {
+            margin: 0px; 
+            padding: 0px;
+        }
+
+        /* Set report viewer height to 100% */
         html,body,form,#div1 {
             height: 100%; 
         }
+
+        /* Center report area inside of report viewer */
+        #VisibleReportContentReportViewer1_ctl13 > div > table {
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
-<body style="margin: 0px; padding: 0px;">
+<body>
     <form id="form1" runat="server">
         <div id="div1">
             <asp:ScriptManager ID="ScriptManager1" runat="server">
