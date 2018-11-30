@@ -241,6 +241,14 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\Startup.Logger.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Constants\ControllerName.cs" />
+    <Compile Include="Areas\Admin\Constants\Employees\EmployeesControllerAction.cs" />
+    <Compile Include="Areas\Admin\Constants\Employees\EmployeesView.cs" />
+    <Compile Include="Areas\Admin\Constants\Manage\ManageControllerAction.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Constants\DefaultErrorText.cs" />
     <Compile Include="Constants\Home\HomeView.cs" />
     <Compile Include="Constants\Home\HomeControllerAction.cs" />
@@ -501,6 +509,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="LoggerSettings.config" />
     <Content Include="AppTextContent.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Reports\Infrastructure\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -622,9 +632,12 @@
     <Content Include="Views\Shared\_SearchWidgetPartial.cshtml" />
     <Content Include="Views\Projects\_SystemTabPartial.cshtml" />
     <Content Include="Views\Shared\_LegalSectionPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\_EmployeesListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>

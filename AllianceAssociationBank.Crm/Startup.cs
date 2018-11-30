@@ -18,6 +18,7 @@ namespace AllianceAssociationBank.Crm
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //AreaRegistration.RegisterAllAreas(); // moved this after RegisterRoutes
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var config = new HttpConfiguration();

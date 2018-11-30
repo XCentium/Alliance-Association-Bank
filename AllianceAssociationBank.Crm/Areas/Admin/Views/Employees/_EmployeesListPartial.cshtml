@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AllianceAssociationBank.Crm.Core.Models.Employee>
+
+<div>
+    <a class="btn btn-sm btn-add-img" href="#">Add New</a>
+</div>
+
+<div style="height: 600px; overflow-y: scroll;">
+    @foreach (var record in Model)
+    {
+        <div>
+            @*@Html.DisplayFor(m => record.LastName)*@
+            @(@record.FirstName + " " + @record.LastName)
+            <a class="btn-img btn-delete-img" href="#"></a>
+        </div>
+    }
+</div>

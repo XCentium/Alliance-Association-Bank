@@ -14,6 +14,7 @@ namespace AllianceAssociationBank.Crm
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            
             // Enables attribute routing
             routes.MapMvcAttributeRoutes();
 

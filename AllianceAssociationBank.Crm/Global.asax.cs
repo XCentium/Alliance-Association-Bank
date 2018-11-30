@@ -16,16 +16,6 @@ namespace AllianceAssociationBank.Crm
             //RouteConfig.RegisterRoutes(RouteTable.Routes);
             //BundleConfig.RegisterBundles(BundleTable.Bundles);
             //GlobalConfiguration.Configure(WebApiConfig.Register);
-
-            //AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
         }
-
-        //protected void Application_Error(object sender, EventArgs e)
-        //{
-        //    var ex = Server.GetLastError();
-
-        //    Server.TransferRequest($"~/Error/InternalError");
-        //    Server.ClearError();
-        //}
     }
 }
