@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
+    // TODO: this report will not be used
     public class CmcAddressByNameReport : ReportBase, IReport
     {
         private const string definitionFileName = ReportName.CmcAddressByName;
