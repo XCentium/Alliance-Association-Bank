@@ -1,0 +1,51 @@
+﻿@model EmployeeViewModel
+
+<div class="modal fade" id="employee-form-modal" tabindex="-1" role="dialog" aria-labelledby="employee-form-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="employee-form-modal-label">New Employee</h5>
+            </div>
+            @using (Ajax.BeginRouteForm(EmployeesControllerRoute.CreateEmployeeHttpPost, routeValues: null, ajaxOptions: new AjaxOptions
+            {
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "manage-values-content",
+                OnBegin = "ModalDialogHelper.disableFormSubmitButton",
+                OnComplete = "ModalDialogHelper.hideModalDialog",
+                OnFailure = "ErrorHandler.handleAjaxError"
+            }, htmlAttributes: new
+            {
+                id = "employee-form-element",
+                data_modal_target = "#employee-form-modal"
+            }))
+            {
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    @Html.AntiForgeryToken()
+                    <div class="row my-2">
+                        @Html.LabelFor(m => m.FirstName, new { @class = "col-3 form-label required" })
+                        <div class="col-8">
+                            @Html.EditorFor(m => m.FirstName, additionalViewData: new { htmlAttributes = new { @class = "form-input" } })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "form-val-error-tooltip" })
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        @Html.LabelFor(m => m.LastName, new { @class = "col-3 form-label required" })
+                        <div class="col-8">
+                            @Html.EditorFor(m => m.LastName, additionalViewData: new { htmlAttributes = new { @class = "form-input" } })
+                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "form-val-error-tooltip" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save & Close</button>
+            </div>
+            }
+         </div>
+    </div>
+</div>

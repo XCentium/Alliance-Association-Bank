@@ -21,8 +21,8 @@
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                 @Ajax.RoleBasedRouteLink("Delete", routeName: Model.AjaxDeleteRouteName, routeValues: new
                 {
-                    projectId = Model.ProjectId,
-                    id = Model.RecordIdToDelete
+                    projectId = Model.ParentId,
+                    id = Model.RecordIdToDelete,
                 }, ajaxOptions: new AjaxOptions
                 {
                     HttpMethod = "DELETE",

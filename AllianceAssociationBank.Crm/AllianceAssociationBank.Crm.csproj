@@ -243,12 +243,13 @@
     <Compile Include="App_Start\Startup.Logger.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Constants\ControllerName.cs" />
-    <Compile Include="Areas\Admin\Constants\Employees\EmployeesControllerAction.cs" />
+    <Compile Include="Areas\Admin\Constants\Employees\EmployeesControllerRoute.cs" />
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesView.cs" />
     <Compile Include="Areas\Admin\Constants\Manage\ManageControllerAction.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Admin\ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="Constants\AreaName.cs" />
     <Compile Include="Constants\DefaultErrorText.cs" />
     <Compile Include="Constants\Home\HomeView.cs" />
     <Compile Include="Constants\Home\HomeControllerAction.cs" />
@@ -511,6 +512,7 @@
     <Content Include="AppTextContent.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\_EmployeeFormPartial.cshtml" />
     <None Include="Reports\Infrastructure\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

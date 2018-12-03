@@ -1,16 +1,88 @@
-﻿@model IEnumerable<AllianceAssociationBank.Crm.Core.Models.Employee>
+﻿@model IEnumerable<EmployeeViewModel>
 
-<div>
-    <a class="btn btn-sm btn-add-img" href="#">Add New</a>
+<div class="row border-bottom p-1">
+    <div class="col-12 text-right">
+        @*<a class="btn btn-sm btn-add-img" href="#">Add New</a>*@
+        @Ajax.RouteLink("Add New", routeName: EmployeesControllerRoute.CreateEmployee, routeValues: null, ajaxOptions: new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "manage-values-form-modal-location",
+            OnSuccess = "ModalDialogHelper.showModalDialog",
+            OnFailure = "ErrorHandler.handleAjaxError"
+        }, htmlAttributes: new
+        {
+            @class = "btn btn-add-img",
+            data_modal_target = "#employee-form-modal"
+        })
+    </div>
 </div>
 
-<div style="height: 600px; overflow-y: scroll;">
-    @foreach (var record in Model)
+<div class="row" style="height: 670px; overflow-y: scroll;">
+    <div class="col-12">
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var record in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.DisplayFor(m => record.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => record.LastName)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(m => record.DisplayName)*@
+                            @*<a class="btn-img btn-delete-img" href="#"></a>*@
+                            @Ajax.RouteLink(" ", routeName: EmployeesControllerRoute.ConfirmDeleteEmployee, routeValues: new
+                            {
+                                id = record.ID
+                            }, ajaxOptions: new AjaxOptions
+                            {
+                                HttpMethod = "GET",
+                                InsertionMode = InsertionMode.Replace,
+                                UpdateTargetId = "confirm-delete-dialog-location",
+                                OnSuccess = "ModalDialogHelper.showModalDialog",
+                                OnFailure = "ErrorHandler.handleAjaxError"
+                            }, htmlAttributes: new
+                            {
+                                @class = "btn-img btn-delete-img",
+                                data_modal_target = "#confirm-delete-dialog-modal"
+                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    @*@foreach (var record in Model)
     {
         <div>
-            @*@Html.DisplayFor(m => record.LastName)*@
-            @(@record.FirstName + " " + @record.LastName)
-            <a class="btn-img btn-delete-img" href="#"></a>
+            @Ajax.RouteLink(" ", routeName: EmployeesControllerRoute.ConfirmDeleteEmployee, routeValues: new
+            {
+                id = record.ID
+            }, ajaxOptions: new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "confirm-delete-dialog-location",
+                OnSuccess = "ModalDialogHelper.showModalDialog",
+                OnFailure = "ErrorHandler.handleAjaxError"
+            }, htmlAttributes: new 
+            {
+                @class = "btn-img btn-delete-img",
+                data_modal_target = "#confirm-delete-dialog-modal"
+            })
         </div>
-    }
+    }*@
 </div>

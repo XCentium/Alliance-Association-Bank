@@ -18,6 +18,8 @@ namespace AllianceAssociationBank.Crm
             // Enables attribute routing
             routes.MapMvcAttributeRoutes();
 
+            AreaRegistration.RegisterAllAreas(); // Added this new!
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

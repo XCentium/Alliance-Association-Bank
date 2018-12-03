@@ -280,7 +280,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             var viewModel = Assert.IsType<ConfirmDeleteViewModel>(partialViewResult.Model);
             Assert.NotNull(viewModel);
 
-            Assert.Equal(projectId, viewModel.ProjectId);
+            Assert.Equal(projectId, viewModel.ParentId);
             Assert.Equal(scannerId, viewModel.RecordIdToDelete);
             Assert.Equal(CheckScannersControllerRoute.DeleteScanner, viewModel.AjaxDeleteRouteName);
             Assert.Equal("check-scanners-list", viewModel.AjaxUpdateTargetId);

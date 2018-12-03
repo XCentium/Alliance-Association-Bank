@@ -8,5 +8,10 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
     public interface IEmployeeRepository
     {
         Task<IEnumerable<Employee>> GetEmployeesAsync();
+        Task<Employee> GetEmployeeByIdAsync(int id);
+        Task<Employee> GetEmployeeByNameAsync(string firstName, string lastName);
+        void AddEmployee(Employee employee);
+        void RemoveEmployee(Employee employee);
+        Task<bool> SaveAllAsync();
     }
 }

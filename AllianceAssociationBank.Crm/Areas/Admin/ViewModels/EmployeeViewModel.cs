@@ -20,9 +20,10 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.ViewModels
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        public string DisplayName
+        public void TrimValues()
         {
-            get { return $"{FirstName} {LastName}"; }
+            FirstName = FirstName?.Trim();
+            LastName = LastName?.Trim();
         }
     }
 }

@@ -275,7 +275,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
             var viewModel = Assert.IsType<ConfirmDeleteViewModel>(partialViewResult.Model);
             Assert.NotNull(viewModel);
 
-            Assert.Equal(projectId, viewModel.ProjectId);
+            Assert.Equal(projectId, viewModel.ParentId);
             Assert.Equal(noteId, viewModel.RecordIdToDelete);
             Assert.Equal(NotesControllerRoute.DeleteNote, viewModel.AjaxDeleteRouteName);
             Assert.Equal("notes-list", viewModel.AjaxUpdateTargetId);

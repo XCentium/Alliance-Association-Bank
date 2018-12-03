@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Core.Dtos;
+﻿using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
+using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
@@ -62,6 +63,9 @@ namespace AllianceAssociationBank.Crm.Mappings
                 .ForMember(
                     dest => dest.BoardingManagerName,
                     opt => opt.MapFrom(src => MapEmployeeName(src.BoardingManager)));
+
+            CreateMap<Employee, EmployeeViewModel>()
+                .ReverseMap();
 
             // Default rule to map nullable boolean to boolean as false
             CreateMap<bool?, bool>().ConstructUsing(b => b ?? false);

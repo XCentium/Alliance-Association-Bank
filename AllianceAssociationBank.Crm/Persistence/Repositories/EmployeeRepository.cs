@@ -26,5 +26,34 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .ThenBy(e => e.LastName)
                 .ToListAsync();
         }
+
+        public async Task<Employee> GetEmployeeByIdAsync(int id)
+        {
+            return await _context.Employees
+                .Where(e => e.ID == id)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<Employee> GetEmployeeByNameAsync(string firstName, string lastName)
+        {
+            return await _context.Employees
+                .Where(e => e.FirstName == firstName && e.LastName == lastName)
+                .SingleOrDefaultAsync();
+        }
+
+        public void AddEmployee(Employee employee)
+        {
+            _context.Employees.Add(employee);
+        }
+
+        public void RemoveEmployee(Employee employee)
+        {
+            _context.Employees.Remove(employee);
+        }
+
+        public async Task<bool> SaveAllAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
+        }
     }
 }

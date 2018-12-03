@@ -115,7 +115,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             var model = new ConfirmDeleteViewModel()
             {
-                ProjectId = projectId,
+                ParentId = projectId,
                 RecordIdToDelete = id,
                 AjaxDeleteRouteName = CheckScannersControllerRoute.DeleteScanner,
                 AjaxUpdateTargetId = "check-scanners-list",

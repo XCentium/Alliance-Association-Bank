@@ -14,6 +14,8 @@ using System.Web.Mvc;
 namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
 {
     [Authorize(Roles = UserRole.Admin)]
+    [RouteArea(AreaName.Admin)]
+    [RoutePrefix("Manage/Employees")]
     public class EmployeesController : Controller
     {
         private IEmployeeRepository _employeeRepository;
@@ -25,57 +27,74 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             _mapper = mapper;
         }
 
+        [Route("Index", Name = EmployeesControllerRoute.GetEmployees)]
         public async Task<ActionResult> Index()
         {
-            var viewModel = await _employeeRepository.GetEmployeesAsync();
+            var employees = await _employeeRepository.GetEmployeesAsync();
+            var viewModels = _mapper.Map<IEnumerable<EmployeeViewModel>>(employees);
 
-            return PartialView(EmployeesView.EmployeesListPartial, viewModel);
+            return PartialView(EmployeesView.EmployeesListPartial, viewModels);
         }
 
+        [Route("Create", Name = EmployeesControllerRoute.CreateEmployee)]
         public ActionResult Create()
         {
-            return PartialView("FormViewName", new EmployeeViewModel());
+            return PartialView(EmployeesView.EmployeeFormPartial, new EmployeeViewModel());
         }
 
+        [Route("Create", Name = EmployeesControllerRoute.CreateEmployeeHttpPost)]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(EmployeeViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
-                // TODO: test this (need to disable JS validation)
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return PartialView("FormViewName", viewModel);
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
+                // TODO: test this!
             }
 
-            //var employee = _mapper.Map<Employee>(viewModel);
-            //_employeeRepository.AddEmployee(employee);
-            //await _employeeRepository.SaveAllAsync();
+            viewModel.TrimValues();
+
+            var existing = await _employeeRepository.GetEmployeeByNameAsync(viewModel.FirstName, viewModel.LastName);
+            if (existing != null)
+            {
+                return new JsonErrorResult(HttpStatusCode.BadRequest, "The employee record already exists.");
+            }
+
+            var employee = _mapper.Map<Employee>(viewModel);
+            _employeeRepository.AddEmployee(employee);
+            await _employeeRepository.SaveAllAsync();
 
             return await Index();
         }
 
+        [Route("Delete/{id}", Name = EmployeesControllerRoute.ConfirmDeleteEmployee)]
         public ActionResult ConfirmDelete(int id)
         {
             var viewModel = new ConfirmDeleteViewModel()
             {
                 RecordIdToDelete = id,
-                AjaxDeleteRouteName = "",
-                AjaxUpdateTargetId = "value-list-content",
+                AjaxDeleteRouteName = EmployeesControllerRoute.DeleteEmployee,
+                AjaxUpdateTargetId = "manage-values-content",
                 ConfirmText = "Are you sure you want to delete this record?"
             };
 
             return PartialView(SharedView.ConfirmDeleteDialogPartial, viewModel);
         }
 
+        // TODO: should we add ValidateAntiForgeryToken?
+        [Route("Delete/{id}", Name = EmployeesControllerRoute.DeleteEmployee)]
+        [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
-            //var employee = _employeeRepository.GetEmployeeByIdAsync();
-            //if (employee == null)
-            //{
-            //    throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("employee", id));
-            //}
+            var employee = await _employeeRepository.GetEmployeeByIdAsync(id);
+            if (employee == null)
+            {
+                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("employee", id));
+            }
 
-            //_employeeRepository.RemoveEmployee(employee);
-            //await _employeeRepository.SaveAllAsync();
+            _employeeRepository.RemoveEmployee(employee);
+            await _employeeRepository.SaveAllAsync();
 
             return await Index();
         }

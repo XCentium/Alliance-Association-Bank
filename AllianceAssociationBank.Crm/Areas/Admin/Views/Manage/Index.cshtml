@@ -1,13 +1,13 @@
-﻿<div class="row pt-3">
-    
-    <div class="col-3">
-        <div class="list-group" role="tablist">
-            <a class="list-group-item disabled font-weight-bold">Manage</a>
-            @Ajax.ActionLink("Employee values", "Index", "Employees", routeValues: null, ajaxOptions: new AjaxOptions
+﻿<div class="row" style="height:715px;">
+
+    <div class="col-3 border-right px-0">
+        <div class="list-group list-group-flush" role="tablist">
+            <span class="list-group-item font-weight-bold">Manage</span>
+            @Ajax.RouteLink("Employees", EmployeesControllerRoute.GetEmployees, routeValues: null, ajaxOptions: new AjaxOptions
             {
                 HttpMethod = "GET",
                 InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "value-list-content",
+                UpdateTargetId = "manage-values-content",
                 OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {
@@ -16,18 +16,25 @@
                 data_toggle = "list",
                 //role = "tab",
             })
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Software values</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Reformat AQ2 values</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Reformat AQ2</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Software</a>
         </div>
     </div>
 
-    <div class="col-4 offset-2">
-        <div class="tab-content" id="value-list-content">
+    <div class="col-9">
+        <div class="tab-content" id="manage-values-content">
 
         </div>
     </div>
 
 </div>
+
+@* div to render modal form popup *@
+<div id="manage-values-form-modal-location"></div>
+
+@* TODO: Need to move this *@
+@* div to render delete confirmation dialog *@
+<div id="confirm-delete-dialog-location"></div>
 
 @section scripts
 {

@@ -8,5 +8,6 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Constants.Employees
     public static class EmployeesView
     {
         public const string EmployeesListPartial = "_EmployeesListPartial";
+        public const string EmployeeFormPartial = "_EmployeeFormPartial";
     }
 }

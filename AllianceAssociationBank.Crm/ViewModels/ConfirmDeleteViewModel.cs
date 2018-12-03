@@ -7,7 +7,8 @@ namespace AllianceAssociationBank.Crm.ViewModels
 {
     public class ConfirmDeleteViewModel
     {
-        public int ProjectId { get; set; } // TODO: Rename this to ParentId and and make Nullable
+        public int? ParentId { get; set; }
+        //public int ProjectId { get; set; }
 
         public int RecordIdToDelete { get; set; }
 
