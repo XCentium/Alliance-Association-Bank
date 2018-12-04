@@ -40,9 +40,10 @@ namespace AllianceAssociationBank.Crm
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                       "~/Scripts/app/errorHandler.js",
-                      "~/Scripts/app/searchableSelectPlugin.js",
+                      "~/Scripts/app/homeController.js",
                       "~/Scripts/app/generalTabController.js",
                       "~/Scripts/app/usersTabController.js",
+                      "~/Scripts/app/searchableSelectPlugin.js",
                       "~/Scripts/app/navigationWidgets.js",
                       "~/Scripts/app/searchWidget.js",
                       "~/Scripts/app/modalDialogHelper.js",

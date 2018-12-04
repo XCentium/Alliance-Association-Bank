@@ -294,6 +294,7 @@
     <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
     <Compile Include="Filters\MvcDefaultExceptionFilter.cs" />
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
+    <Compile Include="Helpers\ReportListHelper.cs" />
     <Compile Include="Helpers\TextContentHelper.cs" />
     <Compile Include="Helpers\EmailListHelper.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
@@ -416,6 +417,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\NoteFormViewModel.cs" />
     <Compile Include="ViewModels\PagedListViewModel.cs" />
     <Compile Include="ViewModels\SearchResultViewModel.cs" />
@@ -522,6 +524,7 @@
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Scripts\app\homeController.js" />
     <Content Include="Scripts\app\inputMaskHelper.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />
     <Content Include="Scripts\app\app.js" />

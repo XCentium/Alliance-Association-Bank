@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace AllianceAssociationBank.Crm.Constants.Reports
 {
     public static class ReportName

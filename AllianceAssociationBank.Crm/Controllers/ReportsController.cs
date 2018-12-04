@@ -13,14 +13,12 @@ namespace AllianceAssociationBank.Crm.Controllers
     public class ReportsController : Controller
     {
         private IReportSelector _reportSelector;
-        private IReportGenerationService _reportsService;
+        //private IReportGenerationService _reportsService;
 
-        //private static readonly object reportViewerLock = new object();
-
-        public ReportsController(IReportSelector reportSelector, IReportGenerationService reportsService)
+        public ReportsController(IReportSelector reportSelector)
         {
             _reportSelector = reportSelector;
-            _reportsService = reportsService;
+            //_reportsService = reportsService;
         }
 
         [Route("{name}/{projectId?}", Name = ReportsControllerRoute.ViewReport)]
@@ -48,15 +46,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             {
                 throw new HttpNotFoundException(e);
             }
-
-            //var reportViewer = await _reportsService.GenerateReportByName(name, projectId);
-            //if (reportViewer == null)
-            //{
-            //    throw new HttpNotFoundException();
-            //}
-            //ViewBag.ReportViewer = reportViewer;
-            //ViewBag.Title = name;
-            //return View(ReportsView.ViewReport);
         }
     }
 }

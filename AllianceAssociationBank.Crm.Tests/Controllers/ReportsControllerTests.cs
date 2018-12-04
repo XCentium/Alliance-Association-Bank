@@ -22,14 +22,14 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         private ReportsController _controller;
 
         private Mock<IReportSelector> _mockReportsSelector;
-        private Mock<IReportGenerationService> _mockReportsService;
+        //private Mock<IReportGenerationService> _mockReportsService;
 
         public ReportsControllerTests()
         {
             _mockReportsSelector = new Mock<IReportSelector>();
-            _mockReportsService = new Mock<IReportGenerationService>();
+            //_mockReportsService = new Mock<IReportGenerationService>();
 
-            _controller = new ReportsController(_mockReportsSelector.Object, _mockReportsService.Object);
+            _controller = new ReportsController(_mockReportsSelector.Object);
         }
 
         [Fact]

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using AllianceAssociationBank.Crm.ViewModels;
+using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -7,7 +8,7 @@ namespace AllianceAssociationBank.Crm.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Index", new HomeViewModel());
         }
     }
 }
