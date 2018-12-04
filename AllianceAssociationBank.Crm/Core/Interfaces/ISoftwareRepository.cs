@@ -7,6 +7,10 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
 {
     public interface ISoftwareRepository
     {
-        Task<IEnumerable<Software>> GetSoftwaresAsync();
+        Task<IEnumerable<Software>> GetSoftwareAsync();
+        Task<Software> GetSoftwareByIdAsync(int id);
+        void AddSoftware(Software software);
+        void RemoveSoftware(Software software);
+        Task<bool> SaveAllAsync();
     }
 }

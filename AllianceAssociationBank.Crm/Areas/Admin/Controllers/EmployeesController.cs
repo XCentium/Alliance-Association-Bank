@@ -21,6 +21,8 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         private IEmployeeRepository _employeeRepository;
         private IMapper _mapper;
 
+        private const string EmployeeListHtmlElementId = "manage-values-content";
+
         public EmployeesController(IEmployeeRepository employeeRepository, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
@@ -49,8 +51,8 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return new JsonErrorResult(HttpStatusCode.BadRequest);
                 // TODO: test this!
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
             viewModel.TrimValues();
@@ -75,7 +77,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             {
                 RecordIdToDelete = id,
                 AjaxDeleteRouteName = EmployeesControllerRoute.DeleteEmployee,
-                AjaxUpdateTargetId = "manage-values-content",
+                AjaxUpdateTargetId = EmployeeListHtmlElementId,
                 ConfirmText = "Are you sure you want to delete this record?"
             };
 

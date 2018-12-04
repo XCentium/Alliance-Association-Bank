@@ -19,11 +19,33 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Software>> GetSoftwaresAsync()
+        public async Task<IEnumerable<Software>> GetSoftwareAsync()
         {
             return await _context.Softwares
                 .OrderBy(e => e.SoftwareName)
                 .ToListAsync();
+        }
+
+        public async Task<Software> GetSoftwareByIdAsync(int id)
+        {
+            return await _context.Softwares
+                .Where(s => s.ID == id)
+                .SingleOrDefaultAsync();
+        }
+
+        public void AddSoftware(Software software)
+        {
+            _context.Softwares.Add(software);
+        }
+
+        public void RemoveSoftware(Software software)
+        {
+            _context.Softwares.Remove(software);
+        }
+
+        public async Task<bool> SaveAllAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
         }
     }
 }

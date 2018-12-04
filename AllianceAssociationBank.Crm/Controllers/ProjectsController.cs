@@ -153,7 +153,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var lockboxSystemList = DropDownListHelper.LockboxSystemValues.ToList();
             model.LockboxSystemList = CheckAndAddCustomValueToList(lockboxSystemList, model.LockboxSystem);
 
-            var softwareList = (await _software.GetSoftwaresAsync())
+            var softwareList = (await _software.GetSoftwareAsync())
                 .Select(s => s.SoftwareName)
                 .ToList();
 
