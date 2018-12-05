@@ -13,14 +13,18 @@
 </div>
 
 <div>
-    @lock (reportViewerLock)
+    
+    <iframe id="reportID" class="report-viewer" src=@ViewBag.ReportUrl scrolling="no">
+    </iframe>
+    
+    @*@lock (reportViewerLock)
     {
         @Html.ReportViewer(Model.GeneratedReport, new
         {
             @class = "report-viewer",
             scrolling = "no"
         })
-    }
+    }*@
 </div>
 
 <div class="screen-overlay"></div>

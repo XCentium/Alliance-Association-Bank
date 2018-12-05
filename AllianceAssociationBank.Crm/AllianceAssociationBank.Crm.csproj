@@ -393,6 +393,13 @@
     <Compile Include="Reports\CipReviewReport.cs" />
     <Compile Include="Reports\IncorrectEmployeeDataReport.cs" />
     <Compile Include="Reports\CouponReport.cs" />
+    <Compile Include="Reports\Infrastructure\ReportViewerControl.aspx.cs">
+      <DependentUpon>ReportViewerControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Infrastructure\ReportViewerControl.aspx.designer.cs">
+      <DependentUpon>ReportViewerControl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SoftwareTransitionReport.cs" />
     <Compile Include="Reports\CompletedAndHoldReport.cs" />
     <Compile Include="Reports\BoardingReport.cs" />
@@ -524,6 +531,7 @@
     <Content Include="Reports\Infrastructure\ReportsDataSet.xss">
       <DependentUpon>ReportsDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Reports\Infrastructure\ReportViewerControl.aspx" />
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\app\homeController.js" />
     <Content Include="Scripts\app\inputMaskHelper.js" />

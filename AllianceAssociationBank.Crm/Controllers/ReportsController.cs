@@ -16,6 +16,8 @@ namespace AllianceAssociationBank.Crm.Controllers
         private IReportSelector _reportSelector;
         //private IReportGenerationService _reportsService;
 
+        private const string ReportViewerControlUrl = @"Infrastructure/ReportViewerControl.aspx";
+
         public ReportsController(IReportSelector reportSelector)
         {
             _reportSelector = reportSelector;
@@ -25,34 +27,46 @@ namespace AllianceAssociationBank.Crm.Controllers
         [Route("{name}/{projectId?}", Name = ReportsControllerRoute.ViewReport)]
         public async Task<ActionResult> ViewReport(string name, int? projectId = null)
         {
-            try
+            var reportUrl = $"{ReportViewerControlUrl}?reportName={name}";
+            if (projectId.HasValue)
             {
-                IReport report;
-                if (projectId.HasValue)
-                {
-                    report = _reportSelector.ResolveByName(name, (int)projectId);
-                }
-                else
-                {
-                    report = _reportSelector.ResolveByName(name);
-                }
-
-                await report.ExecuteReport();
-
-                ViewBag.Title = name;
-                var viewModel = new ReportViewModel()
-                {
-                    GeneratedReport = report.ReportViewer
-                };
-                ViewBag.Title = name;
-                //ViewBag.ReportViewer = report.ReportViewer;
-                //ViewBag.Title = name;
-                return View(ReportsView.ViewReport, viewModel);
+                reportUrl += $"&projectId={projectId}";
             }
-            catch (Exception e)
-            {
-                throw new HttpNotFoundException(e);
-            }
+
+            ViewBag.ReportUrl = Uri.EscapeUriString(reportUrl);
+            ViewBag.Title = name;
+
+            return View(ReportsView.ViewReport);
+
+
+            //try
+            //{
+            //    IReport report;
+            //    if (projectId.HasValue)
+            //    {
+            //        report = _reportSelector.ResolveByName(name, (int)projectId);
+            //    }
+            //    else
+            //    {
+            //        report = _reportSelector.ResolveByName(name);
+            //    }
+
+            //    await report.ExecuteReport();
+
+            //    ViewBag.Title = name;
+            //    var viewModel = new ReportViewModel()
+            //    {
+            //        GeneratedReport = report.ReportViewer
+            //    };
+            //    ViewBag.Title = name;
+            //    //ViewBag.ReportViewer = report.ReportViewer;
+            //    //ViewBag.Title = name;
+            //    return View(ReportsView.ViewReport, viewModel);
+            //}
+            //catch (InvalidReportException e)
+            //{
+            //    throw new HttpNotFoundException(e);
+            //}
         }
     }
 }
