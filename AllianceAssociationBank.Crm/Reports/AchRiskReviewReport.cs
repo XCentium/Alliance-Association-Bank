@@ -6,20 +6,20 @@ using Microsoft.Reporting.WebForms;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    public class AchAllCompaniesReport : ReportBase, IReport
+    public class AchRiskReviewReport : ReportBase, IReport
     {
-        private const string definitionFileName = ReportName.AchAllCompanies;
+        private const string DefinitionFileName = ReportName.AchRiskReview;
 
-        public AchAllCompaniesReport() 
-            : base(definitionFileName)
+        public AchRiskReviewReport() 
+            : base(DefinitionFileName)
         {
         }
 
         /// <summary>
         /// This constructor is used for unit testing.
         /// </summary>
-        public AchAllCompaniesReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
-            : base(reportQueries, fileSystemService, definitionFileName)
+        public AchRiskReviewReport(IReportQueries reportQueries, IFileSystemService fileSystemService)
+            : base(reportQueries, fileSystemService, DefinitionFileName)
         {
         }
 
@@ -27,7 +27,7 @@ namespace AllianceAssociationBank.Crm.Reports
         {
             DataSources.Add(new ReportDataSource(
                 ReportDataSetName.Master, 
-                (await Queries.GetAchAllCompaniesDataSetAsync())));
+                (await Queries.GetAchRiskReviewDataSetAsync())));
         }
     }
 }

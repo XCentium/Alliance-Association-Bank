@@ -2,6 +2,7 @@
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Reports.Infrastructure;
+using AllianceAssociationBank.Crm.ViewModels;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -38,9 +39,15 @@ namespace AllianceAssociationBank.Crm.Controllers
 
                 await report.ExecuteReport();
 
-                ViewBag.ReportViewer = report.ReportViewer;
                 ViewBag.Title = name;
-                return View(ReportsView.ViewReport);
+                var viewModel = new ReportViewModel()
+                {
+                    GeneratedReport = report.ReportViewer
+                };
+                ViewBag.Title = name;
+                //ViewBag.ReportViewer = report.ReportViewer;
+                //ViewBag.Title = name;
+                return View(ReportsView.ViewReport, viewModel);
             }
             catch (Exception e)
             {

@@ -382,7 +382,7 @@
     <Compile Include="Persistence\Repositories\ReformatRepository.cs" />
     <Compile Include="Persistence\Repositories\SoftwareRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\AchAllCompaniesReport.cs" />
+    <Compile Include="Reports\AchRiskReviewReport.cs" />
     <Compile Include="Reports\Ach6MonthReviewReport.cs" />
     <Compile Include="Reports\AchInitialReviewReport.cs" />
     <Compile Include="Reports\AchSpecReport.cs" />
@@ -420,6 +420,7 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\NoteFormViewModel.cs" />
     <Compile Include="ViewModels\PagedListViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\SearchResultViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -675,7 +676,7 @@
     <Content Include="Reports\Definitions\ACH-Initial-Review.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\Definitions\ACH-All-Companies.rdlc" />
+    <Content Include="Reports\Definitions\ACH-Risk-Review.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Definitions\CMC-Address-By-Name.rdlc" />

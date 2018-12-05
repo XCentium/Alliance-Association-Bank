@@ -36,7 +36,7 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(ReportName.CmcByName, typeof(CmcByNameReport))]
         [InlineData(ReportName.CDEmails, typeof(CDEmailsReport))]
         [InlineData(ReportName.Coupon, typeof(CouponReport))]
-        [InlineData(ReportName.AchAllCompanies, typeof(AchAllCompaniesReport))]
+        [InlineData(ReportName.AchRiskReview, typeof(AchRiskReviewReport))]
         [InlineData(ReportName.CmcAddressByName, typeof(CmcAddressByNameReport))]
         [InlineData(ReportName.CmcByIdUsefulInfo, typeof(CmcByIdUsefulInfoReport))]
         [InlineData(ReportName.CipReview, typeof(CipReviewReport))]

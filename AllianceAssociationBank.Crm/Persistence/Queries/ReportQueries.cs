@@ -147,7 +147,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return _mapper.Map<IEnumerable<AchReportDataSetDto>>(results);
         }
 
-        public async Task<IEnumerable<AchReportDataSetDto>> GetAchAllCompaniesDataSetAsync()
+        public async Task<IEnumerable<AchReportDataSetDto>> GetAchRiskReviewDataSetAsync()
         {
             var results = await _context.Projects
                 .OrderByDescending(p => p.ACHLimitAndSpecSubmitted) // True first then False
