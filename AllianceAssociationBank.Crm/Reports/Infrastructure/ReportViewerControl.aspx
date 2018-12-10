@@ -18,6 +18,7 @@
             height: 100%; 
         }
 
+        /* Configure scrollbars for report viewer */
         #ReportViewer1_ctl13 {
             overflow-x: hidden !important;
             overflow-y: auto !important;

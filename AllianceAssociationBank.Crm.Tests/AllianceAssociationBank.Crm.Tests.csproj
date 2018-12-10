@@ -179,6 +179,7 @@
     <Compile Include="Controllers\UserControllerTests.cs" />
     <Compile Include="Core\Services\DataExportServiceTests.cs" />
     <Compile Include="Core\Services\ReportGenerationServiceTests.cs" />
+    <Compile Include="Core\Services\ReportServiceTests.cs" />
     <Compile Include="Extensions\AjaxHelperAuthorizationExtensionsTests.cs" />
     <Compile Include="Extensions\HtmlHelperAuthorizationExtensionsTests.cs" />
     <Compile Include="Extensions\HtmlHelperButtonExtensionsTests.cs" />

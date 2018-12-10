@@ -76,5 +76,21 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
             Assert.NotNull(exception);
             Assert.IsType<InvalidReportException>(exception);
         }
+
+        [Fact]
+        public void IsReportExists_CorrectReport_ShouldReturnTrue()
+        {
+            var result = _reportSelector.IsReportExists(ReportName.Boarding);
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void IsReportExists_IncorrectReport_ShouldReturnFalse()
+        {
+            var result = _reportSelector.IsReportExists("Some-Wrong-Report");
+
+            Assert.False(result);
+        }
     }
 }

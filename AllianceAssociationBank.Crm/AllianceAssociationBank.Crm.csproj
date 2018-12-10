@@ -294,6 +294,7 @@
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
     <Compile Include="Extensions\AjaxHelperLinkExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
+    <Compile Include="Extensions\HttpRequestExtensions.cs" />
     <Compile Include="Extensions\ReportViewerExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
