@@ -5,5 +5,6 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
     public interface IReportSelector
     {
         IReport ResolveByName(string reportName, params object[] reportParameters);
+        bool IsReportExists(string reportName);
     }
 }

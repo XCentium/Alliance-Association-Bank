@@ -70,8 +70,9 @@ namespace AllianceAssociationBank.Crm
 
             container.RegisterType<IReportQueries, ReportQueries>(new TransientLifetimeManager());
             container.RegisterType<IFileSystemService, FileSystemService>(new TransientLifetimeManager());
+            container.RegisterType<IReportService, ReportService>(new TransientLifetimeManager());
             container.RegisterType<IReportSelector, ReportSelector>(new TransientLifetimeManager());
-            container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager());
+            //container.RegisterType<IReportGenerationService, ReportGenerationService>(new TransientLifetimeManager()); // TODO: need to remove this
             container.RegisterType<IDataExportService, DataExportService>(new TransientLifetimeManager());
 
             container.RegisterType<PrincipalContext>

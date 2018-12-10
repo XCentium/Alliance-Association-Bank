@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Extensions;
 using AllianceAssociationBank.Crm.Reports.Infrastructure;
 using AllianceAssociationBank.Crm.ViewModels;
 using System;
@@ -14,30 +15,33 @@ namespace AllianceAssociationBank.Crm.Controllers
     public class ReportsController : Controller
     {
         private IReportSelector _reportSelector;
-        //private IReportGenerationService _reportsService;
 
-        private const string ReportViewerControlUrl = @"Infrastructure/ReportViewerControl.aspx";
+        private const string ReportViewerControlUrl = @"Reports/Infrastructure/ReportViewerControl.aspx";
 
         public ReportsController(IReportSelector reportSelector)
         {
             _reportSelector = reportSelector;
-            //_reportsService = reportsService;
         }
 
         [Route("{name}/{projectId?}", Name = ReportsControllerRoute.ViewReport)]
-        public async Task<ActionResult> ViewReport(string name, int? projectId = null)
+        public ActionResult ViewReport(string name, int? projectId = null)
         {
-            var reportUrl = $"{ReportViewerControlUrl}?reportName={name}";
+            if (!_reportSelector.IsReportExists(name))
+            {
+                throw new HttpNotFoundException($"A report with the name of {name} could not be found.");
+            }
+
+            var baseUrl = Request.GetBaseUrl();
+            var reportUrl = $"{baseUrl}/{ReportViewerControlUrl}?{QueryStringValue.ReportName}={name}";
             if (projectId.HasValue)
             {
-                reportUrl += $"&projectId={projectId}";
+                reportUrl += $"&{QueryStringValue.ProjectId}={projectId}";
             }
 
             ViewBag.ReportUrl = Uri.EscapeUriString(reportUrl);
             ViewBag.Title = name;
 
             return View(ReportsView.ViewReport);
-
 
             //try
             //{

@@ -257,6 +257,8 @@
     <Compile Include="Constants\Notes\NotesControllerAction.cs" />
     <Compile Include="Constants\Notes\NotesControllerRoute.cs" />
     <Compile Include="Constants\Projects\ProjectStatus.cs" />
+    <Compile Include="Constants\Reports\QueryStringValue.cs" />
+    <Compile Include="Constants\Reports\ReportParameterName.cs" />
     <Compile Include="Constants\Search\SearchView.cs" />
     <Compile Include="Constants\Search\SearchControllerAction.cs" />
     <Compile Include="Constants\SortOrderString.cs" />
@@ -280,6 +282,8 @@
     <Compile Include="Core\Services\FileSystemService.cs" />
     <Compile Include="Core\Interfaces\IFileSystemService.cs" />
     <Compile Include="Core\Dtos\CmcReportDataSetDto.cs" />
+    <Compile Include="Core\Interfaces\IReportService.cs" />
+    <Compile Include="Core\Services\ReportService.cs" />
     <Compile Include="Exceptions\InvalidReportException.cs" />
     <Compile Include="Exceptions\ViewErrorResult.cs" />
     <Compile Include="Exceptions\JsonErrorResult.cs" />
@@ -290,6 +294,7 @@
     <Compile Include="Extensions\HtmlHelperEditorExtensions.cs" />
     <Compile Include="Extensions\AjaxHelperLinkExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
+    <Compile Include="Extensions\ReportViewerExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
     <Compile Include="Filters\MvcDefaultExceptionFilter.cs" />

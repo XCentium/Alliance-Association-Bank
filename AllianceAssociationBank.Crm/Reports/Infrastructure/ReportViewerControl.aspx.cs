@@ -1,14 +1,10 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
-using AllianceAssociationBank.Crm.Core.Models;
-using AllianceAssociationBank.Crm.Exceptions;
-using Microsoft.Reporting.WebForms;
+using AllianceAssociationBank.Crm.Core.Interfaces;
+using AllianceAssociationBank.Crm.Extensions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Unity;
 
 namespace AllianceAssociationBank.Crm.Reports.Infrastructure
@@ -17,7 +13,7 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
     {
         protected async void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!IsPostBack && Page.User.Identity.IsAuthenticated)
             {
                 await GenerateReport();
             }
@@ -27,49 +23,36 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
         {
             try
             {
-                var reportName = Request["reportName"];
-                var projectId = Request["projectId"];
+                var reportName = Request[QueryStringValue.ReportName];
+                var projectId = Request[QueryStringValue.ProjectId];
 
-                if (string.IsNullOrEmpty(reportName))
+                var reportService = UnityConfig.Container.Resolve<IReportService>();
+
+                var parameters = new Dictionary<string, object>();
+                if (!string.IsNullOrEmpty(projectId))
                 {
-                    throw new ArgumentNullException("reportName", "Value cannot be null.");
+                    parameters.Add(ReportParameterName.ProjectId, projectId);
                 }
 
-                IReportSelector reportSelector = UnityConfig.Container.Resolve<IReportSelector>();
-                IReport report;
+                var report = await reportService.GenerateReportByName(reportName, parameters);
 
-                if (projectId != null && int.TryParse(projectId, out var projectIdParam))
-                {
-                    report = reportSelector.ResolveByName(reportName, projectIdParam);
-                }
-                else
-                {
-                    report = reportSelector.ResolveByName(reportName);
-                }
-
-                await report.ExecuteReport();
-
-                // TODO: need a better solution here
-                var reportDefinition = report.ReportViewer;
-                ReportViewer1.ProcessingMode = reportDefinition.ProcessingMode;
-                ReportViewer1.LocalReport.ReportPath = reportDefinition.LocalReport.ReportPath;
-                ReportViewer1.AsyncRendering = reportDefinition.AsyncRendering;
-                //ReportViewer1.SizeToReportContent = reportDefinition.SizeToReportContent;
-                ReportViewer1.Width = Unit.Pixel(1278);
-                ReportViewer1.Height = Unit.Pixel(679);
-                ReportViewer1.WaitControlDisplayAfter = reportDefinition.WaitControlDisplayAfter;
-                ReportViewer1.ShowBackButton = reportDefinition.ShowBackButton;
-                foreach (var dataSource in reportDefinition.LocalReport.DataSources)
-                {
-                    ReportViewer1.LocalReport.DataSources.Add(dataSource);
-                }
+                ReportViewer1.SetProperties(report.ReportViewer);
                 ReportViewer1.LocalReport.Refresh();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                // TODO: need a solution here
-                //throw new HttpNotFoundException(ex);
+                RedirectToErrorPage();
             }
-        }    
+        }
+        
+        private void RedirectToErrorPage()
+        {
+            // Redirect parent browser window to error page
+            var baseUrl = Request.GetBaseUrl();
+            var redirectUrl = $"{baseUrl}/Error/InternalError?aspxerrorpath=" + Uri.EscapeUriString(Request.Url.ToString());
+            var script = $"window.top.location.href='{redirectUrl}';";
+
+            ScriptManager.RegisterStartupScript(Page, GetType(), "parentWindowRedirect", script, true);
+        }
     }
 }
