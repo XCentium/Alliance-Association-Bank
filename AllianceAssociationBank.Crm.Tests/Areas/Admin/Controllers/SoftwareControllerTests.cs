@@ -1,10 +1,12 @@
-﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants.Software;
+﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants;
+using AllianceAssociationBank.Crm.Areas.Admin.Constants.Software;
 using AllianceAssociationBank.Crm.Areas.Admin.Controllers;
 using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Mappings;
+using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using Moq;
 using System;
@@ -107,6 +109,19 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
             var result = await _controller.Create(duplicateSoftware);
 
             var jsonError = Assert.IsType<JsonErrorResult>(result);
+        }
+
+        [Fact]
+        public void ConfirmDelete_ValidSoftwareId_ShouldReturnPartialViewWithConfirmDeleteViewModel()
+        {
+            var softwareId = _softwareList.First().ID;
+
+            var result = _controller.ConfirmDelete(softwareId);
+
+            var viewModel = AssertHelper.AssertActionResult<PartialViewResult, ConfirmDeleteViewModel>(result);
+            Assert.Equal(softwareId, viewModel.RecordIdToDelete);
+            Assert.Equal(SoftwareControllerRoute.DeleteSoftware, viewModel.AjaxDeleteRouteName);
+            Assert.Equal(HtmlElementIdentifier.ManageValuesContent, viewModel.AjaxUpdateTargetId);
         }
 
         [Fact]

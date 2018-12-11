@@ -27,6 +27,7 @@
     background-image: url('Images/btn-add-icon.png');
     background-repeat: no-repeat;
     background-position: calc(100% - 5px) center;
+    border: 1px solid #fff;
     color: #212529;
     margin-left: -30px;
     padding-right: 30px;

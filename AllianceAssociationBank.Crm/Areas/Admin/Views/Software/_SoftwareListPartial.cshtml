@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<SoftwareViewModel>
 
-<div class="row border-bottom p-1">
+<div class="row p-1">
     <div class="col-12 text-right">
         @Ajax.RouteLink("Add New", routeName: SoftwareControllerRoute.CreateSoftware, routeValues: null, ajaxOptions: new AjaxOptions
         {
@@ -12,7 +12,8 @@
         }, htmlAttributes: new
         {
             @class = "btn btn-add-img",
-            data_modal_target = "#software-form-modal"
+            data_modal_target = "#software-form-modal",
+            title = "Add new value"
         })
     </div>
 </div>
@@ -20,11 +21,11 @@
 <div class="row" style="height: 670px; overflow-y: scroll;">
     <div class="col-12">
         <table class="table table-sm table-hover">
-            <thead>
+            <thead class="table-borderless bg-light">
                 <tr>
                     <th></th>
-                    <th>Software</th>
-                    <th>Delete</th>
+                    <th class="font-weight-light text-uppercase">Software Name</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -49,7 +50,8 @@
                             }, htmlAttributes: new
                             {
                                 @class = "btn-img btn-delete-img",
-                                data_modal_target = "#confirm-delete-dialog-modal"
+                                data_modal_target = "#confirm-delete-dialog-modal",
+                                title = "Delete this value"
                             })
                         </td>
                     </tr>

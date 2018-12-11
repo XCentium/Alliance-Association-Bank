@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants.Employees;
+﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants;
+using AllianceAssociationBank.Crm.Areas.Admin.Constants.Employees;
 using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
 using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Interfaces;
@@ -20,8 +21,6 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
     {
         private IEmployeeRepository _employeeRepository;
         private IMapper _mapper;
-
-        private const string EmployeeListHtmlElementId = "manage-values-content";
 
         public EmployeesController(IEmployeeRepository employeeRepository, IMapper mapper)
         {
@@ -77,7 +76,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             {
                 RecordIdToDelete = id,
                 AjaxDeleteRouteName = EmployeesControllerRoute.DeleteEmployee,
-                AjaxUpdateTargetId = EmployeeListHtmlElementId,
+                AjaxUpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
                 ConfirmText = "Are you sure you want to delete this record?"
             };
 

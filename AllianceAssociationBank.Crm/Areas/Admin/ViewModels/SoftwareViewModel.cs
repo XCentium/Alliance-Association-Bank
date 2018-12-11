@@ -12,7 +12,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.ViewModels
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Software Name")]
+        [Display(Name = "Name")]
         public string SoftwareName { get; set; }
 
         public void TrimValues()

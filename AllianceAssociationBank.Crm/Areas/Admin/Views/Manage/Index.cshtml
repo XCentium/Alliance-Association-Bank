@@ -1,29 +1,63 @@
 ﻿<div class="row" style="height:715px;">
+    @* TODO: Need to correct this *@
 
     <div class="col-3 border-right px-0">
-        <div class="list-group list-group-flush" role="tablist">
-            <span class="list-group-item font-weight-bold">Manage</span>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 bg-white">
+                <li class="breadcrumb-item">
+                    @Html.ActionLink("Home", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: new { title = "Return to Home" })
+                </li>
+                <li class="breadcrumb-item">
+                    @Html.ActionLink("Admin", ManageControllerAction.Index, ControllerName.Manage, routeValues: null, htmlAttributes: new { title = "Go to Admin section" })
+                </li>
+                <li class="breadcrumb-item active">Manage Values</li>
+            </ol>
+        </nav>
+        <div class="list-group" role="tablist">
             @Ajax.RouteLink("Employees", EmployeesControllerRoute.GetEmployees, routeValues: null, ajaxOptions: new AjaxOptions
+           {
+               HttpMethod = "GET",
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
+               OnFailure = "ErrorHandler.handleAjaxError",
+               LoadingElementId = "loading-animation"
+           }, htmlAttributes: new
+           {
+               @class = "list-group-item list-group-item-action",
+               id = "list-employees-values",
+               data_toggle = "list",
+               role = "tab",
+           })
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Reformat AQ2</a>
+            @Ajax.RouteLink("Software", SoftwareControllerRoute.GetSoftwareList, routeValues: null, ajaxOptions: new AjaxOptions
             {
                 HttpMethod = "GET",
                 InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "manage-values-content",
-                OnFailure = "ErrorHandler.handleAjaxError"
+                UpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
+                OnFailure = "ErrorHandler.handleAjaxError",
+                LoadingElementId = "loading-animation"
             }, htmlAttributes: new
             {
                 @class = "list-group-item list-group-item-action",
-                id = "list-employees-list",
+                id = "list-software-values",
                 data_toggle = "list",
-                //role = "tab",
+                role = "tab",
             })
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Reformat AQ2</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Software</a>
         </div>
     </div>
 
     <div class="col-9">
-        <div class="tab-content" id="manage-values-content">
-
+        <div id="@HtmlElementIdentifier.ManageValuesContent">
+            <div class="p-4">
+                <h3>Admin Section</h3>
+                <p>
+                    Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                </p>
+            </div>
+        </div>
+        @* TODO: Need to finish this here*@
+        <div id="loading-animation" class="text-center screen-overlay" style="position: absolute !important; transition: all .3s ease;-webkit-transition: all .3s ease;">
+            <img src="~/Content/Images/search-loader.gif" style="left: 47%; top: 50%; position: absolute;">
         </div>
     </div>
 

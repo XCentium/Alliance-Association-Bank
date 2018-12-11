@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<EmployeeViewModel>
 
-<div class="row border-bottom p-1">
+<div class="row p-1">
     <div class="col-12 text-right">
-        @*<a class="btn btn-sm btn-add-img" href="#">Add New</a>*@
         @Ajax.RouteLink("Add New", routeName: EmployeesControllerRoute.CreateEmployee, routeValues: null, ajaxOptions: new AjaxOptions
         {
             HttpMethod = "GET",
@@ -13,7 +12,8 @@
         }, htmlAttributes: new
         {
             @class = "btn btn-add-img",
-            data_modal_target = "#employee-form-modal"
+            data_modal_target = "#employee-form-modal",
+            title = "Add new value"
         })
     </div>
 </div>
@@ -21,12 +21,12 @@
 <div class="row" style="height: 670px; overflow-y: scroll;">
     <div class="col-12">
         <table class="table table-sm table-hover">
-            <thead>
+            <thead class="table-borderless bg-light">
                 <tr>
                     <th></th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Delete</th>
+                    <th class="font-weight-light text-uppercase">First Name</th>
+                    <th class="font-weight-light text-uppercase">Last Name</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,8 +41,6 @@
                             @Html.DisplayFor(m => record.LastName)
                         </td>
                         <td>
-                            @*@Html.DisplayFor(m => record.DisplayName)*@
-                            @*<a class="btn-img btn-delete-img" href="#"></a>*@
                             @Ajax.RouteLink(" ", routeName: EmployeesControllerRoute.ConfirmDeleteEmployee, routeValues: new
                             {
                                 id = record.ID
@@ -56,7 +54,8 @@
                             }, htmlAttributes: new
                             {
                                 @class = "btn-img btn-delete-img",
-                                data_modal_target = "#confirm-delete-dialog-modal"
+                                data_modal_target = "#confirm-delete-dialog-modal",
+                                title = "Delete this value"
                             })
                         </td>
                     </tr>
@@ -64,25 +63,4 @@
             </tbody>
         </table>
     </div>
-    
-    @*@foreach (var record in Model)
-    {
-        <div>
-            @Ajax.RouteLink(" ", routeName: EmployeesControllerRoute.ConfirmDeleteEmployee, routeValues: new
-            {
-                id = record.ID
-            }, ajaxOptions: new AjaxOptions
-            {
-                HttpMethod = "GET",
-                InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "confirm-delete-dialog-location",
-                OnSuccess = "ModalDialogHelper.showModalDialog",
-                OnFailure = "ErrorHandler.handleAjaxError"
-            }, htmlAttributes: new 
-            {
-                @class = "btn-img btn-delete-img",
-                data_modal_target = "#confirm-delete-dialog-modal"
-            })
-        </div>
-    }*@
 </div>

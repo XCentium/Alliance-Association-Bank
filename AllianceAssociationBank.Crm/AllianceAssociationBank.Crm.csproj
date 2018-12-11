@@ -245,6 +245,7 @@
     <Compile Include="Areas\Admin\Constants\ControllerName.cs" />
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesControllerRoute.cs" />
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesView.cs" />
+    <Compile Include="Areas\Admin\Constants\HtmlElementIdentifier.cs" />
     <Compile Include="Areas\Admin\Constants\Manage\ManageControllerAction.cs" />
     <Compile Include="Areas\Admin\Constants\Software\SoftwareControllerRoute.cs" />
     <Compile Include="Areas\Admin\Constants\Software\SoftwareView.cs" />
@@ -530,7 +531,9 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="LoggerSettings.config" />
     <Content Include="AppTextContent.config" />
-    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\_EmployeeFormPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Software\_SoftwareListPartial.cshtml" />
@@ -545,6 +548,7 @@
     </Content>
     <Content Include="Reports\Infrastructure\ReportViewerControl.aspx" />
     <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Scripts\app\ajaxHelper.js" />
     <Content Include="Scripts\app\homeController.js" />
     <Content Include="Scripts\app\inputMaskHelper.js" />
     <Content Include="Scripts\app\modalDialogHelper.js" />

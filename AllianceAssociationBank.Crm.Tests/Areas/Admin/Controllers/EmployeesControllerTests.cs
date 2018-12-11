@@ -1,4 +1,5 @@
-﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants.Employees;
+﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants;
+using AllianceAssociationBank.Crm.Areas.Admin.Constants.Employees;
 using AllianceAssociationBank.Crm.Areas.Admin.Controllers;
 using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
 using AllianceAssociationBank.Crm.Core.Interfaces;
@@ -126,7 +127,6 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
         [Fact]
         public void ConfirmDelete_ValidEmployeeId_ShouldReturnPartialViewWithConfirmDeleteViewModel()
         {
-            var EmployeeListHtmlElementId = "manage-values-content";
             var employeeId = _employees.First().ID;
 
             var result = _controller.ConfirmDelete(employeeId);
@@ -134,7 +134,7 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
             var viewModel = AssertHelper.AssertActionResult<PartialViewResult, ConfirmDeleteViewModel>(result);
             Assert.Equal(employeeId, viewModel.RecordIdToDelete);
             Assert.Equal(EmployeesControllerRoute.DeleteEmployee, viewModel.AjaxDeleteRouteName);
-            Assert.Equal(EmployeeListHtmlElementId, viewModel.AjaxUpdateTargetId);
+            Assert.Equal(HtmlElementIdentifier.ManageValuesContent, viewModel.AjaxUpdateTargetId);
         }
     }
 }

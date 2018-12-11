@@ -1,9 +1,11 @@
-﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants.Software;
+﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants;
+using AllianceAssociationBank.Crm.Areas.Admin.Constants.Software;
 using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
 using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -68,6 +70,20 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             await _softwareRepository.SaveAllAsync();
 
             return await Index();
+        }
+
+        [Route("Delete/{id}", Name = SoftwareControllerRoute.ConfirmDeleteSoftware)]
+        public ActionResult ConfirmDelete(int id)
+        {
+            var viewModel = new ConfirmDeleteViewModel()
+            {
+                RecordIdToDelete = id,
+                AjaxDeleteRouteName = SoftwareControllerRoute.DeleteSoftware,
+                AjaxUpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
+                ConfirmText = "Are you sure you want to delete this record?"
+            };
+
+            return PartialView(SharedView.ConfirmDeleteDialogPartial, viewModel);
         }
 
         // TODO: should we add ValidateAntiForgeryToken?
