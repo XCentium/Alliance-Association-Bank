@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SoftwareViewModel>
+
+<div class="row border-bottom p-1">
+    <div class="col-12 text-right">
+        @Ajax.RouteLink("Add New", routeName: SoftwareControllerRoute.CreateSoftware, routeValues: null, ajaxOptions: new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "manage-values-form-modal-location",
+            OnSuccess = "ModalDialogHelper.showModalDialog",
+            OnFailure = "ErrorHandler.handleAjaxError"
+        }, htmlAttributes: new
+        {
+            @class = "btn btn-add-img",
+            data_modal_target = "#software-form-modal"
+        })
+    </div>
+</div>
+
+<div class="row" style="height: 670px; overflow-y: scroll;">
+    <div class="col-12">
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Software</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var record in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.DisplayFor(m => record.SoftwareName)
+                        </td>
+                        <td>
+                            @Ajax.RouteLink(" ", routeName: SoftwareControllerRoute.ConfirmDeleteSoftware, routeValues: new
+                            {
+                                id = record.ID
+                            }, ajaxOptions: new AjaxOptions
+                            {
+                                HttpMethod = "GET",
+                                InsertionMode = InsertionMode.Replace,
+                                UpdateTargetId = "confirm-delete-dialog-location",
+                                OnSuccess = "ModalDialogHelper.showModalDialog",
+                                OnFailure = "ErrorHandler.handleAjaxError"
+                            }, htmlAttributes: new
+                            {
+                                @class = "btn-img btn-delete-img",
+                                data_modal_target = "#confirm-delete-dialog-modal"
+                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

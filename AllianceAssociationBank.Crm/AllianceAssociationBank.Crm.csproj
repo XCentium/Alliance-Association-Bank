@@ -246,8 +246,11 @@
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesControllerRoute.cs" />
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesView.cs" />
     <Compile Include="Areas\Admin\Constants\Manage\ManageControllerAction.cs" />
+    <Compile Include="Areas\Admin\Constants\Software\SoftwareControllerRoute.cs" />
+    <Compile Include="Areas\Admin\Constants\Software\SoftwareView.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SoftwareController.cs" />
     <Compile Include="Areas\Admin\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Constants\AreaName.cs" />
     <Compile Include="Constants\DefaultErrorText.cs" />
@@ -439,6 +442,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProjectFormViewModel.cs" />
     <Compile Include="ViewModels\SearchResultsPagedViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\SoftwareViewModel.cs" />
     <Compile Include="ViewModels\UserFormViewModel.cs" />
     <Compile Include="ViewModels\UsersPagedListViewModel.cs" />
   </ItemGroup>
@@ -529,6 +533,8 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\_EmployeeFormPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Software\_SoftwareListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Software\_SoftwareFormPartial.cshtml" />
     <None Include="Reports\Infrastructure\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

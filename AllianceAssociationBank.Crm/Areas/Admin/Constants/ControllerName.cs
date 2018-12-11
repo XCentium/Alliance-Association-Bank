@@ -9,5 +9,6 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Constants
     {
         public const string Manage = "Manage";
         public const string Employees = "Employees";
+        public const string Software = "Software";
     }
 }

@@ -33,6 +33,13 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .SingleOrDefaultAsync();
         }
 
+        public async Task<Software> GetSoftwareByNameAsync(string softwareName)
+        {
+            return await _context.Softwares
+                .Where(e => e.SoftwareName == softwareName)
+                .SingleOrDefaultAsync();
+        }
+
         public void AddSoftware(Software software)
         {
             _context.Softwares.Add(software);

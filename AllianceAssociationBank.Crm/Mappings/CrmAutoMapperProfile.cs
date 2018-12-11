@@ -67,6 +67,9 @@ namespace AllianceAssociationBank.Crm.Mappings
             CreateMap<Employee, EmployeeViewModel>()
                 .ReverseMap();
 
+            CreateMap<Software, SoftwareViewModel>()
+                .ReverseMap();
+
             // Default rule to map nullable boolean to boolean as false
             CreateMap<bool?, bool>().ConstructUsing(b => b ?? false);
         }
