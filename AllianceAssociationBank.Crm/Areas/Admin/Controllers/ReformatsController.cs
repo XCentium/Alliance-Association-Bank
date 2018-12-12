@@ -19,7 +19,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
     [Authorize(Roles = UserRole.Admin)]
     [RouteArea(AreaName.Admin)]
     [RoutePrefix("Manage/Reformats")]
-    [RedirectOnInvalidAjaxRequest(Constants.ControllerName.Manage, ManageControllerAction.Index)]
+    [RedirectOnInvalidAjaxRequest(ControllerName.Manage, ManageControllerAction.Index)]
     public class ReformatsController : Controller
     {
         private IReformatRepository _reformatRepository;

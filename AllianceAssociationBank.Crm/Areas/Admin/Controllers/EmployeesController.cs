@@ -19,7 +19,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
     [Authorize(Roles = UserRole.Admin)]
     [RouteArea(AreaName.Admin)]
     [RoutePrefix("Manage/Employees")]
-    [RedirectOnInvalidAjaxRequest(Constants.ControllerName.Manage, ManageControllerAction.Index)]
+    [RedirectOnInvalidAjaxRequest(ControllerName.Manage, ManageControllerAction.Index)]
     public class EmployeesController : Controller
     {
         private IEmployeeRepository _employeeRepository;

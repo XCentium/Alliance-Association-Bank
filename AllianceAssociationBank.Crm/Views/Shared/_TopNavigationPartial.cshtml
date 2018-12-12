@@ -11,6 +11,11 @@
         @Html.AntiForgeryToken()
 
         <div class="text-right">
+        @if (User.IsInRole(UserRole.Admin))
+        {
+            <a class="top-nav-item" href="/Admin">Admin</a>
+            <span class="top-nav-item">|</span>
+        }
             <span class="top-nav-item">@User.Identity.GetUserName()</span>
             <span class="top-nav-item">|</span>
             <a class="top-nav-item" href="javascript:document.getElementById('top-logout-form').submit()">Logout</a>

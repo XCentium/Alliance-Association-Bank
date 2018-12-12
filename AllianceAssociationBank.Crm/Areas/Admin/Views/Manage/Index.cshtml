@@ -4,8 +4,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 bg-white">
                 <li class="breadcrumb-item">
-                    @*TODO: need to improve this*@
-                    @Html.ActionLink("Home", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: new { title = "Return to Home" })
+                    @Html.ActionLink("Home", HomeControllerAction.Index, ControllerName.Home, routeValues: new { area = "" }, htmlAttributes: new { title = "Return to Home" })
                 </li>
                 <li class="breadcrumb-item">
                     @Html.ActionLink("Admin", ManageControllerAction.Index, ControllerName.Manage, routeValues: null, htmlAttributes: new { title = "Go to Admin section" })

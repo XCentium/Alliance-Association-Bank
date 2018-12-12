@@ -242,7 +242,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\Startup.Logger.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Constants\ControllerName.cs" />
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesControllerRoute.cs" />
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesView.cs" />
     <Compile Include="Areas\Admin\Constants\HtmlElementIdentifier.cs" />

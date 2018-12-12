@@ -22,7 +22,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
     [Authorize(Roles = UserRole.Admin)]
     [RouteArea(AreaName.Admin)]
     [RoutePrefix("Manage/Software")]
-    [RedirectOnInvalidAjaxRequest(Constants.ControllerName.Manage, ManageControllerAction.Index)]
+    [RedirectOnInvalidAjaxRequest(ControllerName.Manage, ManageControllerAction.Index)]
     public class SoftwareController : Controller
     {
         private ISoftwareRepository _softwareRepository;
