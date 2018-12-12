@@ -1,12 +1,12 @@
-﻿@model SoftwareViewModel
+﻿@model ReformatViewModel
 
-<div class="modal fade" id="software-form-modal" tabindex="-1" role="dialog" aria-labelledby="software-form-modal-label" aria-hidden="true">
+<div class="modal fade" id="reformat-form-modal" tabindex="-1" role="dialog" aria-labelledby="reformat-form-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="software-form-modal-label">New Software</h5>
+                <h5 class="modal-title" id="reformat-form-modal-label">New Reformat</h5>
             </div>
-            @using (Ajax.BeginRouteForm(SoftwareControllerRoute.CreateSoftwareHttpPost, routeValues: null, ajaxOptions: new AjaxOptions
+            @using (Ajax.BeginRouteForm(ReformatsControllerRoute.CreateReformatHttpPost, routeValues: null, ajaxOptions: new AjaxOptions
             {
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
@@ -16,8 +16,8 @@
                 OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {
-                id = "software-form-element",
-                data_modal_target = "#software-form-modal"
+                id = "reformat-form-element",
+                data_modal_target = "#reformat-form-modal"
             }))
             {
             <div class="modal-body">
@@ -25,10 +25,10 @@
 
                     @Html.AntiForgeryToken()
                     <div class="form-group row">
-                        @Html.LabelFor(m => m.SoftwareName, new { @class = "col-2 col-form-label required" })
+                        @Html.LabelFor(m => m.ReformatName, new { @class = "col-2 col-form-label required" })
                         <div class="col-10">
-                            @Html.EditorFor(m => m.SoftwareName, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(m => m.SoftwareName, "", new { @class = "form-val-error-tooltip" })
+                            @Html.EditorFor(m => m.ReformatName, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.ReformatName, "", new { @class = "form-val-error-tooltip" })
                         </div>
                     </div>
 

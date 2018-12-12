@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\EmployeesControllerTests.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReformatsControllerTests.cs" />
     <Compile Include="Areas\Admin\Controllers\SoftwareControllerTests.cs" />
     <Compile Include="Controllers\Api\ProjectsControllerTests.cs" />
     <Compile Include="Controllers\ErrorControllerTests.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Persistence\Repositories\NoteRepositoryTests.cs" />
     <Compile Include="Persistence\Repositories\CheckScannerRepositoryTests.cs" />
     <Compile Include="Persistence\Repositories\ProjectUserRepositoryTests.cs" />
+    <Compile Include="Persistence\Repositories\ReformatRepositoryTests.cs" />
     <Compile Include="Persistence\Repositories\SoftwareRepositoryTests.cs" />
     <Compile Include="Reports\ReportBaseTests.cs" />
     <Compile Include="Reports\ReportSelectorTests.cs" />

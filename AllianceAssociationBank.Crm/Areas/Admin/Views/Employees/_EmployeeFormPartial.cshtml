@@ -10,7 +10,7 @@
             {
                 HttpMethod = "POST",
                 InsertionMode = InsertionMode.Replace,
-                UpdateTargetId = "manage-values-content",
+                UpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
                 OnBegin = "ModalDialogHelper.disableFormSubmitButton",
                 OnComplete = "ModalDialogHelper.hideModalDialog",
                 OnFailure = "ErrorHandler.handleAjaxError"

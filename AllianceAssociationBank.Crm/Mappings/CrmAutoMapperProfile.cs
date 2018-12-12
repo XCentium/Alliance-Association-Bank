@@ -67,6 +67,9 @@ namespace AllianceAssociationBank.Crm.Mappings
             CreateMap<Employee, EmployeeViewModel>()
                 .ReverseMap();
 
+            CreateMap<Aq2Reformat, ReformatViewModel>()
+                .ReverseMap();
+
             CreateMap<Software, SoftwareViewModel>()
                 .ReverseMap();
 

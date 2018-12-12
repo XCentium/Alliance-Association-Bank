@@ -46,9 +46,10 @@ namespace AllianceAssociationBank.Crm
                       "~/Scripts/app/searchableSelectPlugin.js",
                       "~/Scripts/app/navigationWidgets.js",
                       "~/Scripts/app/searchWidget.js",
-                      "~/Scripts/app/modalDialogHelper.js",
-                      "~/Scripts/app/inputMaskHelper.js",
                       "~/Scripts/app/datePickerWidget.js",
+                      "~/Scripts/app/inputMaskHelper.js",
+                      "~/Scripts/app/modalDialogHelper.js",
+                      "~/Scripts/app/ajaxHelper.js",
                       "~/Scripts/app/app.js"));
         }
     }

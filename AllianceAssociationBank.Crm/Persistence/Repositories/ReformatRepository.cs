@@ -25,5 +25,34 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .OrderBy(e => e.ReformatName)
                 .ToListAsync();
         }
+
+        public async Task<Aq2Reformat> GetAq2ReformatByIdAsync(int id)
+        {
+            return await _context.Aq2Reformats
+                .Where(s => s.ID == id)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<Aq2Reformat> GetAq2ReformatByNameAsync(string reformatName)
+        {
+            return await _context.Aq2Reformats
+                .Where(e => e.ReformatName == reformatName)
+                .SingleOrDefaultAsync();
+        }
+
+        public void AddAq2Reformat(Aq2Reformat reformat)
+        {
+            _context.Aq2Reformats.Add(reformat);
+        }
+
+        public void RemoveAq2Reformat(Aq2Reformat reformat)
+        {
+            _context.Aq2Reformats.Remove(reformat);
+        }
+
+        public async Task<bool> SaveAllAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
+        }
     }
 }

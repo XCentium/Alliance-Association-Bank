@@ -3,6 +3,15 @@
     color: rgba(220,53,69,1);
 }
 
+.admin-container-main {
+    height: 715px;
+}
+
+.admin-manage-values-list {
+    height: 670px;
+    overflow-y: auto;
+}
+
 .alert-fixed-top {
     position: fixed;
     top: 0;
@@ -181,6 +190,25 @@
     font-style: italic;
     font-size: 80%;
     font-weight: 400;
+}
+
+.loading-element-container {
+    background-color: #ffffff;
+    bottom: 0;
+    display: none;
+    filter: alpha(opacity=85);
+    left: 0;
+    opacity: 0.85;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 98;
+}
+
+.loading-element-img {
+    left: 48%;
+    position: absolute;
+    top: 50%;
 }
 
 .list-widget {

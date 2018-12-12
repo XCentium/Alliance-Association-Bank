@@ -247,12 +247,16 @@
     <Compile Include="Areas\Admin\Constants\Employees\EmployeesView.cs" />
     <Compile Include="Areas\Admin\Constants\HtmlElementIdentifier.cs" />
     <Compile Include="Areas\Admin\Constants\Manage\ManageControllerAction.cs" />
+    <Compile Include="Areas\Admin\Constants\Reformats\ReformatView.cs" />
+    <Compile Include="Areas\Admin\Constants\Reformats\ReformatsControllerRoute.cs" />
     <Compile Include="Areas\Admin\Constants\Software\SoftwareControllerRoute.cs" />
     <Compile Include="Areas\Admin\Constants\Software\SoftwareView.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReformatsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SoftwareController.cs" />
     <Compile Include="Areas\Admin\ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\ReformatViewModel.cs" />
     <Compile Include="Constants\AreaName.cs" />
     <Compile Include="Constants\DefaultErrorText.cs" />
     <Compile Include="Constants\Home\HomeView.cs" />
@@ -538,6 +542,8 @@
     <Content Include="Areas\Admin\Views\Employees\_EmployeeFormPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Software\_SoftwareListPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Software\_SoftwareFormPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Reformats\_ReformatListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Reformats\_ReformatFormPartial.cshtml" />
     <None Include="Reports\Infrastructure\ReportsDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -664,6 +670,7 @@
     <Content Include="Views\Shared\_LegalSectionPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\_EmployeesListPartial.cshtml" />
+    <Content Include="Views\Shared\_LoadingAnimationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

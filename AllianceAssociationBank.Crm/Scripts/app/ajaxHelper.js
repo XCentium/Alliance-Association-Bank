@@ -1,16 +1,20 @@
 ﻿var AjaxHelper = function ($) {
 
+    var LOADING_ELEMENT_CONTAINER = ".loading-element-container";
+
     var showLoadingAnimation = function () {
-        $loadingElement = $($(this).data("loading-element-id"));
-        $loadingElement.show();
+        $loading = $(LOADING_ELEMENT_CONTAINER);
+        $loading.show();
     };
 
     var hideLoadingAnimation = function () {
-        var hideElement = function (element) {
-            $loadingElement = $($(element).data("loading-element-id"));
-            $loadingElement.hide();
-        };
-        setTimeout(hideElement, 2000, this);
+        $loading = $(LOADING_ELEMENT_CONTAINER);
+        $loading.hide("fade", 1000);
+        //var hideElement = function (element) {
+        //    $loadingElement = $($(element).data("loading-element-id"));
+        //    $loadingElement.hide("fade", 1000);
+        //};
+        //setTimeout(hideElement, 200, this);
     };
 
     return {

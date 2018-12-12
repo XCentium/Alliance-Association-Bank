@@ -1,5 +1,4 @@
-﻿<div class="row" style="height:715px;">
-    @* TODO: Need to correct this *@
+﻿<div class="row admin-container-main">
 
     <div class="col-3 border-right px-0">
         <nav aria-label="breadcrumb">
@@ -15,27 +14,45 @@
         </nav>
         <div class="list-group" role="tablist">
             @Ajax.RouteLink("Employees", EmployeesControllerRoute.GetEmployees, routeValues: null, ajaxOptions: new AjaxOptions
-           {
-               HttpMethod = "GET",
-               InsertionMode = InsertionMode.Replace,
-               UpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
-               OnFailure = "ErrorHandler.handleAjaxError",
-               LoadingElementId = "loading-animation"
-           }, htmlAttributes: new
-           {
-               @class = "list-group-item list-group-item-action",
-               id = "list-employees-values",
-               data_toggle = "list",
-               role = "tab",
-           })
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">Reformat AQ2</a>
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
+                OnBegin = "AjaxHelper.showLoadingAnimation",
+                OnComplete = "AjaxHelper.hideLoadingAnimation",
+                OnFailure = "ErrorHandler.handleAjaxError"
+            }, htmlAttributes: new
+            {
+                @class = "list-group-item list-group-item-action",
+                id = "list-employees-values",
+                data_toggle = "list",
+                role = "tab",
+            })
+
+            @Ajax.RouteLink("Reformat AQ2", ReformatsControllerRoute.GetReformats, routeValues: null, ajaxOptions: new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
+                OnBegin = "AjaxHelper.showLoadingAnimation",
+                OnComplete = "AjaxHelper.hideLoadingAnimation",
+                OnFailure = "ErrorHandler.handleAjaxError"
+            }, htmlAttributes: new
+            {
+                @class = "list-group-item list-group-item-action",
+                id = "list-software-values",
+                data_toggle = "list",
+                role = "tab",
+            })
+
             @Ajax.RouteLink("Software", SoftwareControllerRoute.GetSoftwareList, routeValues: null, ajaxOptions: new AjaxOptions
             {
                 HttpMethod = "GET",
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
-                OnFailure = "ErrorHandler.handleAjaxError",
-                LoadingElementId = "loading-animation"
+                OnBegin = "AjaxHelper.showLoadingAnimation",
+                OnComplete = "AjaxHelper.hideLoadingAnimation",
+                OnFailure = "ErrorHandler.handleAjaxError"
             }, htmlAttributes: new
             {
                 @class = "list-group-item list-group-item-action",
@@ -55,18 +72,14 @@
                 </p>
             </div>
         </div>
-        @* TODO: Need to finish this here*@
-        <div id="loading-animation" class="text-center screen-overlay" style="position: absolute !important; transition: all .3s ease;-webkit-transition: all .3s ease;">
-            <img src="~/Content/Images/search-loader.gif" style="left: 47%; top: 50%; position: absolute;">
-        </div>
+        @Html.Partial("_LoadingAnimationPartial")
     </div>
 
 </div>
 
 @* div to render modal form popup *@
-<div id="manage-values-form-modal-location"></div>
+<div id="manage-values-form-modal-container"></div>
 
-@* TODO: Need to move this *@
 @* div to render delete confirmation dialog *@
 <div id="confirm-delete-dialog-location"></div>
 

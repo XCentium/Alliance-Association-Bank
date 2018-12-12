@@ -6,7 +6,7 @@
         {
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "manage-values-form-modal-location",
+            UpdateTargetId = "manage-values-form-modal-container",
             OnSuccess = "ModalDialogHelper.showModalDialog",
             OnFailure = "ErrorHandler.handleAjaxError"
         }, htmlAttributes: new
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="row" style="height: 670px; overflow-y: scroll;">
+<div class="row admin-manage-values-list">
     <div class="col-12">
         <table class="table table-sm table-hover">
             <thead class="table-borderless bg-light">

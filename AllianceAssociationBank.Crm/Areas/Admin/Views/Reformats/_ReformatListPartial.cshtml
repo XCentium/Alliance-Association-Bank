@@ -1,8 +1,8 @@
-﻿@model IEnumerable<EmployeeViewModel>
+﻿@model IEnumerable<ReformatViewModel>
 
 <div class="row p-1">
     <div class="col-12 text-right">
-        @Ajax.RouteLink("Add New", routeName: EmployeesControllerRoute.CreateEmployee, routeValues: null, ajaxOptions: new AjaxOptions
+        @Ajax.RouteLink("Add New", routeName: ReformatsControllerRoute.CreateReformat, routeValues: null, ajaxOptions: new AjaxOptions
         {
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
@@ -12,7 +12,7 @@
         }, htmlAttributes: new
         {
             @class = "btn btn-add-img",
-            data_modal_target = "#employee-form-modal",
+            data_modal_target = "#reformat-form-modal",
             title = "Add new value"
         })
     </div>
@@ -24,8 +24,7 @@
             <thead class="table-borderless bg-light">
                 <tr>
                     <th></th>
-                    <th class="font-weight-light text-uppercase">First Name</th>
-                    <th class="font-weight-light text-uppercase">Last Name</th>
+                    <th class="font-weight-light text-uppercase">Reformat Name</th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,13 +34,10 @@
                     <tr>
                         <td></td>
                         <td>
-                            @Html.DisplayFor(m => record.FirstName)
+                            @Html.DisplayFor(m => record.ReformatName)
                         </td>
                         <td>
-                            @Html.DisplayFor(m => record.LastName)
-                        </td>
-                        <td>
-                            @Ajax.RouteLink(" ", routeName: EmployeesControllerRoute.ConfirmDeleteEmployee, routeValues: new
+                            @Ajax.RouteLink(" ", routeName: ReformatsControllerRoute.ConfirmDeleteReformat, routeValues: new
                             {
                                 id = record.ID
                             }, ajaxOptions: new AjaxOptions
