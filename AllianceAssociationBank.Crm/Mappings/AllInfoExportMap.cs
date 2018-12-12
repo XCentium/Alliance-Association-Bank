@@ -127,6 +127,7 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.ACHSftpCCDDebit).Name("ACH SFTP CCD Debit");
             Map(m => m.ACHSftpCCDCredit).Name("ACH SFTP CCD Credit");
             Map(m => m.ACHWebPPDDebit).Name("ACH Web CCD Debit");
+            Map(m => m.Active).Name("Active");
         }
 
         private string MapEmployeeName(Employee employee)

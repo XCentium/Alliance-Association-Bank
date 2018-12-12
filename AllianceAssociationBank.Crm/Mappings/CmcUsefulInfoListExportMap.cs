@@ -5,6 +5,7 @@ namespace AllianceAssociationBank.Crm.Mappings
 {
     public class CmcUsefulInfoListExportMap : ClassMap<CmcReportDataSetDto>
     {
+        // TODO: need to adjust this to match the report
         public CmcUsefulInfoListExportMap()
         {
             Map(m => m.ID).Name("ID");
@@ -13,21 +14,15 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.TIN).Name("TIN");
             Map(m => m.DICompanyID).Name("DI Company ID");
             Map(m => m.AFPName).Name("AFP");
-            //Map(m => m.AFP)
-            //    .ConvertUsing(m => MapEmployeeName(m.AFP))
-            //    .Name("AFP");
             Map(m => m.OwnerName).Name("Owner");
-            //Map(m => m.Owner)
-            //    .ConvertUsing(m => MapEmployeeName(m.Owner))
-            //    .Name("Owner");
             Map(m => m.Software).Name("Software");
-            //Map(m => m.ACHPassThru).Name("ACH Pass Thru");
-            //Map(m => m.ACHBatches).Name("ACH Batches");
-            //Map(m => m.WireTransferTemplates).Name("Wire Transfer Templates");
+            Map(m => m.ACHPassThru).Name("ACH Pass Thru"); //
+            Map(m => m.ACHBatches).Name("ACH Batches"); // 
+            Map(m => m.WireTransferTemplates).Name("Wire Transfer Templates"); //
             Map(m => m.ACHSystemLimit).Name("ACH System Limit");
             Map(m => m.ValidationFileNotes).Name("Validation File Notes");
-            //Map(m => m.MasterSigCardReceived).Name("Master Sig Card Received");
-            //Map(m => m.EnrollmentFormReceived).Name("Enrollment Form Received");
+            Map(m => m.MasterSigCardReceived).Name("Master Sig Card Received"); //
+            Map(m => m.EnrollmentFormReceived).Name("Enrollment Form Received"); //
             Map(m => m.POBoxLine1).Name("PO Box Line 1");
             Map(m => m.MailingAddress).Name("Mailing Address");
             Map(m => m.MailingCity).Name("Mailing City");
@@ -37,12 +32,16 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.City).Name("City");
             Map(m => m.State).Name("State");
             Map(m => m.ZipCode).Name("Zip");
-            //Map(m => m.CIPGood).Name("CIP Good");
-            //Map(m => m.LockboxWanted).Name("Lockbox Wanted");
+            //Map(m => m.Phone).Name("Phone");
+            Map(m => m.CIPGood).Name("CIP Good"); //
+            Map(m => m.LockboxWanted).Name("Lockbox Wanted"); //
             Map(m => m.Status).Name("Status");
-            //Map(m => m.ValidationFileReceived).Name("Validation File Received");
-            //Map(m => m.ValidationFileAutomaticRegular).Name("Validation File Automatic Regular");
-            //Map(m => m.ValidationFileBulkImporterUsed).Name("Validation File Bulk Importer Used");
+            Map(m => m.ValidationFileAutomaticRegular).Name("Validation File Automatic Regular"); //
+            Map(m => m.ValidationFileReceived).Name("Validation File Received"); //
+            Map(m => m.ValidationFileBulkImporterUsed).Name("Validation File Bulk Importer Used"); //
+
+            Map(m => m.CheckScannerSerialNumbers).Name("Check Scanner Serial Numbers"); //
+            Map(m => m.CheckScannerModels).Name("Check Scanner Models"); //
         }
     }
 }

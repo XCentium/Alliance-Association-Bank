@@ -37,7 +37,7 @@ namespace AllianceAssociationBank.Crm.Core.Dtos
 
         public string ZipCode { get; set; }
 
-        public string Phone { get; set; }
+        public string Phone { get; set; } // Should delete this?
 
         public string LockboxCMCID { get; set; }
 
@@ -48,5 +48,29 @@ namespace AllianceAssociationBank.Crm.Core.Dtos
         public string OwnerName { get; set; }
 
         public string AFPName { get; set; }
+
+        public bool ACHPassThru { get; set; }
+
+        public bool ACHBatches { get; set; }
+
+        public bool WireTransferTemplates { get; set; }
+
+        public bool MasterSigCardReceived { get; set; }
+
+        public bool EnrollmentFormReceived { get; set; }
+
+        public bool CIPGood { get; set; }
+
+        public bool LockboxWanted { get; set; }
+
+        public bool ValidationFileAutomaticRegular { get; set; }
+
+        public bool ValidationFileReceived { get; set; }
+
+        public bool ValidationFileBulkImporterUsed { get; set; }
+
+        public string CheckScannerSerialNumbers { get; set; }
+
+        public string CheckScannerModels { get; set; }
     }
 }

@@ -138,21 +138,6 @@ CREATE NONCLUSTERED INDEX [IX_Projects_TIN] ON [dbo].[Projects]
 	[TIN] ASC
 )
 
---CREATE NONCLUSTERED INDEX [IX_Projects_DBA] ON [dbo].[Projects]
---(
---	[DBA] ASC
---)
-
---CREATE NONCLUSTERED INDEX [IX_Projects_OtherName] ON [dbo].[Projects]
---(
---	[OtherName] ASC
---)
-
---CREATE NONCLUSTERED INDEX [IX_Projects_Phone] ON [dbo].[Projects]
---(
---	[Phone] ASC
---)
-
 
 -- Employees table RENAME statements
 exec sp_rename 'Employees.Last Name', 'LastName', 'COLUMN';
@@ -187,20 +172,6 @@ ALTER TABLE [dbo].[Users] ADD StatementEmail BIT NOT NULL CONSTRAINT DF_Users_St
 ALTER TABLE [dbo].[Users] ADD LockboxEmail BIT NOT NULL CONSTRAINT DF_Users_LockboxEmail DEFAULT (0)
 ALTER TABLE [dbo].[Users] ADD ACHEmail BIT NOT NULL CONSTRAINT DF_Users_ACHEmail DEFAULT (0)
 
---CREATE NONCLUSTERED INDEX [IX_Users_Name] ON [dbo].[Users]
---(
---	[Name] ASC
---)
-
---CREATE NONCLUSTERED INDEX [IX_Users_Email] ON [dbo].[Users]
---(
---	[Email] ASC
---)
-
---CREATE NONCLUSTERED INDEX [IX_Users_Phone] ON [dbo].[Users]
---(
---	[Phone] ASC
---)
 
 -- CheckScanners table RENAME statements
 exec sp_rename 'CheckScanners.ScannerID', 'ID', 'COLUMN';
@@ -213,14 +184,6 @@ exec sp_rename 'ReformatsAQ2.ReformatSpec', 'ReformatName', 'COLUMN';
 -- Add ID as PK for  ReformatsAQ2 table
 ALTER TABLE [dbo].[ReformatsAQ2] ADD ID INT IDENTITY(1,1) NOT NULL
 ALTER TABLE [dbo].[ReformatsAQ2] ADD CONSTRAINT [PK_ReformatsAQ2] PRIMARY KEY CLUSTERED ( ID ASC )
-
--- This is not needed anymore
-/*-- ReformatsECP tabke RENAME statements
-exec sp_rename 'ReformatsECP.ReformatDescription', 'Description', 'COLUMN';
--- Add ID as PK for  ReformatsECP table
-ALTER TABLE [dbo].[ReformatsECP] DROP CONSTRAINT [ReformatsECP$PrimaryKey]
-ALTER TABLE [dbo].[ReformatsECP] ADD ID INT IDENTITY(1,1) NOT NULL
-ALTER TABLE [dbo].[ReformatsECP] ADD CONSTRAINT [PK_ReformatsECP] PRIMARY KEY CLUSTERED ( ID ASC )*/
 
 
 -- Create new Notes table 

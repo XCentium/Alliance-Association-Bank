@@ -13,10 +13,5 @@ namespace AllianceAssociationBank.Crm.Mappings
             Map(m => m.OwnerName).Name("Owner");
             Map(m => m.POBoxLine1).Name("PO Box Line 1 ");
         }
-
-        //private string MapEmployeeName(Employee employee)
-        //{
-        //    return employee != null ? $"{employee.FirstName} {employee.LastName}" : string.Empty;
-        //}
     }
 }

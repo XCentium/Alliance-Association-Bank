@@ -419,7 +419,6 @@
     <Compile Include="Reports\CmcByNameReport.cs" />
     <Compile Include="Reports\CmcByIdReport.cs" />
     <Compile Include="Reports\CmcByIdUsefulInfoReport.cs" />
-    <Compile Include="Reports\CmcAddressByNameReport.cs" />
     <Compile Include="Reports\Infrastructure\IReport.cs" />
     <Compile Include="Reports\Infrastructure\IReportSelector.cs" />
     <Compile Include="Reports\Infrastructure\ReportBase.cs" />
@@ -707,9 +706,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Definitions\ACH-Risk-Review.rdlc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Reports\Definitions\CMC-Address-By-Name.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Definitions\CMC-By-ID-Useful-Info.rdlc" />
