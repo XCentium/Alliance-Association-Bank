@@ -1,12 +1,12 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.CheckScanners;
+using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
-using System;
 using System.Collections.ObjectModel;
 using System.Net;
 using System.Threading.Tasks;
@@ -16,7 +16,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Scanners")]
-    [RedirectOnInvalidAjaxRequest]
+    [RedirectOnInvalidAjaxRequest(ControllerName.Projects, ProjectsControllerAction.Edit, "projectId")]
     public class CheckScannersController : Controller
     {
         private ICheckScannerRepository _scannerRepository;

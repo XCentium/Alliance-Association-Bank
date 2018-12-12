@@ -1,10 +1,12 @@
 ﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants;
 using AllianceAssociationBank.Crm.Areas.Admin.Constants.Employees;
+using AllianceAssociationBank.Crm.Areas.Admin.Constants.Manage;
 using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
 using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System.Collections.Generic;
@@ -17,6 +19,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
     [Authorize(Roles = UserRole.Admin)]
     [RouteArea(AreaName.Admin)]
     [RoutePrefix("Manage/Employees")]
+    [RedirectOnInvalidAjaxRequest(Constants.ControllerName.Manage, ManageControllerAction.Index)]
     public class EmployeesController : Controller
     {
         private IEmployeeRepository _employeeRepository;

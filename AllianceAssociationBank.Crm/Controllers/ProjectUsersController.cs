@@ -1,7 +1,6 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Constants.ProjectUsers;
-using AllianceAssociationBank.Crm.Constants.User;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
@@ -11,20 +10,17 @@ using AllianceAssociationBank.Crm.Persistence.Enums;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Users")]
-    [RedirectOnInvalidAjaxRequest]
+    [RedirectOnInvalidAjaxRequest(ControllerName.Projects, ProjectsControllerAction.Edit, "projectId")]
     public class ProjectUsersController : Controller
     {
         private IProjectUserRepository _userRepository;

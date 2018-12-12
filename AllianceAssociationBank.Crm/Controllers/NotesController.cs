@@ -1,25 +1,22 @@
 ﻿using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Constants.Notes;
+using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Notes")]
-    [RedirectOnInvalidAjaxRequest]
+    [RedirectOnInvalidAjaxRequest(ControllerName.Projects, ProjectsControllerAction.Edit, "projectId")]
     public class NotesController : Controller
     {
         private INoteRepository _notesRepository;

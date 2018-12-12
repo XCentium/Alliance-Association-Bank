@@ -1,18 +1,17 @@
 ﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants;
+using AllianceAssociationBank.Crm.Areas.Admin.Constants.Manage;
 using AllianceAssociationBank.Crm.Areas.Admin.Constants.Reformats;
 using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
 using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
@@ -20,6 +19,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
     [Authorize(Roles = UserRole.Admin)]
     [RouteArea(AreaName.Admin)]
     [RoutePrefix("Manage/Reformats")]
+    [RedirectOnInvalidAjaxRequest(Constants.ControllerName.Manage, ManageControllerAction.Index)]
     public class ReformatsController : Controller
     {
         private IReformatRepository _reformatRepository;

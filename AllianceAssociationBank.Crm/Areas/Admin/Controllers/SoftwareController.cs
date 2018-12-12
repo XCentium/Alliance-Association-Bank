@@ -1,10 +1,12 @@
 ﻿using AllianceAssociationBank.Crm.Areas.Admin.Constants;
+using AllianceAssociationBank.Crm.Areas.Admin.Constants.Manage;
 using AllianceAssociationBank.Crm.Areas.Admin.Constants.Software;
 using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
 using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -20,6 +22,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
     [Authorize(Roles = UserRole.Admin)]
     [RouteArea(AreaName.Admin)]
     [RoutePrefix("Manage/Software")]
+    [RedirectOnInvalidAjaxRequest(Constants.ControllerName.Manage, ManageControllerAction.Index)]
     public class SoftwareController : Controller
     {
         private ISoftwareRepository _softwareRepository;
@@ -53,7 +56,6 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // TODO: test this!
                 return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
