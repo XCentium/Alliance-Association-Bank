@@ -16,10 +16,10 @@
         @foreach (var scanner in Model)
         {
             <tr>
-                <td>
+                <td title="@scanner.Model">
                     @Html.DisplayFor(m => scanner.Model)
                 </td>
-                <td>
+                <td title="@scanner.DateInstalled">
                     @Html.DisplayFor(m => scanner.DateInstalled)
                 </td>
                 <td>

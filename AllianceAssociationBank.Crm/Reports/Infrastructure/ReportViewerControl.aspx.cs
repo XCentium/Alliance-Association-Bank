@@ -3,6 +3,10 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Security;
+using System.Security.Permissions;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Web.UI;
 using Unity;
@@ -37,7 +41,18 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
                 var report = await reportService.GenerateReportByName(reportName, parameters);
 
                 ReportViewer1.SetProperties(report.ReportViewer);
-                ReportViewer1.LocalReport.Refresh();
+
+                //PermissionSet permissions = new PermissionSet(PermissionState.Unrestricted);
+                //permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
+                //permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.AllFlags));
+                //ReportViewer1.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
+
+                //Assembly asm = Assembly.Load("AllianceAssociationBank.Crm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+                //AssemblyName asm_name = asm.GetName();
+                //ReportViewer1.LocalReport.AddFullTrustModuleInSandboxAppDomain(new StrongName(new StrongNamePublicKeyBlob(asm_name.GetPublicKey()), asm_name.Name, asm_name.Version));
+
+                //ReportViewer1.LocalReport.Refresh();
+                //ReportViewer1.LocalReport.ReleaseSandboxAppDomain();
             }
             catch (Exception )
             {

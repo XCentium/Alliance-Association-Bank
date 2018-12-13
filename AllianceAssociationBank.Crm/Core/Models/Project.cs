@@ -240,8 +240,10 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool ACHWebPPDDebit { get; set; }
 
-        public bool Active { get; set; } // New column added
+        public bool Active { get; set; }
 
         public virtual ICollection<ProjectUser> Users { get; set; }
+
+        public virtual ICollection<CheckScanner> CheckScanners { get; set; }
     }
 }

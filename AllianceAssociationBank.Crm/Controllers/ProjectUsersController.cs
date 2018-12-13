@@ -4,6 +4,7 @@ using AllianceAssociationBank.Crm.Constants.ProjectUsers;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
+using AllianceAssociationBank.Crm.Extensions;
 using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.Persistence.Enums;
@@ -27,6 +28,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         private IMapper _mapper;
 
         private const int PAGE_SIZE = 5;
+        private const string EmailListSeparator = "; ";
 
         public ProjectUsersController(IProjectUserRepository userRepository, IMapper mapper)
         {
@@ -131,10 +133,10 @@ namespace AllianceAssociationBank.Crm.Controllers
         public async Task<ActionResult> GetEmailList(int projectId, string emailList)
         {
             var emails = (await _userRepository.GetUsersByEmailList(projectId, emailList.ToLower()))
-                .Select(u => u.Email);
+                .JoinStringProperty(u => u.Email, ConcatenationSeparator.ForEmailList);
 
             ViewBag.ListName = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(emailList);
-            ViewBag.EmailList = EmailListHelper.Concatenate(emails);
+            ViewBag.EmailList = emails;
 
             return PartialView(ProjectUsersView.UsersEmailListDialogPartial);
         }

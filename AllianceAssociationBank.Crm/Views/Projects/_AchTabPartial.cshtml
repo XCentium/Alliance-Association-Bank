@@ -1,5 +1,13 @@
 ﻿@model ProjectFormViewModel
 
+@{
+    var reportButtonCssClass = "btn btn-primary btn-block btn-sm";
+    if (Model.ID == 0)
+    {
+        reportButtonCssClass += " btn-link-disabled";
+    }
+}
+
 <div class="tab-body-content">
 
     <div class="row">
@@ -182,47 +190,72 @@
                     <label class="col form-label-heading">ACH Reports</label>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-6 offset-2">
-                        @{ 
-                            var buttonCssClass = "btn btn-primary btn-block btn-sm";
-                            if (Model.ID == 0)
-                            {
-                                buttonCssClass += " btn-link-disabled";
-                            }
-                        }
-                        
+                    <div class="col-6">
                         @Html.RouteLink("ACH Spec Report", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             name = ReportName.AchSpec,
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = buttonCssClass
-                            
+                            @class = reportButtonCssClass
+
                         })
                     </div>
-                </div> 
+                    <div class="col-6">
+                        @Html.RouteLink("ACH Risk - Initial", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                        {
+                            name = ReportName.AchRiskInitial,
+                            projectId = Model.ID
+                        }, htmlAttributes: new
+                        {
+                            @class = reportButtonCssClass
+
+                        })
+                    </div>
+                </div>
                 <div class="row mb-2">
-                    <div class="col-6 offset-2">
+                    <div class="col-6">
                         @Html.RouteLink("Risk New - Initial", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                              name = ReportName.AchInitialReview,
                              projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = buttonCssClass
+                            @class = reportButtonCssClass
+                        })
+                    </div>
+                    <div class="col-6">
+                        @Html.RouteLink("ACH Risk - 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                        {
+                            name = ReportName.AchRiskSixMonth,
+                            projectId = Model.ID
+                        }, htmlAttributes: new
+                        {
+                            @class = reportButtonCssClass
+
                         })
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-6 offset-2">
+                    <div class="col-6">
                         @Html.RouteLink("Risk New - 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             name = ReportName.AchSixMonthReview,
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = buttonCssClass
+                            @class = reportButtonCssClass
+                        })
+                    </div>
+                    <div class="col-6">
+                        @Html.RouteLink("ACH Risk - Post 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                        {
+                            name = ReportName.AchRiskPostSixMonth,
+                            projectId = Model.ID
+                        }, htmlAttributes: new
+                        {
+                            @class = reportButtonCssClass
+
                         })
                     </div>
                 </div>

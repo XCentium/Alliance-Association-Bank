@@ -56,7 +56,7 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     }
                 case var name when name.EqualsIgnoreCase(ExportName.CmcUsefulInfoList):
                     {
-                        return await _queries.GetCmcByIdDataSetAsync();
+                        return await _queries.GetCmcByIdUsefulInfoDataSetAsync();
                     }
                 case var name when name.EqualsIgnoreCase(ExportName.AllInfo):
                     {

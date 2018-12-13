@@ -25,7 +25,7 @@ namespace AllianceAssociationBank.Crm.Helpers
                 new SelectListItem() { Value = ReportName.CipReview, Text = "CIP Review" },
                 new SelectListItem() { Value = ReportName.CmcByIdUsefulInfo, Text = "CMC By ID Useful Info" },
                 new SelectListItem() { Value = ReportName.IncorrectEmployeeData, Text = "Incorrect Employee Data" },
-            };
+            }.OrderBy(r => r.Text);
         }
 
         public static IEnumerable<SelectListItem> GetExports()
@@ -35,7 +35,7 @@ namespace AllianceAssociationBank.Crm.Helpers
                 new SelectListItem() { Value = ExportName.CmcList, Text = "CMC List" },
                 new SelectListItem() { Value = ExportName.CmcUsefulInfoList, Text = "CMC Useful Info List" },
                 new SelectListItem() { Value = ExportName.AllInfo, Text = "All Info" }
-            };
+            }.OrderBy(r => r.Text);
         }
     }
 }

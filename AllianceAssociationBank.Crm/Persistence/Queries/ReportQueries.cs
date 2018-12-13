@@ -1,7 +1,9 @@
-﻿using AllianceAssociationBank.Crm.Constants.Projects;
+﻿using AllianceAssociationBank.Crm.Constants;
+using AllianceAssociationBank.Crm.Constants.Projects;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Extensions;
 using AllianceAssociationBank.Crm.Helpers;
 using AutoMapper;
 using System;
@@ -71,6 +73,19 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return _mapper.Map<IEnumerable<CmcReportDataSetDto>>(results);
         }
 
+        public async Task<IEnumerable<CmcReportDataSetDto>> GetCmcByIdUsefulInfoDataSetAsync()
+        {
+            var results = await _context.Projects
+                .OrderBy(p => p.LockboxCMCID)
+                .ThenBy(p => p.ProjectName)
+                .Include(p => p.Owner)
+                .Include(p => p.AFP)
+                .Include(p => p.CheckScanners)
+                .ToListAsync();
+
+            return _mapper.Map<IEnumerable<CmcReportDataSetDto>>(results);
+        }
+
         /// <summary>
         ///This query is used by CmcByName report and CmcAddressByName report.
         /// </summary>
@@ -85,15 +100,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
 
             return _mapper.Map<IEnumerable<CmcReportDataSetDto>>(results);
         }
-
-        //public async Task<IEnumerable<CmcReportDatasetDto>> GetCmcAddressByNameDataSetAsync()
-        //{
-        //    var results = await _context.Projects
-        //        .OrderBy(p => p.ProjectName)
-        //        .ToListAsync();
-
-        //    return _mapper.Map<IEnumerable<CmcReportDatasetDto>>(results);
-        //}
 
         public async Task<IEnumerable<Project>> GetAllInfoDataSetAsync()
         {
@@ -117,9 +123,8 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             {
                 ProjectName = p.ProjectName,
                 LockboxCMCID = p.LockboxCMCID,
-                StatementEmails = EmailListHelper.Concatenate(p.Users
-                                                                .Where(u => u.StatementEmail)
-                                                                .Select(u => u.Email))
+                StatementEmails = p.Users.Where(u => u.StatementEmail)
+                                         .JoinStringProperty(u => u.Email, ConcatenationSeparator.ForEmailList)
             })
             .OrderBy(p => string.IsNullOrEmpty(p.StatementEmails))
             .ThenBy(p => p.ProjectName);
@@ -174,7 +179,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         {
             var results = await _context.Projects
                 .Where(p => p.ID == projectId)
-                //.OrderBy(p => p.ProjectName)
                 .ToListAsync();
 
             return _mapper.Map<IEnumerable<ProjectReportDataSetDto>>(results);
@@ -189,7 +193,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                         (p.BoardingManagerID != null && p.BoardingManager == null)
                       )
                 .Where(p => p.Active) // Include only active projects
-                //.Where(p => !p.ProjectName.StartsWith("INACTIVE")) // TODO: need a better way to identify active records
                 .OrderBy(p => p.ProjectName)
                 .Include(p => p.AFP)
                 .Include(p => p.Owner)

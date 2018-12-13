@@ -29,13 +29,13 @@ namespace AllianceAssociationBank.Crm.Reports
         public async Task ExecuteReport()
         {
             // override default width and height
-            ReportViewer.SizeToReportContent = false;
-            ReportViewer.Width = Unit.Pixel(ReportViewerWidthPixels);
-            ReportViewer.Height = Unit.Percentage(100);
+            //ReportViewer.SizeToReportContent = false;
+            //ReportViewer.Width = Unit.Pixel(ReportViewerWidthPixels);
+            //ReportViewer.Height = Unit.Percentage(100);
 
             DataSources.Add(new ReportDataSource(
                 ReportDataSetName.Master,
-                (await Queries.GetCmcByIdDataSetAsync())));
+                (await Queries.GetCmcByIdUsefulInfoDataSetAsync())));
         }
     }
 }

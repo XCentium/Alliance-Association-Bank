@@ -11,6 +11,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<Project>> GetCompletedAndHoldDataSetAsync();
         Task<IEnumerable<Project>> GetSoftwareTransitionDataSetAsync();
         Task<IEnumerable<CmcReportDataSetDto>> GetCmcByIdDataSetAsync();
+        Task<IEnumerable<CmcReportDataSetDto>> GetCmcByIdUsefulInfoDataSetAsync();
         Task<IEnumerable<CmcReportDataSetDto>> GetCmcByNameDataSetAsync();
         Task<IEnumerable<Project>> GetAllInfoDataSetAsync();
         Task<IEnumerable<CDEmailsDataSetDto>> GetCDEmailsDataSetAsync();

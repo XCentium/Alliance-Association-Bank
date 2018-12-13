@@ -38,6 +38,10 @@ namespace AllianceAssociationBank.Crm.Persistence.EntityConfigurations
 
             Property(e => e.System)
                 .HasMaxLength(255);
+
+            HasRequired(s => s.Project)
+                .WithMany(p => p.CheckScanners)
+                .HasForeignKey(s => s.ProjectID);
         }
     }
 }

@@ -69,8 +69,9 @@ namespace AllianceAssociationBank.Crm.Core.Dtos
 
         public bool ValidationFileBulkImporterUsed { get; set; }
 
+        public string CheckScannerModels { get; set; }
+
         public string CheckScannerSerialNumbers { get; set; }
 
-        public string CheckScannerModels { get; set; }
     }
 }

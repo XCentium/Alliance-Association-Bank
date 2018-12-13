@@ -1,13 +1,23 @@
 ﻿using AllianceAssociationBank.Crm.Areas.Admin.ViewModels;
+using AllianceAssociationBank.Crm.Constants;
 using AllianceAssociationBank.Crm.Core.Dtos;
 using AllianceAssociationBank.Crm.Core.Models;
+using AllianceAssociationBank.Crm.Extensions;
+using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace AllianceAssociationBank.Crm.Mappings
 {
     public class CrmAutoMapperProfile : Profile
     {
+        private const string CommaSeparator = ", ";
+
         public CrmAutoMapperProfile()
         {
             CreateMap<Project, ProjectFormViewModel>()
@@ -43,7 +53,15 @@ namespace AllianceAssociationBank.Crm.Mappings
                     opt => opt.MapFrom(src => MapEmployeeName(src.Owner)))
                 .ForMember(
                     dest => dest.AFPName,
-                    opt => opt.MapFrom(src => MapEmployeeName(src.AFP)));
+                    opt => opt.MapFrom(src => MapEmployeeName(src.AFP)))
+                .ForMember(
+                    dest => dest.CheckScannerModels,
+                    opt => opt.MapFrom(src => src.CheckScanners
+                                                 .JoinStringProperty(s => s.Model, ConcatenationSeparator.ForGenericList)))
+                .ForMember(
+                    dest => dest.CheckScannerSerialNumbers,
+                    opt => opt.MapFrom(src => src.CheckScanners
+                                                 .JoinStringProperty(s => s.SerialNumber, ConcatenationSeparator.ForGenericList)));
 
             CreateMap<Project, ProjectReportDataSetDto>()
                 .ForMember(
@@ -89,5 +107,19 @@ namespace AllianceAssociationBank.Crm.Mappings
         {
             return employee != null ? $"{employee.FirstName} {employee.LastName}" : null;
         }
+
+        //private string ConcatenateStringProperty<T>(IEnumerable<T> list, Expression<Func<T, string>> expression) where T : class
+        //{
+        //    if (list == null)
+        //    {
+        //        return null;
+        //    }
+
+        //    var values = list
+        //        .Select(expression.Compile())
+        //        .Where(v => !string.IsNullOrEmpty(v));
+
+        //    return string.Join(CommaSeparator, values);
+        //}
     }
 }

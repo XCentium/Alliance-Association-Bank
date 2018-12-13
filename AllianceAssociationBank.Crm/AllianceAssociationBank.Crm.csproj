@@ -257,6 +257,7 @@
     <Compile Include="Areas\Admin\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ReformatViewModel.cs" />
     <Compile Include="Constants\AreaName.cs" />
+    <Compile Include="Constants\ConcatenationSeparator.cs" />
     <Compile Include="Constants\DefaultErrorText.cs" />
     <Compile Include="Constants\Home\HomeView.cs" />
     <Compile Include="Constants\Home\HomeControllerAction.cs" />
@@ -302,6 +303,7 @@
     <Compile Include="Extensions\AjaxHelperLinkExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperLinkExtensions.cs" />
     <Compile Include="Extensions\HttpRequestExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\ReportViewerExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\WebApiDefaultExceptionFilter.cs" />
@@ -309,7 +311,6 @@
     <Compile Include="Filters\RedirectOnInvalidAjaxRequestAttribute.cs" />
     <Compile Include="Helpers\ReportListHelper.cs" />
     <Compile Include="Helpers\TextContentHelper.cs" />
-    <Compile Include="Helpers\EmailListHelper.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
     <Compile Include="Identity\ActiveDirectoryContext.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />

@@ -20,7 +20,7 @@
 
         /* Configure scrollbars for report viewer */
         #ReportViewer1_ctl13 {
-            overflow-x: hidden !important;
+            overflow-x: auto !important;
             overflow-y: auto !important;
         }
 
