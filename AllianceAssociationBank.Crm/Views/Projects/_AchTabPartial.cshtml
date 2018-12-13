@@ -259,6 +259,19 @@
                         })
                     </div>
                 </div>
+                <div class="row mb-2">
+                    <div class="col-6 offset-6">
+                        @Html.RouteLink("Welcome Checklist", routeName: ReportsControllerRoute.ViewReport, routeValues: new
+                        {
+                            name = ReportName.WelcomeChecklist,
+                            projectId = Model.ID
+                        }, htmlAttributes: new
+                        {
+                            @class = reportButtonCssClass
+
+                        })
+                    </div>
+                </div>
             </div>
 
         </div>
