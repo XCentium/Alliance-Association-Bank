@@ -58,7 +58,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         }
 
         /// <summary>
-        ///This query is used by CmcById report, CmcByIdUsefulInfo report, CmcList export and CmcUsefulInfoList export.
+        ///This query is used by CmcById report and CmcList export.
         /// </summary>
         /// <returns>Returns a collection of CmcReportDatasetDto objects.</returns>
         public async Task<IEnumerable<CmcReportDataSetDto>> GetCmcByIdDataSetAsync()
@@ -73,6 +73,10 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
             return _mapper.Map<IEnumerable<CmcReportDataSetDto>>(results);
         }
 
+        /// <summary>
+        ///This query is used by CmcByIdUsefulInfo report and CmcUsefulInfoList export.
+        /// </summary>
+        /// <returns>Returns a collection of CmcReportDatasetDto objects.</returns>
         public async Task<IEnumerable<CmcReportDataSetDto>> GetCmcByIdUsefulInfoDataSetAsync()
         {
             var results = await _context.Projects

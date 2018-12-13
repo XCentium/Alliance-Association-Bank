@@ -41,6 +41,7 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
                 var report = await reportService.GenerateReportByName(reportName, parameters);
 
                 ReportViewer1.SetProperties(report.ReportViewer);
+                ReportViewer1.LocalReport.Refresh();
 
                 //PermissionSet permissions = new PermissionSet(PermissionState.Unrestricted);
                 //permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
@@ -51,7 +52,6 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
                 //AssemblyName asm_name = asm.GetName();
                 //ReportViewer1.LocalReport.AddFullTrustModuleInSandboxAppDomain(new StrongName(new StrongNamePublicKeyBlob(asm_name.GetPublicKey()), asm_name.Name, asm_name.Version));
 
-                //ReportViewer1.LocalReport.Refresh();
                 //ReportViewer1.LocalReport.ReleaseSandboxAppDomain();
             }
             catch (Exception )

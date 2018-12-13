@@ -26,6 +26,6 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public string Notes { get; set; }
 
-        public virtual Project Project { get; set; }
+        public Project Project { get; set; }
     }
 }
