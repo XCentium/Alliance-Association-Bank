@@ -180,7 +180,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidInputModel_ShouldReturnPartialViewWithBadRequestStatusCode()
+        public async Task Update_InvalidInputModel_ShouldReturnJsonErrorResult()
         {
             var projectId = noteViewModel.ProjectID;
             var noteId = noteViewModel.ID;
@@ -189,11 +189,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, noteId, noteViewModel);
 
-            AssertHelper.AssertActionResult<PartialViewResult, NoteFormViewModel>
-            (
-                result,
-                NotesView.NoteFormPartial
-            );
+            Assert.IsType<JsonErrorResult>(result);
         }
 
         [Fact]

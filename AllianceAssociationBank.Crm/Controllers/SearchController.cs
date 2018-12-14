@@ -6,6 +6,7 @@ using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {

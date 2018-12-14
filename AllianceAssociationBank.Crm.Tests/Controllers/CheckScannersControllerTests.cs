@@ -183,7 +183,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidInputModel_ShouldReturnPartialViewWithBadRequestStatusCode()
+        public async Task Update_InvalidInputModel_ShouldReturnJsonErrorResult()
         {
             var projectId = scannerViewModel.ProjectID;
             var scannerId = scannerViewModel.ID;
@@ -192,11 +192,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, scannerId, scannerViewModel);
 
-            AssertHelper.AssertActionResult<PartialViewResult, ScannerFormViewModel>
-            (
-                result,
-                CheckScannersView.ScannerFormPartial
-            );
+            Assert.IsType<JsonErrorResult>(result);
         }
 
         [Fact]

@@ -242,8 +242,8 @@ namespace AllianceAssociationBank.Crm.Core.Models
 
         public bool Active { get; set; }
 
-        public ICollection<ProjectUser> Users { get; set; } // removed virtual keyword to disable lazy loading
+        public ICollection<ProjectUser> Users { get; set; }
 
-        public ICollection<CheckScanner> CheckScanners { get; set; } // removed virtual keyword to disable lazy loading
+        public ICollection<CheckScanner> CheckScanners { get; set; }
     }
 }

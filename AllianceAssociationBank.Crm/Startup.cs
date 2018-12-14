@@ -1,11 +1,13 @@
-﻿using Microsoft.Owin;
+﻿using AllianceAssociationBank.Crm.Controllers;
+using AllianceAssociationBank.Crm.Providers;
+using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-[assembly: OwinStartupAttribute(typeof(AllianceAssociationBank.Crm.Startup))]
+[assembly: OwinStartup(typeof(AllianceAssociationBank.Crm.Startup))]
 namespace AllianceAssociationBank.Crm
 {
     public partial class Startup
@@ -14,11 +16,11 @@ namespace AllianceAssociationBank.Crm
         {
             ConfigureLogger();
 
-            //AreaRegistration.RegisterAllAreas();
+            ControllerBuilder.Current.SetControllerFactory(new SessionStateControllerFactory());
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //AreaRegistration.RegisterAllAreas(); // moved this after RegisterRoutes
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var config = new HttpConfiguration();

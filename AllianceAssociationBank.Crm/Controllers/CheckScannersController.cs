@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -59,8 +60,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
             var scanner = _mapper.Map<CheckScanner>(viewModel);
@@ -93,8 +93,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return PartialView(CheckScannersView.ScannerFormPartial, viewModel);
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
             var scanner = await _scannerRepository.GetScannerByIdAsync(id);

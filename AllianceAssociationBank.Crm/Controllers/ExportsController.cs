@@ -1,11 +1,9 @@
-﻿using AllianceAssociationBank.Crm.Constants;
-using AllianceAssociationBank.Crm.Constants.Reports;
+﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Exceptions;
-using System;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {

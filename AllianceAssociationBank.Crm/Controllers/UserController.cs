@@ -12,7 +12,6 @@ using System.Web.SessionState;
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
-    [SessionState(SessionStateBehavior.Disabled)]
     public class UserController : Controller
     {
         private IAuthenticationService _authenticationService;

@@ -432,6 +432,8 @@
     <Compile Include="Reports\WelcomeChecklistReport.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Providers\CookieTempDataProvider.cs" />
+    <Compile Include="Controllers\SessionStateControllerFactory.cs" />
     <Compile Include="ViewModels\ConfirmDeleteViewModel.cs" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />

@@ -26,7 +26,6 @@ namespace AllianceAssociationBank.Crm
                 CookieHttpOnly = true,
                 CookieSecure = CookieSecureOption.SameAsRequest,
                 ExpireTimeSpan = TimeSpan.FromHours(UserAuthenticationSettings.CookieAuthExpireHours)
-                //,SlidingExpiration = false
             });
         }
     }

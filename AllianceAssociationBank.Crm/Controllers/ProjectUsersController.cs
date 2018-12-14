@@ -23,7 +23,6 @@ namespace AllianceAssociationBank.Crm.Controllers
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Users")]
     [RedirectOnInvalidAjaxRequest(ControllerName.Projects, ProjectsControllerAction.Edit, "projectId")]
-    [SessionState(SessionStateBehavior.Disabled)]
     public class ProjectUsersController : Controller
     {
         private IProjectUserRepository _userRepository;
@@ -75,8 +74,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return PartialView(ProjectUsersView.UserFormPartial, model);
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
             var user = _mapper.Map<ProjectUser>(model);
@@ -112,8 +110,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return PartialView(ProjectUsersView.UserFormPartial, model);
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
             var user = await _userRepository.GetUserByIdAsync(id);

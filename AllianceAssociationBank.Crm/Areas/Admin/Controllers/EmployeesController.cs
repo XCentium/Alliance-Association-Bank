@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
 {
@@ -53,7 +54,6 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // TODO: test this!
                 return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 

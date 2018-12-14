@@ -5,9 +5,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace AllianceAssociationBank.Crm.Controllers.Api

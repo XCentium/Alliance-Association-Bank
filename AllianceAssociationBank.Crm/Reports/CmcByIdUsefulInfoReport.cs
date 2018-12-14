@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 
 namespace AllianceAssociationBank.Crm.Reports
 {
-    // TODO: also need to fit in scanner info here
     public class CmcByIdUsefulInfoReport : ReportBase, IReport
     {
         private const string DefinitionFileName = ReportName.CmcByIdUsefulInfo;
@@ -28,11 +27,6 @@ namespace AllianceAssociationBank.Crm.Reports
 
         public async Task ExecuteReport()
         {
-            // override default width and height
-            //ReportViewer.SizeToReportContent = false;
-            //ReportViewer.Width = Unit.Pixel(ReportViewerWidthPixels);
-            //ReportViewer.Height = Unit.Percentage(100);
-
             DataSources.Add(new ReportDataSource(
                 ReportDataSetName.Master,
                 (await Queries.GetCmcByIdUsefulInfoDataSetAsync())));

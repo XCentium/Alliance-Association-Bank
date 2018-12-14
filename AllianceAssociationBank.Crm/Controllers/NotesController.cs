@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -59,8 +60,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return PartialView(NotesView.NoteFormPartial, viewModel);
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
             var note = _mapper.Map<Note>(viewModel);
@@ -96,8 +96,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return PartialView(NotesView.NoteFormPartial, viewModel);
+                return new JsonErrorResult(HttpStatusCode.BadRequest);
             }
 
             var note = await _notesRepository.GetNoteByIdAsync(id);

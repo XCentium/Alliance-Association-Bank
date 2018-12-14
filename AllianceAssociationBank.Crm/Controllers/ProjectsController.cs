@@ -4,17 +4,14 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Helpers;
+using AllianceAssociationBank.Crm.Providers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
-using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Security.Principal;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
@@ -41,6 +38,12 @@ namespace AllianceAssociationBank.Crm.Controllers
             _software = software;
             _reformats = reformats;
             _mapper = mapper;
+        }
+
+        // Use cookie to store TempData
+        protected override ITempDataProvider CreateTempDataProvider()
+        {
+            return new CookieTempDataProvider();
         }
 
         [Authorize(Roles = UserRole.EditAccessRoles)]
@@ -72,7 +75,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             _projects.AddProject(project);
             await _projects.SaveAllAsync();
 
-            TempData[SAVED] = true;
+            TempData[SAVED] = true; 
             return RedirectToAction(nameof(this.Edit), new { id = project.ID });
         }
 

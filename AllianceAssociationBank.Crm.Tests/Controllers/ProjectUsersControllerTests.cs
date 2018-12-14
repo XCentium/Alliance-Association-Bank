@@ -121,7 +121,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Create_InvalidModel_PartialViewResult()
+        public async Task Create_InvalidModel_ShouldReturnJsonErrorResult()
         {
             var projectId = 99;
             // On create Id should be 0
@@ -132,7 +132,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Create(projectId, userViewModel);
 
-            AssertHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
+            Assert.IsType<JsonErrorResult>(result);
         }
 
 
@@ -175,7 +175,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
         }
 
         [Fact]
-        public async Task Update_InvalidModel_PartialViewResult()
+        public async Task Update_InvalidModel_ShouldReturnJsonErrorResult()
         {
             var projectId = userViewModel.ProjectID;
             var userId = userViewModel.ID;
@@ -184,7 +184,7 @@ namespace AllianceAssociationBank.Crm.Tests.Controllers
 
             var result = await controller.Update(projectId, userId, userViewModel);
 
-            AssertHelper.AssertActionResult<PartialViewResult, UserFormViewModel>(result, ProjectUsersView.UserFormPartial);
+            Assert.IsType<JsonErrorResult>(result);
         }
 
         [Fact]

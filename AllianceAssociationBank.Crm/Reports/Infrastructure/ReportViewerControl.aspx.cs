@@ -40,21 +40,18 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
 
                 var report = await reportService.GenerateReportByName(reportName, parameters);
 
-                ReportViewer1.SetProperties(report.ReportViewer);
-                ReportViewer1.LocalReport.Refresh();
-
-                //PermissionSet permissions = new PermissionSet(PermissionState.Unrestricted);
+                //PermissionSet permissions = new PermissionSet(PermissionState.None);
                 //permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
-                //permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.AllFlags));
+                //permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
                 //ReportViewer1.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
 
-                //Assembly asm = Assembly.Load("AllianceAssociationBank.Crm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
-                //AssemblyName asm_name = asm.GetName();
-                //ReportViewer1.LocalReport.AddFullTrustModuleInSandboxAppDomain(new StrongName(new StrongNamePublicKeyBlob(asm_name.GetPublicKey()), asm_name.Name, asm_name.Version));
+                //AssemblyName assemblyName = typeof(Persistence.Queries.ReportQueries).Assembly.GetName();
+                //ReportViewer1.LocalReport.AddFullTrustModuleInSandboxAppDomain(new StrongName(new StrongNamePublicKeyBlob(assemblyName.GetPublicKeyToken()), assemblyName.Name, assemblyName.Version));
 
-                //ReportViewer1.LocalReport.ReleaseSandboxAppDomain();
+                ReportViewer1.SetProperties(report.ReportViewer);
+                ReportViewer1.LocalReport.Refresh();
             }
-            catch (Exception )
+            catch (Exception)
             {
                 RedirectToErrorPage();
             }
