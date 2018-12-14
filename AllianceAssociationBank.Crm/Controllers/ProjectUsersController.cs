@@ -16,12 +16,14 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
     [RoutePrefix("Projects/{projectId}/Users")]
     [RedirectOnInvalidAjaxRequest(ControllerName.Projects, ProjectsControllerAction.Edit, "projectId")]
+    [SessionState(SessionStateBehavior.Disabled)]
     public class ProjectUsersController : Controller
     {
         private IProjectUserRepository _userRepository;

@@ -7,10 +7,12 @@ using AllianceAssociationBank.Crm.Constants;
 using System;
 using AllianceAssociationBank.Crm.Constants.Home;
 using AllianceAssociationBank.Crm.Constants.User;
+using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {
     [Authorize]
+    [SessionState(SessionStateBehavior.Disabled)]
     public class UserController : Controller
     {
         private IAuthenticationService _authenticationService;
