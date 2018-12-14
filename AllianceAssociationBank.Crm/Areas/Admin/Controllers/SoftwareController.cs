@@ -76,14 +76,16 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         }
 
         [Route("Delete/{id}", Name = SoftwareControllerRoute.ConfirmDeleteSoftware)]
-        public ActionResult ConfirmDelete(int id)
+        public async Task<ActionResult> ConfirmDelete(int id)
         {
+            var countOfAssociatedProjects = await _softwareRepository.GetCountOfAssociatedActiveProjects(id);
+
             var viewModel = new ConfirmDeleteViewModel()
             {
                 RecordIdToDelete = id,
                 AjaxDeleteRouteName = SoftwareControllerRoute.DeleteSoftware,
                 AjaxUpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
-                ConfirmText = "Are you sure you want to delete this record?"
+                ConfirmText = GetDeleteConfirmText(countOfAssociatedProjects)
             };
 
             return PartialView(SharedView.ConfirmDeleteDialogPartial, viewModel);
@@ -104,6 +106,27 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             await _softwareRepository.SaveAllAsync();
 
             return await Index();
+        }
+
+        private string GetDeleteConfirmText(int countOfAssociatedProjects)
+        {
+            const string AreYouSureText = "Are you sure you want to delete this record?";
+
+            string associatedRecordsText;
+            if (countOfAssociatedProjects < 1)
+            {
+                associatedRecordsText = "No active projects associated with this record.";
+            }
+            else if (countOfAssociatedProjects == 1)
+            {
+                associatedRecordsText = "1 active project associated with this record.";
+            }
+            else
+            {
+                associatedRecordsText = $"{countOfAssociatedProjects} active projects associated with this record.";
+            }
+
+            return $"{associatedRecordsText} {AreYouSureText}";
         }
     }
 }

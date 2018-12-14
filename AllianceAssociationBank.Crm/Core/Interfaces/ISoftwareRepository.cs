@@ -10,6 +10,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<Software>> GetSoftwareAsync();
         Task<Software> GetSoftwareByIdAsync(int id);
         Task<Software> GetSoftwareByNameAsync(string softwareName);
+        Task<int> GetCountOfAssociatedActiveProjects(int id);
         void AddSoftware(Software software);
         void RemoveSoftware(Software software);
         Task<bool> SaveAllAsync();

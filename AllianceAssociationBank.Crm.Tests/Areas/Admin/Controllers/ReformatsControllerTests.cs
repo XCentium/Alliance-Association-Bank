@@ -42,7 +42,7 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
         [Fact]
         public async Task Index_ActionResult_ShouldReturnAq2ReformatListPartialView()
         {
-            _mockReformatRepository.Setup(r => r.GetAq2ReformatsAsync()).ReturnsAsync(_reformats);
+            _mockReformatRepository.Setup(r => r.GetReformatsAsync()).ReturnsAsync(_reformats);
 
             var result = await _controller.Index();
 
@@ -101,7 +101,7 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
                 ReformatName = existingReformat.ReformatName,
             };
             _mockReformatRepository
-                .Setup(r => r.GetAq2ReformatByNameAsync(existingReformat.ReformatName))
+                .Setup(r => r.GetReformatByNameAsync(existingReformat.ReformatName))
                 .ReturnsAsync(existingReformat);
 
             var result = await _controller.Create(duplicateReformat);
@@ -129,13 +129,13 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
             var reformatId = reformat.ID;
 
             _mockReformatRepository
-                .Setup(r => r.GetAq2ReformatByIdAsync(reformatId))
+                .Setup(r => r.GetReformatByIdAsync(reformatId))
                 .ReturnsAsync(reformat);
             _mockReformatRepository
                 .Setup(r => r.SaveAllAsync())
                 .ReturnsAsync(true);
             _mockReformatRepository
-                .Setup(r => r.GetAq2ReformatsAsync())
+                .Setup(r => r.GetReformatsAsync())
                 .ReturnsAsync(_reformats);
 
             var result = await _controller.Delete(reformatId);
@@ -151,7 +151,7 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
             var reformatId = 999;
 
             _mockReformatRepository
-                .Setup(r => r.GetAq2ReformatByIdAsync(reformatId))
+                .Setup(r => r.GetReformatByIdAsync(reformatId))
                 .ReturnsAsync((Aq2Reformat)null);
 
             var result = await Record.ExceptionAsync(() => _controller.Delete(reformatId));

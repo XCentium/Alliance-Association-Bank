@@ -19,33 +19,41 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Aq2Reformat>> GetAq2ReformatsAsync()
+        public async Task<IEnumerable<Aq2Reformat>> GetReformatsAsync()
         {
             return await _context.Aq2Reformats
                 .OrderBy(e => e.ReformatName)
                 .ToListAsync();
         }
 
-        public async Task<Aq2Reformat> GetAq2ReformatByIdAsync(int id)
+        public async Task<Aq2Reformat> GetReformatByIdAsync(int id)
         {
             return await _context.Aq2Reformats
                 .Where(s => s.ID == id)
                 .SingleOrDefaultAsync();
         }
 
-        public async Task<Aq2Reformat> GetAq2ReformatByNameAsync(string reformatName)
+        public async Task<Aq2Reformat> GetReformatByNameAsync(string reformatName)
         {
             return await _context.Aq2Reformats
                 .Where(e => e.ReformatName == reformatName)
                 .SingleOrDefaultAsync();
         }
 
-        public void AddAq2Reformat(Aq2Reformat reformat)
+        public async Task<int> GetCountOfAssociatedActiveProjects(int id)
+        {
+            return await _context.Projects
+                .Where(p => p.Active)
+                .Where(p => p.ReformatAQ2ID == id)
+                .CountAsync();
+        }
+
+        public void AddReformat(Aq2Reformat reformat)
         {
             _context.Aq2Reformats.Add(reformat);
         }
 
-        public void RemoveAq2Reformat(Aq2Reformat reformat)
+        public void RemoveReformat(Aq2Reformat reformat)
         {
             _context.Aq2Reformats.Remove(reformat);
         }

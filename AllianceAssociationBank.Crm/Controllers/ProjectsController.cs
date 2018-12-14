@@ -144,7 +144,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             model.StatusList = DropDownListHelper.StatusValues;
             model.XmlUsageList = DropDownListHelper.XmlUsageValues;
 
-            model.Aq2ReformatList = (await _reformats.GetAq2ReformatsAsync())
+            model.Aq2ReformatList = (await _reformats.GetReformatsAsync())
                 .Select(r => new SelectListItem()
                 {
                     Value = r.ID.ToString(),

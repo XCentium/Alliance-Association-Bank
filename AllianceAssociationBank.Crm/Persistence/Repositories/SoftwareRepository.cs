@@ -40,6 +40,22 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .SingleOrDefaultAsync();
         }
 
+        public async Task<int> GetCountOfAssociatedActiveProjects(int id)
+        {
+            var software = await _context.Softwares
+                .Where(s => s.ID == id)
+                .SingleOrDefaultAsync();
+
+            if (software == null)
+                return 0;
+
+            return await _context.Projects
+                .Where(p => p.Active)
+                .Where(p => p.Software == software.SoftwareName ||
+                            p.MigratingToSoftware == software.SoftwareName)
+                .CountAsync();
+        }
+
         public void AddSoftware(Software software)
         {
             _context.Softwares.Add(software);

@@ -10,6 +10,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
         Task<IEnumerable<Employee>> GetEmployeesAsync();
         Task<Employee> GetEmployeeByIdAsync(int id);
         Task<Employee> GetEmployeeByNameAsync(string firstName, string lastName);
+        Task<int> GetCountOfAssociatedActiveProjects(int id);
         void AddEmployee(Employee employee);
         void RemoveEmployee(Employee employee);
         Task<bool> SaveAllAsync();

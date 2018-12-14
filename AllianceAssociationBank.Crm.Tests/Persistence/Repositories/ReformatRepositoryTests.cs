@@ -38,45 +38,45 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
         }
 
         [Fact]
-        public async Task GetAq2ReformatsAsync_TwoEntities_ShouldReturnAq2ReformatIEnumerable()
+        public async Task GetReformatsAsync_TwoEntities_ShouldReturnAq2ReformatIEnumerable()
         {
-            var results = await _repository.GetAq2ReformatsAsync();
+            var results = await _repository.GetReformatsAsync();
 
             Assert.Equal(2, results.Count());
         }
 
         [Fact]
-        public async Task GetAq2ReformatByIdAsync_ValidId_ShouldReturnAq2ReformatEntity()
+        public async Task GetReformatByIdAsync_ValidId_ShouldReturnAq2ReformatEntity()
         {
             var reformatId = _reformats.First().ID;
 
-            var result = await _repository.GetAq2ReformatByIdAsync(reformatId);
+            var result = await _repository.GetReformatByIdAsync(reformatId);
 
             Assert.Equal(reformatId, result.ID);
         }
 
         [Fact]
-        public async Task GetAq2ReformatByIdAsync_InvalidId_ShouldReturnNull()
+        public async Task GetReformatByIdAsync_InvalidId_ShouldReturnNull()
         {
             var invalidReformatId = 199;
 
-            var result = await _repository.GetAq2ReformatByIdAsync(invalidReformatId);
+            var result = await _repository.GetReformatByIdAsync(invalidReformatId);
 
             Assert.Null(result);
         }
 
         [Fact]
-        public async Task GetAq2ReformatByNameAsync_ValidName_ShouldReturnAq2ReformatEntity()
+        public async Task GetReformatByNameAsync_ValidName_ShouldReturnAq2ReformatEntity()
         {
             var reformatName = _reformats.First().ReformatName;
 
-            var result = await _repository.GetAq2ReformatByNameAsync(reformatName);
+            var result = await _repository.GetReformatByNameAsync(reformatName);
 
             Assert.Equal(reformatName, result.ReformatName);
         }
 
         [Fact]
-        public void AddAq2Reformat_NewEntity_ShouldAddEntityToDbSet()
+        public void AddReformat_NewEntity_ShouldAddEntityToDbSet()
         {
             var newReformat = new Aq2Reformat()
             {
@@ -84,17 +84,17 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
                 ReformatName = "Reformat 3"
             };
 
-            _repository.AddAq2Reformat(newReformat);
+            _repository.AddReformat(newReformat);
 
             Assert.Contains(newReformat, _mockDbContext.Object.Aq2Reformats);
         }
 
         [Fact]
-        public void RemoveAq2Reformat_ValidEntity_ShouldRemoveEntityFromDbSet()
+        public void RemoveReformat_ValidEntity_ShouldRemoveEntityFromDbSet()
         {
             var reformatToRemove = _reformats.First();
 
-            _repository.RemoveAq2Reformat(reformatToRemove);
+            _repository.RemoveReformat(reformatToRemove);
 
             Assert.DoesNotContain(reformatToRemove, _mockDbContext.Object.Aq2Reformats);
         }
@@ -109,7 +109,7 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Repositories
             };
             _mockDbContext.Setup(c => c.SaveChangesAsync()).ReturnsAsync(1);
 
-            _repository.AddAq2Reformat(newReformat);
+            _repository.AddReformat(newReformat);
             var result = await _repository.SaveAllAsync();
 
             Assert.True(result);

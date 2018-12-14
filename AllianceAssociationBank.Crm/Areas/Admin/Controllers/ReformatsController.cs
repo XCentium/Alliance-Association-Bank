@@ -35,7 +35,7 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         [Route("Index", Name = ReformatsControllerRoute.GetReformats)]
         public async Task<ActionResult> Index()
         {
-            var reformatEntities = await _reformatRepository.GetAq2ReformatsAsync();
+            var reformatEntities = await _reformatRepository.GetReformatsAsync();
             var viewModels = _mapper.Map<IEnumerable<ReformatViewModel>>(reformatEntities);
 
             return PartialView(ReformatView.ReformatListPartial, viewModels);
@@ -59,28 +59,30 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
 
             viewModel.TrimValues();
 
-            var existing = await _reformatRepository.GetAq2ReformatByNameAsync(viewModel.ReformatName);
+            var existing = await _reformatRepository.GetReformatByNameAsync(viewModel.ReformatName);
             if (existing != null)
             {
                 return new JsonErrorResult(HttpStatusCode.BadRequest, "The reformat record already exists.");
             }
 
             var reformat = _mapper.Map<Aq2Reformat>(viewModel);
-            _reformatRepository.AddAq2Reformat(reformat);
+            _reformatRepository.AddReformat(reformat);
             await _reformatRepository.SaveAllAsync();
 
             return await Index();
         }
 
         [Route("Delete/{id}", Name = ReformatsControllerRoute.ConfirmDeleteReformat)]
-        public ActionResult ConfirmDelete(int id)
+        public async Task<ActionResult> ConfirmDelete(int id)
         {
+            var countOfAssociatedProjects = await _reformatRepository.GetCountOfAssociatedActiveProjects(id);
+
             var viewModel = new ConfirmDeleteViewModel()
             {
                 RecordIdToDelete = id,
                 AjaxDeleteRouteName = ReformatsControllerRoute.DeleteReformat,
                 AjaxUpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
-                ConfirmText = "Are you sure you want to delete this record?"
+                ConfirmText = GetDeleteConfirmText(countOfAssociatedProjects)
             };
 
             return PartialView(SharedView.ConfirmDeleteDialogPartial, viewModel);
@@ -91,16 +93,37 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
-            var reformat = await _reformatRepository.GetAq2ReformatByIdAsync(id);
+            var reformat = await _reformatRepository.GetReformatByIdAsync(id);
             if (reformat == null)
             {
                 throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("reformat", id));
             }
 
-            _reformatRepository.RemoveAq2Reformat(reformat);
+            _reformatRepository.RemoveReformat(reformat);
             await _reformatRepository.SaveAllAsync();
 
             return await Index();
+        }
+
+        private string GetDeleteConfirmText(int countOfAssociatedProjects)
+        {
+            const string AreYouSureText = "Are you sure you want to delete this record?";
+
+            string associatedRecordsText;
+            if (countOfAssociatedProjects < 1)
+            {
+                associatedRecordsText = "No active projects associated with this record.";
+            }
+            else if (countOfAssociatedProjects == 1)
+            {
+                associatedRecordsText = "1 active project associated with this record.";
+            }
+            else
+            {
+                associatedRecordsText = $"{countOfAssociatedProjects} active projects associated with this record.";
+            }
+
+            return $"{associatedRecordsText} {AreYouSureText}";
         }
     }
 }

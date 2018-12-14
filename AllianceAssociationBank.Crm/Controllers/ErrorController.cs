@@ -1,14 +1,7 @@
-﻿using AllianceAssociationBank.Crm.Constants;
-using AllianceAssociationBank.Crm.Exceptions;
-using AllianceAssociationBank.Crm.ViewModels;
+﻿using AllianceAssociationBank.Crm.Exceptions;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Controllers
 {

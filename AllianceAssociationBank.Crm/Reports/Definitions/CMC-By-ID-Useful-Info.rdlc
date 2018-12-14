@@ -1303,7 +1303,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Validation File Automatic Regular</Value>
+                              <Value>Validation File Automatic/Regular</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -1435,7 +1435,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Check Scanner Models</Value>
+                              <Value>Scanner Models</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -1479,7 +1479,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Check Scanner Serial Numbers</Value>
+                              <Value>Scanner Serial Numbers</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>

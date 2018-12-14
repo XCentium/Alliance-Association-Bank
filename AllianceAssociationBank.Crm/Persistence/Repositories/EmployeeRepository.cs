@@ -41,6 +41,16 @@ namespace AllianceAssociationBank.Crm.Persistence.Repositories
                 .SingleOrDefaultAsync();
         }
 
+        public async Task<int> GetCountOfAssociatedActiveProjects(int id)
+        {
+            return await _context.Projects
+                .Where(p => p.Active)
+                .Where(p => p.OwnerID == id ||
+                            p.AFPID == id ||
+                            p.BoardingManagerID == id)
+                .CountAsync();
+        }
+
         public void AddEmployee(Employee employee)
         {
             _context.Employees.Add(employee);
