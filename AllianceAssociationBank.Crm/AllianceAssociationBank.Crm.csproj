@@ -401,6 +401,7 @@
     <Compile Include="Reports\AchRiskPost6MonthReport.cs" />
     <Compile Include="Reports\AchRisk6MonthReport.cs" />
     <Compile Include="Reports\AchRiskInitialReport.cs" />
+    <Compile Include="Reports\ProjectsByOpsReport.cs" />
     <Compile Include="Reports\CDEmailsReport.cs" />
     <Compile Include="Reports\CipReviewReport.cs" />
     <Compile Include="Reports\IncorrectEmployeeDataReport.cs" />
@@ -440,6 +441,7 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\NoteFormViewModel.cs" />
     <Compile Include="ViewModels\PagedListViewModel.cs" />
+    <Compile Include="ViewModels\ReportParametersPromptViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\SearchResultViewModel.cs" />
     <Compile Include="ViewModels\ScannerFormViewModel.cs" />
@@ -561,6 +563,7 @@
     <Content Include="Scripts\app\generalTabController.js" />
     <Content Include="Scripts\app\navigationWidgets.js" />
     <Content Include="Scripts\app\datePickerWidget.js" />
+    <Content Include="Scripts\app\reportViewerService.js" />
     <Content Include="Scripts\app\usersTabController.js" />
     <Content Include="Scripts\app\searchableSelectPlugin.js" />
     <Content Include="Scripts\app\searchWidget.js" />
@@ -669,6 +672,7 @@
     <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\_EmployeesListPartial.cshtml" />
     <Content Include="Views\Shared\_LoadingAnimationPartial.cshtml" />
+    <Content Include="Views\Reports\_DateParamsPromptPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -727,6 +731,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Definitions\Welcome-Checklist.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\Definitions\Projects-By-Ops.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

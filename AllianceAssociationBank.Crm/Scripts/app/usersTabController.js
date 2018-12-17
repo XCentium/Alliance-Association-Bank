@@ -30,7 +30,7 @@
     };
 
     var getUsersAndRefreshList = function (projectId, page, filter) {
-        var url = "/Projects/" + projectId + "/Users/Index"
+        var url = "/Projects/" + projectId + "/Users/Index";
 
         $.get(url, { page: page, filter: filter })
             .done(function (responseData) {

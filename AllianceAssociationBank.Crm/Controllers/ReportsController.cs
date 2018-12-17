@@ -43,35 +43,18 @@ namespace AllianceAssociationBank.Crm.Controllers
             ViewBag.Title = name;
 
             return View(ReportsView.ViewReport);
+        }
 
-            //try
-            //{
-            //    IReport report;
-            //    if (projectId.HasValue)
-            //    {
-            //        report = _reportSelector.ResolveByName(name, (int)projectId);
-            //    }
-            //    else
-            //    {
-            //        report = _reportSelector.ResolveByName(name);
-            //    }
-
-            //    await report.ExecuteReport();
-
-            //    ViewBag.Title = name;
-            //    var viewModel = new ReportViewModel()
-            //    {
-            //        GeneratedReport = report.ReportViewer
-            //    };
-            //    ViewBag.Title = name;
-            //    //ViewBag.ReportViewer = report.ReportViewer;
-            //    //ViewBag.Title = name;
-            //    return View(ReportsView.ViewReport, viewModel);
-            //}
-            //catch (InvalidReportException e)
-            //{
-            //    throw new HttpNotFoundException(e);
-            //}
+        [Route("Parameters/{report}", Name = "ReportParameters")]
+        public ActionResult ParametersPrompt(string report)
+        {
+            var viewModel = new ReportParametersPromptViewModel()
+            {
+                ReportName = report,
+                StartDate = new DateTime(DateTime.Today.Year, 1, 1),
+                EndDate = new DateTime(DateTime.Today.Year, 12, 31),
+            };
+            return PartialView(ReportsView.DateParamsPromptPartial, viewModel);
         }
     }
 }

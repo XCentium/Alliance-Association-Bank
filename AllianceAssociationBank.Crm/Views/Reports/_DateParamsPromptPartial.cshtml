@@ -1,0 +1,40 @@
+﻿@model ReportParametersPromptViewModel
+
+<div class="modal fade" id="report-params-prompt-modal" tabindex="-1" role="dialog" aria-labelledby="report-params-prompt-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="report-params-prompt-modal-label">Enter Report Parameters</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @Html.HiddenFor(m => m.ReportName, htmlAttributes: new { id = "report-name" })
+            <form id="report-params-form">
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            @Html.LabelFor(m => m.StartDate, new { @class = "col-4 px-0" })
+                            <div class="col-8">
+                                @Html.EditorFor(m => m.StartDate, additionalViewData: new { htmlAttributes = new { @class = "form-input js-date-picker", Name = "startDate" } })
+                                @Html.ValidationMessage("startDate", new { @class = "form-val-error-tooltip" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.LabelFor(m => m.EndDate, new { @class = "col-4 px-0" })
+                            <div class="col-8">
+                                @Html.EditorFor(m => m.EndDate, additionalViewData: new { htmlAttributes = new { @class = "form-input js-date-picker", Name = "endDate" } })
+                                @Html.ValidationMessage("endDate", new { @class = "form-val-error-tooltip" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-primary" id="btn-generate-report-with-params">Generate Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

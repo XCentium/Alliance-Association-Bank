@@ -23,6 +23,7 @@ namespace AllianceAssociationBank.Crm.Helpers
                 new SelectListItem() { Value = ReportName.AchRiskReview, Text = "ACH Risk Review" },
                 new SelectListItem() { Value = ReportName.CipReview, Text = "CIP Review" },
                 new SelectListItem() { Value = ReportName.CmcByIdUsefulInfo, Text = "CMC By ID Useful Info" },
+                new SelectListItem() { Value = "Projects-By-Ops", Text = "Projects By Ops" },
                 new SelectListItem() { Value = ReportName.IncorrectEmployeeData, Text = "Incorrect Employee Data" },
             }.OrderBy(r => r.Text);
         }

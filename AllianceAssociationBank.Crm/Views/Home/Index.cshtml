@@ -52,3 +52,11 @@
 </div>
 
 @Html.Partial(SharedView.LegalSectionPartial)
+
+@* div to render report parameters prompt modal *@
+<div id="report-params-prompt-container"></div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
