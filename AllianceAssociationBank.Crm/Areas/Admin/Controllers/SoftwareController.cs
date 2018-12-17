@@ -7,6 +7,7 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
+using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -78,14 +79,14 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         [Route("Delete/{id}", Name = SoftwareControllerRoute.ConfirmDeleteSoftware)]
         public async Task<ActionResult> ConfirmDelete(int id)
         {
-            var countOfAssociatedProjects = await _softwareRepository.GetCountOfAssociatedActiveProjects(id);
+            var countOfAssociatedActiveProjects = await _softwareRepository.GetCountOfAssociatedActiveProjects(id);
 
             var viewModel = new ConfirmDeleteViewModel()
             {
                 RecordIdToDelete = id,
                 AjaxDeleteRouteName = SoftwareControllerRoute.DeleteSoftware,
                 AjaxUpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
-                ConfirmText = GetDeleteConfirmText(countOfAssociatedProjects)
+                ConfirmText = UserAlertContent.GetConfirmDeleteMessage(countOfAssociatedActiveProjects)
             };
 
             return PartialView(SharedView.ConfirmDeleteDialogPartial, viewModel);
@@ -99,34 +100,13 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             var software = await _softwareRepository.GetSoftwareByIdAsync(id);
             if (software == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("software", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("software", id));
             }
 
             _softwareRepository.RemoveSoftware(software);
             await _softwareRepository.SaveAllAsync();
 
             return await Index();
-        }
-
-        private string GetDeleteConfirmText(int countOfAssociatedProjects)
-        {
-            const string AreYouSureText = "Are you sure you want to delete this record?";
-
-            string associatedRecordsText;
-            if (countOfAssociatedProjects < 1)
-            {
-                associatedRecordsText = "No active projects associated with this record.";
-            }
-            else if (countOfAssociatedProjects == 1)
-            {
-                associatedRecordsText = "1 active project associated with this record.";
-            }
-            else
-            {
-                associatedRecordsText = $"{countOfAssociatedProjects} active projects associated with this record.";
-            }
-
-            return $"{associatedRecordsText} {AreYouSureText}";
         }
     }
 }

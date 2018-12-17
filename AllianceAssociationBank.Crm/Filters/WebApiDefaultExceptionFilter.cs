@@ -29,8 +29,8 @@ namespace AllianceAssociationBank.Crm.Filters
 
             context.Response = context.Request.CreateResponse(httpStatusCode, new
             {
-                Error = DefaultErrorText.Title.GetByStatusCode(httpStatusCode),
-                Message = DefaultErrorText.Message.GetByStatusCode(httpStatusCode)
+                Error = UserErrorContent.Title.GetByStatusCode(httpStatusCode),
+                Message = UserErrorContent.Message.GetByStatusCode(httpStatusCode)
             });
 
             base.OnException(context);

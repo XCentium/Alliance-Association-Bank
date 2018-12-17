@@ -85,7 +85,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (project == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("project", id));   
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("project", id));   
             }
 
             var model = _mapper.Map<ProjectFormViewModel>(project);
@@ -116,7 +116,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var project = await _projects.GetProjectByIdAsync(model.ID);
             if (project == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("project", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("project", id));
             }
 
             // Reset PMC/CMC ID value if a user with ReadWrite role attempts to change it.

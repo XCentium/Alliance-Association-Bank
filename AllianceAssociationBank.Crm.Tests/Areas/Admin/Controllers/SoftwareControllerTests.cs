@@ -112,11 +112,11 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
         }
 
         [Fact]
-        public void ConfirmDelete_ValidSoftwareId_ShouldReturnPartialViewWithConfirmDeleteViewModel()
+        public async Task ConfirmDelete_ValidSoftwareId_ShouldReturnPartialViewWithConfirmDeleteViewModel()
         {
             var softwareId = _softwareList.First().ID;
 
-            var result = _controller.ConfirmDelete(softwareId);
+            var result = await _controller.ConfirmDelete(softwareId);
 
             var viewModel = AssertHelper.AssertActionResult<PartialViewResult, ConfirmDeleteViewModel>(result);
             Assert.Equal(softwareId, viewModel.RecordIdToDelete);

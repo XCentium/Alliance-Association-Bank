@@ -56,7 +56,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (projectId == 0)
             {
-                return new JsonErrorResult(HttpStatusCode.BadRequest, DefaultErrorText.Message.CreateProjectFirst);
+                return new JsonErrorResult(HttpStatusCode.BadRequest, UserErrorContent.Message.CreateProjectFirst);
             }
 
             var model = new UserFormViewModel();
@@ -94,7 +94,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (user == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("user", id));
             }
 
             var model = _mapper.Map<UserFormViewModel>(user);
@@ -116,7 +116,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var user = await _userRepository.GetUserByIdAsync(id);
             if (user == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("user", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("user", id));
             }
 
             _mapper.Map(model, user);

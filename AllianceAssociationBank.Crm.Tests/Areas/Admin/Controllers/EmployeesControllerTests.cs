@@ -125,11 +125,11 @@ namespace AllianceAssociationBank.Crm.Tests.Areas.Admin.Controllers
         }
 
         [Fact]
-        public void ConfirmDelete_ValidEmployeeId_ShouldReturnPartialViewWithConfirmDeleteViewModel()
+        public async Task ConfirmDelete_ValidEmployeeId_ShouldReturnPartialViewWithConfirmDeleteViewModel()
         {
             var employeeId = _employees.First().ID;
 
-            var result = _controller.ConfirmDelete(employeeId);
+            var result = await _controller.ConfirmDelete(employeeId);
 
             var viewModel = AssertHelper.AssertActionResult<PartialViewResult, ConfirmDeleteViewModel>(result);
             Assert.Equal(employeeId, viewModel.RecordIdToDelete);

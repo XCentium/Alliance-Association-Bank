@@ -24,8 +24,8 @@ namespace AllianceAssociationBank.Crm.Exceptions
                                string errorMessage = null) 
         {
             _httpStatusCode = statusCode;
-            errorTitle = errorTitle ?? DefaultErrorText.Title.GetByStatusCode(statusCode);
-            errorMessage = errorMessage ?? DefaultErrorText.Message.GetByStatusCode(statusCode);
+            errorTitle = errorTitle ?? UserErrorContent.Title.GetByStatusCode(statusCode);
+            errorMessage = errorMessage ?? UserErrorContent.Message.GetByStatusCode(statusCode);
 
             JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             Data = new

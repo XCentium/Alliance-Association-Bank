@@ -255,7 +255,7 @@
     <Compile Include="Areas\Admin\ViewModels\ReformatViewModel.cs" />
     <Compile Include="Constants\AreaName.cs" />
     <Compile Include="Constants\ConcatenationSeparator.cs" />
-    <Compile Include="Constants\DefaultErrorText.cs" />
+    <Compile Include="Constants\UserErrorContent.cs" />
     <Compile Include="Constants\Home\HomeView.cs" />
     <Compile Include="Constants\Home\HomeControllerAction.cs" />
     <Compile Include="Constants\Notes\NotesView.cs" />
@@ -309,6 +309,7 @@
     <Compile Include="Helpers\ReportListHelper.cs" />
     <Compile Include="Helpers\TextContentHelper.cs" />
     <Compile Include="Helpers\SearchTermFormatter.cs" />
+    <Compile Include="Helpers\UserAlertContent.cs" />
     <Compile Include="Identity\ActiveDirectoryContext.cs" />
     <Compile Include="Identity\ADAuthenticationService.cs" />
     <Compile Include="Identity\IActiveDirectoryContext.cs" />

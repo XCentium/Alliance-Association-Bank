@@ -20,7 +20,6 @@ namespace AllianceAssociationBank.Crm.Helpers
                 new SelectListItem() { Value = ReportName.CmcByName, Text = "CMC By Name" },
                 new SelectListItem() { Value = ReportName.CDEmails, Text = "CD Emails" },
                 new SelectListItem() { Value = ReportName.Coupon, Text = "Coupon" },
-
                 new SelectListItem() { Value = ReportName.AchRiskReview, Text = "ACH Risk Review" },
                 new SelectListItem() { Value = ReportName.CipReview, Text = "CIP Review" },
                 new SelectListItem() { Value = ReportName.CmcByIdUsefulInfo, Text = "CMC By ID Useful Info" },

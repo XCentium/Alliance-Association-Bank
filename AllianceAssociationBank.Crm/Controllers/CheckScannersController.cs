@@ -43,7 +43,7 @@ namespace AllianceAssociationBank.Crm.Controllers
         {
             if (projectId == 0)
             {
-                return new JsonErrorResult(HttpStatusCode.BadRequest, DefaultErrorText.Message.CreateProjectFirst);
+                return new JsonErrorResult(HttpStatusCode.BadRequest, UserErrorContent.Message.CreateProjectFirst);
             }
 
             var viewModel = new ScannerFormViewModel();
@@ -77,7 +77,7 @@ namespace AllianceAssociationBank.Crm.Controllers
 
             if (scanner == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("check scanner", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("check scanner", id));
             }
 
             var viewModel = _mapper.Map<ScannerFormViewModel>(scanner);
@@ -99,7 +99,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var scanner = await _scannerRepository.GetScannerByIdAsync(id);
             if (scanner == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("check scanner", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("check scanner", id));
             }
 
             _mapper.Map(viewModel, scanner);
@@ -132,7 +132,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             var scanner = await _scannerRepository.GetScannerByIdAsync(id);
             if (scanner == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("check scanner", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("check scanner", id));
             }
 
             _scannerRepository.RemoveScanner(scanner);

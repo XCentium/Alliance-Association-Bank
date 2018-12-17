@@ -11,7 +11,7 @@ namespace AllianceAssociationBank.Crm.Exceptions
     public class HttpNotFoundException : HttpException
     {
         public HttpNotFoundException() 
-            : base((int)HttpStatusCode.NotFound, DefaultErrorText.Message.NotFound)
+            : base((int)HttpStatusCode.NotFound, UserErrorContent.Message.NotFound)
         {
         }
 
@@ -21,7 +21,7 @@ namespace AllianceAssociationBank.Crm.Exceptions
         }
 
         public HttpNotFoundException(Exception innerException)
-            : base((int)HttpStatusCode.NotFound, DefaultErrorText.Message.NotFound, innerException)
+            : base((int)HttpStatusCode.NotFound, UserErrorContent.Message.NotFound, innerException)
         {
         }
     }

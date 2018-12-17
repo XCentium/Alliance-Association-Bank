@@ -7,6 +7,7 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Core.Models;
 using AllianceAssociationBank.Crm.Exceptions;
 using AllianceAssociationBank.Crm.Filters;
+using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
 using System;
@@ -76,14 +77,14 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
         [Route("Delete/{id}", Name = EmployeesControllerRoute.ConfirmDeleteEmployee)]
         public async Task<ActionResult> ConfirmDelete(int id)
         {
-            var countOfAssociatedProjects = await _employeeRepository.GetCountOfAssociatedActiveProjects(id);
+            var countOfAssociatedActiveProjects = await _employeeRepository.GetCountOfAssociatedActiveProjects(id);
 
             var viewModel = new ConfirmDeleteViewModel()
             {
                 RecordIdToDelete = id,
                 AjaxDeleteRouteName = EmployeesControllerRoute.DeleteEmployee,
                 AjaxUpdateTargetId = HtmlElementIdentifier.ManageValuesContent,
-                ConfirmText = GetDeleteConfirmText(countOfAssociatedProjects)
+                ConfirmText = UserAlertContent.GetConfirmDeleteMessage(countOfAssociatedActiveProjects)
             };
 
             return PartialView(SharedView.ConfirmDeleteDialogPartial, viewModel);
@@ -97,34 +98,13 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             var employee = await _employeeRepository.GetEmployeeByIdAsync(id);
             if (employee == null)
             {
-                throw new HttpNotFoundException(DefaultErrorText.Message.FormatForRecordNotFound("employee", id));
+                throw new HttpNotFoundException(UserErrorContent.Message.FormatMessageForRecordNotFound("employee", id));
             }
 
             _employeeRepository.RemoveEmployee(employee);
             await _employeeRepository.SaveAllAsync();
 
             return await Index();
-        }
-
-        private string GetDeleteConfirmText(int countOfAssociatedProjects)
-        {
-            const string AreYouSureText = "Are you sure you want to delete this record?";
-
-            string associatedRecordsText;
-            if (countOfAssociatedProjects < 1)
-            {
-                associatedRecordsText = "No active projects associated with this record.";
-            }
-            else if (countOfAssociatedProjects == 1)
-            {
-                associatedRecordsText = "1 active project associated with this record.";
-            }
-            else
-            {
-                associatedRecordsText = $"{countOfAssociatedProjects} active projects associated with this record.";
-            }
-
-            return $"{associatedRecordsText} {AreYouSureText}";
         }
     }
 }

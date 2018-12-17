@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AllianceAssociationBank.Crm.Constants
 {
-    public static class DefaultErrorText
+    public static class UserErrorContent
     {
         public static class Title
         {
@@ -53,7 +53,7 @@ namespace AllianceAssociationBank.Crm.Constants
                 }
             }
 
-            public static string FormatForRecordNotFound(string recordType, int recordId)
+            public static string FormatMessageForRecordNotFound(string recordType, int recordId)
             {
                 return string.Format("The requested {0} record with ID of {1} was not found.", recordType, recordId);
             }

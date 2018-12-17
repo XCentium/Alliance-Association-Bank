@@ -65,7 +65,7 @@ namespace AllianceAssociationBank.Crm.Filters
             // For internal server error return default error message instead of actual exception details
             if (statusCode == HttpStatusCode.InternalServerError)
             {
-                errorMessage = DefaultErrorText.Message.InternalServerError;
+                errorMessage = UserErrorContent.Message.InternalServerError;
             }
             else
             {
