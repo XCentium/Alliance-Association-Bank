@@ -324,7 +324,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ACH Limit (Not to Exceed 15% Total Est Dpts):</Value>
+                                  <Value>ACH Limit (Not to Exceed 15% Total Est Deps):</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -672,7 +672,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ACH Limit (Not to Exceed 15% Total Est Dpts):</Value>
+                                  <Value>ACH Limit (Not to Exceed 25% Total Est Deps):</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
