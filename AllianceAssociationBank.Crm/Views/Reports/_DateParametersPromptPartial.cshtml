@@ -5,9 +5,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="report-params-prompt-modal-label">Enter Report Parameters</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             @Html.HiddenFor(m => m.ReportName, htmlAttributes: new { id = "report-name" })
             <form id="report-params-form">
@@ -32,7 +29,8 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="submit" class="btn btn-primary" id="btn-generate-report-with-params">Generate Report</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="btn-generate-report-with-params">Generate</button>
                 </div>
             </form>
         </div>

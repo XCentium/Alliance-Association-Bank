@@ -563,7 +563,7 @@
     <Content Include="Scripts\app\generalTabController.js" />
     <Content Include="Scripts\app\navigationWidgets.js" />
     <Content Include="Scripts\app\datePickerWidget.js" />
-    <Content Include="Scripts\app\reportViewerService.js" />
+    <Content Include="Scripts\app\reportService.js" />
     <Content Include="Scripts\app\usersTabController.js" />
     <Content Include="Scripts\app\searchableSelectPlugin.js" />
     <Content Include="Scripts\app\searchWidget.js" />
@@ -672,7 +672,7 @@
     <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\_EmployeesListPartial.cshtml" />
     <Content Include="Views\Shared\_LoadingAnimationPartial.cshtml" />
-    <Content Include="Views\Reports\_DateParamsPromptPartial.cshtml" />
+    <Content Include="Views\Reports\_DateParametersPromptPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

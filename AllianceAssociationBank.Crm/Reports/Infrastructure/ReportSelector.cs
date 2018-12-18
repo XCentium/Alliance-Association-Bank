@@ -51,7 +51,6 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
             else
             {
                 return null;
-                //throw new InvalidReportException($"Cannot identify report by the name of {reportName}.");
             }
         }
 

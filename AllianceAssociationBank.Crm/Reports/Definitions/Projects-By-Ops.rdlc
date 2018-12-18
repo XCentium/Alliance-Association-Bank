@@ -11,7 +11,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="ProjectsDataset">
+    <DataSet Name="MasterDataset">
       <Query>
         <DataSourceName>ReportsDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1740,7 +1740,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1797,7 +1797,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1863,7 +1863,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1933,7 +1933,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1977,7 +1977,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2050,7 +2050,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2095,7 +2095,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2140,7 +2140,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2185,7 +2185,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2230,7 +2230,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2275,7 +2275,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2348,7 +2348,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2421,7 +2421,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2466,7 +2466,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2539,7 +2539,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2613,7 +2613,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2658,7 +2658,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2704,7 +2704,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2763,7 +2763,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2827,7 +2827,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2885,7 +2885,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2929,7 +2929,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2973,7 +2973,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3019,7 +3019,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3065,7 +3065,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3111,7 +3111,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3157,7 +3157,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3203,7 +3203,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3249,7 +3249,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3295,7 +3295,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3341,7 +3341,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3387,7 +3387,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3433,7 +3433,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3478,7 +3478,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3524,7 +3524,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3570,7 +3570,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3615,7 +3615,7 @@ Ord Rvd</Value>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <BackgroundColor>=IIF(RowNumber("ProjectsDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
+                            <BackgroundColor>=IIF(RowNumber("MasterDataset") Mod 2, "White", "#f7f7f7")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -3666,7 +3666,7 @@ Ord Rvd</Value>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>ProjectsDataset</DataSetName>
+            <DataSetName>MasterDataset</DataSetName>
             <Top>0.47917in</Top>
             <Left>0.125in</Left>
             <Height>1.36458in</Height>
@@ -3684,7 +3684,21 @@ Ord Rvd</Value>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Projects By Ops</Value>
+                    <Value>Projects By Ops (</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!StartDate.Value &amp; " - " &amp; Parameters!EndDate.Value</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>)</Value>
                     <Style>
                       <FontSize>16pt</FontSize>
                       <FontWeight>Normal</FontWeight>
@@ -3698,7 +3712,7 @@ Ord Rvd</Value>
             <Top>0.14931in</Top>
             <Left>0.125in</Left>
             <Height>0.30208in</Height>
-            <Width>1.93489in</Width>
+            <Width>6.54166in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -3750,7 +3764,7 @@ Ord Rvd</Value>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Count(Fields!ID.Value, "ProjectsDataset")</Value>
+                    <Value>=Count(Fields!ID.Value, "MasterDataset")</Value>
                     <Style>
                       <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>

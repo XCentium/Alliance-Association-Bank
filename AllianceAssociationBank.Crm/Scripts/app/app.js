@@ -2,7 +2,7 @@
     $(function () {
 
         ErrorHandler.init();
-        ReportViewerService.init();
+        ReportService.init();
 
         HomeController.init();
         GeneralTabController.init();

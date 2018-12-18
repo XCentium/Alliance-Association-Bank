@@ -1,6 +1,6 @@
-﻿var ReportViewerService = function ($, errorHandler) {
+﻿var ReportService = function ($, errorHandler) {
 
-    var REPORTS_URL = "Reports";
+    var REPORTS_URL = "Reports/";
     var PROJECTS_BY_OPS = "Projects-By-Ops";
 
     var PARAMS_PROMPT_CONTAINER = "#report-params-prompt-container";
@@ -26,11 +26,11 @@
         if (reportParams) {
             pathAndQuery = pathAndQuery + "?" + reportParams;
         }
-        location.href = REPORTS_URL + "/" + pathAndQuery;
+        location.href = REPORTS_URL  + pathAndQuery;
     };
 
     var showReportParameterPrompt = function (reportName) {
-        var paramsPromptAction = REPORTS_URL + "/Parameters/" + reportName;
+        var paramsPromptAction = REPORTS_URL + reportName + "/Parameters";
 
         $.get(paramsPromptAction, { report: reportName })
             .done(function (response) {

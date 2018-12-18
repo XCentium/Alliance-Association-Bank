@@ -1,4 +1,4 @@
-﻿var HomeController = function ($, reportViewerService) {
+﻿var HomeController = function ($, reportService) {
 
     var init = function () {
         bindGenerateReportClickEvent();
@@ -9,8 +9,7 @@
         $("#btn-generate-report").on("click", function () {
             var selectedReport = $("#selected-report").val();
             if (selectedReport !== "") {
-                //location.href = "Reports/" + selectedReport;
-                reportViewerService.redirectToReport(selectedReport);
+                reportService.redirectToReport(selectedReport);
             }
         });
     };
@@ -28,4 +27,4 @@
         init: init
     };
 
-}(jQuery, ReportViewerService);
+}(jQuery, ReportService);

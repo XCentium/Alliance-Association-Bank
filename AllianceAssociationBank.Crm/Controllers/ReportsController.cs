@@ -24,37 +24,62 @@ namespace AllianceAssociationBank.Crm.Controllers
             _reportSelector = reportSelector;
         }
 
-        [Route("{name}/{projectId?}", Name = ReportsControllerRoute.ViewReport)]
-        public ActionResult ViewReport(string name, int? projectId = null)
+        [Route("{reportName}", Name = ReportsControllerRoute.ViewReport)]
+        public ActionResult ViewReport(string reportName, DateTime? startDate = null, DateTime? endDate = null)
         {
-            if (!_reportSelector.IsReportExists(name))
-            {
-                throw new HttpNotFoundException($"A report with the name of {name} could not be found.");
-            }
+            ThrowErrorOnInvalidReportName(reportName);
 
             var baseUrl = Request.GetBaseUrl();
-            var reportUrl = $"{baseUrl}/{ReportViewerControlUrl}?{QueryStringValue.ReportName}={name}";
-            if (projectId.HasValue)
+            var reportUrl = $"{baseUrl}/{ReportViewerControlUrl}?{QueryStringValue.ReportName}={reportName}";
+
+            if (startDate.HasValue && endDate.HasValue)
             {
-                reportUrl += $"&{QueryStringValue.ProjectId}={projectId}";
+                reportUrl += $"&{QueryStringValue.StartDate}={((DateTime)startDate).ToShortDateString()}";
+                reportUrl += $"&{QueryStringValue.EndDate}={((DateTime)endDate).ToShortDateString()}";
             }
 
-            ViewBag.ReportUrl = Uri.EscapeUriString(reportUrl);
-            ViewBag.Title = name;
-
-            return View(ReportsView.ViewReport);
+            return GetReportViewResult(reportName, reportUrl);
         }
 
-        [Route("Parameters/{report}", Name = "ReportParameters")]
-        public ActionResult ParametersPrompt(string report)
+        [Route("{reportName}/{projectId}", Name = ReportsControllerRoute.ViewReportForProject)]
+        public ActionResult ViewReport(string reportName, int projectId)
+        {
+            ThrowErrorOnInvalidReportName(reportName);
+
+            var baseUrl = Request.GetBaseUrl();
+            var reportUrl = $"{baseUrl}/{ReportViewerControlUrl}?{QueryStringValue.ReportName}={reportName}";
+            reportUrl += $"&{QueryStringValue.ProjectId}={projectId}";
+
+            return GetReportViewResult(reportName, reportUrl);
+        }
+
+        [Route("{reportName}/Parameters", Name = ReportsControllerRoute.ParametersPrompt)]
+        public ActionResult ParametersPrompt(string reportName)
         {
             var viewModel = new ReportParametersPromptViewModel()
             {
-                ReportName = report,
+                ReportName = reportName,
                 StartDate = new DateTime(DateTime.Today.Year, 1, 1),
                 EndDate = new DateTime(DateTime.Today.Year, 12, 31),
             };
-            return PartialView(ReportsView.DateParamsPromptPartial, viewModel);
+
+            return PartialView(ReportsView.DateParametersPromptPartial, viewModel);
+        }
+
+        private void ThrowErrorOnInvalidReportName(string reportName)
+        {
+            if (!_reportSelector.IsReportExists(reportName))
+            {
+                throw new HttpNotFoundException($"A report with the name of {reportName} could not be found.");
+            }
+        }
+
+        private ActionResult GetReportViewResult(string reportName, string reportUrl)
+        {
+            ViewBag.ReportUrl = Uri.EscapeUriString(reportUrl);
+            ViewBag.Title = reportName;
+
+            return View(ReportsView.ViewReport);
         }
     }
 }

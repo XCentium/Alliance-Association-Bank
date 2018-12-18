@@ -40,7 +40,7 @@ namespace AllianceAssociationBank.Crm.Tests.Core.Services
                 .Setup(s => s.ResolveByName(reportName))
                 .Returns(new BoardingReport(_mockReportQueries.Object, _mockFileSystemService.Object));
 
-            var result = await _reportService.GenerateReportByName(reportName, new Dictionary<string, object>());
+            var result = await _reportService.GenerateReportByName(reportName);
 
             Assert.IsAssignableFrom<IReport>(result);
         }
@@ -55,12 +55,7 @@ namespace AllianceAssociationBank.Crm.Tests.Core.Services
                 .Setup(s => s.ResolveByName(reportName, projectId))
                 .Returns(new AchSpecReport(projectId, _mockReportQueries.Object, _mockFileSystemService.Object));
 
-            var result = await _reportService.GenerateReportByName(
-                reportName, 
-                new Dictionary<string, object>()
-                {
-                    {  ReportParameterName.ProjectId, projectId }
-                });
+            var result = await _reportService.GenerateReportByName(reportName, projectId);
 
             Assert.IsAssignableFrom<IReport>(result);
         }
@@ -71,8 +66,7 @@ namespace AllianceAssociationBank.Crm.Tests.Core.Services
             var reportName = "Some-Wrong-Report";
             _mockReportSelector.Setup(s => s.ResolveByName(reportName)).Throws(new InvalidReportException());
 
-            var exception = await Record.ExceptionAsync(
-                () => _reportService.GenerateReportByName(reportName, new Dictionary<string, object>()));
+            var exception = await Record.ExceptionAsync(() => _reportService.GenerateReportByName(reportName));
 
             Assert.IsType<InvalidReportException>(exception);
         }

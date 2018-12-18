@@ -32,9 +32,19 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
-                .ThenBy(p => p.OwnerID)
-                .ThenBy(p => p.EndDate)
-                .ThenBy(p => p.Status)
+                //.ThenBy(p => p.OwnerID)
+                //.ThenBy(p => p.EndDate)
+                //.ThenBy(p => p.Status)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Project>> GetProjectsByOpsDataSetAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _context.Projects
+                .Where(p => p.EndDate >= startDate && p.EndDate <= endDate)
+                .OrderBy(p => p.OwnerID)
+                .ThenBy(p => p.AFPID)
+                .ThenBy(p => p.ProjectName)
                 .ToListAsync();
         }
 

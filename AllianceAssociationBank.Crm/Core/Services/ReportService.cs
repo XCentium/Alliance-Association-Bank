@@ -3,6 +3,7 @@ using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Reports.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Threading.Tasks;
 using Unity;
 
@@ -21,41 +22,53 @@ namespace AllianceAssociationBank.Crm.Core.Services
             _reportSelector = reportSelector ?? throw new ArgumentNullException("reportSelector", "Value cannot be null.");
         }
 
-        public async Task<IReport> GenerateReportByName(string reportName, IDictionary<string, object> reportParameters)
+        public async Task<IReport> GenerateReportByName(string reportName, params object[] reportParameters)
         {
             if (string.IsNullOrEmpty(reportName))
             {
                 throw new ArgumentNullException("reportName", "Value cannot be null.");
             }
 
-            IReport report;
-
-            if (TryGetInt32Parameter(reportParameters, ReportParameterName.ProjectId, out int projectIdParam))
-            {
-                report = _reportSelector.ResolveByName(reportName, projectIdParam);
-            }
-            else
-            {
-                report = _reportSelector.ResolveByName(reportName);
-            }
+            var report = _reportSelector.ResolveByName(reportName, reportParameters);
 
             await report.ExecuteReport();
 
             return report;
         }
 
-        private bool TryGetInt32Parameter(IDictionary<string, object> parameters, string parameterName, out int parameterValue)
+        public string GetReportNameFromQueryString(NameValueCollection nameValueCollection)
         {
-            parameterValue = 0;
+            return nameValueCollection[QueryStringValue.ReportName];
+        }
 
-            if (parameters.TryGetValue(parameterName, out var value) && 
-                value != null && 
-                int.TryParse(value.ToString(), out parameterValue))
+        public object[] GetReportParametersFromQueryString(NameValueCollection queryStringCollection, string[] queryParameters)
+        {
+            var parametersList = new List<object>();
+
+            foreach (var queryParameter in queryParameters)
             {
-                return true;
+                var parameterValue = queryStringCollection[queryParameter];
+
+                if (string.IsNullOrEmpty(parameterValue))
+                {
+                    continue;
+                }
+                else if (DateTime.TryParse(parameterValue, out var dateTimeParameter))
+                {
+                    parametersList.Add(dateTimeParameter);
+                }
+                else if (int.TryParse(parameterValue, out var integerParameter))
+                {
+                    parametersList.Add(integerParameter);
+                }
+                else
+                {
+                    parametersList.Add(parameterValue);
+                }
             }
 
-            return false;
+            return parametersList.ToArray();
+
         }
     }
 }

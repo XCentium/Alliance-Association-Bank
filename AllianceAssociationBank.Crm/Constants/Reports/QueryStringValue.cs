@@ -9,5 +9,7 @@ namespace AllianceAssociationBank.Crm.Constants.Reports
     {
         public const string ReportName = "reportName";
         public const string ProjectId = "projectId";
+        public const string StartDate = "startDate";
+        public const string EndDate = "endDate";
     }
 }

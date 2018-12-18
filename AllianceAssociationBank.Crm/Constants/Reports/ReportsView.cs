@@ -8,6 +8,6 @@ namespace AllianceAssociationBank.Crm.Constants.Reports
     public static class ReportsView
     {
         public const string ViewReport = "ViewReport";
-        public const string DateParamsPromptPartial = "_DateParamsPromptPartial";
+        public const string DateParametersPromptPartial = "_DateParametersPromptPartial";
     }
 }

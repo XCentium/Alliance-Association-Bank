@@ -8,6 +8,7 @@ using System.Security;
 using System.Security.Permissions;
 using System.Security.Policy;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.UI;
 using Unity;
 
@@ -15,6 +16,13 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
 {
     public partial class ReportViewerControl : System.Web.UI.Page
     {
+        private string[] _availableReportParameters = new string[]
+        {
+            QueryStringValue.ProjectId,
+            QueryStringValue.StartDate,
+            QueryStringValue.EndDate
+        };
+
         protected async void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack && Page.User.Identity.IsAuthenticated)
@@ -27,18 +35,11 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
         {
             try
             {
-                var reportName = Request[QueryStringValue.ReportName];
-                var projectId = Request[QueryStringValue.ProjectId];
-
                 var reportService = UnityConfig.Container.Resolve<IReportService>();
 
-                var parameters = new Dictionary<string, object>();
-                if (!string.IsNullOrEmpty(projectId))
-                {
-                    parameters.Add(ReportParameterName.ProjectId, projectId);
-                }
-
-                var report = await reportService.GenerateReportByName(reportName, parameters);
+                var reportName = reportService.GetReportNameFromQueryString(Request.QueryString);
+                var reportParameters = reportService.GetReportParametersFromQueryString(Request.QueryString, _availableReportParameters);
+                var report = await reportService.GenerateReportByName(reportName, reportParameters);
 
                 //PermissionSet permissions = new PermissionSet(PermissionState.None);
                 //permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
@@ -51,7 +52,7 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
                 ReportViewer1.SetProperties(report.ReportViewer);
                 ReportViewer1.LocalReport.Refresh();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 RedirectToErrorPage();
             }

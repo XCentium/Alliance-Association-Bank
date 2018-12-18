@@ -29,10 +29,23 @@ namespace AllianceAssociationBank.Crm.Extensions
             reportViewer.Height = properties.Height;
             reportViewer.WaitControlDisplayAfter = properties.WaitControlDisplayAfter;
             reportViewer.ShowBackButton = properties.ShowBackButton;
+            
+            // Copy report data sources
             reportViewer.LocalReport.DataSources.Clear();
             foreach (var dataSource in properties.LocalReport.DataSources)
             {
                 reportViewer.LocalReport.DataSources.Add(dataSource);
+            }
+
+            // Copy report parameters
+            foreach (var parameterInfo in properties.LocalReport.GetParameters())
+            {
+                var reportParameter = new ReportParameter(
+                    parameterInfo.Name,
+                    parameterInfo.Values.ToArray(),
+                    parameterInfo.Visible);
+
+                reportViewer.LocalReport.SetParameters(reportParameter);
             }
         }
     }
