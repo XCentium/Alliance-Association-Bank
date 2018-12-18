@@ -42,9 +42,8 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         {
             return await _context.Projects
                 .Where(p => p.EndDate >= startDate && p.EndDate <= endDate)
-                .OrderBy(p => p.OwnerID)
-                .ThenBy(p => p.AFPID)
-                .ThenBy(p => p.ProjectName)
+                .OrderBy(p => p.ProjectName)
+                .ThenBy(p => p.OwnerID)
                 .ToListAsync();
         }
 

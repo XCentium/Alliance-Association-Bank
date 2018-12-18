@@ -54,6 +54,7 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
             }
             catch (Exception ex)
             {
+                //TODO: need to log exception here
                 RedirectToErrorPage();
             }
         }

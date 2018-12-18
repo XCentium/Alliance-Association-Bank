@@ -68,7 +68,6 @@ namespace AllianceAssociationBank.Crm.Core.Services
             }
 
             return parametersList.ToArray();
-
         }
     }
 }
