@@ -11,9 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace AllianceAssociationBank.Crm.Core.Services
 {
-    /// <summary>
-    /// This service class been deprecated and replaced with ReportBase class and IReport interface.
-    /// </summary>
+    [Obsolete("This service class been deprecated and replaced with ReportBase class and IReport interface.")]
     public class ReportGenerationService : IReportGenerationService
     {
         private IReportQueries _queries;
@@ -100,17 +98,17 @@ namespace AllianceAssociationBank.Crm.Core.Services
                     }
                 case var name when name.Equals(ReportName.AchSpec, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync((int)projectId))));
                         break;
                     }
                 case var name when name.Equals(ReportName.AchInitialReview, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync((int)projectId))));
                         break;
                     }
                 case var name when name.Equals(ReportName.AchSixMonthReview, StringComparison.InvariantCultureIgnoreCase):
                     {
-                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync(projectId))));
+                        dataSources.Add(new ReportDataSource(ReportDataSetName.AchReport, (await _queries.GetAchReportDataSetAsync((int)projectId))));
                         break;
                     }
             }

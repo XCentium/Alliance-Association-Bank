@@ -191,7 +191,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-6">
-                        @Html.RouteLink("ACH Spec Report", routeName: ReportsControllerRoute.ViewReportForProject, routeValues: new
+                        @Html.RouteLink("ACH Spec Report", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             reportName = ReportName.AchSpec,
                             projectId = Model.ID
@@ -202,7 +202,7 @@
                         })
                     </div>
                     <div class="col-6">
-                        @Html.RouteLink("ACH Risk - Initial", routeName: ReportsControllerRoute.ViewReportForProject, routeValues: new
+                        @Html.RouteLink("ACH Risk - Initial", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             reportName = ReportName.AchRiskInitial,
                             projectId = Model.ID
@@ -215,7 +215,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-6">
-                        @Html.RouteLink("Risk New - Initial", routeName: ReportsControllerRoute.ViewReportForProject, routeValues: new
+                        @Html.RouteLink("Risk New - Initial", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                              reportName = ReportName.AchInitialReview,
                              projectId = Model.ID
@@ -225,7 +225,7 @@
                         })
                     </div>
                     <div class="col-6">
-                        @Html.RouteLink("ACH Risk - 6 Month", routeName: ReportsControllerRoute.ViewReportForProject, routeValues: new
+                        @Html.RouteLink("ACH Risk - 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             reportName = ReportName.AchRiskSixMonth,
                             projectId = Model.ID
@@ -238,7 +238,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-6">
-                        @Html.RouteLink("Risk New - 6 Month", routeName: ReportsControllerRoute.ViewReportForProject, routeValues: new
+                        @Html.RouteLink("Risk New - 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             reportName = ReportName.AchSixMonthReview,
                             projectId = Model.ID
@@ -248,7 +248,7 @@
                         })
                     </div>
                     <div class="col-6">
-                        @Html.RouteLink("ACH Risk - Post 6 Month", routeName: ReportsControllerRoute.ViewReportForProject, routeValues: new
+                        @Html.RouteLink("ACH Risk - Post 6 Month", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             reportName = ReportName.AchRiskPostSixMonth,
                             projectId = Model.ID
@@ -261,7 +261,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-6 offset-6">
-                        @Html.RouteLink("Welcome Checklist", routeName: ReportsControllerRoute.ViewReportForProject, routeValues: new
+                        @Html.RouteLink("Welcome Checklist", routeName: ReportsControllerRoute.ViewReport, routeValues: new
                         {
                             reportName = ReportName.WelcomeChecklist,
                             projectId = Model.ID

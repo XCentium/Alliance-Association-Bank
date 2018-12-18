@@ -82,8 +82,6 @@ namespace AllianceAssociationBank.Crm.Tests.Core.Services
         [InlineData(ReportName.CmcByName)]
         [InlineData(ReportName.CDEmails)]
         [InlineData(ReportName.Coupon)]
-        [InlineData(ReportName.AchInitialReview)]
-        [InlineData(ReportName.AchSixMonthReview)]
         public async Task GenerateReportByName_ReportNameInlineData_ShouldReturnReportViewer(string reportName)
         {
             _mockFileSystem.Setup(f => f.IsFileExists(It.IsAny<string>())).Returns(true);

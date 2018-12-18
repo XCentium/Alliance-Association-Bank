@@ -5,7 +5,9 @@ using AllianceAssociationBank.Crm.Extensions;
 using AllianceAssociationBank.Crm.Reports.Infrastructure;
 using AllianceAssociationBank.Crm.ViewModels;
 using System;
+using System.Collections.Specialized;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.SessionState;
 
@@ -25,12 +27,20 @@ namespace AllianceAssociationBank.Crm.Controllers
         }
 
         [Route("{reportName}", Name = ReportsControllerRoute.ViewReport)]
-        public ActionResult ViewReport(string reportName, DateTime? startDate = null, DateTime? endDate = null)
+        public ActionResult ViewReport(string reportName, int? projectId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
-            ThrowErrorOnInvalidReportName(reportName);
+            if (!_reportSelector.IsReportExists(reportName))
+            {
+                throw new HttpNotFoundException($"A report with the name of {reportName} could not be found.");
+            }
 
             var baseUrl = Request.GetBaseUrl();
             var reportUrl = $"{baseUrl}/{ReportViewerControlUrl}?{QueryStringValue.ReportName}={reportName}";
+
+            if (projectId.HasValue)
+            {
+                reportUrl += $"&{QueryStringValue.ProjectId}={projectId}";
+            }
 
             if (startDate.HasValue && endDate.HasValue)
             {
@@ -38,19 +48,10 @@ namespace AllianceAssociationBank.Crm.Controllers
                 reportUrl += $"&{QueryStringValue.EndDate}={((DateTime)endDate).ToShortDateString()}";
             }
 
-            return GetReportViewResult(reportName, reportUrl);
-        }
+            ViewBag.ReportUrl = Uri.EscapeUriString(reportUrl);
+            ViewBag.Title = reportName;
 
-        [Route("{reportName}/{projectId}", Name = ReportsControllerRoute.ViewReportForProject)]
-        public ActionResult ViewReport(string reportName, int projectId)
-        {
-            ThrowErrorOnInvalidReportName(reportName);
-
-            var baseUrl = Request.GetBaseUrl();
-            var reportUrl = $"{baseUrl}/{ReportViewerControlUrl}?{QueryStringValue.ReportName}={reportName}";
-            reportUrl += $"&{QueryStringValue.ProjectId}={projectId}";
-
-            return GetReportViewResult(reportName, reportUrl);
+            return View(ReportsView.ViewReport);
         }
 
         [Route("{reportName}/Parameters", Name = ReportsControllerRoute.ParametersPrompt)]
@@ -64,22 +65,6 @@ namespace AllianceAssociationBank.Crm.Controllers
             };
 
             return PartialView(ReportsView.DateParametersPromptPartial, viewModel);
-        }
-
-        private void ThrowErrorOnInvalidReportName(string reportName)
-        {
-            if (!_reportSelector.IsReportExists(reportName))
-            {
-                throw new HttpNotFoundException($"A report with the name of {reportName} could not be found.");
-            }
-        }
-
-        private ActionResult GetReportViewResult(string reportName, string reportUrl)
-        {
-            ViewBag.ReportUrl = Uri.EscapeUriString(reportUrl);
-            ViewBag.Title = reportName;
-
-            return View(ReportsView.ViewReport);
         }
     }
 }
