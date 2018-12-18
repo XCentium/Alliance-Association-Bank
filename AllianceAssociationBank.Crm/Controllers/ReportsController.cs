@@ -34,8 +34,9 @@ namespace AllianceAssociationBank.Crm.Controllers
                 throw new HttpNotFoundException($"A report with the name of {reportName} could not be found.");
             }
 
-            var baseUrl = Request.GetBaseUrl();
-            var reportUrl = $"{baseUrl}/{ReportViewerControlUrl}?{QueryStringValue.ReportName}={reportName}";
+            var reportUrl = $"{Request.GetBaseUrl()}/{ReportViewerControlUrl}";
+
+            reportUrl += $"?{QueryStringValue.ReportName}={reportName}";
 
             if (projectId.HasValue)
             {
