@@ -60,7 +60,7 @@ namespace AllianceAssociationBank.Crm.Controllers
             {
                 ReportName = reportName,
                 StartDate = new DateTime(DateTime.Today.Year, 1, 1),
-                EndDate = new DateTime(DateTime.Today.Year, 12, 31),
+                EndDate = new DateTime(DateTime.Today.Year, 12, 31)
             };
 
             return PartialView(ReportsView.DateParametersPromptPartial, viewModel);

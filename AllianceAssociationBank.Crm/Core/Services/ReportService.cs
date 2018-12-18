@@ -36,9 +36,9 @@ namespace AllianceAssociationBank.Crm.Core.Services
             return report;
         }
 
-        public string GetReportNameFromQueryString(NameValueCollection nameValueCollection)
+        public string GetReportNameFromQueryString(NameValueCollection queryStringCollection)
         {
-            return nameValueCollection[QueryStringValue.ReportName];
+            return queryStringCollection[QueryStringValue.ReportName];
         }
 
         public object[] GetReportParametersFromQueryString(NameValueCollection queryStringCollection, string[] queryParameters)

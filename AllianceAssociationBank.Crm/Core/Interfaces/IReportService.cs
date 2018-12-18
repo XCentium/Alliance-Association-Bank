@@ -8,7 +8,7 @@ namespace AllianceAssociationBank.Crm.Core.Interfaces
     public interface IReportService
     {
         Task<IReport> GenerateReportByName(string reportName, params object[] reportParameters);
-        string GetReportNameFromQueryString(NameValueCollection nameValueCollection);
+        string GetReportNameFromQueryString(NameValueCollection queryStringCollection);
         object[] GetReportParametersFromQueryString(NameValueCollection queryStringCollection, string[] queryParameters);
     }
 }

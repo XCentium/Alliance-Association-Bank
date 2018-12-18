@@ -41,14 +41,6 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
                 var reportParameters = reportService.GetReportParametersFromQueryString(Request.QueryString, _availableReportParameters);
                 var report = await reportService.GenerateReportByName(reportName, reportParameters);
 
-                //PermissionSet permissions = new PermissionSet(PermissionState.None);
-                //permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
-                //permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
-                //ReportViewer1.LocalReport.SetBasePermissionsForSandboxAppDomain(permissions);
-
-                //AssemblyName assemblyName = typeof(Persistence.Queries.ReportQueries).Assembly.GetName();
-                //ReportViewer1.LocalReport.AddFullTrustModuleInSandboxAppDomain(new StrongName(new StrongNamePublicKeyBlob(assemblyName.GetPublicKeyToken()), assemblyName.Name, assemblyName.Version));
-
                 ReportViewer1.SetProperties(report.ReportViewer);
                 ReportViewer1.LocalReport.Refresh();
             }
