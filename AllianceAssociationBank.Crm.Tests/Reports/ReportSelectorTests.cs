@@ -40,7 +40,8 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(ReportName.CmcByIdUsefulInfo, typeof(CmcByIdUsefulInfoReport))]
         [InlineData(ReportName.CipReview, typeof(CipReviewReport))]
         [InlineData(ReportName.IncorrectEmployeeData, typeof(IncorrectEmployeeDataReport))]
-        public void ResolveByName_InlineReportWithNoParams_ShouldReturnCorrectReportInstance(string reportName, Type reportType)
+        public void ResolveByName_ReportWithNoParams_ShouldReturnCorrectReportInstance(string reportName, 
+                                                                                       Type reportType)
         {
             _fileSystem.Setup(s => s.IsFileExists(It.IsAny<string>())).Returns(true);
 
@@ -57,12 +58,27 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(ReportName.AchRiskSixMonth, typeof(AchRisk6MonthReport))]
         [InlineData(ReportName.AchRiskPostSixMonth, typeof(AchRiskPost6MonthReport))]
         [InlineData(ReportName.WelcomeChecklist, typeof(WelcomeChecklistReport))]
-        public void ResolveByName_InlineReportWithProjectIdParam_ShouldReturnCorrectReportInstance(string reportName, Type reportType)
+        public void ResolveByName_ReportWithProjectIdParam_ShouldReturnCorrectReportInstance(string reportName, 
+                                                                                             Type reportType)
         {
             _fileSystem.Setup(s => s.IsFileExists(It.IsAny<string>())).Returns(true);
             var projectId = 99;
 
             var report = _reportSelector.ResolveByName(reportName, projectId, _queries.Object, _fileSystem.Object);
+
+            Assert.IsType(reportType, report);
+        }
+
+        [Theory]
+        [InlineData(ReportName.ProjectsByOps, typeof(ProjectsByOpsReport))]
+        public void ResolveByName_ReportWithStartDateEndDateParams_ShouldReturnCorrectReportInstance(string reportName, 
+                                                                                                     Type reportType)
+        {
+            _fileSystem.Setup(s => s.IsFileExists(It.IsAny<string>())).Returns(true);
+            var startDate = DateTime.Today.AddYears(-1);
+            var endDate = DateTime.Today;
+
+            var report = _reportSelector.ResolveByName(reportName, startDate, endDate, _queries.Object, _fileSystem.Object);
 
             Assert.IsType(reportType, report);
         }

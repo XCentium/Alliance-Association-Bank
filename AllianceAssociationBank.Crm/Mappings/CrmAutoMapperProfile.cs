@@ -107,19 +107,5 @@ namespace AllianceAssociationBank.Crm.Mappings
         {
             return employee != null ? $"{employee.FirstName} {employee.LastName}" : null;
         }
-
-        //private string ConcatenateStringProperty<T>(IEnumerable<T> list, Expression<Func<T, string>> expression) where T : class
-        //{
-        //    if (list == null)
-        //    {
-        //        return null;
-        //    }
-
-        //    var values = list
-        //        .Select(expression.Compile())
-        //        .Where(v => !string.IsNullOrEmpty(v));
-
-        //    return string.Join(CommaSeparator, values);
-        //}
     }
 }

@@ -89,7 +89,6 @@ namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
             return PartialView(SharedView.ConfirmDeleteDialogPartial, viewModel);
         }
 
-        // TODO: should we add ValidateAntiForgeryToken?
         [Route("Delete/{id}", Name = ReformatsControllerRoute.DeleteReformat)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)

@@ -91,8 +91,8 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportName.CmcByIdUsefulInfo)]
         [InlineData(typeof(CipReviewReport), ReportName.CipReview)]
         [InlineData(typeof(IncorrectEmployeeDataReport), ReportName.IncorrectEmployeeData)]
-        public async Task ExecuteReport_InlineReportWithNoParams_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
-                                                                                                      string definitionFileName)
+        public async Task ExecuteReport_ReportWithNoParams_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
+                                                                                                string definitionFileName)
         {
             var report = CreateReportInstance(reportType);
 
@@ -110,17 +110,32 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(AchRisk6MonthReport), ReportName.AchRiskSixMonth)]
         [InlineData(typeof(AchRiskPost6MonthReport), ReportName.AchRiskPostSixMonth)]
         [InlineData(typeof(WelcomeChecklistReport), ReportName.WelcomeChecklist)]
-        public async Task ExecuteReport_InlineReportWithProjectIdParam_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
-                                                                                                            string definitionFileName)
+        public async Task ExecuteReport_ReportWithProjectIdParam_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
+                                                                                                      string definitionFileName)
         {
             var projectId = 99;
-            var report = CreateReportInstance(reportType, projectId);
+            var report = CreateReportInstance(reportType, projectId: projectId);
 
             await report.ExecuteReport();
 
             var reportBase = Assert.IsAssignableFrom<ReportBase>(report);
             Assert.Equal(definitionFileName, reportBase.ReportDefinitionFileName);
         }
+
+        //[Theory]
+        //[InlineData(typeof(ProjectsByOpsReport), ReportName.ProjectsByOps)]
+        //public async Task ExecuteReport_ReportWithStartDateEndDateParams_ShouldSetDefinitionFileNameCorrectly(Type reportType,
+        //                                                                                                      string definitionFileName)
+        //{
+        //    var startDate = DateTime.Today.AddYears(-1);
+        //    var endDate = DateTime.Today;
+        //    var report = CreateReportInstance(reportType, startDate: startDate, endDate: endDate);
+
+        //    await report.ExecuteReport();
+
+        //    var reportBase = Assert.IsAssignableFrom<ReportBase>(report);
+        //    Assert.Equal(definitionFileName, reportBase.ReportDefinitionFileName);
+        //}
 
         [Fact]
         public void Constructor_BoardingReportWithInvalidDefinitionFile_ShouldThrowInvalidReportException()
@@ -133,11 +148,19 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
             Assert.IsType<InvalidReportException>(exception);
         }
 
-        private IReport CreateReportInstance(Type reportType, int? projectId = null)
+        private IReport CreateReportInstance(Type reportType, 
+                                             int? projectId = null, 
+                                             DateTime? startDate = null, 
+                                             DateTime? endDate = null)
         {
             if (projectId.HasValue)
             {
                 return (IReport)Activator.CreateInstance(reportType, projectId, _queries.Object, _fileSystem.Object);
+            }
+
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                return (IReport)Activator.CreateInstance(reportType, startDate, endDate, _queries.Object, _fileSystem.Object);
             }
 
             return (IReport)Activator.CreateInstance(reportType, _queries.Object, _fileSystem.Object);

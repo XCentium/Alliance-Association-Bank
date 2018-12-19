@@ -32,9 +32,6 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
                 .OrderBy(p => p.OwnerID)
                 .ThenBy(p => p.AFPID)
                 .ThenBy(p => p.ProjectName)
-                //.ThenBy(p => p.OwnerID)
-                //.ThenBy(p => p.EndDate)
-                //.ThenBy(p => p.Status)
                 .ToListAsync();
         }
 

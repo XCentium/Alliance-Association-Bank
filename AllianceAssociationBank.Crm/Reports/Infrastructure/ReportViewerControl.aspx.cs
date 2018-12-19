@@ -1,6 +1,7 @@
 ﻿using AllianceAssociationBank.Crm.Constants.Reports;
 using AllianceAssociationBank.Crm.Core.Interfaces;
 using AllianceAssociationBank.Crm.Extensions;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -33,11 +34,13 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
 
         private async Task GenerateReport()
         {
+            var reportName = string.Empty;
+
             try
             {
                 var reportService = UnityConfig.Container.Resolve<IReportService>();
 
-                var reportName = reportService.GetReportNameFromQueryString(Request.QueryString);
+                reportName = reportService.GetReportNameFromQueryString(Request.QueryString);
                 var reportParameters = reportService.GetReportParametersFromQueryString(Request.QueryString, _availableReportParameters);
                 var report = await reportService.GenerateReportByName(reportName, reportParameters);
 
@@ -46,7 +49,8 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
             }
             catch (Exception ex)
             {
-                //TODO: need to log exception here
+                var logger = UnityConfig.Container.Resolve<ILogger>();
+                logger.Error(ex, $"An exception occured while generating {reportName} report.");
                 RedirectToErrorPage();
             }
         }

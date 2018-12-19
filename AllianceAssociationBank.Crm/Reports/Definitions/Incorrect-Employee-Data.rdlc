@@ -494,7 +494,7 @@
         <Top>0.46403in</Top>
         <Left>0.80157in</Left>
         <Height>0.66666in</Height>
-        <Width>11.22081in</Width>
+        <Width>11.22079in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -508,7 +508,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Incorrect Employee Assignments</Value>
+                <Value>Incorrect Employee Assignments Data Quality Report</Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                   <FontWeight>Normal</FontWeight>
@@ -522,7 +522,7 @@
         <Top>0.13417in</Top>
         <Left>0.80157in</Left>
         <Height>0.30208in</Height>
-        <Width>4.95311in</Width>
+        <Width>5.60936in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

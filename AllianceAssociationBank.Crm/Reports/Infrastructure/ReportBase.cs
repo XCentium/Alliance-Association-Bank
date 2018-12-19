@@ -65,7 +65,6 @@ namespace AllianceAssociationBank.Crm.Reports.Infrastructure
             reportViewer.SizeToReportContent = false;
             reportViewer.Width = Unit.Pixel(1278);
             reportViewer.Height = Unit.Percentage(100);
-            //reportViewer.SizeToReportContent = true;
 
             return reportViewer;
         }

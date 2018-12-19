@@ -8,6 +8,11 @@ namespace AllianceAssociationBank.Crm.Helpers
 {
     public class TextContentHelper
     {
+        public static string AdminSectionIntroduction
+        {
+            get { return GetValuesFromConfig("AdminSectionIntro"); }
+        }
+
         public static string LegalMessage
         {
             get { return GetValuesFromConfig("LegalMessage"); }
