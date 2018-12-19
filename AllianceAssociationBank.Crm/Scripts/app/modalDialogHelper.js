@@ -40,16 +40,27 @@
         $link.addClass("btn-link-disabled");
     };
 
+    var disableLinkButton = function () {
+        var $link = $(this);
+        $link.addClass("btn-link-disabled");
+    };
+
+    var enableLinkButton = function () {
+        var $link = $(this);
+        $link.removeClass("btn-link-disabled");
+    };
+
     var parseFormValidation = function ($form) {
         $.validator.unobtrusive.parse($form);
     };
-
 
     return {
         showModalDialog: showModalDialog,
         hideModalDialog: hideModalDialog,
         disableFormSubmitButton: disableFormSubmitButton,
-        disableDeleteLink: disableDeleteLink
+        disableDeleteLink: disableDeleteLink,
+        disableLinkButton: disableLinkButton,
+        enableLinkButton: enableLinkButton
     };
 
 }(jQuery, ErrorHandler);

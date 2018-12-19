@@ -10,12 +10,10 @@ using AllianceAssociationBank.Crm.Filters;
 using AllianceAssociationBank.Crm.Helpers;
 using AllianceAssociationBank.Crm.ViewModels;
 using AutoMapper;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.SessionState;
 
 namespace AllianceAssociationBank.Crm.Areas.Admin.Controllers
 {
