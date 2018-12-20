@@ -91,12 +91,10 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(CmcByIdUsefulInfoReport), ReportName.CmcByIdUsefulInfo)]
         [InlineData(typeof(CipReviewReport), ReportName.CipReview)]
         [InlineData(typeof(IncorrectEmployeeDataReport), ReportName.IncorrectEmployeeData)]
-        public async Task ExecuteReport_ReportWithNoParams_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
-                                                                                                string definitionFileName)
+        public void ExecuteReport_ReportWithNoParams_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
+                                                                                          string definitionFileName)
         {
             var report = CreateReportInstance(reportType);
-
-            await report.ExecuteReport();
 
             var reportBase = Assert.IsAssignableFrom<ReportBase>(report);
             Assert.Equal(definitionFileName, reportBase.ReportDefinitionFileName);
@@ -110,32 +108,28 @@ namespace AllianceAssociationBank.Crm.Tests.Reports
         [InlineData(typeof(AchRisk6MonthReport), ReportName.AchRiskSixMonth)]
         [InlineData(typeof(AchRiskPost6MonthReport), ReportName.AchRiskPostSixMonth)]
         [InlineData(typeof(WelcomeChecklistReport), ReportName.WelcomeChecklist)]
-        public async Task ExecuteReport_ReportWithProjectIdParam_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
-                                                                                                      string definitionFileName)
+        public void ExecuteReport_ReportWithProjectIdParam_ShouldSetDefinitionFileNameCorrectly(Type reportType, 
+                                                                                                string definitionFileName)
         {
             var projectId = 99;
             var report = CreateReportInstance(reportType, projectId: projectId);
-
-            await report.ExecuteReport();
 
             var reportBase = Assert.IsAssignableFrom<ReportBase>(report);
             Assert.Equal(definitionFileName, reportBase.ReportDefinitionFileName);
         }
 
-        //[Theory]
-        //[InlineData(typeof(ProjectsByOpsReport), ReportName.ProjectsByOps)]
-        //public async Task ExecuteReport_ReportWithStartDateEndDateParams_ShouldSetDefinitionFileNameCorrectly(Type reportType,
-        //                                                                                                      string definitionFileName)
-        //{
-        //    var startDate = DateTime.Today.AddYears(-1);
-        //    var endDate = DateTime.Today;
-        //    var report = CreateReportInstance(reportType, startDate: startDate, endDate: endDate);
+        [Theory]
+        [InlineData(typeof(ProjectsByOpsReport), ReportName.ProjectsByOps)]
+        public void ExecuteReport_ReportWithStartDateEndDateParams_ShouldSetDefinitionFileNameCorrectly(Type reportType,
+                                                                                                        string definitionFileName)
+        {
+            var startDate = DateTime.Today.AddYears(-1);
+            var endDate = DateTime.Today;
+            var report = CreateReportInstance(reportType, startDate: startDate, endDate: endDate);
 
-        //    await report.ExecuteReport();
-
-        //    var reportBase = Assert.IsAssignableFrom<ReportBase>(report);
-        //    Assert.Equal(definitionFileName, reportBase.ReportDefinitionFileName);
-        //}
+            var reportBase = Assert.IsAssignableFrom<ReportBase>(report);
+            Assert.Equal(definitionFileName, reportBase.ReportDefinitionFileName);
+        }
 
         [Fact]
         public void Constructor_BoardingReportWithInvalidDefinitionFile_ShouldThrowInvalidReportException()
