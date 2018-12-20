@@ -408,7 +408,8 @@
 }
 
 .textarea-size-sm {
-    height: 128px;
+    /*height: 128px;*/
+    height: 119px;
     width: 380px;
 }
 

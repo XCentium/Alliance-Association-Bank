@@ -610,6 +610,20 @@ namespace AllianceAssociationBank.Crm.ViewModels
             }
         }
 
+        public string ReportLinkCssClass
+        {
+            get
+            {
+                var cssClass = "btn btn-primary btn-block btn-sm";
+                if (ID == 0)
+                {
+                    // If Project Id is not valid, project specific reports should be disabled
+                    cssClass += " btn-link-disabled";
+                }
+                return cssClass;
+            }
+        }
+
         public string CreateUpdateAction
         {
             get

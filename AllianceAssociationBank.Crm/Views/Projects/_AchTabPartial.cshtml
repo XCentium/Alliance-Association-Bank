@@ -1,13 +1,5 @@
 ﻿@model ProjectFormViewModel
 
-@{
-    var reportButtonCssClass = "btn btn-primary btn-block btn-sm";
-    if (Model.ID == 0)
-    {
-        reportButtonCssClass += " btn-link-disabled";
-    }
-}
-
 <div class="tab-body-content">
 
     <div class="row">
@@ -197,7 +189,7 @@
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = reportButtonCssClass
+                            @class = Model.ReportLinkCssClass
 
                         })
                     </div>
@@ -208,7 +200,7 @@
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = reportButtonCssClass
+                            @class = Model.ReportLinkCssClass
 
                         })
                     </div>
@@ -221,7 +213,7 @@
                              projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = reportButtonCssClass
+                            @class = Model.ReportLinkCssClass
                         })
                     </div>
                     <div class="col-6">
@@ -231,7 +223,7 @@
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = reportButtonCssClass
+                            @class = Model.ReportLinkCssClass
 
                         })
                     </div>
@@ -244,7 +236,7 @@
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = reportButtonCssClass
+                            @class = Model.ReportLinkCssClass
                         })
                     </div>
                     <div class="col-6">
@@ -254,20 +246,7 @@
                             projectId = Model.ID
                         }, htmlAttributes: new
                         {
-                            @class = reportButtonCssClass
-
-                        })
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-6 offset-6">
-                        @Html.RouteLink("Welcome Checklist", routeName: ReportsControllerRoute.ViewReport, routeValues: new
-                        {
-                            reportName = ReportName.WelcomeChecklist,
-                            projectId = Model.ID
-                        }, htmlAttributes: new
-                        {
-                            @class = reportButtonCssClass
+                            @class = Model.ReportLinkCssClass
 
                         })
                     </div>
