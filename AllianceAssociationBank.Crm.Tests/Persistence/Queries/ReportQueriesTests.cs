@@ -55,6 +55,19 @@ namespace AllianceAssociationBank.Crm.Tests.Persistence.Queries
         }
 
         [Fact]
+        public async Task GetProjectsByOpsDataSetAsync_OneYearTimePeriod_ShouldReturnOneProject()
+        {
+            _projects.Add(new Project() { ID = 3, ProjectName = "Name 3", StartDate = new DateTime(2018, 6, 1) });
+            _projects.Add(new Project() { ID = 4, ProjectName = "Name 4", StartDate = new DateTime(2017, 12, 1) });
+            var startDate = new DateTime(2018, 1, 1);
+            var endDate = new DateTime(2018, 12, 31);
+
+            var results = await _reportQueries.GetProjectsByOpsDataSetAsync(startDate, endDate);
+
+            Assert.Single(results);
+        }
+
+        [Fact]
         public async Task GetSoftwareTransitionDataSetAsync_ValidDataset_ShouldReturnOneProject()
         {
             _projects.Add(new Project() { ID = 3, ProjectName = "Name 3", Status = ProjectStatus.SoftwareTransition });

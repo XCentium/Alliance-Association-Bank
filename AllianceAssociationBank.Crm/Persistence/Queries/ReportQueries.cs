@@ -38,7 +38,7 @@ namespace AllianceAssociationBank.Crm.Persistence.Queries
         public async Task<IEnumerable<Project>> GetProjectsByOpsDataSetAsync(DateTime startDate, DateTime endDate)
         {
             return await _context.Projects
-                .Where(p => p.EndDate >= startDate && p.EndDate <= endDate)
+                .Where(p => p.StartDate >= startDate && p.StartDate <= endDate)
                 .OrderBy(p => p.ProjectName)
                 .ThenBy(p => p.OwnerID)
                 .ToListAsync();
