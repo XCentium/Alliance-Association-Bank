@@ -31,7 +31,7 @@
                             }));
                         } else {
                             response([{
-                                label: 'No results found',
+                                label: "No active records found, press Enter to see all results",
                                 value: -1
                             }]);
                         }

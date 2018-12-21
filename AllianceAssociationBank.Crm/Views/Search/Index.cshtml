@@ -53,7 +53,12 @@
                         </div>
                     </div>
                     <div class="col-3 form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" @Html.Raw(Model.ActiveProjectsOnly ? "checked=\"checked\"" : "") id="activeOnly" name="activeOnly" value="true">
+                        <input class="form-check-input" type="checkbox" 
+                               @Html.Raw(Model.ActiveProjectsOnly ? "checked=\"checked\"" : "") 
+                               id="activeOnly" 
+                               name="activeOnly" 
+                               value="true"
+                               title="Search active projects only">
                         @Html.LabelFor(m => m.ActiveProjectsOnly, new { @class = "form-check-label" })
                     </div>
                 </div>
@@ -119,8 +124,13 @@
                     </td>
                 </tr>
             }
+            @if (Model.TotalItems == 0)
+            {
+                <tr><td colspan="6" class="h5">No records were found based on your search criteria.</td></tr>
+            }
         </tbody>
     </table>
+
 </div>
 
 <div class="row pt-2">
