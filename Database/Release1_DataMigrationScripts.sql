@@ -93,37 +93,3 @@ SELECT ID AS ProjectID, Notes AS NoteText, '9/24/2018' AS DateAdded
   FROM [AAB_CRM_DB].[dbo].[Projects]
   Where Notes IS NOT NULL AND RTRIM(LTRIM(Notes)) != ''
     AND ID != 230
-
-
-/* This is not needed anymore
--- Update Software data columns
---INSERT INTO dbo.Software (SoftwareName)
---SELECT DISTINCT RTRIM(LTRIM(p.SoftwareID)) FROM dbo.Projects p WHERE p.SoftwareID NOT IN (SELECT e.SoftwareName FROM dbo.Software e) ORDER BY 1
-
---INSERT INTO dbo.Software (SoftwareName)
---SELECT DISTINCT RTRIM(LTRIM(p.MigratingToSoftwareID)) FROM dbo.Projects p WHERE p.MigratingToSoftwareID NOT IN (SELECT e.SoftwareName FROM dbo.Software e) ORDER BY 1
-
---UPDATE p
---SET p.SoftwareID = s.ID
---FROM dbo.Projects p
---JOIN dbo.Software s ON RTRIM(LTRIM(s.SoftwareName)) = RTRIM(LTRIM(p.SoftwareID))
-
---UPDATE p
---SET p.MigratingToSoftwareID = s.ID
---FROM dbo.Projects p
---JOIN dbo.Software s ON RTRIM(LTRIM(s.SoftwareName)) = RTRIM(LTRIM(p.MigratingToSoftwareID))
-
--- This is not needed anymore
---ALTER TABLE dbo.Projects ALTER COLUMN SoftwareID INT
---ALTER TABLE dbo.Projects ALTER COLUMN MigratingToSoftwareID INT
-*/
-
--- This is not needed anymore
-/*-- Migrate Projects.ReformatECP data to depend on ReformatsECP table as FK
-UPDATE p
-SET p.ReformatECP = r.ID
-FROM [dbo].[Projects] p
-JOIN [dbo].[ReformatsECP] r ON r.ReformatName = p.ReformatECP
-
-ALTER TABLE [dbo].[Projects] ALTER COLUMN ReformatECP INT NULL
-exec sp_rename 'Projects.ReformatECP', 'ReformatECPID', 'COLUMN';*/

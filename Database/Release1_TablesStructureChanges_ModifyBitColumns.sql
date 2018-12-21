@@ -1,3 +1,4 @@
+-- Projects Table
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [EnrollmentFormReceived] [bit] NOT NULL
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [MasterSigCardReceived] [bit] NOT NULL
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [WelcomeEmailSent] [bit] NOT NULL
@@ -36,39 +37,11 @@ ALTER TABLE [dbo].[Projects] ALTER COLUMN [XmlAutoReconConfirmedUse] [bit] NOT N
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [Strongroom] [bit] NOT NULL
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [EStatements] [bit] NOT NULL
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [FacsimileSignature] [bit] NOT NULL
---[Balanced] [bit] NOT NULL
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [SftpWithFile] [bit] NOT NULL
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [SftpManual] [bit] NOT NULL
 ALTER TABLE [dbo].[Projects] ALTER COLUMN [ReformatByAssoc] [bit] NOT NULL
 
-
+-- Users Table
 ALTER TABLE [dbo].[Users] ALTER COLUMN [CorpOnlineUser] [bit] NOT NULL
 ALTER TABLE [dbo].[Users] ALTER COLUMN [RemoteScannerUser] [bit] NOT NULL
 ALTER TABLE [dbo].[Users] ALTER COLUMN [AuthorizedToOpenClose] [bit] NOT NULL
-
-
-
-
---UPDATE [dbo].[Projects] 
---SET [MgmtCompanyAgreemetnsReceived] = 0
---WHERE [MgmtCompanyAgreemetnsReceived] is null
-
---UPDATE [dbo].[Projects] 
---SET [ScannerSent] = 0
---WHERE [ScannerSent] is null
-
---UPDATE [dbo].[Projects] 
---SET [ScannerAQ2SetupRequested] = 0
---WHERE [ScannerAQ2SetupRequested] is null
-
---UPDATE [dbo].[Projects] 
---SET [ScannerLive] = 0
---WHERE [ScannerLive] is null
-
---UPDATE [dbo].[Projects] 
---SET [CIPGood] = 0
---WHERE [CIPGood] is null
-
---UPDATE [dbo].[Projects] 
---SET [XmlAutoReconConfirmedUse] = 0
---WHERE [XmlAutoReconConfirmedUse] is null
