@@ -10,6 +10,7 @@
 .admin-manage-values-list {
     height: 670px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .alert-fixed-top {
@@ -119,6 +120,11 @@
     padding: 6px;
     position: absolute;
     z-index: 1052;
+}
+
+.ie-flex-fix {
+    flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
 }
 
 .input-validation-error:focus + .form-val-error-tooltip,
